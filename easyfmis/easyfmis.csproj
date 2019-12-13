@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -60,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DgvItemListItemEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
     <Compile Include="Entities\MstArticlePriceEntity.cs" />
     <Compile Include="Entities\MstArticleUnitEntity.cs" />
@@ -80,11 +84,17 @@
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Software\MstItem\MstItemForm.cs">
+    <Compile Include="Forms\Software\MstItem\MstItemDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Software\MstItem\MstItemForm.Designer.cs">
-      <DependentUpon>MstItemForm.cs</DependentUpon>
+    <Compile Include="Forms\Software\MstItem\MstItemDetailForm.Designer.cs">
+      <DependentUpon>MstItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstItemListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstItemListForm.Designer.cs">
+      <DependentUpon>MstItemListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\SysMenu\SysMenuForm.cs">
       <SubType>Form</SubType>
@@ -114,6 +124,12 @@
     <EmbeddedResource Include="Forms\Account\SysLogin\SysLoginForm.resx">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstItem\MstItemDetailForm.resx">
+      <DependentUpon>MstItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstItem\MstItemListForm.resx">
+      <DependentUpon>MstItemListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysMenu\SysMenuForm.resx">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +151,7 @@
       <LastGenOutput>easyfmisdb.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

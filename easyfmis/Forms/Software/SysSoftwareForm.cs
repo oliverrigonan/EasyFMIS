@@ -65,7 +65,7 @@ namespace easyfmis.Forms.Software
         // =====
         // Forms
         // =====
-        //public MstItem.MstItemListForm mstItemListForm = null;
+        public MstItem.MstItemListForm mstItemListForm = null;
         //public MstItem.MstItemDetailForm mstItemDetailForm = null;
         //public MstCustomer.MstCustomerListForm mstCustomerListForm = null;
         //public MstCustomer.MstCustomerDetailForm mstCustomerDetailForm = null;
@@ -130,32 +130,32 @@ namespace easyfmis.Forms.Software
             //}
         }
 
-        // =============
-        // Tab Functions
-        // =============
-        //public void AddTabPageItemList()
-        //{
-        //    //tabPageItemList.Controls.Remove(mstItemListForm);
+         //=============
+         //Tab Functions
+         //=============
+        public void AddTabPageItemList()
+        {
+            tabPageItemList.Controls.Remove(mstItemListForm);
 
-        //    //mstItemListForm = new MstItem.MstItemListForm(this)
-        //    //{
-        //    //    TopLevel = false,
-        //    //    Visible = true,
-        //    //    Dock = DockStyle.Fill
-        //    //};
+            mstItemListForm = new MstItem.MstItemListForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    //tabPageItemList.Controls.Add(mstItemListForm);
+            tabPageItemList.Controls.Add(mstItemListForm);
 
-        //    //if (tabControlSoftware.TabPages.Contains(tabPageItemList) == true)
-        //    //{
-        //    //    tabControlSoftware.SelectTab(tabPageItemList);
-        //    //}
-        //    //else
-        //    //{
-        //    //    tabControlSoftware.TabPages.Add(tabPageItemList);
-        //    //    tabControlSoftware.SelectTab(tabPageItemList);
-        //    //}
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageItemList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageItemList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageItemList);
+                tabControlSoftware.SelectTab(tabPageItemList);
+            }
+        }
 
         //public void AddTabPageItemDetail(MstItem.MstItemListForm itemListForm, Entities.MstItemEntity itemEntity)
         //{
@@ -688,11 +688,11 @@ namespace easyfmis.Forms.Software
         //    }
         //}
 
-        //public void RemoveTabPage()
-        //{
-        //    tabControlSoftware.TabPages.Remove(tabControlSoftware.SelectedTab);
-        //    tabControlSoftware.SelectTab(tabControlSoftware.TabPages.Count - 1);
-        //}
+        public void RemoveTabPage()
+        {
+            tabControlSoftware.TabPages.Remove(tabControlSoftware.SelectedTab);
+            tabControlSoftware.SelectTab(tabControlSoftware.TabPages.Count - 1);
+        }
 
         private void SysSoftwareForm_FormClosing(object sender, FormClosingEventArgs e)
         {

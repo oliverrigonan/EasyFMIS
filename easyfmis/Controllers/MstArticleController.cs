@@ -103,7 +103,7 @@ namespace easyfmis.Controllers
         // ========
         // List Tax
         // ========
-        public List<Entities.MstTaxEntity> ListTax()
+        public List<Entities.MstTaxEntity> DropDownListTax()
         {
             var taxes = from d in db.MstTaxes
                         select new Entities.MstTaxEntity
@@ -117,7 +117,7 @@ namespace easyfmis.Controllers
         // =========
         // List Unit
         // =========
-        public List<Entities.MstUnitEntity> ListUnit()
+        public List<Entities.MstUnitEntity> DropDownListUnit()
         {
             var units = from d in db.MstUnits
                         select new Entities.MstUnitEntity
@@ -132,7 +132,7 @@ namespace easyfmis.Controllers
         // ===========
         // Add Article
         // ===========
-        public String[] Addrticle()
+        public String[] AddArticle()
         {
             try
             {

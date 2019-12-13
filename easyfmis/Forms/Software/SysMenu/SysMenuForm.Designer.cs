@@ -197,6 +197,7 @@
             this.buttonItem.Text = "\r\nItem";
             this.buttonItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonItem.UseVisualStyleBackColor = false;
+            this.buttonItem.Click += new System.EventHandler(this.buttonItem_Click);
             // 
             // buttonUser
             // 
