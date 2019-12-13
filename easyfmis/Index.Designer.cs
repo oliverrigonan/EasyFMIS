@@ -1,6 +1,6 @@
 ﻿namespace easyfmis
 {
-    partial class Form1
+    partial class Index
     {
         /// <summary>
         /// Required designer variable.

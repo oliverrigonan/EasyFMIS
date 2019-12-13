@@ -34,6 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,14 +47,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controllers\SysLoginController.cs" />
+    <Compile Include="Controllers\SysSoftwareController.cs" />
+    <Compile Include="Data\easyfmisdb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>easyfmisdb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MstArticleEntity.cs" />
+    <Compile Include="Entities\MstBranchEntity.cs" />
+    <Compile Include="Entities\MstCompanyEntity.cs" />
+    <Compile Include="Entities\MstUserEntity.cs" />
+    <Compile Include="Entities\SysConnectionStringEntity.cs" />
+    <Compile Include="Entities\SysCurrentEntity.cs" />
+    <Compile Include="Entities\TrnStockInEntity.cs" />
+    <Compile Include="Entities\TrnStockInItemEntity.cs" />
+    <Compile Include="Entities\TrnStockOutEntity.cs" />
+    <Compile Include="Entities\TrnStockOutItemEntity.cs" />
+    <Compile Include="Forms\Account\SysLogin\SysLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
+      <DependentUpon>SysLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\SysSoftwareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
+      <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index.Designer.cs">
+      <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SysConnectionStringModule.cs" />
+    <Compile Include="Modules\SysCurrentModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Data\easyfmisdb.dbml.layout">
+      <DependentUpon>easyfmisdb.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Forms\Account\SysLogin\SysLoginForm.resx">
+      <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
+      <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,7 +103,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Data\easyfmisdb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>easyfmisdb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -71,9 +119,51 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Settings\SysConnectionString.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Settings\SysCurrent.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\Backgrounds\coffee.jpeg" />
+    <Content Include="Resources\Images\Company\easycloud.jpg" />
+    <Content Include="Resources\Images\Customers\sonnets.png" />
+    <Content Include="Resources\Images\Icons\Customer.png" />
+    <Content Include="Resources\Images\Icons\Disbursement.png" />
+    <Content Include="Resources\Images\Icons\Discounting.png" />
+    <Content Include="Resources\Images\Icons\easypos.jpg" />
+    <Content Include="Resources\Images\Icons\Inventory.png" />
+    <Content Include="Resources\Images\Icons\Item.png" />
+    <Content Include="Resources\Images\Icons\POS Touch.png" />
+    <Content Include="Resources\Images\Icons\POS.png" />
+    <Content Include="Resources\Images\Icons\Reports.png" />
+    <Content Include="Resources\Images\Icons\Settings.png" />
+    <Content Include="Resources\Images\Icons\Stock Count.png" />
+    <Content Include="Resources\Images\Icons\Stock In.png" />
+    <Content Include="Resources\Images\Icons\Stock Out.png" />
+    <Content Include="Resources\Images\Icons\System Tables.png" />
+    <Content Include="Resources\Images\Icons\User.png" />
+    <Content Include="Resources\Images\Icons\Utilities.png" />
+    <Content Include="Resources\Images\Logo\easypos cropped.ico" />
+    <Content Include="Resources\Images\Logo\easypos cropped.jpg" />
+    <Content Include="Resources\Images\Others\color theme.jpg" />
+    <Content Include="Resources\Images\Products\easyapp.jpg" />
+    <Content Include="Resources\Images\Products\easyfis.jpg" />
+    <Content Include="Resources\Images\Products\easyfis_logo.jpg" />
+    <Content Include="Resources\Images\Products\easypay.jpg" />
+    <Content Include="Resources\Images\Products\easypay.png" />
+    <Content Include="Resources\Images\Products\easypos.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
