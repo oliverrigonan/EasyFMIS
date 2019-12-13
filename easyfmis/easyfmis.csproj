@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
     <Compile Include="Data\easyfmisdb.designer.cs">
@@ -70,6 +71,12 @@
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\SysMenu\SysMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysMenu\SysMenuForm.Designer.cs">
+      <DependentUpon>SysMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +98,9 @@
     </None>
     <EmbeddedResource Include="Forms\Account\SysLogin\SysLoginForm.resx">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysMenu\SysMenuForm.resx">
+      <DependentUpon>SysMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>

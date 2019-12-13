@@ -17,7 +17,15 @@ namespace easyfmis.Forms.Software
             InitializeComponent();
             InitializeDefaultForm();
 
-            Controllers.SysSoftwareController sysSoftwareController = new Controllers.SysSoftwareController();
+            var current = Modules.SysCurrentModule.GetCurrentSettings();
+
+            Controllers.MstUserController userController = new Controllers.MstUserController();
+            var currentUserDetail = userController.DetailUser(Convert.ToInt32(current.CurrentUserId));
+
+            if (currentUserDetail != null)
+            {
+                labelCurrentUserCompanyBranch.Text = "Company: " + currentUserDetail.Company + "  Branch: " + currentUserDetail.Branch;
+            }
 
             panelSidebarMenu.Visible = false;
         }
@@ -88,14 +96,14 @@ namespace easyfmis.Forms.Software
 
         public void InitializeDefaultForm()
         {
-            //SysMenu.SysMenuForm sysMenuForm = new SysMenu.SysMenuForm(this)
-            //{
-            //    TopLevel = false,
-            //    Visible = true,
-            //    Dock = DockStyle.Fill
-            //};
+            SysMenu.SysMenuForm sysMenuForm = new SysMenu.SysMenuForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-            //tabPageSysMenu.Controls.Add(sysMenuForm);
+            tabPageSysMenu.Controls.Add(sysMenuForm);
         }
 
         public void AddTabPageRemittanceReports()

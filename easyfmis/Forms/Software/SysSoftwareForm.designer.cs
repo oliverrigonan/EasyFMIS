@@ -31,56 +31,56 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysSoftwareForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonOpenSidebarMenu = new System.Windows.Forms.Button();
-            this.labelCurrentUser = new System.Windows.Forms.Label();
+            this.labelCurrentUserCompanyBranch = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabControlSoftware = new System.Windows.Forms.TabControl();
             this.tabPageSysMenu = new System.Windows.Forms.TabPage();
             this.panelSidebarMenu = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.discountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remittanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disbursementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.stockInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remittanceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.discountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.disbursementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.salesOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salesInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.collectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabControlSoftware.SuspendLayout();
             this.panelSidebarMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,6 +109,16 @@
             this.label1.Size = new System.Drawing.Size(82, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Easy POS";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(133, 93);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -153,7 +163,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.buttonOpenSidebarMenu);
-            this.panel2.Controls.Add(this.labelCurrentUser);
+            this.panel2.Controls.Add(this.labelCurrentUserCompanyBranch);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -171,14 +181,14 @@
             this.buttonOpenSidebarMenu.UseVisualStyleBackColor = true;
             this.buttonOpenSidebarMenu.Click += new System.EventHandler(this.buttonOpenSidebarMenu_Click);
             // 
-            // labelCurrentUser
+            // labelCurrentUserCompanyBranch
             // 
-            this.labelCurrentUser.AutoSize = true;
-            this.labelCurrentUser.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.labelCurrentUser.Location = new System.Drawing.Point(41, 9);
-            this.labelCurrentUser.Name = "labelCurrentUser";
-            this.labelCurrentUser.Size = new System.Drawing.Size(0, 20);
-            this.labelCurrentUser.TabIndex = 0;
+            this.labelCurrentUserCompanyBranch.AutoSize = true;
+            this.labelCurrentUserCompanyBranch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labelCurrentUserCompanyBranch.Location = new System.Drawing.Point(41, 9);
+            this.labelCurrentUserCompanyBranch.Name = "labelCurrentUserCompanyBranch";
+            this.labelCurrentUserCompanyBranch.Size = new System.Drawing.Size(0, 20);
+            this.labelCurrentUserCompanyBranch.TabIndex = 0;
             // 
             // panel3
             // 
@@ -254,6 +264,57 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.menuToolStripMenuItem.Image = global::easyfmis.Properties.Resources.easypos_cropped1;
+            this.menuToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.menuToolStripMenuItem.Text = "Menu";
+            this.menuToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
+            // 
+            // setupToolStripMenuItem
+            // 
+            this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.discountToolStripMenuItem,
+            this.itemToolStripMenuItem,
+            this.customerToolStripMenuItem});
+            this.setupToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.setupToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
+            this.setupToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
+            this.setupToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.setupToolStripMenuItem.Text = "Setup";
+            this.setupToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // discountToolStripMenuItem
+            // 
+            this.discountToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Discounting;
+            this.discountToolStripMenuItem.Name = "discountToolStripMenuItem";
+            this.discountToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
+            this.discountToolStripMenuItem.Text = "Supplier";
+            this.discountToolStripMenuItem.Click += new System.EventHandler(this.discountToolStripMenuItem_Click);
+            // 
+            // itemToolStripMenuItem
+            // 
+            this.itemToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
+            this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
+            this.itemToolStripMenuItem.Text = "Item";
+            this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
+            // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Customer;
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
+            this.customerToolStripMenuItem.Text = "Customer";
+            this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
+            // 
             // activityToolStripMenuItem
             // 
             this.activityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -292,16 +353,45 @@
             this.remittanceToolStripMenuItem.Text = "Receiving Receipt";
             this.remittanceToolStripMenuItem.Click += new System.EventHandler(this.remittanceToolStripMenuItem_Click);
             // 
+            // disbursementToolStripMenuItem
+            // 
+            this.disbursementToolStripMenuItem.Name = "disbursementToolStripMenuItem";
+            this.disbursementToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
+            this.disbursementToolStripMenuItem.Text = "Disbursement";
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
+            // 
+            // salesOrderToolStripMenuItem
+            // 
+            this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
+            this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
+            this.salesOrderToolStripMenuItem.Text = "Sales Order";
+            // 
+            // salesInvoiceToolStripMenuItem
+            // 
+            this.salesInvoiceToolStripMenuItem.Name = "salesInvoiceToolStripMenuItem";
+            this.salesInvoiceToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
+            this.salesInvoiceToolStripMenuItem.Text = "Sales Invoice";
+            // 
+            // collectionToolStripMenuItem
+            // 
+            this.collectionToolStripMenuItem.Name = "collectionToolStripMenuItem";
+            this.collectionToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
+            this.collectionToolStripMenuItem.Text = "Collection";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(216, 6);
             // 
             // stockInToolStripMenuItem
             // 
             this.stockInToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Stock_In;
             this.stockInToolStripMenuItem.Name = "stockInToolStripMenuItem";
-            this.stockInToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.stockInToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.stockInToolStripMenuItem.Text = "Stock In";
             this.stockInToolStripMenuItem.Click += new System.EventHandler(this.stockInToolStripMenuItem_Click);
             // 
@@ -309,7 +399,7 @@
             // 
             this.stockOutToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Stock_Out;
             this.stockOutToolStripMenuItem.Name = "stockOutToolStripMenuItem";
-            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.stockOutToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.stockOutToolStripMenuItem.Text = "Stock Out";
             this.stockOutToolStripMenuItem.Click += new System.EventHandler(this.stockOutToolStripMenuItem_Click);
             // 
@@ -339,16 +429,27 @@
             // systemTablesToolStripMenuItem
             // 
             this.systemTablesToolStripMenuItem.Name = "systemTablesToolStripMenuItem";
-            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.systemTablesToolStripMenuItem.Text = "System Tables";
             this.systemTablesToolStripMenuItem.Click += new System.EventHandler(this.systemTablesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
             // 
             // utilitiesToolStripMenuItem
             // 
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.utilitiesToolStripMenuItem.Text = "Company";
             this.utilitiesToolStripMenuItem.Click += new System.EventHandler(this.utilitiesToolStripMenuItem_Click);
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.userToolStripMenuItem.Text = "User";
             // 
             // reportsToolStripMenuItem
             // 
@@ -388,6 +489,11 @@
             this.remittanceReportToolStripMenuItem.Text = "Inventory Report";
             this.remittanceReportToolStripMenuItem.Click += new System.EventHandler(this.remittanceReportToolStripMenuItem_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(238, 6);
+            // 
             // inventoryReportToolStripMenuItem
             // 
             this.inventoryReportToolStripMenuItem.Name = "inventoryReportToolStripMenuItem";
@@ -405,112 +511,6 @@
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // menuToolStripMenuItem
-            // 
-            this.menuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.menuToolStripMenuItem.Image = global::easyfmis.Properties.Resources.easypos_cropped1;
-            this.menuToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
-            this.menuToolStripMenuItem.Text = "Menu";
-            this.menuToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
-            // 
-            // setupToolStripMenuItem
-            // 
-            this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.discountToolStripMenuItem,
-            this.itemToolStripMenuItem,
-            this.customerToolStripMenuItem});
-            this.setupToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.setupToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
-            this.setupToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
-            this.setupToolStripMenuItem.Text = "Setup";
-            this.setupToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // itemToolStripMenuItem
-            // 
-            this.itemToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
-            this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
-            this.itemToolStripMenuItem.Text = "Item";
-            this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
-            // 
-            // customerToolStripMenuItem
-            // 
-            this.customerToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Customer;
-            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
-            this.customerToolStripMenuItem.Text = "Customer";
-            this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
-            // 
-            // discountToolStripMenuItem
-            // 
-            this.discountToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Discounting;
-            this.discountToolStripMenuItem.Name = "discountToolStripMenuItem";
-            this.discountToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
-            this.discountToolStripMenuItem.Text = "Supplier";
-            this.discountToolStripMenuItem.Click += new System.EventHandler(this.discountToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 93);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // disbursementToolStripMenuItem
-            // 
-            this.disbursementToolStripMenuItem.Name = "disbursementToolStripMenuItem";
-            this.disbursementToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
-            this.disbursementToolStripMenuItem.Text = "Disbursement";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(216, 6);
-            // 
-            // salesOrderToolStripMenuItem
-            // 
-            this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
-            this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
-            this.salesOrderToolStripMenuItem.Text = "Sales Order";
-            // 
-            // salesInvoiceToolStripMenuItem
-            // 
-            this.salesInvoiceToolStripMenuItem.Name = "salesInvoiceToolStripMenuItem";
-            this.salesInvoiceToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
-            this.salesInvoiceToolStripMenuItem.Text = "Sales Invoice";
-            // 
-            // collectionToolStripMenuItem
-            // 
-            this.collectionToolStripMenuItem.Name = "collectionToolStripMenuItem";
-            this.collectionToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
-            this.collectionToolStripMenuItem.Text = "Collection";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
-            // 
-            // userToolStripMenuItem
-            // 
-            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
-            this.userToolStripMenuItem.Text = "User";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(238, 6);
             // 
             // SysSoftwareForm
             // 
@@ -530,6 +530,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SysSoftwareForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -539,7 +540,6 @@
             this.panelSidebarMenu.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,7 +552,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelCurrentUser;
+        private System.Windows.Forms.Label labelCurrentUserCompanyBranch;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabControl tabControlSoftware;
         private System.Windows.Forms.TabPage tabPageSysMenu;
