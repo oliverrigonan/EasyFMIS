@@ -22,6 +22,7 @@ namespace easyfmis.Entities
         public Int32 UnitId { get; set; }
         public String Unit { get; set; }
         public Int32? DefaultSupplierId { get; set; }
+        public String DefaultSupplier { get; set; }
         public Decimal DefaultCost { get; set; }
         public Decimal DefaultPrice { get; set; }
         public Decimal ReorderQuantity { get; set; }
@@ -35,7 +36,7 @@ namespace easyfmis.Entities
         public Boolean IsLocked { get; set; }
         public Int32 CreatedBy { get; set; }
         public String CreatedByUserName { get; set; }
-        public DateTime CreatedDateTime { get; set; }
+        public DateTime CreatedByDateTime { get; set; }
         public Int32 UpdatedBy { get; set; }
         public String UpdatedByUserName { get; set; }
         public DateTime UpdatedDateTime { get; set; }

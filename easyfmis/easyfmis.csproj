@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MstArticleController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
@@ -56,8 +57,11 @@
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\MstArticleEntity.cs" />
+    <Compile Include="Entities\MstArticleTypeEntity.cs" />
     <Compile Include="Entities\MstBranchEntity.cs" />
     <Compile Include="Entities\MstCompanyEntity.cs" />
+    <Compile Include="Entities\MstTaxEntity.cs" />
+    <Compile Include="Entities\MstUnitEntity.cs" />
     <Compile Include="Entities\MstUserEntity.cs" />
     <Compile Include="Entities\SysConnectionStringEntity.cs" />
     <Compile Include="Entities\SysCurrentEntity.cs" />
@@ -70,6 +74,12 @@
     </Compile>
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstItemForm.Designer.cs">
+      <DependentUpon>MstItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\SysMenu\SysMenuForm.cs">
       <SubType>Form</SubType>
@@ -140,6 +150,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Forms\Software\MstCustomer\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
@@ -149,16 +160,25 @@
     <Content Include="Resources\Images\Backgrounds\coffee.jpeg" />
     <Content Include="Resources\Images\Company\easycloud.jpg" />
     <Content Include="Resources\Images\Customers\sonnets.png" />
+    <Content Include="Resources\Images\Icons\building.png" />
     <Content Include="Resources\Images\Icons\Customer.png" />
     <Content Include="Resources\Images\Icons\Disbursement.png" />
     <Content Include="Resources\Images\Icons\Discounting.png" />
+    <Content Include="Resources\Images\Icons\distribution.png" />
     <Content Include="Resources\Images\Icons\easypos.jpg" />
+    <Content Include="Resources\Images\Icons\goods.png" />
     <Content Include="Resources\Images\Icons\Inventory.png" />
     <Content Include="Resources\Images\Icons\Item.png" />
+    <Content Include="Resources\Images\Icons\jigsaw.png" />
     <Content Include="Resources\Images\Icons\POS Touch.png" />
     <Content Include="Resources\Images\Icons\POS.png" />
+    <Content Include="Resources\Images\Icons\purse.png" />
     <Content Include="Resources\Images\Icons\Reports.png" />
     <Content Include="Resources\Images\Icons\Settings.png" />
+    <Content Include="Resources\Images\Icons\shopping-basket.png" />
+    <Content Include="Resources\Images\Icons\shopping-cart.png" />
+    <Content Include="Resources\Images\Icons\shopping.png" />
+    <Content Include="Resources\Images\Icons\skycraper.png" />
     <Content Include="Resources\Images\Icons\Stock Count.png" />
     <Content Include="Resources\Images\Icons\Stock In.png" />
     <Content Include="Resources\Images\Icons\Stock Out.png" />

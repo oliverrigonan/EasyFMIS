@@ -73,6 +73,7 @@
             this.imageListMenuIcons.Images.SetKeyName(11, "Settings.png");
             this.imageListMenuIcons.Images.SetKeyName(12, "Stock Count.png");
             this.imageListMenuIcons.Images.SetKeyName(13, "System Tables.png");
+            this.imageListMenuIcons.Images.SetKeyName(14, "Company.png");
             // 
             // panel1
             // 
@@ -262,7 +263,7 @@
             this.buttonDiscounting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDiscounting.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.buttonDiscounting.ForeColor = System.Drawing.Color.White;
-            this.buttonDiscounting.ImageIndex = 2;
+            this.buttonDiscounting.ImageIndex = 14;
             this.buttonDiscounting.ImageList = this.imageListMenuIcons;
             this.buttonDiscounting.Location = new System.Drawing.Point(12, 12);
             this.buttonDiscounting.Name = "buttonDiscounting";
