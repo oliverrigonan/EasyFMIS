@@ -19,5 +19,10 @@ namespace easyfmis.Forms.Software.SysMenu
             InitializeComponent();
             sysSoftwareForm = softwareForm;
         }
+
+        private void buttonStockIn_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageStockInList();
+        }
     }
 }

@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -60,7 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DgvStockInItemEntity.cs" />
+    <Compile Include="Entities\DgvStockInEntity.cs" />
+    <Compile Include="Entities\DgvSearchItemEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
+    <Compile Include="Entities\MstArticleInventory.cs" />
     <Compile Include="Entities\MstArticlePriceEntity.cs" />
     <Compile Include="Entities\MstArticleUnitEntity.cs" />
     <Compile Include="Entities\MstBranchEntity.cs" />
@@ -98,6 +105,30 @@
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailForm.Designer.cs">
+      <DependentUpon>TrnStockInDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailSearchItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailSearchItemForm.Designer.cs">
+      <DependentUpon>TrnStockInDetailSearchItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailStockInItemDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailStockInItemDetailForm.Designer.cs">
+      <DependentUpon>TrnStockInDetailStockInItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInForm.Designer.cs">
+      <DependentUpon>TrnStockInForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +151,18 @@
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockIn\TrnStockInDetailForm.resx">
+      <DependentUpon>TrnStockInDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockIn\TrnStockInDetailSearchItemForm.resx">
+      <DependentUpon>TrnStockInDetailSearchItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockIn\TrnStockInDetailStockInItemDetailForm.resx">
+      <DependentUpon>TrnStockInDetailStockInItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockIn\TrnStockInForm.resx">
+      <DependentUpon>TrnStockInForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -135,6 +178,7 @@
       <LastGenOutput>easyfmisdb.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

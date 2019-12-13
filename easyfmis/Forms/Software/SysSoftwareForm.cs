@@ -24,7 +24,7 @@ namespace easyfmis.Forms.Software
 
             if (currentUserDetail != null)
             {
-                labelCurrentUserCompanyBranch.Text = "Company: " + currentUserDetail.Company + "  Branch: " + currentUserDetail.Branch;
+                labelCurrentUserCompanyBranch.Text = "  User: " + currentUserDetail.UserName + "   Company: " + currentUserDetail.Company + "   Branch: " + currentUserDetail.Branch;
             }
 
             panelSidebarMenu.Visible = false;
@@ -76,8 +76,8 @@ namespace easyfmis.Forms.Software
 
         //public TrnPOS.TrnSalesListForm trnSalesListForm = null;
         //public TrnPOS.TrnSalesDetailForm trnSalesDetailForm = null;
-        //public TrnStockIn.TrnStockInListForm trnStockInListForm = null;
-        //public TrnStockIn.TrnStockInDetailForm trnStockInDetailForm = null;
+        public TrnStockIn.TrnStockInForm trnStockInForm = null;
+        public TrnStockIn.TrnStockInDetailForm trnStockInDetailForm = null;
         //public TrnStockOut.TrnStockOutListForm trnStockOutListForm = null;
         //public TrnStockOut.TrnStockOutDetailForm trnStockOutDetailForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
@@ -373,53 +373,53 @@ namespace easyfmis.Forms.Software
         //    }
         //}
 
-        //public void AddTabPageStockInList()
-        //{
-        //    tabPageStockInList.Controls.Remove(trnStockInListForm);
+        public void AddTabPageStockInList()
+        {
+            tabPageStockInList.Controls.Remove(trnStockInForm);
 
-        //    trnStockInListForm = new TrnStockIn.TrnStockInListForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            trnStockInForm = new TrnStockIn.TrnStockInForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageStockInList.Controls.Add(trnStockInListForm);
+            tabPageStockInList.Controls.Add(trnStockInForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageStockInList) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageStockInList);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageStockInList);
-        //        tabControlSoftware.SelectTab(tabPageStockInList);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageStockInList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageStockInList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageStockInList);
+                tabControlSoftware.SelectTab(tabPageStockInList);
+            }
+        }
 
-        //public void AddTabPageStockInDetail(TrnStockIn.TrnStockInListForm stockInListForm, Entities.TrnStockInEntity stockInEntity)
-        //{
-        //    tabPageStockInDetail.Controls.Remove(trnStockInDetailForm);
+        public void AddTabPageStockInDetail(TrnStockIn.TrnStockInForm stockInListForm, Entities.TrnStockInEntity stockInEntity)
+        {
+            tabPageStockInDetail.Controls.Remove(trnStockInDetailForm);
 
-        //    trnStockInDetailForm = new TrnStockIn.TrnStockInDetailForm(this, stockInListForm, stockInEntity)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            trnStockInDetailForm = new TrnStockIn.TrnStockInDetailForm(this, stockInListForm, stockInEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageStockInDetail.Controls.Add(trnStockInDetailForm);
+            tabPageStockInDetail.Controls.Add(trnStockInDetailForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageStockInDetail) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageStockInDetail);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageStockInDetail);
-        //        tabControlSoftware.SelectTab(tabPageStockInDetail);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageStockInDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageStockInDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageStockInDetail);
+                tabControlSoftware.SelectTab(tabPageStockInDetail);
+            }
+        }
 
         //public void AddTabPageStockOutList()
         //{
@@ -688,11 +688,11 @@ namespace easyfmis.Forms.Software
         //    }
         //}
 
-        //public void RemoveTabPage()
-        //{
-        //    tabControlSoftware.TabPages.Remove(tabControlSoftware.SelectedTab);
-        //    tabControlSoftware.SelectTab(tabControlSoftware.TabPages.Count - 1);
-        //}
+        public void RemoveTabPage()
+        {
+            tabControlSoftware.TabPages.Remove(tabControlSoftware.SelectedTab);
+            tabControlSoftware.SelectTab(tabControlSoftware.TabPages.Count - 1);
+        }
 
         private void SysSoftwareForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -768,7 +768,7 @@ namespace easyfmis.Forms.Software
 
         private void stockInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //AddTabPageStockInList();
+            AddTabPageStockInList();
         }
 
         private void stockOutToolStripMenuItem_Click(object sender, EventArgs e)

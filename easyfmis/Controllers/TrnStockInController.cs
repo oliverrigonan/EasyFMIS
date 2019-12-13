@@ -41,6 +41,7 @@ namespace easyfmis.Controllers
                            {
                                Id = d.Id,
                                BranchId = d.BranchId,
+                               Branch = d.MstBranch.Branch,
                                INNumber = d.INNumber,
                                INDate = d.INDate,
                                Remarks = d.Remarks,
@@ -70,6 +71,7 @@ namespace easyfmis.Controllers
                           {
                               Id = d.Id,
                               BranchId = d.BranchId,
+                              Branch = d.MstBranch.Branch,
                               INNumber = d.INNumber,
                               INDate = d.INDate,
                               Remarks = d.Remarks,

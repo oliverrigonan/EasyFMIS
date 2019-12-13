@@ -45,10 +45,10 @@ namespace easyfmis.Controllers
         {
             var items = from d in db.MstArticles
                         where d.ArticleTypeId == 1
-                        || d.ArticleCode.Contains(filter)
+                        && (d.ArticleCode.Contains(filter)
                         || d.ArticleBarCode.Contains(filter)
                         || d.Article.Contains(filter)
-                        || d.Category.Contains(filter)
+                        || d.Category.Contains(filter))
                         select new Entities.MstArticleEntity
                         {
                             Id = d.Id,
@@ -73,7 +73,7 @@ namespace easyfmis.Controllers
                                where d.ArticleId == articleId
                                select new Entities.MstArticleUnitEntity
                                {
-                                   Id = d.Id,
+                                   UnitId = d.UnitId,
                                    Unit = d.MstUnit.Unit
                                };
 

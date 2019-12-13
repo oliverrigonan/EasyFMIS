@@ -26,6 +26,8 @@ namespace easyfmis.Controllers
                                     OTId = d.OTId,
                                     ItemId = d.ItemId,
                                     ItemDescription = d.MstArticle.Article,
+                                    ItemInventoryId = d.ItemInventoryId,
+                                    ItemInventoryCode = d.MstArticleInventory.InventoryCode,
                                     UnitId = d.UnitId,
                                     Unit = d.MstUnit.Unit,
                                     Quantity = d.Quantity,
@@ -62,6 +64,22 @@ namespace easyfmis.Controllers
                         };
 
             return items.OrderBy(d => d.Article).ToList();
+        }
+
+        // ============================
+        // Dropdown List Inventory Code
+        // ============================
+        public List<Entities.MstArticleInventory> DropdownListArticleInventory(Int32 articleId)
+        {
+            var articleInventories = from d in db.MstArticleInventories
+                                     where d.ArticleId == articleId
+                                     select new Entities.MstArticleInventory
+                                     {
+                                         Id = d.Id,
+                                         InventoryCode = d.InventoryCode
+                                     };
+
+            return articleInventories.ToList();
         }
 
         // ==========================
@@ -106,6 +124,15 @@ namespace easyfmis.Controllers
                     return new String[] { "Item not found.", "0" };
                 }
 
+                var itemInventory = from d in db.MstArticleInventories
+                                    where d.Id == objStockOutItem.ItemInventoryId
+                                    select d;
+
+                if (itemInventory.Any() == false)
+                {
+                    return new String[] { "Inventory code not found.", "0" };
+                }
+
                 var conversionUnit = from d in db.MstArticleUnits
                                      where d.ArticleId == objStockOutItem.ItemId
                                      && d.UnitId == objStockOutItem.UnitId
@@ -133,6 +160,7 @@ namespace easyfmis.Controllers
                 {
                     OTId = objStockOutItem.OTId,
                     ItemId = objStockOutItem.ItemId,
+                    ItemInventoryId = objStockOutItem.ItemInventoryId,
                     UnitId = item.FirstOrDefault().UnitId,
                     Quantity = objStockOutItem.Quantity,
                     Cost = objStockOutItem.Cost,
@@ -174,6 +202,15 @@ namespace easyfmis.Controllers
                         return new String[] { "Stock-Out transaction not found.", "0" };
                     }
 
+                    var itemInventory = from d in db.MstArticleInventories
+                                        where d.Id == objStockOutItem.ItemInventoryId
+                                        select d;
+
+                    if (itemInventory.Any() == false)
+                    {
+                        return new String[] { "Inventory code not found.", "0" };
+                    }
+
                     var conversionUnit = from d in db.MstArticleUnits
                                          where d.ArticleId == objStockOutItem.ItemId
                                          && d.UnitId == objStockOutItem.UnitId
@@ -198,6 +235,7 @@ namespace easyfmis.Controllers
                     }
 
                     var updateStockOutItem = stockOutItem.FirstOrDefault();
+                    updateStockOutItem.ItemInventoryId = objStockOutItem.ItemInventoryId;
                     updateStockOutItem.Quantity = objStockOutItem.Quantity;
                     updateStockOutItem.Cost = objStockOutItem.Cost;
                     updateStockOutItem.Amount = objStockOutItem.Amount;

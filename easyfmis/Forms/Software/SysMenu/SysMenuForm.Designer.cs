@@ -463,6 +463,7 @@
             this.buttonStockIn.Text = "\r\nStock In";
             this.buttonStockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonStockIn.UseVisualStyleBackColor = false;
+            this.buttonStockIn.Click += new System.EventHandler(this.buttonStockIn_Click);
             // 
             // buttonSalesReport
             // 
