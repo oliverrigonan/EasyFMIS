@@ -63,12 +63,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DgvItemListItemEntity.cs" />
     <Compile Include="Entities\DgvStockInItemEntity.cs" />
     <Compile Include="Entities\DgvStockInEntity.cs" />
     <Compile Include="Entities\DgvSearchItemEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
     <Compile Include="Entities\MstArticleInventory.cs" />
     <Compile Include="Entities\MstArticlePriceEntity.cs" />
+    <Compile Include="Entities\MstArticleTypeEntity.cs" />
     <Compile Include="Entities\MstArticleUnitEntity.cs" />
     <Compile Include="Entities\MstBranchEntity.cs" />
     <Compile Include="Entities\MstCompanyEntity.cs" />
