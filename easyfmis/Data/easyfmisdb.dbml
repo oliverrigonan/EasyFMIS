@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="easyfmis" Class="easyfmisdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyfmis;Persist Security Info=True;User ID=sa" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyfmisConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyfmis;Persist Security Info=True;User ID=sa" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyfmisConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.MstAccount" Member="MstAccounts">
     <Type Name="MstAccount">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -105,6 +105,7 @@
       <Association Name="MstArticle_MstArticleComponent1" Member="MstArticleComponents1" ThisKey="Id" OtherKey="ComponentArticleId" Type="MstArticleComponent" />
       <Association Name="MstArticle_MstArticleInventory" Member="MstArticleInventories" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleInventory" />
       <Association Name="MstArticle_MstArticlePrice" Member="MstArticlePrices" ThisKey="Id" OtherKey="ArticleId" Type="MstArticlePrice" />
+      <Association Name="MstArticle_MstArticleUnit" Member="MstArticleUnits" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleUnit" />
       <Association Name="MstArticle_TrnCollection" Member="TrnCollections" ThisKey="Id" OtherKey="CustomerId" Type="TrnCollection" />
       <Association Name="MstArticle_TrnInventory" Member="TrnInventories" ThisKey="Id" OtherKey="ItemId" Type="TrnInventory" />
       <Association Name="MstArticle_TrnSalesInvoice" Member="TrnSalesInvoices" ThisKey="Id" OtherKey="CustomerId" Type="TrnSalesInvoice" />
@@ -160,6 +161,17 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ArticleType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="MstArticleType_MstArticle" Member="MstArticles" ThisKey="Id" OtherKey="ArticleTypeId" Type="MstArticle" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MstArticleUnit" Member="MstArticleUnits">
+    <Type Name="MstArticleUnit">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BaseUnitMultiplier" Type="System.Decimal" DbType="Decimal(18,12) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitMultiplier" Type="System.Decimal" DbType="Decimal(18,12) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="MstArticle_MstArticleUnit" Member="MstArticle" ThisKey="ArticleId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="MstUnit_MstArticleUnit" Member="MstUnit" ThisKey="UnitId" OtherKey="Id" Type="MstUnit" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.MstBranch" Member="MstBranches">
@@ -272,6 +284,7 @@
       <Association Name="MstUnit_TrnStockOutItem" Member="TrnStockOutItems" ThisKey="Id" OtherKey="UnitId" Type="TrnStockOutItem" />
       <Association Name="MstUnit_MstArticle" Member="MstArticles" ThisKey="Id" OtherKey="UnitId" Type="MstArticle" />
       <Association Name="MstUnit_MstArticleComponent" Member="MstArticleComponents" ThisKey="Id" OtherKey="UnitId" Type="MstArticleComponent" />
+      <Association Name="MstUnit_MstArticleUnit" Member="MstArticleUnits" ThisKey="Id" OtherKey="UnitId" Type="MstArticleUnit" />
       <Association Name="MstUnit_TrnSalesInvoiceItem" Member="TrnSalesInvoiceItems" ThisKey="Id" OtherKey="UnitId" Type="TrnSalesInvoiceItem" />
       <Association Name="MstUnit_TrnStockInItem" Member="TrnStockInItems" ThisKey="Id" OtherKey="UnitId" Type="TrnStockInItem" />
       <Association Name="MstUser_MstUnit" Member="MstUser" ThisKey="CreatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
@@ -581,7 +594,7 @@
       <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CreatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="TrnStockOut_TrnStockOutItem" Member="TrnStockOutItems" ThisKey="Id" OtherKey="OTId" Type="TrnStockOutItem" />
       <Association Name="TrnStockOut_TrnInventory" Member="TrnInventories" ThisKey="Id" OtherKey="OTId" Type="TrnInventory" />
       <Association Name="TrnStockOut_TrnJournal" Member="TrnJournals" ThisKey="Id" OtherKey="OTId" Type="TrnJournal" />

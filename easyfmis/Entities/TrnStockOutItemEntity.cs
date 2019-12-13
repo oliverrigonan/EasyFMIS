@@ -9,7 +9,7 @@ namespace easyfmis.Entities
     public class TrnStockOutItemEntity
     {
         public Int32 Id { get; set; }
-        public Int32 INId { get; set; }
+        public Int32 OTId { get; set; }
         public Int32 ItemId { get; set; }
         public String ItemDescription { get; set; }
         public Int32 ItemInventoryId { get; set; }

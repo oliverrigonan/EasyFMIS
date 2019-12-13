@@ -33,5 +33,16 @@ namespace easyfmis.Properties {
                 return ((string)(this["easyfmisConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=easyfmis;Persist Security Info=True;User ID" +
+            "=sa;Password=innosoft")]
+        public string easyfmisConnectionString1 {
+            get {
+                return ((string)(this["easyfmisConnectionString1"]));
+            }
+        }
     }
 }

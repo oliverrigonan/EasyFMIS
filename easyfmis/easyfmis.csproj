@@ -51,13 +51,18 @@
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
+    <Compile Include="Controllers\TrnStockInController.cs" />
+    <Compile Include="Controllers\TrnStockInItemController.cs" />
+    <Compile Include="Controllers\TrnStockOutController.cs" />
+    <Compile Include="Controllers\TrnStockOutItemController.cs" />
     <Compile Include="Data\easyfmisdb.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\MstArticleEntity.cs" />
-    <Compile Include="Entities\MstArticleTypeEntity.cs" />
+    <Compile Include="Entities\MstArticlePriceEntity.cs" />
+    <Compile Include="Entities\MstArticleUnitEntity.cs" />
     <Compile Include="Entities\MstBranchEntity.cs" />
     <Compile Include="Entities\MstCompanyEntity.cs" />
     <Compile Include="Entities\MstTaxEntity.cs" />
