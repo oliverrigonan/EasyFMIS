@@ -95,5 +95,10 @@ namespace easyfmis.Forms.Software.MstItem
         {
             Close();
         }
+
+        private void comboBoxUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

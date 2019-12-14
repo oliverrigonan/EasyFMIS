@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MstArticleComponentForm));
             this.textBoxUnit = new System.Windows.Forms.TextBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,7 +51,7 @@
             // textBoxUnit
             // 
             this.textBoxUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxUnit.Location = new System.Drawing.Point(161, 112);
+            this.textBoxUnit.Location = new System.Drawing.Point(161, 106);
             this.textBoxUnit.Name = "textBoxUnit";
             this.textBoxUnit.ReadOnly = true;
             this.textBoxUnit.Size = new System.Drawing.Size(195, 30);
@@ -60,7 +61,7 @@
             // textBoxAmount
             // 
             this.textBoxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAmount.Location = new System.Drawing.Point(161, 220);
+            this.textBoxAmount.Location = new System.Drawing.Point(161, 214);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.ReadOnly = true;
             this.textBoxAmount.Size = new System.Drawing.Size(195, 30);
@@ -71,7 +72,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(74, 220);
+            this.label7.Location = new System.Drawing.Point(74, 214);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 23);
             this.label7.TabIndex = 42;
@@ -81,7 +82,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(8, 74);
+            this.label6.Location = new System.Drawing.Point(8, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 23);
             this.label6.TabIndex = 41;
@@ -89,10 +90,11 @@
             // 
             // comboBoxItemComponent
             // 
+            this.comboBoxItemComponent.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxItemComponent.FormattingEnabled = true;
-            this.comboBoxItemComponent.Location = new System.Drawing.Point(160, 75);
+            this.comboBoxItemComponent.Location = new System.Drawing.Point(160, 69);
             this.comboBoxItemComponent.Name = "comboBoxItemComponent";
-            this.comboBoxItemComponent.Size = new System.Drawing.Size(410, 24);
+            this.comboBoxItemComponent.Size = new System.Drawing.Size(410, 31);
             this.comboBoxItemComponent.TabIndex = 40;
             this.comboBoxItemComponent.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemComponent_SelectedIndexChanged);
             this.comboBoxItemComponent.Click += new System.EventHandler(this.comboBoxItemComponent_Click);
@@ -100,7 +102,7 @@
             // textBoxCost
             // 
             this.textBoxCost.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCost.Location = new System.Drawing.Point(161, 184);
+            this.textBoxCost.Location = new System.Drawing.Point(161, 178);
             this.textBoxCost.Name = "textBoxCost";
             this.textBoxCost.ReadOnly = true;
             this.textBoxCost.Size = new System.Drawing.Size(195, 30);
@@ -111,7 +113,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(102, 184);
+            this.label4.Location = new System.Drawing.Point(102, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 23);
             this.label4.TabIndex = 38;
@@ -120,7 +122,7 @@
             // textBoxQuantity
             // 
             this.textBoxQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxQuantity.Location = new System.Drawing.Point(161, 148);
+            this.textBoxQuantity.Location = new System.Drawing.Point(161, 142);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(195, 30);
             this.textBoxQuantity.TabIndex = 37;
@@ -132,7 +134,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(71, 149);
+            this.label3.Location = new System.Drawing.Point(71, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 23);
             this.label3.TabIndex = 36;
@@ -142,7 +144,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(106, 115);
+            this.label2.Location = new System.Drawing.Point(106, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 23);
             this.label2.TabIndex = 35;
@@ -220,7 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(582, 257);
+            this.ClientSize = new System.Drawing.Size(582, 255);
             this.Controls.Add(this.textBoxUnit);
             this.Controls.Add(this.textBoxAmount);
             this.Controls.Add(this.label7);
@@ -232,9 +234,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MstArticleComponentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MstArticleComponentForm";
+            this.Text = "Item Component Detail";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

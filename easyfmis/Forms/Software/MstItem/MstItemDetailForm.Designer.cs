@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -253,7 +253,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1392, 601);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "General Information";
+            this.tabPage1.Text = "Item";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel3
@@ -301,7 +301,7 @@
             // textBoxCategory
             // 
             this.textBoxCategory.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCategory.Location = new System.Drawing.Point(186, 255);
+            this.textBoxCategory.Location = new System.Drawing.Point(186, 265);
             this.textBoxCategory.Name = "textBoxCategory";
             this.textBoxCategory.Size = new System.Drawing.Size(214, 30);
             this.textBoxCategory.TabIndex = 42;
@@ -311,7 +311,7 @@
             // 
             this.comboBoxVATOutTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxVATOutTax.FormattingEnabled = true;
-            this.comboBoxVATOutTax.Location = new System.Drawing.Point(185, 329);
+            this.comboBoxVATOutTax.Location = new System.Drawing.Point(185, 339);
             this.comboBoxVATOutTax.Name = "comboBoxVATOutTax";
             this.comboBoxVATOutTax.Size = new System.Drawing.Size(119, 31);
             this.comboBoxVATOutTax.TabIndex = 41;
@@ -320,7 +320,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(47, 333);
+            this.label12.Location = new System.Drawing.Point(47, 343);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(132, 23);
             this.label12.TabIndex = 40;
@@ -330,7 +330,7 @@
             // 
             this.comboBoxVATInTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxVATInTax.FormattingEnabled = true;
-            this.comboBoxVATInTax.Location = new System.Drawing.Point(186, 291);
+            this.comboBoxVATInTax.Location = new System.Drawing.Point(186, 301);
             this.comboBoxVATInTax.Name = "comboBoxVATInTax";
             this.comboBoxVATInTax.Size = new System.Drawing.Size(119, 31);
             this.comboBoxVATInTax.TabIndex = 39;
@@ -339,7 +339,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label10.Location = new System.Drawing.Point(60, 296);
+            this.label10.Location = new System.Drawing.Point(60, 306);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(118, 23);
             this.label10.TabIndex = 38;
@@ -349,7 +349,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(87, 6);
+            this.label4.Location = new System.Drawing.Point(87, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 2;
@@ -358,7 +358,7 @@
             // textBoxBarcode
             // 
             this.textBoxBarcode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxBarcode.Location = new System.Drawing.Point(187, 39);
+            this.textBoxBarcode.Location = new System.Drawing.Point(187, 49);
             this.textBoxBarcode.Name = "textBoxBarcode";
             this.textBoxBarcode.Size = new System.Drawing.Size(214, 30);
             this.textBoxBarcode.TabIndex = 1;
@@ -367,7 +367,7 @@
             // textBoxGenericName
             // 
             this.textBoxGenericName.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxGenericName.Location = new System.Drawing.Point(187, 220);
+            this.textBoxGenericName.Location = new System.Drawing.Point(187, 230);
             this.textBoxGenericName.Name = "textBoxGenericName";
             this.textBoxGenericName.Size = new System.Drawing.Size(214, 30);
             this.textBoxGenericName.TabIndex = 7;
@@ -377,7 +377,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(47, 81);
+            this.label5.Location = new System.Drawing.Point(47, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(134, 23);
             this.label5.TabIndex = 4;
@@ -387,7 +387,7 @@
             // 
             this.comboBoxDefaultSupplier.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxDefaultSupplier.FormattingEnabled = true;
-            this.comboBoxDefaultSupplier.Location = new System.Drawing.Point(185, 403);
+            this.comboBoxDefaultSupplier.Location = new System.Drawing.Point(185, 413);
             this.comboBoxDefaultSupplier.Name = "comboBoxDefaultSupplier";
             this.comboBoxDefaultSupplier.Size = new System.Drawing.Size(312, 31);
             this.comboBoxDefaultSupplier.TabIndex = 36;
@@ -396,7 +396,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label20.Location = new System.Drawing.Point(58, 223);
+            this.label20.Location = new System.Drawing.Point(58, 233);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(123, 23);
             this.label20.TabIndex = 6;
@@ -406,7 +406,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(51, 42);
+            this.label3.Location = new System.Drawing.Point(51, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 23);
             this.label3.TabIndex = 0;
@@ -415,7 +415,7 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(633, 5);
+            this.textBoxRemarks.Location = new System.Drawing.Point(633, 15);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(353, 101);
@@ -425,7 +425,7 @@
             // textBoxDescription
             // 
             this.textBoxDescription.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxDescription.Location = new System.Drawing.Point(187, 75);
+            this.textBoxDescription.Location = new System.Drawing.Point(187, 85);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(312, 104);
@@ -436,7 +436,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label18.Location = new System.Drawing.Point(549, 8);
+            this.label18.Location = new System.Drawing.Point(549, 18);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 23);
             this.label18.TabIndex = 20;
@@ -446,7 +446,7 @@
             // 
             this.textBoxItemCode.Enabled = false;
             this.textBoxItemCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxItemCode.Location = new System.Drawing.Point(187, 3);
+            this.textBoxItemCode.Location = new System.Drawing.Point(187, 13);
             this.textBoxItemCode.Name = "textBoxItemCode";
             this.textBoxItemCode.Size = new System.Drawing.Size(214, 30);
             this.textBoxItemCode.TabIndex = 3;
@@ -456,7 +456,7 @@
             // 
             this.comboBoxUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxUnit.FormattingEnabled = true;
-            this.comboBoxUnit.Location = new System.Drawing.Point(185, 366);
+            this.comboBoxUnit.Location = new System.Drawing.Point(185, 376);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(119, 31);
             this.comboBoxUnit.TabIndex = 35;
@@ -465,7 +465,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(132, 188);
+            this.label2.Location = new System.Drawing.Point(132, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 23);
             this.label2.TabIndex = 6;
@@ -475,7 +475,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(97, 258);
+            this.label6.Location = new System.Drawing.Point(97, 268);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 23);
             this.label6.TabIndex = 7;
@@ -485,7 +485,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(133, 370);
+            this.label7.Location = new System.Drawing.Point(133, 380);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 23);
             this.label7.TabIndex = 8;
@@ -495,7 +495,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(44, 406);
+            this.label8.Location = new System.Drawing.Point(44, 416);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(136, 23);
             this.label8.TabIndex = 9;
@@ -505,7 +505,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(132, 443);
+            this.label9.Location = new System.Drawing.Point(132, 453);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 23);
             this.label9.TabIndex = 10;
@@ -515,7 +515,7 @@
             // 
             this.checkBoxIsInventory.AutoSize = true;
             this.checkBoxIsInventory.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxIsInventory.Location = new System.Drawing.Point(186, 547);
+            this.checkBoxIsInventory.Location = new System.Drawing.Point(186, 557);
             this.checkBoxIsInventory.Name = "checkBoxIsInventory";
             this.checkBoxIsInventory.Size = new System.Drawing.Size(37, 27);
             this.checkBoxIsInventory.TabIndex = 29;
@@ -526,7 +526,7 @@
             // 
             this.textBoxReorderQuantity.Enabled = false;
             this.textBoxReorderQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxReorderQuantity.Location = new System.Drawing.Point(185, 512);
+            this.textBoxReorderQuantity.Location = new System.Drawing.Point(185, 522);
             this.textBoxReorderQuantity.Name = "textBoxReorderQuantity";
             this.textBoxReorderQuantity.Size = new System.Drawing.Size(214, 30);
             this.textBoxReorderQuantity.TabIndex = 28;
@@ -537,7 +537,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(129, 480);
+            this.label11.Location = new System.Drawing.Point(129, 490);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 23);
             this.label11.TabIndex = 12;
@@ -546,7 +546,7 @@
             // textBoxAlias
             // 
             this.textBoxAlias.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAlias.Location = new System.Drawing.Point(187, 185);
+            this.textBoxAlias.Location = new System.Drawing.Point(187, 195);
             this.textBoxAlias.Name = "textBoxAlias";
             this.textBoxAlias.Size = new System.Drawing.Size(214, 30);
             this.textBoxAlias.TabIndex = 13;
@@ -555,7 +555,7 @@
             // textBoxPrice
             // 
             this.textBoxPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPrice.Location = new System.Drawing.Point(185, 477);
+            this.textBoxPrice.Location = new System.Drawing.Point(185, 487);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(214, 30);
             this.textBoxPrice.TabIndex = 26;
@@ -566,7 +566,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(31, 514);
+            this.label13.Location = new System.Drawing.Point(31, 524);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(145, 23);
             this.label13.TabIndex = 15;
@@ -575,7 +575,7 @@
             // textBoxCost
             // 
             this.textBoxCost.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCost.Location = new System.Drawing.Point(185, 440);
+            this.textBoxCost.Location = new System.Drawing.Point(185, 450);
             this.textBoxCost.Name = "textBoxCost";
             this.textBoxCost.Size = new System.Drawing.Size(214, 30);
             this.textBoxCost.TabIndex = 24;
@@ -586,7 +586,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label14.Location = new System.Drawing.Point(94, 548);
+            this.label14.Location = new System.Drawing.Point(94, 558);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(86, 23);
             this.label14.TabIndex = 16;
@@ -689,8 +689,8 @@
             // ColumnArtilceUnitListBaseUnitMultiplier
             // 
             this.ColumnArtilceUnitListBaseUnitMultiplier.DataPropertyName = "ColumnArtilceUnitListBaseUnitMultiplier";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnArtilceUnitListBaseUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnArtilceUnitListBaseUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle7;
             this.ColumnArtilceUnitListBaseUnitMultiplier.HeaderText = "Base Unit Multiplier";
             this.ColumnArtilceUnitListBaseUnitMultiplier.Name = "ColumnArtilceUnitListBaseUnitMultiplier";
             this.ColumnArtilceUnitListBaseUnitMultiplier.ReadOnly = true;
@@ -699,8 +699,8 @@
             // ColumnArtilceUnitListUnitMultiplier
             // 
             this.ColumnArtilceUnitListUnitMultiplier.DataPropertyName = "ColumnArtilceUnitListUnitMultiplier";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnArtilceUnitListUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnArtilceUnitListUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle8;
             this.ColumnArtilceUnitListUnitMultiplier.HeaderText = "Unit Multiplier";
             this.ColumnArtilceUnitListUnitMultiplier.Name = "ColumnArtilceUnitListUnitMultiplier";
             this.ColumnArtilceUnitListUnitMultiplier.ReadOnly = true;
@@ -816,7 +816,7 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(1392, 601);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Item Price List";
+            this.tabPage2.Text = "Price";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // buttonAddItemPrice
@@ -909,8 +909,8 @@
             // ColumnItemPriceListPrice
             // 
             this.ColumnItemPriceListPrice.DataPropertyName = "ColumnItemPriceListPrice";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemPriceListPrice.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemPriceListPrice.DefaultCellStyle = dataGridViewCellStyle9;
             this.ColumnItemPriceListPrice.HeaderText = "Price";
             this.ColumnItemPriceListPrice.Name = "ColumnItemPriceListPrice";
             this.ColumnItemPriceListPrice.ReadOnly = true;
@@ -1010,7 +1010,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1392, 601);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Item Component List";
+            this.tabPage3.Text = "Component";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // buttonItemComponentAdd
@@ -1142,8 +1142,8 @@
             // ColumnItemComponenQuantity
             // 
             this.ColumnItemComponenQuantity.DataPropertyName = "ColumnItemComponenQuantity";
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenQuantity.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenQuantity.DefaultCellStyle = dataGridViewCellStyle10;
             this.ColumnItemComponenQuantity.HeaderText = "Quantity";
             this.ColumnItemComponenQuantity.Name = "ColumnItemComponenQuantity";
             this.ColumnItemComponenQuantity.ReadOnly = true;
@@ -1152,8 +1152,8 @@
             // ColumnItemComponenCost
             // 
             this.ColumnItemComponenCost.DataPropertyName = "ColumnItemComponenCost";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenCost.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenCost.DefaultCellStyle = dataGridViewCellStyle11;
             this.ColumnItemComponenCost.HeaderText = "Cost";
             this.ColumnItemComponenCost.Name = "ColumnItemComponenCost";
             this.ColumnItemComponenCost.ReadOnly = true;
@@ -1162,8 +1162,8 @@
             // ColumnItemComponenAmount
             // 
             this.ColumnItemComponenAmount.DataPropertyName = "ColumnItemComponenAmount";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenAmount.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenAmount.DefaultCellStyle = dataGridViewCellStyle12;
             this.ColumnItemComponenAmount.HeaderText = "Amount";
             this.ColumnItemComponenAmount.Name = "ColumnItemComponenAmount";
             this.ColumnItemComponenAmount.ReadOnly = true;

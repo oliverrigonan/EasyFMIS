@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MstArticlePriceDetailForm));
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxPriceDescription = new System.Windows.Forms.TextBox();
@@ -44,7 +45,7 @@
             // textBoxPrice
             // 
             this.textBoxPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPrice.Location = new System.Drawing.Point(160, 109);
+            this.textBoxPrice.Location = new System.Drawing.Point(160, 105);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(252, 30);
             this.textBoxPrice.TabIndex = 21;
@@ -56,7 +57,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(103, 112);
+            this.label3.Location = new System.Drawing.Point(103, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 23);
             this.label3.TabIndex = 20;
@@ -65,7 +66,7 @@
             // textBoxPriceDescription
             // 
             this.textBoxPriceDescription.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPriceDescription.Location = new System.Drawing.Point(160, 73);
+            this.textBoxPriceDescription.Location = new System.Drawing.Point(160, 69);
             this.textBoxPriceDescription.Name = "textBoxPriceDescription";
             this.textBoxPriceDescription.Size = new System.Drawing.Size(346, 30);
             this.textBoxPriceDescription.TabIndex = 19;
@@ -74,7 +75,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(12, 76);
+            this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 23);
             this.label2.TabIndex = 18;
@@ -146,6 +147,7 @@
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // MstArticlePriceDetailForm
             // 
@@ -157,9 +159,12 @@
             this.Controls.Add(this.textBoxPriceDescription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MstArticlePriceDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Item Price";
+            this.Text = "Item Price Detail";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

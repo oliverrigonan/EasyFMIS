@@ -108,5 +108,10 @@ namespace easyfmis.Forms.Software.MstItem
         {
             textBoxPrice.Text = Convert.ToDecimal(textBoxPrice.Text).ToString("#,##0.00");
         }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
