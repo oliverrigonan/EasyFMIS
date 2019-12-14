@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="easyfmis" Class="easyfmisdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyfmis;User ID=sa" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyfmisConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyfmis;Persist Security Info=True;User ID=sa" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyfmisConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.MstAccount" Member="MstAccounts">
     <Type Name="MstAccount">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -139,7 +139,11 @@
       <Column Name="InventoryCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ArticleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
-      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost1" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost2" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost3" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost4" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost5" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
       <Association Name="MstArticleInventory_TrnStockOutItem" Member="TrnStockOutItems" ThisKey="Id" OtherKey="ItemInventoryId" Type="TrnStockOutItem" />
       <Association Name="MstArticleInventory_TrnInventory" Member="TrnInventories" ThisKey="Id" OtherKey="ItemInventoryId" Type="TrnInventory" />
       <Association Name="MstArticleInventory_TrnSalesInvoiceItem" Member="TrnSalesInvoiceItems" ThisKey="Id" OtherKey="ItemInventoryId" Type="TrnSalesInvoiceItem" />

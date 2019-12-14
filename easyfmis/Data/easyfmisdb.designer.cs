@@ -120,7 +120,7 @@ namespace easyfmis.Data
     #endregion
 		
 		public easyfmisdbDataContext() : 
-				base(global::easyfmis.Properties.Settings.Default.easyfmisConnectionString1, mappingSource)
+				base(global::easyfmis.Properties.Settings.Default.easyfmisConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -3643,7 +3643,15 @@ namespace easyfmis.Data
 		
 		private decimal _Quantity;
 		
-		private decimal _Cost;
+		private decimal _Cost1;
+		
+		private decimal _Cost2;
+		
+		private decimal _Cost3;
+		
+		private decimal _Cost4;
+		
+		private decimal _Cost5;
 		
 		private EntitySet<TrnStockOutItem> _TrnStockOutItems;
 		
@@ -3667,8 +3675,16 @@ namespace easyfmis.Data
     partial void OnArticleIdChanged();
     partial void OnQuantityChanging(decimal value);
     partial void OnQuantityChanged();
-    partial void OnCostChanging(decimal value);
-    partial void OnCostChanged();
+    partial void OnCost1Changing(decimal value);
+    partial void OnCost1Changed();
+    partial void OnCost2Changing(decimal value);
+    partial void OnCost2Changed();
+    partial void OnCost3Changing(decimal value);
+    partial void OnCost3Changed();
+    partial void OnCost4Changing(decimal value);
+    partial void OnCost4Changed();
+    partial void OnCost5Changing(decimal value);
+    partial void OnCost5Changed();
     #endregion
 		
 		public MstArticleInventory()
@@ -3784,22 +3800,102 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,5) NOT NULL")]
-		public decimal Cost
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost1", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost1
 		{
 			get
 			{
-				return this._Cost;
+				return this._Cost1;
 			}
 			set
 			{
-				if ((this._Cost != value))
+				if ((this._Cost1 != value))
 				{
-					this.OnCostChanging(value);
+					this.OnCost1Changing(value);
 					this.SendPropertyChanging();
-					this._Cost = value;
-					this.SendPropertyChanged("Cost");
-					this.OnCostChanged();
+					this._Cost1 = value;
+					this.SendPropertyChanged("Cost1");
+					this.OnCost1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost2", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost2
+		{
+			get
+			{
+				return this._Cost2;
+			}
+			set
+			{
+				if ((this._Cost2 != value))
+				{
+					this.OnCost2Changing(value);
+					this.SendPropertyChanging();
+					this._Cost2 = value;
+					this.SendPropertyChanged("Cost2");
+					this.OnCost2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost3", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost3
+		{
+			get
+			{
+				return this._Cost3;
+			}
+			set
+			{
+				if ((this._Cost3 != value))
+				{
+					this.OnCost3Changing(value);
+					this.SendPropertyChanging();
+					this._Cost3 = value;
+					this.SendPropertyChanged("Cost3");
+					this.OnCost3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost4", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost4
+		{
+			get
+			{
+				return this._Cost4;
+			}
+			set
+			{
+				if ((this._Cost4 != value))
+				{
+					this.OnCost4Changing(value);
+					this.SendPropertyChanging();
+					this._Cost4 = value;
+					this.SendPropertyChanged("Cost4");
+					this.OnCost4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost5", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost5
+		{
+			get
+			{
+				return this._Cost5;
+			}
+			set
+			{
+				if ((this._Cost5 != value))
+				{
+					this.OnCost5Changing(value);
+					this.SendPropertyChanging();
+					this._Cost5 = value;
+					this.SendPropertyChanged("Cost5");
+					this.OnCost5Changed();
 				}
 			}
 		}

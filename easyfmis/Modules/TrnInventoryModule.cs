@@ -33,11 +33,11 @@ namespace easyfmis.Modules
                     if (inventories.Any())
                     {
                         Decimal quantity = inventories.Sum(d => d.Quantity);
-                        Decimal cost = inventories.OrderByDescending(d => d.Id).FirstOrDefault().MstArticleInventory.Cost;
+                        Decimal cost = inventories.OrderByDescending(d => d.Id).FirstOrDefault().MstArticleInventory.Cost1;
 
                         var updateArticleInventory = articleInventory.FirstOrDefault();
                         updateArticleInventory.Quantity = quantity;
-                        updateArticleInventory.Cost = cost;
+                        updateArticleInventory.Cost1 = cost;
 
                         db.SubmitChanges();
                     }
@@ -86,7 +86,7 @@ namespace easyfmis.Modules
                                 InventoryCode = inventoryCode,
                                 ArticleId = stockInItem.ItemId,
                                 Quantity = stockInItem.BaseQuantity,
-                                Cost = stockInItem.BaseCost
+                                Cost1 = stockInItem.BaseCost
                             };
 
                             db.MstArticleInventories.InsertOnSubmit(newArticleInventory);

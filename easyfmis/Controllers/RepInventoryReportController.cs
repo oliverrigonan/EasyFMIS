@@ -79,8 +79,8 @@ namespace easyfmis.Controllers
                                            InQuantity = 0,
                                            OutQuantity = 0,
                                            Endinguantity = d.Quantity,
-                                           Cost = d.MstArticleInventory.Cost,
-                                           Amount = d.Quantity * d.MstArticleInventory.Cost
+                                           Cost = d.MstArticleInventory.Cost1,
+                                           Amount = d.Quantity * d.MstArticleInventory.Cost1
                                        };
 
             var currentInventories = from d in db.TrnInventories
@@ -98,8 +98,8 @@ namespace easyfmis.Controllers
                                          InQuantity = d.QuantityIn,
                                          OutQuantity = d.QuantityOut,
                                          Endinguantity = d.Quantity,
-                                         Cost = d.MstArticleInventory.Cost,
-                                         Amount = d.Quantity * d.MstArticleInventory.Cost
+                                         Cost = d.MstArticleInventory.Cost1,
+                                         Amount = d.Quantity * d.MstArticleInventory.Cost1
                                      };
 
             var unionInventories = beginningInventories.ToList().Union(currentInventories.ToList());
