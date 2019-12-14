@@ -288,6 +288,7 @@
     <Content Include="Resources\Images\Company\easycloud.jpg" />
     <Content Include="Resources\Images\Customers\sonnets.png" />
     <Content Include="Resources\Images\Icons\building.png" />
+    <Content Include="Resources\Images\Icons\Collection.png" />
     <Content Include="Resources\Images\Icons\Customer.png" />
     <Content Include="Resources\Images\Icons\Disbursement.png" />
     <Content Include="Resources\Images\Icons\Discounting.png" />
@@ -299,8 +300,11 @@
     <Content Include="Resources\Images\Icons\jigsaw.png" />
     <Content Include="Resources\Images\Icons\POS Touch.png" />
     <Content Include="Resources\Images\Icons\POS.png" />
+    <Content Include="Resources\Images\Icons\Purchase Order.png" />
     <Content Include="Resources\Images\Icons\purse.png" />
+    <Content Include="Resources\Images\Icons\Receiving Receipt.png" />
     <Content Include="Resources\Images\Icons\Reports.png" />
+    <Content Include="Resources\Images\Icons\Sales Order.png" />
     <Content Include="Resources\Images\Icons\Settings.png" />
     <Content Include="Resources\Images\Icons\shopping-basket.png" />
     <Content Include="Resources\Images\Icons\shopping-cart.png" />
@@ -309,6 +313,8 @@
     <Content Include="Resources\Images\Icons\Stock Count.png" />
     <Content Include="Resources\Images\Icons\Stock In.png" />
     <Content Include="Resources\Images\Icons\Stock Out.png" />
+    <Content Include="Resources\Images\Icons\Stock Transfer.png" />
+    <Content Include="Resources\Images\Icons\Supplier.png" />
     <Content Include="Resources\Images\Icons\System Tables.png" />
     <Content Include="Resources\Images\Icons\User.png" />
     <Content Include="Resources\Images\Icons\Utilities.png" />
