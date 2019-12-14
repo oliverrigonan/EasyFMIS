@@ -91,7 +91,7 @@ namespace easyfmis.Controllers
                                where d.ArticleId == articleId
                                select new Entities.MstArticleUnitEntity
                                {
-                                   Id = d.Id,
+                                   UnitId = d.UnitId,
                                    Unit = d.MstUnit.Unit
                                };
 

@@ -426,6 +426,7 @@
             this.buttonStockOut.Text = "\r\nStock Out";
             this.buttonStockOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonStockOut.UseVisualStyleBackColor = false;
+            this.buttonStockOut.Click += new System.EventHandler(this.buttonStockOut_Click);
             // 
             // buttonRemittanceReport
             // 
