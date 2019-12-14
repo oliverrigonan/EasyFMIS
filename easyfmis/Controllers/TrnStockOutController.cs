@@ -205,6 +205,9 @@ namespace easyfmis.Controllers
                     lockStockOut.UpdatedDateTime = DateTime.Now;
                     db.SubmitChanges();
 
+                    Modules.TrnInventoryModule inventory = new Modules.TrnInventoryModule();
+                    inventory.InsertInventoryStockOut(id);
+
                     return new String[] { "", "1" };
                 }
                 else
@@ -247,6 +250,9 @@ namespace easyfmis.Controllers
                     unlockStockOut.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     unlockStockOut.UpdatedDateTime = DateTime.Now;
                     db.SubmitChanges();
+
+                    Modules.TrnInventoryModule inventory = new Modules.TrnInventoryModule();
+                    inventory.DeleteInventoryStockOut(id);
 
                     return new String[] { "", "1" };
                 }

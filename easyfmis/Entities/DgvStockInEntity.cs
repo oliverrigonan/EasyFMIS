@@ -14,5 +14,6 @@ namespace easyfmis.Entities
         public String ColumnStockInINNumber { get; set; }
         public String ColumnStockInRemarks { get; set; }
         public Boolean ColumnStockInIsLocked { get; set; }
+        public String ColumnStockInSpace { get; set; }
     }
 }

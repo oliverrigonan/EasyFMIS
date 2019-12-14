@@ -20,5 +20,6 @@ namespace easyfmis.Entities
         public String ColumnStockInItemAmount { get; set; }
         public String ColumnStockInItemBaseQuantity { get; set; }
         public String ColumnStockInItemBaseCost { get; set; }
+        public String ColumnStockInItemSpace { get; set; }
     }
 }

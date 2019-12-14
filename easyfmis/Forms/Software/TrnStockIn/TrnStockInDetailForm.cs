@@ -17,11 +17,17 @@ namespace easyfmis.Forms.Software.TrnStockIn
         public TrnStockInForm trnStockInForm;
         public Entities.TrnStockInEntity trnStockInEntity;
 
-        public static List<Entities.DgvStockInItemEntity> stockInLineData = new List<Entities.DgvStockInItemEntity>();
-        public static Int32 stockInLinePageNumber = 1;
-        public static Int32 stockInLinePageSize = 50;
-        public PagedList<Entities.DgvStockInItemEntity> stockInLinePageList = new PagedList<Entities.DgvStockInItemEntity>(stockInLineData, stockInLinePageNumber, stockInLinePageSize);
-        public BindingSource stockInLineDataSource = new BindingSource();
+        public static List<Entities.DgvStockInItemEntity> stockInItemData = new List<Entities.DgvStockInItemEntity>();
+        public static Int32 stockInItemPageNumber = 1;
+        public static Int32 stockInItemPageSize = 50;
+        public PagedList<Entities.DgvStockInItemEntity> stockInItemPageList = new PagedList<Entities.DgvStockInItemEntity>(stockInItemData, stockInItemPageNumber, stockInItemPageSize);
+        public BindingSource stockInItemDataSource = new BindingSource();
+
+        public static List<Entities.DgvInventoryEntriesEntity> inventoryEntriesData = new List<Entities.DgvInventoryEntriesEntity>();
+        public static Int32 inventoryEntriesPageNumber = 1;
+        public static Int32 inventoryEntriesPageSize = 50;
+        public PagedList<Entities.DgvInventoryEntriesEntity> inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
+        public BindingSource inventoryEntriesDataSource = new BindingSource();
 
         public TrnStockInDetailForm(SysSoftwareForm softwareForm, TrnStockInForm stockInListForm, Entities.TrnStockInEntity stockInEntity)
         {
@@ -68,6 +74,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
             comboBoxApprovedBy.SelectedValue = trnStockInEntity.ApprovedBy;
 
             CreateStockInItemDataGridView();
+            CreateInventoryEntriesDataGridView();
         }
 
         public void UpdateComponents(Boolean isLocked)
@@ -104,6 +111,8 @@ namespace easyfmis.Forms.Software.TrnStockIn
             {
                 UpdateComponents(true);
                 trnStockInForm.UpdateStockInDataSource();
+
+                UpdateInventoryEntriesDataSource();
             }
             else
             {
@@ -120,6 +129,8 @@ namespace easyfmis.Forms.Software.TrnStockIn
             {
                 UpdateComponents(false);
                 trnStockInForm.UpdateStockInDataSource();
+
+                UpdateInventoryEntriesDataSource();
             }
             else
             {
@@ -148,24 +159,24 @@ namespace easyfmis.Forms.Software.TrnStockIn
             List<Entities.DgvStockInItemEntity> getStockInItemData = await GetStockInItemDataTask();
             if (getStockInItemData.Any())
             {
-                stockInLineData = getStockInItemData;
-                stockInLinePageList = new PagedList<Entities.DgvStockInItemEntity>(stockInLineData, stockInLinePageNumber, stockInLinePageSize);
+                stockInItemData = getStockInItemData;
+                stockInItemPageList = new PagedList<Entities.DgvStockInItemEntity>(stockInItemData, stockInItemPageNumber, stockInItemPageSize);
 
-                if (stockInLinePageList.PageCount == 1)
+                if (stockInItemPageList.PageCount == 1)
                 {
                     buttonStockInItemPageListFirst.Enabled = false;
                     buttonStockInItemPageListPrevious.Enabled = false;
                     buttonStockInItemPageListNext.Enabled = false;
                     buttonStockInItemPageListLast.Enabled = false;
                 }
-                else if (stockInLinePageNumber == 1)
+                else if (stockInItemPageNumber == 1)
                 {
                     buttonStockInItemPageListFirst.Enabled = false;
                     buttonStockInItemPageListPrevious.Enabled = false;
                     buttonStockInItemPageListNext.Enabled = true;
                     buttonStockInItemPageListLast.Enabled = true;
                 }
-                else if (stockInLinePageNumber == stockInLinePageList.PageCount)
+                else if (stockInItemPageNumber == stockInItemPageList.PageCount)
                 {
                     buttonStockInItemPageListFirst.Enabled = true;
                     buttonStockInItemPageListPrevious.Enabled = true;
@@ -180,8 +191,8 @@ namespace easyfmis.Forms.Software.TrnStockIn
                     buttonStockInItemPageListLast.Enabled = true;
                 }
 
-                textBoxStockInItemPageNumber.Text = stockInLinePageNumber + " / " + stockInLinePageList.PageCount;
-                stockInLineDataSource.DataSource = stockInLinePageList;
+                textBoxStockInItemPageNumber.Text = stockInItemPageNumber + " / " + stockInItemPageList.PageCount;
+                stockInItemDataSource.DataSource = stockInItemPageList;
             }
             else
             {
@@ -190,10 +201,10 @@ namespace easyfmis.Forms.Software.TrnStockIn
                 buttonStockInItemPageListNext.Enabled = false;
                 buttonStockInItemPageListLast.Enabled = false;
 
-                stockInLinePageNumber = 1;
+                stockInItemPageNumber = 1;
 
-                stockInLineData = new List<Entities.DgvStockInItemEntity>();
-                stockInLineDataSource.Clear();
+                stockInItemData = new List<Entities.DgvStockInItemEntity>();
+                stockInItemDataSource.Clear();
                 textBoxStockInItemPageNumber.Text = "1 / 1";
             }
         }
@@ -221,6 +232,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
                                 ColumnStockInItemAmount = d.Amount.ToString("#,##0.00"),
                                 ColumnStockInItemBaseQuantity = d.BaseQuantity.ToString("#,##0.00"),
                                 ColumnStockInItemBaseCost = d.BaseCost.ToString("#,##0.00"),
+                                ColumnStockInItemSpace = ""
                             };
 
                 return Task.FromResult(items.ToList());
@@ -243,7 +255,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
             dataGridViewStockInItem.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
             dataGridViewStockInItem.Columns[1].DefaultCellStyle.ForeColor = Color.White;
 
-            dataGridViewStockInItem.DataSource = stockInLineDataSource;
+            dataGridViewStockInItem.DataSource = stockInItemDataSource;
         }
 
         public void GetStockInItemCurrentSelectedCell(Int32 rowIndex)
@@ -298,7 +310,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
                     String[] deleteStockInItem = trnStockInItemController.DeleteStockInItem(id);
                     if (deleteStockInItem[1].Equals("0") == false)
                     {
-                        stockInLinePageNumber = 1;
+                        stockInItemPageNumber = 1;
                         UpdateStockInItemDataSource();
                     }
                     else
@@ -311,76 +323,242 @@ namespace easyfmis.Forms.Software.TrnStockIn
 
         private void buttonStockInItemPageListFirst_Click(object sender, EventArgs e)
         {
-            stockInLinePageList = new PagedList<Entities.DgvStockInItemEntity>(stockInLineData, 1, stockInLinePageSize);
-            stockInLineDataSource.DataSource = stockInLinePageList;
+            stockInItemPageList = new PagedList<Entities.DgvStockInItemEntity>(stockInItemData, 1, stockInItemPageSize);
+            stockInItemDataSource.DataSource = stockInItemPageList;
 
             buttonStockInItemPageListFirst.Enabled = false;
             buttonStockInItemPageListPrevious.Enabled = false;
             buttonStockInItemPageListNext.Enabled = true;
             buttonStockInItemPageListLast.Enabled = true;
 
-            stockInLinePageNumber = 1;
-            textBoxStockInItemPageNumber.Text = stockInLinePageNumber + " / " + stockInLinePageList.PageCount;
+            stockInItemPageNumber = 1;
+            textBoxStockInItemPageNumber.Text = stockInItemPageNumber + " / " + stockInItemPageList.PageCount;
         }
 
         private void buttonStockInItemPageListPrevious_Click(object sender, EventArgs e)
         {
-            if (stockInLinePageList.HasPreviousPage == true)
+            if (stockInItemPageList.HasPreviousPage == true)
             {
-                stockInLinePageList = new PagedList<Entities.DgvStockInItemEntity>(stockInLineData, --stockInLinePageNumber, stockInLinePageSize);
-                stockInLineDataSource.DataSource = stockInLinePageList;
+                stockInItemPageList = new PagedList<Entities.DgvStockInItemEntity>(stockInItemData, --stockInItemPageNumber, stockInItemPageSize);
+                stockInItemDataSource.DataSource = stockInItemPageList;
             }
 
             buttonStockInItemPageListNext.Enabled = true;
             buttonStockInItemPageListLast.Enabled = true;
 
-            if (stockInLinePageNumber == 1)
+            if (stockInItemPageNumber == 1)
             {
                 buttonStockInItemPageListFirst.Enabled = false;
                 buttonStockInItemPageListPrevious.Enabled = false;
             }
 
-            textBoxStockInItemPageNumber.Text = stockInLinePageNumber + " / " + stockInLinePageList.PageCount;
+            textBoxStockInItemPageNumber.Text = stockInItemPageNumber + " / " + stockInItemPageList.PageCount;
         }
 
         private void buttonStockInItemPageListNext_Click(object sender, EventArgs e)
         {
-            if (stockInLinePageList.HasNextPage == true)
+            if (stockInItemPageList.HasNextPage == true)
             {
-                stockInLinePageList = new PagedList<Entities.DgvStockInItemEntity>(stockInLineData, ++stockInLinePageNumber, stockInLinePageSize);
-                stockInLineDataSource.DataSource = stockInLinePageList;
+                stockInItemPageList = new PagedList<Entities.DgvStockInItemEntity>(stockInItemData, ++stockInItemPageNumber, stockInItemPageSize);
+                stockInItemDataSource.DataSource = stockInItemPageList;
             }
 
             buttonStockInItemPageListFirst.Enabled = true;
             buttonStockInItemPageListPrevious.Enabled = true;
 
-            if (stockInLinePageNumber == stockInLinePageList.PageCount)
+            if (stockInItemPageNumber == stockInItemPageList.PageCount)
             {
                 buttonStockInItemPageListNext.Enabled = false;
                 buttonStockInItemPageListLast.Enabled = false;
             }
 
-            textBoxStockInItemPageNumber.Text = stockInLinePageNumber + " / " + stockInLinePageList.PageCount;
+            textBoxStockInItemPageNumber.Text = stockInItemPageNumber + " / " + stockInItemPageList.PageCount;
         }
 
         private void buttonStockInItemPageListLast_Click(object sender, EventArgs e)
         {
-            stockInLinePageList = new PagedList<Entities.DgvStockInItemEntity>(stockInLineData, stockInLinePageList.PageCount, stockInLinePageSize);
-            stockInLineDataSource.DataSource = stockInLinePageList;
+            stockInItemPageList = new PagedList<Entities.DgvStockInItemEntity>(stockInItemData, stockInItemPageList.PageCount, stockInItemPageSize);
+            stockInItemDataSource.DataSource = stockInItemPageList;
 
             buttonStockInItemPageListFirst.Enabled = true;
             buttonStockInItemPageListPrevious.Enabled = true;
             buttonStockInItemPageListNext.Enabled = false;
             buttonStockInItemPageListLast.Enabled = false;
 
-            stockInLinePageNumber = stockInLinePageList.PageCount;
-            textBoxStockInItemPageNumber.Text = stockInLinePageNumber + " / " + stockInLinePageList.PageCount;
+            stockInItemPageNumber = stockInItemPageList.PageCount;
+            textBoxStockInItemPageNumber.Text = stockInItemPageNumber + " / " + stockInItemPageList.PageCount;
         }
 
         private void buttonSearchItem_Click(object sender, EventArgs e)
         {
             TrnStockInDetailSearchItemForm trnStockInDetailSearchItemForm = new TrnStockInDetailSearchItemForm(this, trnStockInEntity);
             trnStockInDetailSearchItemForm.ShowDialog();
+        }
+
+        public void UpdateInventoryEntriesDataSource()
+        {
+            SetInventoryEntriesDataSourceAsync();
+        }
+
+        public async void SetInventoryEntriesDataSourceAsync()
+        {
+            List<Entities.DgvInventoryEntriesEntity> getInventoryEntriesData = await GetInventoryEntriesDataTask();
+            if (getInventoryEntriesData.Any())
+            {
+                inventoryEntriesData = getInventoryEntriesData;
+                inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
+
+                if (inventoryEntriesPageList.PageCount == 1)
+                {
+                    buttonInventoryEntriesPageListFirst.Enabled = false;
+                    buttonInventoryEntriesPageListPrevious.Enabled = false;
+                    buttonInventoryEntriesPageListNext.Enabled = false;
+                    buttonInventoryEntriesPageListLast.Enabled = false;
+                }
+                else if (inventoryEntriesPageNumber == 1)
+                {
+                    buttonInventoryEntriesPageListFirst.Enabled = false;
+                    buttonInventoryEntriesPageListPrevious.Enabled = false;
+                    buttonInventoryEntriesPageListNext.Enabled = true;
+                    buttonInventoryEntriesPageListLast.Enabled = true;
+                }
+                else if (inventoryEntriesPageNumber == inventoryEntriesPageList.PageCount)
+                {
+                    buttonInventoryEntriesPageListFirst.Enabled = true;
+                    buttonInventoryEntriesPageListPrevious.Enabled = true;
+                    buttonInventoryEntriesPageListNext.Enabled = false;
+                    buttonInventoryEntriesPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonInventoryEntriesPageListFirst.Enabled = true;
+                    buttonInventoryEntriesPageListPrevious.Enabled = true;
+                    buttonInventoryEntriesPageListNext.Enabled = true;
+                    buttonInventoryEntriesPageListLast.Enabled = true;
+                }
+
+                textBoxInventoryEntriesPageNumber.Text = inventoryEntriesPageNumber + " / " + inventoryEntriesPageList.PageCount;
+                inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
+            }
+            else
+            {
+                buttonInventoryEntriesPageListFirst.Enabled = false;
+                buttonInventoryEntriesPageListPrevious.Enabled = false;
+                buttonInventoryEntriesPageListNext.Enabled = false;
+                buttonInventoryEntriesPageListLast.Enabled = false;
+
+                inventoryEntriesPageNumber = 1;
+
+                inventoryEntriesData = new List<Entities.DgvInventoryEntriesEntity>();
+                inventoryEntriesDataSource.Clear();
+                textBoxInventoryEntriesPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public Task<List<Entities.DgvInventoryEntriesEntity>> GetInventoryEntriesDataTask()
+        {
+            Controllers.TrnInventoryController trnInventoryController = new Controllers.TrnInventoryController();
+
+            List<Entities.TrnInventoryEntity> listInventoryEntries = trnInventoryController.ListStockInInventoryEntries(trnStockInEntity.Id);
+            if (listInventoryEntries.Any())
+            {
+                var items = from d in listInventoryEntries
+                            select new Entities.DgvInventoryEntriesEntity
+                            {
+                                ColumnInventoryEntriesBranch = d.Branch,
+                                ColumnInventoryEntriesInventoryDate = d.InventoryDate.ToShortDateString(),
+                                ColumnInventoryEntriesItemDescription = d.ItemDescription,
+                                ColumnInventoryEntriesInventoryCode = d.ItemInventoryCode,
+                                ColumnInventoryEntriesQuantity = d.Quantity.ToString("#,##0.00"),
+                                ColumnInventoryEntriesAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnInventoryEntriesSpace = ""
+                            };
+
+                return Task.FromResult(items.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvInventoryEntriesEntity>());
+            }
+        }
+
+        public void CreateInventoryEntriesDataGridView()
+        {
+            UpdateInventoryEntriesDataSource();
+            dataGridViewInventoryEntries.DataSource = inventoryEntriesDataSource;
+        }
+
+        public void GetInventoryEntriesCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonInventoryEntriesPageListFirst_Click(object sender, EventArgs e)
+        {
+            inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, 1, inventoryEntriesPageSize);
+            inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
+
+            buttonInventoryEntriesPageListFirst.Enabled = false;
+            buttonInventoryEntriesPageListPrevious.Enabled = false;
+            buttonInventoryEntriesPageListNext.Enabled = true;
+            buttonInventoryEntriesPageListLast.Enabled = true;
+
+            inventoryEntriesPageNumber = 1;
+            textBoxInventoryEntriesPageNumber.Text = inventoryEntriesPageNumber + " / " + inventoryEntriesPageList.PageCount;
+        }
+
+        private void buttonInventoryEntriesPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (inventoryEntriesPageList.HasPreviousPage == true)
+            {
+                inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, --inventoryEntriesPageNumber, inventoryEntriesPageSize);
+                inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
+            }
+
+            buttonInventoryEntriesPageListNext.Enabled = true;
+            buttonInventoryEntriesPageListLast.Enabled = true;
+
+            if (inventoryEntriesPageNumber == 1)
+            {
+                buttonInventoryEntriesPageListFirst.Enabled = false;
+                buttonInventoryEntriesPageListPrevious.Enabled = false;
+            }
+
+            textBoxInventoryEntriesPageNumber.Text = inventoryEntriesPageNumber + " / " + inventoryEntriesPageList.PageCount;
+        }
+
+        private void buttonInventoryEntriesPageListNext_Click(object sender, EventArgs e)
+        {
+            if (inventoryEntriesPageList.HasNextPage == true)
+            {
+                inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, ++inventoryEntriesPageNumber, inventoryEntriesPageSize);
+                inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
+            }
+
+            buttonInventoryEntriesPageListFirst.Enabled = true;
+            buttonInventoryEntriesPageListPrevious.Enabled = true;
+
+            if (inventoryEntriesPageNumber == inventoryEntriesPageList.PageCount)
+            {
+                buttonInventoryEntriesPageListNext.Enabled = false;
+                buttonInventoryEntriesPageListLast.Enabled = false;
+            }
+
+            textBoxInventoryEntriesPageNumber.Text = inventoryEntriesPageNumber + " / " + inventoryEntriesPageList.PageCount;
+        }
+
+        private void buttonInventoryEntriesPageListLast_Click(object sender, EventArgs e)
+        {
+            inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageList.PageCount, inventoryEntriesPageSize);
+            inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
+
+            buttonInventoryEntriesPageListFirst.Enabled = true;
+            buttonInventoryEntriesPageListPrevious.Enabled = true;
+            buttonInventoryEntriesPageListNext.Enabled = false;
+            buttonInventoryEntriesPageListLast.Enabled = false;
+
+            inventoryEntriesPageNumber = inventoryEntriesPageList.PageCount;
+            textBoxInventoryEntriesPageNumber.Text = inventoryEntriesPageNumber + " / " + inventoryEntriesPageList.PageCount;
         }
     }
 }

@@ -46,7 +46,7 @@ namespace easyfmis.Forms.Software
         public TabPage tabPagePOSSalesDetail = new TabPage { Name = "tabPagePOSSalesDetail", Text = "Activity - POS Barcode - Sales Detail" };
         public TabPage tabPageStockInList = new TabPage { Name = "tabPageStockInList", Text = "Activity - Stock-In List" };
         public TabPage tabPageStockInDetail = new TabPage { Name = "tabPageStockInDetail", Text = "Activity - Stock-In Detail" };
-        public TabPage tabPageStockOutList = new TabPage { Name = "tabPageStockOutList", Text = "Activity - Stock-Out List" };
+        public TabPage tabPageStockOut = new TabPage { Name = "tabPageStockOut", Text = "Activity - Stock-Out List" };
         public TabPage tabPageStockOutDetail = new TabPage { Name = "tabPageStockOutDetail", Text = "Activity - Stock-Out Detail" };
         public TabPage tabPageStockCountList = new TabPage { Name = "tabPageStockCountList", Text = "Activity - Stock-Count List" };
         public TabPage tabPageStockCountDetail = new TabPage { Name = "tabPageStockCountDetail", Text = "Activity - Stock-Count Detail" };
@@ -78,8 +78,8 @@ namespace easyfmis.Forms.Software
         //public TrnPOS.TrnSalesDetailForm trnSalesDetailForm = null;
         public TrnStockIn.TrnStockInForm trnStockInForm = null;
         public TrnStockIn.TrnStockInDetailForm trnStockInDetailForm = null;
-        //public TrnStockOut.TrnStockOutListForm trnStockOutListForm = null;
-        //public TrnStockOut.TrnStockOutDetailForm trnStockOutDetailForm = null;
+        public TrnStockOut.TrnStockOutForm trnStockOutForm = null;
+        public TrnStockOut.TrnStockOutDetailForm trnStockOutDetailForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
         //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
@@ -87,7 +87,7 @@ namespace easyfmis.Forms.Software
 
         //public RepPOSReport.RepPOSReportForm repPOSReportForm = null;
         //public RepSalesReport.RepSalesReportForm repSalesReportForm = null;
-        //public RepInventoryReport.RepInventoryReportForm repInventoryReportForm = null;
+        public RepInventoryReport.RepInventoryReportForm repInventoryReportForm = null;
         //public RepRemittanceReport.RepRemittanceReportForm repRemittanceReportForm = null;
 
         //public SysSystemTables.SysSystemTablesForm sysSystemTablesForm = null;
@@ -130,9 +130,9 @@ namespace easyfmis.Forms.Software
             //}
         }
 
-         //=============
-         //Tab Functions
-         //=============
+        //=============
+        //Tab Functions
+        //=============
         public void AddTabPageItemList()
         {
             tabPageItemList.Controls.Remove(mstItemListForm);
@@ -421,53 +421,53 @@ namespace easyfmis.Forms.Software
             }
         }
 
-        //public void AddTabPageStockOutList()
-        //{
-        //    tabPageStockOutList.Controls.Remove(trnStockOutListForm);
+        public void AddTabPageStockOutList()
+        {
+            tabPageStockOut.Controls.Remove(trnStockOutForm);
 
-        //    trnStockOutListForm = new TrnStockOut.TrnStockOutListForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            trnStockOutForm = new TrnStockOut.TrnStockOutForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageStockOutList.Controls.Add(trnStockOutListForm);
+            tabPageStockOut.Controls.Add(trnStockOutForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageStockOutList) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageStockOutList);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageStockOutList);
-        //        tabControlSoftware.SelectTab(tabPageStockOutList);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageStockOut) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageStockOut);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageStockOut);
+                tabControlSoftware.SelectTab(tabPageStockOut);
+            }
+        }
 
-        //public void AddTabPageStockOutDetail(TrnStockOut.TrnStockOutListForm stockOutListForm, Entities.TrnStockOutEntity stockOutEntity)
-        //{
-        //    tabPageStockOutDetail.Controls.Remove(trnStockOutDetailForm);
+        public void AddTabPageStockOutDetail(TrnStockOut.TrnStockOutForm stockOutListForm, Entities.TrnStockOutEntity stockOutEntity)
+        {
+            tabPageStockOutDetail.Controls.Remove(trnStockOutDetailForm);
 
-        //    trnStockOutDetailForm = new TrnStockOut.TrnStockOutDetailForm(this, stockOutListForm, stockOutEntity)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            trnStockOutDetailForm = new TrnStockOut.TrnStockOutDetailForm(this, stockOutListForm, stockOutEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageStockOutDetail.Controls.Add(trnStockOutDetailForm);
+            tabPageStockOutDetail.Controls.Add(trnStockOutDetailForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageStockOutDetail) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageStockOutDetail);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageStockOutDetail);
-        //        tabControlSoftware.SelectTab(tabPageStockOutDetail);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageStockOutDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageStockOutDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageStockOutDetail);
+                tabControlSoftware.SelectTab(tabPageStockOutDetail);
+            }
+        }
 
         //public void AddTabPageStockCountList()
         //{
@@ -589,29 +589,29 @@ namespace easyfmis.Forms.Software
         //    }
         //}
 
-        //public void AddTabPageInventoryReports()
-        //{
-        //    tabPageInventoryReports.Controls.Remove(repInventoryReportForm);
+        public void AddTabPageInventoryReports()
+        {
+            tabPageInventoryReports.Controls.Remove(repInventoryReportForm);
 
-        //    repInventoryReportForm = new RepInventoryReport.RepInventoryReportForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            repInventoryReportForm = new RepInventoryReport.RepInventoryReportForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageInventoryReports.Controls.Add(repInventoryReportForm);
+            tabPageInventoryReports.Controls.Add(repInventoryReportForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageInventoryReports) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageInventoryReports);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageInventoryReports);
-        //        tabControlSoftware.SelectTab(tabPageInventoryReports);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageInventoryReports) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageInventoryReports);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageInventoryReports);
+                tabControlSoftware.SelectTab(tabPageInventoryReports);
+            }
+        }
 
         //public void AddTabPageSystemTables()
         //{
@@ -773,7 +773,7 @@ namespace easyfmis.Forms.Software
 
         private void stockOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //AddTabPageStockOutList();
+            //AddTabPageStockOut();
         }
 
         private void stockCountToolStripMenuItem_Click(object sender, EventArgs e)
