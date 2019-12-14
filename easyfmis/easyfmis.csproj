@@ -50,7 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MstArticleComponentController.cs" />
     <Compile Include="Controllers\MstArticleController.cs" />
+    <Compile Include="Controllers\MstArticlePriceController.cs" />
+    <Compile Include="Controllers\MstArticleUnitController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\RepInventoryReportController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
@@ -68,11 +71,15 @@
     <Compile Include="Entities\DgvInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
+    <Compile Include="Entities\DgvItemDetailItemPriceListEntity.cs" />
+    <Compile Include="Entities\DgvMstArticleComponentEntity.cs" />
+    <Compile Include="Entities\DgvMstArticleUnitEntity.cs" />
     <Compile Include="Entities\DgvStockOutEntity.cs" />
     <Compile Include="Entities\DgvStockOutItemEntity.cs" />
     <Compile Include="Entities\DgvStockInItemEntity.cs" />
     <Compile Include="Entities\DgvStockInEntity.cs" />
     <Compile Include="Entities\DgvSearchItemEntity.cs" />
+    <Compile Include="Entities\MstArticleComponentEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
     <Compile Include="Entities\MstArticleInventory.cs" />
     <Compile Include="Entities\MstArticlePriceEntity.cs" />
@@ -97,6 +104,24 @@
     </Compile>
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstArticleComponentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstArticleComponentForm.Designer.cs">
+      <DependentUpon>MstArticleComponentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstArticlePriceDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstArticlePriceDetailForm.Designer.cs">
+      <DependentUpon>MstArticlePriceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstArticleUnitDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstItem\MstArticleUnitDetailForm.Designer.cs">
+      <DependentUpon>MstArticleUnitDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\MstItem\MstItemDetailForm.cs">
       <SubType>Form</SubType>
@@ -198,6 +223,15 @@
     </None>
     <EmbeddedResource Include="Forms\Account\SysLogin\SysLoginForm.resx">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstItem\MstArticleComponentForm.resx">
+      <DependentUpon>MstArticleComponentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstItem\MstArticlePriceDetailForm.resx">
+      <DependentUpon>MstArticlePriceDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstItem\MstArticleUnitDetailForm.resx">
+      <DependentUpon>MstArticleUnitDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstItem\MstItemDetailForm.resx">
       <DependentUpon>MstItemDetailForm.cs</DependentUpon>

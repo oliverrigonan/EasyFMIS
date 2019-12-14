@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="easyfmis" Class="easyfmisdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyfmis;Persist Security Info=True;User ID=sa" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyfmisConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyfmis;User ID=sa" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyfmisConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.MstAccount" Member="MstAccounts">
     <Type Name="MstAccount">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -100,7 +100,6 @@
       <Column Name="UpdatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UpdatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="MstArticle_TrnStockOutItem" Member="TrnStockOutItems" ThisKey="Id" OtherKey="ItemId" Type="TrnStockOutItem" />
-      <Association Name="MstArticle_MstArticle" Member="MstArticles" ThisKey="Id" OtherKey="DefaultSupplierId" Type="MstArticle" />
       <Association Name="MstArticle_MstArticleComponent" Member="MstArticleComponents" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleComponent" />
       <Association Name="MstArticle_MstArticleComponent1" Member="MstArticleComponents1" ThisKey="Id" OtherKey="ComponentArticleId" Type="MstArticleComponent" />
       <Association Name="MstArticle_MstArticleInventory" Member="MstArticleInventories" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleInventory" />
@@ -111,12 +110,12 @@
       <Association Name="MstArticle_TrnSalesInvoice" Member="TrnSalesInvoices" ThisKey="Id" OtherKey="CustomerId" Type="TrnSalesInvoice" />
       <Association Name="MstArticle_TrnSalesInvoiceItem" Member="TrnSalesInvoiceItems" ThisKey="Id" OtherKey="ItemId" Type="TrnSalesInvoiceItem" />
       <Association Name="MstArticle_TrnStockInItem" Member="TrnStockInItems" ThisKey="Id" OtherKey="ItemId" Type="TrnStockInItem" />
-      <Association Name="MstArticle_MstArticle" Member="MstArticle1" ThisKey="DefaultSupplierId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" />
       <Association Name="MstArticleType_MstArticle" Member="MstArticleType" ThisKey="ArticleTypeId" OtherKey="Id" Type="MstArticleType" IsForeignKey="true" />
       <Association Name="MstTax_MstArticle" Member="MstTax" ThisKey="VATInTaxId" OtherKey="Id" Type="MstTax" IsForeignKey="true" />
       <Association Name="MstTax_MstArticle1" Member="MstTax1" ThisKey="VATOutTaxId" OtherKey="Id" Type="MstTax" IsForeignKey="true" />
       <Association Name="MstUnit_MstArticle" Member="MstUnit" ThisKey="UnitId" OtherKey="Id" Type="MstUnit" IsForeignKey="true" />
-      <Association Name="MstUser_MstArticle" Member="MstUser" ThisKey="UpdatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
+      <Association Name="MstUser_MstArticle" Member="MstUser" ThisKey="CreatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
+      <Association Name="MstUser_MstArticle1" Member="MstUser1" ThisKey="UpdatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.MstArticleComponent" Member="MstArticleComponents">
@@ -310,7 +309,8 @@
       <Association Name="MstUser_MstAccountCategory1" Member="MstAccountCategories1" ThisKey="Id" OtherKey="UpdatedBy" Type="MstAccountCategory" />
       <Association Name="MstUser_MstAccountType" Member="MstAccountTypes" ThisKey="Id" OtherKey="CreatedBy" Type="MstAccountType" />
       <Association Name="MstUser_MstAccountType1" Member="MstAccountTypes1" ThisKey="Id" OtherKey="UpdatedBy" Type="MstAccountType" />
-      <Association Name="MstUser_MstArticle" Member="MstArticles" ThisKey="Id" OtherKey="UpdatedBy" Type="MstArticle" />
+      <Association Name="MstUser_MstArticle" Member="MstArticles" ThisKey="Id" OtherKey="CreatedBy" Type="MstArticle" />
+      <Association Name="MstUser_MstArticle1" Member="MstArticles1" ThisKey="Id" OtherKey="UpdatedBy" Type="MstArticle" />
       <Association Name="MstUser_MstCompany" Member="MstCompanies" ThisKey="Id" OtherKey="CreatedBy" Type="MstCompany" />
       <Association Name="MstUser_MstCompany1" Member="MstCompanies1" ThisKey="Id" OtherKey="UpdatedBy" Type="MstCompany" />
       <Association Name="MstUser_MstDiscount" Member="MstDiscounts" ThisKey="Id" OtherKey="CreatedBy" Type="MstDiscount" />

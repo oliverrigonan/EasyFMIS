@@ -271,6 +271,7 @@
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // buttonAdd
             // 
@@ -317,6 +318,7 @@
             // 
             // ColumnItemListArticleTypeId
             // 
+            this.ColumnItemListArticleTypeId.DataPropertyName = "ColumnItemListArticleTypeId";
             this.ColumnItemListArticleTypeId.HeaderText = "ArticleTypeId";
             this.ColumnItemListArticleTypeId.Name = "ColumnItemListArticleTypeId";
             this.ColumnItemListArticleTypeId.ReadOnly = true;
@@ -340,6 +342,7 @@
             // 
             // ColumnItemListArticleBarCode
             // 
+            this.ColumnItemListArticleBarCode.DataPropertyName = "ColumnItemListArticleBarCode";
             this.ColumnItemListArticleBarCode.HeaderText = "BarCode";
             this.ColumnItemListArticleBarCode.Name = "ColumnItemListArticleBarCode";
             this.ColumnItemListArticleBarCode.ReadOnly = true;
@@ -356,6 +359,7 @@
             // 
             // ColumnItemListGenericArticleName
             // 
+            this.ColumnItemListGenericArticleName.DataPropertyName = "ColumnItemListGenericArticleName";
             this.ColumnItemListGenericArticleName.HeaderText = "GenericArticleName";
             this.ColumnItemListGenericArticleName.Name = "ColumnItemListGenericArticleName";
             this.ColumnItemListGenericArticleName.ReadOnly = true;
@@ -372,6 +376,7 @@
             // 
             // ColumnItemListVATInTaxId
             // 
+            this.ColumnItemListVATInTaxId.DataPropertyName = "ColumnItemListVATInTaxId";
             this.ColumnItemListVATInTaxId.HeaderText = "VATInTaxId";
             this.ColumnItemListVATInTaxId.Name = "ColumnItemListVATInTaxId";
             this.ColumnItemListVATInTaxId.ReadOnly = true;
@@ -379,6 +384,7 @@
             // 
             // ColumnItemListVATInTax
             // 
+            this.ColumnItemListVATInTax.DataPropertyName = "ColumnItemListVATInTax";
             this.ColumnItemListVATInTax.HeaderText = "VATInTax";
             this.ColumnItemListVATInTax.Name = "ColumnItemListVATInTax";
             this.ColumnItemListVATInTax.ReadOnly = true;
@@ -387,6 +393,7 @@
             // 
             // ColumnItemListVATOutTaxId
             // 
+            this.ColumnItemListVATOutTaxId.DataPropertyName = "ColumnItemListVATOutTaxId";
             this.ColumnItemListVATOutTaxId.HeaderText = "VATOutTaxId";
             this.ColumnItemListVATOutTaxId.Name = "ColumnItemListVATOutTaxId";
             this.ColumnItemListVATOutTaxId.ReadOnly = true;
@@ -394,6 +401,7 @@
             // 
             // ColumnItemListVATOutTax
             // 
+            this.ColumnItemListVATOutTax.DataPropertyName = "ColumnItemListVATOutTax";
             this.ColumnItemListVATOutTax.HeaderText = "VATOutTax";
             this.ColumnItemListVATOutTax.Name = "ColumnItemListVATOutTax";
             this.ColumnItemListVATOutTax.ReadOnly = true;
@@ -402,6 +410,7 @@
             // 
             // ColumnItemListUnitId
             // 
+            this.ColumnItemListUnitId.DataPropertyName = "ColumnItemListUnitId";
             this.ColumnItemListUnitId.HeaderText = "UnitId";
             this.ColumnItemListUnitId.Name = "ColumnItemListUnitId";
             this.ColumnItemListUnitId.ReadOnly = true;
@@ -416,6 +425,7 @@
             // 
             // ColumnItemListDefaultSupplierId
             // 
+            this.ColumnItemListDefaultSupplierId.DataPropertyName = "ColumnItemListDefaultSupplierId";
             this.ColumnItemListDefaultSupplierId.HeaderText = "DefaultSupplierId";
             this.ColumnItemListDefaultSupplierId.Name = "ColumnItemListDefaultSupplierId";
             this.ColumnItemListDefaultSupplierId.ReadOnly = true;
@@ -423,6 +433,7 @@
             // 
             // ColumnItemListDefaultCost
             // 
+            this.ColumnItemListDefaultCost.DataPropertyName = "ColumnItemListDefaultCost";
             this.ColumnItemListDefaultCost.HeaderText = "Cost";
             this.ColumnItemListDefaultCost.Name = "ColumnItemListDefaultCost";
             this.ColumnItemListDefaultCost.ReadOnly = true;

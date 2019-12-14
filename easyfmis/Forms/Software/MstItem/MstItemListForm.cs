@@ -96,15 +96,15 @@ namespace easyfmis.Forms.Software.MstItem
             String filter = textBoxItemListFilter.Text;
             Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
 
-            List<Entities.MstArticleEntity> listItem = mstItemController.ListArticle(2);
+            List<Entities.MstArticleEntity> listItem = mstItemController.ListArticle(1);
             if (listItem.Any())
             {
                 var items = from d in listItem
-                            where d.ArticleCode.Contains("filter")
-                            && d.ArticleBarCode.Contains("filter")
-                            && d.Article.Contains("filter")
-                            && d.Category.Contains("filter")
-                            && d.Unit.Contains("filter")
+                            //where d.ArticleCode.Contains("filter")
+                            //&& d.ArticleBarCode.Contains("filter")
+                            //&& d.Article.Contains("filter")
+                            //&& d.Category.Contains("filter")
+                            //&& d.Unit.Contains("filter")
                             select new Entities.DgvItemListItemEntity
                             {
                                 ColumnItemListButtonEdit = "Edit",
@@ -127,12 +127,6 @@ namespace easyfmis.Forms.Software.MstItem
                                 ColumnItemListDefaultPrice = d.DefaultPrice.ToString("#,##0.00"),
                                 ColumnItemListReorderQuantity = d.ReorderQuantity.ToString("#,##0.00"),
                                 ColumnItemListIsInventory = d.IsInventory,
-                                ColumnItemListAddress = d.Address,
-                                ColumnItemListContactPerson = d.ContactPerson,
-                                ColumnItemListContactNumber = d.ContactNumber,
-                                ColumnItemListEmailAddress = d.EmailAddress,
-                                ColumnItemListTIN = d.TIN,
-                                ColumnItemListRemarks = d.Remarks,
                                 ColumnItemListIsLocked = d.IsLocked
                             };
 
@@ -176,8 +170,8 @@ namespace easyfmis.Forms.Software.MstItem
             String[] addItem = mstItemController.AddArticle();
             if (addItem[1].Equals("0") == false)
             {
-                //sysSoftwareForm.AddTabPageItemDetail(this, mstItemController.DetailItem(Convert.ToInt32(addItem[1])));
-                //UpdateItemListDataSource();
+                sysSoftwareForm.AddTabPageItemDetail(this, mstItemController.DetailArticle(Convert.ToInt32(addItem[1])));
+                UpdateItemListDataSource();
             }
             else
             {
@@ -194,13 +188,13 @@ namespace easyfmis.Forms.Software.MstItem
 
             if (e.RowIndex > -1 && dataGridViewItemList.CurrentCell.ColumnIndex == dataGridViewItemList.Columns["ColumnItemListButtonEdit"].Index)
             {
-                //Controllers.MstItemController mstItemController = new Controllers.MstItemController();
-                //sysSoftwareForm.AddTabPageItemDetail(this, mstItemController.DetailItem(Convert.ToInt32(dataGridViewItemList.Rows[e.RowIndex].Cells[2].Value)));
+                Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
+                sysSoftwareForm.AddTabPageItemDetail(this, mstItemController.DetailArticle(Convert.ToInt32(dataGridViewItemList.Rows[e.RowIndex].Cells[2].Value)));
             }
 
             if (e.RowIndex > -1 && dataGridViewItemList.CurrentCell.ColumnIndex == dataGridViewItemList.Columns["ColumnItemListButtonDelete"].Index)
             {
-                Boolean isLocked = Convert.ToBoolean(dataGridViewItemList.Rows[e.RowIndex].Cells[11].Value);
+                Boolean isLocked = Convert.ToBoolean(dataGridViewItemList.Rows[e.RowIndex].Cells[21].Value);
 
                 if (isLocked == true)
                 {
@@ -208,42 +202,42 @@ namespace easyfmis.Forms.Software.MstItem
                 }
                 else
                 {
-                    //DialogResult deleteDialogResult = MessageBox.Show("Delete Item?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    //if (deleteDialogResult == DialogResult.Yes)
-                    //{
-                    //    Controllers.MstItemController mstItemController = new Controllers.MstItemController();
+                    DialogResult deleteDialogResult = MessageBox.Show("Delete Item?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (deleteDialogResult == DialogResult.Yes)
+                    {
+                        Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
 
-                    //    String[] deleteItem = mstItemController.DeleteItem(Convert.ToInt32(dataGridViewItemList.Rows[e.RowIndex].Cells[2].Value));
-                    //    if (deleteItem[1].Equals("0") == false)
-                    //    {
-                    //        Int32 currentPageNumber = pageNumber;
+                        String[] deleteItem = mstItemController.DeleteArticle(Convert.ToInt32(dataGridViewItemList.Rows[e.RowIndex].Cells[2].Value));
+                        if (deleteItem[1].Equals("0") == false)
+                        {
+                            Int32 currentPageNumber = pageNumber;
 
-                    //        pageNumber = 1;
-                    //        UpdateItemListDataSource();
+                            pageNumber = 1;
+                            UpdateItemListDataSource();
 
-                    //        if (itemListPageList != null)
-                    //        {
-                    //            if (itemListData.Count() % pageSize == 1)
-                    //            {
-                    //                pageNumber = currentPageNumber - 1;
-                    //            }
-                    //            else if (itemListData.Count() < 1)
-                    //            {
-                    //                pageNumber = 1;
-                    //            }
-                    //            else
-                    //            {
-                    //                pageNumber = currentPageNumber;
-                    //            }
+                            if (itemListPageList != null)
+                            {
+                                if (itemListData.Count() % pageSize == 1)
+                                {
+                                    pageNumber = currentPageNumber - 1;
+                                }
+                                else if (itemListData.Count() < 1)
+                                {
+                                    pageNumber = 1;
+                                }
+                                else
+                                {
+                                    pageNumber = currentPageNumber;
+                                }
 
-                    //            itemListDataSource.DataSource = itemListPageList;
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show(deleteItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    }
-                    //}
+                                itemListDataSource.DataSource = itemListPageList;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show(deleteItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
         }
