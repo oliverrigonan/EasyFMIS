@@ -87,7 +87,7 @@ namespace easyfmis.Forms.Software
 
         //public RepPOSReport.RepPOSReportForm repPOSReportForm = null;
         //public RepSalesReport.RepSalesReportForm repSalesReportForm = null;
-        //public RepInventoryReport.RepInventoryReportForm repInventoryReportForm = null;
+        public RepInventoryReport.RepInventoryReportForm repInventoryReportForm = null;
         //public RepRemittanceReport.RepRemittanceReportForm repRemittanceReportForm = null;
 
         //public SysSystemTables.SysSystemTablesForm sysSystemTablesForm = null;
@@ -589,29 +589,29 @@ namespace easyfmis.Forms.Software
         //    }
         //}
 
-        //public void AddTabPageInventoryReports()
-        //{
-        //    tabPageInventoryReports.Controls.Remove(repInventoryReportForm);
+        public void AddTabPageInventoryReports()
+        {
+            tabPageInventoryReports.Controls.Remove(repInventoryReportForm);
 
-        //    repInventoryReportForm = new RepInventoryReport.RepInventoryReportForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            repInventoryReportForm = new RepInventoryReport.RepInventoryReportForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageInventoryReports.Controls.Add(repInventoryReportForm);
+            tabPageInventoryReports.Controls.Add(repInventoryReportForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageInventoryReports) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageInventoryReports);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageInventoryReports);
-        //        tabControlSoftware.SelectTab(tabPageInventoryReports);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageInventoryReports) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageInventoryReports);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageInventoryReports);
+                tabControlSoftware.SelectTab(tabPageInventoryReports);
+            }
+        }
 
         //public void AddTabPageSystemTables()
         //{

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Controllers\MstArticleController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
+    <Compile Include="Controllers\RepInventoryReportController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
@@ -65,6 +66,7 @@
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\DgvInventoryEntriesEntity.cs" />
+    <Compile Include="Entities\DgvInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
     <Compile Include="Entities\DgvStockOutEntity.cs" />
     <Compile Include="Entities\DgvStockOutItemEntity.cs" />
@@ -81,6 +83,8 @@
     <Compile Include="Entities\MstTaxEntity.cs" />
     <Compile Include="Entities\MstUnitEntity.cs" />
     <Compile Include="Entities\MstUserEntity.cs" />
+    <Compile Include="Entities\RepInventoryReportStockCard.cs" />
+    <Compile Include="Entities\RepInventoryReport.cs" />
     <Compile Include="Entities\SysConnectionStringEntity.cs" />
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
@@ -105,6 +109,18 @@
     </Compile>
     <Compile Include="Forms\Software\MstItem\MstItemListForm.Designer.cs">
       <DependentUpon>MstItemListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.designer.cs">
+      <DependentUpon>RepInventoryReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportInventoryReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportInventoryReportForm.designer.cs">
+      <DependentUpon>RepInventoryReportInventoryReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\SysMenu\SysMenuForm.cs">
       <SubType>Form</SubType>
@@ -188,6 +204,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstItem\MstItemListForm.resx">
       <DependentUpon>MstItemListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.resx">
+      <DependentUpon>RepInventoryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportInventoryReportForm.resx">
+      <DependentUpon>RepInventoryReportInventoryReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysMenu\SysMenuForm.resx">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
