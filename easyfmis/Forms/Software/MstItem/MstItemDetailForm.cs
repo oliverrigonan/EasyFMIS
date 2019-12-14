@@ -900,5 +900,10 @@ namespace easyfmis.Forms.Software.MstItem
             pageNumber = itemComponentListPageList.PageCount;
             textBoxItemComponentListPageNumber.Text = pageNumber + " / " + itemComponentListPageList.PageCount;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
