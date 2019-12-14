@@ -2120,8 +2120,6 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnStockOutItem> _TrnStockOutItems;
 		
-		private EntitySet<MstArticle> _MstArticles;
-		
 		private EntitySet<MstArticleComponent> _MstArticleComponents;
 		
 		private EntitySet<MstArticleComponent> _MstArticleComponents1;
@@ -2142,8 +2140,6 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnStockInItem> _TrnStockInItems;
 		
-		private EntityRef<MstArticle> _MstArticle1;
-		
 		private EntityRef<MstArticleType> _MstArticleType;
 		
 		private EntityRef<MstTax> _MstTax;
@@ -2153,6 +2149,8 @@ namespace easyfmis.Data
 		private EntityRef<MstUnit> _MstUnit;
 		
 		private EntityRef<MstUser> _MstUser;
+		
+		private EntityRef<MstUser> _MstUser1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2217,7 +2215,6 @@ namespace easyfmis.Data
 		public MstArticle()
 		{
 			this._TrnStockOutItems = new EntitySet<TrnStockOutItem>(new Action<TrnStockOutItem>(this.attach_TrnStockOutItems), new Action<TrnStockOutItem>(this.detach_TrnStockOutItems));
-			this._MstArticles = new EntitySet<MstArticle>(new Action<MstArticle>(this.attach_MstArticles), new Action<MstArticle>(this.detach_MstArticles));
 			this._MstArticleComponents = new EntitySet<MstArticleComponent>(new Action<MstArticleComponent>(this.attach_MstArticleComponents), new Action<MstArticleComponent>(this.detach_MstArticleComponents));
 			this._MstArticleComponents1 = new EntitySet<MstArticleComponent>(new Action<MstArticleComponent>(this.attach_MstArticleComponents1), new Action<MstArticleComponent>(this.detach_MstArticleComponents1));
 			this._MstArticleInventories = new EntitySet<MstArticleInventory>(new Action<MstArticleInventory>(this.attach_MstArticleInventories), new Action<MstArticleInventory>(this.detach_MstArticleInventories));
@@ -2228,12 +2225,12 @@ namespace easyfmis.Data
 			this._TrnSalesInvoices = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices));
 			this._TrnSalesInvoiceItems = new EntitySet<TrnSalesInvoiceItem>(new Action<TrnSalesInvoiceItem>(this.attach_TrnSalesInvoiceItems), new Action<TrnSalesInvoiceItem>(this.detach_TrnSalesInvoiceItems));
 			this._TrnStockInItems = new EntitySet<TrnStockInItem>(new Action<TrnStockInItem>(this.attach_TrnStockInItems), new Action<TrnStockInItem>(this.detach_TrnStockInItems));
-			this._MstArticle1 = default(EntityRef<MstArticle>);
 			this._MstArticleType = default(EntityRef<MstArticleType>);
 			this._MstTax = default(EntityRef<MstTax>);
 			this._MstTax1 = default(EntityRef<MstTax>);
 			this._MstUnit = default(EntityRef<MstUnit>);
 			this._MstUser = default(EntityRef<MstUser>);
+			this._MstUser1 = default(EntityRef<MstUser>);
 			OnCreated();
 		}
 		
@@ -2484,10 +2481,6 @@ namespace easyfmis.Data
 			{
 				if ((this._DefaultSupplierId != value))
 				{
-					if (this._MstArticle1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnDefaultSupplierIdChanging(value);
 					this.SendPropertyChanging();
 					this._DefaultSupplierId = value;
@@ -2728,6 +2721,10 @@ namespace easyfmis.Data
 			{
 				if ((this._CreatedBy != value))
 				{
+					if (this._MstUser.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCreatedByChanging(value);
 					this.SendPropertyChanging();
 					this._CreatedBy = value;
@@ -2768,7 +2765,7 @@ namespace easyfmis.Data
 			{
 				if ((this._UpdatedBy != value))
 				{
-					if (this._MstUser.HasLoadedOrAssignedValue)
+					if (this._MstUser1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -2811,19 +2808,6 @@ namespace easyfmis.Data
 			set
 			{
 				this._TrnStockOutItems.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_MstArticle", Storage="_MstArticles", ThisKey="Id", OtherKey="DefaultSupplierId")]
-		public EntitySet<MstArticle> MstArticles
-		{
-			get
-			{
-				return this._MstArticles;
-			}
-			set
-			{
-				this._MstArticles.Assign(value);
 			}
 		}
 		
@@ -2954,40 +2938,6 @@ namespace easyfmis.Data
 			set
 			{
 				this._TrnStockInItems.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_MstArticle", Storage="_MstArticle1", ThisKey="DefaultSupplierId", OtherKey="Id", IsForeignKey=true)]
-		public MstArticle MstArticle1
-		{
-			get
-			{
-				return this._MstArticle1.Entity;
-			}
-			set
-			{
-				MstArticle previousValue = this._MstArticle1.Entity;
-				if (((previousValue != value) 
-							|| (this._MstArticle1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MstArticle1.Entity = null;
-						previousValue.MstArticles.Remove(this);
-					}
-					this._MstArticle1.Entity = value;
-					if ((value != null))
-					{
-						value.MstArticles.Add(this);
-						this._DefaultSupplierId = value.Id;
-					}
-					else
-					{
-						this._DefaultSupplierId = default(int);
-					}
-					this.SendPropertyChanged("MstArticle1");
-				}
 			}
 		}
 		
@@ -3127,7 +3077,7 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_MstArticle", Storage="_MstUser", ThisKey="UpdatedBy", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_MstArticle", Storage="_MstUser", ThisKey="CreatedBy", OtherKey="Id", IsForeignKey=true)]
 		public MstUser MstUser
 		{
 			get
@@ -3150,13 +3100,47 @@ namespace easyfmis.Data
 					if ((value != null))
 					{
 						value.MstArticles.Add(this);
+						this._CreatedBy = value.Id;
+					}
+					else
+					{
+						this._CreatedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_MstArticle1", Storage="_MstUser1", ThisKey="UpdatedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser1
+		{
+			get
+			{
+				return this._MstUser1.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser1.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser1.Entity = null;
+						previousValue.MstArticles1.Remove(this);
+					}
+					this._MstUser1.Entity = value;
+					if ((value != null))
+					{
+						value.MstArticles1.Add(this);
 						this._UpdatedBy = value.Id;
 					}
 					else
 					{
 						this._UpdatedBy = default(int);
 					}
-					this.SendPropertyChanged("MstUser");
+					this.SendPropertyChanged("MstUser1");
 				}
 			}
 		}
@@ -3191,18 +3175,6 @@ namespace easyfmis.Data
 		{
 			this.SendPropertyChanging();
 			entity.MstArticle = null;
-		}
-		
-		private void attach_MstArticles(MstArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstArticle1 = this;
-		}
-		
-		private void detach_MstArticles(MstArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstArticle1 = null;
 		}
 		
 		private void attach_MstArticleComponents(MstArticleComponent entity)
@@ -7274,6 +7246,8 @@ namespace easyfmis.Data
 		
 		private EntitySet<MstArticle> _MstArticles;
 		
+		private EntitySet<MstArticle> _MstArticles1;
+		
 		private EntitySet<MstCompany> _MstCompanies;
 		
 		private EntitySet<MstCompany> _MstCompanies1;
@@ -7383,6 +7357,7 @@ namespace easyfmis.Data
 			this._MstAccountTypes = new EntitySet<MstAccountType>(new Action<MstAccountType>(this.attach_MstAccountTypes), new Action<MstAccountType>(this.detach_MstAccountTypes));
 			this._MstAccountTypes1 = new EntitySet<MstAccountType>(new Action<MstAccountType>(this.attach_MstAccountTypes1), new Action<MstAccountType>(this.detach_MstAccountTypes1));
 			this._MstArticles = new EntitySet<MstArticle>(new Action<MstArticle>(this.attach_MstArticles), new Action<MstArticle>(this.detach_MstArticles));
+			this._MstArticles1 = new EntitySet<MstArticle>(new Action<MstArticle>(this.attach_MstArticles1), new Action<MstArticle>(this.detach_MstArticles1));
 			this._MstCompanies = new EntitySet<MstCompany>(new Action<MstCompany>(this.attach_MstCompanies), new Action<MstCompany>(this.detach_MstCompanies));
 			this._MstCompanies1 = new EntitySet<MstCompany>(new Action<MstCompany>(this.attach_MstCompanies1), new Action<MstCompany>(this.detach_MstCompanies1));
 			this._MstDiscounts = new EntitySet<MstDiscount>(new Action<MstDiscount>(this.attach_MstDiscounts), new Action<MstDiscount>(this.detach_MstDiscounts));
@@ -7728,7 +7703,7 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_MstArticle", Storage="_MstArticles", ThisKey="Id", OtherKey="UpdatedBy")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_MstArticle", Storage="_MstArticles", ThisKey="Id", OtherKey="CreatedBy")]
 		public EntitySet<MstArticle> MstArticles
 		{
 			get
@@ -7738,6 +7713,19 @@ namespace easyfmis.Data
 			set
 			{
 				this._MstArticles.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_MstArticle1", Storage="_MstArticles1", ThisKey="Id", OtherKey="UpdatedBy")]
+		public EntitySet<MstArticle> MstArticles1
+		{
+			get
+			{
+				return this._MstArticles1;
+			}
+			set
+			{
+				this._MstArticles1.Assign(value);
 			}
 		}
 		
@@ -8353,6 +8341,18 @@ namespace easyfmis.Data
 		{
 			this.SendPropertyChanging();
 			entity.MstUser = null;
+		}
+		
+		private void attach_MstArticles1(MstArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = this;
+		}
+		
+		private void detach_MstArticles1(MstArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = null;
 		}
 		
 		private void attach_MstCompanies(MstCompany entity)

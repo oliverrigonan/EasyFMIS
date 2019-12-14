@@ -13,6 +13,22 @@ namespace easyfmis.Controllers
         // ============
         public Data.easyfmisdbDataContext db = new Data.easyfmisdbDataContext(Modules.SysConnectionStringModule.GetConnectionString());
 
+        // ===================
+        // Fill Leading Zeroes
+        // ===================
+        public String FillLeadingZeroes(Int32 number, Int32 length)
+        {
+            var result = number.ToString();
+            var pad = length - result.Length;
+            while (pad > 0)
+            {
+                result = '0' + result;
+                pad--;
+            }
+
+            return result;
+        }
+
         // ============
         // List Article
         // ============
@@ -56,7 +72,7 @@ namespace easyfmis.Controllers
                                UpdatedDateTime = d.UpdatedDateTime
                            };
 
-            return articles.ToList();
+            return articles.OrderByDescending(d=> d.Id).ToList();
         }
 
         // ==============
@@ -142,30 +158,41 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+                String itemCode = "0000000001";
+                var lastItemCode = from d in db.MstArticles.OrderByDescending(d => d.Id)
+                                   where d.ArticleTypeId == 1
+                                   select d;
+                if (lastItemCode.Any())
+                {
+                    Int32 newItemCode = Convert.ToInt32(lastItemCode.FirstOrDefault().ArticleCode) + 1;
+                    itemCode = FillLeadingZeroes(newItemCode, 10);
+                }
+
                 var unit = from d in db.MstUnits
                            select d;
-                if (unit.Any())
+                if (unit.Any() == false)
                 {
                     return new String[] { "Unit not found.", "0" };
                 }
 
                 var tax = from d in db.MstTaxes
                           select d;
-                if (tax.Any())
+                if (tax.Any() == false)
                 {
                     return new String[] { "Tax not found.", "0" };
                 }
 
                 var articleType = from d in db.MstArticleTypes
                                   select d;
-                if (articleType.Any())
+                if (articleType.Any() == false)
                 {
                     return new String[] { "Tax type not found.", "0" };
                 }
 
-                var article = from d in db.MstArticles
+                var supplier = from d in db.MstArticles
+                              where d.MstArticleType.Id == 3
                               select d;
-                if (article.Any())
+                if (supplier.Any()== false)
                 {
                     return new String[] { "Article not found.", "0" };
                 }
@@ -174,7 +201,7 @@ namespace easyfmis.Controllers
                 Data.MstArticle newArticle = new Data.MstArticle()
                 {
                     ArticleTypeId = articleType.FirstOrDefault().Id,
-                    ArticleCode = "NA",
+                    ArticleCode = itemCode,
                     ArticleBarCode = "NA",
                     Article = "NA",
                     ArticleAlias = "NA",
@@ -183,7 +210,7 @@ namespace easyfmis.Controllers
                     VATInTaxId = tax.FirstOrDefault().Id,
                     VATOutTaxId = tax.FirstOrDefault().Id,
                     UnitId = unit.FirstOrDefault().Id,
-                    DefaultSupplierId = article.FirstOrDefault().Id,
+                    DefaultSupplierId = supplier.FirstOrDefault().Id,
                     DefaultCost = 0,
                     DefaultPrice = 0,
                     ReorderQuantity = 0,
@@ -312,7 +339,7 @@ namespace easyfmis.Controllers
                     lockArticle.EmailAddress = objArticle.EmailAddress;
                     lockArticle.TIN = objArticle.TIN;
                     lockArticle.Remarks = objArticle.Remarks;
-                    lockArticle.IsLocked = objArticle.IsLocked;
+                    lockArticle.IsLocked = true;
                     lockArticle.UpdatedBy = objArticle.UpdatedBy;
                     lockArticle.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
@@ -350,7 +377,7 @@ namespace easyfmis.Controllers
                 {
                     var unlockArticle = currentArticle.FirstOrDefault();
 
-                    unlockArticle.IsLocked = objArticle.IsLocked;
+                    unlockArticle.IsLocked = false;
                     unlockArticle.UpdatedBy = objArticle.UpdatedBy;
                     unlockArticle.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
@@ -384,6 +411,7 @@ namespace easyfmis.Controllers
                     {
                         var deleteArticle = currentArticle.FirstOrDefault();
                         db.MstArticles.DeleteOnSubmit(deleteArticle);
+                        db.SubmitChanges();
 
                         return new string[] { "", "" };
                     }

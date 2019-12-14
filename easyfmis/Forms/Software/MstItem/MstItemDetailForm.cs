@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,9 @@ namespace easyfmis.Forms.Software.MstItem
 
             mstItemListForm = itemListForm;
             mstItemEntity = itemEntity;
+
+            GetTaxList();
+            
         }
 
         public void GetTaxList()
@@ -63,9 +67,9 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 comboBoxDefaultSupplier.DataSource = mstItemController.ListArticle(3);
                 comboBoxDefaultSupplier.ValueMember = "Id";
-                comboBoxDefaultSupplier.DisplayMember = "TaxCode";
-
+                comboBoxDefaultSupplier.DisplayMember = "Article";
             }
+            GetItemDetail();
         }
 
         public void GetItemDetail()
@@ -83,7 +87,7 @@ namespace easyfmis.Forms.Software.MstItem
             comboBoxDefaultSupplier.SelectedValue = mstItemEntity.DefaultSupplierId;
             textBoxCost.Text = mstItemEntity.DefaultCost.ToString("#,##0.00");
             textBoxPrice.Text = mstItemEntity.DefaultPrice.ToString("#,##0.00"); ;
-            textBoxReorderQuantity.Text = mstItemEntity.ReorderQuantity.ToString("#,##0.00"); ;
+            textBoxReorderQuantity.Text = mstItemEntity.ReorderQuantity.ToString("#,##0.00");
             checkBoxIsInventory.Checked = mstItemEntity.IsInventory;
             textBoxGenericName.Text = mstItemEntity.GenericArticleName;
             textBoxRemarks.Text = mstItemEntity.Remarks;
@@ -92,7 +96,7 @@ namespace easyfmis.Forms.Software.MstItem
 
         public void UpdateComponents(Boolean isLocked)
         {
- 
+
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
 
@@ -112,9 +116,9 @@ namespace easyfmis.Forms.Software.MstItem
             textBoxRemarks.Enabled = !isLocked;
             textBoxGenericName.Enabled = !isLocked;
 
-            //CreateItemPriceListDataGridView();
-
-            //CreateItemComponentListDataGridView();
+            CreateArticleUnittDataGridView();
+            CreateItemPriceListDataGridView();
+            CreateItemComponentListDataGridView();
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
@@ -123,7 +127,7 @@ namespace easyfmis.Forms.Software.MstItem
 
             mstItemEntity.ArticleCode = textBoxItemCode.Text;
             mstItemEntity.ArticleBarCode = textBoxBarcode.Text;
-            mstItemEntity.Article= textBoxDescription.Text;
+            mstItemEntity.Article = textBoxDescription.Text;
             mstItemEntity.ArticleAlias = textBoxAlias.Text;
             mstItemEntity.Category = textBoxCategory.Text;
             mstItemEntity.VATInTaxId = Convert.ToInt32(comboBoxVATInTax.SelectedValue);
@@ -170,6 +174,731 @@ namespace easyfmis.Forms.Software.MstItem
         private void buttonClose_Close(object sender, EventArgs e)
         {
             sysSoftwareForm.RemoveTabPage();
+        }
+
+        //====================
+        // Unit Convertion Tab
+        //====================
+
+        public static Int32 pageSize = 50;
+        public static Int32 pageNumber = 1;
+
+        public static List<Entities.DgvMstArticleUnitEntity> itemUnitConversionListData = new List<Entities.DgvMstArticleUnitEntity>();
+        public PagedList<Entities.DgvMstArticleUnitEntity> itemUnitConversionPageList = new PagedList<Entities.DgvMstArticleUnitEntity>(itemUnitConversionListData, pageNumber, pageSize);
+        public BindingSource itemUnitConversionListDataSource = new BindingSource();
+
+        public Task<List<Entities.DgvMstArticleUnitEntity>> GetArtileUnitListDataTask()
+        {
+            Controllers.MstArticleUnitController mstArticleUnitController = new Controllers.MstArticleUnitController();
+            List<Entities.MstArticleUnitEntity> listArticleUnit = mstArticleUnitController.ListArticleList(mstItemEntity.Id);
+            if (listArticleUnit.Any())
+            {
+                var itemPrices = from d in listArticleUnit
+                                 select new Entities.DgvMstArticleUnitEntity
+                                 {
+                                     ColumnItemArtilceUnitButtonEdit = "Edit",
+                                     ColumnItemArtilceUnitButtonDelete = "Delete",
+                                     ColumnArtilceUnitListId = d.Id,
+                                     ColumnArtilceUnitListArticleId = d.ArticleId,
+                                     ColumnArtilceUnitListBaseUnitMultiplier = d.BaseUnitMultiplier.ToString("#,##0.00"),
+                                     ColumnArtilceUnitListUnitMultiplier = d.UnitMultiplier.ToString("#,##0.00"),
+                                     ColumnItemUnitConversionListUnitId = d.UnitId,
+                                     ColumnArtilceUnitListUnit = d.Unit
+                                 };
+
+                return Task.FromResult(itemPrices.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvMstArticleUnitEntity>());
+            }
+        }
+
+        public async void SetArticleUnitListDataSourceAsync()
+        {
+            List<Entities.DgvMstArticleUnitEntity> getArtileUnitListData = await GetArtileUnitListDataTask();
+            if (getArtileUnitListData.Any())
+            {
+                itemUnitConversionListData = getArtileUnitListData;
+                itemUnitConversionPageList = new PagedList<Entities.DgvMstArticleUnitEntity>(itemUnitConversionListData, pageNumber, pageSize);
+
+                if (itemUnitConversionPageList.PageCount == 1)
+                {
+                    buttonArticleUnitListPageListFirst.Enabled = false;
+                    buttonArticleUnitListPageListPrevious.Enabled = false;
+                    buttonArticleUnitListPageListNext.Enabled = false;
+                    buttonArticleUnitListPageListLast.Enabled = false;
+                }
+                else if (pageNumber == 1)
+                {
+                    buttonArticleUnitListPageListFirst.Enabled = false;
+                    buttonArticleUnitListPageListPrevious.Enabled = false;
+                    buttonArticleUnitListPageListNext.Enabled = true;
+                    buttonArticleUnitListPageListLast.Enabled = true;
+                }
+                else if (pageNumber == itemUnitConversionPageList.PageCount)
+                {
+                    buttonArticleUnitListPageListFirst.Enabled = true;
+                    buttonArticleUnitListPageListPrevious.Enabled = true;
+                    buttonArticleUnitListPageListNext.Enabled = false;
+                    buttonArticleUnitListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonArticleUnitListPageListFirst.Enabled = true;
+                    buttonArticleUnitListPageListPrevious.Enabled = true;
+                    buttonArticleUnitListPageListNext.Enabled = true;
+                    buttonArticleUnitListPageListLast.Enabled = true;
+                }
+
+                textBoxItemArticleUnitPageNumber.Text = pageNumber + " / " + itemUnitConversionPageList.PageCount;
+                itemUnitConversionListDataSource.DataSource = itemUnitConversionPageList;
+            }
+            else
+            {
+                buttonArticleUnitListPageListFirst.Enabled = false;
+                buttonArticleUnitListPageListPrevious.Enabled = false;
+                buttonArticleUnitListPageListNext.Enabled = false;
+                buttonArticleUnitListPageListLast.Enabled = false;
+
+                pageNumber = 1;
+
+                getArtileUnitListData = new List<Entities.DgvMstArticleUnitEntity>();
+                itemUnitConversionListDataSource.Clear();
+                textBoxItemArticleUnitPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public void UpdateArticleUnitListDataSource()
+        {
+            SetArticleUnitListDataSourceAsync();
+        }
+
+        public void CreateArticleUnittDataGridView()
+        {
+            UpdateArticleUnitListDataSource();
+
+            dataGridViewUnitConversion.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewUnitConversion.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewUnitConversion.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewUnitConversion.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewUnitConversion.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewUnitConversion.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewUnitConversion.DataSource = itemUnitConversionListDataSource;
+        }
+
+        private void buttonArticleUnitListPageListFirst_Click(object sender, EventArgs e)
+        {
+            itemUnitConversionPageList = new PagedList<Entities.DgvMstArticleUnitEntity>(itemUnitConversionListData, 1, pageSize);
+            itemUnitConversionListDataSource.DataSource = itemUnitConversionPageList;
+
+            buttonArticleUnitListPageListFirst.Enabled = false;
+            buttonArticleUnitListPageListPrevious.Enabled = false;
+            buttonArticleUnitListPageListNext.Enabled = true;
+            buttonArticleUnitListPageListLast.Enabled = true;
+
+            pageNumber = 1;
+            textBoxItemArticleUnitPageNumber.Text = pageNumber + " / " + itemUnitConversionPageList.PageCount;
+        }
+
+        private void buttonArticleUnitListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (itemUnitConversionPageList.HasPreviousPage == true)
+            {
+                itemUnitConversionPageList = new PagedList<Entities.DgvMstArticleUnitEntity>(itemUnitConversionListData, --pageNumber, pageSize);
+                itemUnitConversionListDataSource.DataSource = itemUnitConversionPageList;
+            }
+
+            buttonArticleUnitListPageListNext.Enabled = true;
+            buttonArticleUnitListPageListLast.Enabled = true;
+
+            if (pageNumber == 1)
+            {
+                buttonArticleUnitListPageListFirst.Enabled = false;
+                buttonArticleUnitListPageListPrevious.Enabled = false;
+            }
+
+            textBoxItemArticleUnitPageNumber.Text = pageNumber + " / " + itemUnitConversionPageList.PageCount;
+        }
+
+        private void buttonArticleUnitListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (itemUnitConversionPageList.HasNextPage == true)
+            {
+                itemUnitConversionPageList = new PagedList<Entities.DgvMstArticleUnitEntity>(itemUnitConversionListData, ++pageNumber, pageSize);
+                itemUnitConversionListDataSource.DataSource = itemUnitConversionPageList;
+            }
+
+            buttonArticleUnitListPageListFirst.Enabled = true;
+            buttonArticleUnitListPageListPrevious.Enabled = true;
+
+            if (pageNumber == itemUnitConversionPageList.PageCount)
+            {
+                buttonArticleUnitListPageListNext.Enabled = false;
+                buttonArticleUnitListPageListLast.Enabled = false;
+            }
+
+            textBoxItemArticleUnitPageNumber.Text = pageNumber + " / " + itemUnitConversionPageList.PageCount;
+        }
+
+        private void buttonArticleUnitListPageListLast_Click(object sender, EventArgs e)
+        {
+            itemUnitConversionPageList = new PagedList<Entities.DgvMstArticleUnitEntity>(itemUnitConversionListData, itemUnitConversionPageList.PageCount, pageSize);
+            itemUnitConversionListDataSource.DataSource = itemUnitConversionPageList;
+
+            buttonArticleUnitListPageListFirst.Enabled = true;
+            buttonArticleUnitListPageListPrevious.Enabled = true;
+            buttonArticleUnitListPageListNext.Enabled = false;
+            buttonArticleUnitListPageListLast.Enabled = false;
+
+            pageNumber = itemUnitConversionPageList.PageCount;
+            textBoxItemArticleUnitPageNumber.Text = pageNumber + " / " + itemUnitConversionPageList.PageCount;
+        }
+
+        private void buttonAddUnitConvertion_Click(object sender, EventArgs e)
+        {
+            MstArticleUnitDetailForm mstArticleUnitDetailForm = new MstArticleUnitDetailForm(this, null, mstItemEntity.Id);
+            mstArticleUnitDetailForm.ShowDialog();
+        }
+
+        private void dataGridViewUnitConversion_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetArticleUnitListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewUnitConversion.CurrentCell.ColumnIndex == dataGridViewUnitConversion.Columns["ColumnItemArtilceUnitButtonEdit"].Index)
+            {
+                Entities.MstArticleUnitEntity selectedArticleUnit = new Entities.MstArticleUnitEntity()
+                {
+                    Id = Convert.ToInt32(dataGridViewUnitConversion.Rows[e.RowIndex].Cells[dataGridViewUnitConversion.Columns["ColumnArtilceUnitListId"].Index].Value),
+                    ArticleId = Convert.ToInt32(dataGridViewUnitConversion.Rows[e.RowIndex].Cells[dataGridViewUnitConversion.Columns["ColumnArtilceUnitListArticleId"].Index].Value),
+                    BaseUnitMultiplier = Convert.ToDecimal(dataGridViewUnitConversion.Rows[e.RowIndex].Cells[dataGridViewUnitConversion.Columns["ColumnArtilceUnitListBaseUnitMultiplier"].Index].Value),
+                    UnitMultiplier = Convert.ToDecimal(dataGridViewUnitConversion.Rows[e.RowIndex].Cells[dataGridViewUnitConversion.Columns["ColumnArtilceUnitListUnitMultiplier"].Index].Value),
+                    UnitId = Convert.ToInt32(dataGridViewUnitConversion.Rows[e.RowIndex].Cells[dataGridViewUnitConversion.Columns["ColumnItemUnitConversionListUnitId"].Index].Value)
+                };
+
+                MstArticleUnitDetailForm mstArticleUnitDetailForm = new MstArticleUnitDetailForm(this, selectedArticleUnit, selectedArticleUnit.ArticleId);
+                mstArticleUnitDetailForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewUnitConversion.CurrentCell.ColumnIndex == dataGridViewUnitConversion.Columns["ColumnItemArtilceUnitButtonDelete"].Index)
+            {
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Unit Conversion?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstArticleUnitController mstArticleUnitController = new Controllers.MstArticleUnitController();
+
+                    String[] deleteArticleUnit = mstArticleUnitController.DeleteArticleUnit(Convert.ToInt32(dataGridViewUnitConversion.Rows[e.RowIndex].Cells[dataGridViewUnitConversion.Columns["ColumnArtilceUnitListId"].Index].Value));
+                    if (deleteArticleUnit[1].Equals("0") == false)
+                    {
+                        Int32 currentPageNumber = pageNumber;
+
+                        pageNumber = 1;
+                        UpdateArticleUnitListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteArticleUnit[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+        }
+
+        public void GetArticleUnitListCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+
+        //===========
+        // Item Price
+        //===========
+
+        public static List<Entities.DgvItemDetailItemPriceListEntity> itemPriceListData = new List<Entities.DgvItemDetailItemPriceListEntity>();
+        public PagedList<Entities.DgvItemDetailItemPriceListEntity> itemPriceListPageList = new PagedList<Entities.DgvItemDetailItemPriceListEntity>(itemPriceListData, pageNumber, pageSize);
+        public BindingSource itemPriceListDataSource = new BindingSource();
+
+        public void UpdateItemPriceListDataSource()
+        {
+            SetItemPriceListDataSourceAsync();
+        }
+
+        public async void SetItemPriceListDataSourceAsync()
+        {
+            List<Entities.DgvItemDetailItemPriceListEntity> getItemPriceListData = await GetItemPriceListDataTask();
+            if (getItemPriceListData.Any())
+            {
+                itemPriceListData = getItemPriceListData;
+                itemPriceListPageList = new PagedList<Entities.DgvItemDetailItemPriceListEntity>(itemPriceListData, pageNumber, pageSize);
+
+                if (itemPriceListPageList.PageCount == 1)
+                {
+                    buttonItemPriceListPageListFirst.Enabled = false;
+                    buttonItemPriceListPageListPrevious.Enabled = false;
+                    buttonItemPriceListPageListNext.Enabled = false;
+                    buttonItemPriceListPageListLast.Enabled = false;
+                }
+                else if (pageNumber == 1)
+                {
+                    buttonItemPriceListPageListFirst.Enabled = false;
+                    buttonItemPriceListPageListPrevious.Enabled = false;
+                    buttonItemPriceListPageListNext.Enabled = true;
+                    buttonItemPriceListPageListLast.Enabled = true;
+                }
+                else if (pageNumber == itemPriceListPageList.PageCount)
+                {
+                    buttonItemPriceListPageListFirst.Enabled = true;
+                    buttonItemPriceListPageListPrevious.Enabled = true;
+                    buttonItemPriceListPageListNext.Enabled = false;
+                    buttonItemPriceListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonItemPriceListPageListFirst.Enabled = true;
+                    buttonItemPriceListPageListPrevious.Enabled = true;
+                    buttonItemPriceListPageListNext.Enabled = true;
+                    buttonItemPriceListPageListLast.Enabled = true;
+                }
+
+                textBoxItemPriceListPageNumber.Text = pageNumber + " / " + itemPriceListPageList.PageCount;
+                itemPriceListDataSource.DataSource = itemPriceListPageList;
+            }
+            else
+            {
+                buttonItemPriceListPageListFirst.Enabled = false;
+                buttonItemPriceListPageListPrevious.Enabled = false;
+                buttonItemPriceListPageListNext.Enabled = false;
+                buttonItemPriceListPageListLast.Enabled = false;
+
+                pageNumber = 1;
+
+                itemPriceListData = new List<Entities.DgvItemDetailItemPriceListEntity>();
+                itemPriceListDataSource.Clear();
+                textBoxItemPriceListPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public Task<List<Entities.DgvItemDetailItemPriceListEntity>> GetItemPriceListDataTask()
+        {
+            Controllers.MstArticlePriceController mstItemPriceController = new Controllers.MstArticlePriceController();
+            List<Entities.MstArticlePriceEntity> listItemPrice = mstItemPriceController.ListItemPrice(mstItemEntity.Id);
+            if (listItemPrice.Any())
+            {
+                var itemPrices = from d in listItemPrice
+                                 select new Entities.DgvItemDetailItemPriceListEntity
+                                 {
+                                     ColumnItemPriceListButtonEdit = "Edit",
+                                     ColumnItemPriceListButtonDelete = "Delete",
+                                     ColumnItemPriceListId = d.Id,
+                                     ColumnItemPriceListPriceDescription = d.PriceDescription,
+                                     ColumnItemPriceListPrice = d.Price.ToString("#,##0.00"),
+                                 };
+
+                return Task.FromResult(itemPrices.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvItemDetailItemPriceListEntity>());
+            }
+        }
+
+        public void CreateItemPriceListDataGridView()
+        {
+            UpdateItemPriceListDataSource();
+
+            dataGridViewItemPriceList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewItemPriceList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewItemPriceList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewItemPriceList.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewItemPriceList.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewItemPriceList.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewItemPriceList.DataSource = itemPriceListDataSource;
+        }
+
+        private void textBoxItemPriceListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateItemPriceListDataSource();
+            }
+        }
+
+        private void dataGridViewItemPriceList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetItemPriceListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewItemPriceList.CurrentCell.ColumnIndex == dataGridViewItemPriceList.Columns["ColumnItemPriceListButtonEdit"].Index)
+            {
+                Entities.MstArticlePriceEntity selectedItemPrice = new Entities.MstArticlePriceEntity()
+                {
+                    Id = Convert.ToInt32(dataGridViewItemPriceList.Rows[e.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListId"].Index].Value),
+                    ArticleId = Convert.ToInt32(dataGridViewItemPriceList.Rows[e.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListArticleId"].Index].Value),
+                    PriceDescription = dataGridViewItemPriceList.Rows[e.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListPriceDescription"].Index].Value.ToString(),
+                    Price = Convert.ToDecimal(dataGridViewItemPriceList.Rows[e.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListPrice"].Index].Value),
+                };
+
+                MstArticlePriceDetailForm mstArticlePriceDetailForm = new MstArticlePriceDetailForm(this, selectedItemPrice, mstItemEntity.Id);
+                mstArticlePriceDetailForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewItemPriceList.CurrentCell.ColumnIndex == dataGridViewItemPriceList.Columns["ColumnItemPriceListButtonDelete"].Index)
+            {
+                DialogResult deleteDialogResult = MessageBox.Show("Delete ItemPrice?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstArticlePriceController mstItemPriceController = new Controllers.MstArticlePriceController();
+
+                    String[] deleteItemPrice = mstItemPriceController.DeleteItemPrice(Convert.ToInt32(dataGridViewItemPriceList.Rows[e.RowIndex].Cells[2].Value));
+                    if (deleteItemPrice[1].Equals("0") == false)
+                    {
+                        Int32 currentPageNumber = pageNumber;
+
+                        pageNumber = 1;
+                        UpdateItemPriceListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteItemPrice[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void GetItemPriceListCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonItemPriceListPageListFirst_Click(object sender, EventArgs e)
+        {
+            itemPriceListPageList = new PagedList<Entities.DgvItemDetailItemPriceListEntity>(itemPriceListData, 1, pageSize);
+            itemPriceListDataSource.DataSource = itemPriceListPageList;
+
+            buttonItemPriceListPageListFirst.Enabled = false;
+            buttonItemPriceListPageListPrevious.Enabled = false;
+            buttonItemPriceListPageListNext.Enabled = true;
+            buttonItemPriceListPageListLast.Enabled = true;
+
+            pageNumber = 1;
+            textBoxItemPriceListPageNumber.Text = pageNumber + " / " + itemPriceListPageList.PageCount;
+        }
+
+        private void buttonItemPriceListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (itemPriceListPageList.HasPreviousPage == true)
+            {
+                itemPriceListPageList = new PagedList<Entities.DgvItemDetailItemPriceListEntity>(itemPriceListData, --pageNumber, pageSize);
+                itemPriceListDataSource.DataSource = itemPriceListPageList;
+            }
+
+            buttonItemPriceListPageListNext.Enabled = true;
+            buttonItemPriceListPageListLast.Enabled = true;
+
+            if (pageNumber == 1)
+            {
+                buttonItemPriceListPageListFirst.Enabled = false;
+                buttonItemPriceListPageListPrevious.Enabled = false;
+            }
+
+            textBoxItemPriceListPageNumber.Text = pageNumber + " / " + itemPriceListPageList.PageCount;
+        }
+
+        private void buttonItemPriceListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (itemPriceListPageList.HasNextPage == true)
+            {
+                itemPriceListPageList = new PagedList<Entities.DgvItemDetailItemPriceListEntity>(itemPriceListData, ++pageNumber, pageSize);
+                itemPriceListDataSource.DataSource = itemPriceListPageList;
+            }
+
+            buttonItemPriceListPageListFirst.Enabled = true;
+            buttonItemPriceListPageListPrevious.Enabled = true;
+
+            if (pageNumber == itemPriceListPageList.PageCount)
+            {
+                buttonItemPriceListPageListNext.Enabled = false;
+                buttonItemPriceListPageListLast.Enabled = false;
+            }
+
+            textBoxItemPriceListPageNumber.Text = pageNumber + " / " + itemPriceListPageList.PageCount;
+        }
+
+        private void buttonItemPriceListPageListLast_Click(object sender, EventArgs e)
+        {
+            itemPriceListPageList = new PagedList<Entities.DgvItemDetailItemPriceListEntity>(itemPriceListData, itemPriceListPageList.PageCount, pageSize);
+            itemPriceListDataSource.DataSource = itemPriceListPageList;
+
+            buttonItemPriceListPageListFirst.Enabled = true;
+            buttonItemPriceListPageListPrevious.Enabled = true;
+            buttonItemPriceListPageListNext.Enabled = false;
+            buttonItemPriceListPageListLast.Enabled = false;
+
+            pageNumber = itemPriceListPageList.PageCount;
+            textBoxItemPriceListPageNumber.Text = pageNumber + " / " + itemPriceListPageList.PageCount;
+        }
+
+        private void buttonAddItemPrice_Click(object sender, EventArgs e)
+        {
+            MstArticlePriceDetailForm mstArticlePriceDetailForm = new MstArticlePriceDetailForm(this, null, mstItemEntity.Id);
+            mstArticlePriceDetailForm.ShowDialog();
+        }
+
+        // ==============
+        // Item Component
+        // ==============
+
+        public static List<Entities.DgvMstArticleComponentEntity> itemComponentListData = new List<Entities.DgvMstArticleComponentEntity>();
+        public PagedList<Entities.DgvMstArticleComponentEntity> itemComponentListPageList = new PagedList<Entities.DgvMstArticleComponentEntity>(itemComponentListData, pageNumber, pageSize);
+        public BindingSource itemComponentListDataSource = new BindingSource();
+
+        private void buttonItemComponentAdd_Click(object sender, EventArgs e)
+        {
+            Entities.MstArticleComponentEntity newItemComponent = new Entities.MstArticleComponentEntity()
+            {
+                Id = 0,
+                ItemId = mstItemEntity.Id,
+                ComponentItemId = 0,
+                Unit = "",
+                Quantity = 0,
+                Cost = 0,
+                Amount = 0,
+            };
+            MstArticleComponentForm mstArticleComponentForm = new MstArticleComponentForm(this, newItemComponent);
+            mstArticleComponentForm.ShowDialog();
+        }
+
+        public Task<List<Entities.DgvMstArticleComponentEntity>> GetItemComponentListDataTask()
+        {
+            Controllers.MstArticleComponentController mstItemComponentController = new Controllers.MstArticleComponentController();
+            List<Entities.MstArticleComponentEntity> listItemComponent = mstItemComponentController.ItemComponentList(mstItemEntity.Id);
+            if (listItemComponent.Any())
+            {
+                var itemComponent = from d in listItemComponent
+                                    select new Entities.DgvMstArticleComponentEntity
+                                    {
+                                        ColumnItemComponentButtonEdit = "Edit",
+                                        ColumnItemComponentButtonDelete = "Delete",
+                                        ColumnItemComponentId = d.Id,
+                                        ColumnItemComponentItemId = d.ItemId,
+                                        ColumnItemComponenItemDescription = d.ItemDescription,
+                                        ColumnItemComponentComponentItemId = d.ComponentItemId,
+                                        ColumnItemComponentComponentItemDescription = d.ComponentItemDescription,
+                                        ColumnItemComponenUnitId = d.UnitId,
+                                        ColumnItemComponenUnit = d.Unit,
+                                        ColumnItemComponenQuantity = d.Quantity.ToString("#,##0.00"),
+                                        ColumnItemComponenCost = d.Cost.ToString("#,##0.00"),
+                                        ColumnItemComponenAmount = d.Amount.ToString("#,##0.00"),
+                                    };
+
+                return Task.FromResult(itemComponent.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvMstArticleComponentEntity>());
+            }
+        }
+
+        public async void SetItemComponentListDataSourceAsync()
+        {
+            List<Entities.DgvMstArticleComponentEntity> getItemComponentListData = await GetItemComponentListDataTask();
+            if (getItemComponentListData.Any())
+            {
+                itemComponentListData = getItemComponentListData;
+                itemComponentListPageList = new PagedList<Entities.DgvMstArticleComponentEntity>(itemComponentListData, pageNumber, pageSize);
+
+                if (itemComponentListPageList.PageCount == 1)
+                {
+                    buttonItemComponentListPageListFirst.Enabled = false;
+                    buttonItemComponentListPageListPrevious.Enabled = false;
+                    buttonItemComponentListPageListNext.Enabled = false;
+                    buttonItemComponentListPageListLast.Enabled = false;
+                }
+                else if (pageNumber == 1)
+                {
+                    buttonItemComponentListPageListFirst.Enabled = false;
+                    buttonItemComponentListPageListPrevious.Enabled = false;
+                    buttonItemComponentListPageListNext.Enabled = true;
+                    buttonItemComponentListPageListLast.Enabled = true;
+                }
+                else if (pageNumber == itemComponentListPageList.PageCount)
+                {
+                    buttonItemComponentListPageListFirst.Enabled = true;
+                    buttonItemComponentListPageListPrevious.Enabled = true;
+                    buttonItemComponentListPageListNext.Enabled = false;
+                    buttonItemComponentListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonItemComponentListPageListFirst.Enabled = true;
+                    buttonItemComponentListPageListPrevious.Enabled = true;
+                    buttonItemComponentListPageListNext.Enabled = true;
+                    buttonItemComponentListPageListLast.Enabled = true;
+                }
+
+                textBoxItemComponentListPageNumber.Text = pageNumber + " / " + itemComponentListPageList.PageCount;
+                itemComponentListDataSource.DataSource = itemComponentListPageList;
+            }
+            else
+            {
+                buttonItemComponentListPageListFirst.Enabled = false;
+                buttonItemComponentListPageListPrevious.Enabled = false;
+                buttonItemComponentListPageListNext.Enabled = false;
+                buttonItemComponentListPageListLast.Enabled = false;
+
+                pageNumber = 1;
+
+                itemComponentListData = new List<Entities.DgvMstArticleComponentEntity>();
+                itemComponentListDataSource.Clear();
+                textBoxItemComponentListPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public void CreateItemComponentListDataGridView()
+        {
+            UpdateItemComponentListDataSource();
+
+            dataGridViewItemComponentList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewItemComponentList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewItemComponentList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewItemComponentList.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewItemComponentList.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewItemComponentList.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewItemComponentList.DataSource = itemComponentListDataSource;
+        }
+
+        public void UpdateItemComponentListDataSource()
+        {
+            SetItemComponentListDataSourceAsync();
+        }
+
+        private void dataGridViewItemComponentList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetItemComponentListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewItemComponentList.CurrentCell.ColumnIndex == dataGridViewItemComponentList.Columns["ColumnItemComponentButtonEdit"].Index)
+            {
+                Entities.MstArticleComponentEntity selectedItemComponent = new Entities.MstArticleComponentEntity()
+                {
+                    Id = Convert.ToInt32(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponentId"].Index].Value),
+                    ItemId = Convert.ToInt32(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponentItemId"].Index].Value),
+                    ComponentItemId = Convert.ToInt32(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponentComponentItemId"].Index].Value),
+                    UnitId = Convert.ToInt32(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponenUnitId"].Index].Value),
+                    Unit = dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponenUnit"].Index].Value.ToString(),
+                    Quantity = Convert.ToDecimal(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponenQuantity"].Index].Value),
+                    Cost = Convert.ToDecimal(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponenCost"].Index].Value),
+                    Amount = Convert.ToDecimal(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[dataGridViewItemComponentList.Columns["ColumnItemComponenAmount"].Index].Value),
+                };
+
+                MstArticleComponentForm mstArticleComponentForm = new MstArticleComponentForm(this, selectedItemComponent);
+                mstArticleComponentForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewItemComponentList.CurrentCell.ColumnIndex == dataGridViewItemComponentList.Columns["ColumnItemComponentButtonDelete"].Index)
+            {
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Item Component?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstArticleComponentController mstItemComponentController = new Controllers.MstArticleComponentController();
+
+                    String[] deleteItemComponent = mstItemComponentController.DeleteItemComponent(Convert.ToInt32(dataGridViewItemComponentList.Rows[e.RowIndex].Cells[2].Value));
+                    if (deleteItemComponent[1].Equals("0") == false)
+                    {
+                        Int32 currentPageNumber = pageNumber;
+
+                        pageNumber = 1;
+                        UpdateItemComponentListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteItemComponent[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void GetItemComponentListCurrentSelectedCell(Int32 id) { }
+
+        private void buttonItemComponentListPageListFirst_Click(object sender, EventArgs e)
+        {
+            itemComponentListPageList = new PagedList<Entities.DgvMstArticleComponentEntity>(itemComponentListData, 1, pageSize);
+            itemComponentListDataSource.DataSource = itemComponentListPageList;
+
+            buttonItemComponentListPageListFirst.Enabled = false;
+            buttonItemComponentListPageListPrevious.Enabled = false;
+            buttonItemComponentListPageListNext.Enabled = true;
+            buttonItemComponentListPageListLast.Enabled = true;
+
+            pageNumber = 1;
+            textBoxItemComponentListPageNumber.Text = pageNumber + " / " + itemComponentListPageList.PageCount;
+        }
+
+        private void buttonItemComponentListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (itemComponentListPageList.HasPreviousPage == true)
+            {
+                itemComponentListPageList = new PagedList<Entities.DgvMstArticleComponentEntity>(itemComponentListData, --pageNumber, pageSize);
+                itemComponentListDataSource.DataSource = itemComponentListPageList;
+            }
+
+            buttonItemComponentListPageListNext.Enabled = true;
+            buttonItemComponentListPageListLast.Enabled = true;
+
+            if (pageNumber == 1)
+            {
+                buttonItemComponentListPageListFirst.Enabled = false;
+                buttonItemComponentListPageListPrevious.Enabled = false;
+            }
+
+            textBoxItemComponentListPageNumber.Text = pageNumber + " / " + itemComponentListPageList.PageCount;
+        }
+
+        private void buttonItemComponentListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (itemComponentListPageList.HasNextPage == true)
+            {
+                itemComponentListPageList = new PagedList<Entities.DgvMstArticleComponentEntity>(itemComponentListData, ++pageNumber, pageSize);
+                itemComponentListDataSource.DataSource = itemComponentListPageList;
+            }
+
+            buttonItemComponentListPageListFirst.Enabled = true;
+            buttonItemComponentListPageListPrevious.Enabled = true;
+
+            if (pageNumber == itemComponentListPageList.PageCount)
+            {
+                buttonItemComponentListPageListNext.Enabled = false;
+                buttonItemComponentListPageListLast.Enabled = false;
+            }
+
+            textBoxItemComponentListPageNumber.Text = pageNumber + " / " + itemComponentListPageList.PageCount;
+        }
+
+        private void buttonItemComponentListPageListLast_Click(object sender, EventArgs e)
+        {
+            itemComponentListPageList = new PagedList<Entities.DgvMstArticleComponentEntity>(itemComponentListData, itemComponentListPageList.PageCount, pageSize);
+            itemComponentListDataSource.DataSource = itemComponentListPageList;
+
+            buttonItemComponentListPageListFirst.Enabled = true;
+            buttonItemComponentListPageListPrevious.Enabled = true;
+            buttonItemComponentListPageListNext.Enabled = false;
+            buttonItemComponentListPageListLast.Enabled = false;
+
+            pageNumber = itemComponentListPageList.PageCount;
+            textBoxItemComponentListPageNumber.Text = pageNumber + " / " + itemComponentListPageList.PageCount;
         }
     }
 }

@@ -25,23 +25,10 @@ namespace easyfmis.Entities
         public Int32 ColumnItemListUnitId { get; set; }
         public String ColumnItemListUnit { get; set; }
         public Int32? ColumnItemListDefaultSupplierId { get; set; }
-        public String ColumnItemListDefaultSupplier { get; set; }
         public String ColumnItemListDefaultCost { get; set; }
         public String ColumnItemListDefaultPrice { get; set; }
         public String ColumnItemListReorderQuantity { get; set; }
         public Boolean ColumnItemListIsInventory { get; set; }
-        public String ColumnItemListAddress { get; set; }
-        public String ColumnItemListContactPerson { get; set; }
-        public String ColumnItemListContactNumber { get; set; }
-        public String ColumnItemListEmailAddress { get; set; }
-        public String ColumnItemListTIN { get; set; }
-        public String ColumnItemListRemarks { get; set; }
         public Boolean ColumnItemListIsLocked { get; set; }
-        public Int32 ColumnItemListCreatedBy { get; set; }
-        public String ColumnItemListCreatedByUserName { get; set; }
-        public String ColumnItemListCreatedByDateTime { get; set; }
-        public Int32 ColumnItemListUpdatedBy { get; set; }
-        public String ColumnItemListUpdatedByUserName { get; set; }
-        public String ColumnItemListUpdatedDateTime { get; set; }
     }
 }
