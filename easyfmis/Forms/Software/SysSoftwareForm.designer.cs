@@ -104,18 +104,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(151, 15);
+            this.label1.Location = new System.Drawing.Point(111, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 23);
+            this.label1.Size = new System.Drawing.Size(79, 23);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Easy POS";
+            this.label1.Text = "Easy ERP";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.easyerp;
             this.pictureBox1.Location = new System.Drawing.Point(12, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 93);
+            this.pictureBox1.Size = new System.Drawing.Size(93, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -127,11 +127,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(151, 41);
+            this.label2.Location = new System.Drawing.Point(111, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 20);
+            this.label2.Size = new System.Drawing.Size(190, 20);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Version: 1.20191109";
+            this.label2.Text = "Version: 1.201912141821";
             // 
             // label4
             // 
@@ -140,7 +140,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(151, 85);
+            this.label4.Location = new System.Drawing.Point(111, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(183, 20);
             this.label4.TabIndex = 7;
@@ -153,7 +153,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(151, 63);
+            this.label3.Location = new System.Drawing.Point(111, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(225, 20);
             this.label3.TabIndex = 6;
@@ -267,7 +267,7 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.menuToolStripMenuItem.Image = global::easyfmis.Properties.Resources.easypos_cropped1;
+            this.menuToolStripMenuItem.Image = global::easyfmis.Properties.Resources.easyerp;
             this.menuToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -293,7 +293,7 @@
             // 
             // discountToolStripMenuItem
             // 
-            this.discountToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Discounting;
+            this.discountToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Supplier;
             this.discountToolStripMenuItem.Name = "discountToolStripMenuItem";
             this.discountToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
             this.discountToolStripMenuItem.Text = "Supplier";
@@ -337,17 +337,18 @@
             this.activityToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
             this.activityToolStripMenuItem.Text = "Activity";
             this.activityToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.activityToolStripMenuItem.Click += new System.EventHandler(this.activityToolStripMenuItem_Click);
             // 
             // pOSToolStripMenuItem
             // 
-            this.pOSToolStripMenuItem.Image = global::easyfmis.Properties.Resources.POS;
+            this.pOSToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Purchase_Order;
             this.pOSToolStripMenuItem.Name = "pOSToolStripMenuItem";
             this.pOSToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.pOSToolStripMenuItem.Text = "Purchase Order";
             // 
             // remittanceToolStripMenuItem
             // 
-            this.remittanceToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Disbursement;
+            this.remittanceToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Receiving_Receipt;
             this.remittanceToolStripMenuItem.Name = "remittanceToolStripMenuItem";
             this.remittanceToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.remittanceToolStripMenuItem.Text = "Receiving Receipt";
@@ -355,6 +356,7 @@
             // 
             // disbursementToolStripMenuItem
             // 
+            this.disbursementToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Disbursement2;
             this.disbursementToolStripMenuItem.Name = "disbursementToolStripMenuItem";
             this.disbursementToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.disbursementToolStripMenuItem.Text = "Disbursement";
@@ -366,18 +368,21 @@
             // 
             // salesOrderToolStripMenuItem
             // 
+            this.salesOrderToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Sales_Order;
             this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
             this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.salesOrderToolStripMenuItem.Text = "Sales Order";
             // 
             // salesInvoiceToolStripMenuItem
             // 
+            this.salesInvoiceToolStripMenuItem.Image = global::easyfmis.Properties.Resources.POS2;
             this.salesInvoiceToolStripMenuItem.Name = "salesInvoiceToolStripMenuItem";
             this.salesInvoiceToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.salesInvoiceToolStripMenuItem.Text = "Sales Invoice";
             // 
             // collectionToolStripMenuItem
             // 
+            this.collectionToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Collection;
             this.collectionToolStripMenuItem.Name = "collectionToolStripMenuItem";
             this.collectionToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.collectionToolStripMenuItem.Text = "Collection";
@@ -405,6 +410,7 @@
             // 
             // stockCountToolStripMenuItem
             // 
+            this.stockCountToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Stock_Transfer;
             this.stockCountToolStripMenuItem.Name = "stockCountToolStripMenuItem";
             this.stockCountToolStripMenuItem.Size = new System.Drawing.Size(219, 28);
             this.stockCountToolStripMenuItem.Text = "Stock Transfer";
@@ -428,6 +434,7 @@
             // 
             // systemTablesToolStripMenuItem
             // 
+            this.systemTablesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.System_Tables;
             this.systemTablesToolStripMenuItem.Name = "systemTablesToolStripMenuItem";
             this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.systemTablesToolStripMenuItem.Text = "System Tables";
@@ -440,6 +447,7 @@
             // 
             // utilitiesToolStripMenuItem
             // 
+            this.utilitiesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.building1;
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
             this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.utilitiesToolStripMenuItem.Text = "Company";
@@ -447,6 +455,7 @@
             // 
             // userToolStripMenuItem
             // 
+            this.userToolStripMenuItem.Image = global::easyfmis.Properties.Resources.User;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.userToolStripMenuItem.Text = "User";
@@ -470,6 +479,7 @@
             // 
             // pOSReportToolStripMenuItem
             // 
+            this.pOSReportToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Reports;
             this.pOSReportToolStripMenuItem.Name = "pOSReportToolStripMenuItem";
             this.pOSReportToolStripMenuItem.Size = new System.Drawing.Size(241, 28);
             this.pOSReportToolStripMenuItem.Text = "Accounts Payable";
@@ -477,6 +487,7 @@
             // 
             // salesReportToolStripMenuItem
             // 
+            this.salesReportToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Reports;
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
             this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(241, 28);
             this.salesReportToolStripMenuItem.Text = "Accounts Receivable";
@@ -484,6 +495,7 @@
             // 
             // remittanceReportToolStripMenuItem
             // 
+            this.remittanceReportToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Reports;
             this.remittanceReportToolStripMenuItem.Name = "remittanceReportToolStripMenuItem";
             this.remittanceReportToolStripMenuItem.Size = new System.Drawing.Size(241, 28);
             this.remittanceReportToolStripMenuItem.Text = "Inventory Report";
@@ -496,6 +508,7 @@
             // 
             // inventoryReportToolStripMenuItem
             // 
+            this.inventoryReportToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Reports;
             this.inventoryReportToolStripMenuItem.Name = "inventoryReportToolStripMenuItem";
             this.inventoryReportToolStripMenuItem.Size = new System.Drawing.Size(241, 28);
             this.inventoryReportToolStripMenuItem.Text = "Other Reports";
@@ -525,7 +538,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SysSoftwareForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Easy POS";
+            this.Text = "Easy ERP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SysSoftwareForm_FormClosing);
             this.panel1.ResumeLayout(false);

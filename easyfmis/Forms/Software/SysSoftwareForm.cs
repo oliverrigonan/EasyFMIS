@@ -815,5 +815,10 @@ namespace easyfmis.Forms.Software
         {
             //AddTabPageSettings();
         }
+
+        private void activityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

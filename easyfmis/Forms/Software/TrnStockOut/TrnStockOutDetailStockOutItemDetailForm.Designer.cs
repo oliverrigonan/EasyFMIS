@@ -35,6 +35,8 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBoxInventoryCode = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.textBoxStockOutItemItemDescription = new System.Windows.Forms.TextBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxInventoryCode = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -137,6 +137,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(644, 231);
             this.panel2.TabIndex = 9;
+            // 
+            // comboBoxInventoryCode
+            // 
+            this.comboBoxInventoryCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxInventoryCode.FormattingEnabled = true;
+            this.comboBoxInventoryCode.Location = new System.Drawing.Point(149, 80);
+            this.comboBoxInventoryCode.Name = "comboBoxInventoryCode";
+            this.comboBoxInventoryCode.Size = new System.Drawing.Size(389, 31);
+            this.comboBoxInventoryCode.TabIndex = 27;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label5.Location = new System.Drawing.Point(12, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 23);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Inventory Code:";
             // 
             // comboBoxUnit
             // 
@@ -236,25 +255,6 @@
             this.label3.Size = new System.Drawing.Size(46, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Unit:";
-            // 
-            // comboBoxInventoryCode
-            // 
-            this.comboBoxInventoryCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxInventoryCode.FormattingEnabled = true;
-            this.comboBoxInventoryCode.Location = new System.Drawing.Point(149, 80);
-            this.comboBoxInventoryCode.Name = "comboBoxInventoryCode";
-            this.comboBoxInventoryCode.Size = new System.Drawing.Size(389, 31);
-            this.comboBoxInventoryCode.TabIndex = 27;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(12, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 23);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Inventory Code:";
             // 
             // TrnStockOutDetailStockOutItemDetailForm
             // 
