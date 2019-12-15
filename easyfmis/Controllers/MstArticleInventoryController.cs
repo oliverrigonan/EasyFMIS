@@ -22,6 +22,7 @@ namespace easyfmis.Controllers
                               {
                                   Id = d.Id,
                                   BranchId = d.BranchId,
+                                  BranchCode = d.MstBranch.BranchCode,
                                   InventoryCode = d.InventoryCode,
                                   ItemId = d.ArticleId,
                                   Quantity = d.Quantity,
@@ -80,12 +81,11 @@ namespace easyfmis.Controllers
             try
             {
                 var inventory = from d in db.MstArticleInventories
-                                where d.ArticleId == objItemInventory.Id
+                                where d.Id == objItemInventory.Id
                                 select d;
                 if (inventory.Any())
                 {
                     var updateInventory = inventory.FirstOrDefault();
-                    updateInventory.ArticleId = objItemInventory.ItemId;
                     updateInventory.Quantity = objItemInventory.Quantity;
                     updateInventory.Cost1 = objItemInventory.Cost1;
                     updateInventory.Cost2 = objItemInventory.Cost2;
@@ -103,6 +103,7 @@ namespace easyfmis.Controllers
             catch (Exception e) {
                 return new String[] { e.Message, "0" };
             }
+
         }
 
     }

@@ -9,8 +9,9 @@ namespace easyfmis.Entities
     public class DgvItemInventoryEntity
     {
         public String ColumnItemInventoryButtonEdit { get; set; }
-        public Int32 ColumnItemInventoryId { get; set; }
         public Int32 ColumnItemInventoryBranchId { get; set; }
+        public String ColumnItemInventoryBranchCode { get; set; }
+        public Int32 ColumnItemInventoryId { get; set; }
         public String ColumnItemInventoryInventoryCode { get; set; }
         public Int32 ColumnItemInventoryItemId { get; set; }
         public String ColumnItemInventoryQuantity { get; set; }

@@ -22,7 +22,7 @@ namespace easyfmis.Data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="easyfmis")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="easyerp")]
 	public partial class easyfmisdbDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -120,7 +120,7 @@ namespace easyfmis.Data
     #endregion
 		
 		public easyfmisdbDataContext() : 
-				base(global::easyfmis.Properties.Settings.Default.easyfmisConnectionString, mappingSource)
+				base(global::easyfmis.Properties.Settings.Default.easyerpConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2086,7 +2086,7 @@ namespace easyfmis.Data
 		
 		private int _UnitId;
 		
-		private int _DefaultSupplierId;
+		private System.Nullable<int> _DefaultSupplierId;
 		
 		private decimal _DefaultCost;
 		
@@ -2178,7 +2178,7 @@ namespace easyfmis.Data
     partial void OnVATOutTaxIdChanged();
     partial void OnUnitIdChanging(int value);
     partial void OnUnitIdChanged();
-    partial void OnDefaultSupplierIdChanging(int value);
+    partial void OnDefaultSupplierIdChanging(System.Nullable<int> value);
     partial void OnDefaultSupplierIdChanged();
     partial void OnDefaultCostChanging(decimal value);
     partial void OnDefaultCostChanged();
@@ -2470,8 +2470,8 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultSupplierId", DbType="Int NOT NULL")]
-		public int DefaultSupplierId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultSupplierId", DbType="Int")]
+		public System.Nullable<int> DefaultSupplierId
 		{
 			get
 			{
@@ -3661,6 +3661,8 @@ namespace easyfmis.Data
 		
 		private EntityRef<MstArticle> _MstArticle;
 		
+		private EntityRef<MstBranch> _MstBranch;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3693,6 +3695,7 @@ namespace easyfmis.Data
 			this._TrnInventories = new EntitySet<TrnInventory>(new Action<TrnInventory>(this.attach_TrnInventories), new Action<TrnInventory>(this.detach_TrnInventories));
 			this._TrnSalesInvoiceItems = new EntitySet<TrnSalesInvoiceItem>(new Action<TrnSalesInvoiceItem>(this.attach_TrnSalesInvoiceItems), new Action<TrnSalesInvoiceItem>(this.detach_TrnSalesInvoiceItems));
 			this._MstArticle = default(EntityRef<MstArticle>);
+			this._MstBranch = default(EntityRef<MstBranch>);
 			OnCreated();
 		}
 		
@@ -3727,6 +3730,10 @@ namespace easyfmis.Data
 			{
 				if ((this._BranchId != value))
 				{
+					if (this._MstBranch.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnBranchIdChanging(value);
 					this.SendPropertyChanging();
 					this._BranchId = value;
@@ -3969,6 +3976,40 @@ namespace easyfmis.Data
 						this._ArticleId = default(int);
 					}
 					this.SendPropertyChanged("MstArticle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_MstArticleInventory", Storage="_MstBranch", ThisKey="BranchId", OtherKey="Id", IsForeignKey=true)]
+		public MstBranch MstBranch
+		{
+			get
+			{
+				return this._MstBranch.Entity;
+			}
+			set
+			{
+				MstBranch previousValue = this._MstBranch.Entity;
+				if (((previousValue != value) 
+							|| (this._MstBranch.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstBranch.Entity = null;
+						previousValue.MstArticleInventories.Remove(this);
+					}
+					this._MstBranch.Entity = value;
+					if ((value != null))
+					{
+						value.MstArticleInventories.Add(this);
+						this._BranchId = value.Id;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("MstBranch");
 				}
 			}
 		}
@@ -4573,6 +4614,8 @@ namespace easyfmis.Data
 		
 		private int _CompanyId;
 		
+		private EntitySet<MstArticleInventory> _MstArticleInventories;
+		
 		private EntitySet<MstUser> _MstUsers;
 		
 		private EntitySet<TrnCollection> _TrnCollections;
@@ -4605,6 +4648,7 @@ namespace easyfmis.Data
 		
 		public MstBranch()
 		{
+			this._MstArticleInventories = new EntitySet<MstArticleInventory>(new Action<MstArticleInventory>(this.attach_MstArticleInventories), new Action<MstArticleInventory>(this.detach_MstArticleInventories));
 			this._MstUsers = new EntitySet<MstUser>(new Action<MstUser>(this.attach_MstUsers), new Action<MstUser>(this.detach_MstUsers));
 			this._TrnCollections = new EntitySet<TrnCollection>(new Action<TrnCollection>(this.attach_TrnCollections), new Action<TrnCollection>(this.detach_TrnCollections));
 			this._TrnInventories = new EntitySet<TrnInventory>(new Action<TrnInventory>(this.attach_TrnInventories), new Action<TrnInventory>(this.detach_TrnInventories));
@@ -4697,6 +4741,19 @@ namespace easyfmis.Data
 					this.SendPropertyChanged("CompanyId");
 					this.OnCompanyIdChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_MstArticleInventory", Storage="_MstArticleInventories", ThisKey="Id", OtherKey="BranchId")]
+		public EntitySet<MstArticleInventory> MstArticleInventories
+		{
+			get
+			{
+				return this._MstArticleInventories;
+			}
+			set
+			{
+				this._MstArticleInventories.Assign(value);
 			}
 		}
 		
@@ -4843,6 +4900,18 @@ namespace easyfmis.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_MstArticleInventories(MstArticleInventory entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = this;
+		}
+		
+		private void detach_MstArticleInventories(MstArticleInventory entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = null;
 		}
 		
 		private void attach_MstUsers(MstUser entity)
@@ -11206,7 +11275,7 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesInvoice_TrnInventory", Storage="_TrnSalesInvoice", ThisKey="SIId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesInvoice_TrnInventory", Storage="_TrnSalesInvoice", ThisKey="SIId", OtherKey="Id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public TrnSalesInvoice TrnSalesInvoice
 		{
 			get
@@ -11240,7 +11309,7 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnStockIn_TrnInventory", Storage="_TrnStockIn", ThisKey="INId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnStockIn_TrnInventory", Storage="_TrnStockIn", ThisKey="INId", OtherKey="Id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public TrnStockIn TrnStockIn
 		{
 			get
@@ -11274,7 +11343,7 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnStockOut_TrnInventory", Storage="_TrnStockOut", ThisKey="OTId", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnStockOut_TrnInventory", Storage="_TrnStockOut", ThisKey="OTId", OtherKey="Id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public TrnStockOut TrnStockOut
 		{
 			get

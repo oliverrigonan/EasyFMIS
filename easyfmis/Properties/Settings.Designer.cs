@@ -43,5 +43,15 @@ namespace easyfmis.Properties {
                 return ((string)(this["easyfmisConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=easyerp;Integrated Security=True")]
+        public string easyerpConnectionString {
+            get {
+                return ((string)(this["easyerpConnectionString"]));
+            }
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace easyfmis.Forms.Software.MstItem
         }
 
         public void LoadComponent() {
+            textBoxBranchCode.Text = mstArticleInventoryEntity.BranchCode;
             textBoxInventoryCode.Text = mstArticleInventoryEntity.InventoryCode;
             textBoxQuantity.Text = mstArticleInventoryEntity.Quantity.ToString("#,##0.00");
             textBoxCost1.Text = mstArticleInventoryEntity.Cost1.ToString("#,##0.00");
@@ -33,7 +34,7 @@ namespace easyfmis.Forms.Software.MstItem
             textBoxCost5.Text = mstArticleInventoryEntity.Cost5.ToString("#,##0.00");
         }
 
-        public void UpdateItemInventory()
+        private void buttonSave_Click(object sender, EventArgs e)
         {
             mstArticleInventoryEntity.Quantity = Convert.ToDecimal(textBoxQuantity.Text);
             mstArticleInventoryEntity.Cost1 = Convert.ToDecimal(textBoxCost1.Text);
@@ -51,11 +52,14 @@ namespace easyfmis.Forms.Software.MstItem
             }
             else
             {
-                mstItemDetailForm.UpdateItemComponentListDataSource();
+                mstItemDetailForm.UpdateItemInventoryListDataSource();
                 Close();
             }
-
         }
 
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

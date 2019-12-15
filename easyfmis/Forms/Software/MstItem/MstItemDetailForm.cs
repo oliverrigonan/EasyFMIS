@@ -31,7 +31,7 @@ namespace easyfmis.Forms.Software.MstItem
             CreateArticleUnittDataGridView();
             CreateItemPriceListDataGridView();
             CreateItemComponentListDataGridView();
-            CreatePayTypeListDataGridView();
+            CreateItemInventoryListDataGridView();
 
         }
 
@@ -133,9 +133,8 @@ namespace easyfmis.Forms.Software.MstItem
             dataGridViewItemPriceList.Columns[1].Visible = !isLocked;
             dataGridViewUnitConversion.Columns[0].Visible = !isLocked;
             dataGridViewUnitConversion.Columns[1].Visible = !isLocked;
-            dataGridViewItemInventoryList.Columns[0].Visible = !isLocked;
 
-            
+            dataGridViewItemInventoryList.Columns["ColumnItemInventoryButtonEdit"].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
@@ -1009,6 +1008,7 @@ namespace easyfmis.Forms.Software.MstItem
                                         ColumnItemInventoryButtonEdit = "Edit",
                                         ColumnItemInventoryId = d.Id,
                                         ColumnItemInventoryBranchId = d.ItemId,
+                                        ColumnItemInventoryBranchCode = d.BranchCode,
                                         ColumnItemInventoryInventoryCode = d.InventoryCode,
                                         ColumnItemInventoryItemId = d.ItemId,
                                         ColumnItemInventoryQuantity = d.Quantity.ToString("#,##0.00"),
@@ -1082,9 +1082,9 @@ namespace easyfmis.Forms.Software.MstItem
             }
         }
 
-        public void CreatePayTypeListDataGridView()
+        public void CreateItemInventoryListDataGridView()
         {
-            UpdateInventoryListDataSource();
+            UpdateItemInventoryListDataSource();
 
             dataGridViewItemInventoryList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
             dataGridViewItemInventoryList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
@@ -1092,7 +1092,7 @@ namespace easyfmis.Forms.Software.MstItem
             dataGridViewItemInventoryList.DataSource = itemInventoryListDataSource;
         }
 
-        public void UpdateInventoryListDataSource()
+        public void UpdateItemInventoryListDataSource()
         {
             SetItemInventoryListDataSourceAsync();
         }
@@ -1108,8 +1108,9 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 Entities.MstArticleInventoryEntity selectedArticleInventory = new Entities.MstArticleInventoryEntity() {
                     Id = Convert.ToInt32(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryId"].Index].Value),
-                    BranchId = Convert.ToInt32(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryId"].Index].Value),
-                    InventoryCode = dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryId"].Index].Value.ToString(),
+                    BranchId = Convert.ToInt32(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryBranchId"].Index].Value),
+                    BranchCode = dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryBranchCode"].Index].Value.ToString(),
+                    InventoryCode = dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryInventoryCode"].Index].Value.ToString(),
                     ItemId = Convert.ToInt32(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryItemId"].Index].Value),
                     Quantity = Convert.ToDecimal(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryQuantity"].Index].Value),
                     Cost1 = Convert.ToDecimal(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryCost1"].Index].Value),

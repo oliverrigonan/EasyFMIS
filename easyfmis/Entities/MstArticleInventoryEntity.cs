@@ -10,6 +10,7 @@ namespace easyfmis.Entities
     {
         public Int32 Id { get; set; }
         public Int32 BranchId { get; set; }
+        public String BranchCode { get; set; }
         public String InventoryCode { get; set; }
         public Int32 ItemId { get; set; }
         public String ItemDescription { get; set; }

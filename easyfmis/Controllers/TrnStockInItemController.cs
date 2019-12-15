@@ -96,15 +96,6 @@ namespace easyfmis.Controllers
                     return new String[] { "Stock-In transaction not found.", "0" };
                 }
 
-                var item = from d in db.MstArticles
-                           where d.Id == objStockInItem.ItemId
-                           && d.IsLocked == true
-                           select d;
-
-                if (item.Any() == false)
-                {
-                    return new String[] { "Item not found.", "0" };
-                }
 
                 var conversionUnit = from d in db.MstArticleUnits
                                      where d.ArticleId == objStockInItem.ItemId
@@ -129,11 +120,13 @@ namespace easyfmis.Controllers
                     baseCost = objStockInItem.Amount / baseQuantity;
                 }
 
+
+
                 Data.TrnStockInItem newStockInItem = new Data.TrnStockInItem
                 {
                     INId = objStockInItem.INId,
                     ItemId = objStockInItem.ItemId,
-                    UnitId = item.FirstOrDefault().UnitId,
+                    UnitId = objStockInItem.UnitId,
                     Quantity = objStockInItem.Quantity,
                     Cost = objStockInItem.Cost,
                     Amount = objStockInItem.Amount,
