@@ -51,6 +51,7 @@ namespace easyfmis.Controllers
                         || d.ArticleBarCode.Contains(filter)
                         || d.Article.Contains(filter)
                         || d.Category.Contains(filter)
+                        && d.IsLocked == true
                         select new Entities.MstArticleEntity
                         {
                             Id = d.Id,
@@ -161,7 +162,7 @@ namespace easyfmis.Controllers
                     OTId = objStockOutItem.OTId,
                     ItemId = objStockOutItem.ItemId,
                     ItemInventoryId = objStockOutItem.ItemInventoryId,
-                    UnitId = item.FirstOrDefault().UnitId,
+                    UnitId = objStockOutItem.UnitId,
                     Quantity = objStockOutItem.Quantity,
                     Cost = objStockOutItem.Cost,
                     Amount = objStockOutItem.Amount,
@@ -236,6 +237,7 @@ namespace easyfmis.Controllers
 
                     var updateStockOutItem = stockOutItem.FirstOrDefault();
                     updateStockOutItem.ItemInventoryId = objStockOutItem.ItemInventoryId;
+                    updateStockOutItem.UnitId = objStockOutItem.UnitId;
                     updateStockOutItem.Quantity = objStockOutItem.Quantity;
                     updateStockOutItem.Cost = objStockOutItem.Cost;
                     updateStockOutItem.Amount = objStockOutItem.Amount;
