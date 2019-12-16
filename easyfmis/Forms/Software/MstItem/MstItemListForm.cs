@@ -15,10 +15,10 @@ namespace easyfmis.Forms.Software.MstItem
     {
         public SysSoftwareForm sysSoftwareForm;
 
-        public static List<Entities.DgvItemListItemEntity> itemListData = new List<Entities.DgvItemListItemEntity>();
         public static Int32 pageNumber = 1;
         public static Int32 pageSize = 50;
 
+        public static List<Entities.DgvItemListItemEntity> itemListData = new List<Entities.DgvItemListItemEntity>();
         public PagedList<Entities.DgvItemListItemEntity> itemListPageList = new PagedList<Entities.DgvItemListItemEntity>(itemListData, pageNumber, pageSize);
         public BindingSource itemListDataSource = new BindingSource();
 
@@ -166,7 +166,7 @@ namespace easyfmis.Forms.Software.MstItem
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
-            String[] addItem = mstItemController.AddArticle();
+            String[] addItem = mstItemController.AddArticle("ITEM");
             if (addItem[1].Equals("0") == false)
             {
                 sysSoftwareForm.AddTabPageItemDetail(this, mstItemController.DetailArticle(Convert.ToInt32(addItem[1])));

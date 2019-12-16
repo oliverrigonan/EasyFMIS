@@ -1,6 +1,6 @@
 ﻿{
   "DataSource": "localhost",
-  "InitialCatalog": "easyfmis",
+  "InitialCatalog": "easyerp",
   "UserId": "sa",
   "Password": "innosoft"
 }

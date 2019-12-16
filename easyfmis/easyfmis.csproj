@@ -76,6 +76,7 @@
     <Compile Include="Entities\DgvItemComponentEntity.cs" />
     <Compile Include="Entities\DgvItemInventoryEntity.cs" />
     <Compile Include="Entities\DgvItemUnitEntity.cs" />
+    <Compile Include="Entities\DgvMstCustomerEntities.cs" />
     <Compile Include="Entities\DgvStockOutEntity.cs" />
     <Compile Include="Entities\DgvStockOutItemEntity.cs" />
     <Compile Include="Entities\DgvStockInItemEntity.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Entities\MstBranchEntity.cs" />
     <Compile Include="Entities\MstCompanyEntity.cs" />
     <Compile Include="Entities\MstTaxEntity.cs" />
+    <Compile Include="Entities\MstTermEntity.cs" />
     <Compile Include="Entities\MstUnitEntity.cs" />
     <Compile Include="Entities\MstUserEntity.cs" />
     <Compile Include="Entities\RepInventoryReportStockCard.cs" />
@@ -107,6 +109,18 @@
     </Compile>
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstCustomer\MstCustomerDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstCustomer\MstCustomerDetailForm.designer.cs">
+      <DependentUpon>MstCustomerDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstCustomer\MstCustomerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstCustomer\MstCustomerListForm.Designer.cs">
+      <DependentUpon>MstCustomerListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\MstItem\MstArticleComponentForm.cs">
       <SubType>Form</SubType>
@@ -233,6 +247,12 @@
     <EmbeddedResource Include="Forms\Account\SysLogin\SysLoginForm.resx">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstCustomer\MstCustomerDetailForm.resx">
+      <DependentUpon>MstCustomerDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstCustomer\MstCustomerListForm.resx">
+      <DependentUpon>MstCustomerListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstItem\MstArticleComponentForm.resx">
       <DependentUpon>MstArticleComponentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,7 +343,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Software\MstCustomer\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>

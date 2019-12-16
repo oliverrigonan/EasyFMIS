@@ -39,5 +39,10 @@ namespace easyfmis.Forms.Software.SysMenu
         {
             sysSoftwareForm.AddTabPageInventoryReports();
         }
+
+        private void buttonCustomer_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageCustomerList();
+        }
     }
 }

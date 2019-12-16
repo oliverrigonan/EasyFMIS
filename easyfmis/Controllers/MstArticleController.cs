@@ -148,7 +148,7 @@ namespace easyfmis.Controllers
         // ===========
         // Add Article
         // ===========
-        public String[] AddArticle()
+        public String[] AddArticle(String _articleType)
         {
             try
             {
@@ -160,7 +160,7 @@ namespace easyfmis.Controllers
 
                 String itemCode = "0000000001";
                 var lastItemCode = from d in db.MstArticles.OrderByDescending(d => d.Id)
-                                   where d.ArticleTypeId == 1
+                                   where d.MstArticleType.ArticleType == _articleType
                                    select d;
                 if (lastItemCode.Any())
                 {
@@ -183,20 +183,32 @@ namespace easyfmis.Controllers
                 }
 
                 var articleType = from d in db.MstArticleTypes
+                                  where d.ArticleType == _articleType
                                   select d;
                 if (articleType.Any() == false)
                 {
                     return new String[] { "Tax type not found.", "0" };
                 }
 
+                Int32? supplierId;
                 var supplier = from d in db.MstArticles
                               where d.MstArticleType.Id == 3
                               select d;
-                if (supplier.Any()== false)
+                if (_articleType == "ITEM")
                 {
-                    return new String[] { "Article not found.", "0" };
+                    if (supplier.Any())
+                    {
+                        supplierId = supplier.FirstOrDefault().Id;
+                    }
+                    else
+                    {
+                        supplierId = null;
+                    }
                 }
-
+                else
+                {
+                    supplierId = null;
+                }
 
                 Data.MstArticle newArticle = new Data.MstArticle()
                 {
@@ -210,7 +222,7 @@ namespace easyfmis.Controllers
                     VATInTaxId = tax.FirstOrDefault().Id,
                     VATOutTaxId = tax.FirstOrDefault().Id,
                     UnitId = unit.FirstOrDefault().Id,
-                    DefaultSupplierId = supplier.FirstOrDefault().Id,
+                    DefaultSupplierId = supplierId,
                     DefaultCost = 0,
                     DefaultPrice = 0,
                     ReorderQuantity = 0,
@@ -328,7 +340,7 @@ namespace easyfmis.Controllers
                     lockArticle.VATInTaxId = objArticle.VATInTaxId;
                     lockArticle.VATOutTaxId = objArticle.VATOutTaxId;
                     lockArticle.UnitId = objArticle.UnitId;
-                    lockArticle.DefaultSupplierId = Convert.ToInt32(objArticle.DefaultSupplierId);
+                    lockArticle.DefaultSupplierId = objArticle.DefaultSupplierId;
                     lockArticle.DefaultCost = objArticle.DefaultCost;
                     lockArticle.DefaultPrice = objArticle.DefaultPrice;
                     lockArticle.ReorderQuantity = objArticle.ReorderQuantity;

@@ -67,8 +67,8 @@ namespace easyfmis.Forms.Software
         // =====
         public MstItem.MstItemListForm mstItemListForm = null;
         public MstItem.MstItemDetailForm mstItemDetailForm = null;
-        //public MstCustomer.MstCustomerListForm mstCustomerListForm = null;
-        //public MstCustomer.MstCustomerDetailForm mstCustomerDetailForm = null;
+        public MstCustomer.MstCustomerListForm mstCustomerListForm = null;
+        public MstCustomer.MstCustomerDetailForm mstCustomerDetailForm = null;
         //public MstDiscounting.MstDiscountingListForm mstDiscountingListForm = null;
         //public MstDiscounting.MstDiscountingDetailForm mstDiscountingDetailForm = null;
         //public MstUser.MstUserListForm mstUserListForm = null;
@@ -181,53 +181,53 @@ namespace easyfmis.Forms.Software
             }
         }
 
-        //public void AddTabPageCustomerList()
-        //{
-        //    tabPageCustomerList.Controls.Remove(mstCustomerListForm);
+        public void AddTabPageCustomerList()
+        {
+            tabPageCustomerList.Controls.Remove(mstCustomerListForm);
 
-        //    mstCustomerListForm = new MstCustomer.MstCustomerListForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            mstCustomerListForm = new MstCustomer.MstCustomerListForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageCustomerList.Controls.Add(mstCustomerListForm);
+            tabPageCustomerList.Controls.Add(mstCustomerListForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageCustomerList) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageCustomerList);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageCustomerList);
-        //        tabControlSoftware.SelectTab(tabPageCustomerList);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageCustomerList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageCustomerList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageCustomerList);
+                tabControlSoftware.SelectTab(tabPageCustomerList);
+            }
+        }
 
-        //public void AddTabPageCustomerDetail(MstCustomer.MstCustomerListForm itemListForm, Entities.MstCustomerEntity itemEntity)
-        //{
-        //    tabPageCustomerDetail.Controls.Remove(mstCustomerDetailForm);
+        public void AddTabPageCustomerDetail(MstCustomer.MstCustomerListForm itemListForm, Entities.MstArticleEntity itemEntity)
+        {
+            tabPageCustomerDetail.Controls.Remove(mstCustomerDetailForm);
 
-        //    mstCustomerDetailForm = new MstCustomer.MstCustomerDetailForm(this, itemListForm, itemEntity)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            mstCustomerDetailForm = new MstCustomer.MstCustomerDetailForm(this, itemListForm, itemEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageCustomerDetail.Controls.Add(mstCustomerDetailForm);
+            tabPageCustomerDetail.Controls.Add(mstCustomerDetailForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageCustomerDetail) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageCustomerDetail);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageCustomerDetail);
-        //        tabControlSoftware.SelectTab(tabPageCustomerDetail);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageCustomerDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageCustomerDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageCustomerDetail);
+                tabControlSoftware.SelectTab(tabPageCustomerDetail);
+            }
+        }
 
         //public void AddTabPageDiscountingList()
         //{

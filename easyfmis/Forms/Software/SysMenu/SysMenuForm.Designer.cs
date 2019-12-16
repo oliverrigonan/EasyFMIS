@@ -318,6 +318,7 @@
             this.buttonCustomer.Text = "\r\nCustomer";
             this.buttonCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonCustomer.UseVisualStyleBackColor = false;
+            this.buttonCustomer.Click += new System.EventHandler(this.buttonCustomer_Click);
             // 
             // buttonPOSReport
             // 
