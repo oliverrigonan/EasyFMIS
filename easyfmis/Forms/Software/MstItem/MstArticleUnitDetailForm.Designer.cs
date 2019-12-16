@@ -52,7 +52,6 @@
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(287, 31);
             this.comboBoxUnit.TabIndex = 19;
-            this.comboBoxUnit.SelectedIndexChanged += new System.EventHandler(this.comboBoxUnit_SelectedIndexChanged);
             // 
             // textBoxUnitMultiplier
             // 
@@ -61,6 +60,8 @@
             this.textBoxUnitMultiplier.Name = "textBoxUnitMultiplier";
             this.textBoxUnitMultiplier.Size = new System.Drawing.Size(287, 30);
             this.textBoxUnitMultiplier.TabIndex = 18;
+            this.textBoxUnitMultiplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUnitMultiplier_KeyPress);
+            this.textBoxUnitMultiplier.Leave += new System.EventHandler(this.textBoxUnitMultiplier_Leave);
             // 
             // label4
             // 
@@ -99,6 +100,8 @@
             this.textBoxBaseUnitMultiplier.Name = "textBoxBaseUnitMultiplier";
             this.textBoxBaseUnitMultiplier.Size = new System.Drawing.Size(287, 30);
             this.textBoxBaseUnitMultiplier.TabIndex = 14;
+            this.textBoxBaseUnitMultiplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBaseUnitMultiplier_KeyPress);
+            this.textBoxBaseUnitMultiplier.Leave += new System.EventHandler(this.textBoxBaseUnitMultiplie_Leave);
             // 
             // panel1
             // 

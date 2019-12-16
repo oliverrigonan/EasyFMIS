@@ -96,9 +96,50 @@ namespace easyfmis.Forms.Software.MstItem
             Close();
         }
 
-        private void comboBoxUnit_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBoxBaseUnitMultiplier_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
 
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxBaseUnitMultiplie_Leave(object sender, EventArgs e)
+        {
+            textBoxBaseUnitMultiplier.Text = Convert.ToDecimal(textBoxBaseUnitMultiplier.Text).ToString("#,##0.00");
+        }
+
+        private void textBoxUnitMultiplier_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxUnitMultiplier_Leave(object sender, EventArgs e)
+        {
+            textBoxUnitMultiplier.Text = Convert.ToDecimal(textBoxUnitMultiplier.Text).ToString("#,##0.00");
         }
     }
 }

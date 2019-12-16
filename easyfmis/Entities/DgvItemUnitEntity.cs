@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    public class DgvMstArticleUnitEntity
+    public class DgvItemUnitEntity
     {
         public String ColumnItemArtilceUnitButtonEdit { get; set; }
         public String ColumnItemArtilceUnitButtonDelete { get; set; }
