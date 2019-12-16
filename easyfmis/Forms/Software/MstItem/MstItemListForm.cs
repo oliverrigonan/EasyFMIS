@@ -101,9 +101,10 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 var items = from d in listItem
                             where d.ArticleCode.Contains(filter)
-                            || d.ArticleBarCode.Contains(filter)
                             || d.Article.Contains(filter)
+                            || d.ArticleBarCode.Contains(filter)
                             || d.Category.Contains(filter)
+                            || d.Unit.Contains(filter)
                             select new Entities.DgvItemListItemEntity
                             {
                                 ColumnItemListButtonEdit = "Edit",
@@ -126,7 +127,8 @@ namespace easyfmis.Forms.Software.MstItem
                                 ColumnItemListDefaultPrice = d.DefaultPrice.ToString("#,##0.00"),
                                 ColumnItemListReorderQuantity = d.ReorderQuantity.ToString("#,##0.00"),
                                 ColumnItemListIsInventory = d.IsInventory,
-                                ColumnItemListIsLocked = d.IsLocked
+                                ColumnItemListIsLocked = d.IsLocked,
+                                ColumnItemListSpace = ""
                             };
 
                 return Task.FromResult(items.ToList());

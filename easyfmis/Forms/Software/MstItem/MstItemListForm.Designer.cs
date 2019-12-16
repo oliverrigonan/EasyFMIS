@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxItemListFilter = new System.Windows.Forms.TextBox();
             this.buttonItemListPageListFirst = new System.Windows.Forms.Button();
             this.buttonItemListPageListPrevious = new System.Windows.Forms.Button();
@@ -39,6 +39,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewItemList = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.ColumnItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,11 +66,7 @@
             this.ColumnItemListOnHandQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemListIsInventory = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnItemListIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.ColumnItemListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemList)).BeginInit();
@@ -183,6 +184,7 @@
             // 
             this.dataGridViewItemList.AllowUserToAddRows = false;
             this.dataGridViewItemList.AllowUserToDeleteRows = false;
+            this.dataGridViewItemList.AllowUserToOrderColumns = true;
             this.dataGridViewItemList.AllowUserToResizeRows = false;
             this.dataGridViewItemList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -211,7 +213,8 @@
             this.ColumnItemListPrice,
             this.ColumnItemListOnHandQuantity,
             this.ColumnItemListIsInventory,
-            this.ColumnItemListIsLocked});
+            this.ColumnItemListIsLocked,
+            this.ColumnItemListSpace});
             this.dataGridViewItemList.Location = new System.Drawing.Point(12, 42);
             this.dataGridViewItemList.MultiSelect = false;
             this.dataGridViewItemList.Name = "dataGridViewItemList";
@@ -222,6 +225,74 @@
             this.dataGridViewItemList.Size = new System.Drawing.Size(1376, 536);
             this.dataGridViewItemList.TabIndex = 9;
             this.dataGridViewItemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItemList_CellClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Item;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 35);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Item List";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.buttonClose);
+            this.panel1.Controls.Add(this.buttonAdd);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1400, 63);
+            this.panel1.TabIndex = 20;
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClose.ForeColor = System.Drawing.Color.White;
+            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(88, 40);
+            this.buttonClose.TabIndex = 1;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(1206, 12);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(88, 40);
+            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // ColumnItemListButtonEdit
             // 
@@ -375,8 +446,8 @@
             // ColumnItemListPrice
             // 
             this.ColumnItemListPrice.DataPropertyName = "ColumnItemListDefaultPrice";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemListPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemListPrice.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnItemListPrice.HeaderText = "Price";
             this.ColumnItemListPrice.Name = "ColumnItemListPrice";
             this.ColumnItemListPrice.ReadOnly = true;
@@ -384,8 +455,8 @@
             // ColumnItemListOnHandQuantity
             // 
             this.ColumnItemListOnHandQuantity.DataPropertyName = "ColumnItemListReorderQuantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemListOnHandQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemListOnHandQuantity.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnItemListOnHandQuantity.HeaderText = "Reorder Qty.";
             this.ColumnItemListOnHandQuantity.Name = "ColumnItemListOnHandQuantity";
             this.ColumnItemListOnHandQuantity.ReadOnly = true;
@@ -408,73 +479,13 @@
             this.ColumnItemListIsLocked.ReadOnly = true;
             this.ColumnItemListIsLocked.Width = 35;
             // 
-            // pictureBox1
+            // ColumnItemListSpace
             // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Item;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 35);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Item List";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.buttonClose);
-            this.panel1.Controls.Add(this.buttonAdd);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1400, 63);
-            this.panel1.TabIndex = 20;
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
-            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
-            this.buttonClose.Text = "Close";
-            this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonAdd.FlatAppearance.BorderSize = 0;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(1206, 12);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(88, 40);
-            this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.ColumnItemListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnItemListSpace.DataPropertyName = "ColumnItemListSpace";
+            this.ColumnItemListSpace.HeaderText = "";
+            this.ColumnItemListSpace.Name = "ColumnItemListSpace";
+            this.ColumnItemListSpace.ReadOnly = true;
             // 
             // MstItemListForm
             // 
@@ -539,5 +550,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemListOnHandQuantity;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnItemListIsInventory;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnItemListIsLocked;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemListSpace;
     }
 }

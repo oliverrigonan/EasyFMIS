@@ -43,25 +43,30 @@ namespace easyfmis.Controllers
         // =========
         // List Item
         // =========
-        public List<Entities.MstArticleEntity> ListItem(String filter)
+        public List<Entities.MstArticleInventory> ListInventoryItem(String filter)
         {
-            var items = from d in db.MstArticles
-                        where d.ArticleTypeId == 1
-                        || d.ArticleCode.Contains(filter)
-                        || d.ArticleBarCode.Contains(filter)
-                        || d.Article.Contains(filter)
-                        || d.Category.Contains(filter)
-                        && d.IsLocked == true
-                        select new Entities.MstArticleEntity
+            var items = from d in db.MstArticleInventories
+                        where (d.InventoryCode.Contains(filter)
+                        || d.MstArticle.ArticleCode.Contains(filter)
+                        || d.MstArticle.ArticleBarCode.Contains(filter)
+                        || d.MstArticle.Article.Contains(filter)
+                        || d.MstArticle.Category.Contains(filter)
+                        || d.MstArticle.MstUnit.Unit.Contains(filter))
+                        && d.MstArticle.IsLocked == true
+                        select new Entities.MstArticleInventory
                         {
                             Id = d.Id,
-                            ArticleCode = d.ArticleCode,
-                            ArticleBarCode = d.ArticleBarCode,
-                            Article = d.Article,
-                            Category = d.Category,
-                            UnitId = d.UnitId,
-                            Unit = d.MstUnit.Unit,
-                            DefaultPrice = d.DefaultPrice
+                            InventoryCode = d.InventoryCode,
+                            ArticleId = d.ArticleId,
+                            ArticleCode = d.MstArticle.ArticleCode,
+                            ArticleBarCode = d.MstArticle.ArticleBarCode,
+                            Article = d.MstArticle.Article,
+                            Category = d.MstArticle.Category,
+                            UnitId = d.MstArticle.UnitId,
+                            Unit = d.MstArticle.MstUnit.Unit,
+                            DefaultPrice = d.MstArticle.DefaultPrice,
+                            Cost = d.Cost1,
+                            Quantity = d.Quantity
                         };
 
             return items.OrderBy(d => d.Article).ToList();
