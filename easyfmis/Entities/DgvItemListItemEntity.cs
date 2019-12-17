@@ -30,5 +30,6 @@ namespace easyfmis.Entities
         public String ColumnItemListReorderQuantity { get; set; }
         public Boolean ColumnItemListIsInventory { get; set; }
         public Boolean ColumnItemListIsLocked { get; set; }
+        public String ColumnItemListSpace { get; set; }
     }
 }

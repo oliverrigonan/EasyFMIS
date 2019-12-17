@@ -29,21 +29,15 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnStockInDetailSearchItemForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.dataGridViewSearchItem = new System.Windows.Forms.DataGridView();
-            this.ColumnSearchItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchItemButtonPick = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBoxSearchItemFilter = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonSearchItemPageListFirst = new System.Windows.Forms.Button();
@@ -52,6 +46,13 @@
             this.buttonSearchItemPageListLast = new System.Windows.Forms.Button();
             this.textBoxSearchItemPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ColumnSearchItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchItemButtonPick = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchItem)).BeginInit();
@@ -135,89 +136,32 @@
             this.ColumnSearchItemUnit,
             this.ColumnSearchItemPrice,
             this.ColumnSearchItemButtonPick});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSearchItem.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSearchItem.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewSearchItem.Location = new System.Drawing.Point(12, 42);
             this.dataGridViewSearchItem.MultiSelect = false;
             this.dataGridViewSearchItem.Name = "dataGridViewSearchItem";
             this.dataGridViewSearchItem.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSearchItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSearchItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewSearchItem.RowHeadersVisible = false;
             this.dataGridViewSearchItem.RowTemplate.Height = 24;
             this.dataGridViewSearchItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSearchItem.Size = new System.Drawing.Size(958, 439);
             this.dataGridViewSearchItem.TabIndex = 6;
             this.dataGridViewSearchItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSearchItem_CellClick);
-            // 
-            // ColumnSearchItemId
-            // 
-            this.ColumnSearchItemId.DataPropertyName = "ColumnSearchItemId";
-            this.ColumnSearchItemId.HeaderText = "Id";
-            this.ColumnSearchItemId.Name = "ColumnSearchItemId";
-            this.ColumnSearchItemId.ReadOnly = true;
-            this.ColumnSearchItemId.Visible = false;
-            // 
-            // ColumnSearchItemBarCode
-            // 
-            this.ColumnSearchItemBarCode.DataPropertyName = "ColumnSearchItemBarCode";
-            this.ColumnSearchItemBarCode.HeaderText = "Barcode";
-            this.ColumnSearchItemBarCode.Name = "ColumnSearchItemBarCode";
-            this.ColumnSearchItemBarCode.ReadOnly = true;
-            this.ColumnSearchItemBarCode.Width = 150;
-            // 
-            // ColumnSearchItemDescription
-            // 
-            this.ColumnSearchItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSearchItemDescription.DataPropertyName = "ColumnSearchItemDescription";
-            this.ColumnSearchItemDescription.HeaderText = "Item Description";
-            this.ColumnSearchItemDescription.Name = "ColumnSearchItemDescription";
-            this.ColumnSearchItemDescription.ReadOnly = true;
-            // 
-            // ColumnSearchItemUnitId
-            // 
-            this.ColumnSearchItemUnitId.DataPropertyName = "ColumnSearchItemUnitId";
-            this.ColumnSearchItemUnitId.HeaderText = "UnitId";
-            this.ColumnSearchItemUnitId.Name = "ColumnSearchItemUnitId";
-            this.ColumnSearchItemUnitId.ReadOnly = true;
-            this.ColumnSearchItemUnitId.Visible = false;
-            // 
-            // ColumnSearchItemUnit
-            // 
-            this.ColumnSearchItemUnit.DataPropertyName = "ColumnSearchItemUnit";
-            this.ColumnSearchItemUnit.HeaderText = "Unit";
-            this.ColumnSearchItemUnit.Name = "ColumnSearchItemUnit";
-            this.ColumnSearchItemUnit.ReadOnly = true;
-            // 
-            // ColumnSearchItemPrice
-            // 
-            this.ColumnSearchItemPrice.DataPropertyName = "ColumnSearchItemPrice";
-            this.ColumnSearchItemPrice.HeaderText = "Price";
-            this.ColumnSearchItemPrice.Name = "ColumnSearchItemPrice";
-            this.ColumnSearchItemPrice.ReadOnly = true;
-            // 
-            // ColumnSearchItemButtonPick
-            // 
-            this.ColumnSearchItemButtonPick.DataPropertyName = "ColumnSearchItemButtonPick";
-            this.ColumnSearchItemButtonPick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSearchItemButtonPick.HeaderText = "Pick";
-            this.ColumnSearchItemButtonPick.Name = "ColumnSearchItemButtonPick";
-            this.ColumnSearchItemButtonPick.ReadOnly = true;
-            this.ColumnSearchItemButtonPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnSearchItemButtonPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnSearchItemButtonPick.Width = 70;
             // 
             // textBoxSearchItemFilter
             // 
@@ -325,6 +269,65 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(982, 540);
             this.panel2.TabIndex = 10;
+            // 
+            // ColumnSearchItemId
+            // 
+            this.ColumnSearchItemId.DataPropertyName = "ColumnSearchItemId";
+            this.ColumnSearchItemId.HeaderText = "Id";
+            this.ColumnSearchItemId.Name = "ColumnSearchItemId";
+            this.ColumnSearchItemId.ReadOnly = true;
+            this.ColumnSearchItemId.Visible = false;
+            // 
+            // ColumnSearchItemBarCode
+            // 
+            this.ColumnSearchItemBarCode.DataPropertyName = "ColumnSearchItemBarCode";
+            this.ColumnSearchItemBarCode.HeaderText = "Barcode";
+            this.ColumnSearchItemBarCode.Name = "ColumnSearchItemBarCode";
+            this.ColumnSearchItemBarCode.ReadOnly = true;
+            this.ColumnSearchItemBarCode.Width = 150;
+            // 
+            // ColumnSearchItemDescription
+            // 
+            this.ColumnSearchItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSearchItemDescription.DataPropertyName = "ColumnSearchItemDescription";
+            this.ColumnSearchItemDescription.HeaderText = "Item Description";
+            this.ColumnSearchItemDescription.Name = "ColumnSearchItemDescription";
+            this.ColumnSearchItemDescription.ReadOnly = true;
+            // 
+            // ColumnSearchItemUnitId
+            // 
+            this.ColumnSearchItemUnitId.DataPropertyName = "ColumnSearchItemUnitId";
+            this.ColumnSearchItemUnitId.HeaderText = "UnitId";
+            this.ColumnSearchItemUnitId.Name = "ColumnSearchItemUnitId";
+            this.ColumnSearchItemUnitId.ReadOnly = true;
+            this.ColumnSearchItemUnitId.Visible = false;
+            // 
+            // ColumnSearchItemUnit
+            // 
+            this.ColumnSearchItemUnit.DataPropertyName = "ColumnSearchItemUnit";
+            this.ColumnSearchItemUnit.HeaderText = "Unit";
+            this.ColumnSearchItemUnit.Name = "ColumnSearchItemUnit";
+            this.ColumnSearchItemUnit.ReadOnly = true;
+            // 
+            // ColumnSearchItemPrice
+            // 
+            this.ColumnSearchItemPrice.DataPropertyName = "ColumnSearchItemPrice";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSearchItemPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnSearchItemPrice.HeaderText = "Price";
+            this.ColumnSearchItemPrice.Name = "ColumnSearchItemPrice";
+            this.ColumnSearchItemPrice.ReadOnly = true;
+            // 
+            // ColumnSearchItemButtonPick
+            // 
+            this.ColumnSearchItemButtonPick.DataPropertyName = "ColumnSearchItemButtonPick";
+            this.ColumnSearchItemButtonPick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSearchItemButtonPick.HeaderText = "Pick";
+            this.ColumnSearchItemButtonPick.Name = "ColumnSearchItemButtonPick";
+            this.ColumnSearchItemButtonPick.ReadOnly = true;
+            this.ColumnSearchItemButtonPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnSearchItemButtonPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnSearchItemButtonPick.Width = 70;
             // 
             // TrnStockInDetailSearchItemForm
             // 

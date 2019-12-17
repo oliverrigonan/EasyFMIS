@@ -16,10 +16,10 @@ namespace easyfmis.Forms.Software.TrnStockOut
         public TrnStockOutDetailForm trnStockOutDetailForm;
         public Entities.TrnStockOutEntity trnStockOutEntity;
 
-        public static List<Entities.DgvSearchItemEntity> searchItemData = new List<Entities.DgvSearchItemEntity>();
+        public static List<Entities.DgvSearchInventoryItemEntity> searchItemData = new List<Entities.DgvSearchInventoryItemEntity>();
         public static Int32 pageNumber = 1;
         public static Int32 pageSize = 50;
-        public PagedList<Entities.DgvSearchItemEntity> searchItemPageList = new PagedList<Entities.DgvSearchItemEntity>(searchItemData, pageNumber, pageSize);
+        public PagedList<Entities.DgvSearchInventoryItemEntity> searchItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchItemData, pageNumber, pageSize);
         public BindingSource searchItemDataSource = new BindingSource();
 
         public TrnStockOutDetailSearchItemForm(TrnStockOutDetailForm stockOutDetailForm, Entities.TrnStockOutEntity stockOutEntity)
@@ -39,11 +39,11 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
         public async void SetSearchItemDataSourceAsync()
         {
-            List<Entities.DgvSearchItemEntity> getSearchItemData = await GetSearchItemDataTask();
+            List<Entities.DgvSearchInventoryItemEntity> getSearchItemData = await GetSearchItemDataTask();
             if (getSearchItemData.Any())
             {
                 searchItemData = getSearchItemData;
-                searchItemPageList = new PagedList<Entities.DgvSearchItemEntity>(searchItemData, pageNumber, pageSize);
+                searchItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchItemData, pageNumber, pageSize);
 
                 if (searchItemPageList.PageCount == 1)
                 {
@@ -86,37 +86,39 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
                 pageNumber = 1;
 
-                searchItemData = new List<Entities.DgvSearchItemEntity>();
+                searchItemData = new List<Entities.DgvSearchInventoryItemEntity>();
                 searchItemDataSource.Clear();
                 textBoxSearchItemPageNumber.Text = "1 / 1";
             }
         }
 
-        public Task<List<Entities.DgvSearchItemEntity>> GetSearchItemDataTask()
+        public Task<List<Entities.DgvSearchInventoryItemEntity>> GetSearchItemDataTask()
         {
             String filter = textBoxSearchItemFilter.Text;
             Controllers.TrnStockOutItemController trnStockOutItemController = new Controllers.TrnStockOutItemController();
 
-            List<Entities.MstArticleEntity> listSearchItem = trnStockOutItemController.ListItem(filter);
+            List<Entities.MstArticleInventory> listSearchItem = trnStockOutItemController.ListInventoryItem(filter);
             if (listSearchItem.Any())
             {
                 var items = from d in listSearchItem
-                            select new Entities.DgvSearchItemEntity
+                            select new Entities.DgvSearchInventoryItemEntity
                             {
-                                ColumnSearchItemId = d.Id,
-                                ColumnSearchItemBarCode = d.ArticleBarCode,
-                                ColumnSearchItemDescription = d.Article,
-                                ColumnSearchItemUnitId = d.UnitId,
-                                ColumnSearchItemUnit = d.Unit,
-                                ColumnSearchItemPrice = d.DefaultPrice.ToString("#,##0.00"),
-                                ColumnSearchItemButtonPick = "Pick"
+                                ColumnSearchInventoryId = d.Id,
+                                ColumnSearchInventoryItemInventoryCode = d.InventoryCode,
+                                ColumnSearchInventoryItemId = d.ArticleId,
+                                ColumnSearchInventoryItemBarCode = d.ArticleBarCode,
+                                ColumnSearchInventoryItemDescription = d.Article,
+                                ColumnSearchInventoryItemUnitId = d.UnitId,
+                                ColumnSearchInventoryItemUnit = d.Unit,
+                                ColumnSearchInventoryItemQuantity = d.Quantity.ToString("#,##0.00"),
+                                ColumnSearchInventoryItemButtonPick = "Pick"
                             };
 
                 return Task.FromResult(items.ToList());
             }
             else
             {
-                return Task.FromResult(new List<Entities.DgvSearchItemEntity>());
+                return Task.FromResult(new List<Entities.DgvSearchInventoryItemEntity>());
             }
         }
 
@@ -124,9 +126,9 @@ namespace easyfmis.Forms.Software.TrnStockOut
         {
             UpdateSearchItemDataSource();
 
-            dataGridViewSearchItem.Columns[dataGridViewSearchItem.Columns["ColumnSearchItemButtonPick"].Index].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
-            dataGridViewSearchItem.Columns[dataGridViewSearchItem.Columns["ColumnSearchItemButtonPick"].Index].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
-            dataGridViewSearchItem.Columns[dataGridViewSearchItem.Columns["ColumnSearchItemButtonPick"].Index].DefaultCellStyle.ForeColor = Color.White;
+            dataGridViewSearchItem.Columns[dataGridViewSearchItem.Columns["ColumnSearchInventoryItemButtonPick"].Index].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewSearchItem.Columns[dataGridViewSearchItem.Columns["ColumnSearchInventoryItemButtonPick"].Index].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewSearchItem.Columns[dataGridViewSearchItem.Columns["ColumnSearchInventoryItemButtonPick"].Index].DefaultCellStyle.ForeColor = Color.White;
 
             dataGridViewSearchItem.DataSource = searchItemDataSource;
         }
@@ -138,14 +140,14 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
         private void dataGridViewSearchItem_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewSearchItem.CurrentCell.ColumnIndex == dataGridViewSearchItem.Columns["ColumnSearchItemButtonPick"].Index)
+            if (dataGridViewSearchItem.CurrentCell.ColumnIndex == dataGridViewSearchItem.Columns["ColumnSearchInventoryItemButtonPick"].Index)
             {
                 var stockOutId = trnStockOutEntity.Id;
-                var itemId = Convert.ToInt32(dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchItemId"].Index].Value);
-                var itemDescription = dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchItemDescription"].Index].Value.ToString();
-                var unitId = Convert.ToInt32(dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchItemUnitId"].Index].Value);
-                var unit = dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchItemUnit"].Index].Value.ToString();
-                var price = Convert.ToDecimal(dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchItemPrice"].Index].Value);
+                var itemId = Convert.ToInt32(dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchInventoryItemId"].Index].Value);
+                var itemDescription = dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchInventoryItemDescription"].Index].Value.ToString();
+                var itemInventoryId = Convert.ToInt32(dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchInventoryId"].Index].Value);
+                var unitId = Convert.ToInt32(dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchInventoryItemUnitId"].Index].Value);
+                var unit = dataGridViewSearchItem.Rows[e.RowIndex].Cells[dataGridViewSearchItem.Columns["ColumnSearchInventoryItemUnit"].Index].Value.ToString();
 
                 Entities.TrnStockOutItemEntity trnStockOutItemEntity = new Entities.TrnStockOutItemEntity()
                 {
@@ -153,6 +155,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
                     OTId = stockOutId,
                     ItemId = itemId,
                     ItemDescription = itemDescription,
+                    ItemInventoryId = itemInventoryId,
                     UnitId = unitId,
                     Unit = unit,
                     Quantity = 1,
@@ -178,7 +181,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
         private void buttonSearchItemPageListFirst_Click(object sender, EventArgs e)
         {
-            searchItemPageList = new PagedList<Entities.DgvSearchItemEntity>(searchItemData, 1, pageSize);
+            searchItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchItemData, 1, pageSize);
             searchItemDataSource.DataSource = searchItemPageList;
 
             buttonSearchItemPageListFirst.Enabled = false;
@@ -194,7 +197,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
         {
             if (searchItemPageList.HasPreviousPage == true)
             {
-                searchItemPageList = new PagedList<Entities.DgvSearchItemEntity>(searchItemData, --pageNumber, pageSize);
+                searchItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchItemData, --pageNumber, pageSize);
                 searchItemDataSource.DataSource = searchItemPageList;
             }
 
@@ -214,7 +217,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
         {
             if (searchItemPageList.HasNextPage == true)
             {
-                searchItemPageList = new PagedList<Entities.DgvSearchItemEntity>(searchItemData, ++pageNumber, pageSize);
+                searchItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchItemData, ++pageNumber, pageSize);
                 searchItemDataSource.DataSource = searchItemPageList;
             }
 
@@ -232,7 +235,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
         private void buttonSearchItemPageListLast_Click(object sender, EventArgs e)
         {
-            searchItemPageList = new PagedList<Entities.DgvSearchItemEntity>(searchItemData, searchItemPageList.PageCount, pageSize);
+            searchItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchItemData, searchItemPageList.PageCount, pageSize);
             searchItemDataSource.DataSource = searchItemPageList;
 
             buttonSearchItemPageListFirst.Enabled = true;
