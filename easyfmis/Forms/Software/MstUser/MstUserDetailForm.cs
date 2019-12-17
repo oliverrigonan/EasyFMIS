@@ -272,12 +272,6 @@ namespace easyfmis.Forms.Software.MstUser
                 var canPrint = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanPrint"].Index].Value);
                 var canPreview = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanPreview"].Index].Value);
                 var canEdit = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanEdit"].Index].Value);
-                var canTender = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanTender"].Index].Value);
-                var canDiscount = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanDiscount"].Index].Value);
-                var canView = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanView"].Index].Value);
-                var canSplit = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanSplit"].Index].Value);
-                var canCancel = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanCancel"].Index].Value);
-                var canReturn = Convert.ToBoolean(dataGridViewUserFormList.Rows[e.RowIndex].Cells[dataGridViewUserFormList.Columns["ColumnUserFormListCanReturn"].Index].Value);
 
                 Entities.MstUserFormEntity mstUserFormEntity = new Entities.MstUserFormEntity()
                 {
@@ -294,8 +288,8 @@ namespace easyfmis.Forms.Software.MstUser
                     CanEdit = canEdit,
                 };
 
-                //MstUserDetailUserFormDetailForm mstUserDetailUserFormDetailForm = new MstUserDetailUserFormDetailForm(this, mstUserFormEntity);
-                //mstUserDetailUserFormDetailForm.ShowDialog();
+                MstUserDetailUserFormDetailForm mstUserDetailUserFormDetailForm = new MstUserDetailUserFormDetailForm(this, mstUserFormEntity);
+                mstUserDetailUserFormDetailForm.ShowDialog();
             }
 
             if (e.RowIndex > -1 && dataGridViewUserFormList.CurrentCell.ColumnIndex == dataGridViewUserFormList.Columns["ColumnUserFormListButtonDelete"].Index)
@@ -405,8 +399,8 @@ namespace easyfmis.Forms.Software.MstUser
                 CanEdit = false,
             };
 
-            //MstUserDetailUserFormDetailForm mstUserDetailUserFormDetailForm = new MstUserDetailUserFormDetailForm(this, mstUserFormEntity);
-            //mstUserDetailUserFormDetailForm.ShowDialog();
+            MstUserDetailUserFormDetailForm mstUserDetailUserFormDetailForm = new MstUserDetailUserFormDetailForm(this, mstUserFormEntity);
+            mstUserDetailUserFormDetailForm.ShowDialog();
         }
     }
 }

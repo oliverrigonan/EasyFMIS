@@ -48,18 +48,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B5733812EBAE26E1387C40CB46CD3E52FBDFE0AA</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>easyfmis_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
     <ApplicationIcon>easyerp.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
@@ -201,6 +189,12 @@
     <Compile Include="Forms\Software\MstUser\MstUserDetailForm.designer.cs">
       <DependentUpon>MstUserDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\MstUser\MstUserDetailUserFormDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstUser\MstUserDetailUserFormDetailForm.designer.cs">
+      <DependentUpon>MstUserDetailUserFormDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\MstUser\MstUserListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstUser\MstUserDetailForm.resx">
       <DependentUpon>MstUserDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstUser\MstUserDetailUserFormDetailForm.resx">
+      <DependentUpon>MstUserDetailUserFormDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstUser\MstUserListForm.resx">
       <DependentUpon>MstUserListForm.cs</DependentUpon>
