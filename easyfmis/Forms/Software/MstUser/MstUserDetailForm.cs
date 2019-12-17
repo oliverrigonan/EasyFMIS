@@ -32,7 +32,7 @@ namespace easyfmis.Forms.Software.MstUser
             mstUserListForm = userListForm;
             mstUserEntity = userEntity;
 
-            GetUserDetail();
+            GetCompanyList();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -40,16 +40,6 @@ namespace easyfmis.Forms.Software.MstUser
             sysSoftwareForm.RemoveTabPage();
         }
 
-        public void GetUserDetail()
-        {
-            UpdateComponents(mstUserEntity.IsLocked);
-
-            textBoxFullName.Text = mstUserEntity.FullName;
-            textBoxUserName.Text = mstUserEntity.UserName;
-            textBoxPassword.Text = mstUserEntity.Password;
-
-            GetCompanyList();
-        }
         public void GetCompanyList()
         {
             Controllers.MstUserController mstUserController = new Controllers.MstUserController();
@@ -74,16 +64,26 @@ namespace easyfmis.Forms.Software.MstUser
                 comboBoxBranch.ValueMember = "Id";
                 comboBoxBranch.DisplayMember = "Branch";
             }
+            GetUserDetail();
+        }
+
+        public void GetUserDetail()
+        {
+            UpdateComponents(mstUserEntity.IsLocked);
+
+            textBoxFullName.Text = mstUserEntity.FullName;
+            textBoxUserName.Text = mstUserEntity.UserName;
+            textBoxPassword.Text = mstUserEntity.Password;
+            comboBoxCompany.SelectedValue = mstUserEntity.CompanyId;
+            comboBoxBranch.SelectedValue = mstUserEntity.BranchId;
 
             CreateUserFormListDataGridView();
+
         }
 
         public void UpdateComponents(Boolean isLocked)
         {
-
-
             buttonLock.Enabled = !isLocked;
-
 
             buttonUnlock.Enabled = isLocked;
 
@@ -108,6 +108,9 @@ namespace easyfmis.Forms.Software.MstUser
                 UserName = textBoxUserName.Text,
                 Password = textBoxPassword.Text,
                 FullName = textBoxFullName.Text,
+                CompanyId = Convert.ToInt32(comboBoxCompany.SelectedValue),
+                BranchId = Convert.ToInt32(comboBoxBranch.SelectedValue)
+
             };
             String[] lockUser = mstUserController.LockUser(mstUserEntity.Id, newUserEntity);
             if (lockUser[1].Equals("0") == false)

@@ -183,7 +183,7 @@ namespace easyfmis.Forms.Software.MstUser
 
             if (e.RowIndex > -1 && dataGridViewUserList.CurrentCell.ColumnIndex == dataGridViewUserList.Columns["ColumnUserListButtonDelete"].Index)
             {
-                Boolean isLocked = Convert.ToBoolean(dataGridViewUserList.Rows[e.RowIndex].Cells[5].Value);
+                Boolean isLocked = Convert.ToBoolean(dataGridViewUserList.Rows[e.RowIndex].Cells[9].Value);
 
                 if (isLocked == true)
                 {
