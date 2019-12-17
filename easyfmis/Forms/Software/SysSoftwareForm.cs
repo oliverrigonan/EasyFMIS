@@ -71,8 +71,8 @@ namespace easyfmis.Forms.Software
         public MstCustomer.MstCustomerDetailForm mstCustomerDetailForm = null;
         //public MstDiscounting.MstDiscountingListForm mstDiscountingListForm = null;
         //public MstDiscounting.MstDiscountingDetailForm mstDiscountingDetailForm = null;
-        //public MstUser.MstUserListForm mstUserListForm = null;
-        //public MstUser.MstUserDetailForm mstUserDetailForm = null;
+        public MstUser.MstUserListForm mstUserListForm = null;
+        public MstUser.MstUserDetailForm mstUserDetailForm = null;
 
         //public TrnPOS.TrnSalesListForm trnSalesListForm = null;
         //public TrnPOS.TrnSalesDetailForm trnSalesDetailForm = null;
@@ -277,53 +277,53 @@ namespace easyfmis.Forms.Software
         //    }
         //}
 
-        //public void AddTabPageUserList()
-        //{
-        //    tabPageUserList.Controls.Remove(mstUserListForm);
+        public void AddTabPageUserList()
+        {
+            tabPageUserList.Controls.Remove(mstUserListForm);
 
-        //    mstUserListForm = new MstUser.MstUserListForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            mstUserListForm = new MstUser.MstUserListForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageUserList.Controls.Add(mstUserListForm);
+            tabPageUserList.Controls.Add(mstUserListForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageUserList) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageUserList);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageUserList);
-        //        tabControlSoftware.SelectTab(tabPageUserList);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageUserList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageUserList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageUserList);
+                tabControlSoftware.SelectTab(tabPageUserList);
+            }
+        }
 
-        //public void AddTabPageUserDetail(MstUser.MstUserListForm userListForm, Entities.MstUserEntity userEntity)
-        //{
-        //    tabPageUserDetail.Controls.Remove(mstUserDetailForm);
+        public void AddTabPageUserDetail(MstUser.MstUserListForm userListForm, Entities.MstUserEntity userEntity)
+        {
+            tabPageUserDetail.Controls.Remove(mstUserDetailForm);
 
-        //    mstUserDetailForm = new MstUser.MstUserDetailForm(this, userListForm, userEntity)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            mstUserDetailForm = new MstUser.MstUserDetailForm(this, userListForm, userEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageUserDetail.Controls.Add(mstUserDetailForm);
+            tabPageUserDetail.Controls.Add(mstUserDetailForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageUserDetail) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageUserDetail);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageUserDetail);
-        //        tabControlSoftware.SelectTab(tabPageUserDetail);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageUserDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageUserDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageUserDetail);
+                tabControlSoftware.SelectTab(tabPageUserDetail);
+            }
+        }
 
         //public void AddTabPagePOSSalesList()
         //{

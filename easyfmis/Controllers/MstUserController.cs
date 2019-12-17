@@ -60,6 +60,36 @@ namespace easyfmis.Controllers
             return users.FirstOrDefault();
         }
 
+        // ============
+        // List Company
+        // ============
+        public List<Entities.MstCompanyEntity> DropDownListCompany() {
+            var company = from d in db.MstCompanies
+                          select new Entities.MstCompanyEntity
+                          {
+                              Id = d.Id,
+                              Company = d.Company
+                          };
+            return company.OrderByDescending(d => d.Id).ToList();
+        }
+
+         //===========
+         //List Branch
+         //===========
+        public List<Entities.MstBranchEntity> DropDownListBranch(Int32 companyId)
+        {
+            var branches = from d in db.MstBranches
+                           where d.CompanyId == companyId
+                           select new Entities.MstBranchEntity
+                           {
+                               Id = d.Id,
+                               BranchCode = d.BranchCode,
+                               Branch = d.Branch,
+                           };
+            return branches.OrderByDescending(d=> d.Id).ToList();
+
+        }
+
         // ========
         // Add User
         // ========
@@ -73,12 +103,33 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+                var company = from d in db.MstCompanies
+                              select d;
+                if (company.Any() == false)
+                {
+                    return new String[] { "Company not found", "0" };
+                }
+
+                var branch = from d in db.MstBranches
+                             select d;
+                if (branch.Any() == false)
+                {
+                    return new String[] { "Branch not found", "0" };
+                }
+
+
                 Data.MstUser newUser = new Data.MstUser()
                 {
                     UserName = "NA",
                     Password = "NA",
                     FullName = "NA",
-                    IsLocked = false
+                    CompanyId = company.FirstOrDefault().Id,
+                    BranchId = branch.FirstOrDefault().Id,
+                    IsLocked = false,
+                    CreatedBy = currentUserLogin.FirstOrDefault().Id,
+                    CreatedDateTime = DateTime.Today,
+                    UpdatedBy = currentUserLogin.FirstOrDefault().Id,
+                    UpdatedDateTime = DateTime.Today
                 };
 
                 db.MstUsers.InsertOnSubmit(newUser);
@@ -125,7 +176,11 @@ namespace easyfmis.Controllers
                     lockUser.UserName = objUser.UserName;
                     lockUser.Password = objUser.Password;
                     lockUser.FullName = objUser.FullName;
+                    lockUser.CompanyId = objUser.CompanyId;
+                    lockUser.BranchId = objUser.BranchId;
                     lockUser.IsLocked = true;
+                    lockUser.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
+                    lockUser.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
 
                     return new String[] { "", "" };
@@ -162,6 +217,8 @@ namespace easyfmis.Controllers
                 {
                     var unlockUser = user.FirstOrDefault();
                     unlockUser.IsLocked = false;
+                    unlockUser.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
+                    unlockUser.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
 
                     return new String[] { "", "" };

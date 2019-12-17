@@ -223,6 +223,7 @@
             this.buttonUser.Text = "\r\nUser";
             this.buttonUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonUser.UseVisualStyleBackColor = false;
+            this.buttonUser.Click += new System.EventHandler(this.buttonUser_Click);
             // 
             // buttonPOS
             // 
