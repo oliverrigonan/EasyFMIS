@@ -74,6 +74,8 @@
     <Compile Include="Controllers\MstArticleInventoryController.cs" />
     <Compile Include="Controllers\MstArticlePriceController.cs" />
     <Compile Include="Controllers\MstArticleUnitController.cs" />
+    <Compile Include="Controllers\MstBranchController.cs" />
+    <Compile Include="Controllers\MstCompanyController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\MstUserFormController.cs" />
     <Compile Include="Controllers\RepInventoryReportController.cs" />
@@ -96,6 +98,8 @@
     <Compile Include="Entities\DgvItemComponentEntity.cs" />
     <Compile Include="Entities\DgvItemInventoryEntity.cs" />
     <Compile Include="Entities\DgvItemUnitEntity.cs" />
+    <Compile Include="Entities\DgvMstBranchEntity.cs" />
+    <Compile Include="Entities\DgvMstCompanyEntity.cs" />
     <Compile Include="Entities\DgvMstCustomerEntities.cs" />
     <Compile Include="Entities\DgvMstUserFormEntity.cs" />
     <Compile Include="Entities\DgvSearchInventoryItemEntity.cs" />
@@ -134,6 +138,24 @@
     </Compile>
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstCompany\MstCompanyListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstCompany\MstCompanyListForm.Designer.cs">
+      <DependentUpon>MstCompanyListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstCompany\MstCompanyDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstCompany\MstCompanyDetailForm.designer.cs">
+      <DependentUpon>MstCompanyDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstCompany\MstCompanyDetailBranchDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstCompany\MstCompanyDetailBranchDetailForm.designer.cs">
+      <DependentUpon>MstCompanyDetailBranchDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\MstCustomer\MstCustomerDetailForm.cs">
       <SubType>Form</SubType>
@@ -289,6 +311,15 @@
     </None>
     <EmbeddedResource Include="Forms\Account\SysLogin\SysLoginForm.resx">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstCompany\MstCompanyListForm.resx">
+      <DependentUpon>MstCompanyListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstCompany\MstCompanyDetailForm.resx">
+      <DependentUpon>MstCompanyDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstCompany\MstCompanyDetailBranchDetailForm.resx">
+      <DependentUpon>MstCompanyDetailBranchDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstCustomer\MstCustomerDetailForm.resx">
       <DependentUpon>MstCustomerDetailForm.cs</DependentUpon>

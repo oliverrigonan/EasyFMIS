@@ -50,5 +50,10 @@ namespace easyfmis.Forms.Software.SysMenu
             sysSoftwareForm.AddTabPageUserList();
 
         }
+
+        private void buttonCompany_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageCompanyList();
+        }
     }
 }

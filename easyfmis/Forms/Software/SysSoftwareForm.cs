@@ -42,6 +42,10 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageUserList = new TabPage { Name = "tabPageUserList", Text = "Setup - User List" };
         public TabPage tabPageUserDetail = new TabPage { Name = "tabPageUserDetail", Text = "Setup - User Detail" };
 
+        public TabPage tabPageCompanyList = new TabPage { Name = "tabPageCompanyList", Text = "Setup - Company List" };
+        public TabPage tabPageCompanyDetail = new TabPage { Name = "tabPageCompanyDetail", Text = "Setup - Company Detail" };
+
+
         public TabPage tabPagePOSSalesList = new TabPage { Name = "tabPagePOSSalesList", Text = "Activity - POS Barcode - Sales List" };
         public TabPage tabPagePOSSalesDetail = new TabPage { Name = "tabPagePOSSalesDetail", Text = "Activity - POS Barcode - Sales Detail" };
         public TabPage tabPageStockInList = new TabPage { Name = "tabPageStockInList", Text = "Activity - Stock-In List" };
@@ -62,6 +66,7 @@ namespace easyfmis.Forms.Software
 
         public TabPage tabPageSettings = new TabPage { Name = "tabPageSettings", Text = "Settings" };
 
+
         // =====
         // Forms
         // =====
@@ -73,6 +78,10 @@ namespace easyfmis.Forms.Software
         //public MstDiscounting.MstDiscountingDetailForm mstDiscountingDetailForm = null;
         public MstUser.MstUserListForm mstUserListForm = null;
         public MstUser.MstUserDetailForm mstUserDetailForm = null;
+
+        public MstCompany.MstCompanyListForm mstCompanyListForm = null;
+        public MstCompany.MstCompanyDetailForm mstCompanyDetailForm = null;
+
 
         //public TrnPOS.TrnSalesListForm trnSalesListForm = null;
         //public TrnPOS.TrnSalesDetailForm trnSalesDetailForm = null;
@@ -324,6 +333,56 @@ namespace easyfmis.Forms.Software
                 tabControlSoftware.SelectTab(tabPageUserDetail);
             }
         }
+
+        public void AddTabPageCompanyList()
+        {
+            tabPageCompanyList.Controls.Remove(mstCompanyListForm);
+
+            mstCompanyListForm = new MstCompany.MstCompanyListForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageCompanyList.Controls.Add(mstCompanyListForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageCompanyList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageCompanyList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageCompanyList);
+                tabControlSoftware.SelectTab(tabPageCompanyList);
+            }
+        }
+
+        public void AddTabPageCompanyDetail(MstCompany.MstCompanyListForm mstCompanyListForm, Entities.MstCompanyEntity mstCompanyEntity)
+        {
+            tabPageCompanyDetail.Controls.Remove(mstCompanyDetailForm);
+
+            mstCompanyDetailForm = new MstCompany.MstCompanyDetailForm(this, mstCompanyListForm, mstCompanyEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageCompanyDetail.Controls.Add(mstCompanyDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageCompanyDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageCompanyDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageCompanyDetail);
+                tabControlSoftware.SelectTab(tabPageCompanyDetail);
+            }
+        }
+
+
 
         //public void AddTabPagePOSSalesList()
         //{

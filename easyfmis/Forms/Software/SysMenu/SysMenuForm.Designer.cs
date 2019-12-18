@@ -38,7 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonItem = new System.Windows.Forms.Button();
             this.buttonUser = new System.Windows.Forms.Button();
-            this.buttonPOS = new System.Windows.Forms.Button();
+            this.buttonCompany = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.buttonDiscounting = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
@@ -89,7 +89,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.buttonItem);
             this.panel1.Controls.Add(this.buttonUser);
-            this.panel1.Controls.Add(this.buttonPOS);
+            this.panel1.Controls.Add(this.buttonCompany);
             this.panel1.Controls.Add(this.button15);
             this.panel1.Controls.Add(this.buttonDiscounting);
             this.panel1.Controls.Add(this.buttonSettings);
@@ -225,24 +225,25 @@
             this.buttonUser.UseVisualStyleBackColor = false;
             this.buttonUser.Click += new System.EventHandler(this.buttonUser_Click);
             // 
-            // buttonPOS
+            // buttonCompany
             // 
-            this.buttonPOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonPOS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonPOS.FlatAppearance.BorderSize = 0;
-            this.buttonPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPOS.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonPOS.ForeColor = System.Drawing.Color.White;
-            this.buttonPOS.ImageKey = "Company.png";
-            this.buttonPOS.ImageList = this.imageListMenuIcons;
-            this.buttonPOS.Location = new System.Drawing.Point(711, 12);
-            this.buttonPOS.Name = "buttonPOS";
-            this.buttonPOS.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonPOS.Size = new System.Drawing.Size(227, 123);
-            this.buttonPOS.TabIndex = 4;
-            this.buttonPOS.Text = "\r\nCompany";
-            this.buttonPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonPOS.UseVisualStyleBackColor = false;
+            this.buttonCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonCompany.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonCompany.FlatAppearance.BorderSize = 0;
+            this.buttonCompany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCompany.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonCompany.ForeColor = System.Drawing.Color.White;
+            this.buttonCompany.ImageKey = "Company.png";
+            this.buttonCompany.ImageList = this.imageListMenuIcons;
+            this.buttonCompany.Location = new System.Drawing.Point(711, 12);
+            this.buttonCompany.Name = "buttonCompany";
+            this.buttonCompany.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonCompany.Size = new System.Drawing.Size(227, 123);
+            this.buttonCompany.TabIndex = 4;
+            this.buttonCompany.Text = "\r\nCompany";
+            this.buttonCompany.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonCompany.UseVisualStyleBackColor = false;
+            this.buttonCompany.Click += new System.EventHandler(this.buttonCompany_Click);
             // 
             // button15
             // 
@@ -516,7 +517,7 @@
         #endregion
         private System.Windows.Forms.Button buttonItem;
         private System.Windows.Forms.ImageList imageListMenuIcons;
-        private System.Windows.Forms.Button buttonPOS;
+        private System.Windows.Forms.Button buttonCompany;
         private System.Windows.Forms.Button buttonDiscounting;
         private System.Windows.Forms.Button buttonCustomer;
         private System.Windows.Forms.Button buttonSystemTables;

@@ -65,6 +65,7 @@ namespace easyfmis.Controllers
         // ============
         public List<Entities.MstCompanyEntity> DropDownListCompany() {
             var company = from d in db.MstCompanies
+                          where d.IsLocked == true
                           select new Entities.MstCompanyEntity
                           {
                               Id = d.Id,
@@ -104,6 +105,7 @@ namespace easyfmis.Controllers
                 }
 
                 var company = from d in db.MstCompanies
+                              where d.IsLocked == true
                               select d;
                 if (company.Any() == false)
                 {
