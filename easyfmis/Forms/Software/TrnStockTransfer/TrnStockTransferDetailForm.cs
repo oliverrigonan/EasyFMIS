@@ -23,10 +23,10 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
         public PagedList<Entities.DgvStockTransferItemEntity> stockOutItemPageList = new PagedList<Entities.DgvStockTransferItemEntity>(stockOutItemData, stockOutItemPageNumber, stockOutItemPageSize);
         public BindingSource stockOutItemDataSource = new BindingSource();
 
-        public static List<Entities.DgvInventoryEntriesEntity> inventoryEntriesData = new List<Entities.DgvInventoryEntriesEntity>();
+        public static List<Entities.DgvTrnInventoryEntriesEntity> inventoryEntriesData = new List<Entities.DgvTrnInventoryEntriesEntity>();
         public static Int32 inventoryEntriesPageNumber = 1;
         public static Int32 inventoryEntriesPageSize = 50;
-        public PagedList<Entities.DgvInventoryEntriesEntity> inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
+        public PagedList<Entities.DgvTrnInventoryEntriesEntity> inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
         public BindingSource inventoryEntriesDataSource = new BindingSource();
 
         public TrnStockTransferDetailForm(SysSoftwareForm softwareForm, TrnStockTransferForm stockOutListForm, Entities.TrnStockTransferEntity stockOutEntity)
@@ -426,11 +426,11 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
 
         public async void SetInventoryEntriesDataSourceAsync()
         {
-            List<Entities.DgvInventoryEntriesEntity> getInventoryEntriesData = await GetInventoryEntriesDataTask();
+            List<Entities.DgvTrnInventoryEntriesEntity> getInventoryEntriesData = await GetInventoryEntriesDataTask();
             if (getInventoryEntriesData.Any())
             {
                 inventoryEntriesData = getInventoryEntriesData;
-                inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
+                inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
 
                 if (inventoryEntriesPageList.PageCount == 1)
                 {
@@ -473,13 +473,13 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
 
                 inventoryEntriesPageNumber = 1;
 
-                inventoryEntriesData = new List<Entities.DgvInventoryEntriesEntity>();
+                inventoryEntriesData = new List<Entities.DgvTrnInventoryEntriesEntity>();
                 inventoryEntriesDataSource.Clear();
                 textBoxInventoryEntriesPageNumber.Text = "1 / 1";
             }
         }
 
-        public Task<List<Entities.DgvInventoryEntriesEntity>> GetInventoryEntriesDataTask()
+        public Task<List<Entities.DgvTrnInventoryEntriesEntity>> GetInventoryEntriesDataTask()
         {
             Controllers.TrnInventoryController trnInventoryController = new Controllers.TrnInventoryController();
 
@@ -487,7 +487,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             if (listInventoryEntries.Any())
             {
                 var items = from d in listInventoryEntries
-                            select new Entities.DgvInventoryEntriesEntity
+                            select new Entities.DgvTrnInventoryEntriesEntity
                             {
                                 ColumnInventoryEntriesBranch = d.Branch,
                                 ColumnInventoryEntriesInventoryDate = d.InventoryDate.ToShortDateString(),
@@ -502,7 +502,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             }
             else
             {
-                return Task.FromResult(new List<Entities.DgvInventoryEntriesEntity>());
+                return Task.FromResult(new List<Entities.DgvTrnInventoryEntriesEntity>());
             }
         }
 
@@ -519,7 +519,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
 
         private void buttonInventoryEntriesPageListFirst_Click(object sender, EventArgs e)
         {
-            inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, 1, inventoryEntriesPageSize);
+            inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, 1, inventoryEntriesPageSize);
             inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
 
             buttonInventoryEntriesPageListFirst.Enabled = false;
@@ -535,7 +535,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
         {
             if (inventoryEntriesPageList.HasPreviousPage == true)
             {
-                inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, --inventoryEntriesPageNumber, inventoryEntriesPageSize);
+                inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, --inventoryEntriesPageNumber, inventoryEntriesPageSize);
                 inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
             }
 
@@ -555,7 +555,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
         {
             if (inventoryEntriesPageList.HasNextPage == true)
             {
-                inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, ++inventoryEntriesPageNumber, inventoryEntriesPageSize);
+                inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, ++inventoryEntriesPageNumber, inventoryEntriesPageSize);
                 inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
             }
 
@@ -573,7 +573,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
 
         private void buttonInventoryEntriesPageListLast_Click(object sender, EventArgs e)
         {
-            inventoryEntriesPageList = new PagedList<Entities.DgvInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageList.PageCount, inventoryEntriesPageSize);
+            inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageList.PageCount, inventoryEntriesPageSize);
             inventoryEntriesDataSource.DataSource = inventoryEntriesPageList;
 
             buttonInventoryEntriesPageListFirst.Enabled = true;

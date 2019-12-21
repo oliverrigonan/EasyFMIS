@@ -16,9 +16,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 {
     public partial class RepInventoryReportInventoryReportForm : Form
     {
-        public List<Entities.DgvInventoryReportEntity> inventoryReportList;
+        public List<Entities.DgvRepInventoryReportEntity> inventoryReportList;
         public BindingSource dataInventoryReportListSource = new BindingSource();
-        public PagedList<Entities.DgvInventoryReportEntity> pageList;
+        public PagedList<Entities.DgvRepInventoryReportEntity> pageList;
         public Int32 pageNumber = 1;
         public Int32 pageSize = 50;
 
@@ -44,9 +44,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             CreateInventoryReportDataGridView();
         }
 
-        public List<Entities.DgvInventoryReportEntity> GetInventoryReportListData(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, Int32 filterBranchId)
+        public List<Entities.DgvRepInventoryReportEntity> GetInventoryReportListData(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, Int32 filterBranchId)
         {
-            List<Entities.DgvInventoryReportEntity> rowList = new List<Entities.DgvInventoryReportEntity>();
+            List<Entities.DgvRepInventoryReportEntity> rowList = new List<Entities.DgvRepInventoryReportEntity>();
 
             Controllers.RepInventoryReportController repInvetoryReportController = new Controllers.RepInventoryReportController();
 
@@ -54,7 +54,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             if (inventoryReportList.Any())
             {
                 var row = from d in inventoryReportList
-                          select new Entities.DgvInventoryReportEntity
+                          select new Entities.DgvRepInventoryReportEntity
                           {
                               ColumnInventoryReportBarCode = d.BarCode,
                               ColumnInventoryReportItemDescription = d.ItemDescription,
@@ -81,7 +81,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             if (inventoryReportList.Any())
             {
 
-                pageList = new PagedList<Entities.DgvInventoryReportEntity>(inventoryReportList, pageNumber, pageSize);
+                pageList = new PagedList<Entities.DgvRepInventoryReportEntity>(inventoryReportList, pageNumber, pageSize);
 
                 if (pageList.PageCount == 1)
                 {
@@ -135,7 +135,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         private void buttonInventoryReportPageListFirst_Click(object sender, EventArgs e)
         {
-            pageList = new PagedList<Entities.DgvInventoryReportEntity>(inventoryReportList, 1, pageSize);
+            pageList = new PagedList<Entities.DgvRepInventoryReportEntity>(inventoryReportList, 1, pageSize);
             dataInventoryReportListSource.DataSource = pageList;
 
             buttonInventoryReportPageListFirst.Enabled = false;
@@ -151,7 +151,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             if (pageList.HasPreviousPage == true)
             {
-                pageList = new PagedList<Entities.DgvInventoryReportEntity>(inventoryReportList, --pageNumber, pageSize);
+                pageList = new PagedList<Entities.DgvRepInventoryReportEntity>(inventoryReportList, --pageNumber, pageSize);
                 dataInventoryReportListSource.DataSource = pageList;
             }
 
@@ -171,7 +171,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             if (pageList.HasNextPage == true)
             {
-                pageList = new PagedList<Entities.DgvInventoryReportEntity>(inventoryReportList, ++pageNumber, pageSize);
+                pageList = new PagedList<Entities.DgvRepInventoryReportEntity>(inventoryReportList, ++pageNumber, pageSize);
                 dataInventoryReportListSource.DataSource = pageList;
             }
 
@@ -189,7 +189,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         private void buttonInventoryReportPageListLast_Click(object sender, EventArgs e)
         {
-            pageList = new PagedList<Entities.DgvInventoryReportEntity>(inventoryReportList, pageList.PageCount, pageSize);
+            pageList = new PagedList<Entities.DgvRepInventoryReportEntity>(inventoryReportList, pageList.PageCount, pageSize);
             dataInventoryReportListSource.DataSource = pageList;
 
             buttonInventoryReportPageListFirst.Enabled = true;

@@ -154,10 +154,36 @@ namespace easyfmis.Controllers
                                        && d.MstBranch.CompanyId == companyId
                                        && d.BranchId == branchId
                                        && d.ItemId == itemId
-                                       select new Entities.RepInventoryReportStockCard
+                                       select new
                                        {
-                                           
+                                           Document = "Beggining Balance",
+                                           InventoryDate = startDate,
+                                           d.MstArticle.MstUnit.Unit,
+                                           d.Quantity,
+                                           Cost = d.MstArticleInventory.Cost1
                                        };
+
+            var groupedBeginningInventories = from d in beginningInventories
+                                              group d by new
+                                              {
+                                                  d.Document,
+                                                  d.InventoryDate,
+                                                  d.Unit,
+                                                  d.Cost
+                                              }
+                                              into g
+                                              select new Entities.RepInventoryReportStockCard
+                                              {
+                                                  Document = g.Key.Document,
+                                                  InventoryDate = g.Key.InventoryDate,
+                                                  Unit = g.Key.Unit,
+                                                  BeginningQuantity = g.Sum(s => s.Quantity),
+                                                  InQuantity = 0,
+                                                  OutQuantity = 0,
+                                                  Runninguantity = g.Sum(s => s.Quantity),
+                                                  Cost = g.Key.Cost,
+                                                  Amount = g.Key.Cost * g.Sum(s => s.Quantity)
+                                              };
 
             var currentInventories = from d in db.TrnInventories
                                      where d.InventoryDate >= startDate
@@ -167,36 +193,66 @@ namespace easyfmis.Controllers
                                      && d.ItemId == itemId
                                      select new Entities.RepInventoryReportStockCard
                                      {
-                                        
+                                         Document = d.SIId != null ? "SI-" + d.TrnSalesInvoice.MstBranch.BranchCode + "-" + d.TrnSalesInvoice.SINumber :
+                                                    d.INId != null ? "IN-" + d.TrnStockIn.MstBranch.BranchCode + "-" + d.TrnStockIn.INNumber :
+                                                    d.OTId != null ? "OT-" + d.TrnStockOut.MstBranch.BranchCode + "-" + d.TrnStockOut.OTNumber :
+                                                    d.STId != null ? "ST-" + d.TrnStockTransfer.MstBranch.BranchCode + "-" + d.TrnStockTransfer.STNumber : " ",
+                                         InventoryDate = d.InventoryDate,
+                                         Unit = d.MstArticle.MstUnit.Unit,
+                                         BeginningQuantity = 0,
+                                         InQuantity = d.QuantityIn,
+                                         OutQuantity = d.QuantityOut,
+                                         Runninguantity = d.Quantity,
+                                         Cost = d.MstArticleInventory.Cost1,
+                                         Amount = d.MstArticleInventory.Cost1 * d.Quantity
                                      };
 
-            var unionInventories = beginningInventories.ToList().Union(currentInventories.ToList());
-            if (unionInventories.Any())
-            {
-                var groupedInventories = from d in unionInventories
-                                         group d by new
-                                         {
-                                             
-                                         }
-                                         into g
-                                         select new Entities.RepInventoryReportStockCard
-                                         {
-                                            
-                                         };
+            List<Entities.RepInventoryReportStockCard> stockCard = new List<Entities.RepInventoryReportStockCard>();
+            Decimal runningQuantity = 0;
 
-                if (groupedInventories.ToList().Any())
-                {
-                    return groupedInventories.ToList();
-                }
-                else
-                {
-                    return new List<Entities.RepInventoryReportStockCard>();
-                }
-            }
-            else
+            if (groupedBeginningInventories.ToList().Any())
             {
-                return new List<Entities.RepInventoryReportStockCard>();
+                foreach (var groupedBeginningInventory in groupedBeginningInventories)
+                {
+                    stockCard.Add(new Entities.RepInventoryReportStockCard()
+                    {
+                        Document = groupedBeginningInventory.Document,
+                        InventoryDate = groupedBeginningInventory.InventoryDate,
+                        Unit = groupedBeginningInventory.Unit,
+                        BeginningQuantity = groupedBeginningInventory.BeginningQuantity,
+                        InQuantity = groupedBeginningInventory.InQuantity,
+                        OutQuantity = groupedBeginningInventory.OutQuantity,
+                        Runninguantity = groupedBeginningInventory.Runninguantity,
+                        Cost = groupedBeginningInventory.Cost,
+                        Amount = groupedBeginningInventory.Amount
+                    });
+
+                    runningQuantity += groupedBeginningInventory.Runninguantity;
+                }
             }
+
+            if (currentInventories.ToList().Any())
+            {
+                foreach (var currentInventory in currentInventories)
+                {
+                    runningQuantity = currentInventory.InQuantity - currentInventory.OutQuantity;
+
+                    stockCard.Add(new Entities.RepInventoryReportStockCard()
+                    {
+                        Document = currentInventory.Document,
+                        InventoryDate = currentInventory.InventoryDate,
+                        Unit = currentInventory.Unit,
+                        BeginningQuantity = currentInventory.BeginningQuantity,
+                        InQuantity = currentInventory.InQuantity,
+                        OutQuantity = currentInventory.OutQuantity,
+                        Runninguantity = runningQuantity,
+                        Cost = currentInventory.Cost,
+                        Amount = currentInventory.Amount
+                    });
+                }
+            }
+
+            return stockCard.ToList();
         }
     }
 }
