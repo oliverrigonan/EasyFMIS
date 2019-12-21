@@ -59,6 +59,9 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageDisbursementList = new TabPage { Name = "tabPageDisbursementList", Text = "Activity - Remittance List" };
         public TabPage tabPageDisbursementDetail = new TabPage { Name = "tabPageDisbursementDetail", Text = "Activity - Remittance Detail" };
 
+        public TabPage tabPageSalesOrder = new TabPage { Name = "tabPageSalesOrder", Text = "Activity - Sales Order List" };
+        public TabPage tabPageSalesOrderItem = new TabPage { Name = "tabPageSalesOrderItem", Text = "Activity - Stock-Out Detail" };
+
         public TabPage tabPagePOSReport = new TabPage { Name = "tabPagePOSReport", Text = "Report - POS Report" };
         public TabPage tabPageSalesReports = new TabPage { Name = "tabPageSalesReports ", Text = "Report - Sales Report" };
         public TabPage tabPageInventoryReports = new TabPage { Name = "tabPageInventoryReports ", Text = "Report - Inventory Report" };
@@ -93,6 +96,7 @@ namespace easyfmis.Forms.Software
         public TrnStockOut.TrnStockOutDetailForm trnStockOutDetailForm = null;
         public TrnStockTransfer.TrnStockTransferForm trnStockTransferForm = null;
         public TrnStockTransfer.TrnStockTransferDetailForm trnStockTransferDetailForm = null;
+        public TrnSalesOrder.TrnSalesOrderForm trnSalesOrderForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
         //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
@@ -577,6 +581,30 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageStockTransferDetail);
                 tabControlSoftware.SelectTab(tabPageStockTransferDetail);
+            }
+        }
+
+        public void AddTabPageSalesOrderList()
+        {
+            tabPageSalesOrder.Controls.Remove(trnSalesOrderForm);
+
+            trnSalesOrderForm = new TrnSalesOrder.TrnSalesOrderForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageSalesOrder.Controls.Add(trnSalesOrderForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageSalesOrder) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageSalesOrder);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageSalesOrder);
+                tabControlSoftware.SelectTab(tabPageSalesOrder);
             }
         }
 

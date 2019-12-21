@@ -259,6 +259,12 @@
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderForm.Designer.cs">
+      <DependentUpon>TrnSalesOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderForm.resx">
+      <DependentUpon>TrnSalesOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.resx">
       <DependentUpon>TrnStockTransferDetailForm.cs</DependentUpon>
