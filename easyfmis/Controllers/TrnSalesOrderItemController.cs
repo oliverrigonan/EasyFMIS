@@ -268,7 +268,7 @@ namespace easyfmis.Controllers
                 }
                 else
                 {
-                    return new String[] { "Stock-Out item not found.  " + id, "0" };
+                    return new String[] { "Sales order item not found.  " + id, "0" };
                 }
             }
             catch (Exception e)
@@ -277,102 +277,7 @@ namespace easyfmis.Controllers
             }
         }
 
-        // =======================
-        // Update Sales Order Item
-        // =======================
-        public String[] UpdateSalesOrderItem(Int32 id, Entities.TrnSalesOrderItemEntity objSalesOrderItem)
-        {
-            try
-            {
-                var salesOrderItem = from d in db.TrnSalesOrderItems
-                                     where d.Id == id
-                                     select d;
-
-                if (salesOrderItem.Any())
-                {
-                    var salesOrder = from d in db.TrnSalesOrders
-                                     where d.Id == objSalesOrderItem.SOId
-                                     select d;
-
-                    if (salesOrder.Any() == false)
-                    {
-                        return new String[] { "Sales order transaction not found.", "0" };
-                    }
-
-                    var item = from d in db.MstArticles
-                               where d.Id == objSalesOrderItem.ItemId
-                               && d.IsLocked == true
-                               select d;
-
-                    if (item.Any() == false)
-                    {
-                        return new String[] { "Item not found.", "0" };
-                    }
-
-                    var itemInventory = from d in db.MstArticleInventories
-                                        where d.Id == objSalesOrderItem.ItemInventoryId
-                                        select d;
-
-                    if (itemInventory.Any() == false)
-                    {
-                        return new String[] { "Inventory code not found.", "0" };
-                    }
-
-                    var conversionUnit = from d in db.MstArticleUnits
-                                         where d.ArticleId == objSalesOrderItem.ItemId
-                                         && d.UnitId == objSalesOrderItem.UnitId
-                                         && d.MstArticle.IsLocked == true
-                                         select d;
-
-                    if (conversionUnit.Any() == false)
-                    {
-                        return new String[] { "Item unit not found.", "0" };
-                    }
-
-                    Decimal baseQuantity = objSalesOrderItem.Quantity;
-                    if (conversionUnit.FirstOrDefault().UnitMultiplier > 0)
-                    {
-                        baseQuantity = objSalesOrderItem.Quantity * (conversionUnit.FirstOrDefault().BaseUnitMultiplier / conversionUnit.FirstOrDefault().UnitMultiplier);
-                    }
-
-                    Decimal baseCost = 0;
-                    if (baseQuantity > 0)
-                    {
-                        baseCost = objSalesOrderItem.Amount / baseQuantity;
-                    }
-
-                    var updateSalesOrderItem = salesOrderItem.FirstOrDefault();
-                    updateSalesOrderItem.ItemId = objSalesOrderItem.ItemId;
-                    updateSalesOrderItem.ItemInventoryId = objSalesOrderItem.ItemInventoryId;
-                    updateSalesOrderItem.UnitId = objSalesOrderItem.UnitId;
-                    updateSalesOrderItem.Price = objSalesOrderItem.Price;
-                    updateSalesOrderItem.DiscountId = objSalesOrderItem.DiscountId;
-                    updateSalesOrderItem.DiscountRate = objSalesOrderItem.DiscountRate;
-                    updateSalesOrderItem.DiscountAmount = objSalesOrderItem.DiscountAmount;
-                    updateSalesOrderItem.NetPrice = objSalesOrderItem.NetPrice;
-                    updateSalesOrderItem.Quantity = objSalesOrderItem.Quantity;
-                    updateSalesOrderItem.Amount = objSalesOrderItem.Amount;
-                    updateSalesOrderItem.TaxId = objSalesOrderItem.TaxId;
-                    updateSalesOrderItem.TaxRate = objSalesOrderItem.TaxRate;
-                    updateSalesOrderItem.TaxAmount = objSalesOrderItem.TaxAmount;
-                    updateSalesOrderItem.TaxAmount = objSalesOrderItem.TaxAmount;
-                    updateSalesOrderItem.BaseQuantity = baseQuantity;
-                    updateSalesOrderItem.BasePrice = item.FirstOrDefault().DefaultPrice;
-
-                    db.SubmitChanges();
-
-                    return new String[] { "", "1" };
-                }
-                else
-                {
-                    return new String[] { "Stock-Out item not found.  " + id, "0" };
-                }
-            }
-            catch (Exception e)
-            {
-                return new String[] { e.Message, "0" };
-            }
-        }
+        
 
         // =======================
         // Delete Sales Order Item
