@@ -1,6 +1,6 @@
-﻿namespace easyfmis.Forms.Software.TrnStockOut
+﻿namespace easyfmis.Forms.Software.TrnStockTransfer
 {
-    partial class TrnStockOutDetailStockOutItemDetailForm
+    partial class TrnStockTransferDetailStockTransferItemDetailForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnStockOutDetailStockOutItemDetailForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnStockTransferDetailStockTransferItemDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxCost = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxStockOutItemItemDescription = new System.Windows.Forms.TextBox();
+            this.textBoxStockTransferItemItemDescription = new System.Windows.Forms.TextBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -66,7 +66,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Stock_Out;
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Stock_Transfer;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 40);
@@ -81,9 +81,9 @@
             this.label1.Location = new System.Drawing.Point(63, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 35);
+            this.label1.Size = new System.Drawing.Size(320, 35);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Stock-Out Item Detail";
+            this.label1.Text = "Stock Transfer Item Detail";
             // 
             // buttonClose
             // 
@@ -129,7 +129,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBoxCost);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBoxStockOutItemItemDescription);
+            this.panel2.Controls.Add(this.textBoxStockTransferItemItemDescription);
             this.panel2.Controls.Add(this.textBoxQuantity);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,9 +205,9 @@
             this.textBoxCost.Size = new System.Drawing.Size(269, 30);
             this.textBoxCost.TabIndex = 16;
             this.textBoxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxCost.TextChanged += new System.EventHandler(this.textBoxStockOutItemCost_TextChanged);
-            this.textBoxCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStockOutItemCost_KeyPress);
-            this.textBoxCost.Leave += new System.EventHandler(this.textBoxStockOutItemCost_Leave);
+            this.textBoxCost.TextChanged += new System.EventHandler(this.textBoxStockTransferItemCost_TextChanged);
+            this.textBoxCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStockTransferItemCost_KeyPress);
+            this.textBoxCost.Leave += new System.EventHandler(this.textBoxStockTransferItemCost_Leave);
             // 
             // label2
             // 
@@ -219,20 +219,20 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Quantity:";
             // 
-            // textBoxStockOutItemItemDescription
+            // textBoxStockTransferItemItemDescription
             // 
-            this.textBoxStockOutItemItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxStockTransferItemItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxStockOutItemItemDescription.BackColor = System.Drawing.Color.White;
-            this.textBoxStockOutItemItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStockOutItemItemDescription.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.textBoxStockOutItemItemDescription.Location = new System.Drawing.Point(12, 6);
-            this.textBoxStockOutItemItemDescription.Name = "textBoxStockOutItemItemDescription";
-            this.textBoxStockOutItemItemDescription.ReadOnly = true;
-            this.textBoxStockOutItemItemDescription.Size = new System.Drawing.Size(620, 32);
-            this.textBoxStockOutItemItemDescription.TabIndex = 12;
-            this.textBoxStockOutItemItemDescription.TabStop = false;
-            this.textBoxStockOutItemItemDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxStockTransferItemItemDescription.BackColor = System.Drawing.Color.White;
+            this.textBoxStockTransferItemItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxStockTransferItemItemDescription.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.textBoxStockTransferItemItemDescription.Location = new System.Drawing.Point(12, 6);
+            this.textBoxStockTransferItemItemDescription.Name = "textBoxStockTransferItemItemDescription";
+            this.textBoxStockTransferItemItemDescription.ReadOnly = true;
+            this.textBoxStockTransferItemItemDescription.Size = new System.Drawing.Size(620, 32);
+            this.textBoxStockTransferItemItemDescription.TabIndex = 12;
+            this.textBoxStockTransferItemItemDescription.TabStop = false;
+            this.textBoxStockTransferItemItemDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxQuantity
             // 
@@ -242,9 +242,9 @@
             this.textBoxQuantity.Size = new System.Drawing.Size(269, 30);
             this.textBoxQuantity.TabIndex = 11;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxStockOutItemQuantity_TextChanged);
-            this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStockOutItemQuantity_KeyPress);
-            this.textBoxQuantity.Leave += new System.EventHandler(this.textBoxStockOutItemQuantity_Leave);
+            this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxStockTransferItemQuantity_TextChanged);
+            this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStockTransferItemQuantity_KeyPress);
+            this.textBoxQuantity.Leave += new System.EventHandler(this.textBoxStockTransferItemQuantity_Leave);
             // 
             // label3
             // 
@@ -256,7 +256,7 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Unit:";
             // 
-            // TrnStockOutDetailStockOutItemDetailForm
+            // TrnStockTransferDetailStockTransferItemDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -266,9 +266,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "TrnStockOutDetailStockOutItemDetailForm";
+            this.Name = "TrnStockTransferDetailStockTransferItemDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Stock-Out Line Item Detail";
+            this.Text = "Stock Transfer Line Item Detail";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -287,7 +287,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxStockOutItemItemDescription;
+        private System.Windows.Forms.TextBox textBoxStockTransferItemItemDescription;
         private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

@@ -35,7 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonStockTransfer = new System.Windows.Forms.Button();
             this.buttonItem = new System.Windows.Forms.Button();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonCompany = new System.Windows.Forms.Button();
@@ -86,7 +86,7 @@
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.buttonStockTransfer);
             this.panel1.Controls.Add(this.buttonItem);
             this.panel1.Controls.Add(this.buttonUser);
             this.panel1.Controls.Add(this.buttonCompany);
@@ -166,24 +166,25 @@
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // buttonStockTransfer
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageIndex = 20;
-            this.button1.ImageList = this.imageListMenuIcons;
-            this.button1.Location = new System.Drawing.Point(478, 528);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10);
-            this.button1.Size = new System.Drawing.Size(227, 123);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "\r\nStock Transfer";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonStockTransfer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonStockTransfer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonStockTransfer.FlatAppearance.BorderSize = 0;
+            this.buttonStockTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStockTransfer.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonStockTransfer.ForeColor = System.Drawing.Color.White;
+            this.buttonStockTransfer.ImageIndex = 20;
+            this.buttonStockTransfer.ImageList = this.imageListMenuIcons;
+            this.buttonStockTransfer.Location = new System.Drawing.Point(478, 528);
+            this.buttonStockTransfer.Name = "buttonStockTransfer";
+            this.buttonStockTransfer.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonStockTransfer.Size = new System.Drawing.Size(227, 123);
+            this.buttonStockTransfer.TabIndex = 19;
+            this.buttonStockTransfer.Text = "\r\nStock Transfer";
+            this.buttonStockTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonStockTransfer.UseVisualStyleBackColor = false;
+            this.buttonStockTransfer.Click += new System.EventHandler(this.buttonStockTransfer_Click);
             // 
             // buttonItem
             // 
@@ -533,7 +534,7 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button buttonUser;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonStockTransfer;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;

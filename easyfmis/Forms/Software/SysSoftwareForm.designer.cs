@@ -73,6 +73,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -204,9 +205,9 @@
             // 
             this.panel5.Controls.Add(this.tabControlSoftware);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(153, 0);
+            this.panel5.Location = new System.Drawing.Point(190, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1384, 733);
+            this.panel5.Size = new System.Drawing.Size(1347, 733);
             this.panel5.TabIndex = 3;
             // 
             // tabControlSoftware
@@ -219,7 +220,7 @@
             this.tabControlSoftware.Name = "tabControlSoftware";
             this.tabControlSoftware.Padding = new System.Drawing.Point(0, 0);
             this.tabControlSoftware.SelectedIndex = 0;
-            this.tabControlSoftware.Size = new System.Drawing.Size(1384, 733);
+            this.tabControlSoftware.Size = new System.Drawing.Size(1347, 733);
             this.tabControlSoftware.TabIndex = 0;
             this.tabControlSoftware.SelectedIndexChanged += new System.EventHandler(this.tabControlSoftware_SelectedIndexChanged);
             // 
@@ -229,7 +230,7 @@
             this.tabPageSysMenu.Location = new System.Drawing.Point(4, 29);
             this.tabPageSysMenu.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageSysMenu.Name = "tabPageSysMenu";
-            this.tabPageSysMenu.Size = new System.Drawing.Size(1376, 700);
+            this.tabPageSysMenu.Size = new System.Drawing.Size(1339, 700);
             this.tabPageSysMenu.TabIndex = 0;
             this.tabPageSysMenu.Text = "Menu";
             // 
@@ -239,7 +240,7 @@
             this.panelSidebarMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebarMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSidebarMenu.Name = "panelSidebarMenu";
-            this.panelSidebarMenu.Size = new System.Drawing.Size(153, 733);
+            this.panelSidebarMenu.Size = new System.Drawing.Size(190, 733);
             this.panelSidebarMenu.TabIndex = 2;
             // 
             // menuStrip1
@@ -249,6 +250,7 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeBranchToolStripMenuItem,
             this.menuToolStripMenuItem,
             this.setupToolStripMenuItem,
             this.activityToolStripMenuItem,
@@ -260,7 +262,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10);
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(153, 733);
+            this.menuStrip1.Size = new System.Drawing.Size(190, 733);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -271,7 +273,7 @@
             this.menuToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
@@ -280,14 +282,14 @@
             // 
             this.setupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.discountToolStripMenuItem,
-            this.itemToolStripMenuItem,
-            this.customerToolStripMenuItem});
+            this.customerToolStripMenuItem,
+            this.itemToolStripMenuItem});
             this.setupToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.setupToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
             this.setupToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             this.setupToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
             this.setupToolStripMenuItem.Text = "Setup";
             this.setupToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -295,7 +297,7 @@
             // 
             this.discountToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Supplier;
             this.discountToolStripMenuItem.Name = "discountToolStripMenuItem";
-            this.discountToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
+            this.discountToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
             this.discountToolStripMenuItem.Text = "Supplier";
             this.discountToolStripMenuItem.Click += new System.EventHandler(this.discountToolStripMenuItem_Click);
             // 
@@ -303,7 +305,7 @@
             // 
             this.itemToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
             this.itemToolStripMenuItem.Text = "Item";
             this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
@@ -311,7 +313,7 @@
             // 
             this.customerToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Customer;
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
             this.customerToolStripMenuItem.Text = "Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
             // 
@@ -334,7 +336,7 @@
             this.activityToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
             this.activityToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.activityToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.activityToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
             this.activityToolStripMenuItem.Text = "Activity";
             this.activityToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.activityToolStripMenuItem.Click += new System.EventHandler(this.activityToolStripMenuItem_Click);
@@ -428,7 +430,7 @@
             this.systemToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
             this.systemToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
             this.systemToolStripMenuItem.Text = "System";
             this.systemToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -436,20 +438,20 @@
             // 
             this.systemTablesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.System_Tables;
             this.systemTablesToolStripMenuItem.Name = "systemTablesToolStripMenuItem";
-            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
             this.systemTablesToolStripMenuItem.Text = "System Tables";
             this.systemTablesToolStripMenuItem.Click += new System.EventHandler(this.systemTablesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // utilitiesToolStripMenuItem
             // 
             this.utilitiesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.building1;
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
             this.utilitiesToolStripMenuItem.Text = "Company";
             this.utilitiesToolStripMenuItem.Click += new System.EventHandler(this.utilitiesToolStripMenuItem_Click);
             // 
@@ -457,7 +459,7 @@
             // 
             this.userToolStripMenuItem.Image = global::easyfmis.Properties.Resources.User;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
             this.userToolStripMenuItem.Text = "User";
             // 
             // reportsToolStripMenuItem
@@ -473,7 +475,7 @@
             this.reportsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
             this.reportsToolStripMenuItem.Text = "Reports";
             this.reportsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -520,10 +522,21 @@
             this.settingsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(132, 31);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // changeBranchToolStripMenuItem
+            // 
+            this.changeBranchToolStripMenuItem.Image = global::easyfmis.Properties.Resources.building;
+            this.changeBranchToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changeBranchToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.changeBranchToolStripMenuItem.Name = "changeBranchToolStripMenuItem";
+            this.changeBranchToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.changeBranchToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
+            this.changeBranchToolStripMenuItem.Text = "Change Branch";
+            this.changeBranchToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SysSoftwareForm
             // 
@@ -602,5 +615,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem changeBranchToolStripMenuItem;
     }
 }

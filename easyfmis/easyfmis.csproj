@@ -84,6 +84,8 @@
     <Compile Include="Controllers\TrnInventoryController.cs" />
     <Compile Include="Controllers\TrnStockInController.cs" />
     <Compile Include="Controllers\TrnStockInItemController.cs" />
+    <Compile Include="Controllers\TrnStockTransferItemController.cs" />
+    <Compile Include="Controllers\TrnStockTransferController.cs" />
     <Compile Include="Controllers\TrnStockOutController.cs" />
     <Compile Include="Controllers\TrnStockOutItemController.cs" />
     <Compile Include="Data\easyfmisdb.designer.cs">
@@ -103,6 +105,8 @@
     <Compile Include="Entities\DgvMstCustomerEntities.cs" />
     <Compile Include="Entities\DgvMstUserFormEntity.cs" />
     <Compile Include="Entities\DgvSearchInventoryItemEntity.cs" />
+    <Compile Include="Entities\DgvStockTransferItemEntity.cs" />
+    <Compile Include="Entities\DgvStockTransferEntity.cs" />
     <Compile Include="Entities\DgvStockOutEntity.cs" />
     <Compile Include="Entities\DgvStockOutItemEntity.cs" />
     <Compile Include="Entities\DgvStockInItemEntity.cs" />
@@ -131,6 +135,8 @@
     <Compile Include="Entities\TrnInventoryEntity.cs" />
     <Compile Include="Entities\TrnStockInEntity.cs" />
     <Compile Include="Entities\TrnStockInItemEntity.cs" />
+    <Compile Include="Entities\TrnStockTransferItemEntity.cs" />
+    <Compile Include="Entities\TrnStockTransferEntity.cs" />
     <Compile Include="Entities\TrnStockOutEntity.cs" />
     <Compile Include="Entities\TrnStockOutItemEntity.cs" />
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.cs">
@@ -246,6 +252,30 @@
     </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.Designer.cs">
+      <DependentUpon>TrnStockTransferDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailSearchItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailSearchItemForm.Designer.cs">
+      <DependentUpon>TrnStockTransferDetailSearchItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailStockTransferItemDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailStockTransferItemDetailForm.Designer.cs">
+      <DependentUpon>TrnStockTransferDetailStockTransferItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferForm.Designer.cs">
+      <DependentUpon>TrnStockTransferForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnStockOut\TrnStockOutDetailForm.cs">
       <SubType>Form</SubType>
@@ -365,6 +395,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.resx">
+      <DependentUpon>TrnStockTransferDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailSearchItemForm.resx">
+      <DependentUpon>TrnStockTransferDetailSearchItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailStockTransferItemDetailForm.resx">
+      <DependentUpon>TrnStockTransferDetailStockTransferItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferForm.resx">
+      <DependentUpon>TrnStockTransferForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnStockOut\TrnStockOutDetailForm.resx">
       <DependentUpon>TrnStockOutDetailForm.cs</DependentUpon>

@@ -52,5 +52,25 @@ namespace easyfmis.Controllers
 
             return inventories.ToList();
         }
+
+        // =====================================
+        // List Stock Transfer Inventory Entries
+        // =====================================
+        public List<Entities.TrnInventoryEntity> ListStockTransferInventoryEntries(Int32 STId)
+        {
+            var inventories = from d in db.TrnInventories
+                              where d.STId == STId
+                              select new Entities.TrnInventoryEntity
+                              {
+                                  Branch = d.MstBranch.Branch,
+                                  InventoryDate = d.InventoryDate,
+                                  ItemDescription = d.MstArticle.Article,
+                                  ItemInventoryCode = d.MstArticleInventory.InventoryCode,
+                                  Quantity = d.Quantity,
+                                  Amount = d.Amount
+                              };
+
+            return inventories.ToList();
+        }
     }
 }

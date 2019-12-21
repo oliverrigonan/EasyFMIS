@@ -109,7 +109,8 @@ namespace easyfmis.Modules
                                 Amount = stockInItem.BaseCost * stockInItem.BaseQuantity,
                                 SIId = null,
                                 INId = INId,
-                                OTId = null
+                                OTId = null,
+                                STId = null,
                             };
 
                             db.TrnInventories.InsertOnSubmit(newInventory);
@@ -207,7 +208,8 @@ namespace easyfmis.Modules
                                 Amount = stockOutItem.BaseCost * (stockOutItem.BaseQuantity * -1),
                                 SIId = null,
                                 INId = null,
-                                OTId = OTId
+                                OTId = OTId,
+                                STId = null,
                             };
 
                             db.TrnInventories.InsertOnSubmit(newInventory);
@@ -233,6 +235,124 @@ namespace easyfmis.Modules
             {
                 var inventories = from d in db.TrnInventories
                                   where d.OTId == OTId
+                                  select d;
+
+                if (inventories.Any())
+                {
+                    List<Int32> articleInventoryIds = new List<Int32>();
+                    foreach (var inventory in inventories)
+                    {
+                        if (articleInventoryIds.Contains(inventory.ItemInventoryId) == false)
+                        {
+                            articleInventoryIds.Add(inventory.ItemInventoryId);
+                        }
+                    }
+
+                    db.TrnInventories.DeleteAllOnSubmit(inventories);
+                    db.SubmitChanges();
+
+                    if (articleInventoryIds.Any())
+                    {
+                        foreach (var articleInventoryId in articleInventoryIds)
+                        {
+                            UpdateArticleInventory(articleInventoryId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Delete Stock-Out Inventory Error: " + ex.Message);
+            }
+        }
+
+        // =================================
+        // Insert Inventory - Stock Transfer
+        // =================================
+        public void InsertInventoryStockTransfer(Int32 STId)
+        {
+            try
+            {
+                var stockTransferItems = from d in db.TrnStockTransferItems
+                                    where d.STId == STId
+                                    && d.TrnStockTransfer.IsLocked == true
+                                    select d;
+
+                if (stockTransferItems.Any())
+                {
+                    foreach (var stockTransferItem in stockTransferItems)
+                    {
+                        Int32 articleInventoryId = 0;
+
+                        var articleInventories = from d in db.MstArticleInventories
+                                                 where d.Id == stockTransferItem.ItemInventoryId
+                                                 select d;
+
+                        if (articleInventories.Any())
+                        {
+                            articleInventoryId = articleInventories.FirstOrDefault().Id;
+                        }
+
+                        if (articleInventoryId != 0)
+                        {
+                            Data.TrnInventory newOutInventory = new Data.TrnInventory()
+                            {
+                                BranchId = stockTransferItem.TrnStockTransfer.BranchId,
+                                InventoryDate = stockTransferItem.TrnStockTransfer.STDate,
+                                ItemId = stockTransferItem.ItemId,
+                                ItemInventoryId = articleInventoryId,
+                                QuantityIn = 0,
+                                QuantityOut = stockTransferItem.BaseQuantity,
+                                Quantity = stockTransferItem.BaseQuantity * -1,
+                                Amount = stockTransferItem.BaseCost * (stockTransferItem.BaseQuantity * -1),
+                                SIId = null,
+                                INId = null,
+                                OTId = null,
+                                STId = STId
+                            };
+
+                            db.TrnInventories.InsertOnSubmit(newOutInventory);
+                            db.SubmitChanges();
+
+                            Data.TrnInventory newInInventory = new Data.TrnInventory()
+                            {
+                                BranchId = stockTransferItem.TrnStockTransfer.ToBranchId,
+                                InventoryDate = stockTransferItem.TrnStockTransfer.STDate,
+                                ItemId = stockTransferItem.ItemId,
+                                ItemInventoryId = articleInventoryId,
+                                QuantityIn = stockTransferItem.BaseQuantity,
+                                QuantityOut = 0,
+                                Quantity = stockTransferItem.BaseQuantity,
+                                Amount = stockTransferItem.BaseCost * stockTransferItem.BaseQuantity,
+                                SIId = null,
+                                INId = null,
+                                OTId = null,
+                                STId = STId,
+                            };
+
+                            db.TrnInventories.InsertOnSubmit(newInInventory);
+                            db.SubmitChanges();
+
+                            UpdateArticleInventory(articleInventoryId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Insert Stock-Out Inventory Error: " + ex.Message);
+            }
+        }
+
+        // =================================
+        // Delete Inventory - Stock Transfer
+        // =================================
+        public void DeleteInventoryStockTransfer(Int32 STId)
+        {
+            try
+            {
+                var inventories = from d in db.TrnInventories
+                                  where d.STId == STId
                                   select d;
 
                 if (inventories.Any())
