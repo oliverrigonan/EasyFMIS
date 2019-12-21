@@ -48,6 +48,8 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxToBranch = new System.Windows.Forms.ComboBox();
             this.textBoxBranch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxRemarks = new System.Windows.Forms.TextBox();
@@ -105,8 +107,6 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxToBranch = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -251,6 +251,26 @@
             this.panel3.Size = new System.Drawing.Size(1400, 234);
             this.panel3.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label3.Location = new System.Drawing.Point(445, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 23);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "To Branch:";
+            // 
+            // comboBoxToBranch
+            // 
+            this.comboBoxToBranch.Enabled = false;
+            this.comboBoxToBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxToBranch.FormattingEnabled = true;
+            this.comboBoxToBranch.Location = new System.Drawing.Point(540, 6);
+            this.comboBoxToBranch.Name = "comboBoxToBranch";
+            this.comboBoxToBranch.Size = new System.Drawing.Size(288, 31);
+            this.comboBoxToBranch.TabIndex = 28;
+            // 
             // textBoxBranch
             // 
             this.textBoxBranch.Enabled = false;
@@ -394,9 +414,9 @@
             this.panel4.Controls.Add(this.buttonStockTransferItemPageListLast);
             this.panel4.Controls.Add(this.textBoxStockTransferItemPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 293);
+            this.panel4.Location = new System.Drawing.Point(3, 311);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1362, 53);
+            this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
             // 
             // buttonStockTransferItemPageListFirst
@@ -479,12 +499,12 @@
             this.buttonSearchItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonSearchItem.ForeColor = System.Drawing.Color.White;
-            this.buttonSearchItem.Location = new System.Drawing.Point(1178, 6);
+            this.buttonSearchItem.Location = new System.Drawing.Point(1296, 6);
             this.buttonSearchItem.Name = "buttonSearchItem";
-            this.buttonSearchItem.Size = new System.Drawing.Size(182, 40);
+            this.buttonSearchItem.Size = new System.Drawing.Size(88, 40);
             this.buttonSearchItem.TabIndex = 8;
             this.buttonSearchItem.TabStop = false;
-            this.buttonSearchItem.Text = "Search Item";
+            this.buttonSearchItem.Text = "Add";
             this.buttonSearchItem.UseVisualStyleBackColor = false;
             this.buttonSearchItem.Click += new System.EventHandler(this.buttonSearchItem_Click);
             // 
@@ -533,7 +553,7 @@
             this.dataGridViewStockTransferItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewStockTransferItem.RowTemplate.Height = 24;
             this.dataGridViewStockTransferItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockTransferItem.Size = new System.Drawing.Size(1352, 235);
+            this.dataGridViewStockTransferItem.Size = new System.Drawing.Size(1376, 253);
             this.dataGridViewStockTransferItem.TabIndex = 1;
             this.dataGridViewStockTransferItem.TabStop = false;
             this.dataGridViewStockTransferItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockTransferItem_CellClick);
@@ -690,7 +710,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 234);
@@ -700,15 +720,13 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPageStockTransferItems);
             this.tabControl1.Controls.Add(this.tabPageInventoryEntries);
-            this.tabControl1.Location = new System.Drawing.Point(12, 6);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1376, 385);
+            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPageStockTransferItems
@@ -719,7 +737,7 @@
             this.tabPageStockTransferItems.Location = new System.Drawing.Point(4, 32);
             this.tabPageStockTransferItems.Name = "tabPageStockTransferItems";
             this.tabPageStockTransferItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockTransferItems.Size = new System.Drawing.Size(1368, 349);
+            this.tabPageStockTransferItems.Size = new System.Drawing.Size(1392, 367);
             this.tabPageStockTransferItems.TabIndex = 0;
             this.tabPageStockTransferItems.Text = "Stock-Out Items";
             this.tabPageStockTransferItems.UseVisualStyleBackColor = true;
@@ -731,7 +749,7 @@
             this.tabPageInventoryEntries.Location = new System.Drawing.Point(4, 32);
             this.tabPageInventoryEntries.Name = "tabPageInventoryEntries";
             this.tabPageInventoryEntries.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1368, 349);
+            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1392, 367);
             this.tabPageInventoryEntries.TabIndex = 1;
             this.tabPageInventoryEntries.Text = "Inventory Entries";
             this.tabPageInventoryEntries.UseVisualStyleBackColor = true;
@@ -745,9 +763,9 @@
             this.panel5.Controls.Add(this.buttonInventoryEntriesPageListLast);
             this.panel5.Controls.Add(this.textBoxInventoryEntriesPageNumber);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(3, 293);
+            this.panel5.Location = new System.Drawing.Point(3, 311);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1362, 53);
+            this.panel5.Size = new System.Drawing.Size(1386, 53);
             this.panel5.TabIndex = 27;
             // 
             // buttonInventoryEntriesPageListFirst
@@ -857,7 +875,7 @@
             this.dataGridViewInventoryEntries.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewInventoryEntries.RowTemplate.Height = 24;
             this.dataGridViewInventoryEntries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInventoryEntries.Size = new System.Drawing.Size(1352, 281);
+            this.dataGridViewInventoryEntries.Size = new System.Drawing.Size(1376, 299);
             this.dataGridViewInventoryEntries.TabIndex = 26;
             this.dataGridViewInventoryEntries.TabStop = false;
             // 
@@ -920,26 +938,6 @@
             this.ColumnInventoryEntriesSpace.HeaderText = "";
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(445, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 23);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "To Branch:";
-            // 
-            // comboBoxToBranch
-            // 
-            this.comboBoxToBranch.Enabled = false;
-            this.comboBoxToBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxToBranch.FormattingEnabled = true;
-            this.comboBoxToBranch.Location = new System.Drawing.Point(540, 6);
-            this.comboBoxToBranch.Name = "comboBoxToBranch";
-            this.comboBoxToBranch.Size = new System.Drawing.Size(288, 31);
-            this.comboBoxToBranch.TabIndex = 28;
             // 
             // TrnStockTransferDetailForm
             // 
