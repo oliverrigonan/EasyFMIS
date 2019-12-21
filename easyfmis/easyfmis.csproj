@@ -82,6 +82,8 @@
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
+    <Compile Include="Controllers\TrnSalesOrderController.cs" />
+    <Compile Include="Controllers\TrnSalesOrderItemController.cs" />
     <Compile Include="Controllers\TrnStockInController.cs" />
     <Compile Include="Controllers\TrnStockInItemController.cs" />
     <Compile Include="Controllers\TrnStockOutController.cs" />
@@ -108,6 +110,8 @@
     <Compile Include="Entities\DgvStockInItemEntity.cs" />
     <Compile Include="Entities\DgvStockInEntity.cs" />
     <Compile Include="Entities\DgvSearchItemEntity.cs" />
+    <Compile Include="Entities\DgvTrnSalesOrderEntity.cs" />
+    <Compile Include="Entities\DgvTrnSalesOrderItemEntity.cs" />
     <Compile Include="Entities\DgvUserListEntity.cs" />
     <Compile Include="Entities\MstArticleComponentEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
@@ -129,6 +133,8 @@
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
+    <Compile Include="Entities\TrnSalesOrderEntity.cs" />
+    <Compile Include="Entities\TrnSalesOrderItemEntity.cs" />
     <Compile Include="Entities\TrnStockInEntity.cs" />
     <Compile Include="Entities\TrnStockInItemEntity.cs" />
     <Compile Include="Entities\TrnStockOutEntity.cs" />
