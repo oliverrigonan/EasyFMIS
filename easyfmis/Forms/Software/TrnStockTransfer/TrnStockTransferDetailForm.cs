@@ -99,6 +99,8 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
 
             buttonSearchItem.Enabled = !isLocked;
 
+            textBoxBranch.Enabled = !isLocked;
+            textBoxSTNumber.Enabled = !isLocked;
             dateTimePickerSTDate.Enabled = !isLocked;
             comboBoxToBranch.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;

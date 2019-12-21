@@ -131,14 +131,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(516, 284);
+            this.panel2.Size = new System.Drawing.Size(516, 279);
             this.panel2.TabIndex = 7;
             // 
             // checkBoxCanEdit
             // 
             this.checkBoxCanEdit.AutoSize = true;
             this.checkBoxCanEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxCanEdit.Location = new System.Drawing.Point(71, 251);
+            this.checkBoxCanEdit.Location = new System.Drawing.Point(71, 241);
             this.checkBoxCanEdit.Name = "checkBoxCanEdit";
             this.checkBoxCanEdit.Size = new System.Drawing.Size(96, 27);
             this.checkBoxCanEdit.TabIndex = 23;
@@ -149,7 +149,7 @@
             // 
             this.checkBoxCanPreview.AutoSize = true;
             this.checkBoxCanPreview.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxCanPreview.Location = new System.Drawing.Point(71, 218);
+            this.checkBoxCanPreview.Location = new System.Drawing.Point(71, 208);
             this.checkBoxCanPreview.Name = "checkBoxCanPreview";
             this.checkBoxCanPreview.Size = new System.Drawing.Size(125, 27);
             this.checkBoxCanPreview.TabIndex = 22;
@@ -160,7 +160,7 @@
             // 
             this.checkBoxCanPrint.AutoSize = true;
             this.checkBoxCanPrint.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxCanPrint.Location = new System.Drawing.Point(71, 185);
+            this.checkBoxCanPrint.Location = new System.Drawing.Point(71, 175);
             this.checkBoxCanPrint.Name = "checkBoxCanPrint";
             this.checkBoxCanPrint.Size = new System.Drawing.Size(103, 27);
             this.checkBoxCanPrint.TabIndex = 21;
@@ -171,7 +171,7 @@
             // 
             this.checkBoxCanUnlock.AutoSize = true;
             this.checkBoxCanUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxCanUnlock.Location = new System.Drawing.Point(71, 152);
+            this.checkBoxCanUnlock.Location = new System.Drawing.Point(71, 142);
             this.checkBoxCanUnlock.Name = "checkBoxCanUnlock";
             this.checkBoxCanUnlock.Size = new System.Drawing.Size(119, 27);
             this.checkBoxCanUnlock.TabIndex = 20;
@@ -182,7 +182,7 @@
             // 
             this.checkBoxCanLock.AutoSize = true;
             this.checkBoxCanLock.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxCanLock.Location = new System.Drawing.Point(71, 119);
+            this.checkBoxCanLock.Location = new System.Drawing.Point(71, 109);
             this.checkBoxCanLock.Name = "checkBoxCanLock";
             this.checkBoxCanLock.Size = new System.Drawing.Size(101, 27);
             this.checkBoxCanLock.TabIndex = 19;
@@ -193,7 +193,7 @@
             // 
             this.checkBoxCanAdd.AutoSize = true;
             this.checkBoxCanAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxCanAdd.Location = new System.Drawing.Point(71, 86);
+            this.checkBoxCanAdd.Location = new System.Drawing.Point(71, 76);
             this.checkBoxCanAdd.Name = "checkBoxCanAdd";
             this.checkBoxCanAdd.Size = new System.Drawing.Size(98, 27);
             this.checkBoxCanAdd.TabIndex = 18;
@@ -204,7 +204,7 @@
             // 
             this.checkBoxCanDelete.AutoSize = true;
             this.checkBoxCanDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxCanDelete.Location = new System.Drawing.Point(71, 53);
+            this.checkBoxCanDelete.Location = new System.Drawing.Point(71, 43);
             this.checkBoxCanDelete.Name = "checkBoxCanDelete";
             this.checkBoxCanDelete.Size = new System.Drawing.Size(116, 27);
             this.checkBoxCanDelete.TabIndex = 17;
@@ -234,7 +234,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(516, 347);
+            this.ClientSize = new System.Drawing.Size(516, 342);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

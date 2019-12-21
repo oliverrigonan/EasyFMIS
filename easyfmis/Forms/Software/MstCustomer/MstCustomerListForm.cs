@@ -114,7 +114,8 @@ namespace easyfmis.Forms.Software.MstCustomer
                                 ColumnCustomerListCustomer = d.Article,
                                 ColumnCustomerListAddress = d.Address,
                                 ColumnCustomerListContactNumber = d.ContactNumber,
-                                ColumnCustomerListIsLocked = d.IsLocked
+                                ColumnCustomerListIsLocked = d.IsLocked,
+                                ColumnCustomerListSpace = ""
                             };
 
                 return Task.FromResult(items.ToList());

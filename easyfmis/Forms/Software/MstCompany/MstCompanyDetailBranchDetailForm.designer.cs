@@ -35,10 +35,10 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxBranchCode = new System.Windows.Forms.TextBox();
-            this.textBoxBranch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxBranch = new System.Windows.Forms.TextBox();
+            this.textBoxBranchCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.User;
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.building;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 40);
@@ -121,34 +121,8 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(438, 89);
+            this.panel2.Size = new System.Drawing.Size(438, 82);
             this.panel2.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 23);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Code:";
-            // 
-            // textBoxBranchCode
-            // 
-            this.textBoxBranchCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxBranchCode.Location = new System.Drawing.Point(85, 6);
-            this.textBoxBranchCode.Name = "textBoxBranchCode";
-            this.textBoxBranchCode.Size = new System.Drawing.Size(306, 30);
-            this.textBoxBranchCode.TabIndex = 17;
-            // 
-            // textBoxBranch
-            // 
-            this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxBranch.Location = new System.Drawing.Point(85, 42);
-            this.textBoxBranch.Name = "textBoxBranch";
-            this.textBoxBranch.Size = new System.Drawing.Size(306, 30);
-            this.textBoxBranch.TabIndex = 18;
             // 
             // label3
             // 
@@ -160,11 +134,37 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Branch:";
             // 
+            // textBoxBranch
+            // 
+            this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxBranch.Location = new System.Drawing.Point(85, 42);
+            this.textBoxBranch.Name = "textBoxBranch";
+            this.textBoxBranch.Size = new System.Drawing.Size(341, 30);
+            this.textBoxBranch.TabIndex = 18;
+            // 
+            // textBoxBranchCode
+            // 
+            this.textBoxBranchCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxBranchCode.Location = new System.Drawing.Point(85, 6);
+            this.textBoxBranchCode.Name = "textBoxBranchCode";
+            this.textBoxBranchCode.Size = new System.Drawing.Size(150, 30);
+            this.textBoxBranchCode.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label2.Location = new System.Drawing.Point(25, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 23);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Code:";
+            // 
             // MstCompanyDetailBranchDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(438, 152);
+            this.ClientSize = new System.Drawing.Size(438, 145);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

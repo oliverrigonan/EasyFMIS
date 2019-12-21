@@ -273,10 +273,10 @@
             // 
             // textBoxBranch
             // 
-            this.textBoxBranch.Enabled = false;
             this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxBranch.Location = new System.Drawing.Point(119, 6);
             this.textBoxBranch.Name = "textBoxBranch";
+            this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(298, 30);
             this.textBoxBranch.TabIndex = 27;
             // 
@@ -398,10 +398,10 @@
             // 
             // textBoxSTNumber
             // 
-            this.textBoxSTNumber.Enabled = false;
             this.textBoxSTNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxSTNumber.Location = new System.Drawing.Point(119, 42);
             this.textBoxSTNumber.Name = "textBoxSTNumber";
+            this.textBoxSTNumber.ReadOnly = true;
             this.textBoxSTNumber.Size = new System.Drawing.Size(196, 30);
             this.textBoxSTNumber.TabIndex = 0;
             // 
