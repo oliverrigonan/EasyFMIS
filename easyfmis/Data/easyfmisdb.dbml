@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="easyerp" Class="easyfmisdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyerp;Integrated Security=True" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyerpConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=easyerp;Persist Security Info=True;User ID=sa" SettingsObjectName="easyfmis.Properties.Settings" SettingsPropertyName="easyerpConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.MstAccount" Member="MstAccounts">
     <Type Name="MstAccount">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

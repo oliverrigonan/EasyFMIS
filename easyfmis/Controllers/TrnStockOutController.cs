@@ -41,6 +41,7 @@ namespace easyfmis.Controllers
                             {
                                 Id = d.Id,
                                 BranchId = d.BranchId,
+                                Branch = d.MstBranch.Branch,
                                 OTNumber = d.OTNumber,
                                 OTDate = d.OTDate,
                                 Remarks = d.Remarks,
@@ -70,6 +71,7 @@ namespace easyfmis.Controllers
                            {
                                Id = d.Id,
                                BranchId = d.BranchId,
+                               Branch = d.MstBranch.Branch,
                                OTNumber = d.OTNumber,
                                OTDate = d.OTDate,
                                Remarks = d.Remarks,

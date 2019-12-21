@@ -132,7 +132,7 @@ namespace easyfmis.Data
     #endregion
 		
 		public easyfmisdbDataContext() : 
-				base(global::easyfmis.Properties.Settings.Default.easyerpConnectionString, mappingSource)
+				base(global::easyfmis.Properties.Settings.Default.easyerpConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

@@ -45,13 +45,15 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageCompanyList = new TabPage { Name = "tabPageCompanyList", Text = "Setup - Company List" };
         public TabPage tabPageCompanyDetail = new TabPage { Name = "tabPageCompanyDetail", Text = "Setup - Company Detail" };
 
-
         public TabPage tabPagePOSSalesList = new TabPage { Name = "tabPagePOSSalesList", Text = "Activity - POS Barcode - Sales List" };
         public TabPage tabPagePOSSalesDetail = new TabPage { Name = "tabPagePOSSalesDetail", Text = "Activity - POS Barcode - Sales Detail" };
         public TabPage tabPageStockInList = new TabPage { Name = "tabPageStockInList", Text = "Activity - Stock-In List" };
         public TabPage tabPageStockInDetail = new TabPage { Name = "tabPageStockInDetail", Text = "Activity - Stock-In Detail" };
         public TabPage tabPageStockOut = new TabPage { Name = "tabPageStockOut", Text = "Activity - Stock-Out List" };
         public TabPage tabPageStockOutDetail = new TabPage { Name = "tabPageStockOutDetail", Text = "Activity - Stock-Out Detail" };
+        public TabPage tabPageStockTransfer = new TabPage { Name = "tabPageStockTransfer", Text = "Activity - Stock Transfer List" };
+        public TabPage tabPageStockTransferDetail = new TabPage { Name = "tabPageStockTransferDetail", Text = "Activity - Stock Transfer Detail" };
+
         public TabPage tabPageStockCountList = new TabPage { Name = "tabPageStockCountList", Text = "Activity - Stock-Count List" };
         public TabPage tabPageStockCountDetail = new TabPage { Name = "tabPageStockCountDetail", Text = "Activity - Stock-Count Detail" };
         public TabPage tabPageDisbursementList = new TabPage { Name = "tabPageDisbursementList", Text = "Activity - Remittance List" };
@@ -89,6 +91,8 @@ namespace easyfmis.Forms.Software
         public TrnStockIn.TrnStockInDetailForm trnStockInDetailForm = null;
         public TrnStockOut.TrnStockOutForm trnStockOutForm = null;
         public TrnStockOut.TrnStockOutDetailForm trnStockOutDetailForm = null;
+        public TrnStockTransfer.TrnStockTransferForm trnStockTransferForm = null;
+        public TrnStockTransfer.TrnStockTransferDetailForm trnStockTransferDetailForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
         //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
@@ -525,6 +529,54 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageStockOutDetail);
                 tabControlSoftware.SelectTab(tabPageStockOutDetail);
+            }
+        }
+
+        public void AddTabPageStockTransferList()
+        {
+            tabPageStockTransfer.Controls.Remove(trnStockTransferForm);
+
+            trnStockTransferForm = new TrnStockTransfer.TrnStockTransferForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageStockTransfer.Controls.Add(trnStockTransferForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageStockTransfer) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageStockTransfer);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageStockTransfer);
+                tabControlSoftware.SelectTab(tabPageStockTransfer);
+            }
+        }
+
+        public void AddTabPageStockTransferDetail(TrnStockTransfer.TrnStockTransferForm stockOutListForm, Entities.TrnStockTransferEntity stockOutEntity)
+        {
+            tabPageStockTransferDetail.Controls.Remove(trnStockTransferDetailForm);
+
+            trnStockTransferDetailForm = new TrnStockTransfer.TrnStockTransferDetailForm(this, stockOutListForm, stockOutEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageStockTransferDetail.Controls.Add(trnStockTransferDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageStockTransferDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageStockTransferDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageStockTransferDetail);
+                tabControlSoftware.SelectTab(tabPageStockTransferDetail);
             }
         }
 

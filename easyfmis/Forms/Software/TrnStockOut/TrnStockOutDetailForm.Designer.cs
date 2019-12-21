@@ -30,15 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnStockOutDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -70,6 +70,22 @@
             this.textBoxStockOutItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewStockOutItem = new System.Windows.Forms.DataGridView();
+            this.ColumnStockOutItemButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnStockOutItemButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnStockOutItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemOTId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -89,22 +105,6 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockOutItemButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockOutItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemOTId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -347,7 +347,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(40, 84);
+            this.label4.Location = new System.Drawing.Point(37, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 23);
             this.label4.TabIndex = 8;
@@ -357,7 +357,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(13, 45);
+            this.label2.Location = new System.Drawing.Point(10, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 23);
             this.label2.TabIndex = 6;
@@ -390,9 +390,9 @@
             this.panel4.Controls.Add(this.buttonStockOutItemPageListLast);
             this.panel4.Controls.Add(this.textBoxStockOutItemPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 293);
+            this.panel4.Location = new System.Drawing.Point(3, 311);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1362, 53);
+            this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
             // 
             // buttonStockOutItemPageListFirst
@@ -475,12 +475,12 @@
             this.buttonSearchItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonSearchItem.ForeColor = System.Drawing.Color.White;
-            this.buttonSearchItem.Location = new System.Drawing.Point(1178, 6);
+            this.buttonSearchItem.Location = new System.Drawing.Point(1296, 6);
             this.buttonSearchItem.Name = "buttonSearchItem";
-            this.buttonSearchItem.Size = new System.Drawing.Size(182, 40);
+            this.buttonSearchItem.Size = new System.Drawing.Size(88, 40);
             this.buttonSearchItem.TabIndex = 8;
             this.buttonSearchItem.TabStop = false;
-            this.buttonSearchItem.Text = "Search Item";
+            this.buttonSearchItem.Text = "Add";
             this.buttonSearchItem.UseVisualStyleBackColor = false;
             this.buttonSearchItem.Click += new System.EventHandler(this.buttonSearchItem_Click);
             // 
@@ -529,253 +529,10 @@
             this.dataGridViewStockOutItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewStockOutItem.RowTemplate.Height = 24;
             this.dataGridViewStockOutItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockOutItem.Size = new System.Drawing.Size(1352, 235);
+            this.dataGridViewStockOutItem.Size = new System.Drawing.Size(1376, 253);
             this.dataGridViewStockOutItem.TabIndex = 1;
             this.dataGridViewStockOutItem.TabStop = false;
             this.dataGridViewStockOutItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockOutItem_CellClick);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Controls.Add(this.tabPageInventoryEntries);
-            this.tabControl1.Location = new System.Drawing.Point(12, 6);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1376, 385);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewStockOutItem);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1368, 349);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Stock-Out Items";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
-            // 
-            // tabPageInventoryEntries
-            // 
-            this.tabPageInventoryEntries.Controls.Add(this.panel5);
-            this.tabPageInventoryEntries.Controls.Add(this.dataGridViewInventoryEntries);
-            this.tabPageInventoryEntries.Location = new System.Drawing.Point(4, 32);
-            this.tabPageInventoryEntries.Name = "tabPageInventoryEntries";
-            this.tabPageInventoryEntries.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1368, 349);
-            this.tabPageInventoryEntries.TabIndex = 1;
-            this.tabPageInventoryEntries.Text = "Inventory Entries";
-            this.tabPageInventoryEntries.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListFirst);
-            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListPrevious);
-            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListNext);
-            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListLast);
-            this.panel5.Controls.Add(this.textBoxInventoryEntriesPageNumber);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(3, 293);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1362, 53);
-            this.panel5.TabIndex = 27;
-            // 
-            // buttonInventoryEntriesPageListFirst
-            // 
-            this.buttonInventoryEntriesPageListFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonInventoryEntriesPageListFirst.Enabled = false;
-            this.buttonInventoryEntriesPageListFirst.FlatAppearance.BorderSize = 0;
-            this.buttonInventoryEntriesPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventoryEntriesPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListFirst.Location = new System.Drawing.Point(12, 9);
-            this.buttonInventoryEntriesPageListFirst.Name = "buttonInventoryEntriesPageListFirst";
-            this.buttonInventoryEntriesPageListFirst.Size = new System.Drawing.Size(82, 32);
-            this.buttonInventoryEntriesPageListFirst.TabIndex = 13;
-            this.buttonInventoryEntriesPageListFirst.Text = "First";
-            this.buttonInventoryEntriesPageListFirst.UseVisualStyleBackColor = false;
-            this.buttonInventoryEntriesPageListFirst.Click += new System.EventHandler(this.buttonInventoryEntriesPageListFirst_Click);
-            // 
-            // buttonInventoryEntriesPageListPrevious
-            // 
-            this.buttonInventoryEntriesPageListPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonInventoryEntriesPageListPrevious.Enabled = false;
-            this.buttonInventoryEntriesPageListPrevious.FlatAppearance.BorderSize = 0;
-            this.buttonInventoryEntriesPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventoryEntriesPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListPrevious.Location = new System.Drawing.Point(100, 9);
-            this.buttonInventoryEntriesPageListPrevious.Name = "buttonInventoryEntriesPageListPrevious";
-            this.buttonInventoryEntriesPageListPrevious.Size = new System.Drawing.Size(82, 32);
-            this.buttonInventoryEntriesPageListPrevious.TabIndex = 14;
-            this.buttonInventoryEntriesPageListPrevious.Text = "Previous";
-            this.buttonInventoryEntriesPageListPrevious.UseVisualStyleBackColor = false;
-            this.buttonInventoryEntriesPageListPrevious.Click += new System.EventHandler(this.buttonInventoryEntriesPageListPrevious_Click);
-            // 
-            // buttonInventoryEntriesPageListNext
-            // 
-            this.buttonInventoryEntriesPageListNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonInventoryEntriesPageListNext.FlatAppearance.BorderSize = 0;
-            this.buttonInventoryEntriesPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventoryEntriesPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListNext.Location = new System.Drawing.Point(263, 9);
-            this.buttonInventoryEntriesPageListNext.Name = "buttonInventoryEntriesPageListNext";
-            this.buttonInventoryEntriesPageListNext.Size = new System.Drawing.Size(82, 32);
-            this.buttonInventoryEntriesPageListNext.TabIndex = 15;
-            this.buttonInventoryEntriesPageListNext.Text = "Next";
-            this.buttonInventoryEntriesPageListNext.UseVisualStyleBackColor = false;
-            this.buttonInventoryEntriesPageListNext.Click += new System.EventHandler(this.buttonInventoryEntriesPageListNext_Click);
-            // 
-            // buttonInventoryEntriesPageListLast
-            // 
-            this.buttonInventoryEntriesPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonInventoryEntriesPageListLast.FlatAppearance.BorderSize = 0;
-            this.buttonInventoryEntriesPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventoryEntriesPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListLast.Location = new System.Drawing.Point(348, 9);
-            this.buttonInventoryEntriesPageListLast.Name = "buttonInventoryEntriesPageListLast";
-            this.buttonInventoryEntriesPageListLast.Size = new System.Drawing.Size(82, 32);
-            this.buttonInventoryEntriesPageListLast.TabIndex = 16;
-            this.buttonInventoryEntriesPageListLast.Text = "Last";
-            this.buttonInventoryEntriesPageListLast.UseVisualStyleBackColor = false;
-            this.buttonInventoryEntriesPageListLast.Click += new System.EventHandler(this.buttonInventoryEntriesPageListLast_Click);
-            // 
-            // textBoxInventoryEntriesPageNumber
-            // 
-            this.textBoxInventoryEntriesPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxInventoryEntriesPageNumber.BackColor = System.Drawing.Color.White;
-            this.textBoxInventoryEntriesPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxInventoryEntriesPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxInventoryEntriesPageNumber.Location = new System.Drawing.Point(188, 14);
-            this.textBoxInventoryEntriesPageNumber.Name = "textBoxInventoryEntriesPageNumber";
-            this.textBoxInventoryEntriesPageNumber.ReadOnly = true;
-            this.textBoxInventoryEntriesPageNumber.Size = new System.Drawing.Size(69, 20);
-            this.textBoxInventoryEntriesPageNumber.TabIndex = 17;
-            this.textBoxInventoryEntriesPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // dataGridViewInventoryEntries
-            // 
-            this.dataGridViewInventoryEntries.AllowUserToAddRows = false;
-            this.dataGridViewInventoryEntries.AllowUserToDeleteRows = false;
-            this.dataGridViewInventoryEntries.AllowUserToResizeRows = false;
-            this.dataGridViewInventoryEntries.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewInventoryEntries.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewInventoryEntries.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewInventoryEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInventoryEntries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnInventoryEntriesBranch,
-            this.ColumnInventoryEntriesInventoryDate,
-            this.ColumnInventoryEntriesItemDescription,
-            this.ColumnInventoryEntriesInventoryCode,
-            this.ColumnInventoryEntriesQuantity,
-            this.ColumnInventoryEntriesAmount,
-            this.ColumnInventoryEntriesSpace});
-            this.dataGridViewInventoryEntries.Location = new System.Drawing.Point(8, 6);
-            this.dataGridViewInventoryEntries.MultiSelect = false;
-            this.dataGridViewInventoryEntries.Name = "dataGridViewInventoryEntries";
-            this.dataGridViewInventoryEntries.ReadOnly = true;
-            this.dataGridViewInventoryEntries.RowHeadersVisible = false;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.dataGridViewInventoryEntries.RowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewInventoryEntries.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.dataGridViewInventoryEntries.RowTemplate.Height = 24;
-            this.dataGridViewInventoryEntries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInventoryEntries.Size = new System.Drawing.Size(1352, 281);
-            this.dataGridViewInventoryEntries.TabIndex = 26;
-            this.dataGridViewInventoryEntries.TabStop = false;
-            // 
-            // ColumnInventoryEntriesBranch
-            // 
-            this.ColumnInventoryEntriesBranch.DataPropertyName = "ColumnInventoryEntriesBranch";
-            this.ColumnInventoryEntriesBranch.HeaderText = "Branch";
-            this.ColumnInventoryEntriesBranch.Name = "ColumnInventoryEntriesBranch";
-            this.ColumnInventoryEntriesBranch.ReadOnly = true;
-            this.ColumnInventoryEntriesBranch.Width = 300;
-            // 
-            // ColumnInventoryEntriesInventoryDate
-            // 
-            this.ColumnInventoryEntriesInventoryDate.DataPropertyName = "ColumnInventoryEntriesInventoryDate";
-            this.ColumnInventoryEntriesInventoryDate.HeaderText = "Date";
-            this.ColumnInventoryEntriesInventoryDate.Name = "ColumnInventoryEntriesInventoryDate";
-            this.ColumnInventoryEntriesInventoryDate.ReadOnly = true;
-            this.ColumnInventoryEntriesInventoryDate.Width = 120;
-            // 
-            // ColumnInventoryEntriesItemDescription
-            // 
-            this.ColumnInventoryEntriesItemDescription.DataPropertyName = "ColumnInventoryEntriesItemDescription";
-            this.ColumnInventoryEntriesItemDescription.HeaderText = "Item Description";
-            this.ColumnInventoryEntriesItemDescription.Name = "ColumnInventoryEntriesItemDescription";
-            this.ColumnInventoryEntriesItemDescription.ReadOnly = true;
-            this.ColumnInventoryEntriesItemDescription.Width = 350;
-            // 
-            // ColumnInventoryEntriesInventoryCode
-            // 
-            this.ColumnInventoryEntriesInventoryCode.DataPropertyName = "ColumnInventoryEntriesInventoryCode";
-            this.ColumnInventoryEntriesInventoryCode.HeaderText = "Inventory Code";
-            this.ColumnInventoryEntriesInventoryCode.Name = "ColumnInventoryEntriesInventoryCode";
-            this.ColumnInventoryEntriesInventoryCode.ReadOnly = true;
-            this.ColumnInventoryEntriesInventoryCode.Width = 200;
-            // 
-            // ColumnInventoryEntriesQuantity
-            // 
-            this.ColumnInventoryEntriesQuantity.DataPropertyName = "ColumnInventoryEntriesQuantity";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnInventoryEntriesQuantity.DefaultCellStyle = dataGridViewCellStyle9;
-            this.ColumnInventoryEntriesQuantity.HeaderText = "Quantity";
-            this.ColumnInventoryEntriesQuantity.Name = "ColumnInventoryEntriesQuantity";
-            this.ColumnInventoryEntriesQuantity.ReadOnly = true;
-            this.ColumnInventoryEntriesQuantity.Width = 150;
-            // 
-            // ColumnInventoryEntriesAmount
-            // 
-            this.ColumnInventoryEntriesAmount.DataPropertyName = "ColumnInventoryEntriesAmount";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnInventoryEntriesAmount.DefaultCellStyle = dataGridViewCellStyle10;
-            this.ColumnInventoryEntriesAmount.HeaderText = "Amount";
-            this.ColumnInventoryEntriesAmount.Name = "ColumnInventoryEntriesAmount";
-            this.ColumnInventoryEntriesAmount.ReadOnly = true;
-            this.ColumnInventoryEntriesAmount.Width = 150;
-            // 
-            // ColumnInventoryEntriesSpace
-            // 
-            this.ColumnInventoryEntriesSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnInventoryEntriesSpace.DataPropertyName = "ColumnInventoryEntriesSpace";
-            this.ColumnInventoryEntriesSpace.HeaderText = "";
-            this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
-            this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
             // ColumnStockOutItemButtonEdit
             // 
@@ -916,6 +673,247 @@
             this.ColumnStockOutItemSpace.HeaderText = "";
             this.ColumnStockOutItemSpace.Name = "ColumnStockOutItemSpace";
             this.ColumnStockOutItemSpace.ReadOnly = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Controls.Add(this.tabPageInventoryEntries);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewStockOutItem);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Stock-Out Items";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
+            // 
+            // tabPageInventoryEntries
+            // 
+            this.tabPageInventoryEntries.Controls.Add(this.panel5);
+            this.tabPageInventoryEntries.Controls.Add(this.dataGridViewInventoryEntries);
+            this.tabPageInventoryEntries.Location = new System.Drawing.Point(4, 32);
+            this.tabPageInventoryEntries.Name = "tabPageInventoryEntries";
+            this.tabPageInventoryEntries.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageInventoryEntries.TabIndex = 1;
+            this.tabPageInventoryEntries.Text = "Inventory Entries";
+            this.tabPageInventoryEntries.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListFirst);
+            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListPrevious);
+            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListNext);
+            this.panel5.Controls.Add(this.buttonInventoryEntriesPageListLast);
+            this.panel5.Controls.Add(this.textBoxInventoryEntriesPageNumber);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(3, 311);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1386, 53);
+            this.panel5.TabIndex = 27;
+            // 
+            // buttonInventoryEntriesPageListFirst
+            // 
+            this.buttonInventoryEntriesPageListFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonInventoryEntriesPageListFirst.Enabled = false;
+            this.buttonInventoryEntriesPageListFirst.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryEntriesPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryEntriesPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonInventoryEntriesPageListFirst.Location = new System.Drawing.Point(12, 9);
+            this.buttonInventoryEntriesPageListFirst.Name = "buttonInventoryEntriesPageListFirst";
+            this.buttonInventoryEntriesPageListFirst.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListFirst.TabIndex = 13;
+            this.buttonInventoryEntriesPageListFirst.Text = "First";
+            this.buttonInventoryEntriesPageListFirst.UseVisualStyleBackColor = false;
+            this.buttonInventoryEntriesPageListFirst.Click += new System.EventHandler(this.buttonInventoryEntriesPageListFirst_Click);
+            // 
+            // buttonInventoryEntriesPageListPrevious
+            // 
+            this.buttonInventoryEntriesPageListPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonInventoryEntriesPageListPrevious.Enabled = false;
+            this.buttonInventoryEntriesPageListPrevious.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryEntriesPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryEntriesPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonInventoryEntriesPageListPrevious.Location = new System.Drawing.Point(100, 9);
+            this.buttonInventoryEntriesPageListPrevious.Name = "buttonInventoryEntriesPageListPrevious";
+            this.buttonInventoryEntriesPageListPrevious.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListPrevious.TabIndex = 14;
+            this.buttonInventoryEntriesPageListPrevious.Text = "Previous";
+            this.buttonInventoryEntriesPageListPrevious.UseVisualStyleBackColor = false;
+            this.buttonInventoryEntriesPageListPrevious.Click += new System.EventHandler(this.buttonInventoryEntriesPageListPrevious_Click);
+            // 
+            // buttonInventoryEntriesPageListNext
+            // 
+            this.buttonInventoryEntriesPageListNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonInventoryEntriesPageListNext.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryEntriesPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryEntriesPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonInventoryEntriesPageListNext.Location = new System.Drawing.Point(263, 9);
+            this.buttonInventoryEntriesPageListNext.Name = "buttonInventoryEntriesPageListNext";
+            this.buttonInventoryEntriesPageListNext.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListNext.TabIndex = 15;
+            this.buttonInventoryEntriesPageListNext.Text = "Next";
+            this.buttonInventoryEntriesPageListNext.UseVisualStyleBackColor = false;
+            this.buttonInventoryEntriesPageListNext.Click += new System.EventHandler(this.buttonInventoryEntriesPageListNext_Click);
+            // 
+            // buttonInventoryEntriesPageListLast
+            // 
+            this.buttonInventoryEntriesPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonInventoryEntriesPageListLast.FlatAppearance.BorderSize = 0;
+            this.buttonInventoryEntriesPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventoryEntriesPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonInventoryEntriesPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonInventoryEntriesPageListLast.Name = "buttonInventoryEntriesPageListLast";
+            this.buttonInventoryEntriesPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListLast.TabIndex = 16;
+            this.buttonInventoryEntriesPageListLast.Text = "Last";
+            this.buttonInventoryEntriesPageListLast.UseVisualStyleBackColor = false;
+            this.buttonInventoryEntriesPageListLast.Click += new System.EventHandler(this.buttonInventoryEntriesPageListLast_Click);
+            // 
+            // textBoxInventoryEntriesPageNumber
+            // 
+            this.textBoxInventoryEntriesPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxInventoryEntriesPageNumber.BackColor = System.Drawing.Color.White;
+            this.textBoxInventoryEntriesPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxInventoryEntriesPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBoxInventoryEntriesPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxInventoryEntriesPageNumber.Name = "textBoxInventoryEntriesPageNumber";
+            this.textBoxInventoryEntriesPageNumber.ReadOnly = true;
+            this.textBoxInventoryEntriesPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxInventoryEntriesPageNumber.TabIndex = 17;
+            this.textBoxInventoryEntriesPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // dataGridViewInventoryEntries
+            // 
+            this.dataGridViewInventoryEntries.AllowUserToAddRows = false;
+            this.dataGridViewInventoryEntries.AllowUserToDeleteRows = false;
+            this.dataGridViewInventoryEntries.AllowUserToResizeRows = false;
+            this.dataGridViewInventoryEntries.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewInventoryEntries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInventoryEntries.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewInventoryEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInventoryEntries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnInventoryEntriesBranch,
+            this.ColumnInventoryEntriesInventoryDate,
+            this.ColumnInventoryEntriesItemDescription,
+            this.ColumnInventoryEntriesInventoryCode,
+            this.ColumnInventoryEntriesQuantity,
+            this.ColumnInventoryEntriesAmount,
+            this.ColumnInventoryEntriesSpace});
+            this.dataGridViewInventoryEntries.Location = new System.Drawing.Point(8, 6);
+            this.dataGridViewInventoryEntries.MultiSelect = false;
+            this.dataGridViewInventoryEntries.Name = "dataGridViewInventoryEntries";
+            this.dataGridViewInventoryEntries.ReadOnly = true;
+            this.dataGridViewInventoryEntries.RowHeadersVisible = false;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.dataGridViewInventoryEntries.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewInventoryEntries.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.dataGridViewInventoryEntries.RowTemplate.Height = 24;
+            this.dataGridViewInventoryEntries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewInventoryEntries.Size = new System.Drawing.Size(1376, 299);
+            this.dataGridViewInventoryEntries.TabIndex = 26;
+            this.dataGridViewInventoryEntries.TabStop = false;
+            // 
+            // ColumnInventoryEntriesBranch
+            // 
+            this.ColumnInventoryEntriesBranch.DataPropertyName = "ColumnInventoryEntriesBranch";
+            this.ColumnInventoryEntriesBranch.HeaderText = "Branch";
+            this.ColumnInventoryEntriesBranch.Name = "ColumnInventoryEntriesBranch";
+            this.ColumnInventoryEntriesBranch.ReadOnly = true;
+            this.ColumnInventoryEntriesBranch.Width = 300;
+            // 
+            // ColumnInventoryEntriesInventoryDate
+            // 
+            this.ColumnInventoryEntriesInventoryDate.DataPropertyName = "ColumnInventoryEntriesInventoryDate";
+            this.ColumnInventoryEntriesInventoryDate.HeaderText = "Date";
+            this.ColumnInventoryEntriesInventoryDate.Name = "ColumnInventoryEntriesInventoryDate";
+            this.ColumnInventoryEntriesInventoryDate.ReadOnly = true;
+            this.ColumnInventoryEntriesInventoryDate.Width = 120;
+            // 
+            // ColumnInventoryEntriesItemDescription
+            // 
+            this.ColumnInventoryEntriesItemDescription.DataPropertyName = "ColumnInventoryEntriesItemDescription";
+            this.ColumnInventoryEntriesItemDescription.HeaderText = "Item Description";
+            this.ColumnInventoryEntriesItemDescription.Name = "ColumnInventoryEntriesItemDescription";
+            this.ColumnInventoryEntriesItemDescription.ReadOnly = true;
+            this.ColumnInventoryEntriesItemDescription.Width = 350;
+            // 
+            // ColumnInventoryEntriesInventoryCode
+            // 
+            this.ColumnInventoryEntriesInventoryCode.DataPropertyName = "ColumnInventoryEntriesInventoryCode";
+            this.ColumnInventoryEntriesInventoryCode.HeaderText = "Inventory Code";
+            this.ColumnInventoryEntriesInventoryCode.Name = "ColumnInventoryEntriesInventoryCode";
+            this.ColumnInventoryEntriesInventoryCode.ReadOnly = true;
+            this.ColumnInventoryEntriesInventoryCode.Width = 200;
+            // 
+            // ColumnInventoryEntriesQuantity
+            // 
+            this.ColumnInventoryEntriesQuantity.DataPropertyName = "ColumnInventoryEntriesQuantity";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnInventoryEntriesQuantity.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ColumnInventoryEntriesQuantity.HeaderText = "Quantity";
+            this.ColumnInventoryEntriesQuantity.Name = "ColumnInventoryEntriesQuantity";
+            this.ColumnInventoryEntriesQuantity.ReadOnly = true;
+            this.ColumnInventoryEntriesQuantity.Width = 150;
+            // 
+            // ColumnInventoryEntriesAmount
+            // 
+            this.ColumnInventoryEntriesAmount.DataPropertyName = "ColumnInventoryEntriesAmount";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnInventoryEntriesAmount.DefaultCellStyle = dataGridViewCellStyle10;
+            this.ColumnInventoryEntriesAmount.HeaderText = "Amount";
+            this.ColumnInventoryEntriesAmount.Name = "ColumnInventoryEntriesAmount";
+            this.ColumnInventoryEntriesAmount.ReadOnly = true;
+            this.ColumnInventoryEntriesAmount.Width = 150;
+            // 
+            // ColumnInventoryEntriesSpace
+            // 
+            this.ColumnInventoryEntriesSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnInventoryEntriesSpace.DataPropertyName = "ColumnInventoryEntriesSpace";
+            this.ColumnInventoryEntriesSpace.HeaderText = "";
+            this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
+            this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
             // TrnStockOutDetailForm
             // 
