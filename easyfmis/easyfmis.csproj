@@ -95,8 +95,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\DgvInventoryEntriesEntity.cs" />
-    <Compile Include="Entities\DgvInventoryReportEntity.cs" />
+    <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
+    <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
+    <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
     <Compile Include="Entities\DgvItemDetailItemPriceListEntity.cs" />
     <Compile Include="Entities\DgvItemComponentEntity.cs" />
@@ -240,6 +241,12 @@
     </Compile>
     <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.designer.cs">
       <DependentUpon>RepInventoryReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportStockCardReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportStockCardReportForm.designer.cs">
+      <DependentUpon>RepInventoryReportStockCardReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportInventoryReportForm.cs">
       <SubType>Form</SubType>
@@ -392,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.resx">
       <DependentUpon>RepInventoryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportStockCardReportForm.resx">
+      <DependentUpon>RepInventoryReportStockCardReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportInventoryReportForm.resx">
       <DependentUpon>RepInventoryReportInventoryReportForm.cs</DependentUpon>

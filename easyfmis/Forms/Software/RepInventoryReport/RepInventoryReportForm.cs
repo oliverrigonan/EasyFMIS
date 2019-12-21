@@ -117,23 +117,28 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             if (listBoxInventoryReport.SelectedItem != null)
             {
+                DateTime startDate = dateTimePickerStartDate.Value.Date;
+                DateTime endDate = dateTimePickerEndDate.Value.Date;
+                Int32 companyId = Convert.ToInt32(comboBoxCompany.SelectedValue);
+                String companyName = comboBoxCompany.GetItemText(comboBoxCompany.SelectedItem);
+                Int32 branchId = Convert.ToInt32(comboBoxBranch.SelectedValue);
+                String branchName = comboBoxBranch.GetItemText(comboBoxBranch.SelectedItem);
+                Int32 itemId = Convert.ToInt32(comboBoxItem.SelectedValue);
+                String itemName = comboBoxItem.GetItemText(comboBoxItem.SelectedItem);
+
                 String selectedItem = listBoxInventoryReport.SelectedItem.ToString();
                 switch (selectedItem)
                 {
                     case "Inventory Report":
 
-                        DateTime startDate = dateTimePickerStartDate.Value.Date;
-                        DateTime endDate = dateTimePickerEndDate.Value.Date;
-                        Int32 companyId = Convert.ToInt32(comboBoxCompany.SelectedValue);
-                        String companyName = comboBoxCompany.GetItemText(comboBoxCompany.SelectedItem);
-                        Int32 branchId = Convert.ToInt32(comboBoxBranch.SelectedValue);
-                        String branchName = comboBoxBranch.GetItemText(comboBoxBranch.SelectedItem);
-
                         RepInventoryReportInventoryReportForm repInventoryReportInventoryReport = new RepInventoryReportInventoryReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
-                        repInventoryReportInventoryReport.ShowDialog();
+                        repInventoryReportInventoryReport.Show();
 
                         break;
                     case "Stock Card":
+
+                        RepInventoryReportStockCardReportForm repInventoryReportStockCardReportForm = new RepInventoryReportStockCardReportForm(startDate, endDate, companyId, companyName, branchId, branchName, itemId, itemName);
+                        repInventoryReportStockCardReportForm.Show();
 
                         break;
                     default:
