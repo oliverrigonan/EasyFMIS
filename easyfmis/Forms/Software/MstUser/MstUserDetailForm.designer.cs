@@ -40,25 +40,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridViewUserFormList = new System.Windows.Forms.DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.buttonAddUserForm = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.buttonUserFormListPageListFirst = new System.Windows.Forms.Button();
-            this.buttonUserFormListPageListPrevious = new System.Windows.Forms.Button();
-            this.buttonUserFormListPageListNext = new System.Windows.Forms.Button();
-            this.buttonUserFormListPageListLast = new System.Windows.Forms.Button();
-            this.textBoxUserFormListPageNumber = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxFullName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
-            this.comboBoxCompany = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.ColumnUserFormListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnUserFormListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnUserFormListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,12 +53,29 @@
             this.ColumnUserFormListCanPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnUserFormListCanPreview = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnUserFormListCanEdit = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.buttonAddUserForm = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonUserFormListPageListFirst = new System.Windows.Forms.Button();
+            this.buttonUserFormListPageListPrevious = new System.Windows.Forms.Button();
+            this.buttonUserFormListPageListNext = new System.Windows.Forms.Button();
+            this.buttonUserFormListPageListLast = new System.Windows.Forms.Button();
+            this.textBoxUserFormListPageNumber = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxCompany = new System.Windows.Forms.ComboBox();
+            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserFormList)).BeginInit();
-            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -171,7 +169,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -182,11 +179,13 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.buttonAddUserForm);
             this.panel6.Controls.Add(this.dataGridViewUserFormList);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 173);
+            this.panel6.Location = new System.Drawing.Point(0, 119);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 411);
+            this.panel6.Size = new System.Drawing.Size(1400, 465);
             this.panel6.TabIndex = 29;
             // 
             // dataGridViewUserFormList
@@ -221,7 +220,7 @@
             this.ColumnUserFormListCanPrint,
             this.ColumnUserFormListCanPreview,
             this.ColumnUserFormListCanEdit});
-            this.dataGridViewUserFormList.Location = new System.Drawing.Point(12, 6);
+            this.dataGridViewUserFormList.Location = new System.Drawing.Point(12, 52);
             this.dataGridViewUserFormList.MultiSelect = false;
             this.dataGridViewUserFormList.Name = "dataGridViewUserFormList";
             this.dataGridViewUserFormList.ReadOnly = true;
@@ -231,20 +230,130 @@
             this.dataGridViewUserFormList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewUserFormList.RowTemplate.Height = 24;
             this.dataGridViewUserFormList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUserFormList.Size = new System.Drawing.Size(1376, 399);
+            this.dataGridViewUserFormList.Size = new System.Drawing.Size(1376, 407);
             this.dataGridViewUserFormList.TabIndex = 1;
             this.dataGridViewUserFormList.TabStop = false;
             this.dataGridViewUserFormList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUserFormList_CellClick);
             // 
-            // panel5
+            // ColumnUserFormListButtonEdit
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.buttonAddUserForm);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 119);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1400, 54);
-            this.panel5.TabIndex = 28;
+            this.ColumnUserFormListButtonEdit.DataPropertyName = "ColumnUserFormListButtonEdit";
+            this.ColumnUserFormListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnUserFormListButtonEdit.HeaderText = "";
+            this.ColumnUserFormListButtonEdit.Name = "ColumnUserFormListButtonEdit";
+            this.ColumnUserFormListButtonEdit.ReadOnly = true;
+            this.ColumnUserFormListButtonEdit.Width = 70;
+            // 
+            // ColumnUserFormListButtonDelete
+            // 
+            this.ColumnUserFormListButtonDelete.DataPropertyName = "ColumnUserFormListButtonDelete";
+            this.ColumnUserFormListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnUserFormListButtonDelete.HeaderText = "";
+            this.ColumnUserFormListButtonDelete.Name = "ColumnUserFormListButtonDelete";
+            this.ColumnUserFormListButtonDelete.ReadOnly = true;
+            this.ColumnUserFormListButtonDelete.Width = 70;
+            // 
+            // ColumnUserFormListId
+            // 
+            this.ColumnUserFormListId.DataPropertyName = "ColumnUserFormListId";
+            this.ColumnUserFormListId.HeaderText = "Id";
+            this.ColumnUserFormListId.Name = "ColumnUserFormListId";
+            this.ColumnUserFormListId.ReadOnly = true;
+            this.ColumnUserFormListId.Visible = false;
+            // 
+            // ColumnUserFormListFormId
+            // 
+            this.ColumnUserFormListFormId.DataPropertyName = "ColumnUserFormListFormId";
+            this.ColumnUserFormListFormId.HeaderText = "Form Id";
+            this.ColumnUserFormListFormId.Name = "ColumnUserFormListFormId";
+            this.ColumnUserFormListFormId.ReadOnly = true;
+            this.ColumnUserFormListFormId.Visible = false;
+            // 
+            // ColumnUserFormListForm
+            // 
+            this.ColumnUserFormListForm.DataPropertyName = "ColumnUserFormListForm";
+            this.ColumnUserFormListForm.HeaderText = "Form";
+            this.ColumnUserFormListForm.Name = "ColumnUserFormListForm";
+            this.ColumnUserFormListForm.ReadOnly = true;
+            this.ColumnUserFormListForm.Width = 300;
+            // 
+            // ColumnUserFormListUserId
+            // 
+            this.ColumnUserFormListUserId.DataPropertyName = "ColumnUserFormListUserId";
+            this.ColumnUserFormListUserId.HeaderText = "User Id";
+            this.ColumnUserFormListUserId.Name = "ColumnUserFormListUserId";
+            this.ColumnUserFormListUserId.ReadOnly = true;
+            this.ColumnUserFormListUserId.Visible = false;
+            // 
+            // ColumnUserFormListCanDelete
+            // 
+            this.ColumnUserFormListCanDelete.DataPropertyName = "ColumnUserFormListCanDelete";
+            this.ColumnUserFormListCanDelete.HeaderText = "Delete";
+            this.ColumnUserFormListCanDelete.Name = "ColumnUserFormListCanDelete";
+            this.ColumnUserFormListCanDelete.ReadOnly = true;
+            this.ColumnUserFormListCanDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnUserFormListCanDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnUserFormListCanDelete.Width = 80;
+            // 
+            // ColumnUserFormListCanAdd
+            // 
+            this.ColumnUserFormListCanAdd.DataPropertyName = "ColumnUserFormListCanAdd";
+            this.ColumnUserFormListCanAdd.HeaderText = "Add";
+            this.ColumnUserFormListCanAdd.Name = "ColumnUserFormListCanAdd";
+            this.ColumnUserFormListCanAdd.ReadOnly = true;
+            this.ColumnUserFormListCanAdd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnUserFormListCanAdd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnUserFormListCanAdd.Width = 80;
+            // 
+            // ColumnUserFormListCanLock
+            // 
+            this.ColumnUserFormListCanLock.DataPropertyName = "ColumnUserFormListCanLock";
+            this.ColumnUserFormListCanLock.HeaderText = "Lock";
+            this.ColumnUserFormListCanLock.Name = "ColumnUserFormListCanLock";
+            this.ColumnUserFormListCanLock.ReadOnly = true;
+            this.ColumnUserFormListCanLock.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnUserFormListCanLock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnUserFormListCanLock.Width = 80;
+            // 
+            // ColumnUserFormListCanUnlock
+            // 
+            this.ColumnUserFormListCanUnlock.DataPropertyName = "ColumnUserFormListCanUnlock";
+            this.ColumnUserFormListCanUnlock.HeaderText = "Unlock";
+            this.ColumnUserFormListCanUnlock.Name = "ColumnUserFormListCanUnlock";
+            this.ColumnUserFormListCanUnlock.ReadOnly = true;
+            this.ColumnUserFormListCanUnlock.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnUserFormListCanUnlock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnUserFormListCanUnlock.Width = 80;
+            // 
+            // ColumnUserFormListCanPrint
+            // 
+            this.ColumnUserFormListCanPrint.DataPropertyName = "ColumnUserFormListCanPrint";
+            this.ColumnUserFormListCanPrint.HeaderText = "Print";
+            this.ColumnUserFormListCanPrint.Name = "ColumnUserFormListCanPrint";
+            this.ColumnUserFormListCanPrint.ReadOnly = true;
+            this.ColumnUserFormListCanPrint.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnUserFormListCanPrint.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnUserFormListCanPrint.Width = 80;
+            // 
+            // ColumnUserFormListCanPreview
+            // 
+            this.ColumnUserFormListCanPreview.DataPropertyName = "ColumnUserFormListCanPreview";
+            this.ColumnUserFormListCanPreview.HeaderText = "Preview";
+            this.ColumnUserFormListCanPreview.Name = "ColumnUserFormListCanPreview";
+            this.ColumnUserFormListCanPreview.ReadOnly = true;
+            this.ColumnUserFormListCanPreview.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnUserFormListCanPreview.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnUserFormListCanPreview.Width = 80;
+            // 
+            // ColumnUserFormListCanEdit
+            // 
+            this.ColumnUserFormListCanEdit.DataPropertyName = "ColumnUserFormListCanEdit";
+            this.ColumnUserFormListCanEdit.HeaderText = "Edit";
+            this.ColumnUserFormListCanEdit.Name = "ColumnUserFormListCanEdit";
+            this.ColumnUserFormListCanEdit.ReadOnly = true;
+            this.ColumnUserFormListCanEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnUserFormListCanEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnUserFormListCanEdit.Width = 80;
             // 
             // buttonAddUserForm
             // 
@@ -369,6 +478,42 @@
             this.panel3.Size = new System.Drawing.Size(1400, 119);
             this.panel3.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label2.Location = new System.Drawing.Point(505, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 23);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Branch:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label6.Location = new System.Drawing.Point(485, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 23);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Company:";
+            // 
+            // comboBoxCompany
+            // 
+            this.comboBoxCompany.FormattingEnabled = true;
+            this.comboBoxCompany.Location = new System.Drawing.Point(582, 7);
+            this.comboBoxCompany.Name = "comboBoxCompany";
+            this.comboBoxCompany.Size = new System.Drawing.Size(298, 31);
+            this.comboBoxCompany.TabIndex = 7;
+            // 
+            // comboBoxBranch
+            // 
+            this.comboBoxBranch.FormattingEnabled = true;
+            this.comboBoxBranch.Location = new System.Drawing.Point(582, 43);
+            this.comboBoxBranch.Name = "comboBoxBranch";
+            this.comboBoxBranch.Size = new System.Drawing.Size(298, 31);
+            this.comboBoxBranch.TabIndex = 6;
+            // 
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F);
@@ -427,162 +572,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Username:";
             // 
-            // comboBoxBranch
-            // 
-            this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(582, 43);
-            this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxBranch.TabIndex = 6;
-            // 
-            // comboBoxCompany
-            // 
-            this.comboBoxCompany.FormattingEnabled = true;
-            this.comboBoxCompany.Location = new System.Drawing.Point(582, 7);
-            this.comboBoxCompany.Name = "comboBoxCompany";
-            this.comboBoxCompany.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxCompany.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(505, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 23);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Branch:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(485, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 23);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Company:";
-            // 
-            // ColumnUserFormListButtonEdit
-            // 
-            this.ColumnUserFormListButtonEdit.DataPropertyName = "ColumnUserFormListButtonEdit";
-            this.ColumnUserFormListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnUserFormListButtonEdit.HeaderText = "";
-            this.ColumnUserFormListButtonEdit.Name = "ColumnUserFormListButtonEdit";
-            this.ColumnUserFormListButtonEdit.ReadOnly = true;
-            this.ColumnUserFormListButtonEdit.Width = 70;
-            // 
-            // ColumnUserFormListButtonDelete
-            // 
-            this.ColumnUserFormListButtonDelete.DataPropertyName = "ColumnUserFormListButtonDelete";
-            this.ColumnUserFormListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnUserFormListButtonDelete.HeaderText = "";
-            this.ColumnUserFormListButtonDelete.Name = "ColumnUserFormListButtonDelete";
-            this.ColumnUserFormListButtonDelete.ReadOnly = true;
-            this.ColumnUserFormListButtonDelete.Width = 70;
-            // 
-            // ColumnUserFormListId
-            // 
-            this.ColumnUserFormListId.DataPropertyName = "ColumnUserFormListId";
-            this.ColumnUserFormListId.HeaderText = "Id";
-            this.ColumnUserFormListId.Name = "ColumnUserFormListId";
-            this.ColumnUserFormListId.ReadOnly = true;
-            this.ColumnUserFormListId.Visible = false;
-            // 
-            // ColumnUserFormListFormId
-            // 
-            this.ColumnUserFormListFormId.DataPropertyName = "ColumnUserFormListFormId";
-            this.ColumnUserFormListFormId.HeaderText = "Form Id";
-            this.ColumnUserFormListFormId.Name = "ColumnUserFormListFormId";
-            this.ColumnUserFormListFormId.ReadOnly = true;
-            this.ColumnUserFormListFormId.Visible = false;
-            // 
-            // ColumnUserFormListForm
-            // 
-            this.ColumnUserFormListForm.DataPropertyName = "ColumnUserFormListForm";
-            this.ColumnUserFormListForm.HeaderText = "Form";
-            this.ColumnUserFormListForm.Name = "ColumnUserFormListForm";
-            this.ColumnUserFormListForm.ReadOnly = true;
-            this.ColumnUserFormListForm.Width = 300;
-            // 
-            // ColumnUserFormListUserId
-            // 
-            this.ColumnUserFormListUserId.DataPropertyName = "ColumnUserFormListUserId";
-            this.ColumnUserFormListUserId.HeaderText = "User Id";
-            this.ColumnUserFormListUserId.Name = "ColumnUserFormListUserId";
-            this.ColumnUserFormListUserId.ReadOnly = true;
-            this.ColumnUserFormListUserId.Visible = false;
-            // 
-            // ColumnUserFormListCanDelete
-            // 
-            this.ColumnUserFormListCanDelete.DataPropertyName = "ColumnUserFormListCanDelete";
-            this.ColumnUserFormListCanDelete.HeaderText = "Delete";
-            this.ColumnUserFormListCanDelete.Name = "ColumnUserFormListCanDelete";
-            this.ColumnUserFormListCanDelete.ReadOnly = true;
-            this.ColumnUserFormListCanDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnUserFormListCanDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnUserFormListCanDelete.Width = 80;
-            // 
-            // ColumnUserFormListCanAdd
-            // 
-            this.ColumnUserFormListCanAdd.DataPropertyName = "ColumnUserFormListCanAdd";
-            this.ColumnUserFormListCanAdd.HeaderText = "Add";
-            this.ColumnUserFormListCanAdd.Name = "ColumnUserFormListCanAdd";
-            this.ColumnUserFormListCanAdd.ReadOnly = true;
-            this.ColumnUserFormListCanAdd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnUserFormListCanAdd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnUserFormListCanAdd.Width = 80;
-            // 
-            // ColumnUserFormListCanLock
-            // 
-            this.ColumnUserFormListCanLock.DataPropertyName = "ColumnUserFormListCanLock";
-            this.ColumnUserFormListCanLock.HeaderText = "Lock";
-            this.ColumnUserFormListCanLock.Name = "ColumnUserFormListCanLock";
-            this.ColumnUserFormListCanLock.ReadOnly = true;
-            this.ColumnUserFormListCanLock.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnUserFormListCanLock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnUserFormListCanLock.Width = 80;
-            // 
-            // ColumnUserFormListCanUnlock
-            // 
-            this.ColumnUserFormListCanUnlock.DataPropertyName = "ColumnUserFormListCanUnlock";
-            this.ColumnUserFormListCanUnlock.HeaderText = "Unlock";
-            this.ColumnUserFormListCanUnlock.Name = "ColumnUserFormListCanUnlock";
-            this.ColumnUserFormListCanUnlock.ReadOnly = true;
-            this.ColumnUserFormListCanUnlock.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnUserFormListCanUnlock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnUserFormListCanUnlock.Width = 80;
-            // 
-            // ColumnUserFormListCanPrint
-            // 
-            this.ColumnUserFormListCanPrint.DataPropertyName = "ColumnUserFormListCanPrint";
-            this.ColumnUserFormListCanPrint.HeaderText = "Print";
-            this.ColumnUserFormListCanPrint.Name = "ColumnUserFormListCanPrint";
-            this.ColumnUserFormListCanPrint.ReadOnly = true;
-            this.ColumnUserFormListCanPrint.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnUserFormListCanPrint.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnUserFormListCanPrint.Width = 80;
-            // 
-            // ColumnUserFormListCanPreview
-            // 
-            this.ColumnUserFormListCanPreview.DataPropertyName = "ColumnUserFormListCanPreview";
-            this.ColumnUserFormListCanPreview.HeaderText = "Preview";
-            this.ColumnUserFormListCanPreview.Name = "ColumnUserFormListCanPreview";
-            this.ColumnUserFormListCanPreview.ReadOnly = true;
-            this.ColumnUserFormListCanPreview.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnUserFormListCanPreview.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnUserFormListCanPreview.Width = 80;
-            // 
-            // ColumnUserFormListCanEdit
-            // 
-            this.ColumnUserFormListCanEdit.DataPropertyName = "ColumnUserFormListCanEdit";
-            this.ColumnUserFormListCanEdit.HeaderText = "Edit";
-            this.ColumnUserFormListCanEdit.Name = "ColumnUserFormListCanEdit";
-            this.ColumnUserFormListCanEdit.ReadOnly = true;
-            this.ColumnUserFormListCanEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnUserFormListCanEdit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnUserFormListCanEdit.Width = 80;
-            // 
             // MstUserDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -602,7 +591,6 @@
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserFormList)).EndInit();
-            this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -627,7 +615,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button buttonAddUserForm;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button buttonUserFormListPageListFirst;

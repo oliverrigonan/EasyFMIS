@@ -29,18 +29,10 @@
         private void InitializeComponent()
         {
             this.textBoxCustomerListFilter = new System.Windows.Forms.TextBox();
-            this.ColumnCustomerListAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCustomerListContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCustomerListCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCustomerListCustomerCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCustomerListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCustomerListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.buttonCustomerListPageListFirst = new System.Windows.Forms.Button();
             this.buttonCustomerListPageListPrevious = new System.Windows.Forms.Button();
             this.buttonCustomerListPageListNext = new System.Windows.Forms.Button();
-            this.ColumnCustomerListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewCustomerList = new System.Windows.Forms.DataGridView();
-            this.ColumnCustomerListIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.buttonCustomerListPageListLast = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxCustomerListPageNumber = new System.Windows.Forms.TextBox();
@@ -50,6 +42,15 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ColumnCustomerListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnCustomerListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnCustomerListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCustomerListCustomerCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCustomerListCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCustomerListContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCustomerListAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCustomerListIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnCustomerListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomerList)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,55 +67,6 @@
             this.textBoxCustomerListFilter.Size = new System.Drawing.Size(1358, 30);
             this.textBoxCustomerListFilter.TabIndex = 19;
             this.textBoxCustomerListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCustomerListFilter_KeyDown);
-            // 
-            // ColumnCustomerListAddress
-            // 
-            this.ColumnCustomerListAddress.DataPropertyName = "ColumnCustomerListAddress";
-            this.ColumnCustomerListAddress.HeaderText = "Address";
-            this.ColumnCustomerListAddress.Name = "ColumnCustomerListAddress";
-            this.ColumnCustomerListAddress.ReadOnly = true;
-            this.ColumnCustomerListAddress.Width = 250;
-            // 
-            // ColumnCustomerListContactNumber
-            // 
-            this.ColumnCustomerListContactNumber.DataPropertyName = "ColumnCustomerListContactNumber";
-            this.ColumnCustomerListContactNumber.HeaderText = "Contact No.";
-            this.ColumnCustomerListContactNumber.Name = "ColumnCustomerListContactNumber";
-            this.ColumnCustomerListContactNumber.ReadOnly = true;
-            this.ColumnCustomerListContactNumber.Width = 200;
-            // 
-            // ColumnCustomerListCustomer
-            // 
-            this.ColumnCustomerListCustomer.DataPropertyName = "ColumnCustomerListCustomer";
-            this.ColumnCustomerListCustomer.HeaderText = "Customer";
-            this.ColumnCustomerListCustomer.Name = "ColumnCustomerListCustomer";
-            this.ColumnCustomerListCustomer.ReadOnly = true;
-            this.ColumnCustomerListCustomer.Width = 250;
-            // 
-            // ColumnCustomerListCustomerCode
-            // 
-            this.ColumnCustomerListCustomerCode.DataPropertyName = "ColumnCustomerListCustomerCode";
-            this.ColumnCustomerListCustomerCode.HeaderText = "Code";
-            this.ColumnCustomerListCustomerCode.Name = "ColumnCustomerListCustomerCode";
-            this.ColumnCustomerListCustomerCode.ReadOnly = true;
-            this.ColumnCustomerListCustomerCode.Width = 150;
-            // 
-            // ColumnCustomerListId
-            // 
-            this.ColumnCustomerListId.DataPropertyName = "ColumnCustomerListId";
-            this.ColumnCustomerListId.HeaderText = "Id";
-            this.ColumnCustomerListId.Name = "ColumnCustomerListId";
-            this.ColumnCustomerListId.ReadOnly = true;
-            this.ColumnCustomerListId.Visible = false;
-            // 
-            // ColumnCustomerListButtonDelete
-            // 
-            this.ColumnCustomerListButtonDelete.DataPropertyName = "ColumnCustomerListButtonDelete";
-            this.ColumnCustomerListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnCustomerListButtonDelete.HeaderText = "";
-            this.ColumnCustomerListButtonDelete.Name = "ColumnCustomerListButtonDelete";
-            this.ColumnCustomerListButtonDelete.ReadOnly = true;
-            this.ColumnCustomerListButtonDelete.Width = 70;
             // 
             // buttonCustomerListPageListFirst
             // 
@@ -160,15 +112,6 @@
             this.buttonCustomerListPageListNext.UseVisualStyleBackColor = false;
             this.buttonCustomerListPageListNext.Click += new System.EventHandler(this.buttonCustomerListPageListNext_Click);
             // 
-            // ColumnCustomerListButtonEdit
-            // 
-            this.ColumnCustomerListButtonEdit.DataPropertyName = "ColumnCustomerListButtonEdit";
-            this.ColumnCustomerListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnCustomerListButtonEdit.HeaderText = "";
-            this.ColumnCustomerListButtonEdit.Name = "ColumnCustomerListButtonEdit";
-            this.ColumnCustomerListButtonEdit.ReadOnly = true;
-            this.ColumnCustomerListButtonEdit.Width = 70;
-            // 
             // dataGridViewCustomerList
             // 
             this.dataGridViewCustomerList.AllowUserToAddRows = false;
@@ -187,7 +130,8 @@
             this.ColumnCustomerListCustomer,
             this.ColumnCustomerListContactNumber,
             this.ColumnCustomerListAddress,
-            this.ColumnCustomerListIsLocked});
+            this.ColumnCustomerListIsLocked,
+            this.ColumnCustomerListSpace});
             this.dataGridViewCustomerList.Location = new System.Drawing.Point(12, 42);
             this.dataGridViewCustomerList.MultiSelect = false;
             this.dataGridViewCustomerList.Name = "dataGridViewCustomerList";
@@ -198,14 +142,6 @@
             this.dataGridViewCustomerList.Size = new System.Drawing.Size(1358, 518);
             this.dataGridViewCustomerList.TabIndex = 20;
             this.dataGridViewCustomerList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCustomerList_CellClick);
-            // 
-            // ColumnCustomerListIsLocked
-            // 
-            this.ColumnCustomerListIsLocked.DataPropertyName = "ColumnCustomerListIsLocked";
-            this.ColumnCustomerListIsLocked.HeaderText = "L";
-            this.ColumnCustomerListIsLocked.Name = "ColumnCustomerListIsLocked";
-            this.ColumnCustomerListIsLocked.ReadOnly = true;
-            this.ColumnCustomerListIsLocked.Width = 35;
             // 
             // buttonCustomerListPageListLast
             // 
@@ -319,12 +255,87 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Customer;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // ColumnCustomerListButtonEdit
+            // 
+            this.ColumnCustomerListButtonEdit.DataPropertyName = "ColumnCustomerListButtonEdit";
+            this.ColumnCustomerListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnCustomerListButtonEdit.HeaderText = "";
+            this.ColumnCustomerListButtonEdit.Name = "ColumnCustomerListButtonEdit";
+            this.ColumnCustomerListButtonEdit.ReadOnly = true;
+            this.ColumnCustomerListButtonEdit.Width = 70;
+            // 
+            // ColumnCustomerListButtonDelete
+            // 
+            this.ColumnCustomerListButtonDelete.DataPropertyName = "ColumnCustomerListButtonDelete";
+            this.ColumnCustomerListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnCustomerListButtonDelete.HeaderText = "";
+            this.ColumnCustomerListButtonDelete.Name = "ColumnCustomerListButtonDelete";
+            this.ColumnCustomerListButtonDelete.ReadOnly = true;
+            this.ColumnCustomerListButtonDelete.Width = 70;
+            // 
+            // ColumnCustomerListId
+            // 
+            this.ColumnCustomerListId.DataPropertyName = "ColumnCustomerListId";
+            this.ColumnCustomerListId.HeaderText = "Id";
+            this.ColumnCustomerListId.Name = "ColumnCustomerListId";
+            this.ColumnCustomerListId.ReadOnly = true;
+            this.ColumnCustomerListId.Visible = false;
+            // 
+            // ColumnCustomerListCustomerCode
+            // 
+            this.ColumnCustomerListCustomerCode.DataPropertyName = "ColumnCustomerListCustomerCode";
+            this.ColumnCustomerListCustomerCode.HeaderText = "Code";
+            this.ColumnCustomerListCustomerCode.Name = "ColumnCustomerListCustomerCode";
+            this.ColumnCustomerListCustomerCode.ReadOnly = true;
+            this.ColumnCustomerListCustomerCode.Width = 150;
+            // 
+            // ColumnCustomerListCustomer
+            // 
+            this.ColumnCustomerListCustomer.DataPropertyName = "ColumnCustomerListCustomer";
+            this.ColumnCustomerListCustomer.HeaderText = "Customer";
+            this.ColumnCustomerListCustomer.Name = "ColumnCustomerListCustomer";
+            this.ColumnCustomerListCustomer.ReadOnly = true;
+            this.ColumnCustomerListCustomer.Width = 250;
+            // 
+            // ColumnCustomerListContactNumber
+            // 
+            this.ColumnCustomerListContactNumber.DataPropertyName = "ColumnCustomerListContactNumber";
+            this.ColumnCustomerListContactNumber.HeaderText = "Contact No.";
+            this.ColumnCustomerListContactNumber.Name = "ColumnCustomerListContactNumber";
+            this.ColumnCustomerListContactNumber.ReadOnly = true;
+            this.ColumnCustomerListContactNumber.Width = 200;
+            // 
+            // ColumnCustomerListAddress
+            // 
+            this.ColumnCustomerListAddress.DataPropertyName = "ColumnCustomerListAddress";
+            this.ColumnCustomerListAddress.HeaderText = "Address";
+            this.ColumnCustomerListAddress.Name = "ColumnCustomerListAddress";
+            this.ColumnCustomerListAddress.ReadOnly = true;
+            this.ColumnCustomerListAddress.Width = 250;
+            // 
+            // ColumnCustomerListIsLocked
+            // 
+            this.ColumnCustomerListIsLocked.DataPropertyName = "ColumnCustomerListIsLocked";
+            this.ColumnCustomerListIsLocked.HeaderText = "L";
+            this.ColumnCustomerListIsLocked.Name = "ColumnCustomerListIsLocked";
+            this.ColumnCustomerListIsLocked.ReadOnly = true;
+            this.ColumnCustomerListIsLocked.Width = 35;
+            // 
+            // ColumnCustomerListSpace
+            // 
+            this.ColumnCustomerListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCustomerListSpace.DataPropertyName = "ColumnCustomerListSpace";
+            this.ColumnCustomerListSpace.HeaderText = "";
+            this.ColumnCustomerListSpace.Name = "ColumnCustomerListSpace";
+            this.ColumnCustomerListSpace.ReadOnly = true;
             // 
             // MstCustomerListForm
             // 
@@ -354,18 +365,10 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBoxCustomerListFilter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListContactNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListCustomer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListCustomerCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListId;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnCustomerListButtonDelete;
         private System.Windows.Forms.Button buttonCustomerListPageListFirst;
         private System.Windows.Forms.Button buttonCustomerListPageListPrevious;
         private System.Windows.Forms.Button buttonCustomerListPageListNext;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnCustomerListButtonEdit;
         private System.Windows.Forms.DataGridView dataGridViewCustomerList;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnCustomerListIsLocked;
         private System.Windows.Forms.Button buttonCustomerListPageListLast;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBoxCustomerListPageNumber;
@@ -375,5 +378,14 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnCustomerListButtonEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnCustomerListButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListCustomerCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListContactNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListAddress;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnCustomerListIsLocked;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCustomerListSpace;
     }
 }

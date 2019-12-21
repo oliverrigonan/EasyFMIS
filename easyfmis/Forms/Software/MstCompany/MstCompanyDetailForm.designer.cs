@@ -40,7 +40,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridViewBranchFormList = new System.Windows.Forms.DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.ColumnBranchListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnBranchListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnBranchListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBranchListBranchCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBranchListBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBranchListCompanyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAddBranch = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.buttonBranchListPageListFirst = new System.Windows.Forms.Button();
@@ -53,19 +58,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxCompany = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ColumnBranchListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnBranchListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnBranchListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBranchListBranchCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBranchListBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBranchListCompanyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBranchFormList)).BeginInit();
-            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +100,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.User;
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.building;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 40);
@@ -159,7 +156,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -170,11 +166,13 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.buttonAddBranch);
             this.panel6.Controls.Add(this.dataGridViewBranchFormList);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 134);
+            this.panel6.Location = new System.Drawing.Point(0, 80);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 450);
+            this.panel6.Size = new System.Drawing.Size(1400, 504);
             this.panel6.TabIndex = 29;
             // 
             // dataGridViewBranchFormList
@@ -202,7 +200,7 @@
             this.ColumnBranchListBranchCode,
             this.ColumnBranchListBranch,
             this.ColumnBranchListCompanyId});
-            this.dataGridViewBranchFormList.Location = new System.Drawing.Point(12, 6);
+            this.dataGridViewBranchFormList.Location = new System.Drawing.Point(12, 52);
             this.dataGridViewBranchFormList.MultiSelect = false;
             this.dataGridViewBranchFormList.Name = "dataGridViewBranchFormList";
             this.dataGridViewBranchFormList.ReadOnly = true;
@@ -212,21 +210,60 @@
             this.dataGridViewBranchFormList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewBranchFormList.RowTemplate.Height = 24;
             this.dataGridViewBranchFormList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBranchFormList.Size = new System.Drawing.Size(1376, 438);
+            this.dataGridViewBranchFormList.Size = new System.Drawing.Size(1376, 446);
             this.dataGridViewBranchFormList.TabIndex = 1;
             this.dataGridViewBranchFormList.TabStop = false;
             this.dataGridViewBranchFormList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBranchList_CellClick);
             // 
-            // panel5
+            // ColumnBranchListButtonEdit
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.buttonAddBranch);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 80);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1400, 54);
-            this.panel5.TabIndex = 28;
+            this.ColumnBranchListButtonEdit.DataPropertyName = "ColumnBranchListButtonEdit";
+            this.ColumnBranchListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnBranchListButtonEdit.HeaderText = "";
+            this.ColumnBranchListButtonEdit.Name = "ColumnBranchListButtonEdit";
+            this.ColumnBranchListButtonEdit.ReadOnly = true;
+            this.ColumnBranchListButtonEdit.Width = 70;
+            // 
+            // ColumnBranchListButtonDelete
+            // 
+            this.ColumnBranchListButtonDelete.DataPropertyName = "ColumnBranchListButtonDelete";
+            this.ColumnBranchListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnBranchListButtonDelete.HeaderText = "";
+            this.ColumnBranchListButtonDelete.Name = "ColumnBranchListButtonDelete";
+            this.ColumnBranchListButtonDelete.ReadOnly = true;
+            this.ColumnBranchListButtonDelete.Width = 70;
+            // 
+            // ColumnBranchListId
+            // 
+            this.ColumnBranchListId.DataPropertyName = "ColumnBranchListId";
+            this.ColumnBranchListId.HeaderText = "Id";
+            this.ColumnBranchListId.Name = "ColumnBranchListId";
+            this.ColumnBranchListId.ReadOnly = true;
+            this.ColumnBranchListId.Visible = false;
+            // 
+            // ColumnBranchListBranchCode
+            // 
+            this.ColumnBranchListBranchCode.DataPropertyName = "ColumnBranchListBranchCode";
+            this.ColumnBranchListBranchCode.HeaderText = "Code";
+            this.ColumnBranchListBranchCode.Name = "ColumnBranchListBranchCode";
+            this.ColumnBranchListBranchCode.ReadOnly = true;
+            this.ColumnBranchListBranchCode.Width = 150;
+            // 
+            // ColumnBranchListBranch
+            // 
+            this.ColumnBranchListBranch.DataPropertyName = "ColumnBranchListBranch";
+            this.ColumnBranchListBranch.HeaderText = "Branch";
+            this.ColumnBranchListBranch.Name = "ColumnBranchListBranch";
+            this.ColumnBranchListBranch.ReadOnly = true;
+            this.ColumnBranchListBranch.Width = 300;
+            // 
+            // ColumnBranchListCompanyId
+            // 
+            this.ColumnBranchListCompanyId.DataPropertyName = "ColumnBranchListCompanyId";
+            this.ColumnBranchListCompanyId.HeaderText = "CompanyId";
+            this.ColumnBranchListCompanyId.Name = "ColumnBranchListCompanyId";
+            this.ColumnBranchListCompanyId.ReadOnly = true;
+            this.ColumnBranchListCompanyId.Visible = false;
             // 
             // buttonAddBranch
             // 
@@ -383,67 +420,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Company:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(9, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 28);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Branch List";
-            // 
-            // ColumnBranchListButtonEdit
-            // 
-            this.ColumnBranchListButtonEdit.DataPropertyName = "ColumnBranchListButtonEdit";
-            this.ColumnBranchListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnBranchListButtonEdit.HeaderText = "";
-            this.ColumnBranchListButtonEdit.Name = "ColumnBranchListButtonEdit";
-            this.ColumnBranchListButtonEdit.ReadOnly = true;
-            this.ColumnBranchListButtonEdit.Width = 70;
-            // 
-            // ColumnBranchListButtonDelete
-            // 
-            this.ColumnBranchListButtonDelete.DataPropertyName = "ColumnBranchListButtonDelete";
-            this.ColumnBranchListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnBranchListButtonDelete.HeaderText = "";
-            this.ColumnBranchListButtonDelete.Name = "ColumnBranchListButtonDelete";
-            this.ColumnBranchListButtonDelete.ReadOnly = true;
-            this.ColumnBranchListButtonDelete.Width = 70;
-            // 
-            // ColumnBranchListId
-            // 
-            this.ColumnBranchListId.DataPropertyName = "ColumnBranchListId";
-            this.ColumnBranchListId.HeaderText = "Id";
-            this.ColumnBranchListId.Name = "ColumnBranchListId";
-            this.ColumnBranchListId.ReadOnly = true;
-            this.ColumnBranchListId.Visible = false;
-            // 
-            // ColumnBranchListBranchCode
-            // 
-            this.ColumnBranchListBranchCode.DataPropertyName = "ColumnBranchListBranchCode";
-            this.ColumnBranchListBranchCode.HeaderText = "Code";
-            this.ColumnBranchListBranchCode.Name = "ColumnBranchListBranchCode";
-            this.ColumnBranchListBranchCode.ReadOnly = true;
-            this.ColumnBranchListBranchCode.Width = 150;
-            // 
-            // ColumnBranchListBranch
-            // 
-            this.ColumnBranchListBranch.DataPropertyName = "ColumnBranchListBranch";
-            this.ColumnBranchListBranch.HeaderText = "Branch";
-            this.ColumnBranchListBranch.Name = "ColumnBranchListBranch";
-            this.ColumnBranchListBranch.ReadOnly = true;
-            this.ColumnBranchListBranch.Width = 300;
-            // 
-            // ColumnBranchListCompanyId
-            // 
-            this.ColumnBranchListCompanyId.DataPropertyName = "ColumnBranchListCompanyId";
-            this.ColumnBranchListCompanyId.HeaderText = "CompanyId";
-            this.ColumnBranchListCompanyId.Name = "ColumnBranchListCompanyId";
-            this.ColumnBranchListCompanyId.ReadOnly = true;
-            this.ColumnBranchListCompanyId.Visible = false;
-            // 
             // MstCompanyDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -463,8 +439,6 @@
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBranchFormList)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -487,7 +461,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxCompany;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button buttonAddBranch;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button buttonBranchListPageListFirst;
@@ -497,7 +470,6 @@
         private System.Windows.Forms.TextBox textBoxBranchListPageNumber;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dataGridViewBranchFormList;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnBranchListButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnBranchListButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBranchListId;

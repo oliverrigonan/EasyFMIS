@@ -16,5 +16,6 @@ namespace easyfmis.Entities
         public String ColumnCustomerListContactNumber { get; set; }
         public String ColumnCustomerListAddress { get; set; }
         public Boolean ColumnCustomerListIsLocked { get; set; }
+        public String ColumnCustomerListSpace { get; set; }
     }
 }

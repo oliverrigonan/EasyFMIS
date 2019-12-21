@@ -85,6 +85,8 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
             buttonSearchItem.Enabled = !isLocked;
 
+            textBoxBranch.Enabled = !isLocked;
+            textBoxOTNumber.Enabled = !isLocked;
             dateTimePickerOTDate.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;
             comboBoxCheckedBy.Enabled = !isLocked;

@@ -172,7 +172,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(131, 295);
+            this.label9.Location = new System.Drawing.Point(114, 295);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 23);
             this.label9.TabIndex = 38;
@@ -181,7 +181,7 @@
             // textBoxTIN
             // 
             this.textBoxTIN.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxTIN.Location = new System.Drawing.Point(178, 292);
+            this.textBoxTIN.Location = new System.Drawing.Point(161, 292);
             this.textBoxTIN.Name = "textBoxTIN";
             this.textBoxTIN.Size = new System.Drawing.Size(214, 30);
             this.textBoxTIN.TabIndex = 7;
@@ -190,7 +190,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(55, 261);
+            this.label7.Location = new System.Drawing.Point(38, 261);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 23);
             this.label7.TabIndex = 14;
@@ -199,16 +199,16 @@
             // textBoxEmailAddress
             // 
             this.textBoxEmailAddress.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxEmailAddress.Location = new System.Drawing.Point(178, 258);
+            this.textBoxEmailAddress.Location = new System.Drawing.Point(161, 258);
             this.textBoxEmailAddress.Name = "textBoxEmailAddress";
-            this.textBoxEmailAddress.Size = new System.Drawing.Size(214, 30);
+            this.textBoxEmailAddress.Size = new System.Drawing.Size(284, 30);
             this.textBoxEmailAddress.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(30, 225);
+            this.label6.Location = new System.Drawing.Point(13, 225);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 23);
             this.label6.TabIndex = 12;
@@ -217,7 +217,7 @@
             // textBoxContactNumber
             // 
             this.textBoxContactNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxContactNumber.Location = new System.Drawing.Point(178, 222);
+            this.textBoxContactNumber.Location = new System.Drawing.Point(161, 222);
             this.textBoxContactNumber.Name = "textBoxContactNumber";
             this.textBoxContactNumber.Size = new System.Drawing.Size(214, 30);
             this.textBoxContactNumber.TabIndex = 4;
@@ -226,7 +226,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(42, 189);
+            this.label5.Location = new System.Drawing.Point(25, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 23);
             this.label5.TabIndex = 10;
@@ -235,7 +235,7 @@
             // textBoxContactPerson
             // 
             this.textBoxContactPerson.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxContactPerson.Location = new System.Drawing.Point(178, 186);
+            this.textBoxContactPerson.Location = new System.Drawing.Point(161, 186);
             this.textBoxContactPerson.Name = "textBoxContactPerson";
             this.textBoxContactPerson.Size = new System.Drawing.Size(284, 30);
             this.textBoxContactPerson.TabIndex = 3;
@@ -244,7 +244,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(98, 81);
+            this.label2.Location = new System.Drawing.Point(81, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 23);
             this.label2.TabIndex = 8;
@@ -253,7 +253,7 @@
             // textBoxAddress
             // 
             this.textBoxAddress.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAddress.Location = new System.Drawing.Point(178, 78);
+            this.textBoxAddress.Location = new System.Drawing.Point(161, 78);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(409, 102);
@@ -263,7 +263,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(84, 45);
+            this.label3.Location = new System.Drawing.Point(67, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 23);
             this.label3.TabIndex = 6;
@@ -272,7 +272,7 @@
             // textBoxCustomer
             // 
             this.textBoxCustomer.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCustomer.Location = new System.Drawing.Point(178, 42);
+            this.textBoxCustomer.Location = new System.Drawing.Point(161, 42);
             this.textBoxCustomer.Name = "textBoxCustomer";
             this.textBoxCustomer.Size = new System.Drawing.Size(284, 30);
             this.textBoxCustomer.TabIndex = 1;
@@ -280,8 +280,9 @@
             // textBoxCustomerCode
             // 
             this.textBoxCustomerCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCustomerCode.Location = new System.Drawing.Point(178, 6);
+            this.textBoxCustomerCode.Location = new System.Drawing.Point(161, 6);
             this.textBoxCustomerCode.Name = "textBoxCustomerCode";
+            this.textBoxCustomerCode.ReadOnly = true;
             this.textBoxCustomerCode.Size = new System.Drawing.Size(214, 30);
             this.textBoxCustomerCode.TabIndex = 0;
             // 
@@ -289,7 +290,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(39, 9);
+            this.label4.Location = new System.Drawing.Point(22, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 23);
             this.label4.TabIndex = 4;

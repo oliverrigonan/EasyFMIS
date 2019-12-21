@@ -44,11 +44,7 @@ namespace easyfmis.Forms.Software.MstCustomer
 
         public void UpdateComponents(Boolean isLocked)
         {
-
             buttonLock.Enabled = !isLocked;
-
-            buttonUnlock.Enabled = isLocked;
-
             buttonUnlock.Enabled = isLocked;
 
             textBoxCustomerCode.Enabled = !isLocked;
