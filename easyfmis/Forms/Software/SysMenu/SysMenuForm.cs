@@ -60,5 +60,10 @@ namespace easyfmis.Forms.Software.SysMenu
         {
             sysSoftwareForm.AddTabPageStockTransferList();
         }
+
+        private void buttonSalesOrder_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageSalesOrderList();
+        }
     }
 }
