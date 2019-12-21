@@ -134,7 +134,8 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             dataGridViewStockOut.DataSource = salesOrderListDataSource;
         }
 
-        public void GetSalesOrderCurrentSelectedCell(Int32 rowIndex)
+        public void GetSalesOrderCurrentSelectedCell
+            (Int32 rowIndex)
         {
 
         }
