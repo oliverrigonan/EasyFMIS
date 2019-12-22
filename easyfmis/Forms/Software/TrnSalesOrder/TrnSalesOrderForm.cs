@@ -101,14 +101,14 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                 var items = from d in listSalesOrder
                             select new Entities.DgvTrnSalesOrderEntity
                             {
-                                //ColumnStockOutButtonEdit = "Edit",
-                                //ColumnStockOutButtonDelete = "Delete",
-                                //ColumnStockOutId = d.Id,
-                                //ColumnStockOutOTDate = d.OTDate.ToShortDateString(),
-                                //ColumnStockOutOTNumber = d.OTNumber,
-                                //ColumnStockOutRemarks = d.Remarks,
-                                //ColumnStockOutIsLocked = d.IsLocked,
-                                //ColumnStockOutSpace = ""
+                                ColumnTrnSalesOrderListButtonEdit = "Edit",
+                                ColumnTrnSalesOrderListButtonDelete = "Delete",
+                                ColumnTrnSalesOrderListId = d.Id,
+                                ColumnTrnSalesOrderListSODate = d.SODate.ToShortDateString(),
+                                ColumnTrnSalesOrderListSONumber = d.SONumber,
+                                ColumnTrnSalesOrderListCustomer = d.Customer,
+                                ColumnTrnSalesOrderListRemarks = d.Remarks,
+                                ColumnTrnSalesOrderListsLocked = d.IsLocked
                             };
 
                 return Task.FromResult(items.ToList());
@@ -123,15 +123,15 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
         {
             UpdateSalesOrderDataSource();
 
-            dataGridViewStockOut.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
-            dataGridViewStockOut.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
-            dataGridViewStockOut.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+            dataGridViewSalesOrder.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewSalesOrder.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewSalesOrder.Columns[0].DefaultCellStyle.ForeColor = Color.White;
 
-            dataGridViewStockOut.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
-            dataGridViewStockOut.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
-            dataGridViewStockOut.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+            dataGridViewSalesOrder.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewSalesOrder.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewSalesOrder.Columns[1].DefaultCellStyle.ForeColor = Color.White;
 
-            dataGridViewStockOut.DataSource = salesOrderListDataSource;
+            dataGridViewSalesOrder.DataSource = salesOrderListDataSource;
         }
 
         public void GetSalesOrderCurrentSelectedCell
@@ -142,17 +142,17 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            //Controllers.TrnStockOutController trnStockOutController = new Controllers.TrnStockOutController();
-            //String[] addStockOut = trnStockOutController.AddStockOut();
-            //if (addStockOut[1].Equals("0") == false)
-            //{
-            //    sysSoftwareForm.AddTabPageStockOutDetail(this, trnStockOutController.DetailStockOut(Convert.ToInt32(addStockOut[1])));
-            //    UpdateSalesOrderDataSource();
-            //}
-            //else
-            //{
-            //    MessageBox.Show(addStockOut[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            Controllers.TrnSalesOrderController trnSalesOrderController = new Controllers.TrnSalesOrderController();
+            String[] addSalesOrder = trnSalesOrderController.AddSalesOrder();
+            if (addSalesOrder[1].Equals("0") == false)
+            {
+                sysSoftwareForm.AddTabPageSalesOrderDetail(this, trnSalesOrderController.DetailSalesOrder(Convert.ToInt32(addSalesOrder[1])));
+                UpdateSalesOrderDataSource();
+            }
+            else
+            {
+                MessageBox.Show(addSalesOrder[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -161,22 +161,22 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             sysSoftwareForm.RemoveTabPage();
         }
 
-        private void dataGridViewStockOut_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewSalesOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
                 GetSalesOrderCurrentSelectedCell(e.RowIndex);
             }
 
-            if (e.RowIndex > -1 && dataGridViewStockOut.CurrentCell.ColumnIndex == dataGridViewStockOut.Columns["ColumnStockOutButtonEdit"].Index)
+            if (e.RowIndex > -1 && dataGridViewSalesOrder.CurrentCell.ColumnIndex == dataGridViewSalesOrder.Columns["ColumnTrnSalesOrderListButtonEdit"].Index)
             {
-                //Controllers.TrnStockOutController trnStockOutController = new Controllers.TrnStockOutController();
-                //sysSoftwareForm.AddTabPageStockOutDetail(this, trnStockOutController.DetailStockOut(Convert.ToInt32(dataGridViewStockOut.Rows[e.RowIndex].Cells[2].Value)));
+                Controllers.TrnSalesOrderController trnSalesOrderController = new Controllers.TrnSalesOrderController();
+                sysSoftwareForm.AddTabPageSalesOrderDetail(this, trnSalesOrderController.DetailSalesOrder(Convert.ToInt32(dataGridViewSalesOrder.Rows[e.RowIndex].Cells[dataGridViewSalesOrder.Columns["ColumnTrnSalesOrderListId"].Index].Value)));
             }
 
-            if (e.RowIndex > -1 && dataGridViewStockOut.CurrentCell.ColumnIndex == dataGridViewStockOut.Columns["ColumnStockOutButtonDelete"].Index)
+            if (e.RowIndex > -1 && dataGridViewSalesOrder.CurrentCell.ColumnIndex == dataGridViewSalesOrder.Columns["ColumnTrnSalesOrderListButtonDelete"].Index)
             {
-                Boolean isLocked = Convert.ToBoolean(dataGridViewStockOut.Rows[e.RowIndex].Cells[dataGridViewStockOut.Columns["ColumnStockOutIsLocked"].Index].Value);
+                Boolean isLocked = Convert.ToBoolean(dataGridViewSalesOrder.Rows[e.RowIndex].Cells[dataGridViewSalesOrder.Columns["ColumnTrnSalesOrderListsLocked"].Index].Value);
 
                 if (isLocked == true)
                 {
@@ -184,20 +184,20 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                 }
                 else
                 {
-                    DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult deleteDialogResult = MessageBox.Show("Delete Sales order?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (deleteDialogResult == DialogResult.Yes)
                     {
-                        Controllers.TrnStockOutController trnStockOutController = new Controllers.TrnStockOutController();
+                        Controllers.TrnSalesOrderController trnSalesOrderController = new Controllers.TrnSalesOrderController();
 
-                        String[] deleteStockOut = trnStockOutController.DeleteStockOut(Convert.ToInt32(dataGridViewStockOut.Rows[e.RowIndex].Cells[2].Value));
-                        if (deleteStockOut[1].Equals("0") == false)
+                        String[] deleteSalesOrder = trnSalesOrderController.DeleteSalesOrder(Convert.ToInt32(dataGridViewSalesOrder.Rows[e.RowIndex].Cells[dataGridViewSalesOrder.Columns["ColumnTrnSalesOrderListId"].Index].Value));
+                        if (deleteSalesOrder[1].Equals("0") == false)
                         {
                             pageNumber = 1;
                             UpdateSalesOrderDataSource();
                         }
                         else
                         {
-                            MessageBox.Show(deleteStockOut[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(deleteSalesOrder[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

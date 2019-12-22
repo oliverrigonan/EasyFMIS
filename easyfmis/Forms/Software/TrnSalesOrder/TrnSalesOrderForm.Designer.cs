@@ -33,15 +33,7 @@
             this.buttonSalesOrderPageListFirst = new System.Windows.Forms.Button();
             this.buttonSalesOrderPageListPrevious = new System.Windows.Forms.Button();
             this.buttonSalesOrderPageListNext = new System.Windows.Forms.Button();
-            this.dataGridViewStockOut = new System.Windows.Forms.DataGridView();
-            this.ColumnStockOutButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockOutButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockOutId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutOTDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutOTNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnStockOutSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewSalesOrder = new System.Windows.Forms.DataGridView();
             this.buttonSalesOrderPageListLast = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxSalesOrderPageNumber = new System.Windows.Forms.TextBox();
@@ -52,7 +44,16 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockOut)).BeginInit();
+            this.ColumnTrnSalesOrderListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnTrnSalesOrderListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnTrnSalesOrderListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTrnSalesOrderListSODate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutOTNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTrnSalesOrderListCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTrnSalesOrderListRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTrnSalesOrderListsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnTrnSalesOrderListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesOrder)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -113,100 +114,36 @@
             this.buttonSalesOrderPageListNext.UseVisualStyleBackColor = false;
             this.buttonSalesOrderPageListNext.Click += new System.EventHandler(this.buttonStockOutPageListNext_Click);
             // 
-            // dataGridViewStockOut
+            // dataGridViewSalesOrder
             // 
-            this.dataGridViewStockOut.AllowUserToAddRows = false;
-            this.dataGridViewStockOut.AllowUserToDeleteRows = false;
-            this.dataGridViewStockOut.AllowUserToResizeRows = false;
-            this.dataGridViewStockOut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewSalesOrder.AllowUserToAddRows = false;
+            this.dataGridViewSalesOrder.AllowUserToDeleteRows = false;
+            this.dataGridViewSalesOrder.AllowUserToResizeRows = false;
+            this.dataGridViewSalesOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewStockOut.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewStockOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewStockOut.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnStockOutButtonEdit,
-            this.ColumnStockOutButtonDelete,
-            this.ColumnStockOutId,
-            this.ColumnStockOutOTDate,
+            this.dataGridViewSalesOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewSalesOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSalesOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTrnSalesOrderListButtonEdit,
+            this.ColumnTrnSalesOrderListButtonDelete,
+            this.ColumnTrnSalesOrderListId,
+            this.ColumnTrnSalesOrderListSODate,
             this.ColumnStockOutOTNumber,
-            this.ColumnStockOutRemarks,
-            this.ColumnStockOutIsLocked,
-            this.ColumnStockOutSpace});
-            this.dataGridViewStockOut.Location = new System.Drawing.Point(12, 42);
-            this.dataGridViewStockOut.MultiSelect = false;
-            this.dataGridViewStockOut.Name = "dataGridViewStockOut";
-            this.dataGridViewStockOut.ReadOnly = true;
-            this.dataGridViewStockOut.RowHeadersVisible = false;
-            this.dataGridViewStockOut.RowTemplate.Height = 24;
-            this.dataGridViewStockOut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockOut.Size = new System.Drawing.Size(1376, 536);
-            this.dataGridViewStockOut.TabIndex = 20;
-            this.dataGridViewStockOut.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockOut_CellClick);
-            // 
-            // ColumnStockOutButtonEdit
-            // 
-            this.ColumnStockOutButtonEdit.DataPropertyName = "ColumnStockOutButtonEdit";
-            this.ColumnStockOutButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnStockOutButtonEdit.HeaderText = "";
-            this.ColumnStockOutButtonEdit.Name = "ColumnStockOutButtonEdit";
-            this.ColumnStockOutButtonEdit.ReadOnly = true;
-            this.ColumnStockOutButtonEdit.Width = 70;
-            // 
-            // ColumnStockOutButtonDelete
-            // 
-            this.ColumnStockOutButtonDelete.DataPropertyName = "ColumnStockOutButtonDelete";
-            this.ColumnStockOutButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnStockOutButtonDelete.HeaderText = "";
-            this.ColumnStockOutButtonDelete.Name = "ColumnStockOutButtonDelete";
-            this.ColumnStockOutButtonDelete.ReadOnly = true;
-            this.ColumnStockOutButtonDelete.Width = 70;
-            // 
-            // ColumnStockOutId
-            // 
-            this.ColumnStockOutId.DataPropertyName = "ColumnStockOutId";
-            this.ColumnStockOutId.HeaderText = "Id";
-            this.ColumnStockOutId.Name = "ColumnStockOutId";
-            this.ColumnStockOutId.ReadOnly = true;
-            this.ColumnStockOutId.Visible = false;
-            // 
-            // ColumnStockOutOTDate
-            // 
-            this.ColumnStockOutOTDate.DataPropertyName = "ColumnStockOutOTDate";
-            this.ColumnStockOutOTDate.HeaderText = "OT Date";
-            this.ColumnStockOutOTDate.Name = "ColumnStockOutOTDate";
-            this.ColumnStockOutOTDate.ReadOnly = true;
-            // 
-            // ColumnStockOutOTNumber
-            // 
-            this.ColumnStockOutOTNumber.DataPropertyName = "ColumnStockOutOTNumber";
-            this.ColumnStockOutOTNumber.HeaderText = "OT Number";
-            this.ColumnStockOutOTNumber.Name = "ColumnStockOutOTNumber";
-            this.ColumnStockOutOTNumber.ReadOnly = true;
-            this.ColumnStockOutOTNumber.Width = 125;
-            // 
-            // ColumnStockOutRemarks
-            // 
-            this.ColumnStockOutRemarks.DataPropertyName = "ColumnStockOutRemarks";
-            this.ColumnStockOutRemarks.HeaderText = "Remarks";
-            this.ColumnStockOutRemarks.Name = "ColumnStockOutRemarks";
-            this.ColumnStockOutRemarks.ReadOnly = true;
-            this.ColumnStockOutRemarks.Width = 350;
-            // 
-            // ColumnStockOutIsLocked
-            // 
-            this.ColumnStockOutIsLocked.DataPropertyName = "ColumnStockOutIsLocked";
-            this.ColumnStockOutIsLocked.HeaderText = "L";
-            this.ColumnStockOutIsLocked.Name = "ColumnStockOutIsLocked";
-            this.ColumnStockOutIsLocked.ReadOnly = true;
-            this.ColumnStockOutIsLocked.Width = 35;
-            // 
-            // ColumnStockOutSpace
-            // 
-            this.ColumnStockOutSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnStockOutSpace.DataPropertyName = "ColumnStockOutSpace";
-            this.ColumnStockOutSpace.HeaderText = "";
-            this.ColumnStockOutSpace.Name = "ColumnStockOutSpace";
-            this.ColumnStockOutSpace.ReadOnly = true;
+            this.ColumnTrnSalesOrderListCustomer,
+            this.ColumnTrnSalesOrderListRemarks,
+            this.ColumnTrnSalesOrderListsLocked,
+            this.ColumnTrnSalesOrderListSpace});
+            this.dataGridViewSalesOrder.Location = new System.Drawing.Point(12, 42);
+            this.dataGridViewSalesOrder.MultiSelect = false;
+            this.dataGridViewSalesOrder.Name = "dataGridViewSalesOrder";
+            this.dataGridViewSalesOrder.ReadOnly = true;
+            this.dataGridViewSalesOrder.RowHeadersVisible = false;
+            this.dataGridViewSalesOrder.RowTemplate.Height = 24;
+            this.dataGridViewSalesOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewSalesOrder.Size = new System.Drawing.Size(1376, 536);
+            this.dataGridViewSalesOrder.TabIndex = 20;
+            this.dataGridViewSalesOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalesOrder_CellClick);
             // 
             // buttonSalesOrderPageListLast
             // 
@@ -253,7 +190,7 @@
             // 
             this.panel2.Controls.Add(this.dateTimePickerSalesOrderFilter);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.dataGridViewStockOut);
+            this.panel2.Controls.Add(this.dataGridViewSalesOrder);
             this.panel2.Controls.Add(this.textBoxSalesOrderFilter);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 63);
@@ -287,9 +224,9 @@
             this.label1.Location = new System.Drawing.Point(63, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 35);
+            this.label1.Size = new System.Drawing.Size(197, 35);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Stock-Out List";
+            this.label1.Text = "Sales Order List";
             // 
             // buttonClose
             // 
@@ -338,6 +275,79 @@
             this.panel1.Size = new System.Drawing.Size(1400, 63);
             this.panel1.TabIndex = 6;
             // 
+            // ColumnTrnSalesOrderListButtonEdit
+            // 
+            this.ColumnTrnSalesOrderListButtonEdit.DataPropertyName = "ColumnTrnSalesOrderListButtonEdit";
+            this.ColumnTrnSalesOrderListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnTrnSalesOrderListButtonEdit.HeaderText = "";
+            this.ColumnTrnSalesOrderListButtonEdit.Name = "ColumnTrnSalesOrderListButtonEdit";
+            this.ColumnTrnSalesOrderListButtonEdit.ReadOnly = true;
+            this.ColumnTrnSalesOrderListButtonEdit.Width = 70;
+            // 
+            // ColumnTrnSalesOrderListButtonDelete
+            // 
+            this.ColumnTrnSalesOrderListButtonDelete.DataPropertyName = "ColumnTrnSalesOrderListButtonDelete";
+            this.ColumnTrnSalesOrderListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnTrnSalesOrderListButtonDelete.HeaderText = "";
+            this.ColumnTrnSalesOrderListButtonDelete.Name = "ColumnTrnSalesOrderListButtonDelete";
+            this.ColumnTrnSalesOrderListButtonDelete.ReadOnly = true;
+            this.ColumnTrnSalesOrderListButtonDelete.Width = 70;
+            // 
+            // ColumnTrnSalesOrderListId
+            // 
+            this.ColumnTrnSalesOrderListId.DataPropertyName = "ColumnTrnSalesOrderListId";
+            this.ColumnTrnSalesOrderListId.HeaderText = "Id";
+            this.ColumnTrnSalesOrderListId.Name = "ColumnTrnSalesOrderListId";
+            this.ColumnTrnSalesOrderListId.ReadOnly = true;
+            this.ColumnTrnSalesOrderListId.Visible = false;
+            // 
+            // ColumnTrnSalesOrderListSODate
+            // 
+            this.ColumnTrnSalesOrderListSODate.DataPropertyName = "ColumnTrnSalesOrderListSODate";
+            this.ColumnTrnSalesOrderListSODate.HeaderText = "SO Date";
+            this.ColumnTrnSalesOrderListSODate.Name = "ColumnTrnSalesOrderListSODate";
+            this.ColumnTrnSalesOrderListSODate.ReadOnly = true;
+            // 
+            // ColumnStockOutOTNumber
+            // 
+            this.ColumnStockOutOTNumber.DataPropertyName = "ColumnTrnSalesOrderListSONumber";
+            this.ColumnStockOutOTNumber.HeaderText = "SO Number";
+            this.ColumnStockOutOTNumber.Name = "ColumnStockOutOTNumber";
+            this.ColumnStockOutOTNumber.ReadOnly = true;
+            this.ColumnStockOutOTNumber.Width = 125;
+            // 
+            // ColumnTrnSalesOrderListCustomer
+            // 
+            this.ColumnTrnSalesOrderListCustomer.DataPropertyName = "ColumnTrnSalesOrderListCustomer";
+            this.ColumnTrnSalesOrderListCustomer.HeaderText = "Customer";
+            this.ColumnTrnSalesOrderListCustomer.Name = "ColumnTrnSalesOrderListCustomer";
+            this.ColumnTrnSalesOrderListCustomer.ReadOnly = true;
+            this.ColumnTrnSalesOrderListCustomer.Width = 200;
+            // 
+            // ColumnTrnSalesOrderListRemarks
+            // 
+            this.ColumnTrnSalesOrderListRemarks.DataPropertyName = "ColumnTrnSalesOrderListRemarks";
+            this.ColumnTrnSalesOrderListRemarks.HeaderText = "Remarks";
+            this.ColumnTrnSalesOrderListRemarks.Name = "ColumnTrnSalesOrderListRemarks";
+            this.ColumnTrnSalesOrderListRemarks.ReadOnly = true;
+            this.ColumnTrnSalesOrderListRemarks.Width = 200;
+            // 
+            // ColumnTrnSalesOrderListsLocked
+            // 
+            this.ColumnTrnSalesOrderListsLocked.DataPropertyName = "ColumnTrnSalesOrderListsLocked";
+            this.ColumnTrnSalesOrderListsLocked.HeaderText = "L";
+            this.ColumnTrnSalesOrderListsLocked.Name = "ColumnTrnSalesOrderListsLocked";
+            this.ColumnTrnSalesOrderListsLocked.ReadOnly = true;
+            this.ColumnTrnSalesOrderListsLocked.Width = 35;
+            // 
+            // ColumnTrnSalesOrderListSpace
+            // 
+            this.ColumnTrnSalesOrderListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTrnSalesOrderListSpace.DataPropertyName = "ColumnTrnSalesOrderListSpace";
+            this.ColumnTrnSalesOrderListSpace.HeaderText = "";
+            this.ColumnTrnSalesOrderListSpace.Name = "ColumnTrnSalesOrderListSpace";
+            this.ColumnTrnSalesOrderListSpace.ReadOnly = true;
+            // 
             // TrnSalesOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -351,7 +361,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TrnSalesOrderForm";
             this.Text = "Stock In List";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesOrder)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -369,7 +379,7 @@
         private System.Windows.Forms.Button buttonSalesOrderPageListFirst;
         private System.Windows.Forms.Button buttonSalesOrderPageListPrevious;
         private System.Windows.Forms.Button buttonSalesOrderPageListNext;
-        private System.Windows.Forms.DataGridView dataGridViewStockOut;
+        private System.Windows.Forms.DataGridView dataGridViewSalesOrder;
         private System.Windows.Forms.Button buttonSalesOrderPageListLast;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBoxSalesOrderPageNumber;
@@ -380,13 +390,14 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dateTimePickerSalesOrderFilter;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnStockOutButtonEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnStockOutButtonDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutOTDate;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnTrnSalesOrderListButtonEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnTrnSalesOrderListButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListSODate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutOTNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutRemarks;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnStockOutIsLocked;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutSpace;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListRemarks;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnTrnSalesOrderListsLocked;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListSpace;
     }
 }

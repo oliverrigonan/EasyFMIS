@@ -272,6 +272,12 @@
     <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderForm.Designer.cs">
       <DependentUpon>TrnSalesOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailForm.Designer.cs">
+      <DependentUpon>TrnSalesOrderDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderForm.resx">
       <DependentUpon>TrnSalesOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailForm.resx">
+      <DependentUpon>TrnSalesOrderDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.resx">
       <DependentUpon>TrnStockTransferDetailForm.cs</DependentUpon>

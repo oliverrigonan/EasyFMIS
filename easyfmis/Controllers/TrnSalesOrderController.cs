@@ -45,6 +45,7 @@ namespace easyfmis.Controllers
                                   SODate = d.SODate,
                                   ManualSONumber = d.ManualSONumber,
                                   CustomerId = d.CustomerId,
+                                  Customer = d.MstArticle.Article,
                                   TermId = d.TermId,
                                   Remarks = d.Remarks,
                                   SoldBy = d.SoldBy,
@@ -72,6 +73,7 @@ namespace easyfmis.Controllers
                              {
                                  Id = d.Id,
                                  BranchId = d.BranchId,
+                                 Branch = d.MstBranch.Branch,
                                  SONumber = d.SONumber,
                                  SODate = d.SODate,
                                  ManualSONumber = d.ManualSONumber,
@@ -110,7 +112,7 @@ namespace easyfmis.Controllers
         // ========================
         // Dropdown List - Customer
         // ========================
-        public List<Entities.MstArticleEntity> DropdownListSalesOrderArticle()
+        public List<Entities.MstArticleEntity> DropdownListSalesOrderCustomer()
         {
             var customers = from d in db.MstArticles
                             where d.MstArticleType.ArticleType == "CUSTOMER"
@@ -142,7 +144,7 @@ namespace easyfmis.Controllers
         // ====================
         // Dropdown List - User
         // ====================
-        public List<Entities.MstUserEntity> DropdownListStockInUser()
+        public List<Entities.MstUserEntity> DropdownListSalesOrderUser()
         {
             var users = from d in db.MstUsers
                         select new Entities.MstUserEntity
@@ -181,7 +183,7 @@ namespace easyfmis.Controllers
                                where d.MstArticleType.ArticleType == "CUSTOMER"
                                select d;
 
-                if (customer.Any())
+                if (customer.Any() == false)
                 {
                     return new String[] { "Customer not found.", "0" };
                 }
@@ -190,7 +192,7 @@ namespace easyfmis.Controllers
                            where d.IsLocked == true
                            select d;
 
-                if (term.Any())
+                if (term.Any() == false)
                 {
                     return new String[] { "Term not found.", "0" };
                 }
