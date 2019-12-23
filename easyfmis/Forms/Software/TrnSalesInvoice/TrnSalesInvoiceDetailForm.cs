@@ -263,12 +263,31 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 var items = from d in listSalesInvoiceItem
                             select new Entities.DgvSalesInvoiceItemEntity
                             {
-                                ColumnSalesInvoiceItemButtonEdit = "Edit",
-                                ColumnSalesInvoiceItemButtonDelete = "Delete",
-                                ColumnSalesInvoiceItemId = d.Id,
-                                ColumnSalesInvoiceItemSIId = d.SIId,
-                                ColumnSalesInvoiceItemItemId = d.ItemId,
-                                ColumnSalesInvoiceItemSpace = ""
+                                ColumnSalesInvoiceItemListButtonEdit = "Edit",
+                                ColumnSalesInvoiceItemListButtonDelete = "Delete",
+                                ColumnSalesInvoiceItemListId = d.Id,
+                                ColumnSalesInvoiceItemListSIId = d.SIId,
+                                ColumnSalesInvoiceItemListItemId = d.ItemId,
+                                ColumnSalesInvoiceItemListItemDescription = d.ItemDescription,
+                                ColumnSalesInvoiceItemListItemInventoryId = d.ItemInventoryId,
+                                ColumnSalesInvoiceItemListItemInventoryCode = d.ItemInventoryCode,
+                                ColumnSalesInvoiceItemListUnitId = d.UnitId,
+                                ColumnSalesInvoiceItemListUnit = d.Unit,
+                                ColumnSalesInvoiceItemListPrice = d.Price.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListDiscount = d.Discount,
+                                ColumnSalesInvoiceItemListDiscountId = d.DiscountId,
+                                ColumnSalesInvoiceItemListDiscountRate = d.DiscountRate.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListDiscountAmount = d.DiscountAmount.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListNetPrice = d.NetPrice.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListQuantity = d.Quantity.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListTaxId = d.TaxId,
+                                ColumnSalesInvoiceItemListTax = d.Tax,
+                                ColumnSalesInvoiceItemListTaxRate = d.TaxRate.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListTaxAmount = d.TaxAmount.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListBaseQuantity = d.BaseQuantity.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListBasePrice = d.BasePrice.ToString("#,##0.00"),
+                                ColumnSalesInvoiceItemListSpace = ""
                             };
 
                 return Task.FromResult(items.ToList());
@@ -306,45 +325,57 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 GetSalesInvoiceItemCurrentSelectedCell(e.RowIndex);
             }
 
-            if (e.RowIndex > -1 && dataGridViewSalesInvoiceItem.CurrentCell.ColumnIndex == dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemButtonEdit"].Index)
+            if (e.RowIndex > -1 && dataGridViewSalesInvoiceItem.CurrentCell.ColumnIndex == dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListButtonEdit"].Index)
             {
-                //var id = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemId"].Index].Value);
-                //var SIId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemSIId"].Index].Value);
-                //var itemId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemItemId"].Index].Value);
-                //var itemDescription = dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemItemDescription"].Index].Value.ToString();
-                //var unitId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemUnitId"].Index].Value);
-                //var unit = dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemUnit"].Index].Value.ToString();
-                //var itemInventoryId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemInventoryId"].Index].Value);
-                //var itemInventoryCode = dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemInventoryCode"].Index].Value.ToString();
-                //var quantity = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemQuantity"].Index].Value);
-                //var cost = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemCost"].Index].Value);
-                //var amount = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemAmount"].Index].Value);
+                var id = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListId"].Index].Value);
+                var SIId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListSIId"].Index].Value);
+                var itemId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListItemId"].Index].Value);
+                var itemDescription = dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListItemDescription"].Index].Value.ToString();
+                var itemInventoryId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListItemInventoryId"].Index].Value);
+                var unitId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListUnitId"].Index].Value);
+                var price = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListPrice"].Index].Value);
+                var discountId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListDiscountId"].Index].Value);
+                var discountRate = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListDiscountRate"].Index].Value);
+                var discountAmount = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListDiscountAmount"].Index].Value);
+                var netPrice = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListNetPrice"].Index].Value);
+                var quantity = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListQuantity"].Index].Value);
+                var amount = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListAmount"].Index].Value);
+                var taxId = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListTaxId"].Index].Value);
+                var taxRate = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListTaxRate"].Index].Value);
+                var taxAmount = Convert.ToDecimal(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListTaxAmount"].Index].Value);
 
-                //Entities.TrnSalesInvoiceItemEntity trnSalesInvoiceItemEntity = new Entities.TrnSalesInvoiceItemEntity()
-                //{
-                //    Id = id,
-                //    SIId = SIId,
-                //    ItemId = itemId,
-                //    ItemDescription = itemDescription,
-                //    UnitId = unitId,
-                //    Unit = unit,
-                //    ItemInventoryId = itemInventoryId,
-                //    ItemInventoryCode = itemInventoryCode,
-                //    Quantity = quantity,
-                //    Cost = cost,
-                //    Amount = amount
-                //};
+                Entities.TrnSalesInvoiceItemEntity trnSalesInvoiceItemEntity = new Entities.TrnSalesInvoiceItemEntity()
+                {
+                    Id = id,
+                    SIId = SIId,
+                    ItemId = itemId,
+                    ItemDescription = itemDescription,
+                    ItemInventoryId = itemInventoryId,
+                    UnitId = unitId,
+                    Price = price,
+                    DiscountId = discountId,
+                    DiscountRate = discountRate,
+                    DiscountAmount = discountAmount,
+                    NetPrice = netPrice,
+                    Quantity = quantity,
+                    Amount = amount,
+                    TaxId = taxId,
+                    TaxRate = taxRate,
+                    TaxAmount = taxAmount,
+                    BaseQuantity = 0,
+                    BasePrice = 0,
+                };
 
-                //TrnSalesInvoiceDetailSalesInvoiceItemDetailForm trnSalesInvoiceDetailSalesInvoiceItemDetailForm = new TrnSalesInvoiceDetailSalesInvoiceItemDetailForm(this, trnSalesInvoiceItemEntity);
-                //trnSalesInvoiceDetailSalesInvoiceItemDetailForm.ShowDialog();
+                TrnSalesInvoiceDetailSalesInvoiceItemDetailForm trnSalesInvoiceDetailSalesInvoiceItemDetailForm = new TrnSalesInvoiceDetailSalesInvoiceItemDetailForm(this, trnSalesInvoiceItemEntity);
+                trnSalesInvoiceDetailSalesInvoiceItemDetailForm.ShowDialog();
             }
 
-            if (e.RowIndex > -1 && dataGridViewSalesInvoiceItem.CurrentCell.ColumnIndex == dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemButtonDelete"].Index)
+            if (e.RowIndex > -1 && dataGridViewSalesInvoiceItem.CurrentCell.ColumnIndex == dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListButtonDelete"].Index)
             {
                 DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (deleteDialogResult == DialogResult.Yes)
                 {
-                    var id = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemId"].Index].Value);
+                    var id = Convert.ToInt32(dataGridViewSalesInvoiceItem.Rows[e.RowIndex].Cells[dataGridViewSalesInvoiceItem.Columns["ColumnSalesInvoiceItemListId"].Index].Value);
 
                     Controllers.TrnSalesInvoiceItemController trnSalesInvoiceItemController = new Controllers.TrnSalesInvoiceItemController();
                     String[] deleteSalesInvoiceItem = trnSalesInvoiceItemController.DeleteSalesInvoiceItem(id);
