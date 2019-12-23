@@ -19,6 +19,7 @@ namespace easyfmis.Entities
         public String VATInTax { get; set; }
         public Int32 VATOutTaxId { get; set; }
         public String VATOutTax { get; set; }
+        public Decimal VATOutTaxRate { get; set; }
         public Int32 UnitId { get; set; }
         public String Unit { get; set; }
         public Int32? DefaultSupplierId { get; set; }

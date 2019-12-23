@@ -35,6 +35,20 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxTaxAmount = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxTaxRate = new System.Windows.Forms.TextBox();
+            this.comboBoxTax = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxDiscountAmount = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxDiscountRate = new System.Windows.Forms.TextBox();
+            this.comboBoxDiscount = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.comboBoxInventoryCode = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxUnit = new System.Windows.Forms.ComboBox();
@@ -46,20 +60,6 @@
             this.textBoxSalesInvoiceItemItemDescription = new System.Windows.Forms.TextBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxPrice = new System.Windows.Forms.TextBox();
-            this.comboBoxDiscount = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxDiscountRate = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxDiscountAmount = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBoxTaxAmount = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBoxTaxRate = new System.Windows.Forms.TextBox();
-            this.comboBoxTax = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -166,6 +166,148 @@
             this.panel2.Size = new System.Drawing.Size(660, 489);
             this.panel2.TabIndex = 9;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label11.Location = new System.Drawing.Point(66, 447);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 23);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Tax Amount:";
+            // 
+            // textBoxTaxAmount
+            // 
+            this.textBoxTaxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxTaxAmount.Location = new System.Drawing.Point(177, 444);
+            this.textBoxTaxAmount.Name = "textBoxTaxAmount";
+            this.textBoxTaxAmount.ReadOnly = true;
+            this.textBoxTaxAmount.Size = new System.Drawing.Size(269, 30);
+            this.textBoxTaxAmount.TabIndex = 40;
+            this.textBoxTaxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label12.Location = new System.Drawing.Point(94, 411);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 23);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Tax Rate:";
+            // 
+            // textBoxTaxRate
+            // 
+            this.textBoxTaxRate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxTaxRate.Location = new System.Drawing.Point(177, 408);
+            this.textBoxTaxRate.Name = "textBoxTaxRate";
+            this.textBoxTaxRate.ReadOnly = true;
+            this.textBoxTaxRate.Size = new System.Drawing.Size(269, 30);
+            this.textBoxTaxRate.TabIndex = 38;
+            this.textBoxTaxRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // comboBoxTax
+            // 
+            this.comboBoxTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxTax.FormattingEnabled = true;
+            this.comboBoxTax.Location = new System.Drawing.Point(177, 371);
+            this.comboBoxTax.Name = "comboBoxTax";
+            this.comboBoxTax.Size = new System.Drawing.Size(377, 31);
+            this.comboBoxTax.TabIndex = 37;
+            this.comboBoxTax.SelectedIndexChanged += new System.EventHandler(this.comboBoxTax_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label13.Location = new System.Drawing.Point(133, 374);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 23);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Tax:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label10.Location = new System.Drawing.Point(23, 266);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(148, 23);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Discount Amount:";
+            // 
+            // textBoxDiscountAmount
+            // 
+            this.textBoxDiscountAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxDiscountAmount.Location = new System.Drawing.Point(177, 263);
+            this.textBoxDiscountAmount.Name = "textBoxDiscountAmount";
+            this.textBoxDiscountAmount.Size = new System.Drawing.Size(269, 30);
+            this.textBoxDiscountAmount.TabIndex = 34;
+            this.textBoxDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDiscountAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salesInvoiceTextBox_KeyPress);
+            this.textBoxDiscountAmount.Leave += new System.EventHandler(this.salesInvoiceComputeDiscountRateTextBox_Leave);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label8.Location = new System.Drawing.Point(51, 230);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(120, 23);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Discount Rate:";
+            // 
+            // textBoxDiscountRate
+            // 
+            this.textBoxDiscountRate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxDiscountRate.Location = new System.Drawing.Point(177, 227);
+            this.textBoxDiscountRate.Name = "textBoxDiscountRate";
+            this.textBoxDiscountRate.Size = new System.Drawing.Size(269, 30);
+            this.textBoxDiscountRate.TabIndex = 32;
+            this.textBoxDiscountRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDiscountRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salesInvoiceTextBox_KeyPress);
+            this.textBoxDiscountRate.Leave += new System.EventHandler(this.salesInvoiceTextBox_Leave);
+            // 
+            // comboBoxDiscount
+            // 
+            this.comboBoxDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxDiscount.FormattingEnabled = true;
+            this.comboBoxDiscount.Location = new System.Drawing.Point(177, 190);
+            this.comboBoxDiscount.Name = "comboBoxDiscount";
+            this.comboBoxDiscount.Size = new System.Drawing.Size(377, 31);
+            this.comboBoxDiscount.TabIndex = 31;
+            this.comboBoxDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiscount_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label7.Location = new System.Drawing.Point(90, 193);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 23);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Discount:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label6.Location = new System.Drawing.Point(120, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 23);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Price:";
+            // 
+            // textBoxPrice
+            // 
+            this.textBoxPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxPrice.Location = new System.Drawing.Point(177, 154);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.ReadOnly = true;
+            this.textBoxPrice.Size = new System.Drawing.Size(269, 30);
+            this.textBoxPrice.TabIndex = 28;
+            this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // comboBoxInventoryCode
             // 
             this.comboBoxInventoryCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
@@ -230,12 +372,10 @@
             this.textBoxNetPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxNetPrice.Location = new System.Drawing.Point(177, 299);
             this.textBoxNetPrice.Name = "textBoxNetPrice";
+            this.textBoxNetPrice.ReadOnly = true;
             this.textBoxNetPrice.Size = new System.Drawing.Size(269, 30);
             this.textBoxNetPrice.TabIndex = 16;
             this.textBoxNetPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxNetPrice.TextChanged += new System.EventHandler(this.textBoxSalesInvoiceItemCost_TextChanged);
-            this.textBoxNetPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSalesInvoiceItemCost_KeyPress);
-            this.textBoxNetPrice.Leave += new System.EventHandler(this.textBoxSalesInvoiceItemCost_Leave);
             // 
             // label2
             // 
@@ -270,9 +410,8 @@
             this.textBoxQuantity.Size = new System.Drawing.Size(269, 30);
             this.textBoxQuantity.TabIndex = 11;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxSalesInvoiceItemQuantity_TextChanged);
-            this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSalesInvoiceItemQuantity_KeyPress);
-            this.textBoxQuantity.Leave += new System.EventHandler(this.textBoxSalesInvoiceItemQuantity_Leave);
+            this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salesInvoiceTextBox_KeyPress);
+            this.textBoxQuantity.Leave += new System.EventHandler(this.salesInvoiceTextBox_Leave);
             // 
             // label3
             // 
@@ -283,140 +422,6 @@
             this.label3.Size = new System.Drawing.Size(46, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Unit:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(120, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 23);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Price:";
-            // 
-            // textBoxPrice
-            // 
-            this.textBoxPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPrice.Location = new System.Drawing.Point(177, 154);
-            this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.ReadOnly = true;
-            this.textBoxPrice.Size = new System.Drawing.Size(269, 30);
-            this.textBoxPrice.TabIndex = 28;
-            this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // comboBoxDiscount
-            // 
-            this.comboBoxDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxDiscount.FormattingEnabled = true;
-            this.comboBoxDiscount.Location = new System.Drawing.Point(177, 190);
-            this.comboBoxDiscount.Name = "comboBoxDiscount";
-            this.comboBoxDiscount.Size = new System.Drawing.Size(377, 31);
-            this.comboBoxDiscount.TabIndex = 31;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(90, 193);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 23);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Discount:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(51, 230);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(120, 23);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Discount Rate:";
-            // 
-            // textBoxDiscountRate
-            // 
-            this.textBoxDiscountRate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxDiscountRate.Location = new System.Drawing.Point(177, 227);
-            this.textBoxDiscountRate.Name = "textBoxDiscountRate";
-            this.textBoxDiscountRate.Size = new System.Drawing.Size(269, 30);
-            this.textBoxDiscountRate.TabIndex = 32;
-            this.textBoxDiscountRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label10.Location = new System.Drawing.Point(23, 266);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(148, 23);
-            this.label10.TabIndex = 35;
-            this.label10.Text = "Discount Amount:";
-            // 
-            // textBoxDiscountAmount
-            // 
-            this.textBoxDiscountAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxDiscountAmount.Location = new System.Drawing.Point(177, 263);
-            this.textBoxDiscountAmount.Name = "textBoxDiscountAmount";
-            this.textBoxDiscountAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxDiscountAmount.TabIndex = 34;
-            this.textBoxDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(66, 447);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 23);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Tax Amount:";
-            // 
-            // textBoxTaxAmount
-            // 
-            this.textBoxTaxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxTaxAmount.Location = new System.Drawing.Point(177, 444);
-            this.textBoxTaxAmount.Name = "textBoxTaxAmount";
-            this.textBoxTaxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxTaxAmount.TabIndex = 40;
-            this.textBoxTaxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(94, 411);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 23);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Tax Rate:";
-            // 
-            // textBoxTaxRate
-            // 
-            this.textBoxTaxRate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxTaxRate.Location = new System.Drawing.Point(177, 408);
-            this.textBoxTaxRate.Name = "textBoxTaxRate";
-            this.textBoxTaxRate.Size = new System.Drawing.Size(269, 30);
-            this.textBoxTaxRate.TabIndex = 38;
-            this.textBoxTaxRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // comboBoxTax
-            // 
-            this.comboBoxTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxTax.FormattingEnabled = true;
-            this.comboBoxTax.Location = new System.Drawing.Point(177, 371);
-            this.comboBoxTax.Name = "comboBoxTax";
-            this.comboBoxTax.Size = new System.Drawing.Size(377, 31);
-            this.comboBoxTax.TabIndex = 37;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(133, 374);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 23);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "Tax:";
             // 
             // TrnSalesInvoiceDetailSalesInvoiceItemDetailForm
             // 

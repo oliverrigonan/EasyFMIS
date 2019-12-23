@@ -74,6 +74,8 @@ namespace easyfmis.Controllers
                             UnitId = d.MstArticle.UnitId,
                             Unit = d.MstArticle.MstUnit.Unit,
                             DefaultPrice = d.MstArticle.DefaultPrice,
+                            VATOutTaxId = d.MstArticle.VATOutTaxId,
+                            VATOutTaxRate = d.MstArticle.MstTax1.Rate
                         };
 
             return items.OrderBy(d => d.Article).ToList();
@@ -85,11 +87,13 @@ namespace easyfmis.Controllers
         public List<Entities.MstArticleEntity> ListNonInventoryItem(String filter)
         {
             var items = from d in db.MstArticles
-                        where (d.ArticleCode.Contains(filter)
+                        where d.ArticleTypeId == 1
+                        && (d.ArticleCode.Contains(filter)
                         || d.ArticleBarCode.Contains(filter)
                         || d.Article.Contains(filter)
                         || d.Category.Contains(filter)
                         || d.MstUnit.Unit.Contains(filter))
+                        && d.IsInventory == false
                         && d.IsLocked == true
                         select new Entities.MstArticleEntity
                         {
@@ -100,7 +104,9 @@ namespace easyfmis.Controllers
                             Category = d.Category,
                             UnitId = d.UnitId,
                             Unit = d.MstUnit.Unit,
-                            DefaultPrice = d.DefaultPrice
+                            DefaultPrice = d.DefaultPrice,
+                            VATOutTaxId = d.VATOutTaxId,
+                            VATOutTaxRate = d.MstTax1.Rate
                         };
 
             return items.OrderBy(d => d.Article).ToList();
