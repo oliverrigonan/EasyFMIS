@@ -178,7 +178,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             sysSoftwareForm.RemoveTabPage();
         }
 
-        public void UpdateStockOutItemDataSource()
+        public void UpdateSalesOrderItemDataSource()
         {
             SetStockOutItemDataSourceAsync();
         }
@@ -284,7 +284,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         public void CreateSalesOrderItemDataGridView()
         {
-            UpdateStockOutItemDataSource();
+            UpdateSalesOrderItemDataSource();
 
             dataGridViewSalesOrderItem.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
             dataGridViewSalesOrderItem.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
@@ -354,7 +354,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                     if (deleteStockOutItem[1].Equals("0") == false)
                     {
                         salesOrdertemPageNumber = 1;
-                        UpdateStockOutItemDataSource();
+                        UpdateSalesOrderItemDataSource();
                     }
                     else
                     {

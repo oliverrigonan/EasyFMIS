@@ -202,6 +202,7 @@
             this.textBoxNetPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxNetPrice.Location = new System.Drawing.Point(172, 297);
             this.textBoxNetPrice.Name = "textBoxNetPrice";
+            this.textBoxNetPrice.ReadOnly = true;
             this.textBoxNetPrice.Size = new System.Drawing.Size(269, 30);
             this.textBoxNetPrice.TabIndex = 40;
             this.textBoxNetPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -224,6 +225,9 @@
             this.textBoxDiscountRate.Size = new System.Drawing.Size(269, 30);
             this.textBoxDiscountRate.TabIndex = 38;
             this.textBoxDiscountRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDiscountRate.TextChanged += new System.EventHandler(this.textBoxDiscountRate_TextChanged);
+            this.textBoxDiscountRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDiscountRate_KeyPress);
+            this.textBoxDiscountRate.Leave += new System.EventHandler(this.textBoxDiscountRate_Leave);
             // 
             // label11
             // 
@@ -240,6 +244,7 @@
             this.textBoxTaxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxTaxAmount.Location = new System.Drawing.Point(172, 442);
             this.textBoxTaxAmount.Name = "textBoxTaxAmount";
+            this.textBoxTaxAmount.ReadOnly = true;
             this.textBoxTaxAmount.Size = new System.Drawing.Size(269, 30);
             this.textBoxTaxAmount.TabIndex = 36;
             this.textBoxTaxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -259,6 +264,7 @@
             this.textBoxTaxRate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxTaxRate.Location = new System.Drawing.Point(172, 406);
             this.textBoxTaxRate.Name = "textBoxTaxRate";
+            this.textBoxTaxRate.ReadOnly = true;
             this.textBoxTaxRate.Size = new System.Drawing.Size(269, 30);
             this.textBoxTaxRate.TabIndex = 34;
             this.textBoxTaxRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -358,6 +364,7 @@
             this.textBoxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxAmount.Location = new System.Drawing.Point(172, 333);
             this.textBoxAmount.Name = "textBoxAmount";
+            this.textBoxAmount.ReadOnly = true;
             this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
             this.textBoxAmount.TabIndex = 24;
             this.textBoxAmount.TabStop = false;

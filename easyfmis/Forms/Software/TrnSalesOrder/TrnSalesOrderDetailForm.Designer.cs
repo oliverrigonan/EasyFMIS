@@ -72,6 +72,10 @@
             this.textBoxSalesOrderItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewSalesOrderItem = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.ColumnTrnSalesOrderItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTrnSalesOrderItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTrnSalesOrderItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,21 +88,19 @@
             this.ColumnTrnSalesOrderItemListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListDiscountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTrnSalesOrderItemListDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListDiscountRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListDiscountAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListNetPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListTaxId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTrnSalesOrderItemListTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalesOrderItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -566,12 +568,14 @@
             this.ColumnTrnSalesOrderItemListUnit,
             this.ColumnTrnSalesOrderItemListPrice,
             this.ColumnTrnSalesOrderItemListDiscountId,
+            this.ColumnTrnSalesOrderItemListDiscount,
             this.ColumnTrnSalesOrderItemListDiscountRate,
             this.ColumnTrnSalesOrderItemListDiscountAmount,
             this.ColumnTrnSalesOrderItemListNetPrice,
             this.ColumnTrnSalesOrderItemListQuantity,
             this.ColumnTrnSalesOrderItemListAmount,
             this.ColumnTrnSalesOrderItemListTaxId,
+            this.ColumnTrnSalesOrderItemListTax,
             this.ColumnTrnSalesOrderItemListTaxRate,
             this.ColumnTrnSalesOrderItemListTaxAmount,
             this.ColumnTrnSalesOrderItemListBaseQuantity,
@@ -591,6 +595,49 @@
             this.dataGridViewSalesOrderItem.TabIndex = 1;
             this.dataGridViewSalesOrderItem.TabStop = false;
             this.dataGridViewSalesOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockOutItem_CellClick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewSalesOrderItem);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Sales Order Items";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // ColumnTrnSalesOrderItemListButtonEdit
             // 
@@ -689,6 +736,13 @@
             this.ColumnTrnSalesOrderItemListDiscountId.ReadOnly = true;
             this.ColumnTrnSalesOrderItemListDiscountId.Visible = false;
             // 
+            // ColumnTrnSalesOrderItemListDiscount
+            // 
+            this.ColumnTrnSalesOrderItemListDiscount.DataPropertyName = "ColumnTrnSalesOrderItemListDiscount";
+            this.ColumnTrnSalesOrderItemListDiscount.HeaderText = "Discount";
+            this.ColumnTrnSalesOrderItemListDiscount.Name = "ColumnTrnSalesOrderItemListDiscount";
+            this.ColumnTrnSalesOrderItemListDiscount.ReadOnly = true;
+            // 
             // ColumnTrnSalesOrderItemListDiscountRate
             // 
             this.ColumnTrnSalesOrderItemListDiscountRate.DataPropertyName = "ColumnTrnSalesOrderItemListDiscountRate";
@@ -741,7 +795,15 @@
             this.ColumnTrnSalesOrderItemListTaxId.HeaderText = "TaxId";
             this.ColumnTrnSalesOrderItemListTaxId.Name = "ColumnTrnSalesOrderItemListTaxId";
             this.ColumnTrnSalesOrderItemListTaxId.ReadOnly = true;
+            this.ColumnTrnSalesOrderItemListTaxId.Visible = false;
             this.ColumnTrnSalesOrderItemListTaxId.Width = 150;
+            // 
+            // ColumnTrnSalesOrderItemListTax
+            // 
+            this.ColumnTrnSalesOrderItemListTax.DataPropertyName = "ColumnTrnSalesOrderItemListTax";
+            this.ColumnTrnSalesOrderItemListTax.HeaderText = "Tax";
+            this.ColumnTrnSalesOrderItemListTax.Name = "ColumnTrnSalesOrderItemListTax";
+            this.ColumnTrnSalesOrderItemListTax.ReadOnly = true;
             // 
             // ColumnTrnSalesOrderItemListTaxRate
             // 
@@ -772,7 +834,7 @@
             this.ColumnTrnSalesOrderItemListBasePrice.DataPropertyName = "ColumnTrnSalesOrderItemListBasePrice";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.ColumnTrnSalesOrderItemListBasePrice.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnTrnSalesOrderItemListBasePrice.HeaderText = "Base Cost";
+            this.ColumnTrnSalesOrderItemListBasePrice.HeaderText = "Base Price";
             this.ColumnTrnSalesOrderItemListBasePrice.Name = "ColumnTrnSalesOrderItemListBasePrice";
             this.ColumnTrnSalesOrderItemListBasePrice.ReadOnly = true;
             this.ColumnTrnSalesOrderItemListBasePrice.Width = 150;
@@ -784,49 +846,6 @@
             this.ColumnSalesOrderItemSpace.HeaderText = "";
             this.ColumnSalesOrderItemSpace.Name = "ColumnSalesOrderItemSpace";
             this.ColumnSalesOrderItemSpace.ReadOnly = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewSalesOrderItem);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Sales Order Items";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // TrnSalesOrderDetailForm
             // 
@@ -911,12 +930,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListDiscountId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListDiscountRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListDiscountAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListNetPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListTaxId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListTaxRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListTaxAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListBaseQuantity;
