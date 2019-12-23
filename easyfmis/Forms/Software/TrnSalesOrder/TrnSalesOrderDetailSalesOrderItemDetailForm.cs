@@ -162,7 +162,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             textBoxPrice.Text = trnSalesOrderItemEntity.Price.ToString("#,##0.00");
 
             ComputeAmount();
-            ComputeNetPrice();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -181,56 +180,61 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             var unitId = Convert.ToInt32(comboBoxUnit.SelectedValue);
             var discountId = Convert.ToInt32(comboBoxDiscount.SelectedValue);
             var discountRate = Convert.ToDecimal(textBoxDiscountRate.Text);
+            var discountAmount = Convert.ToDecimal(textBoxDiscountAmount.Text);
             var unit = trnSalesOrderItemEntity.Unit;
+            var netPrice = Convert.ToDecimal(textBoxNetPrice.Text);
             var quantity = Convert.ToDecimal(textBoxQuantity.Text);
             var amount = Convert.ToDecimal(textBoxAmount.Text);
+            var taxId = Convert.ToInt32(comboBoxTax.SelectedValue);
+            var taxRate = Convert.ToDecimal(textBoxTaxRate.Text);
+            var taxAmount = Convert.ToDecimal(textBoxTaxAmount.Text);
 
-            //Entities.TrnSalesOrderItemEntity newSalesOrderItemEntity = new Entities.TrnSalesOrderItemEntity()
-            //{
-            //    SOId = sOId,
-            //    ItemId = itemId,
-            //    ItemInventoryId = itemInventoryId,
-            //    UnitId = unitId,
-            //    Price = price,
-            //    DiscountId = discountId,
-            //    DiscountRate = 
-            //    DiscountAmount
-            //    NetPrice
-            //    Quantity
-            //    Amount
-            //    TaxId
-            //    TaxRate
-            //    TaxAmount
+            Entities.TrnSalesOrderItemEntity salesOrderItemEntity = new Entities.TrnSalesOrderItemEntity()
+            { 
+                Id = id,
+                SOId = sOId,
+                ItemId = itemId,
+                ItemInventoryId = itemInventoryId,
+                UnitId = unitId,
+                Price = price,
+                DiscountId = discountId,
+                DiscountRate = discountRate,
+                DiscountAmount = discountAmount,
+                NetPrice = netPrice,
+                Quantity = quantity,
+                Amount = amount,
+                TaxId = taxId,
+                TaxRate = taxRate,
+                TaxAmount = taxAmount,
+            };
 
-            //};
-
-            //Controllers.TrnStockOutItemController trnPOSStockOutItemController = new Controllers.TrnStockOutItemController();
-            //if (newStockOutItemEntity.Id == 0)
-            //{
-            //    String[] addStockOutItem = trnPOSStockOutItemController.AddStockOutItem(newStockOutItemEntity);
-            //    if (addStockOutItem[1].Equals("0") == false)
-            //    {
-            //        //trnStockOutDetailForm.UpdateStockOutItemDataSource();
-            //        Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(addStockOutItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-            //else
-            //{
-            //    String[] updateStockOutItem = trnPOSStockOutItemController.UpdateStockOutItem(trnSalesOrderItemEntity.Id, newStockOutItemEntity);
-            //    if (updateStockOutItem[1].Equals("0") == false)
-            //    {
-            //        //trnStockOutDetailForm.UpdateStockOutItemDataSource();
-            //        Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(updateStockOutItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
+            Controllers.TrnSalesOrderItemController trnSalesOrderItemController = new Controllers.TrnSalesOrderItemController();
+            if (trnSalesOrderItemEntity.Id == 0)
+            {
+                String[] addSalesOrderItem = trnSalesOrderItemController.AddSalesOrderItem(salesOrderItemEntity);
+                if (addSalesOrderItem[1].Equals("0") == false)
+                {
+                    trnSalesOrderDetailForm.UpdateSalesOrderItemDataSource();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show(addSalesOrderItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                String[] updateSalesOrderItem = trnSalesOrderItemController.UpdateSalesOrderItem(trnSalesOrderItemEntity.Id, salesOrderItemEntity);
+                if (updateSalesOrderItem[1].Equals("0") == false)
+                {
+                    trnSalesOrderDetailForm.UpdateSalesOrderItemDataSource();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show(updateSalesOrderItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public void UpdatePrice(Decimal price)
@@ -286,7 +290,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             {
                 textBoxDiscountRate.Text = selectedItemDiscount.DiscountRate.ToString("#,##0.00");
 
-                ComputeNetPrice();
+                ComputeAmount();
             }
         }
 
@@ -310,43 +314,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             }
         }
 
-        public void ComputeAmount()
-        {
-            try
-            {
-                if (String.IsNullOrEmpty(textBoxQuantity.Text) == false && String.IsNullOrEmpty(textBoxNetPrice.Text) == false)
-                {
-                    Decimal quantity = Convert.ToDecimal(textBoxQuantity.Text);
-                    Decimal price = Convert.ToDecimal(textBoxNetPrice.Text);
-                    Decimal amount = price * quantity;
-
-                    textBoxAmount.Text = amount.ToString("#,##0.00");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void ComputeNetPrice()
-        {
-            try
-            {
-                if (String.IsNullOrEmpty(textBoxPrice.Text) == false && String.IsNullOrEmpty(textBoxDiscountAmount.Text) == false)
-                {
-                    Decimal price = Convert.ToDecimal(textBoxPrice.Text);
-                    Decimal discountAmount = Convert.ToDecimal(textBoxDiscountAmount.Text);
-                    Decimal netPrice = price - discountAmount;
-
-                    textBoxNetPrice.Text = netPrice.ToString("#,##0.00");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void textBoxDiscountAmount_TextChanged(object sender, EventArgs e)
         {
@@ -354,36 +321,12 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             {
                 textBoxQuantity.Text = "0.00";
             }
-
-            ComputeDiscountRate();
         }
 
-        public void ComputeDiscountRate()
-        {
-            try
-            {
-                if (String.IsNullOrEmpty(textBoxPrice.Text) == false && String.IsNullOrEmpty(textBoxDiscountAmount.Text) == false)
-                {
-                    Decimal price = Convert.ToDecimal(textBoxPrice.Text);
-                    Decimal discountAmount = Convert.ToDecimal(textBoxDiscountAmount.Text);
-
-                    Decimal discountRate = discountAmount / price;
-
-                    Decimal netPrice = price - discountAmount;
-
-                    textBoxDiscountRate.Text = discountRate.ToString("#,##0.00");
-                    textBoxNetPrice.Text = netPrice.ToString("#,##0.00");
-
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void textBoxDiscountAmount_Leave(object sender, EventArgs e)
         {
+            ComputeDiscountRate();
             textBoxDiscountAmount.Text = Convert.ToDecimal(textBoxDiscountAmount.Text).ToString("#,##0.00");
         }
 
@@ -403,6 +346,139 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             {
                 e.Handled = true;
             }
+        }
+
+        private void textBoxDiscountRate_Leave(object sender, EventArgs e)
+        {
+            ComputeDiscountAmount();
+            textBoxDiscountAmount.Text = Convert.ToDecimal(textBoxDiscountAmount.Text).ToString("#,##0.00");
+
+        }
+
+        private void textBoxDiscountRate_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxDiscountRate.Text))
+            {
+                textBoxQuantity.Text = "0.00";
+            }
+        }
+
+        private void textBoxDiscountRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //public void ComputeAmount()
+        //{
+
+        //}
+
+        //public void ComputeNetPrice()
+        //{
+        //    try
+        //    {
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message, "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
+        public void ComputeDiscountRate()
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(textBoxPrice.Text) == false && String.IsNullOrEmpty(textBoxDiscountAmount.Text) == false)
+                {
+                    Decimal price = Convert.ToDecimal(textBoxPrice.Text);
+                    Decimal discountAmount = Convert.ToDecimal(textBoxDiscountAmount.Text);
+
+                    Decimal discountRate = discountAmount / price;
+
+                    Decimal netPrice = price - discountAmount;
+
+                    textBoxDiscountRate.Text = discountRate.ToString("#,##0.00");
+                    textBoxNetPrice.Text = netPrice.ToString("#,##0.00");
+                }
+
+                ComputeAmount();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ComputeDiscountAmount()
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(textBoxPrice.Text) == false && String.IsNullOrEmpty(textBoxDiscountRate.Text) == false)
+                {
+                    Decimal price = Convert.ToDecimal(textBoxPrice.Text);
+                    Decimal discountRate = Convert.ToDecimal(textBoxDiscountRate.Text);
+
+                    Decimal discountAmount = price * discountRate;
+
+                    Decimal netPrice = price - discountAmount;
+
+                    textBoxDiscountRate.Text = discountAmount.ToString("#,##0.00");
+                    textBoxNetPrice.Text = netPrice.ToString("#,##0.00");
+
+                }
+
+                ComputeAmount();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ComputeAmount() {
+            try
+            {
+                if (String.IsNullOrEmpty(textBoxQuantity.Text) == false && String.IsNullOrEmpty(textBoxNetPrice.Text) == false)
+                {
+                    Decimal quantity = Convert.ToDecimal(textBoxQuantity.Text);
+                    Decimal price = Convert.ToDecimal(textBoxNetPrice.Text);
+                    Decimal amount = price * quantity;
+
+                    textBoxAmount.Text = amount.ToString("#,##0.00");
+                }
+
+                if (String.IsNullOrEmpty(textBoxPrice.Text) == false && String.IsNullOrEmpty(textBoxDiscountAmount.Text) == false)
+                {
+                    Decimal price = Convert.ToDecimal(textBoxPrice.Text);
+                    Decimal discountAmount = Convert.ToDecimal(textBoxDiscountAmount.Text);
+                    Decimal netPrice = price - discountAmount;
+
+                    textBoxNetPrice.Text = netPrice.ToString("#,##0.00");
+                }
+               
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }

@@ -78,6 +78,7 @@
             this.ColumnSearchInventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchInventoryItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchInventoryItemButtonPick = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnSearchInventoryItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchItemInventory)).BeginInit();
@@ -169,7 +170,8 @@
             this.ColumnSearchInventoryItemUnit,
             this.ColumnSearchInventoryItemQuantity,
             this.ColumnSearchInventoryItemPrice,
-            this.ColumnSearchInventoryItemButtonPick});
+            this.ColumnSearchInventoryItemButtonPick,
+            this.ColumnSearchInventoryItemSpace});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
@@ -633,6 +635,14 @@
             this.ColumnSearchInventoryItemButtonPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ColumnSearchInventoryItemButtonPick.Width = 70;
             // 
+            // ColumnSearchInventoryItemSpace
+            // 
+            this.ColumnSearchInventoryItemSpace.DataPropertyName = "ColumnSearchInventoryItemSpace";
+            this.ColumnSearchInventoryItemSpace.HeaderText = "";
+            this.ColumnSearchInventoryItemSpace.Name = "ColumnSearchInventoryItemSpace";
+            this.ColumnSearchInventoryItemSpace.ReadOnly = true;
+            this.ColumnSearchInventoryItemSpace.Visible = false;
+            // 
             // TrnSalesOrderDetailSearchItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -709,5 +719,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchInventoryItemQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchInventoryItemPrice;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnSearchInventoryItemButtonPick;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchInventoryItemSpace;
     }
 }

@@ -198,7 +198,7 @@ namespace easyfmis.Controllers
         {
             try
             {
-                var salesOrderItem = from d in db.TrnSalesOrderItems
+                var salesOrderItem = from d in db.TrnSalesOrders
                                      where d.Id == objSalesOrderItem.SOId
                                      select d;
 
