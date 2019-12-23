@@ -225,7 +225,6 @@
             this.textBoxDiscountRate.Size = new System.Drawing.Size(269, 30);
             this.textBoxDiscountRate.TabIndex = 38;
             this.textBoxDiscountRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxDiscountRate.TextChanged += new System.EventHandler(this.textBoxDiscountRate_TextChanged);
             this.textBoxDiscountRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDiscountRate_KeyPress);
             this.textBoxDiscountRate.Leave += new System.EventHandler(this.textBoxDiscountRate_Leave);
             // 
@@ -307,7 +306,6 @@
             this.textBoxDiscountAmount.Size = new System.Drawing.Size(269, 30);
             this.textBoxDiscountAmount.TabIndex = 30;
             this.textBoxDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxDiscountAmount.TextChanged += new System.EventHandler(this.textBoxDiscountAmount_TextChanged);
             this.textBoxDiscountAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDiscountAmount_KeyPress);
             this.textBoxDiscountAmount.Leave += new System.EventHandler(this.textBoxDiscountAmount_Leave);
             // 
@@ -413,7 +411,6 @@
             this.textBoxQuantity.Size = new System.Drawing.Size(269, 30);
             this.textBoxQuantity.TabIndex = 11;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxItemQuantity_TextChanged);
             this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxItemQuantity_KeyPress);
             this.textBoxQuantity.Leave += new System.EventHandler(this.textBoxItemQuantity_Leave);
             // 
