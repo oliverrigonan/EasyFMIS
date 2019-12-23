@@ -138,6 +138,38 @@ namespace easyfmis.Controllers
             return articleUnits.ToList();
         }
 
+        // ========================
+        // Dropdown List - Discount
+        // ========================
+        public List<Entities.MstDiscountEntity> DropdownListSalesInvoiceDiscount()
+        {
+            var terms = from d in db.MstDiscounts
+                        select new Entities.MstDiscountEntity
+                        {
+                            Id = d.Id,
+                            Discount = d.Discount,
+                            DiscountRate = d.DiscountRate
+                        };
+
+            return terms.ToList();
+        }
+
+        // ===================
+        // Dropdown List - Tax
+        // ===================
+        public List<Entities.MstTaxEntity> DropdownListSalesInvoiceTax()
+        {
+            var terms = from d in db.MstTaxes
+                        select new Entities.MstTaxEntity
+                        {
+                            Id = d.Id,
+                            Tax = d.Tax,
+                            Rate = d.Rate
+                        };
+
+            return terms.ToList();
+        }
+
         // ======================
         // Add Sales Invoice Item
         // ======================

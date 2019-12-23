@@ -431,8 +431,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
         private void buttonSearchItem_Click(object sender, EventArgs e)
         {
-            //TrnSalesInvoiceDetailSearchItemForm trnSalesInvoiceDetailSearchItemForm = new TrnSalesInvoiceDetailSearchItemForm(this, trnSalesInvoiceEntity);
-            //trnSalesInvoiceDetailSearchItemForm.ShowDialog();
+            TrnSalesInvoiceDetailSearchItemForm trnSalesInvoiceDetailSearchItemForm = new TrnSalesInvoiceDetailSearchItemForm(this, trnSalesInvoiceEntity);
+            trnSalesInvoiceDetailSearchItemForm.ShowDialog();
         }
 
         public void UpdateInventoryEntriesDataSource()
