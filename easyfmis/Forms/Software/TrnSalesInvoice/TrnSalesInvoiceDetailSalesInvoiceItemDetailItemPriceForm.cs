@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace easyfmis.Forms.Software.TrnSalesOrder
+namespace easyfmis.Forms.Software.TrnSalesInvoice
 {
-    public partial class TrnSalesOrderDetailSalesOrderItemDetailPriceForm : Form
+    public partial class TrnSalesInvoiceDetailSalesInvoiceItemDetailPriceForm : Form
     {
-        TrnSalesOrderDetailSalesOrderItemDetailForm trnSalesOrderDetailSalesOrderItemDetailForm;
-        public Entities.TrnSalesOrderItemEntity trnSalesOrderItemEntity;
+        TrnSalesInvoiceDetailSalesInvoiceItemDetailForm trnSalesInvoiceDetailSalesInvoiceItemDetailForm;
+        public Entities.TrnSalesInvoiceItemEntity trnSalesInvoiceItemEntity;
 
         public static Int32 pageNumber = 1;
         public static Int32 pageSize = 50;
@@ -23,19 +23,19 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
         public PagedList<Entities.DgvMstItemPrice> itemPriceListPageList = new PagedList<Entities.DgvMstItemPrice>(itemPriceListData, pageNumber, pageSize);
         public BindingSource itemPriceListDataSource = new BindingSource();
 
-
-        public TrnSalesOrderDetailSalesOrderItemDetailPriceForm(TrnSalesOrderDetailSalesOrderItemDetailForm salesOrderDetailSalesOrderItemDetailForm, Entities.TrnSalesOrderItemEntity salesOrderItemEntity)
+        public TrnSalesInvoiceDetailSalesInvoiceItemDetailPriceForm(TrnSalesInvoiceDetailSalesInvoiceItemDetailForm salesInvoiceDetailSalesInvoiceItemDetailForm, Entities.TrnSalesInvoiceItemEntity salesInvoiceItemEntity)
         {
             InitializeComponent();
-            trnSalesOrderDetailSalesOrderItemDetailForm = salesOrderDetailSalesOrderItemDetailForm;
-            trnSalesOrderItemEntity = salesOrderItemEntity;
+
+            trnSalesInvoiceDetailSalesInvoiceItemDetailForm = salesInvoiceDetailSalesInvoiceItemDetailForm;
+            trnSalesInvoiceItemEntity = salesInvoiceItemEntity;
 
             LoadItemPrice();
         }
 
         public void LoadItemPrice()
         {
-            textBoxItemDescription.Text = trnSalesOrderItemEntity.ItemDescription;
+            textBoxItemDescription.Text = trnSalesInvoiceItemEntity.ItemDescription;
             CreateItemPriceListDataGridView();
         }
 
@@ -107,7 +107,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
         public Task<List<Entities.DgvMstItemPrice>> GetItemPriceListDataTask()
         {
             Controllers.MstArtciclePriceController mstArtciclePriceController = new Controllers.MstArtciclePriceController();
-            List<Entities.MstArticlePriceEntity> listItemPrice = mstArtciclePriceController.ListItemPrice(trnSalesOrderItemEntity.ItemId);
+            List<Entities.MstArticlePriceEntity> listItemPrice = mstArtciclePriceController.ListItemPrice(trnSalesInvoiceItemEntity.ItemId);
 
             if (listItemPrice.Any())
             {
@@ -221,11 +221,10 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             if (e.RowIndex > -1 && dataGridViewItemPriceList.CurrentCell.ColumnIndex == dataGridViewItemPriceList.Columns["ColumnItemPriceListButtonPick"].Index)
             {
                 Decimal price = Convert.ToDecimal(dataGridViewItemPriceList.Rows[dataGridViewItemPriceList.CurrentCell.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListPrice"].Index].Value);
-                trnSalesOrderDetailSalesOrderItemDetailForm.UpdatePrice(price);
 
+                trnSalesInvoiceDetailSalesInvoiceItemDetailForm.UpdatePrice(price);
                 Close();
             }
         }
-
     }
 }

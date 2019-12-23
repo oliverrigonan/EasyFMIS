@@ -144,6 +144,21 @@ namespace easyfmis.Controllers
             return articleUnits.ToList();
         }
 
+        // ===========================
+        // Dropdown List Article Price
+        // ===========================
+        public List<Entities.MstArticlePriceEntity> DropdownListArticlePrice(Int32 articleId)
+        {
+            var articlePrices = from d in db.MstArticlePrices
+                                where d.ArticleId == articleId
+                                select new Entities.MstArticlePriceEntity
+                                {
+                                    Price = d.Price
+                                };
+
+            return articlePrices.ToList();
+        }
+
         // ========================
         // Dropdown List - Discount
         // ========================

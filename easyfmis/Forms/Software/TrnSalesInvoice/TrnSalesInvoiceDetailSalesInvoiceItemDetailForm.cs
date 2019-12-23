@@ -376,5 +376,17 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 ComputeAmount();
             }
         }
+
+        private void textBoxPrice_Click(object sender, EventArgs e)
+        {
+            TrnSalesInvoiceDetailSalesInvoiceItemDetailPriceForm trnSalesInvoiceDetailSalesInvoiceItemDetailPriceForm = new TrnSalesInvoiceDetailSalesInvoiceItemDetailPriceForm(this, trnSalesInvoiceItemEntity);
+            trnSalesInvoiceDetailSalesInvoiceItemDetailPriceForm.ShowDialog();
+        }
+
+        public void UpdatePrice(Decimal price)
+        {
+            textBoxPrice.Text = price.ToString("#,##0.00");
+            ComputeAmount();
+        }
     }
 }

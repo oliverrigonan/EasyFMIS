@@ -124,7 +124,7 @@
     <Compile Include="Entities\DgvSearchItemEntity.cs" />
     <Compile Include="Entities\DgvTrnSalesOrderEntity.cs" />
     <Compile Include="Entities\DgvTrnSalesOrderItemEntity.cs" />
-    <Compile Include="Entities\DgvTrnSalesOrderItemSearchItemDetailPrice.cs" />
+    <Compile Include="Entities\DgvMstItemPrice.cs" />
     <Compile Include="Entities\DgvUserListEntity.cs" />
     <Compile Include="Entities\MstArticleComponentEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
@@ -289,6 +289,12 @@
     </Compile>
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailForm.Designer.cs">
       <DependentUpon>TrnSalesInvoiceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.Designer.cs">
+      <DependentUpon>TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalseInvoiceDetailSearchItemForm.cs">
       <SubType>Form</SubType>
@@ -483,6 +489,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailForm.resx">
       <DependentUpon>TrnSalesInvoiceDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.resx">
+      <DependentUpon>TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalseInvoiceDetailSearchItemForm.resx">
       <DependentUpon>TrnSalseInvoiceDetailSearchItemForm.cs</DependentUpon>
