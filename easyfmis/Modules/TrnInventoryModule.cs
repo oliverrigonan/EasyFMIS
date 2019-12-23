@@ -274,9 +274,9 @@ namespace easyfmis.Modules
             try
             {
                 var stockTransferItems = from d in db.TrnStockTransferItems
-                                    where d.STId == STId
-                                    && d.TrnStockTransfer.IsLocked == true
-                                    select d;
+                                         where d.STId == STId
+                                         && d.TrnStockTransfer.IsLocked == true
+                                         select d;
 
                 if (stockTransferItems.Any())
                 {
@@ -381,6 +381,105 @@ namespace easyfmis.Modules
             catch (Exception ex)
             {
                 throw new Exception("Delete Stock-Out Inventory Error: " + ex.Message);
+            }
+        }
+
+        // ================================
+        // Insert Inventory - Sales Invoice
+        // ================================
+        public void InsertInventorySalesInvoice(Int32 SIId)
+        {
+            try
+            {
+                var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
+                                        where d.SIId == SIId
+                                        && d.TrnSalesInvoice.IsLocked == true
+                                        select d;
+
+                if (salesInvoiceItems.Any())
+                {
+                    foreach (var salesInvoiceItem in salesInvoiceItems)
+                    {
+                        Int32 articleInventoryId = 0;
+
+                        var articleInventories = from d in db.MstArticleInventories
+                                                 where d.Id == salesInvoiceItem.ItemInventoryId
+                                                 select d;
+
+                        if (articleInventories.Any())
+                        {
+                            articleInventoryId = articleInventories.FirstOrDefault().Id;
+                        }
+
+                        if (articleInventoryId != 0)
+                        {
+                            Data.TrnInventory newInventory = new Data.TrnInventory()
+                            {
+                                BranchId = salesInvoiceItem.TrnSalesInvoice.BranchId,
+                                InventoryDate = salesInvoiceItem.TrnSalesInvoice.SIDate,
+                                ItemId = salesInvoiceItem.ItemId,
+                                ItemInventoryId = articleInventoryId,
+                                QuantityIn = 0,
+                                QuantityOut = salesInvoiceItem.BaseQuantity,
+                                Quantity = salesInvoiceItem.BaseQuantity * -1,
+                                Amount = salesInvoiceItem.BasePrice * (salesInvoiceItem.BaseQuantity * -1),
+                                SIId = SIId,
+                                INId = null,
+                                OTId = null,
+                                STId = null,
+                            };
+
+                            db.TrnInventories.InsertOnSubmit(newInventory);
+                            db.SubmitChanges();
+
+                            UpdateArticleInventory(articleInventoryId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Insert Sales Invoice Inventory Error: " + ex.Message);
+            }
+        }
+
+        // ================================
+        // Delete Inventory - Sales Invoice
+        // ================================
+        public void DeleteInventorySalesInvoice(Int32 STId)
+        {
+            try
+            {
+                var inventories = from d in db.TrnInventories
+                                  where d.STId == STId
+                                  select d;
+
+                if (inventories.Any())
+                {
+                    List<Int32> articleInventoryIds = new List<Int32>();
+                    foreach (var inventory in inventories)
+                    {
+                        if (articleInventoryIds.Contains(inventory.ItemInventoryId) == false)
+                        {
+                            articleInventoryIds.Add(inventory.ItemInventoryId);
+                        }
+                    }
+
+                    db.TrnInventories.DeleteAllOnSubmit(inventories);
+                    db.SubmitChanges();
+
+                    if (articleInventoryIds.Any())
+                    {
+                        foreach (var articleInventoryId in articleInventoryIds)
+                        {
+                            UpdateArticleInventory(articleInventoryId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Delete Sales Invoice Inventory Error: " + ex.Message);
             }
         }
     }

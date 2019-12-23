@@ -49,7 +49,7 @@
             this.buttonSalesOrder = new System.Windows.Forms.Button();
             this.buttonInventory = new System.Windows.Forms.Button();
             this.buttonStockOut = new System.Windows.Forms.Button();
-            this.buttonRemittanceReport = new System.Windows.Forms.Button();
+            this.buttonSalesInvoice = new System.Windows.Forms.Button();
             this.buttonStockIn = new System.Windows.Forms.Button();
             this.buttonInventoryReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -100,7 +100,7 @@
             this.panel1.Controls.Add(this.buttonSalesOrder);
             this.panel1.Controls.Add(this.buttonInventory);
             this.panel1.Controls.Add(this.buttonStockOut);
-            this.panel1.Controls.Add(this.buttonRemittanceReport);
+            this.panel1.Controls.Add(this.buttonSalesInvoice);
             this.panel1.Controls.Add(this.buttonStockIn);
             this.panel1.Controls.Add(this.buttonInventoryReport);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -439,24 +439,25 @@
             this.buttonStockOut.UseVisualStyleBackColor = false;
             this.buttonStockOut.Click += new System.EventHandler(this.buttonStockOut_Click);
             // 
-            // buttonRemittanceReport
+            // buttonSalesInvoice
             // 
-            this.buttonRemittanceReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonRemittanceReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonRemittanceReport.FlatAppearance.BorderSize = 0;
-            this.buttonRemittanceReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRemittanceReport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonRemittanceReport.ForeColor = System.Drawing.Color.White;
-            this.buttonRemittanceReport.ImageKey = "POS.png";
-            this.buttonRemittanceReport.ImageList = this.imageListMenuIcons;
-            this.buttonRemittanceReport.Location = new System.Drawing.Point(245, 270);
-            this.buttonRemittanceReport.Name = "buttonRemittanceReport";
-            this.buttonRemittanceReport.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonRemittanceReport.Size = new System.Drawing.Size(227, 123);
-            this.buttonRemittanceReport.TabIndex = 12;
-            this.buttonRemittanceReport.Text = "\r\nSales Invoice";
-            this.buttonRemittanceReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonRemittanceReport.UseVisualStyleBackColor = false;
+            this.buttonSalesInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSalesInvoice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSalesInvoice.FlatAppearance.BorderSize = 0;
+            this.buttonSalesInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesInvoice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonSalesInvoice.ForeColor = System.Drawing.Color.White;
+            this.buttonSalesInvoice.ImageKey = "POS.png";
+            this.buttonSalesInvoice.ImageList = this.imageListMenuIcons;
+            this.buttonSalesInvoice.Location = new System.Drawing.Point(245, 270);
+            this.buttonSalesInvoice.Name = "buttonSalesInvoice";
+            this.buttonSalesInvoice.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonSalesInvoice.Size = new System.Drawing.Size(227, 123);
+            this.buttonSalesInvoice.TabIndex = 12;
+            this.buttonSalesInvoice.Text = "\r\nSales Invoice";
+            this.buttonSalesInvoice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonSalesInvoice.UseVisualStyleBackColor = false;
+            this.buttonSalesInvoice.Click += new System.EventHandler(this.buttonSalesInvoice_Click);
             // 
             // buttonStockIn
             // 
@@ -527,7 +528,7 @@
         private System.Windows.Forms.Button buttonStockOut;
         private System.Windows.Forms.Button buttonStockIn;
         private System.Windows.Forms.Button buttonInventoryReport;
-        private System.Windows.Forms.Button buttonRemittanceReport;
+        private System.Windows.Forms.Button buttonSalesInvoice;
         private System.Windows.Forms.Button buttonInventory;
         private System.Windows.Forms.Button buttonStockCount;
         private System.Windows.Forms.Button buttonPOSReport;

@@ -65,5 +65,10 @@ namespace easyfmis.Forms.Software.SysMenu
         {
             sysSoftwareForm.AddTabPageSalesOrderList();
         }
+
+        private void buttonSalesInvoice_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageSalesInvoiceList();
+        }
     }
 }

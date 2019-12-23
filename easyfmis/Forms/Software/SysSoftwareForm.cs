@@ -61,6 +61,8 @@ namespace easyfmis.Forms.Software
 
         public TabPage tabPageSalesOrder = new TabPage { Name = "tabPageSalesOrder", Text = "Activity - Sales Order List" };
         public TabPage tabPageSalesOrderDetail = new TabPage { Name = "tabPageSalesOrderDetail", Text = "Activity - Sales Order Detail" };
+        public TabPage tabPageSalesInvoice = new TabPage { Name = "tabPageSalesInvoice", Text = "Activity - Sales Invoice List" };
+        public TabPage tabPageSalesInvoiceDetail = new TabPage { Name = "tabPageSalesInvoiceDetail", Text = "Activity - Sales Invoice Detail" };
 
         public TabPage tabPagePOSReport = new TabPage { Name = "tabPagePOSReport", Text = "Report - POS Report" };
         public TabPage tabPageSalesReports = new TabPage { Name = "tabPageSalesReports ", Text = "Report - Sales Report" };
@@ -98,6 +100,8 @@ namespace easyfmis.Forms.Software
         public TrnStockTransfer.TrnStockTransferDetailForm trnStockTransferDetailForm = null;
         public TrnSalesOrder.TrnSalesOrderForm trnSalesOrderForm = null;
         public TrnSalesOrder.TrnSalesOrderDetailForm trnSalesOrderDetailForm = null;
+        public TrnSalesInvoice.TrnSalesInvoiceForm trnSalesInvoiceForm = null;
+        public TrnSalesInvoice.TrnSalesInvoiceDetailForm trnSalesInvoiceDetailForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
         //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
@@ -630,6 +634,54 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageSalesOrderDetail);
                 tabControlSoftware.SelectTab(tabPageSalesOrderDetail);
+            }
+        }
+
+        public void AddTabPageSalesInvoiceList()
+        {
+            tabPageSalesInvoice.Controls.Remove(trnSalesInvoiceForm);
+
+            trnSalesInvoiceForm = new TrnSalesInvoice.TrnSalesInvoiceForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageSalesInvoice.Controls.Add(trnSalesInvoiceForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageSalesInvoice) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageSalesInvoice);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageSalesInvoice);
+                tabControlSoftware.SelectTab(tabPageSalesInvoice);
+            }
+        }
+
+        public void AddTabPageSalesInvoiceDetail(TrnSalesInvoice.TrnSalesInvoiceForm trnSalesInvoiceForm, Entities.TrnSalesInvoiceEntity trnSalesInvoiceEntity)
+        {
+            tabPageSalesInvoiceDetail.Controls.Remove(trnSalesInvoiceDetailForm);
+
+            trnSalesInvoiceDetailForm = new TrnSalesInvoice.TrnSalesInvoiceDetailForm(this, trnSalesInvoiceForm, trnSalesInvoiceEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageSalesInvoiceDetail.Controls.Add(trnSalesInvoiceDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageSalesInvoiceDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageSalesInvoiceDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageSalesInvoiceDetail);
+                tabControlSoftware.SelectTab(tabPageSalesInvoiceDetail);
             }
         }
 
