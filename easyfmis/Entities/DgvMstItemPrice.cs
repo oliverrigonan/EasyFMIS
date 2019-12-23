@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    public class DgvTrnSalesOrderItemSearchItemDetailPrice
+    public class DgvMstItemPrice
     {
         public String ColumnItemPriceListButtonPick { get; set; }
         public String ColumnItemPriceListPriceDescription { get; set; }

@@ -300,13 +300,15 @@
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxPrice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBoxPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPrice.Location = new System.Drawing.Point(177, 154);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.ReadOnly = true;
             this.textBoxPrice.Size = new System.Drawing.Size(269, 30);
             this.textBoxPrice.TabIndex = 28;
             this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxPrice.Click += new System.EventHandler(this.textBoxPrice_Click);
             // 
             // comboBoxInventoryCode
             // 
