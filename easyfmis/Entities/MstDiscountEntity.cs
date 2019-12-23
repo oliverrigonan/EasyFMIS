@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    class MstTaxEntity
+    class MstDiscountEntity
     {
         public Int32 Id { get; set; }
-        public String TaxCode { get; set; }
-        public String Tax { get; set; }
-        public Decimal Rate { get; set; }
-        public Int32 AccountId { get; set; }
+        public String Discount { get; set; }
+        public Decimal DiscountRate { get; set; }
         public Boolean IsLocked { get; set; }
         public Int32 CreatedBy { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public Int32 UpdatedBy { get; set; }
-        public DateTime UpdatedDateTime { get; set; }
+        public DateTime UpdatedByDateTime { get; set; }
     }
 }

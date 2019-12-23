@@ -16,6 +16,7 @@ namespace easyfmis.Entities
         public Int32 ColumnSearchInventoryItemUnitId { get; set; }
         public String ColumnSearchInventoryItemUnit { get; set; }
         public String ColumnSearchInventoryItemQuantity { get; set; }
+        public String ColumnSearchInventoryItemPrice { get; set; }
         public String ColumnSearchInventoryItemButtonPick { get; set; }
     }
 }

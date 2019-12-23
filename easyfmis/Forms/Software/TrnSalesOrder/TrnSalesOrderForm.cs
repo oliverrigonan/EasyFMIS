@@ -204,12 +204,12 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             }
         }
 
-        private void dateTimePickerStockOutFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerSalesOrderFilter_ValueChanged(object sender, EventArgs e)
         {
             UpdateSalesOrderDataSource();
         }
 
-        private void textBoxStockOutFilter_KeyDown(object sender, KeyEventArgs e)
+        private void textBoxSalesOrderFilter_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -217,7 +217,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             }
         }
 
-        private void buttonStockOutPageListFirst_Click(object sender, EventArgs e)
+        private void buttonSalesOrderPageListFirst_Click(object sender, EventArgs e)
         {
             salesOrderListPageList = new PagedList<Entities.DgvTrnSalesOrderEntity>(salesOrderListData, 1, pageSize);
             salesOrderListDataSource.DataSource = salesOrderListPageList;
@@ -231,7 +231,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             textBoxSalesOrderPageNumber.Text = pageNumber + " / " + salesOrderListPageList.PageCount;
         }
 
-        private void buttonStockOutPageListPrevious_Click(object sender, EventArgs e)
+        private void buttonSalesOrderPageListPrevious_Click(object sender, EventArgs e)
         {
             if (salesOrderListPageList.HasPreviousPage == true)
             {
@@ -251,7 +251,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             textBoxSalesOrderPageNumber.Text = pageNumber + " / " + salesOrderListPageList.PageCount;
         }
 
-        private void buttonStockOutPageListNext_Click(object sender, EventArgs e)
+        private void buttonSalesOrderPageListNext_Click(object sender, EventArgs e)
         {
             if (salesOrderListPageList.HasNextPage == true)
             {
@@ -271,7 +271,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             textBoxSalesOrderPageNumber.Text = pageNumber + " / " + salesOrderListPageList.PageCount;
         }
 
-        private void buttonStockOutPageListLast_Click(object sender, EventArgs e)
+        private void buttonSalesOrderPageListLast_Click(object sender, EventArgs e)
         {
             salesOrderListPageList = new PagedList<Entities.DgvTrnSalesOrderEntity>(salesOrderListData, salesOrderListPageList.PageCount, pageSize);
             salesOrderListDataSource.DataSource = salesOrderListPageList;

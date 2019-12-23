@@ -8,22 +8,30 @@ namespace easyfmis.Entities
 {
     public class DgvTrnSalesOrderItemEntity
     {
+        public String ColumnTrnSalesOrderItemListButtonEdit { get; set; }
+        public String ColumnTrnSalesOrderItemListButtonDelete { get; set; }
         public Int32 ColumnTrnSalesOrderItemListId { get; set; }
         public Int32 ColumnTrnSalesOrderItemListSOId { get; set; }
         public Int32 ColumnTrnSalesOrderItemListItemId { get; set; }
-        public Int32 ColumnTrnSalesOrderItemListItemInventoryId { get; set; }
+        public String ColumnTrnSalesOrderItemListItemDescription { get; set; }
+        public Int32? ColumnTrnSalesOrderItemListItemInventoryId { get; set; }
+        public String ColumnTrnSalesOrderItemListItemInventoryCode { get; set; }
         public Int32 ColumnTrnSalesOrderItemListUnitId { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListPrice { get; set; }
-        public String ColumnTrnSalesOrderItemListDiscountId { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListDiscountRate { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListDiscountAmount { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListNetPrice { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListQuantity { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListAmount { get; set; }
+        public String ColumnTrnSalesOrderItemListUnit { get; set; }
+        public String ColumnTrnSalesOrderItemListPrice { get; set; }
+        public Int32 ColumnTrnSalesOrderItemListDiscountId { get; set; }
+        public String ColumnTrnSalesOrderItemListDiscount { get; set; }
+        public String ColumnTrnSalesOrderItemListDiscountRate { get; set; }
+        public String ColumnTrnSalesOrderItemListDiscountAmount { get; set; }
+        public String ColumnTrnSalesOrderItemListNetPrice { get; set; }
+        public String ColumnTrnSalesOrderItemListQuantity { get; set; }
+        public String ColumnTrnSalesOrderItemListAmount { get; set; }
         public Int32 ColumnTrnSalesOrderItemListTaxId { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListTaxRate { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListTaxAmount { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListBaseQuantity { get; set; }
-        public Decimal ColumnTrnSalesOrderItemListBasePrice { get; set; }
+        public String ColumnTrnSalesOrderItemListTax { get; set; }
+        public String ColumnTrnSalesOrderItemListTaxRate { get; set; }
+        public String ColumnTrnSalesOrderItemListTaxAmount { get; set; }
+        public String ColumnTrnSalesOrderItemListBaseQuantity { get; set; }
+        public String ColumnTrnSalesOrderItemListBasePrice { get; set; }
+        public String ColumnSalesOrderItemSpace { get; set; }
     }
 }

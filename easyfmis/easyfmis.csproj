@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MstArtciclePriceController.cs" />
     <Compile Include="Controllers\MstArticleComponentController.cs" />
     <Compile Include="Controllers\MstArticleController.cs" />
     <Compile Include="Controllers\MstArticleInventoryController.cs" />
@@ -95,7 +96,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
+    <Compile Include="Entities\DgvSearchNonInventoryItemEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
+    <Compile Include="Entities\DgvSalesOrderItemSearchEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
@@ -117,6 +121,7 @@
     <Compile Include="Entities\DgvSearchItemEntity.cs" />
     <Compile Include="Entities\DgvTrnSalesOrderEntity.cs" />
     <Compile Include="Entities\DgvTrnSalesOrderItemEntity.cs" />
+    <Compile Include="Entities\DgvTrnSalesOrderItemSearchItemDetailPrice.cs" />
     <Compile Include="Entities\DgvUserListEntity.cs" />
     <Compile Include="Entities\MstArticleComponentEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
@@ -127,6 +132,7 @@
     <Compile Include="Entities\MstArticleUnitEntity.cs" />
     <Compile Include="Entities\MstBranchEntity.cs" />
     <Compile Include="Entities\MstCompanyEntity.cs" />
+    <Compile Include="Entities\MstDiscountEntity.cs" />
     <Compile Include="Entities\MstTaxEntity.cs" />
     <Compile Include="Entities\MstTermEntity.cs" />
     <Compile Include="Entities\MstUnitEntity.cs" />
@@ -142,6 +148,7 @@
     <Compile Include="Entities\TrnSalesOrderItemEntity.cs" />
     <Compile Include="Entities\TrnStockInEntity.cs" />
     <Compile Include="Entities\TrnStockInItemEntity.cs" />
+    <Compile Include="Entities\TrnSalesOrderItemSearchEntity.cs" />
     <Compile Include="Entities\TrnStockTransferItemEntity.cs" />
     <Compile Include="Entities\TrnStockTransferEntity.cs" />
     <Compile Include="Entities\TrnStockOutEntity.cs" />
@@ -266,6 +273,12 @@
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailPriceForm.Designer.cs">
+      <DependentUpon>TrnSalesOrderDetailSalesOrderItemDetailPriceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +290,18 @@
     </Compile>
     <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailForm.Designer.cs">
       <DependentUpon>TrnSalesOrderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSearchItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSearchItemForm.Designer.cs">
+      <DependentUpon>TrnSalesOrderDetailSearchItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailForm.Designer.cs">
+      <DependentUpon>TrnSalesOrderDetailSalesOrderItemDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.cs">
       <SubType>Form</SubType>
@@ -424,11 +449,20 @@
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailPriceForm.resx">
+      <DependentUpon>TrnSalesOrderDetailSalesOrderItemDetailPriceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderForm.resx">
       <DependentUpon>TrnSalesOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailForm.resx">
       <DependentUpon>TrnSalesOrderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSearchItemForm.resx">
+      <DependentUpon>TrnSalesOrderDetailSearchItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailForm.resx">
+      <DependentUpon>TrnSalesOrderDetailSalesOrderItemDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.resx">
       <DependentUpon>TrnStockTransferDetailForm.cs</DependentUpon>

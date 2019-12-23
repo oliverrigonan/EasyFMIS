@@ -25,7 +25,9 @@ namespace easyfmis.Controllers
                                      Id = d.Id,
                                      SOId = d.SOId,
                                      ItemId = d.ItemId,
+                                     ItemDescription = d.MstArticle.Article,
                                      ItemInventoryId = d.ItemInventoryId,
+                                     ItemInventoryCode = d.MstArticleInventory.InventoryCode,
                                      UnitId = d.UnitId,
                                      Unit = d.MstUnit.Unit,
                                      Price = d.Price,
@@ -40,7 +42,6 @@ namespace easyfmis.Controllers
                                      TaxAmount = d.TaxAmount,
                                      BaseQuantity = d.BaseQuantity,
                                      BasePrice = d.BasePrice,
-
                                  };
 
             return salesOrderItem.OrderByDescending(d => d.Id).ToList();
@@ -49,7 +50,7 @@ namespace easyfmis.Controllers
         // =========
         // List Item
         // =========
-        public List<Entities.MstArticleEntity> ListItem(String filter)
+        public List<Entities.MstArticleEntity> ListNonInventoryItem(String filter)
         {
             var items = from d in db.MstArticles
                         where d.ArticleTypeId == 1
@@ -57,6 +58,7 @@ namespace easyfmis.Controllers
                         || d.ArticleBarCode.Contains(filter)
                         || d.Article.Contains(filter)
                         || d.Category.Contains(filter))
+                        && d.IsInventory == false
                         && d.IsLocked == true
                         select new Entities.MstArticleEntity
                         {
@@ -71,6 +73,54 @@ namespace easyfmis.Controllers
                         };
 
             return items.OrderBy(d => d.Article).ToList();
+        }
+
+        // =========
+        // List Item
+        // =========
+        public List<Entities.MstArticleInventory> ListInventoryItem(String filter)
+        {
+            var items = from d in db.MstArticleInventories
+                        where (d.InventoryCode.Contains(filter)
+                        || d.MstArticle.ArticleCode.Contains(filter)
+                        || d.MstArticle.ArticleBarCode.Contains(filter)
+                        || d.MstArticle.Article.Contains(filter)
+                        || d.MstArticle.Category.Contains(filter)
+                        || d.MstArticle.MstUnit.Unit.Contains(filter))
+                        && d.MstArticle.IsLocked == true
+                        select new Entities.MstArticleInventory
+                        {
+                            Id = d.Id,
+                            InventoryCode = d.InventoryCode,
+                            ArticleId = d.ArticleId,
+                            ArticleCode = d.MstArticle.ArticleCode,
+                            ArticleBarCode = d.MstArticle.ArticleBarCode,
+                            Article = d.MstArticle.Article,
+                            Category = d.MstArticle.Category,
+                            UnitId = d.MstArticle.UnitId,
+                            Unit = d.MstArticle.MstUnit.Unit,
+                            DefaultPrice = d.MstArticle.DefaultPrice,
+                            Cost = d.Cost1,
+                            Quantity = d.Quantity
+                        };
+
+            return items.OrderBy(d => d.Article).ToList();
+        }
+
+        // ============================
+        // Dropdown List Inventory Code
+        // ============================
+        public List<Entities.MstArticleInventory> DropdownListArticleInventory(Int32 articleId)
+        {
+            var articleInventories = from d in db.MstArticleInventories
+                                     where d.ArticleId == articleId
+                                     select new Entities.MstArticleInventory
+                                     {
+                                         Id = d.Id,
+                                         InventoryCode = d.InventoryCode
+                                     };
+
+            return articleInventories.ToList();
         }
 
         // ==========================
@@ -89,6 +139,58 @@ namespace easyfmis.Controllers
             return articleUnits.ToList();
         }
 
+        // ======================
+        // Dropdown List Discount
+        // ======================
+        public List<Entities.MstDiscountEntity> DropdownListDiscount()
+        {
+            var discounts = from d in db.MstDiscounts
+                            where d.IsLocked == true
+                            select new Entities.MstDiscountEntity
+                            {
+                                Id = d.Id,
+                                Discount = d.Discount,
+                                DiscountRate = d.DiscountRate,
+                            };
+
+            return discounts.ToList();
+        }
+
+        // ======================
+        // Dropdown List Discount
+        // ======================
+        public List<Entities.MstTaxEntity> DropdownListTax()
+        {
+            var taxes = from d in db.MstTaxes
+                            where d.IsLocked == true
+                            select new Entities.MstTaxEntity
+                            {
+                                Id = d.Id,
+                                Tax = d.Tax,
+                                Rate = d.Rate
+                            };
+
+            return taxes.ToList();
+        }
+
+        // ========================
+        // Dropdown Detail Discount
+        // ========================
+        public List<Entities.MstDiscountEntity> DropdownDetailDiscount(Int32 discountId)
+        {
+            var discounts = from d in db.MstDiscounts
+                            where d.Id == discountId
+                            && d.IsLocked == true
+                            select new Entities.MstDiscountEntity
+                            {
+                                Id = d.Id,
+                                Discount = d.Discount,
+                                DiscountRate = d.DiscountRate,
+                            };
+
+            return discounts.ToList();
+        }
+
         // ====================
         // Add Sales Order Item
         // ====================
@@ -97,8 +199,8 @@ namespace easyfmis.Controllers
             try
             {
                 var salesOrderItem = from d in db.TrnSalesOrderItems
-                              where d.Id == objSalesOrderItem.SOId
-                              select d;
+                                     where d.Id == objSalesOrderItem.SOId
+                                     select d;
 
                 if (salesOrderItem.Any() == false)
                 {
@@ -188,14 +290,14 @@ namespace easyfmis.Controllers
             try
             {
                 var salesOrderItem = from d in db.TrnSalesOrderItems
-                                   where d.Id == id
-                                   select d;
+                                     where d.Id == id
+                                     select d;
 
                 if (salesOrderItem.Any())
                 {
                     var salesOrder = from d in db.TrnSalesOrders
-                                   where d.Id == objSalesOrderItem.SOId
-                                   select d;
+                                     where d.Id == objSalesOrderItem.SOId
+                                     select d;
 
                     if (salesOrder.Any() == false)
                     {
@@ -277,7 +379,7 @@ namespace easyfmis.Controllers
             }
         }
 
-        
+
 
         // =======================
         // Delete Sales Order Item
@@ -287,8 +389,8 @@ namespace easyfmis.Controllers
             try
             {
                 var salesOrderItem = from d in db.TrnSalesOrderItems
-                                   where d.Id == id
-                                   select d;
+                                     where d.Id == id
+                                     select d;
 
                 if (salesOrderItem.Any())
                 {
