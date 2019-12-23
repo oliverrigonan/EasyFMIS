@@ -120,6 +120,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSearchInventoryItemQuantity = "0.00",
                                 ColumnSearchInventoryItemPrice = d.DefaultPrice.ToString("#,##0.00"),
                                 ColumnSearchInventoryItemButtonPick = "Pick",
+                                ColumnSearchInventoryItemVATOutTaxId = d.VATOutTaxId,
+                                ColumnSearchInventoryItemVATOutTaxRate = d.VATOutTaxRate.ToString("#,##0.00"),
                                 ColumnSearchInventoryItemSpace = ""
                             };
 
@@ -158,6 +160,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 var unitId = Convert.ToInt32(dataGridViewSearchInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchInventoryItem.Columns["ColumnSearchInventoryItemUnitId"].Index].Value);
                 var unit = dataGridViewSearchInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchInventoryItem.Columns["ColumnSearchInventoryItemUnit"].Index].Value.ToString();
                 var price = Convert.ToDecimal(dataGridViewSearchInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchInventoryItem.Columns["ColumnSearchInventoryItemPrice"].Index].Value);
+                var taxId = Convert.ToInt32(dataGridViewSearchInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchInventoryItem.Columns["ColumnSearchInventoryItemVATOutTaxId"].Index].Value);
+                var taxRate = Convert.ToDecimal(dataGridViewSearchInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchInventoryItem.Columns["ColumnSearchInventoryItemVATOutTaxRate"].Index].Value);
 
                 Entities.TrnSalesInvoiceItemEntity trnSalesInvoiceItemEntity = new Entities.TrnSalesInvoiceItemEntity()
                 {
@@ -167,14 +171,14 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                     ItemInventoryId = itemInventoryId,
                     UnitId = unitId,
                     Price = price,
-                    DiscountId = 0,
+                    DiscountId = 2,
                     DiscountRate = 0,
                     DiscountAmount = 0,
                     NetPrice = price,
                     Quantity = 0,
                     Amount = 0,
-                    TaxId = 0,
-                    TaxRate = 0,
+                    TaxId = taxId,
+                    TaxRate = taxRate,
                     TaxAmount = 0,
                     BaseQuantity = 0,
                     BasePrice = price
@@ -344,6 +348,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSearchNonInventoryItemUnitId = d.UnitId,
                                 ColumnSearchNonInventoryItemUnit = d.Unit,
                                 ColumnSearchNonInventoryItemPrice = d.DefaultPrice.ToString("#,##0.00"),
+                                ColumnSearchNonInventoryVATOutTaxId = d.VATOutTaxId,
+                                ColumnSearchNonInventoryVATOutTaxRate = d.VATOutTaxRate.ToString("#,##0.00"),
                                 ColumnSearchNonInventoryItemButtonPick = "Pick"
                             };
 
@@ -381,6 +387,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 var unitId = Convert.ToInt32(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemUnitId"].Index].Value);
                 var unit = dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemUnit"].Index].Value.ToString();
                 var price = Convert.ToDecimal(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemPrice"].Index].Value);
+                var taxId = Convert.ToInt32(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryVATOutTaxId"].Index].Value);
+                var taxRate = Convert.ToDecimal(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryVATOutTaxRate"].Index].Value);
 
                 Entities.TrnSalesInvoiceItemEntity trnSalesInvoiceItemEntity = new Entities.TrnSalesInvoiceItemEntity()
                 {
@@ -390,14 +398,14 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                     ItemInventoryId = null,
                     UnitId = unitId,
                     Price = price,
-                    DiscountId = 0,
+                    DiscountId = 2,
                     DiscountRate = 0,
                     DiscountAmount = 0,
                     NetPrice = price,
                     Quantity = 0,
                     Amount = 0,
-                    TaxId = 0,
-                    TaxRate = 0,
+                    TaxId = taxId,
+                    TaxRate = taxRate,
                     TaxAmount = 0,
                     BaseQuantity = 0,
                     BasePrice = price

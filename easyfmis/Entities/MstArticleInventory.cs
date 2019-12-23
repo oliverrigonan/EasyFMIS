@@ -20,5 +20,7 @@ namespace easyfmis.Entities
         public Decimal DefaultPrice { get; set; }
         public Decimal Quantity { get; set; }
         public Decimal Cost { get; set; }
+        public Int32 VATOutTaxId { get; set; }
+        public Decimal VATOutTaxRate { get; set; }
     }
 }
