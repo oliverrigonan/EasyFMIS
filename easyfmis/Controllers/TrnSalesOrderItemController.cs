@@ -384,7 +384,7 @@ namespace easyfmis.Controllers
         // =======================
         // Delete Sales Order Item
         // =======================
-        public String[] DeleteStockOutItem(Int32 id)
+        public String[] DeleteSalesOrderItem(Int32 id)
         {
             try
             {

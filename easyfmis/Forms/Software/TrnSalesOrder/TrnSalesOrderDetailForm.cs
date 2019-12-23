@@ -141,7 +141,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             {
                 UpdateComponents(true);
                 trnSalesOrderForm.UpdateSalesOrderDataSource();
-                //UpdateInventoryEntriesDataSource();
             }
             else
             {
@@ -158,8 +157,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             {
                 UpdateComponents(false);
                 trnSalesOrderForm.UpdateSalesOrderDataSource();
-
-                //UpdateInventoryEntriesDataSource();
             }
             else
             {
@@ -302,63 +299,79 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         }
 
-        private void dataGridViewStockOutItem_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewSalesOrderItem_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
                 GetStockOutItemCurrentSelectedCell(e.RowIndex);
             }
 
-            if (e.RowIndex > -1 && dataGridViewSalesOrderItem.CurrentCell.ColumnIndex == dataGridViewSalesOrderItem.Columns["ColumnStockOutItemButtonEdit"].Index)
+            if (e.RowIndex > -1 && dataGridViewSalesOrderItem.CurrentCell.ColumnIndex == dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListButtonEdit"].Index)
             {
-                //var id = Convert.ToInt32(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemId"].Index].Value);
-                //var OTId = Convert.ToInt32(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemOTId"].Index].Value);
-                //var itemId = Convert.ToInt32(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemItemId"].Index].Value);
-                //var itemDescription = dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemItemDescription"].Index].Value.ToString();
-                //var unitId = Convert.ToInt32(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemUnitId"].Index].Value);
-                //var unit = dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemUnit"].Index].Value.ToString();
-                //var itemInventoryId = Convert.ToInt32(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemInventoryId"].Index].Value);
-                //var itemInventoryCode = dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemInventoryCode"].Index].Value.ToString();
-                //var quantity = Convert.ToDecimal(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemQuantity"].Index].Value);
-                //var cost = Convert.ToDecimal(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemCost"].Index].Value);
-                //var amount = Convert.ToDecimal(dataGridViewStockOutItem.Rows[e.RowIndex].Cells[dataGridViewStockOutItem.Columns["ColumnStockOutItemAmount"].Index].Value);
+                var id = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListId"].Index].Value);
+                var sOId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListSOId"].Index].Value);
+                var itemId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemId"].Index].Value);
+                var itemDescription = dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemDescription"].Index].Value.ToString();
+                var itemInventoryId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemInventoryId"].Index].Value);
+                var itemInventoryCode = dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemInventoryCode"].Index].Value.ToString();
+                var unitId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListUnitId"].Index].Value);
+                var unit = dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListUnit"].Index].Value.ToString();
+                var price = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListPrice"].Index].Value);
+                var discountId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListDiscountId"].Index].Value);
+                var discountRate = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListDiscountRate"].Index].Value);
+                var discountAmount = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListDiscountAmount"].Index].Value);
+                var netPrice = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListNetPrice"].Index].Value);
+                var quantity = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListQuantity"].Index].Value);
+                var amount = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListAmount"].Index].Value);
+                var taxId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxId"].Index].Value);
+                var taxRate = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxRate"].Index].Value);
+                var taxAmount = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxAmount"].Index].Value);
 
-                //Entities.TrnSalesOrderItemEntity trnStockOutItemEntity = new Entities.TrnSalesOrderItemEntity()
-                //{
-                //    Id = id,
-                //    OTId = OTId,
-                //    ItemId = itemId,
-                //    ItemDescription = itemDescription,
-                //    UnitId = unitId,
-                //    Unit = unit,
-                //    ItemInventoryId = itemInventoryId,
-                //    ItemInventoryCode = itemInventoryCode,
-                //    Quantity = quantity,
-                //    Cost = cost,
-                //    Amount = amount
-                //};
 
-                //TrnStockOutDetailStockOutItemDetailForm trnStockOutDetailStockOutItemDetailForm = new TrnStockOutDetailStockOutItemDetailForm(this, trnStockOutItemEntity);
-                //trnStockOutDetailStockOutItemDetailForm.ShowDialog();
+
+                Entities.TrnSalesOrderItemEntity trnSalesOrderItemEntity = new Entities.TrnSalesOrderItemEntity()
+                {
+                    Id = id,
+                    SOId = sOId,
+                    ItemId = itemId,
+                    ItemDescription = itemDescription,
+                    ItemInventoryId = itemInventoryId,
+                    UnitId = unitId,
+                    Price = price,
+                    DiscountId = discountId,
+                    DiscountRate = discountRate,
+                    DiscountAmount = discountAmount,
+                    NetPrice = netPrice,
+                    Quantity = quantity,
+                    Amount = amount,
+                    TaxId = taxId,
+                    TaxRate = taxRate,
+                    TaxAmount = taxAmount,
+                    BaseQuantity = 0,
+                    BasePrice = 0
+                };
+
+                TrnSalesOrderDetailSalesOrderItemDetailForm trnSalesOrderDetailSalesOrderItemDetailForm = new TrnSalesOrderDetailSalesOrderItemDetailForm(this, trnSalesOrderItemEntity);
+                trnSalesOrderDetailSalesOrderItemDetailForm.ShowDialog();
             }
 
-            if (e.RowIndex > -1 && dataGridViewSalesOrderItem.CurrentCell.ColumnIndex == dataGridViewSalesOrderItem.Columns["ColumnStockOutItemButtonDelete"].Index)
+            if (e.RowIndex > -1 && dataGridViewSalesOrderItem.CurrentCell.ColumnIndex == dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListButtonDelete"].Index)
             {
                 DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (deleteDialogResult == DialogResult.Yes)
                 {
-                    var id = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnStockOutItemId"].Index].Value);
+                    var id = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListId"].Index].Value);
 
-                    Controllers.TrnStockOutItemController trnStockOutItemController = new Controllers.TrnStockOutItemController();
-                    String[] deleteStockOutItem = trnStockOutItemController.DeleteStockOutItem(id);
-                    if (deleteStockOutItem[1].Equals("0") == false)
+                    Controllers.TrnSalesOrderItemController trnSalesOrderItemController = new Controllers.TrnSalesOrderItemController();
+                    String[] deleteSalesOrderItem = trnSalesOrderItemController.DeleteSalesOrderItem(id);
+                    if (deleteSalesOrderItem[1].Equals("0") == false)
                     {
                         salesOrdertemPageNumber = 1;
                         UpdateSalesOrderItemDataSource();
                     }
                     else
                     {
-                        MessageBox.Show(deleteStockOutItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(deleteSalesOrderItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
