@@ -336,7 +336,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                 var items = from d in listSearchItem
                             select new Entities.DgvSearchNonInventoryItemEntity
                             {
-                                ColumnSearchNonInventoryId = d.Id,
+                                ColumnSearchNonInventoryItemId = d.Id,
                                 ColumnSearchNonInventoryItemBarCode = d.ArticleCode,
                                 ColumnSearchNonInventoryItemDescription = d.Article,
                                 ColumnSearchNonInventoryItemUnitId = d.UnitId,
