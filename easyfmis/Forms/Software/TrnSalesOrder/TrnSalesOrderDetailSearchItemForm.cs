@@ -114,6 +114,8 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                                 ColumnSearchInventoryItemUnit = d.Unit,
                                 ColumnSearchInventoryItemQuantity = d.Quantity.ToString("#,##0.00"),
                                 ColumnSearchInventoryItemPrice = d.DefaultPrice.ToString("#,##0.00"),
+                                ColumnSearchInventoryItemVATOutTaxId = d.VATOutTaxId,
+                                ColumnSearchInventoryItemVATOutTaxRate = d.VATOutTaxRate.ToString("#,##0.00"),
                                 ColumnSearchInventoryItemButtonPick = "Pick"
                             };
 
@@ -151,7 +153,9 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                 var itemInventoryId = Convert.ToInt32(dataGridViewSearchItemInventory.Rows[e.RowIndex].Cells[dataGridViewSearchItemInventory.Columns["ColumnSearchInventoryId"].Index].Value);
                 var unitId = Convert.ToInt32(dataGridViewSearchItemInventory.Rows[e.RowIndex].Cells[dataGridViewSearchItemInventory.Columns["ColumnSearchInventoryItemUnitId"].Index].Value);
                 var unit = dataGridViewSearchItemInventory.Rows[e.RowIndex].Cells[dataGridViewSearchItemInventory.Columns["ColumnSearchInventoryItemUnit"].Index].Value.ToString();
-                var price = dataGridViewSearchItemInventory.Rows[e.RowIndex].Cells[dataGridViewSearchItemInventory.Columns["ColumnSearchInventoryItemPrice"].Index].Value.ToString();
+                var price = Convert.ToDecimal(dataGridViewSearchItemInventory.Rows[e.RowIndex].Cells[dataGridViewSearchItemInventory.Columns["ColumnSearchInventoryItemPrice"].Index].Value);
+                var taxId = Convert.ToInt32(dataGridViewSearchItemInventory.Rows[e.RowIndex].Cells[dataGridViewSearchItemInventory.Columns["ColumnSearchInventoryItemVATOutTaxId"].Index].Value);
+                var taxRate = Convert.ToDecimal(dataGridViewSearchItemInventory.Rows[e.RowIndex].Cells[dataGridViewSearchItemInventory.Columns["ColumnSearchInventoryItemVATOutTaxRate"].Index].Value);
 
                 Entities.TrnSalesOrderItemEntity trnSalesOrderItem = new Entities.TrnSalesOrderItemEntity()
                 {
@@ -160,13 +164,15 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                     ItemInventoryId = itemInventoryId,
                     ItemDescription = itemDescription,
                     UnitId = unitId,
-                    Price = Convert.ToDecimal(price),
+                    Price = price,
+                    DiscountId = 2,
                     DiscountRate = 0,
                     DiscountAmount = 0,
                     NetPrice = 0,
                     Quantity = 0,
                     Amount = 0,
-                    TaxRate = 0,
+                    TaxId = taxId,
+                    TaxRate = taxRate,
                     TaxAmount = 0,
                     BaseQuantity = 0,
                     BasePrice = 0,

@@ -57,7 +57,7 @@
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxStockOutItemItemDescription = new System.Windows.Forms.TextBox();
+            this.textBoxSalesOrderItemItemDescription = new System.Windows.Forms.TextBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -157,7 +157,7 @@
             this.panel2.Controls.Add(this.textBoxAmount);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBoxStockOutItemItemDescription);
+            this.panel2.Controls.Add(this.textBoxSalesOrderItemItemDescription);
             this.panel2.Controls.Add(this.textBoxQuantity);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -388,20 +388,20 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Quantity:";
             // 
-            // textBoxStockOutItemItemDescription
+            // textBoxSalesOrderItemItemDescription
             // 
-            this.textBoxStockOutItemItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxSalesOrderItemItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxStockOutItemItemDescription.BackColor = System.Drawing.Color.White;
-            this.textBoxStockOutItemItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStockOutItemItemDescription.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.textBoxStockOutItemItemDescription.Location = new System.Drawing.Point(12, 6);
-            this.textBoxStockOutItemItemDescription.Name = "textBoxStockOutItemItemDescription";
-            this.textBoxStockOutItemItemDescription.ReadOnly = true;
-            this.textBoxStockOutItemItemDescription.Size = new System.Drawing.Size(563, 32);
-            this.textBoxStockOutItemItemDescription.TabIndex = 12;
-            this.textBoxStockOutItemItemDescription.TabStop = false;
-            this.textBoxStockOutItemItemDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxSalesOrderItemItemDescription.BackColor = System.Drawing.Color.White;
+            this.textBoxSalesOrderItemItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSalesOrderItemItemDescription.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.textBoxSalesOrderItemItemDescription.Location = new System.Drawing.Point(12, 6);
+            this.textBoxSalesOrderItemItemDescription.Name = "textBoxSalesOrderItemItemDescription";
+            this.textBoxSalesOrderItemItemDescription.ReadOnly = true;
+            this.textBoxSalesOrderItemItemDescription.Size = new System.Drawing.Size(563, 32);
+            this.textBoxSalesOrderItemItemDescription.TabIndex = 12;
+            this.textBoxSalesOrderItemItemDescription.TabStop = false;
+            this.textBoxSalesOrderItemItemDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxQuantity
             // 
@@ -455,7 +455,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxStockOutItemItemDescription;
+        private System.Windows.Forms.TextBox textBoxSalesOrderItemItemDescription;
         private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxAmount;

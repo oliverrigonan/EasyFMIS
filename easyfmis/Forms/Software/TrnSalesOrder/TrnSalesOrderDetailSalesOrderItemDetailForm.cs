@@ -61,25 +61,16 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         public void GetInventoryCode()
         {
-            if (trnSalesOrderItemEntity.ItemInventoryId != null)
-            {
-                Controllers.TrnSalesOrderItemController trnSalesOrderItemController = new Controllers.TrnSalesOrderItemController();
-                var inventoryCode = trnSalesOrderItemController.DropdownListArticleInventory(trnSalesOrderItemEntity.ItemId);
-                if (inventoryCode.Any())
-                {
-                    comboBoxInventoryCode.DataSource = inventoryCode;
-                    comboBoxInventoryCode.ValueMember = "Id";
-                    comboBoxInventoryCode.DisplayMember = "InventoryCode";
-                    GetDiscountList();
 
-                }
-            }
-            else
+            Controllers.TrnSalesOrderItemController trnSalesOrderItemController = new Controllers.TrnSalesOrderItemController();
+            var inventoryCode = trnSalesOrderItemController.DropdownListArticleInventory(trnSalesOrderItemEntity.ItemId);
+            if (inventoryCode.Any())
             {
-                comboBoxInventoryCode.Enabled = false;
-                GetDiscountList();
+                comboBoxInventoryCode.DataSource = inventoryCode;
+                comboBoxInventoryCode.ValueMember = "Id";
+                comboBoxInventoryCode.DisplayMember = "InventoryCode";
             }
-
+            GetDiscountList();
         }
 
         public void GetDiscountList()
@@ -91,26 +82,8 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                 comboBoxDiscount.DataSource = discount;
                 comboBoxDiscount.ValueMember = "Id";
                 comboBoxDiscount.DisplayMember = "Discount";
-
-                GetTaxList();
             }
-            else
-            {
-                List<Entities.MstDiscountEntity> tax = new List<Entities.MstDiscountEntity>
-                {
-                    new Entities.MstDiscountEntity()
-                    {
-                        Id = trnSalesOrderItemEntity.DiscountId,
-                        Discount = trnSalesOrderItemEntity.Discount
-                    }
-                };
-
-                comboBoxDiscount.DataSource = tax;
-                comboBoxDiscount.ValueMember = "Id";
-                comboBoxDiscount.DisplayMember = "Discount";
-
-                GetTaxList();
-            }
+            GetTaxList();
         }
 
         public void GetTaxList()
@@ -122,25 +95,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                 comboBoxTax.DataSource = taxes;
                 comboBoxTax.ValueMember = "Id";
                 comboBoxTax.DisplayMember = "Tax";
-
-                GetSalesOrderItemItemDetail();
-            }
-            else
-            {
-                List<Entities.MstTaxEntity> tax = new List<Entities.MstTaxEntity>
-                {
-                    new Entities.MstTaxEntity()
-                    {
-                        Id = trnSalesOrderItemEntity.TaxId,
-                        Tax = trnSalesOrderItemEntity.Tax
-                    }
-                };
-
-                comboBoxTax.DataSource = tax;
-                comboBoxTax.ValueMember = "Id";
-                comboBoxTax.DisplayMember = "Tax";
-
-                GetInventoryCode();
             }
 
             GetSalesOrderItemItemDetail();
@@ -149,19 +103,24 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         public void GetSalesOrderItemItemDetail()
         {
-            textBoxQuantity.Text = trnSalesOrderItemEntity.Quantity.ToString("#,##0.00");
-            comboBoxInventoryCode.SelectedValue = trnSalesOrderItemEntity.ItemInventoryId;
-            comboBoxUnit.SelectedValue = trnSalesOrderItemEntity.UnitId;
-            textBoxDiscountRate.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
-            textBoxDiscountAmount.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
-            textBoxNetPrice.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
-            textBoxAmount.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
-            comboBoxTax.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
-            textBoxTaxRate.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
-            textBoxTaxAmount.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
-            textBoxPrice.Text = trnSalesOrderItemEntity.Price.ToString("#,##0.00");
 
-            ComputeAmount();
+            textBoxQuantity.Text = trnSalesOrderItemEntity.Quantity.ToString("#,##0.00");
+            textBoxSalesOrderItemItemDescription.Text = trnSalesOrderItemEntity.ItemDescription;
+            if (trnSalesOrderItemEntity.ItemInventoryId != null)
+            {
+                comboBoxInventoryCode.SelectedValue = trnSalesOrderItemEntity.ItemInventoryId;
+            }
+
+            comboBoxUnit.SelectedValue = trnSalesOrderItemEntity.UnitId;
+            comboBoxDiscount.SelectedValue = trnSalesOrderItemEntity.DiscountId;
+            textBoxDiscountRate.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
+            textBoxDiscountAmount.Text = trnSalesOrderItemEntity.DiscountAmount.ToString("#,##0.00");
+            textBoxNetPrice.Text = trnSalesOrderItemEntity.DiscountRate.ToString("#,##0.00");
+            textBoxAmount.Text = trnSalesOrderItemEntity.NetPrice.ToString("#,##0.00");
+            comboBoxTax.Text = trnSalesOrderItemEntity.TaxId.ToString("#,##0.00");
+            textBoxTaxRate.Text = trnSalesOrderItemEntity.TaxRate.ToString("#,##0.00");
+            textBoxTaxAmount.Text = trnSalesOrderItemEntity.TaxAmount.ToString("#,##0.00");
+            textBoxPrice.Text = trnSalesOrderItemEntity.Price.ToString("#,##0.00");
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -242,13 +201,16 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             textBoxPrice.Text = price.ToString("#,##0.00");
         }
 
+        private void textBoxPrice_Click(object sender, EventArgs e)
+        {
+            TrnSalesOrderDetailSalesOrderItemDetailPriceForm trnSalesOrderDetailSalesOrderItemDetailPriceForm = new TrnSalesOrderDetailSalesOrderItemDetailPriceForm(this, trnSalesOrderItemEntity);
+            trnSalesOrderDetailSalesOrderItemDetailPriceForm.ShowDialog();
+        }
+
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-
-
 
         public void ComputeAmount()
         {
@@ -331,29 +293,66 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         public void DefaultZeroEmptyString()
         {
-            if (String.IsNullOrEmpty(textBoxDiscountRate.Text))
+
+            if (String.IsNullOrEmpty(textBoxQuantity.Text))
             {
-                textBoxQuantity.Text = "0.00";
+                textBoxQuantity.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
+            }
+
+            if (String.IsNullOrEmpty(textBoxPrice.Text))
+            {
+                textBoxPrice.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
             }
 
             if (String.IsNullOrEmpty(textBoxDiscountRate.Text))
             {
-                textBoxDiscountRate.Text = "0.00";
+                textBoxDiscountRate.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
             }
 
             if (String.IsNullOrEmpty(textBoxDiscountAmount.Text))
             {
-                textBoxDiscountAmount.Text = "0.00";
+                textBoxDiscountAmount.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
+            }
+
+            if (String.IsNullOrEmpty(textBoxNetPrice.Text))
+            {
+                textBoxDiscountAmount.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
+            }
+
+            if (String.IsNullOrEmpty(textBoxAmount.Text))
+            {
+                textBoxDiscountAmount.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
+            }
+
+            if (String.IsNullOrEmpty(textBoxTaxRate.Text))
+            {
+                textBoxDiscountAmount.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
+            }
+
+            if (String.IsNullOrEmpty(textBoxTaxAmount.Text))
+            {
+                textBoxDiscountAmount.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
             }
         }
 
-
-        private void textBoxPrice_Click(object sender, EventArgs e)
+        private void textBoxDiscountRate_Leave(object sender, EventArgs e)
         {
-            TrnSalesOrderDetailSalesOrderItemDetailPriceForm trnSalesOrderDetailSalesOrderItemDetailPriceForm = new TrnSalesOrderDetailSalesOrderItemDetailPriceForm(this, trnSalesOrderItemEntity);
-            trnSalesOrderDetailSalesOrderItemDetailPriceForm.ShowDialog();
+            DefaultZeroEmptyString();
+            ComputeAmount();
         }
 
+        private void textBoxDiscountAmount_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+            ComputeDiscountRate();
+        }
+
+        private void textBoxItemQuantity_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+            ComputeAmount();
+
+        }
 
         private void comboBoxDiscount_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -380,7 +379,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             var selectedItemTax = (Entities.MstTaxEntity)comboBoxTax.SelectedItem;
             if (selectedItemTax != null)
             {
-                textBoxDiscountRate.Text = selectedItemTax.Rate.ToString("#,##0.00");
+                textBoxTaxRate.Text = selectedItemTax.Rate.ToString("#,##0.00");
                 ComputeAmount();
             }
         }
@@ -437,25 +436,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             {
                 e.Handled = true;
             }
-        }
-
-        private void textBoxDiscountRate_Leave(object sender, EventArgs e)
-        {
-            DefaultZeroEmptyString();
-            ComputeAmount();
-        }
-
-        private void textBoxDiscountAmount_Leave(object sender, EventArgs e)
-        {
-            DefaultZeroEmptyString();
-            ComputeDiscountRate();
-        }
-
-        private void textBoxItemQuantity_Leave(object sender, EventArgs e)
-        {
-            DefaultZeroEmptyString();
-            ComputeAmount();
-
         }
 
     }

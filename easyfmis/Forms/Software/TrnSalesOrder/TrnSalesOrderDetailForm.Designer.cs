@@ -72,10 +72,6 @@
             this.textBoxSalesOrderItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewSalesOrderItem = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.ColumnTrnSalesOrderItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTrnSalesOrderItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTrnSalesOrderItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +97,10 @@
             this.ColumnTrnSalesOrderItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalesOrderItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -594,50 +594,7 @@
             this.dataGridViewSalesOrderItem.Size = new System.Drawing.Size(1376, 253);
             this.dataGridViewSalesOrderItem.TabIndex = 1;
             this.dataGridViewSalesOrderItem.TabStop = false;
-            this.dataGridViewSalesOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockOutItem_CellClick);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewSalesOrderItem);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Sales Order Items";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
+            this.dataGridViewSalesOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalesOrderItem_CellClick);
             // 
             // ColumnTrnSalesOrderItemListButtonEdit
             // 
@@ -846,6 +803,49 @@
             this.ColumnSalesOrderItemSpace.HeaderText = "";
             this.ColumnSalesOrderItemSpace.Name = "ColumnSalesOrderItemSpace";
             this.ColumnSalesOrderItemSpace.ReadOnly = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewSalesOrderItem);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Sales Order Items";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // TrnSalesOrderDetailForm
             // 
