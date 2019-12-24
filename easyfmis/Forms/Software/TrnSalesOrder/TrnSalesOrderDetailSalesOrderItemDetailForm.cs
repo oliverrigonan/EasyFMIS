@@ -121,6 +121,8 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             textBoxTaxRate.Text = trnSalesOrderItemEntity.TaxRate.ToString("#,##0.00");
             textBoxTaxAmount.Text = trnSalesOrderItemEntity.TaxAmount.ToString("#,##0.00");
             textBoxPrice.Text = trnSalesOrderItemEntity.Price.ToString("#,##0.00");
+
+            ComputeAmount();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

@@ -125,9 +125,9 @@ namespace easyfmis.Controllers
             return customers.ToList();
         }
 
-        // ========================
-        // Dropdown List - Customer
-        // ========================
+        // ====================
+        // Dropdown List - Term
+        // ====================
         public List<Entities.MstTermEntity> DropdownListSalesOrderTerm()
         {
             var terms = from d in db.MstTerms

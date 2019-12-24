@@ -83,6 +83,8 @@
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
+    <Compile Include="Controllers\TrnPurchaseOrderController.cs" />
+    <Compile Include="Controllers\TrnPurchaseOrderItemController.cs" />
     <Compile Include="Controllers\TrnSalesOrderController.cs" />
     <Compile Include="Controllers\TrnSalesOrderItemController.cs" />
     <Compile Include="Controllers\TrnStockInController.cs" />
@@ -99,6 +101,7 @@
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
+    <Compile Include="Entities\DgvPurchaseOrderEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceItemEntity.cs" />
@@ -147,6 +150,8 @@
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
+    <Compile Include="Entities\TrnPurchaseOrderEntity.cs" />
+    <Compile Include="Entities\TrnPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\TrnSalesInvoiceEntity.cs" />
     <Compile Include="Entities\TrnSalesInvoiceItemEntity.cs" />
     <Compile Include="Entities\TrnSalesOrderEntity.cs" />
@@ -587,6 +592,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Forms\Software\TrnPurchaseOrder\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
