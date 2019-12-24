@@ -107,6 +107,7 @@ namespace easyfmis.Modules
                                 QuantityOut = 0,
                                 Quantity = stockInItem.BaseQuantity,
                                 Amount = stockInItem.BaseCost * stockInItem.BaseQuantity,
+                                RRId = null,
                                 SIId = null,
                                 INId = INId,
                                 OTId = null,
@@ -206,6 +207,7 @@ namespace easyfmis.Modules
                                 QuantityOut = stockOutItem.BaseQuantity,
                                 Quantity = stockOutItem.BaseQuantity * -1,
                                 Amount = stockOutItem.BaseCost * (stockOutItem.BaseQuantity * -1),
+                                RRId = null,
                                 SIId = null,
                                 INId = null,
                                 OTId = OTId,
@@ -305,6 +307,7 @@ namespace easyfmis.Modules
                                 QuantityOut = stockTransferItem.BaseQuantity,
                                 Quantity = stockTransferItem.BaseQuantity * -1,
                                 Amount = stockTransferItem.BaseCost * (stockTransferItem.BaseQuantity * -1),
+                                RRId = null,
                                 SIId = null,
                                 INId = null,
                                 OTId = null,
@@ -324,6 +327,7 @@ namespace easyfmis.Modules
                                 QuantityOut = 0,
                                 Quantity = stockTransferItem.BaseQuantity,
                                 Amount = stockTransferItem.BaseCost * stockTransferItem.BaseQuantity,
+                                RRId = null,
                                 SIId = null,
                                 INId = null,
                                 OTId = null,
@@ -423,6 +427,7 @@ namespace easyfmis.Modules
                                 QuantityOut = salesInvoiceItem.BaseQuantity,
                                 Quantity = salesInvoiceItem.BaseQuantity * -1,
                                 Amount = salesInvoiceItem.BasePrice * (salesInvoiceItem.BaseQuantity * -1),
+                                RRId = null,
                                 SIId = SIId,
                                 INId = null,
                                 OTId = null,
@@ -446,12 +451,12 @@ namespace easyfmis.Modules
         // ================================
         // Delete Inventory - Sales Invoice
         // ================================
-        public void DeleteInventorySalesInvoice(Int32 STId)
+        public void DeleteInventorySalesInvoice(Int32 SIId)
         {
             try
             {
                 var inventories = from d in db.TrnInventories
-                                  where d.STId == STId
+                                  where d.SIId == SIId
                                   select d;
 
                 if (inventories.Any())
@@ -480,6 +485,125 @@ namespace easyfmis.Modules
             catch (Exception ex)
             {
                 throw new Exception("Delete Sales Invoice Inventory Error: " + ex.Message);
+            }
+        }
+
+        // ====================================
+        // Insert Inventory - Receiving Receipt
+        // ====================================
+        public void InsertInventoryReceivingReceipt(Int32 RRId)
+        {
+            try
+            {
+                var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                            where d.RRId == RRId
+                                            && d.TrnReceivingReceipt.IsLocked == true
+                                            select d;
+
+                if (receivingReceiptItems.Any())
+                {
+                    foreach (var receivingReceiptItem in receivingReceiptItems)
+                    {
+                        Int32 articleInventoryId = 0;
+
+                        var articleInventories = from d in db.MstArticleInventories
+                                                 where d.ArticleId == receivingReceiptItem.ItemId
+                                                 && d.BranchId == receivingReceiptItem.TrnReceivingReceipt.BranchId
+                                                 select d;
+
+                        if (articleInventories.Any())
+                        {
+                            articleInventoryId = articleInventories.FirstOrDefault().Id;
+                        }
+                        else
+                        {
+                            String inventoryCode = "RR-" + receivingReceiptItem.TrnReceivingReceipt.MstBranch.BranchCode + "-" + receivingReceiptItem.TrnReceivingReceipt.RRNumber;
+
+                            Data.MstArticleInventory newArticleInventory = new Data.MstArticleInventory()
+                            {
+                                BranchId = receivingReceiptItem.TrnReceivingReceipt.BranchId,
+                                InventoryCode = inventoryCode,
+                                ArticleId = receivingReceiptItem.ItemId,
+                                Quantity = receivingReceiptItem.BaseQuantity,
+                                Cost1 = receivingReceiptItem.BaseCost
+                            };
+
+                            db.MstArticleInventories.InsertOnSubmit(newArticleInventory);
+                            db.SubmitChanges();
+
+                            articleInventoryId = newArticleInventory.Id;
+                        }
+
+                        if (articleInventoryId != 0)
+                        {
+                            Data.TrnInventory newInventory = new Data.TrnInventory()
+                            {
+                                BranchId = receivingReceiptItem.TrnReceivingReceipt.BranchId,
+                                InventoryDate = receivingReceiptItem.TrnReceivingReceipt.RRDate,
+                                ItemId = receivingReceiptItem.ItemId,
+                                ItemInventoryId = articleInventoryId,
+                                QuantityIn = receivingReceiptItem.BaseQuantity,
+                                QuantityOut = 0,
+                                Quantity = receivingReceiptItem.BaseQuantity,
+                                Amount = receivingReceiptItem.BaseCost * receivingReceiptItem.BaseQuantity,
+                                RRId = RRId,
+                                SIId = null,
+                                INId = null,
+                                OTId = null,
+                                STId = null,
+                            };
+
+                            db.TrnInventories.InsertOnSubmit(newInventory);
+                            db.SubmitChanges();
+
+                            UpdateArticleInventory(articleInventoryId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Insert Receiving Receipt Inventory Error: " + ex.Message);
+            }
+        }
+
+        // ====================================
+        // Delete Inventory - Receiving Receipt
+        // ====================================
+        public void DeleteInventoryReceivingReceipt(Int32 RRId)
+        {
+            try
+            {
+                var inventories = from d in db.TrnInventories
+                                  where d.RRId == RRId
+                                  select d;
+
+                if (inventories.Any())
+                {
+                    List<Int32> articleInventoryIds = new List<Int32>();
+                    foreach (var inventory in inventories)
+                    {
+                        if (articleInventoryIds.Contains(inventory.ItemInventoryId) == false)
+                        {
+                            articleInventoryIds.Add(inventory.ItemInventoryId);
+                        }
+                    }
+
+                    db.TrnInventories.DeleteAllOnSubmit(inventories);
+                    db.SubmitChanges();
+
+                    if (articleInventoryIds.Any())
+                    {
+                        foreach (var articleInventoryId in articleInventoryIds)
+                        {
+                            UpdateArticleInventory(articleInventoryId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Delete Receiving Receipt Inventory Error: " + ex.Message);
             }
         }
     }

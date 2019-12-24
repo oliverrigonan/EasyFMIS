@@ -83,6 +83,8 @@
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
+    <Compile Include="Controllers\TrnReceivingReceiptController.cs" />
+    <Compile Include="Controllers\TrnReceivingReceiptItemController.cs" />
     <Compile Include="Controllers\TrnPurchaseOrderController.cs" />
     <Compile Include="Controllers\TrnPurchaseOrderItemController.cs" />
     <Compile Include="Controllers\TrnSalesOrderController.cs" />
@@ -101,6 +103,7 @@
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
+    <Compile Include="Entities\DgvReceivingReceiptEntity.cs" />
     <Compile Include="Entities\DgvPurchaseOrderEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceEntity.cs" />
@@ -150,6 +153,8 @@
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
+    <Compile Include="Entities\TrnReceivingReceiptEntity.cs" />
+    <Compile Include="Entities\TrnReceivingReceiptItemEntity.cs" />
     <Compile Include="Entities\TrnPurchaseOrderEntity.cs" />
     <Compile Include="Entities\TrnPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\TrnSalesInvoiceEntity.cs" />
@@ -282,6 +287,12 @@
     </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.Designer.cs">
+      <DependentUpon>TrnReceivingReceiptForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceForm.cs">
       <SubType>Form</SubType>
@@ -488,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.resx">
+      <DependentUpon>TrnReceivingReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceForm.resx">
       <DependentUpon>TrnSalesInvoiceForm.cs</DependentUpon>

@@ -96,12 +96,30 @@ namespace easyfmis.Data
     partial void InsertTrnCollectionLine(TrnCollectionLine instance);
     partial void UpdateTrnCollectionLine(TrnCollectionLine instance);
     partial void DeleteTrnCollectionLine(TrnCollectionLine instance);
+    partial void InsertTrnDisbursement(TrnDisbursement instance);
+    partial void UpdateTrnDisbursement(TrnDisbursement instance);
+    partial void DeleteTrnDisbursement(TrnDisbursement instance);
+    partial void InsertTrnDisbursementLine(TrnDisbursementLine instance);
+    partial void UpdateTrnDisbursementLine(TrnDisbursementLine instance);
+    partial void DeleteTrnDisbursementLine(TrnDisbursementLine instance);
     partial void InsertTrnInventory(TrnInventory instance);
     partial void UpdateTrnInventory(TrnInventory instance);
     partial void DeleteTrnInventory(TrnInventory instance);
     partial void InsertTrnJournal(TrnJournal instance);
     partial void UpdateTrnJournal(TrnJournal instance);
     partial void DeleteTrnJournal(TrnJournal instance);
+    partial void InsertTrnPurchaseOrder(TrnPurchaseOrder instance);
+    partial void UpdateTrnPurchaseOrder(TrnPurchaseOrder instance);
+    partial void DeleteTrnPurchaseOrder(TrnPurchaseOrder instance);
+    partial void InsertTrnPurchaseOrderItem(TrnPurchaseOrderItem instance);
+    partial void UpdateTrnPurchaseOrderItem(TrnPurchaseOrderItem instance);
+    partial void DeleteTrnPurchaseOrderItem(TrnPurchaseOrderItem instance);
+    partial void InsertTrnReceivingReceipt(TrnReceivingReceipt instance);
+    partial void UpdateTrnReceivingReceipt(TrnReceivingReceipt instance);
+    partial void DeleteTrnReceivingReceipt(TrnReceivingReceipt instance);
+    partial void InsertTrnReceivingReceiptItem(TrnReceivingReceiptItem instance);
+    partial void UpdateTrnReceivingReceiptItem(TrnReceivingReceiptItem instance);
+    partial void DeleteTrnReceivingReceiptItem(TrnReceivingReceiptItem instance);
     partial void InsertTrnSalesInvoice(TrnSalesInvoice instance);
     partial void UpdateTrnSalesInvoice(TrnSalesInvoice instance);
     partial void DeleteTrnSalesInvoice(TrnSalesInvoice instance);
@@ -337,6 +355,22 @@ namespace easyfmis.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<TrnDisbursement> TrnDisbursements
+		{
+			get
+			{
+				return this.GetTable<TrnDisbursement>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TrnDisbursementLine> TrnDisbursementLines
+		{
+			get
+			{
+				return this.GetTable<TrnDisbursementLine>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TrnInventory> TrnInventories
 		{
 			get
@@ -350,6 +384,38 @@ namespace easyfmis.Data
 			get
 			{
 				return this.GetTable<TrnJournal>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TrnPurchaseOrder> TrnPurchaseOrders
+		{
+			get
+			{
+				return this.GetTable<TrnPurchaseOrder>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TrnPurchaseOrderItem> TrnPurchaseOrderItems
+		{
+			get
+			{
+				return this.GetTable<TrnPurchaseOrderItem>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TrnReceivingReceipt> TrnReceivingReceipts
+		{
+			get
+			{
+				return this.GetTable<TrnReceivingReceipt>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this.GetTable<TrnReceivingReceiptItem>();
 			}
 		}
 		
@@ -456,6 +522,8 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnCollectionLine> _TrnCollectionLines;
 		
+		private EntitySet<TrnDisbursementLine> _TrnDisbursementLines;
+		
 		private EntitySet<TrnJournal> _TrnJournals;
 		
 		private EntityRef<MstAccountType> _MstAccountType;
@@ -493,6 +561,7 @@ namespace easyfmis.Data
 			this._MstPayTypes = new EntitySet<MstPayType>(new Action<MstPayType>(this.attach_MstPayTypes), new Action<MstPayType>(this.detach_MstPayTypes));
 			this._MstTaxes = new EntitySet<MstTax>(new Action<MstTax>(this.attach_MstTaxes), new Action<MstTax>(this.detach_MstTaxes));
 			this._TrnCollectionLines = new EntitySet<TrnCollectionLine>(new Action<TrnCollectionLine>(this.attach_TrnCollectionLines), new Action<TrnCollectionLine>(this.detach_TrnCollectionLines));
+			this._TrnDisbursementLines = new EntitySet<TrnDisbursementLine>(new Action<TrnDisbursementLine>(this.attach_TrnDisbursementLines), new Action<TrnDisbursementLine>(this.detach_TrnDisbursementLines));
 			this._TrnJournals = new EntitySet<TrnJournal>(new Action<TrnJournal>(this.attach_TrnJournals), new Action<TrnJournal>(this.detach_TrnJournals));
 			this._MstAccountType = default(EntityRef<MstAccountType>);
 			this._MstUser = default(EntityRef<MstUser>);
@@ -731,6 +800,19 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstAccount_TrnDisbursementLine", Storage="_TrnDisbursementLines", ThisKey="Id", OtherKey="AccountId")]
+		public EntitySet<TrnDisbursementLine> TrnDisbursementLines
+		{
+			get
+			{
+				return this._TrnDisbursementLines;
+			}
+			set
+			{
+				this._TrnDisbursementLines.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstAccount_TrnJournal", Storage="_TrnJournals", ThisKey="Id", OtherKey="AccountId")]
 		public EntitySet<TrnJournal> TrnJournals
 		{
@@ -897,6 +979,18 @@ namespace easyfmis.Data
 		}
 		
 		private void detach_TrnCollectionLines(TrnCollectionLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstAccount = null;
+		}
+		
+		private void attach_TrnDisbursementLines(TrnDisbursementLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstAccount = this;
+		}
+		
+		private void detach_TrnDisbursementLines(TrnDisbursementLine entity)
 		{
 			this.SendPropertyChanging();
 			entity.MstAccount = null;
@@ -2176,7 +2270,19 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnCollection> _TrnCollections;
 		
+		private EntitySet<TrnDisbursement> _TrnDisbursements;
+		
+		private EntitySet<TrnDisbursement> _TrnDisbursements1;
+		
 		private EntitySet<TrnInventory> _TrnInventories;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders;
+		
+		private EntitySet<TrnPurchaseOrderItem> _TrnPurchaseOrderItems;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts;
+		
+		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
 		
 		private EntitySet<TrnSalesInvoice> _TrnSalesInvoices;
 		
@@ -2271,7 +2377,13 @@ namespace easyfmis.Data
 			this._MstArticlePrices = new EntitySet<MstArticlePrice>(new Action<MstArticlePrice>(this.attach_MstArticlePrices), new Action<MstArticlePrice>(this.detach_MstArticlePrices));
 			this._MstArticleUnits = new EntitySet<MstArticleUnit>(new Action<MstArticleUnit>(this.attach_MstArticleUnits), new Action<MstArticleUnit>(this.detach_MstArticleUnits));
 			this._TrnCollections = new EntitySet<TrnCollection>(new Action<TrnCollection>(this.attach_TrnCollections), new Action<TrnCollection>(this.detach_TrnCollections));
+			this._TrnDisbursements = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements), new Action<TrnDisbursement>(this.detach_TrnDisbursements));
+			this._TrnDisbursements1 = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements1), new Action<TrnDisbursement>(this.detach_TrnDisbursements1));
 			this._TrnInventories = new EntitySet<TrnInventory>(new Action<TrnInventory>(this.attach_TrnInventories), new Action<TrnInventory>(this.detach_TrnInventories));
+			this._TrnPurchaseOrders = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders));
+			this._TrnPurchaseOrderItems = new EntitySet<TrnPurchaseOrderItem>(new Action<TrnPurchaseOrderItem>(this.attach_TrnPurchaseOrderItems), new Action<TrnPurchaseOrderItem>(this.detach_TrnPurchaseOrderItems));
+			this._TrnReceivingReceipts = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts));
+			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
 			this._TrnSalesInvoices = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices));
 			this._TrnSalesInvoiceItems = new EntitySet<TrnSalesInvoiceItem>(new Action<TrnSalesInvoiceItem>(this.attach_TrnSalesInvoiceItems), new Action<TrnSalesInvoiceItem>(this.detach_TrnSalesInvoiceItems));
 			this._TrnSalesOrders = new EntitySet<TrnSalesOrder>(new Action<TrnSalesOrder>(this.attach_TrnSalesOrders), new Action<TrnSalesOrder>(this.detach_TrnSalesOrders));
@@ -2942,6 +3054,32 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnDisbursement", Storage="_TrnDisbursements", ThisKey="Id", OtherKey="SupplierId")]
+		public EntitySet<TrnDisbursement> TrnDisbursements
+		{
+			get
+			{
+				return this._TrnDisbursements;
+			}
+			set
+			{
+				this._TrnDisbursements.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnDisbursement1", Storage="_TrnDisbursements1", ThisKey="Id", OtherKey="BankId")]
+		public EntitySet<TrnDisbursement> TrnDisbursements1
+		{
+			get
+			{
+				return this._TrnDisbursements1;
+			}
+			set
+			{
+				this._TrnDisbursements1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnInventory", Storage="_TrnInventories", ThisKey="Id", OtherKey="ItemId")]
 		public EntitySet<TrnInventory> TrnInventories
 		{
@@ -2952,6 +3090,58 @@ namespace easyfmis.Data
 			set
 			{
 				this._TrnInventories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnPurchaseOrder", Storage="_TrnPurchaseOrders", ThisKey="Id", OtherKey="SupplierId")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders
+		{
+			get
+			{
+				return this._TrnPurchaseOrders;
+			}
+			set
+			{
+				this._TrnPurchaseOrders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnPurchaseOrderItem", Storage="_TrnPurchaseOrderItems", ThisKey="Id", OtherKey="ItemId")]
+		public EntitySet<TrnPurchaseOrderItem> TrnPurchaseOrderItems
+		{
+			get
+			{
+				return this._TrnPurchaseOrderItems;
+			}
+			set
+			{
+				this._TrnPurchaseOrderItems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnReceivingReceipt", Storage="_TrnReceivingReceipts", ThisKey="Id", OtherKey="SupplierId")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts
+		{
+			get
+			{
+				return this._TrnReceivingReceipts;
+			}
+			set
+			{
+				this._TrnReceivingReceipts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="ItemId")]
+		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this._TrnReceivingReceiptItems;
+			}
+			set
+			{
+				this._TrnReceivingReceiptItems.Assign(value);
 			}
 		}
 		
@@ -3341,6 +3531,30 @@ namespace easyfmis.Data
 			entity.MstArticle = null;
 		}
 		
+		private void attach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = this;
+		}
+		
+		private void detach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = null;
+		}
+		
+		private void attach_TrnDisbursements1(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle1 = this;
+		}
+		
+		private void detach_TrnDisbursements1(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle1 = null;
+		}
+		
 		private void attach_TrnInventories(TrnInventory entity)
 		{
 			this.SendPropertyChanging();
@@ -3348,6 +3562,54 @@ namespace easyfmis.Data
 		}
 		
 		private void detach_TrnInventories(TrnInventory entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = null;
+		}
+		
+		private void attach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = this;
+		}
+		
+		private void detach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = null;
+		}
+		
+		private void attach_TrnPurchaseOrderItems(TrnPurchaseOrderItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = this;
+		}
+		
+		private void detach_TrnPurchaseOrderItems(TrnPurchaseOrderItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = null;
+		}
+		
+		private void attach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = this;
+		}
+		
+		private void detach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = null;
+		}
+		
+		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = this;
+		}
+		
+		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
 		{
 			this.SendPropertyChanging();
 			entity.MstArticle = null;
@@ -4804,9 +5066,17 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnCollection> _TrnCollections;
 		
+		private EntitySet<TrnDisbursement> _TrnDisbursements;
+		
 		private EntitySet<TrnInventory> _TrnInventories;
 		
 		private EntitySet<TrnJournal> _TrnJournals;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts;
+		
+		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
 		
 		private EntitySet<TrnSalesInvoice> _TrnSalesInvoices;
 		
@@ -4841,8 +5111,12 @@ namespace easyfmis.Data
 			this._MstArticleInventories = new EntitySet<MstArticleInventory>(new Action<MstArticleInventory>(this.attach_MstArticleInventories), new Action<MstArticleInventory>(this.detach_MstArticleInventories));
 			this._MstUsers = new EntitySet<MstUser>(new Action<MstUser>(this.attach_MstUsers), new Action<MstUser>(this.detach_MstUsers));
 			this._TrnCollections = new EntitySet<TrnCollection>(new Action<TrnCollection>(this.attach_TrnCollections), new Action<TrnCollection>(this.detach_TrnCollections));
+			this._TrnDisbursements = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements), new Action<TrnDisbursement>(this.detach_TrnDisbursements));
 			this._TrnInventories = new EntitySet<TrnInventory>(new Action<TrnInventory>(this.attach_TrnInventories), new Action<TrnInventory>(this.detach_TrnInventories));
 			this._TrnJournals = new EntitySet<TrnJournal>(new Action<TrnJournal>(this.attach_TrnJournals), new Action<TrnJournal>(this.detach_TrnJournals));
+			this._TrnPurchaseOrders = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders));
+			this._TrnReceivingReceipts = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts));
+			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
 			this._TrnSalesInvoices = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices));
 			this._TrnSalesOrders = new EntitySet<TrnSalesOrder>(new Action<TrnSalesOrder>(this.attach_TrnSalesOrders), new Action<TrnSalesOrder>(this.detach_TrnSalesOrders));
 			this._TrnStockIns = new EntitySet<TrnStockIn>(new Action<TrnStockIn>(this.attach_TrnStockIns), new Action<TrnStockIn>(this.detach_TrnStockIns));
@@ -4976,6 +5250,19 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnDisbursement", Storage="_TrnDisbursements", ThisKey="Id", OtherKey="BranchId")]
+		public EntitySet<TrnDisbursement> TrnDisbursements
+		{
+			get
+			{
+				return this._TrnDisbursements;
+			}
+			set
+			{
+				this._TrnDisbursements.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnInventory", Storage="_TrnInventories", ThisKey="Id", OtherKey="BranchId")]
 		public EntitySet<TrnInventory> TrnInventories
 		{
@@ -4999,6 +5286,45 @@ namespace easyfmis.Data
 			set
 			{
 				this._TrnJournals.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnPurchaseOrder", Storage="_TrnPurchaseOrders", ThisKey="Id", OtherKey="BranchId")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders
+		{
+			get
+			{
+				return this._TrnPurchaseOrders;
+			}
+			set
+			{
+				this._TrnPurchaseOrders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnReceivingReceipt", Storage="_TrnReceivingReceipts", ThisKey="Id", OtherKey="BranchId")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts
+		{
+			get
+			{
+				return this._TrnReceivingReceipts;
+			}
+			set
+			{
+				this._TrnReceivingReceipts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="BranchId")]
+		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this._TrnReceivingReceiptItems;
+			}
+			set
+			{
+				this._TrnReceivingReceiptItems.Assign(value);
 			}
 		}
 		
@@ -5170,6 +5496,18 @@ namespace easyfmis.Data
 			entity.MstBranch = null;
 		}
 		
+		private void attach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = this;
+		}
+		
+		private void detach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = null;
+		}
+		
 		private void attach_TrnInventories(TrnInventory entity)
 		{
 			this.SendPropertyChanging();
@@ -5189,6 +5527,42 @@ namespace easyfmis.Data
 		}
 		
 		private void detach_TrnJournals(TrnJournal entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = null;
+		}
+		
+		private void attach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = this;
+		}
+		
+		private void detach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = null;
+		}
+		
+		private void attach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = this;
+		}
+		
+		private void detach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = null;
+		}
+		
+		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstBranch = this;
+		}
+		
+		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
 		{
 			this.SendPropertyChanging();
 			entity.MstBranch = null;
@@ -6027,6 +6401,8 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnCollectionLine> _TrnCollectionLines;
 		
+		private EntitySet<TrnDisbursement> _TrnDisbursements;
+		
 		private EntityRef<MstAccount> _MstAccount;
 		
 		private EntityRef<MstUser> _MstUser;
@@ -6058,6 +6434,7 @@ namespace easyfmis.Data
 		public MstPayType()
 		{
 			this._TrnCollectionLines = new EntitySet<TrnCollectionLine>(new Action<TrnCollectionLine>(this.attach_TrnCollectionLines), new Action<TrnCollectionLine>(this.detach_TrnCollectionLines));
+			this._TrnDisbursements = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements), new Action<TrnDisbursement>(this.detach_TrnDisbursements));
 			this._MstAccount = default(EntityRef<MstAccount>);
 			this._MstUser = default(EntityRef<MstUser>);
 			this._MstUser1 = default(EntityRef<MstUser>);
@@ -6249,6 +6626,19 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstPayType_TrnDisbursement", Storage="_TrnDisbursements", ThisKey="Id", OtherKey="PayTypeId")]
+		public EntitySet<TrnDisbursement> TrnDisbursements
+		{
+			get
+			{
+				return this._TrnDisbursements;
+			}
+			set
+			{
+				this._TrnDisbursements.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstAccount_MstPayType", Storage="_MstAccount", ThisKey="AccountId", OtherKey="Id", IsForeignKey=true)]
 		public MstAccount MstAccount
 		{
@@ -6382,6 +6772,18 @@ namespace easyfmis.Data
 			this.SendPropertyChanging();
 			entity.MstPayType = null;
 		}
+		
+		private void attach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstPayType = this;
+		}
+		
+		private void detach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstPayType = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MstTax")]
@@ -6413,6 +6815,8 @@ namespace easyfmis.Data
 		private EntitySet<MstArticle> _MstArticles;
 		
 		private EntitySet<MstArticle> _MstArticles1;
+		
+		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
 		
 		private EntitySet<TrnSalesInvoiceItem> _TrnSalesInvoiceItems;
 		
@@ -6454,6 +6858,7 @@ namespace easyfmis.Data
 		{
 			this._MstArticles = new EntitySet<MstArticle>(new Action<MstArticle>(this.attach_MstArticles), new Action<MstArticle>(this.detach_MstArticles));
 			this._MstArticles1 = new EntitySet<MstArticle>(new Action<MstArticle>(this.attach_MstArticles1), new Action<MstArticle>(this.detach_MstArticles1));
+			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
 			this._TrnSalesInvoiceItems = new EntitySet<TrnSalesInvoiceItem>(new Action<TrnSalesInvoiceItem>(this.attach_TrnSalesInvoiceItems), new Action<TrnSalesInvoiceItem>(this.detach_TrnSalesInvoiceItems));
 			this._TrnSalesOrderItems = new EntitySet<TrnSalesOrderItem>(new Action<TrnSalesOrderItem>(this.attach_TrnSalesOrderItems), new Action<TrnSalesOrderItem>(this.detach_TrnSalesOrderItems));
 			this._MstAccount = default(EntityRef<MstAccount>);
@@ -6700,6 +7105,19 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTax_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="TaxId")]
+		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this._TrnReceivingReceiptItems;
+			}
+			set
+			{
+				this._TrnReceivingReceiptItems.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTax_TrnSalesInvoiceItem", Storage="_TrnSalesInvoiceItems", ThisKey="Id", OtherKey="TaxId")]
 		public EntitySet<TrnSalesInvoiceItem> TrnSalesInvoiceItems
 		{
@@ -6872,6 +7290,18 @@ namespace easyfmis.Data
 			entity.MstTax1 = null;
 		}
 		
+		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTax = this;
+		}
+		
+		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTax = null;
+		}
+		
 		private void attach_TrnSalesInvoiceItems(TrnSalesInvoiceItem entity)
 		{
 			this.SendPropertyChanging();
@@ -6919,6 +7349,10 @@ namespace easyfmis.Data
 		
 		private System.DateTime _UpdatedDateTime;
 		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts;
+		
 		private EntitySet<TrnSalesInvoice> _TrnSalesInvoices;
 		
 		private EntitySet<TrnSalesOrder> _TrnSalesOrders;
@@ -6951,6 +7385,8 @@ namespace easyfmis.Data
 		
 		public MstTerm()
 		{
+			this._TrnPurchaseOrders = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders));
+			this._TrnReceivingReceipts = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts));
 			this._TrnSalesInvoices = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices));
 			this._TrnSalesOrders = new EntitySet<TrnSalesOrder>(new Action<TrnSalesOrder>(this.attach_TrnSalesOrders), new Action<TrnSalesOrder>(this.detach_TrnSalesOrders));
 			this._MstUser = default(EntityRef<MstUser>);
@@ -7126,6 +7562,32 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_TrnPurchaseOrder", Storage="_TrnPurchaseOrders", ThisKey="Id", OtherKey="TermId")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders
+		{
+			get
+			{
+				return this._TrnPurchaseOrders;
+			}
+			set
+			{
+				this._TrnPurchaseOrders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_TrnReceivingReceipt", Storage="_TrnReceivingReceipts", ThisKey="Id", OtherKey="TermId")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts
+		{
+			get
+			{
+				return this._TrnReceivingReceipts;
+			}
+			set
+			{
+				this._TrnReceivingReceipts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_TrnSalesInvoice", Storage="_TrnSalesInvoices", ThisKey="Id", OtherKey="TermId")]
 		public EntitySet<TrnSalesInvoice> TrnSalesInvoices
 		{
@@ -7240,6 +7702,30 @@ namespace easyfmis.Data
 			}
 		}
 		
+		private void attach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTerm = this;
+		}
+		
+		private void detach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTerm = null;
+		}
+		
+		private void attach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTerm = this;
+		}
+		
+		private void detach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTerm = null;
+		}
+		
 		private void attach_TrnSalesInvoices(TrnSalesInvoice entity)
 		{
 			this.SendPropertyChanging();
@@ -7293,6 +7779,10 @@ namespace easyfmis.Data
 		
 		private EntitySet<MstArticleUnit> _MstArticleUnits;
 		
+		private EntitySet<TrnPurchaseOrderItem> _TrnPurchaseOrderItems;
+		
+		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
+		
 		private EntitySet<TrnSalesInvoiceItem> _TrnSalesInvoiceItems;
 		
 		private EntitySet<TrnSalesOrderItem> _TrnSalesOrderItems;
@@ -7331,6 +7821,8 @@ namespace easyfmis.Data
 			this._MstArticles = new EntitySet<MstArticle>(new Action<MstArticle>(this.attach_MstArticles), new Action<MstArticle>(this.detach_MstArticles));
 			this._MstArticleComponents = new EntitySet<MstArticleComponent>(new Action<MstArticleComponent>(this.attach_MstArticleComponents), new Action<MstArticleComponent>(this.detach_MstArticleComponents));
 			this._MstArticleUnits = new EntitySet<MstArticleUnit>(new Action<MstArticleUnit>(this.attach_MstArticleUnits), new Action<MstArticleUnit>(this.detach_MstArticleUnits));
+			this._TrnPurchaseOrderItems = new EntitySet<TrnPurchaseOrderItem>(new Action<TrnPurchaseOrderItem>(this.attach_TrnPurchaseOrderItems), new Action<TrnPurchaseOrderItem>(this.detach_TrnPurchaseOrderItems));
+			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
 			this._TrnSalesInvoiceItems = new EntitySet<TrnSalesInvoiceItem>(new Action<TrnSalesInvoiceItem>(this.attach_TrnSalesInvoiceItems), new Action<TrnSalesInvoiceItem>(this.detach_TrnSalesInvoiceItems));
 			this._TrnSalesOrderItems = new EntitySet<TrnSalesOrderItem>(new Action<TrnSalesOrderItem>(this.attach_TrnSalesOrderItems), new Action<TrnSalesOrderItem>(this.detach_TrnSalesOrderItems));
 			this._TrnStockInItems = new EntitySet<TrnStockInItem>(new Action<TrnStockInItem>(this.attach_TrnStockInItems), new Action<TrnStockInItem>(this.detach_TrnStockInItems));
@@ -7540,6 +8032,32 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUnit_TrnPurchaseOrderItem", Storage="_TrnPurchaseOrderItems", ThisKey="Id", OtherKey="UnitId")]
+		public EntitySet<TrnPurchaseOrderItem> TrnPurchaseOrderItems
+		{
+			get
+			{
+				return this._TrnPurchaseOrderItems;
+			}
+			set
+			{
+				this._TrnPurchaseOrderItems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUnit_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="UnitId")]
+		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this._TrnReceivingReceiptItems;
+			}
+			set
+			{
+				this._TrnReceivingReceiptItems.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUnit_TrnSalesInvoiceItem", Storage="_TrnSalesInvoiceItems", ThisKey="Id", OtherKey="UnitId")]
 		public EntitySet<TrnSalesInvoiceItem> TrnSalesInvoiceItems
 		{
@@ -7728,6 +8246,30 @@ namespace easyfmis.Data
 			entity.MstUnit = null;
 		}
 		
+		private void attach_TrnPurchaseOrderItems(TrnPurchaseOrderItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUnit = this;
+		}
+		
+		private void detach_TrnPurchaseOrderItems(TrnPurchaseOrderItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUnit = null;
+		}
+		
+		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUnit = this;
+		}
+		
+		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUnit = null;
+		}
+		
 		private void attach_TrnSalesInvoiceItems(TrnSalesInvoiceItem entity)
 		{
 			this.SendPropertyChanging();
@@ -7857,6 +8399,40 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnCollection> _TrnCollections4;
 		
+		private EntitySet<TrnDisbursement> _TrnDisbursements;
+		
+		private EntitySet<TrnDisbursement> _TrnDisbursements1;
+		
+		private EntitySet<TrnDisbursement> _TrnDisbursements2;
+		
+		private EntitySet<TrnDisbursement> _TrnDisbursements3;
+		
+		private EntitySet<TrnDisbursement> _TrnDisbursements4;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders1;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders2;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders3;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders4;
+		
+		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders5;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts1;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts2;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts3;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts4;
+		
+		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts5;
+		
 		private EntitySet<TrnSalesInvoice> _TrnSalesInvoices;
 		
 		private EntitySet<TrnSalesInvoice> _TrnSalesInvoices1;
@@ -7971,6 +8547,23 @@ namespace easyfmis.Data
 			this._TrnCollections2 = new EntitySet<TrnCollection>(new Action<TrnCollection>(this.attach_TrnCollections2), new Action<TrnCollection>(this.detach_TrnCollections2));
 			this._TrnCollections3 = new EntitySet<TrnCollection>(new Action<TrnCollection>(this.attach_TrnCollections3), new Action<TrnCollection>(this.detach_TrnCollections3));
 			this._TrnCollections4 = new EntitySet<TrnCollection>(new Action<TrnCollection>(this.attach_TrnCollections4), new Action<TrnCollection>(this.detach_TrnCollections4));
+			this._TrnDisbursements = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements), new Action<TrnDisbursement>(this.detach_TrnDisbursements));
+			this._TrnDisbursements1 = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements1), new Action<TrnDisbursement>(this.detach_TrnDisbursements1));
+			this._TrnDisbursements2 = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements2), new Action<TrnDisbursement>(this.detach_TrnDisbursements2));
+			this._TrnDisbursements3 = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements3), new Action<TrnDisbursement>(this.detach_TrnDisbursements3));
+			this._TrnDisbursements4 = new EntitySet<TrnDisbursement>(new Action<TrnDisbursement>(this.attach_TrnDisbursements4), new Action<TrnDisbursement>(this.detach_TrnDisbursements4));
+			this._TrnPurchaseOrders = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders));
+			this._TrnPurchaseOrders1 = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders1), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders1));
+			this._TrnPurchaseOrders2 = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders2), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders2));
+			this._TrnPurchaseOrders3 = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders3), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders3));
+			this._TrnPurchaseOrders4 = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders4), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders4));
+			this._TrnPurchaseOrders5 = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders5), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders5));
+			this._TrnReceivingReceipts = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts));
+			this._TrnReceivingReceipts1 = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts1), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts1));
+			this._TrnReceivingReceipts2 = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts2), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts2));
+			this._TrnReceivingReceipts3 = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts3), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts3));
+			this._TrnReceivingReceipts4 = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts4), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts4));
+			this._TrnReceivingReceipts5 = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts5), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts5));
 			this._TrnSalesInvoices = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices));
 			this._TrnSalesInvoices1 = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices1), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices1));
 			this._TrnSalesInvoices2 = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices2), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices2));
@@ -8566,6 +9159,227 @@ namespace easyfmis.Data
 			set
 			{
 				this._TrnCollections4.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement", Storage="_TrnDisbursements", ThisKey="Id", OtherKey="PreparedBy")]
+		public EntitySet<TrnDisbursement> TrnDisbursements
+		{
+			get
+			{
+				return this._TrnDisbursements;
+			}
+			set
+			{
+				this._TrnDisbursements.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement1", Storage="_TrnDisbursements1", ThisKey="Id", OtherKey="CheckedBy")]
+		public EntitySet<TrnDisbursement> TrnDisbursements1
+		{
+			get
+			{
+				return this._TrnDisbursements1;
+			}
+			set
+			{
+				this._TrnDisbursements1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement2", Storage="_TrnDisbursements2", ThisKey="Id", OtherKey="ApprovedBy")]
+		public EntitySet<TrnDisbursement> TrnDisbursements2
+		{
+			get
+			{
+				return this._TrnDisbursements2;
+			}
+			set
+			{
+				this._TrnDisbursements2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement3", Storage="_TrnDisbursements3", ThisKey="Id", OtherKey="CreatedBy")]
+		public EntitySet<TrnDisbursement> TrnDisbursements3
+		{
+			get
+			{
+				return this._TrnDisbursements3;
+			}
+			set
+			{
+				this._TrnDisbursements3.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement4", Storage="_TrnDisbursements4", ThisKey="Id", OtherKey="UpdatedBy")]
+		public EntitySet<TrnDisbursement> TrnDisbursements4
+		{
+			get
+			{
+				return this._TrnDisbursements4;
+			}
+			set
+			{
+				this._TrnDisbursements4.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder", Storage="_TrnPurchaseOrders", ThisKey="Id", OtherKey="RequestedBy")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders
+		{
+			get
+			{
+				return this._TrnPurchaseOrders;
+			}
+			set
+			{
+				this._TrnPurchaseOrders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder1", Storage="_TrnPurchaseOrders1", ThisKey="Id", OtherKey="PreparedBy")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders1
+		{
+			get
+			{
+				return this._TrnPurchaseOrders1;
+			}
+			set
+			{
+				this._TrnPurchaseOrders1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder2", Storage="_TrnPurchaseOrders2", ThisKey="Id", OtherKey="CheckedBy")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders2
+		{
+			get
+			{
+				return this._TrnPurchaseOrders2;
+			}
+			set
+			{
+				this._TrnPurchaseOrders2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder3", Storage="_TrnPurchaseOrders3", ThisKey="Id", OtherKey="ApprovedBy")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders3
+		{
+			get
+			{
+				return this._TrnPurchaseOrders3;
+			}
+			set
+			{
+				this._TrnPurchaseOrders3.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder4", Storage="_TrnPurchaseOrders4", ThisKey="Id", OtherKey="CreatedBy")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders4
+		{
+			get
+			{
+				return this._TrnPurchaseOrders4;
+			}
+			set
+			{
+				this._TrnPurchaseOrders4.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder5", Storage="_TrnPurchaseOrders5", ThisKey="Id", OtherKey="UpdatedBy")]
+		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders5
+		{
+			get
+			{
+				return this._TrnPurchaseOrders5;
+			}
+			set
+			{
+				this._TrnPurchaseOrders5.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt", Storage="_TrnReceivingReceipts", ThisKey="Id", OtherKey="ReceivedBy")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts
+		{
+			get
+			{
+				return this._TrnReceivingReceipts;
+			}
+			set
+			{
+				this._TrnReceivingReceipts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt1", Storage="_TrnReceivingReceipts1", ThisKey="Id", OtherKey="PreparedBy")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts1
+		{
+			get
+			{
+				return this._TrnReceivingReceipts1;
+			}
+			set
+			{
+				this._TrnReceivingReceipts1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt2", Storage="_TrnReceivingReceipts2", ThisKey="Id", OtherKey="CheckedBy")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts2
+		{
+			get
+			{
+				return this._TrnReceivingReceipts2;
+			}
+			set
+			{
+				this._TrnReceivingReceipts2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt3", Storage="_TrnReceivingReceipts3", ThisKey="Id", OtherKey="ApprovedBy")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts3
+		{
+			get
+			{
+				return this._TrnReceivingReceipts3;
+			}
+			set
+			{
+				this._TrnReceivingReceipts3.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt4", Storage="_TrnReceivingReceipts4", ThisKey="Id", OtherKey="CreatedBy")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts4
+		{
+			get
+			{
+				return this._TrnReceivingReceipts4;
+			}
+			set
+			{
+				this._TrnReceivingReceipts4.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt5", Storage="_TrnReceivingReceipts5", ThisKey="Id", OtherKey="UpdatedBy")]
+		public EntitySet<TrnReceivingReceipt> TrnReceivingReceipts5
+		{
+			get
+			{
+				return this._TrnReceivingReceipts5;
+			}
+			set
+			{
+				this._TrnReceivingReceipts5.Assign(value);
 			}
 		}
 		
@@ -9318,6 +10132,210 @@ namespace easyfmis.Data
 		{
 			this.SendPropertyChanging();
 			entity.MstUser4 = null;
+		}
+		
+		private void attach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser = this;
+		}
+		
+		private void detach_TrnDisbursements(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser = null;
+		}
+		
+		private void attach_TrnDisbursements1(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = this;
+		}
+		
+		private void detach_TrnDisbursements1(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = null;
+		}
+		
+		private void attach_TrnDisbursements2(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser2 = this;
+		}
+		
+		private void detach_TrnDisbursements2(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser2 = null;
+		}
+		
+		private void attach_TrnDisbursements3(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser3 = this;
+		}
+		
+		private void detach_TrnDisbursements3(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser3 = null;
+		}
+		
+		private void attach_TrnDisbursements4(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser4 = this;
+		}
+		
+		private void detach_TrnDisbursements4(TrnDisbursement entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser4 = null;
+		}
+		
+		private void attach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser = this;
+		}
+		
+		private void detach_TrnPurchaseOrders(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser = null;
+		}
+		
+		private void attach_TrnPurchaseOrders1(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = this;
+		}
+		
+		private void detach_TrnPurchaseOrders1(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = null;
+		}
+		
+		private void attach_TrnPurchaseOrders2(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser2 = this;
+		}
+		
+		private void detach_TrnPurchaseOrders2(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser2 = null;
+		}
+		
+		private void attach_TrnPurchaseOrders3(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser3 = this;
+		}
+		
+		private void detach_TrnPurchaseOrders3(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser3 = null;
+		}
+		
+		private void attach_TrnPurchaseOrders4(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser4 = this;
+		}
+		
+		private void detach_TrnPurchaseOrders4(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser4 = null;
+		}
+		
+		private void attach_TrnPurchaseOrders5(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser5 = this;
+		}
+		
+		private void detach_TrnPurchaseOrders5(TrnPurchaseOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser5 = null;
+		}
+		
+		private void attach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser = this;
+		}
+		
+		private void detach_TrnReceivingReceipts(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser = null;
+		}
+		
+		private void attach_TrnReceivingReceipts1(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = this;
+		}
+		
+		private void detach_TrnReceivingReceipts1(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser1 = null;
+		}
+		
+		private void attach_TrnReceivingReceipts2(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser2 = this;
+		}
+		
+		private void detach_TrnReceivingReceipts2(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser2 = null;
+		}
+		
+		private void attach_TrnReceivingReceipts3(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser3 = this;
+		}
+		
+		private void detach_TrnReceivingReceipts3(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser3 = null;
+		}
+		
+		private void attach_TrnReceivingReceipts4(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser4 = this;
+		}
+		
+		private void detach_TrnReceivingReceipts4(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser4 = null;
+		}
+		
+		private void attach_TrnReceivingReceipts5(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser5 = this;
+		}
+		
+		private void detach_TrnReceivingReceipts5(TrnReceivingReceipt entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstUser5 = null;
 		}
 		
 		private void attach_TrnSalesInvoices(TrnSalesInvoice entity)
@@ -10335,7 +11353,7 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManualORNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManualORNumber", DbType="NVarChar(50)")]
 		public string ManualORNumber
 		{
 			get
@@ -11542,6 +12560,1298 @@ namespace easyfmis.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnDisbursement")]
+	public partial class TrnDisbursement : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _BranchId;
+		
+		private string _CVNumber;
+		
+		private System.DateTime _CVDate;
+		
+		private string _ManualCVNumber;
+		
+		private int _SupplierId;
+		
+		private string _Payee;
+		
+		private int _PayTypeId;
+		
+		private int _BankId;
+		
+		private string _Remarks;
+		
+		private decimal _Amount;
+		
+		private string _CheckNumber;
+		
+		private System.Nullable<System.DateTime> _CheckDate;
+		
+		private bool _IsCrossCheck;
+		
+		private bool _IsClear;
+		
+		private int _PreparedBy;
+		
+		private int _CheckedBy;
+		
+		private int _ApprovedBy;
+		
+		private bool _IsLocked;
+		
+		private int _CreatedBy;
+		
+		private System.DateTime _CreatedDateTime;
+		
+		private int _UpdatedBy;
+		
+		private System.DateTime _UpdatedDateTime;
+		
+		private EntitySet<TrnDisbursementLine> _TrnDisbursementLines;
+		
+		private EntityRef<MstArticle> _MstArticle;
+		
+		private EntityRef<MstArticle> _MstArticle1;
+		
+		private EntityRef<MstBranch> _MstBranch;
+		
+		private EntityRef<MstPayType> _MstPayType;
+		
+		private EntityRef<MstUser> _MstUser;
+		
+		private EntityRef<MstUser> _MstUser1;
+		
+		private EntityRef<MstUser> _MstUser2;
+		
+		private EntityRef<MstUser> _MstUser3;
+		
+		private EntityRef<MstUser> _MstUser4;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBranchIdChanging(int value);
+    partial void OnBranchIdChanged();
+    partial void OnCVNumberChanging(string value);
+    partial void OnCVNumberChanged();
+    partial void OnCVDateChanging(System.DateTime value);
+    partial void OnCVDateChanged();
+    partial void OnManualCVNumberChanging(string value);
+    partial void OnManualCVNumberChanged();
+    partial void OnSupplierIdChanging(int value);
+    partial void OnSupplierIdChanged();
+    partial void OnPayeeChanging(string value);
+    partial void OnPayeeChanged();
+    partial void OnPayTypeIdChanging(int value);
+    partial void OnPayTypeIdChanged();
+    partial void OnBankIdChanging(int value);
+    partial void OnBankIdChanged();
+    partial void OnRemarksChanging(string value);
+    partial void OnRemarksChanged();
+    partial void OnAmountChanging(decimal value);
+    partial void OnAmountChanged();
+    partial void OnCheckNumberChanging(string value);
+    partial void OnCheckNumberChanged();
+    partial void OnCheckDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCheckDateChanged();
+    partial void OnIsCrossCheckChanging(bool value);
+    partial void OnIsCrossCheckChanged();
+    partial void OnIsClearChanging(bool value);
+    partial void OnIsClearChanged();
+    partial void OnPreparedByChanging(int value);
+    partial void OnPreparedByChanged();
+    partial void OnCheckedByChanging(int value);
+    partial void OnCheckedByChanged();
+    partial void OnApprovedByChanging(int value);
+    partial void OnApprovedByChanged();
+    partial void OnIsLockedChanging(bool value);
+    partial void OnIsLockedChanged();
+    partial void OnCreatedByChanging(int value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateTimeChanging(System.DateTime value);
+    partial void OnCreatedDateTimeChanged();
+    partial void OnUpdatedByChanging(int value);
+    partial void OnUpdatedByChanged();
+    partial void OnUpdatedDateTimeChanging(System.DateTime value);
+    partial void OnUpdatedDateTimeChanged();
+    #endregion
+		
+		public TrnDisbursement()
+		{
+			this._TrnDisbursementLines = new EntitySet<TrnDisbursementLine>(new Action<TrnDisbursementLine>(this.attach_TrnDisbursementLines), new Action<TrnDisbursementLine>(this.detach_TrnDisbursementLines));
+			this._MstArticle = default(EntityRef<MstArticle>);
+			this._MstArticle1 = default(EntityRef<MstArticle>);
+			this._MstBranch = default(EntityRef<MstBranch>);
+			this._MstPayType = default(EntityRef<MstPayType>);
+			this._MstUser = default(EntityRef<MstUser>);
+			this._MstUser1 = default(EntityRef<MstUser>);
+			this._MstUser2 = default(EntityRef<MstUser>);
+			this._MstUser3 = default(EntityRef<MstUser>);
+			this._MstUser4 = default(EntityRef<MstUser>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
+		{
+			get
+			{
+				return this._BranchId;
+			}
+			set
+			{
+				if ((this._BranchId != value))
+				{
+					if (this._MstBranch.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBranchIdChanging(value);
+					this.SendPropertyChanging();
+					this._BranchId = value;
+					this.SendPropertyChanged("BranchId");
+					this.OnBranchIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CVNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CVNumber
+		{
+			get
+			{
+				return this._CVNumber;
+			}
+			set
+			{
+				if ((this._CVNumber != value))
+				{
+					this.OnCVNumberChanging(value);
+					this.SendPropertyChanging();
+					this._CVNumber = value;
+					this.SendPropertyChanged("CVNumber");
+					this.OnCVNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CVDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CVDate
+		{
+			get
+			{
+				return this._CVDate;
+			}
+			set
+			{
+				if ((this._CVDate != value))
+				{
+					this.OnCVDateChanging(value);
+					this.SendPropertyChanging();
+					this._CVDate = value;
+					this.SendPropertyChanged("CVDate");
+					this.OnCVDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManualCVNumber", DbType="NVarChar(50)")]
+		public string ManualCVNumber
+		{
+			get
+			{
+				return this._ManualCVNumber;
+			}
+			set
+			{
+				if ((this._ManualCVNumber != value))
+				{
+					this.OnManualCVNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ManualCVNumber = value;
+					this.SendPropertyChanged("ManualCVNumber");
+					this.OnManualCVNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierId", DbType="Int NOT NULL")]
+		public int SupplierId
+		{
+			get
+			{
+				return this._SupplierId;
+			}
+			set
+			{
+				if ((this._SupplierId != value))
+				{
+					if (this._MstArticle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSupplierIdChanging(value);
+					this.SendPropertyChanging();
+					this._SupplierId = value;
+					this.SendPropertyChanged("SupplierId");
+					this.OnSupplierIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Payee", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string Payee
+		{
+			get
+			{
+				return this._Payee;
+			}
+			set
+			{
+				if ((this._Payee != value))
+				{
+					this.OnPayeeChanging(value);
+					this.SendPropertyChanging();
+					this._Payee = value;
+					this.SendPropertyChanged("Payee");
+					this.OnPayeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayTypeId", DbType="Int NOT NULL")]
+		public int PayTypeId
+		{
+			get
+			{
+				return this._PayTypeId;
+			}
+			set
+			{
+				if ((this._PayTypeId != value))
+				{
+					if (this._MstPayType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPayTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._PayTypeId = value;
+					this.SendPropertyChanged("PayTypeId");
+					this.OnPayTypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankId", DbType="Int NOT NULL")]
+		public int BankId
+		{
+			get
+			{
+				return this._BankId;
+			}
+			set
+			{
+				if ((this._BankId != value))
+				{
+					if (this._MstArticle1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBankIdChanging(value);
+					this.SendPropertyChanging();
+					this._BankId = value;
+					this.SendPropertyChanged("BankId");
+					this.OnBankIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(MAX)")]
+		public string Remarks
+		{
+			get
+			{
+				return this._Remarks;
+			}
+			set
+			{
+				if ((this._Remarks != value))
+				{
+					this.OnRemarksChanging(value);
+					this.SendPropertyChanging();
+					this._Remarks = value;
+					this.SendPropertyChanged("Remarks");
+					this.OnRemarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CheckNumber", DbType="NVarChar(50)")]
+		public string CheckNumber
+		{
+			get
+			{
+				return this._CheckNumber;
+			}
+			set
+			{
+				if ((this._CheckNumber != value))
+				{
+					this.OnCheckNumberChanging(value);
+					this.SendPropertyChanging();
+					this._CheckNumber = value;
+					this.SendPropertyChanged("CheckNumber");
+					this.OnCheckNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CheckDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CheckDate
+		{
+			get
+			{
+				return this._CheckDate;
+			}
+			set
+			{
+				if ((this._CheckDate != value))
+				{
+					this.OnCheckDateChanging(value);
+					this.SendPropertyChanging();
+					this._CheckDate = value;
+					this.SendPropertyChanged("CheckDate");
+					this.OnCheckDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsCrossCheck", DbType="Bit NOT NULL")]
+		public bool IsCrossCheck
+		{
+			get
+			{
+				return this._IsCrossCheck;
+			}
+			set
+			{
+				if ((this._IsCrossCheck != value))
+				{
+					this.OnIsCrossCheckChanging(value);
+					this.SendPropertyChanging();
+					this._IsCrossCheck = value;
+					this.SendPropertyChanged("IsCrossCheck");
+					this.OnIsCrossCheckChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsClear", DbType="Bit NOT NULL")]
+		public bool IsClear
+		{
+			get
+			{
+				return this._IsClear;
+			}
+			set
+			{
+				if ((this._IsClear != value))
+				{
+					this.OnIsClearChanging(value);
+					this.SendPropertyChanging();
+					this._IsClear = value;
+					this.SendPropertyChanged("IsClear");
+					this.OnIsClearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreparedBy", DbType="Int NOT NULL")]
+		public int PreparedBy
+		{
+			get
+			{
+				return this._PreparedBy;
+			}
+			set
+			{
+				if ((this._PreparedBy != value))
+				{
+					if (this._MstUser.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPreparedByChanging(value);
+					this.SendPropertyChanging();
+					this._PreparedBy = value;
+					this.SendPropertyChanged("PreparedBy");
+					this.OnPreparedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CheckedBy", DbType="Int NOT NULL")]
+		public int CheckedBy
+		{
+			get
+			{
+				return this._CheckedBy;
+			}
+			set
+			{
+				if ((this._CheckedBy != value))
+				{
+					if (this._MstUser1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCheckedByChanging(value);
+					this.SendPropertyChanging();
+					this._CheckedBy = value;
+					this.SendPropertyChanged("CheckedBy");
+					this.OnCheckedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedBy", DbType="Int NOT NULL")]
+		public int ApprovedBy
+		{
+			get
+			{
+				return this._ApprovedBy;
+			}
+			set
+			{
+				if ((this._ApprovedBy != value))
+				{
+					if (this._MstUser2.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnApprovedByChanging(value);
+					this.SendPropertyChanging();
+					this._ApprovedBy = value;
+					this.SendPropertyChanged("ApprovedBy");
+					this.OnApprovedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsLocked", DbType="Bit NOT NULL")]
+		public bool IsLocked
+		{
+			get
+			{
+				return this._IsLocked;
+			}
+			set
+			{
+				if ((this._IsLocked != value))
+				{
+					this.OnIsLockedChanging(value);
+					this.SendPropertyChanging();
+					this._IsLocked = value;
+					this.SendPropertyChanged("IsLocked");
+					this.OnIsLockedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
+		public int CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._MstUser3.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreatedDateTime
+		{
+			get
+			{
+				return this._CreatedDateTime;
+			}
+			set
+			{
+				if ((this._CreatedDateTime != value))
+				{
+					this.OnCreatedDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDateTime = value;
+					this.SendPropertyChanged("CreatedDateTime");
+					this.OnCreatedDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="Int NOT NULL")]
+		public int UpdatedBy
+		{
+			get
+			{
+				return this._UpdatedBy;
+			}
+			set
+			{
+				if ((this._UpdatedBy != value))
+				{
+					if (this._MstUser4.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedBy = value;
+					this.SendPropertyChanged("UpdatedBy");
+					this.OnUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime UpdatedDateTime
+		{
+			get
+			{
+				return this._UpdatedDateTime;
+			}
+			set
+			{
+				if ((this._UpdatedDateTime != value))
+				{
+					this.OnUpdatedDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedDateTime = value;
+					this.SendPropertyChanged("UpdatedDateTime");
+					this.OnUpdatedDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnDisbursement_TrnDisbursementLine", Storage="_TrnDisbursementLines", ThisKey="Id", OtherKey="CVId")]
+		public EntitySet<TrnDisbursementLine> TrnDisbursementLines
+		{
+			get
+			{
+				return this._TrnDisbursementLines;
+			}
+			set
+			{
+				this._TrnDisbursementLines.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnDisbursement", Storage="_MstArticle", ThisKey="SupplierId", OtherKey="Id", IsForeignKey=true)]
+		public MstArticle MstArticle
+		{
+			get
+			{
+				return this._MstArticle.Entity;
+			}
+			set
+			{
+				MstArticle previousValue = this._MstArticle.Entity;
+				if (((previousValue != value) 
+							|| (this._MstArticle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstArticle.Entity = null;
+						previousValue.TrnDisbursements.Remove(this);
+					}
+					this._MstArticle.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements.Add(this);
+						this._SupplierId = value.Id;
+					}
+					else
+					{
+						this._SupplierId = default(int);
+					}
+					this.SendPropertyChanged("MstArticle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnDisbursement1", Storage="_MstArticle1", ThisKey="BankId", OtherKey="Id", IsForeignKey=true)]
+		public MstArticle MstArticle1
+		{
+			get
+			{
+				return this._MstArticle1.Entity;
+			}
+			set
+			{
+				MstArticle previousValue = this._MstArticle1.Entity;
+				if (((previousValue != value) 
+							|| (this._MstArticle1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstArticle1.Entity = null;
+						previousValue.TrnDisbursements1.Remove(this);
+					}
+					this._MstArticle1.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements1.Add(this);
+						this._BankId = value.Id;
+					}
+					else
+					{
+						this._BankId = default(int);
+					}
+					this.SendPropertyChanged("MstArticle1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnDisbursement", Storage="_MstBranch", ThisKey="BranchId", OtherKey="Id", IsForeignKey=true)]
+		public MstBranch MstBranch
+		{
+			get
+			{
+				return this._MstBranch.Entity;
+			}
+			set
+			{
+				MstBranch previousValue = this._MstBranch.Entity;
+				if (((previousValue != value) 
+							|| (this._MstBranch.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstBranch.Entity = null;
+						previousValue.TrnDisbursements.Remove(this);
+					}
+					this._MstBranch.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements.Add(this);
+						this._BranchId = value.Id;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("MstBranch");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstPayType_TrnDisbursement", Storage="_MstPayType", ThisKey="PayTypeId", OtherKey="Id", IsForeignKey=true)]
+		public MstPayType MstPayType
+		{
+			get
+			{
+				return this._MstPayType.Entity;
+			}
+			set
+			{
+				MstPayType previousValue = this._MstPayType.Entity;
+				if (((previousValue != value) 
+							|| (this._MstPayType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstPayType.Entity = null;
+						previousValue.TrnDisbursements.Remove(this);
+					}
+					this._MstPayType.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements.Add(this);
+						this._PayTypeId = value.Id;
+					}
+					else
+					{
+						this._PayTypeId = default(int);
+					}
+					this.SendPropertyChanged("MstPayType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement", Storage="_MstUser", ThisKey="PreparedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser
+		{
+			get
+			{
+				return this._MstUser.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser.Entity = null;
+						previousValue.TrnDisbursements.Remove(this);
+					}
+					this._MstUser.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements.Add(this);
+						this._PreparedBy = value.Id;
+					}
+					else
+					{
+						this._PreparedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement1", Storage="_MstUser1", ThisKey="CheckedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser1
+		{
+			get
+			{
+				return this._MstUser1.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser1.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser1.Entity = null;
+						previousValue.TrnDisbursements1.Remove(this);
+					}
+					this._MstUser1.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements1.Add(this);
+						this._CheckedBy = value.Id;
+					}
+					else
+					{
+						this._CheckedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement2", Storage="_MstUser2", ThisKey="ApprovedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser2
+		{
+			get
+			{
+				return this._MstUser2.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser2.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser2.Entity = null;
+						previousValue.TrnDisbursements2.Remove(this);
+					}
+					this._MstUser2.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements2.Add(this);
+						this._ApprovedBy = value.Id;
+					}
+					else
+					{
+						this._ApprovedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser2");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement3", Storage="_MstUser3", ThisKey="CreatedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser3
+		{
+			get
+			{
+				return this._MstUser3.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser3.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser3.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser3.Entity = null;
+						previousValue.TrnDisbursements3.Remove(this);
+					}
+					this._MstUser3.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements3.Add(this);
+						this._CreatedBy = value.Id;
+					}
+					else
+					{
+						this._CreatedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser3");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnDisbursement4", Storage="_MstUser4", ThisKey="UpdatedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser4
+		{
+			get
+			{
+				return this._MstUser4.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser4.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser4.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser4.Entity = null;
+						previousValue.TrnDisbursements4.Remove(this);
+					}
+					this._MstUser4.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursements4.Add(this);
+						this._UpdatedBy = value.Id;
+					}
+					else
+					{
+						this._UpdatedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser4");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TrnDisbursementLines(TrnDisbursementLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnDisbursement = this;
+		}
+		
+		private void detach_TrnDisbursementLines(TrnDisbursementLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnDisbursement = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnDisbursementLine")]
+	public partial class TrnDisbursementLine : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _CVId;
+		
+		private int _AccountId;
+		
+		private System.Nullable<int> _RRId;
+		
+		private decimal _Amount;
+		
+		private string _OtherInformation;
+		
+		private EntityRef<MstAccount> _MstAccount;
+		
+		private EntityRef<TrnDisbursement> _TrnDisbursement;
+		
+		private EntityRef<TrnReceivingReceipt> _TrnReceivingReceipt;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnCVIdChanging(int value);
+    partial void OnCVIdChanged();
+    partial void OnAccountIdChanging(int value);
+    partial void OnAccountIdChanged();
+    partial void OnRRIdChanging(System.Nullable<int> value);
+    partial void OnRRIdChanged();
+    partial void OnAmountChanging(decimal value);
+    partial void OnAmountChanged();
+    partial void OnOtherInformationChanging(string value);
+    partial void OnOtherInformationChanged();
+    #endregion
+		
+		public TrnDisbursementLine()
+		{
+			this._MstAccount = default(EntityRef<MstAccount>);
+			this._TrnDisbursement = default(EntityRef<TrnDisbursement>);
+			this._TrnReceivingReceipt = default(EntityRef<TrnReceivingReceipt>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CVId", DbType="Int NOT NULL")]
+		public int CVId
+		{
+			get
+			{
+				return this._CVId;
+			}
+			set
+			{
+				if ((this._CVId != value))
+				{
+					if (this._TrnDisbursement.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCVIdChanging(value);
+					this.SendPropertyChanging();
+					this._CVId = value;
+					this.SendPropertyChanged("CVId");
+					this.OnCVIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountId", DbType="Int NOT NULL")]
+		public int AccountId
+		{
+			get
+			{
+				return this._AccountId;
+			}
+			set
+			{
+				if ((this._AccountId != value))
+				{
+					if (this._MstAccount.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._AccountId = value;
+					this.SendPropertyChanged("AccountId");
+					this.OnAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RRId", DbType="Int")]
+		public System.Nullable<int> RRId
+		{
+			get
+			{
+				return this._RRId;
+			}
+			set
+			{
+				if ((this._RRId != value))
+				{
+					if (this._TrnReceivingReceipt.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRRIdChanging(value);
+					this.SendPropertyChanging();
+					this._RRId = value;
+					this.SendPropertyChanged("RRId");
+					this.OnRRIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherInformation", DbType="NVarChar(255)")]
+		public string OtherInformation
+		{
+			get
+			{
+				return this._OtherInformation;
+			}
+			set
+			{
+				if ((this._OtherInformation != value))
+				{
+					this.OnOtherInformationChanging(value);
+					this.SendPropertyChanging();
+					this._OtherInformation = value;
+					this.SendPropertyChanged("OtherInformation");
+					this.OnOtherInformationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstAccount_TrnDisbursementLine", Storage="_MstAccount", ThisKey="AccountId", OtherKey="Id", IsForeignKey=true)]
+		public MstAccount MstAccount
+		{
+			get
+			{
+				return this._MstAccount.Entity;
+			}
+			set
+			{
+				MstAccount previousValue = this._MstAccount.Entity;
+				if (((previousValue != value) 
+							|| (this._MstAccount.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstAccount.Entity = null;
+						previousValue.TrnDisbursementLines.Remove(this);
+					}
+					this._MstAccount.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursementLines.Add(this);
+						this._AccountId = value.Id;
+					}
+					else
+					{
+						this._AccountId = default(int);
+					}
+					this.SendPropertyChanged("MstAccount");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnDisbursement_TrnDisbursementLine", Storage="_TrnDisbursement", ThisKey="CVId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public TrnDisbursement TrnDisbursement
+		{
+			get
+			{
+				return this._TrnDisbursement.Entity;
+			}
+			set
+			{
+				TrnDisbursement previousValue = this._TrnDisbursement.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnDisbursement.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnDisbursement.Entity = null;
+						previousValue.TrnDisbursementLines.Remove(this);
+					}
+					this._TrnDisbursement.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursementLines.Add(this);
+						this._CVId = value.Id;
+					}
+					else
+					{
+						this._CVId = default(int);
+					}
+					this.SendPropertyChanged("TrnDisbursement");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnDisbursementLine", Storage="_TrnReceivingReceipt", ThisKey="RRId", OtherKey="Id", IsForeignKey=true)]
+		public TrnReceivingReceipt TrnReceivingReceipt
+		{
+			get
+			{
+				return this._TrnReceivingReceipt.Entity;
+			}
+			set
+			{
+				TrnReceivingReceipt previousValue = this._TrnReceivingReceipt.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnReceivingReceipt.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnReceivingReceipt.Entity = null;
+						previousValue.TrnDisbursementLines.Remove(this);
+					}
+					this._TrnReceivingReceipt.Entity = value;
+					if ((value != null))
+					{
+						value.TrnDisbursementLines.Add(this);
+						this._RRId = value.Id;
+					}
+					else
+					{
+						this._RRId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TrnReceivingReceipt");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnInventory")]
 	public partial class TrnInventory : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -11566,6 +13876,8 @@ namespace easyfmis.Data
 		
 		private decimal _Amount;
 		
+		private System.Nullable<int> _RRId;
+		
 		private System.Nullable<int> _SIId;
 		
 		private System.Nullable<int> _INId;
@@ -11579,6 +13891,8 @@ namespace easyfmis.Data
 		private EntityRef<MstArticleInventory> _MstArticleInventory;
 		
 		private EntityRef<MstBranch> _MstBranch;
+		
+		private EntityRef<TrnReceivingReceipt> _TrnReceivingReceipt;
 		
 		private EntityRef<TrnSalesInvoice> _TrnSalesInvoice;
 		
@@ -11610,6 +13924,8 @@ namespace easyfmis.Data
     partial void OnQuantityChanged();
     partial void OnAmountChanging(decimal value);
     partial void OnAmountChanged();
+    partial void OnRRIdChanging(System.Nullable<int> value);
+    partial void OnRRIdChanged();
     partial void OnSIIdChanging(System.Nullable<int> value);
     partial void OnSIIdChanged();
     partial void OnINIdChanging(System.Nullable<int> value);
@@ -11625,6 +13941,7 @@ namespace easyfmis.Data
 			this._MstArticle = default(EntityRef<MstArticle>);
 			this._MstArticleInventory = default(EntityRef<MstArticleInventory>);
 			this._MstBranch = default(EntityRef<MstBranch>);
+			this._TrnReceivingReceipt = default(EntityRef<TrnReceivingReceipt>);
 			this._TrnSalesInvoice = default(EntityRef<TrnSalesInvoice>);
 			this._TrnStockIn = default(EntityRef<TrnStockIn>);
 			this._TrnStockOut = default(EntityRef<TrnStockOut>);
@@ -11824,6 +14141,30 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RRId", DbType="Int")]
+		public System.Nullable<int> RRId
+		{
+			get
+			{
+				return this._RRId;
+			}
+			set
+			{
+				if ((this._RRId != value))
+				{
+					if (this._TrnReceivingReceipt.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRRIdChanging(value);
+					this.SendPropertyChanging();
+					this._RRId = value;
+					this.SendPropertyChanged("RRId");
+					this.OnRRIdChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIId", DbType="Int")]
 		public System.Nullable<int> SIId
 		{
@@ -12018,6 +14359,40 @@ namespace easyfmis.Data
 						this._BranchId = default(int);
 					}
 					this.SendPropertyChanged("MstBranch");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnInventory", Storage="_TrnReceivingReceipt", ThisKey="RRId", OtherKey="Id", IsForeignKey=true)]
+		public TrnReceivingReceipt TrnReceivingReceipt
+		{
+			get
+			{
+				return this._TrnReceivingReceipt.Entity;
+			}
+			set
+			{
+				TrnReceivingReceipt previousValue = this._TrnReceivingReceipt.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnReceivingReceipt.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnReceivingReceipt.Entity = null;
+						previousValue.TrnInventories.Remove(this);
+					}
+					this._TrnReceivingReceipt.Entity = value;
+					if ((value != null))
+					{
+						value.TrnInventories.Add(this);
+						this._RRId = value.Id;
+					}
+					else
+					{
+						this._RRId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TrnReceivingReceipt");
 				}
 			}
 		}
@@ -12726,6 +15101,2941 @@ namespace easyfmis.Data
 						this._OTId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("TrnStockOut");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnPurchaseOrder")]
+	public partial class TrnPurchaseOrder : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _BranchId;
+		
+		private string _PONumber;
+		
+		private System.DateTime _PODate;
+		
+		private string _ManualPONumber;
+		
+		private int _SupplierId;
+		
+		private int _TermId;
+		
+		private System.DateTime _DateNeeded;
+		
+		private string _Remarks;
+		
+		private bool _IsClose;
+		
+		private int _RequestedBy;
+		
+		private int _PreparedBy;
+		
+		private int _CheckedBy;
+		
+		private int _ApprovedBy;
+		
+		private bool _IsLocked;
+		
+		private int _CreatedBy;
+		
+		private System.DateTime _CreatedDateTime;
+		
+		private int _UpdatedBy;
+		
+		private System.DateTime _UpdatedDateTime;
+		
+		private EntitySet<TrnPurchaseOrderItem> _TrnPurchaseOrderItems;
+		
+		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
+		
+		private EntityRef<MstArticle> _MstArticle;
+		
+		private EntityRef<MstBranch> _MstBranch;
+		
+		private EntityRef<MstTerm> _MstTerm;
+		
+		private EntityRef<MstUser> _MstUser;
+		
+		private EntityRef<MstUser> _MstUser1;
+		
+		private EntityRef<MstUser> _MstUser2;
+		
+		private EntityRef<MstUser> _MstUser3;
+		
+		private EntityRef<MstUser> _MstUser4;
+		
+		private EntityRef<MstUser> _MstUser5;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBranchIdChanging(int value);
+    partial void OnBranchIdChanged();
+    partial void OnPONumberChanging(string value);
+    partial void OnPONumberChanged();
+    partial void OnPODateChanging(System.DateTime value);
+    partial void OnPODateChanged();
+    partial void OnManualPONumberChanging(string value);
+    partial void OnManualPONumberChanged();
+    partial void OnSupplierIdChanging(int value);
+    partial void OnSupplierIdChanged();
+    partial void OnTermIdChanging(int value);
+    partial void OnTermIdChanged();
+    partial void OnDateNeededChanging(System.DateTime value);
+    partial void OnDateNeededChanged();
+    partial void OnRemarksChanging(string value);
+    partial void OnRemarksChanged();
+    partial void OnIsCloseChanging(bool value);
+    partial void OnIsCloseChanged();
+    partial void OnRequestedByChanging(int value);
+    partial void OnRequestedByChanged();
+    partial void OnPreparedByChanging(int value);
+    partial void OnPreparedByChanged();
+    partial void OnCheckedByChanging(int value);
+    partial void OnCheckedByChanged();
+    partial void OnApprovedByChanging(int value);
+    partial void OnApprovedByChanged();
+    partial void OnIsLockedChanging(bool value);
+    partial void OnIsLockedChanged();
+    partial void OnCreatedByChanging(int value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateTimeChanging(System.DateTime value);
+    partial void OnCreatedDateTimeChanged();
+    partial void OnUpdatedByChanging(int value);
+    partial void OnUpdatedByChanged();
+    partial void OnUpdatedDateTimeChanging(System.DateTime value);
+    partial void OnUpdatedDateTimeChanged();
+    #endregion
+		
+		public TrnPurchaseOrder()
+		{
+			this._TrnPurchaseOrderItems = new EntitySet<TrnPurchaseOrderItem>(new Action<TrnPurchaseOrderItem>(this.attach_TrnPurchaseOrderItems), new Action<TrnPurchaseOrderItem>(this.detach_TrnPurchaseOrderItems));
+			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
+			this._MstArticle = default(EntityRef<MstArticle>);
+			this._MstBranch = default(EntityRef<MstBranch>);
+			this._MstTerm = default(EntityRef<MstTerm>);
+			this._MstUser = default(EntityRef<MstUser>);
+			this._MstUser1 = default(EntityRef<MstUser>);
+			this._MstUser2 = default(EntityRef<MstUser>);
+			this._MstUser3 = default(EntityRef<MstUser>);
+			this._MstUser4 = default(EntityRef<MstUser>);
+			this._MstUser5 = default(EntityRef<MstUser>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
+		{
+			get
+			{
+				return this._BranchId;
+			}
+			set
+			{
+				if ((this._BranchId != value))
+				{
+					if (this._MstBranch.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBranchIdChanging(value);
+					this.SendPropertyChanging();
+					this._BranchId = value;
+					this.SendPropertyChanged("BranchId");
+					this.OnBranchIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PONumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PONumber
+		{
+			get
+			{
+				return this._PONumber;
+			}
+			set
+			{
+				if ((this._PONumber != value))
+				{
+					this.OnPONumberChanging(value);
+					this.SendPropertyChanging();
+					this._PONumber = value;
+					this.SendPropertyChanged("PONumber");
+					this.OnPONumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PODate", DbType="DateTime NOT NULL")]
+		public System.DateTime PODate
+		{
+			get
+			{
+				return this._PODate;
+			}
+			set
+			{
+				if ((this._PODate != value))
+				{
+					this.OnPODateChanging(value);
+					this.SendPropertyChanging();
+					this._PODate = value;
+					this.SendPropertyChanged("PODate");
+					this.OnPODateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManualPONumber", DbType="NVarChar(50)")]
+		public string ManualPONumber
+		{
+			get
+			{
+				return this._ManualPONumber;
+			}
+			set
+			{
+				if ((this._ManualPONumber != value))
+				{
+					this.OnManualPONumberChanging(value);
+					this.SendPropertyChanging();
+					this._ManualPONumber = value;
+					this.SendPropertyChanged("ManualPONumber");
+					this.OnManualPONumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierId", DbType="Int NOT NULL")]
+		public int SupplierId
+		{
+			get
+			{
+				return this._SupplierId;
+			}
+			set
+			{
+				if ((this._SupplierId != value))
+				{
+					if (this._MstArticle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSupplierIdChanging(value);
+					this.SendPropertyChanging();
+					this._SupplierId = value;
+					this.SendPropertyChanged("SupplierId");
+					this.OnSupplierIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TermId", DbType="Int NOT NULL")]
+		public int TermId
+		{
+			get
+			{
+				return this._TermId;
+			}
+			set
+			{
+				if ((this._TermId != value))
+				{
+					if (this._MstTerm.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTermIdChanging(value);
+					this.SendPropertyChanging();
+					this._TermId = value;
+					this.SendPropertyChanged("TermId");
+					this.OnTermIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateNeeded", DbType="DateTime NOT NULL")]
+		public System.DateTime DateNeeded
+		{
+			get
+			{
+				return this._DateNeeded;
+			}
+			set
+			{
+				if ((this._DateNeeded != value))
+				{
+					this.OnDateNeededChanging(value);
+					this.SendPropertyChanging();
+					this._DateNeeded = value;
+					this.SendPropertyChanged("DateNeeded");
+					this.OnDateNeededChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(255)")]
+		public string Remarks
+		{
+			get
+			{
+				return this._Remarks;
+			}
+			set
+			{
+				if ((this._Remarks != value))
+				{
+					this.OnRemarksChanging(value);
+					this.SendPropertyChanging();
+					this._Remarks = value;
+					this.SendPropertyChanged("Remarks");
+					this.OnRemarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsClose", DbType="Bit NOT NULL")]
+		public bool IsClose
+		{
+			get
+			{
+				return this._IsClose;
+			}
+			set
+			{
+				if ((this._IsClose != value))
+				{
+					this.OnIsCloseChanging(value);
+					this.SendPropertyChanging();
+					this._IsClose = value;
+					this.SendPropertyChanged("IsClose");
+					this.OnIsCloseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestedBy", DbType="Int NOT NULL")]
+		public int RequestedBy
+		{
+			get
+			{
+				return this._RequestedBy;
+			}
+			set
+			{
+				if ((this._RequestedBy != value))
+				{
+					if (this._MstUser.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRequestedByChanging(value);
+					this.SendPropertyChanging();
+					this._RequestedBy = value;
+					this.SendPropertyChanged("RequestedBy");
+					this.OnRequestedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreparedBy", DbType="Int NOT NULL")]
+		public int PreparedBy
+		{
+			get
+			{
+				return this._PreparedBy;
+			}
+			set
+			{
+				if ((this._PreparedBy != value))
+				{
+					if (this._MstUser1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPreparedByChanging(value);
+					this.SendPropertyChanging();
+					this._PreparedBy = value;
+					this.SendPropertyChanged("PreparedBy");
+					this.OnPreparedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CheckedBy", DbType="Int NOT NULL")]
+		public int CheckedBy
+		{
+			get
+			{
+				return this._CheckedBy;
+			}
+			set
+			{
+				if ((this._CheckedBy != value))
+				{
+					if (this._MstUser2.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCheckedByChanging(value);
+					this.SendPropertyChanging();
+					this._CheckedBy = value;
+					this.SendPropertyChanged("CheckedBy");
+					this.OnCheckedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedBy", DbType="Int NOT NULL")]
+		public int ApprovedBy
+		{
+			get
+			{
+				return this._ApprovedBy;
+			}
+			set
+			{
+				if ((this._ApprovedBy != value))
+				{
+					if (this._MstUser3.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnApprovedByChanging(value);
+					this.SendPropertyChanging();
+					this._ApprovedBy = value;
+					this.SendPropertyChanged("ApprovedBy");
+					this.OnApprovedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsLocked", DbType="Bit NOT NULL")]
+		public bool IsLocked
+		{
+			get
+			{
+				return this._IsLocked;
+			}
+			set
+			{
+				if ((this._IsLocked != value))
+				{
+					this.OnIsLockedChanging(value);
+					this.SendPropertyChanging();
+					this._IsLocked = value;
+					this.SendPropertyChanged("IsLocked");
+					this.OnIsLockedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
+		public int CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._MstUser4.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreatedDateTime
+		{
+			get
+			{
+				return this._CreatedDateTime;
+			}
+			set
+			{
+				if ((this._CreatedDateTime != value))
+				{
+					this.OnCreatedDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDateTime = value;
+					this.SendPropertyChanged("CreatedDateTime");
+					this.OnCreatedDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="Int NOT NULL")]
+		public int UpdatedBy
+		{
+			get
+			{
+				return this._UpdatedBy;
+			}
+			set
+			{
+				if ((this._UpdatedBy != value))
+				{
+					if (this._MstUser5.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedBy = value;
+					this.SendPropertyChanged("UpdatedBy");
+					this.OnUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime UpdatedDateTime
+		{
+			get
+			{
+				return this._UpdatedDateTime;
+			}
+			set
+			{
+				if ((this._UpdatedDateTime != value))
+				{
+					this.OnUpdatedDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedDateTime = value;
+					this.SendPropertyChanged("UpdatedDateTime");
+					this.OnUpdatedDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnPurchaseOrder_TrnPurchaseOrderItem", Storage="_TrnPurchaseOrderItems", ThisKey="Id", OtherKey="POId")]
+		public EntitySet<TrnPurchaseOrderItem> TrnPurchaseOrderItems
+		{
+			get
+			{
+				return this._TrnPurchaseOrderItems;
+			}
+			set
+			{
+				this._TrnPurchaseOrderItems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnPurchaseOrder_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="POId")]
+		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this._TrnReceivingReceiptItems;
+			}
+			set
+			{
+				this._TrnReceivingReceiptItems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnPurchaseOrder", Storage="_MstArticle", ThisKey="SupplierId", OtherKey="Id", IsForeignKey=true)]
+		public MstArticle MstArticle
+		{
+			get
+			{
+				return this._MstArticle.Entity;
+			}
+			set
+			{
+				MstArticle previousValue = this._MstArticle.Entity;
+				if (((previousValue != value) 
+							|| (this._MstArticle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstArticle.Entity = null;
+						previousValue.TrnPurchaseOrders.Remove(this);
+					}
+					this._MstArticle.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders.Add(this);
+						this._SupplierId = value.Id;
+					}
+					else
+					{
+						this._SupplierId = default(int);
+					}
+					this.SendPropertyChanged("MstArticle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnPurchaseOrder", Storage="_MstBranch", ThisKey="BranchId", OtherKey="Id", IsForeignKey=true)]
+		public MstBranch MstBranch
+		{
+			get
+			{
+				return this._MstBranch.Entity;
+			}
+			set
+			{
+				MstBranch previousValue = this._MstBranch.Entity;
+				if (((previousValue != value) 
+							|| (this._MstBranch.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstBranch.Entity = null;
+						previousValue.TrnPurchaseOrders.Remove(this);
+					}
+					this._MstBranch.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders.Add(this);
+						this._BranchId = value.Id;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("MstBranch");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_TrnPurchaseOrder", Storage="_MstTerm", ThisKey="TermId", OtherKey="Id", IsForeignKey=true)]
+		public MstTerm MstTerm
+		{
+			get
+			{
+				return this._MstTerm.Entity;
+			}
+			set
+			{
+				MstTerm previousValue = this._MstTerm.Entity;
+				if (((previousValue != value) 
+							|| (this._MstTerm.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstTerm.Entity = null;
+						previousValue.TrnPurchaseOrders.Remove(this);
+					}
+					this._MstTerm.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders.Add(this);
+						this._TermId = value.Id;
+					}
+					else
+					{
+						this._TermId = default(int);
+					}
+					this.SendPropertyChanged("MstTerm");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder", Storage="_MstUser", ThisKey="RequestedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser
+		{
+			get
+			{
+				return this._MstUser.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser.Entity = null;
+						previousValue.TrnPurchaseOrders.Remove(this);
+					}
+					this._MstUser.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders.Add(this);
+						this._RequestedBy = value.Id;
+					}
+					else
+					{
+						this._RequestedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder1", Storage="_MstUser1", ThisKey="PreparedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser1
+		{
+			get
+			{
+				return this._MstUser1.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser1.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser1.Entity = null;
+						previousValue.TrnPurchaseOrders1.Remove(this);
+					}
+					this._MstUser1.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders1.Add(this);
+						this._PreparedBy = value.Id;
+					}
+					else
+					{
+						this._PreparedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder2", Storage="_MstUser2", ThisKey="CheckedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser2
+		{
+			get
+			{
+				return this._MstUser2.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser2.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser2.Entity = null;
+						previousValue.TrnPurchaseOrders2.Remove(this);
+					}
+					this._MstUser2.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders2.Add(this);
+						this._CheckedBy = value.Id;
+					}
+					else
+					{
+						this._CheckedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser2");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder3", Storage="_MstUser3", ThisKey="ApprovedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser3
+		{
+			get
+			{
+				return this._MstUser3.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser3.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser3.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser3.Entity = null;
+						previousValue.TrnPurchaseOrders3.Remove(this);
+					}
+					this._MstUser3.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders3.Add(this);
+						this._ApprovedBy = value.Id;
+					}
+					else
+					{
+						this._ApprovedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser3");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder4", Storage="_MstUser4", ThisKey="CreatedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser4
+		{
+			get
+			{
+				return this._MstUser4.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser4.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser4.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser4.Entity = null;
+						previousValue.TrnPurchaseOrders4.Remove(this);
+					}
+					this._MstUser4.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders4.Add(this);
+						this._CreatedBy = value.Id;
+					}
+					else
+					{
+						this._CreatedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser4");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnPurchaseOrder5", Storage="_MstUser5", ThisKey="UpdatedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser5
+		{
+			get
+			{
+				return this._MstUser5.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser5.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser5.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser5.Entity = null;
+						previousValue.TrnPurchaseOrders5.Remove(this);
+					}
+					this._MstUser5.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrders5.Add(this);
+						this._UpdatedBy = value.Id;
+					}
+					else
+					{
+						this._UpdatedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser5");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TrnPurchaseOrderItems(TrnPurchaseOrderItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnPurchaseOrder = this;
+		}
+		
+		private void detach_TrnPurchaseOrderItems(TrnPurchaseOrderItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnPurchaseOrder = null;
+		}
+		
+		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnPurchaseOrder = this;
+		}
+		
+		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnPurchaseOrder = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnPurchaseOrderItem")]
+	public partial class TrnPurchaseOrderItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _POId;
+		
+		private int _ItemId;
+		
+		private int _UnitId;
+		
+		private decimal _Quantity;
+		
+		private decimal _Cost;
+		
+		private decimal _Amount;
+		
+		private decimal _BaseQuantity;
+		
+		private decimal _BaseCost;
+		
+		private EntityRef<MstArticle> _MstArticle;
+		
+		private EntityRef<MstUnit> _MstUnit;
+		
+		private EntityRef<TrnPurchaseOrder> _TrnPurchaseOrder;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnPOIdChanging(int value);
+    partial void OnPOIdChanged();
+    partial void OnItemIdChanging(int value);
+    partial void OnItemIdChanged();
+    partial void OnUnitIdChanging(int value);
+    partial void OnUnitIdChanged();
+    partial void OnQuantityChanging(decimal value);
+    partial void OnQuantityChanged();
+    partial void OnCostChanging(decimal value);
+    partial void OnCostChanged();
+    partial void OnAmountChanging(decimal value);
+    partial void OnAmountChanged();
+    partial void OnBaseQuantityChanging(decimal value);
+    partial void OnBaseQuantityChanged();
+    partial void OnBaseCostChanging(decimal value);
+    partial void OnBaseCostChanged();
+    #endregion
+		
+		public TrnPurchaseOrderItem()
+		{
+			this._MstArticle = default(EntityRef<MstArticle>);
+			this._MstUnit = default(EntityRef<MstUnit>);
+			this._TrnPurchaseOrder = default(EntityRef<TrnPurchaseOrder>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POId", DbType="Int NOT NULL")]
+		public int POId
+		{
+			get
+			{
+				return this._POId;
+			}
+			set
+			{
+				if ((this._POId != value))
+				{
+					if (this._TrnPurchaseOrder.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPOIdChanging(value);
+					this.SendPropertyChanging();
+					this._POId = value;
+					this.SendPropertyChanged("POId");
+					this.OnPOIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
+		public int ItemId
+		{
+			get
+			{
+				return this._ItemId;
+			}
+			set
+			{
+				if ((this._ItemId != value))
+				{
+					if (this._MstArticle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnItemIdChanging(value);
+					this.SendPropertyChanging();
+					this._ItemId = value;
+					this.SendPropertyChanged("ItemId");
+					this.OnItemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitId", DbType="Int NOT NULL")]
+		public int UnitId
+		{
+			get
+			{
+				return this._UnitId;
+			}
+			set
+			{
+				if ((this._UnitId != value))
+				{
+					if (this._MstUnit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUnitIdChanging(value);
+					this.SendPropertyChanging();
+					this._UnitId = value;
+					this.SendPropertyChanged("UnitId");
+					this.OnUnitIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
+					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BaseQuantity", DbType="Decimal(18,5) NOT NULL")]
+		public decimal BaseQuantity
+		{
+			get
+			{
+				return this._BaseQuantity;
+			}
+			set
+			{
+				if ((this._BaseQuantity != value))
+				{
+					this.OnBaseQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._BaseQuantity = value;
+					this.SendPropertyChanged("BaseQuantity");
+					this.OnBaseQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BaseCost", DbType="Decimal(18,5) NOT NULL")]
+		public decimal BaseCost
+		{
+			get
+			{
+				return this._BaseCost;
+			}
+			set
+			{
+				if ((this._BaseCost != value))
+				{
+					this.OnBaseCostChanging(value);
+					this.SendPropertyChanging();
+					this._BaseCost = value;
+					this.SendPropertyChanged("BaseCost");
+					this.OnBaseCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnPurchaseOrderItem", Storage="_MstArticle", ThisKey="ItemId", OtherKey="Id", IsForeignKey=true)]
+		public MstArticle MstArticle
+		{
+			get
+			{
+				return this._MstArticle.Entity;
+			}
+			set
+			{
+				MstArticle previousValue = this._MstArticle.Entity;
+				if (((previousValue != value) 
+							|| (this._MstArticle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstArticle.Entity = null;
+						previousValue.TrnPurchaseOrderItems.Remove(this);
+					}
+					this._MstArticle.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrderItems.Add(this);
+						this._ItemId = value.Id;
+					}
+					else
+					{
+						this._ItemId = default(int);
+					}
+					this.SendPropertyChanged("MstArticle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUnit_TrnPurchaseOrderItem", Storage="_MstUnit", ThisKey="UnitId", OtherKey="Id", IsForeignKey=true)]
+		public MstUnit MstUnit
+		{
+			get
+			{
+				return this._MstUnit.Entity;
+			}
+			set
+			{
+				MstUnit previousValue = this._MstUnit.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUnit.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUnit.Entity = null;
+						previousValue.TrnPurchaseOrderItems.Remove(this);
+					}
+					this._MstUnit.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrderItems.Add(this);
+						this._UnitId = value.Id;
+					}
+					else
+					{
+						this._UnitId = default(int);
+					}
+					this.SendPropertyChanged("MstUnit");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnPurchaseOrder_TrnPurchaseOrderItem", Storage="_TrnPurchaseOrder", ThisKey="POId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public TrnPurchaseOrder TrnPurchaseOrder
+		{
+			get
+			{
+				return this._TrnPurchaseOrder.Entity;
+			}
+			set
+			{
+				TrnPurchaseOrder previousValue = this._TrnPurchaseOrder.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnPurchaseOrder.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnPurchaseOrder.Entity = null;
+						previousValue.TrnPurchaseOrderItems.Remove(this);
+					}
+					this._TrnPurchaseOrder.Entity = value;
+					if ((value != null))
+					{
+						value.TrnPurchaseOrderItems.Add(this);
+						this._POId = value.Id;
+					}
+					else
+					{
+						this._POId = default(int);
+					}
+					this.SendPropertyChanged("TrnPurchaseOrder");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnReceivingReceipt")]
+	public partial class TrnReceivingReceipt : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _BranchId;
+		
+		private string _RRNumber;
+		
+		private System.DateTime _RRDate;
+		
+		private string _ManualRRNumber;
+		
+		private int _SupplierId;
+		
+		private int _TermId;
+		
+		private string _Remarks;
+		
+		private int _ReceivedBy;
+		
+		private int _PreparedBy;
+		
+		private int _CheckedBy;
+		
+		private int _ApprovedBy;
+		
+		private bool _IsLocked;
+		
+		private decimal _Amount;
+		
+		private decimal _PaidAmount;
+		
+		private decimal _CreditAmount;
+		
+		private decimal _DebitAmount;
+		
+		private decimal _BalanceAmount;
+		
+		private int _CreatedBy;
+		
+		private System.DateTime _CreatedDateTime;
+		
+		private int _UpdatedBy;
+		
+		private System.DateTime _UpdatedDateTime;
+		
+		private EntitySet<TrnDisbursementLine> _TrnDisbursementLines;
+		
+		private EntitySet<TrnInventory> _TrnInventories;
+		
+		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
+		
+		private EntityRef<MstArticle> _MstArticle;
+		
+		private EntityRef<MstBranch> _MstBranch;
+		
+		private EntityRef<MstTerm> _MstTerm;
+		
+		private EntityRef<MstUser> _MstUser;
+		
+		private EntityRef<MstUser> _MstUser1;
+		
+		private EntityRef<MstUser> _MstUser2;
+		
+		private EntityRef<MstUser> _MstUser3;
+		
+		private EntityRef<MstUser> _MstUser4;
+		
+		private EntityRef<MstUser> _MstUser5;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBranchIdChanging(int value);
+    partial void OnBranchIdChanged();
+    partial void OnRRNumberChanging(string value);
+    partial void OnRRNumberChanged();
+    partial void OnRRDateChanging(System.DateTime value);
+    partial void OnRRDateChanged();
+    partial void OnManualRRNumberChanging(string value);
+    partial void OnManualRRNumberChanged();
+    partial void OnSupplierIdChanging(int value);
+    partial void OnSupplierIdChanged();
+    partial void OnTermIdChanging(int value);
+    partial void OnTermIdChanged();
+    partial void OnRemarksChanging(string value);
+    partial void OnRemarksChanged();
+    partial void OnReceivedByChanging(int value);
+    partial void OnReceivedByChanged();
+    partial void OnPreparedByChanging(int value);
+    partial void OnPreparedByChanged();
+    partial void OnCheckedByChanging(int value);
+    partial void OnCheckedByChanged();
+    partial void OnApprovedByChanging(int value);
+    partial void OnApprovedByChanged();
+    partial void OnIsLockedChanging(bool value);
+    partial void OnIsLockedChanged();
+    partial void OnAmountChanging(decimal value);
+    partial void OnAmountChanged();
+    partial void OnPaidAmountChanging(decimal value);
+    partial void OnPaidAmountChanged();
+    partial void OnCreditAmountChanging(decimal value);
+    partial void OnCreditAmountChanged();
+    partial void OnDebitAmountChanging(decimal value);
+    partial void OnDebitAmountChanged();
+    partial void OnBalanceAmountChanging(decimal value);
+    partial void OnBalanceAmountChanged();
+    partial void OnCreatedByChanging(int value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateTimeChanging(System.DateTime value);
+    partial void OnCreatedDateTimeChanged();
+    partial void OnUpdatedByChanging(int value);
+    partial void OnUpdatedByChanged();
+    partial void OnUpdatedDateTimeChanging(System.DateTime value);
+    partial void OnUpdatedDateTimeChanged();
+    #endregion
+		
+		public TrnReceivingReceipt()
+		{
+			this._TrnDisbursementLines = new EntitySet<TrnDisbursementLine>(new Action<TrnDisbursementLine>(this.attach_TrnDisbursementLines), new Action<TrnDisbursementLine>(this.detach_TrnDisbursementLines));
+			this._TrnInventories = new EntitySet<TrnInventory>(new Action<TrnInventory>(this.attach_TrnInventories), new Action<TrnInventory>(this.detach_TrnInventories));
+			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
+			this._MstArticle = default(EntityRef<MstArticle>);
+			this._MstBranch = default(EntityRef<MstBranch>);
+			this._MstTerm = default(EntityRef<MstTerm>);
+			this._MstUser = default(EntityRef<MstUser>);
+			this._MstUser1 = default(EntityRef<MstUser>);
+			this._MstUser2 = default(EntityRef<MstUser>);
+			this._MstUser3 = default(EntityRef<MstUser>);
+			this._MstUser4 = default(EntityRef<MstUser>);
+			this._MstUser5 = default(EntityRef<MstUser>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
+		{
+			get
+			{
+				return this._BranchId;
+			}
+			set
+			{
+				if ((this._BranchId != value))
+				{
+					if (this._MstBranch.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBranchIdChanging(value);
+					this.SendPropertyChanging();
+					this._BranchId = value;
+					this.SendPropertyChanged("BranchId");
+					this.OnBranchIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RRNumber", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RRNumber
+		{
+			get
+			{
+				return this._RRNumber;
+			}
+			set
+			{
+				if ((this._RRNumber != value))
+				{
+					this.OnRRNumberChanging(value);
+					this.SendPropertyChanging();
+					this._RRNumber = value;
+					this.SendPropertyChanged("RRNumber");
+					this.OnRRNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RRDate", DbType="DateTime NOT NULL")]
+		public System.DateTime RRDate
+		{
+			get
+			{
+				return this._RRDate;
+			}
+			set
+			{
+				if ((this._RRDate != value))
+				{
+					this.OnRRDateChanging(value);
+					this.SendPropertyChanging();
+					this._RRDate = value;
+					this.SendPropertyChanged("RRDate");
+					this.OnRRDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManualRRNumber", DbType="NVarChar(50)")]
+		public string ManualRRNumber
+		{
+			get
+			{
+				return this._ManualRRNumber;
+			}
+			set
+			{
+				if ((this._ManualRRNumber != value))
+				{
+					this.OnManualRRNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ManualRRNumber = value;
+					this.SendPropertyChanged("ManualRRNumber");
+					this.OnManualRRNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierId", DbType="Int NOT NULL")]
+		public int SupplierId
+		{
+			get
+			{
+				return this._SupplierId;
+			}
+			set
+			{
+				if ((this._SupplierId != value))
+				{
+					if (this._MstArticle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSupplierIdChanging(value);
+					this.SendPropertyChanging();
+					this._SupplierId = value;
+					this.SendPropertyChanged("SupplierId");
+					this.OnSupplierIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TermId", DbType="Int NOT NULL")]
+		public int TermId
+		{
+			get
+			{
+				return this._TermId;
+			}
+			set
+			{
+				if ((this._TermId != value))
+				{
+					if (this._MstTerm.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTermIdChanging(value);
+					this.SendPropertyChanging();
+					this._TermId = value;
+					this.SendPropertyChanged("TermId");
+					this.OnTermIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(255)")]
+		public string Remarks
+		{
+			get
+			{
+				return this._Remarks;
+			}
+			set
+			{
+				if ((this._Remarks != value))
+				{
+					this.OnRemarksChanging(value);
+					this.SendPropertyChanging();
+					this._Remarks = value;
+					this.SendPropertyChanged("Remarks");
+					this.OnRemarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceivedBy", DbType="Int NOT NULL")]
+		public int ReceivedBy
+		{
+			get
+			{
+				return this._ReceivedBy;
+			}
+			set
+			{
+				if ((this._ReceivedBy != value))
+				{
+					if (this._MstUser.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnReceivedByChanging(value);
+					this.SendPropertyChanging();
+					this._ReceivedBy = value;
+					this.SendPropertyChanged("ReceivedBy");
+					this.OnReceivedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreparedBy", DbType="Int NOT NULL")]
+		public int PreparedBy
+		{
+			get
+			{
+				return this._PreparedBy;
+			}
+			set
+			{
+				if ((this._PreparedBy != value))
+				{
+					if (this._MstUser1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPreparedByChanging(value);
+					this.SendPropertyChanging();
+					this._PreparedBy = value;
+					this.SendPropertyChanged("PreparedBy");
+					this.OnPreparedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CheckedBy", DbType="Int NOT NULL")]
+		public int CheckedBy
+		{
+			get
+			{
+				return this._CheckedBy;
+			}
+			set
+			{
+				if ((this._CheckedBy != value))
+				{
+					if (this._MstUser2.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCheckedByChanging(value);
+					this.SendPropertyChanging();
+					this._CheckedBy = value;
+					this.SendPropertyChanged("CheckedBy");
+					this.OnCheckedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApprovedBy", DbType="Int NOT NULL")]
+		public int ApprovedBy
+		{
+			get
+			{
+				return this._ApprovedBy;
+			}
+			set
+			{
+				if ((this._ApprovedBy != value))
+				{
+					if (this._MstUser3.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnApprovedByChanging(value);
+					this.SendPropertyChanging();
+					this._ApprovedBy = value;
+					this.SendPropertyChanged("ApprovedBy");
+					this.OnApprovedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsLocked", DbType="Bit NOT NULL")]
+		public bool IsLocked
+		{
+			get
+			{
+				return this._IsLocked;
+			}
+			set
+			{
+				if ((this._IsLocked != value))
+				{
+					this.OnIsLockedChanging(value);
+					this.SendPropertyChanging();
+					this._IsLocked = value;
+					this.SendPropertyChanged("IsLocked");
+					this.OnIsLockedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaidAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal PaidAmount
+		{
+			get
+			{
+				return this._PaidAmount;
+			}
+			set
+			{
+				if ((this._PaidAmount != value))
+				{
+					this.OnPaidAmountChanging(value);
+					this.SendPropertyChanging();
+					this._PaidAmount = value;
+					this.SendPropertyChanged("PaidAmount");
+					this.OnPaidAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreditAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal CreditAmount
+		{
+			get
+			{
+				return this._CreditAmount;
+			}
+			set
+			{
+				if ((this._CreditAmount != value))
+				{
+					this.OnCreditAmountChanging(value);
+					this.SendPropertyChanging();
+					this._CreditAmount = value;
+					this.SendPropertyChanged("CreditAmount");
+					this.OnCreditAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DebitAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal DebitAmount
+		{
+			get
+			{
+				return this._DebitAmount;
+			}
+			set
+			{
+				if ((this._DebitAmount != value))
+				{
+					this.OnDebitAmountChanging(value);
+					this.SendPropertyChanging();
+					this._DebitAmount = value;
+					this.SendPropertyChanged("DebitAmount");
+					this.OnDebitAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BalanceAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal BalanceAmount
+		{
+			get
+			{
+				return this._BalanceAmount;
+			}
+			set
+			{
+				if ((this._BalanceAmount != value))
+				{
+					this.OnBalanceAmountChanging(value);
+					this.SendPropertyChanging();
+					this._BalanceAmount = value;
+					this.SendPropertyChanged("BalanceAmount");
+					this.OnBalanceAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
+		public int CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._MstUser4.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreatedDateTime
+		{
+			get
+			{
+				return this._CreatedDateTime;
+			}
+			set
+			{
+				if ((this._CreatedDateTime != value))
+				{
+					this.OnCreatedDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDateTime = value;
+					this.SendPropertyChanged("CreatedDateTime");
+					this.OnCreatedDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="Int NOT NULL")]
+		public int UpdatedBy
+		{
+			get
+			{
+				return this._UpdatedBy;
+			}
+			set
+			{
+				if ((this._UpdatedBy != value))
+				{
+					if (this._MstUser5.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedBy = value;
+					this.SendPropertyChanged("UpdatedBy");
+					this.OnUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime UpdatedDateTime
+		{
+			get
+			{
+				return this._UpdatedDateTime;
+			}
+			set
+			{
+				if ((this._UpdatedDateTime != value))
+				{
+					this.OnUpdatedDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedDateTime = value;
+					this.SendPropertyChanged("UpdatedDateTime");
+					this.OnUpdatedDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnDisbursementLine", Storage="_TrnDisbursementLines", ThisKey="Id", OtherKey="RRId")]
+		public EntitySet<TrnDisbursementLine> TrnDisbursementLines
+		{
+			get
+			{
+				return this._TrnDisbursementLines;
+			}
+			set
+			{
+				this._TrnDisbursementLines.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnInventory", Storage="_TrnInventories", ThisKey="Id", OtherKey="RRId")]
+		public EntitySet<TrnInventory> TrnInventories
+		{
+			get
+			{
+				return this._TrnInventories;
+			}
+			set
+			{
+				this._TrnInventories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="RRId")]
+		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this._TrnReceivingReceiptItems;
+			}
+			set
+			{
+				this._TrnReceivingReceiptItems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnReceivingReceipt", Storage="_MstArticle", ThisKey="SupplierId", OtherKey="Id", IsForeignKey=true)]
+		public MstArticle MstArticle
+		{
+			get
+			{
+				return this._MstArticle.Entity;
+			}
+			set
+			{
+				MstArticle previousValue = this._MstArticle.Entity;
+				if (((previousValue != value) 
+							|| (this._MstArticle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstArticle.Entity = null;
+						previousValue.TrnReceivingReceipts.Remove(this);
+					}
+					this._MstArticle.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts.Add(this);
+						this._SupplierId = value.Id;
+					}
+					else
+					{
+						this._SupplierId = default(int);
+					}
+					this.SendPropertyChanged("MstArticle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnReceivingReceipt", Storage="_MstBranch", ThisKey="BranchId", OtherKey="Id", IsForeignKey=true)]
+		public MstBranch MstBranch
+		{
+			get
+			{
+				return this._MstBranch.Entity;
+			}
+			set
+			{
+				MstBranch previousValue = this._MstBranch.Entity;
+				if (((previousValue != value) 
+							|| (this._MstBranch.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstBranch.Entity = null;
+						previousValue.TrnReceivingReceipts.Remove(this);
+					}
+					this._MstBranch.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts.Add(this);
+						this._BranchId = value.Id;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("MstBranch");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_TrnReceivingReceipt", Storage="_MstTerm", ThisKey="TermId", OtherKey="Id", IsForeignKey=true)]
+		public MstTerm MstTerm
+		{
+			get
+			{
+				return this._MstTerm.Entity;
+			}
+			set
+			{
+				MstTerm previousValue = this._MstTerm.Entity;
+				if (((previousValue != value) 
+							|| (this._MstTerm.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstTerm.Entity = null;
+						previousValue.TrnReceivingReceipts.Remove(this);
+					}
+					this._MstTerm.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts.Add(this);
+						this._TermId = value.Id;
+					}
+					else
+					{
+						this._TermId = default(int);
+					}
+					this.SendPropertyChanged("MstTerm");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt", Storage="_MstUser", ThisKey="ReceivedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser
+		{
+			get
+			{
+				return this._MstUser.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser.Entity = null;
+						previousValue.TrnReceivingReceipts.Remove(this);
+					}
+					this._MstUser.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts.Add(this);
+						this._ReceivedBy = value.Id;
+					}
+					else
+					{
+						this._ReceivedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt1", Storage="_MstUser1", ThisKey="PreparedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser1
+		{
+			get
+			{
+				return this._MstUser1.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser1.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser1.Entity = null;
+						previousValue.TrnReceivingReceipts1.Remove(this);
+					}
+					this._MstUser1.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts1.Add(this);
+						this._PreparedBy = value.Id;
+					}
+					else
+					{
+						this._PreparedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt2", Storage="_MstUser2", ThisKey="CheckedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser2
+		{
+			get
+			{
+				return this._MstUser2.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser2.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser2.Entity = null;
+						previousValue.TrnReceivingReceipts2.Remove(this);
+					}
+					this._MstUser2.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts2.Add(this);
+						this._CheckedBy = value.Id;
+					}
+					else
+					{
+						this._CheckedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser2");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt3", Storage="_MstUser3", ThisKey="ApprovedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser3
+		{
+			get
+			{
+				return this._MstUser3.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser3.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser3.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser3.Entity = null;
+						previousValue.TrnReceivingReceipts3.Remove(this);
+					}
+					this._MstUser3.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts3.Add(this);
+						this._ApprovedBy = value.Id;
+					}
+					else
+					{
+						this._ApprovedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser3");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt4", Storage="_MstUser4", ThisKey="CreatedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser4
+		{
+			get
+			{
+				return this._MstUser4.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser4.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser4.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser4.Entity = null;
+						previousValue.TrnReceivingReceipts4.Remove(this);
+					}
+					this._MstUser4.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts4.Add(this);
+						this._CreatedBy = value.Id;
+					}
+					else
+					{
+						this._CreatedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser4");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUser_TrnReceivingReceipt5", Storage="_MstUser5", ThisKey="UpdatedBy", OtherKey="Id", IsForeignKey=true)]
+		public MstUser MstUser5
+		{
+			get
+			{
+				return this._MstUser5.Entity;
+			}
+			set
+			{
+				MstUser previousValue = this._MstUser5.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUser5.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUser5.Entity = null;
+						previousValue.TrnReceivingReceipts5.Remove(this);
+					}
+					this._MstUser5.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceipts5.Add(this);
+						this._UpdatedBy = value.Id;
+					}
+					else
+					{
+						this._UpdatedBy = default(int);
+					}
+					this.SendPropertyChanged("MstUser5");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TrnDisbursementLines(TrnDisbursementLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = this;
+		}
+		
+		private void detach_TrnDisbursementLines(TrnDisbursementLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = null;
+		}
+		
+		private void attach_TrnInventories(TrnInventory entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = this;
+		}
+		
+		private void detach_TrnInventories(TrnInventory entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = null;
+		}
+		
+		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = this;
+		}
+		
+		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnReceivingReceiptItem")]
+	public partial class TrnReceivingReceiptItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _RRId;
+		
+		private int _POId;
+		
+		private int _ItemId;
+		
+		private int _UnitId;
+		
+		private decimal _Quantity;
+		
+		private decimal _Cost;
+		
+		private decimal _Amount;
+		
+		private int _TaxId;
+		
+		private decimal _TaxRate;
+		
+		private decimal _TaxAmount;
+		
+		private int _BranchId;
+		
+		private decimal _BaseQuantity;
+		
+		private decimal _BaseCost;
+		
+		private EntityRef<MstArticle> _MstArticle;
+		
+		private EntityRef<MstBranch> _MstBranch;
+		
+		private EntityRef<MstTax> _MstTax;
+		
+		private EntityRef<MstUnit> _MstUnit;
+		
+		private EntityRef<TrnPurchaseOrder> _TrnPurchaseOrder;
+		
+		private EntityRef<TrnReceivingReceipt> _TrnReceivingReceipt;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnRRIdChanging(int value);
+    partial void OnRRIdChanged();
+    partial void OnPOIdChanging(int value);
+    partial void OnPOIdChanged();
+    partial void OnItemIdChanging(int value);
+    partial void OnItemIdChanged();
+    partial void OnUnitIdChanging(int value);
+    partial void OnUnitIdChanged();
+    partial void OnQuantityChanging(decimal value);
+    partial void OnQuantityChanged();
+    partial void OnCostChanging(decimal value);
+    partial void OnCostChanged();
+    partial void OnAmountChanging(decimal value);
+    partial void OnAmountChanged();
+    partial void OnTaxIdChanging(int value);
+    partial void OnTaxIdChanged();
+    partial void OnTaxRateChanging(decimal value);
+    partial void OnTaxRateChanged();
+    partial void OnTaxAmountChanging(decimal value);
+    partial void OnTaxAmountChanged();
+    partial void OnBranchIdChanging(int value);
+    partial void OnBranchIdChanged();
+    partial void OnBaseQuantityChanging(decimal value);
+    partial void OnBaseQuantityChanged();
+    partial void OnBaseCostChanging(decimal value);
+    partial void OnBaseCostChanged();
+    #endregion
+		
+		public TrnReceivingReceiptItem()
+		{
+			this._MstArticle = default(EntityRef<MstArticle>);
+			this._MstBranch = default(EntityRef<MstBranch>);
+			this._MstTax = default(EntityRef<MstTax>);
+			this._MstUnit = default(EntityRef<MstUnit>);
+			this._TrnPurchaseOrder = default(EntityRef<TrnPurchaseOrder>);
+			this._TrnReceivingReceipt = default(EntityRef<TrnReceivingReceipt>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RRId", DbType="Int NOT NULL")]
+		public int RRId
+		{
+			get
+			{
+				return this._RRId;
+			}
+			set
+			{
+				if ((this._RRId != value))
+				{
+					if (this._TrnReceivingReceipt.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRRIdChanging(value);
+					this.SendPropertyChanging();
+					this._RRId = value;
+					this.SendPropertyChanged("RRId");
+					this.OnRRIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POId", DbType="Int NOT NULL")]
+		public int POId
+		{
+			get
+			{
+				return this._POId;
+			}
+			set
+			{
+				if ((this._POId != value))
+				{
+					if (this._TrnPurchaseOrder.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPOIdChanging(value);
+					this.SendPropertyChanging();
+					this._POId = value;
+					this.SendPropertyChanged("POId");
+					this.OnPOIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
+		public int ItemId
+		{
+			get
+			{
+				return this._ItemId;
+			}
+			set
+			{
+				if ((this._ItemId != value))
+				{
+					if (this._MstArticle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnItemIdChanging(value);
+					this.SendPropertyChanging();
+					this._ItemId = value;
+					this.SendPropertyChanged("ItemId");
+					this.OnItemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitId", DbType="Int NOT NULL")]
+		public int UnitId
+		{
+			get
+			{
+				return this._UnitId;
+			}
+			set
+			{
+				if ((this._UnitId != value))
+				{
+					if (this._MstUnit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUnitIdChanging(value);
+					this.SendPropertyChanging();
+					this._UnitId = value;
+					this.SendPropertyChanged("UnitId");
+					this.OnUnitIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
+					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaxId", DbType="Int NOT NULL")]
+		public int TaxId
+		{
+			get
+			{
+				return this._TaxId;
+			}
+			set
+			{
+				if ((this._TaxId != value))
+				{
+					if (this._MstTax.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTaxIdChanging(value);
+					this.SendPropertyChanging();
+					this._TaxId = value;
+					this.SendPropertyChanged("TaxId");
+					this.OnTaxIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaxRate", DbType="Decimal(18,5) NOT NULL")]
+		public decimal TaxRate
+		{
+			get
+			{
+				return this._TaxRate;
+			}
+			set
+			{
+				if ((this._TaxRate != value))
+				{
+					this.OnTaxRateChanging(value);
+					this.SendPropertyChanging();
+					this._TaxRate = value;
+					this.SendPropertyChanged("TaxRate");
+					this.OnTaxRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TaxAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal TaxAmount
+		{
+			get
+			{
+				return this._TaxAmount;
+			}
+			set
+			{
+				if ((this._TaxAmount != value))
+				{
+					this.OnTaxAmountChanging(value);
+					this.SendPropertyChanging();
+					this._TaxAmount = value;
+					this.SendPropertyChanged("TaxAmount");
+					this.OnTaxAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
+		{
+			get
+			{
+				return this._BranchId;
+			}
+			set
+			{
+				if ((this._BranchId != value))
+				{
+					if (this._MstBranch.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBranchIdChanging(value);
+					this.SendPropertyChanging();
+					this._BranchId = value;
+					this.SendPropertyChanged("BranchId");
+					this.OnBranchIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BaseQuantity", DbType="Decimal(18,5) NOT NULL")]
+		public decimal BaseQuantity
+		{
+			get
+			{
+				return this._BaseQuantity;
+			}
+			set
+			{
+				if ((this._BaseQuantity != value))
+				{
+					this.OnBaseQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._BaseQuantity = value;
+					this.SendPropertyChanged("BaseQuantity");
+					this.OnBaseQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BaseCost", DbType="Decimal(18,5) NOT NULL")]
+		public decimal BaseCost
+		{
+			get
+			{
+				return this._BaseCost;
+			}
+			set
+			{
+				if ((this._BaseCost != value))
+				{
+					this.OnBaseCostChanging(value);
+					this.SendPropertyChanging();
+					this._BaseCost = value;
+					this.SendPropertyChanged("BaseCost");
+					this.OnBaseCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_TrnReceivingReceiptItem", Storage="_MstArticle", ThisKey="ItemId", OtherKey="Id", IsForeignKey=true)]
+		public MstArticle MstArticle
+		{
+			get
+			{
+				return this._MstArticle.Entity;
+			}
+			set
+			{
+				MstArticle previousValue = this._MstArticle.Entity;
+				if (((previousValue != value) 
+							|| (this._MstArticle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstArticle.Entity = null;
+						previousValue.TrnReceivingReceiptItems.Remove(this);
+					}
+					this._MstArticle.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceiptItems.Add(this);
+						this._ItemId = value.Id;
+					}
+					else
+					{
+						this._ItemId = default(int);
+					}
+					this.SendPropertyChanged("MstArticle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstBranch_TrnReceivingReceiptItem", Storage="_MstBranch", ThisKey="BranchId", OtherKey="Id", IsForeignKey=true)]
+		public MstBranch MstBranch
+		{
+			get
+			{
+				return this._MstBranch.Entity;
+			}
+			set
+			{
+				MstBranch previousValue = this._MstBranch.Entity;
+				if (((previousValue != value) 
+							|| (this._MstBranch.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstBranch.Entity = null;
+						previousValue.TrnReceivingReceiptItems.Remove(this);
+					}
+					this._MstBranch.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceiptItems.Add(this);
+						this._BranchId = value.Id;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("MstBranch");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTax_TrnReceivingReceiptItem", Storage="_MstTax", ThisKey="TaxId", OtherKey="Id", IsForeignKey=true)]
+		public MstTax MstTax
+		{
+			get
+			{
+				return this._MstTax.Entity;
+			}
+			set
+			{
+				MstTax previousValue = this._MstTax.Entity;
+				if (((previousValue != value) 
+							|| (this._MstTax.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstTax.Entity = null;
+						previousValue.TrnReceivingReceiptItems.Remove(this);
+					}
+					this._MstTax.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceiptItems.Add(this);
+						this._TaxId = value.Id;
+					}
+					else
+					{
+						this._TaxId = default(int);
+					}
+					this.SendPropertyChanged("MstTax");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstUnit_TrnReceivingReceiptItem", Storage="_MstUnit", ThisKey="UnitId", OtherKey="Id", IsForeignKey=true)]
+		public MstUnit MstUnit
+		{
+			get
+			{
+				return this._MstUnit.Entity;
+			}
+			set
+			{
+				MstUnit previousValue = this._MstUnit.Entity;
+				if (((previousValue != value) 
+							|| (this._MstUnit.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstUnit.Entity = null;
+						previousValue.TrnReceivingReceiptItems.Remove(this);
+					}
+					this._MstUnit.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceiptItems.Add(this);
+						this._UnitId = value.Id;
+					}
+					else
+					{
+						this._UnitId = default(int);
+					}
+					this.SendPropertyChanged("MstUnit");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnPurchaseOrder_TrnReceivingReceiptItem", Storage="_TrnPurchaseOrder", ThisKey="POId", OtherKey="Id", IsForeignKey=true)]
+		public TrnPurchaseOrder TrnPurchaseOrder
+		{
+			get
+			{
+				return this._TrnPurchaseOrder.Entity;
+			}
+			set
+			{
+				TrnPurchaseOrder previousValue = this._TrnPurchaseOrder.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnPurchaseOrder.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnPurchaseOrder.Entity = null;
+						previousValue.TrnReceivingReceiptItems.Remove(this);
+					}
+					this._TrnPurchaseOrder.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceiptItems.Add(this);
+						this._POId = value.Id;
+					}
+					else
+					{
+						this._POId = default(int);
+					}
+					this.SendPropertyChanged("TrnPurchaseOrder");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnReceivingReceiptItem", Storage="_TrnReceivingReceipt", ThisKey="RRId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public TrnReceivingReceipt TrnReceivingReceipt
+		{
+			get
+			{
+				return this._TrnReceivingReceipt.Entity;
+			}
+			set
+			{
+				TrnReceivingReceipt previousValue = this._TrnReceivingReceipt.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnReceivingReceipt.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnReceivingReceipt.Entity = null;
+						previousValue.TrnReceivingReceiptItems.Remove(this);
+					}
+					this._TrnReceivingReceipt.Entity = value;
+					if ((value != null))
+					{
+						value.TrnReceivingReceiptItems.Add(this);
+						this._RRId = value.Id;
+					}
+					else
+					{
+						this._RRId = default(int);
+					}
+					this.SendPropertyChanged("TrnReceivingReceipt");
 				}
 			}
 		}
