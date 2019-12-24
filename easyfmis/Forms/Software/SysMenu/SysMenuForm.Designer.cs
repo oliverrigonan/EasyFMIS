@@ -39,7 +39,7 @@
             this.buttonItem = new System.Windows.Forms.Button();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonCompany = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.buttonReceivingReceipt = new System.Windows.Forms.Button();
             this.buttonDiscounting = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonCustomer = new System.Windows.Forms.Button();
@@ -90,7 +90,7 @@
             this.panel1.Controls.Add(this.buttonItem);
             this.panel1.Controls.Add(this.buttonUser);
             this.panel1.Controls.Add(this.buttonCompany);
-            this.panel1.Controls.Add(this.button15);
+            this.panel1.Controls.Add(this.buttonReceivingReceipt);
             this.panel1.Controls.Add(this.buttonDiscounting);
             this.panel1.Controls.Add(this.buttonSettings);
             this.panel1.Controls.Add(this.buttonCustomer);
@@ -246,24 +246,25 @@
             this.buttonCompany.UseVisualStyleBackColor = false;
             this.buttonCompany.Click += new System.EventHandler(this.buttonCompany_Click);
             // 
-            // button15
+            // buttonReceivingReceipt
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.ImageIndex = 17;
-            this.button15.ImageList = this.imageListMenuIcons;
-            this.button15.Location = new System.Drawing.Point(12, 270);
-            this.button15.Name = "button15";
-            this.button15.Padding = new System.Windows.Forms.Padding(10);
-            this.button15.Size = new System.Drawing.Size(227, 123);
-            this.button15.TabIndex = 17;
-            this.button15.Text = "\r\nReceiving Receipt";
-            this.button15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button15.UseVisualStyleBackColor = false;
+            this.buttonReceivingReceipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonReceivingReceipt.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonReceivingReceipt.FlatAppearance.BorderSize = 0;
+            this.buttonReceivingReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReceivingReceipt.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonReceivingReceipt.ForeColor = System.Drawing.Color.White;
+            this.buttonReceivingReceipt.ImageIndex = 17;
+            this.buttonReceivingReceipt.ImageList = this.imageListMenuIcons;
+            this.buttonReceivingReceipt.Location = new System.Drawing.Point(12, 270);
+            this.buttonReceivingReceipt.Name = "buttonReceivingReceipt";
+            this.buttonReceivingReceipt.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonReceivingReceipt.Size = new System.Drawing.Size(227, 123);
+            this.buttonReceivingReceipt.TabIndex = 17;
+            this.buttonReceivingReceipt.Text = "\r\nReceiving Receipt";
+            this.buttonReceivingReceipt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonReceivingReceipt.UseVisualStyleBackColor = false;
+            this.buttonReceivingReceipt.Click += new System.EventHandler(this.buttonReceivingReceipt_Click);
             // 
             // buttonDiscounting
             // 
@@ -533,7 +534,7 @@
         private System.Windows.Forms.Button buttonStockCount;
         private System.Windows.Forms.Button buttonPOSReport;
         private System.Windows.Forms.Button buttonSettings;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button buttonReceivingReceipt;
         private System.Windows.Forms.Button buttonUser;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonStockTransfer;
