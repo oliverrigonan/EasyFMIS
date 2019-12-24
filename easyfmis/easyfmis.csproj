@@ -83,6 +83,8 @@
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
+    <Compile Include="Controllers\TrnReceivingReceiptController.cs" />
+    <Compile Include="Controllers\TrnReceivingReceiptItemController.cs" />
     <Compile Include="Controllers\TrnSalesOrderController.cs" />
     <Compile Include="Controllers\TrnSalesOrderItemController.cs" />
     <Compile Include="Controllers\TrnStockInController.cs" />
@@ -147,6 +149,8 @@
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
+    <Compile Include="Entities\TrnReceivingReceiptEntity.cs" />
+    <Compile Include="Entities\TrnReceivingReceiptItemEntity.cs" />
     <Compile Include="Entities\TrnSalesInvoiceEntity.cs" />
     <Compile Include="Entities\TrnSalesInvoiceItemEntity.cs" />
     <Compile Include="Entities\TrnSalesOrderEntity.cs" />
