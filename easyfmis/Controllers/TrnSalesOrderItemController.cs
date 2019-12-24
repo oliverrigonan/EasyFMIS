@@ -100,6 +100,8 @@ namespace easyfmis.Controllers
                             UnitId = d.MstArticle.UnitId,
                             Unit = d.MstArticle.MstUnit.Unit,
                             DefaultPrice = d.MstArticle.DefaultPrice,
+                            VATOutTaxId = d.MstArticle.VATOutTaxId,
+                            VATOutTaxRate = d.MstArticle.MstTax1.Rate,
                             Cost = d.Cost1,
                             Quantity = d.Quantity
                         };
@@ -145,7 +147,6 @@ namespace easyfmis.Controllers
         public List<Entities.MstDiscountEntity> DropdownListDiscount()
         {
             var discounts = from d in db.MstDiscounts
-                            where d.IsLocked == true
                             select new Entities.MstDiscountEntity
                             {
                                 Id = d.Id,

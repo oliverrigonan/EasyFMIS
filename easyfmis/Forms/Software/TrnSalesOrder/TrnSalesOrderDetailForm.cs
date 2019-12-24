@@ -327,8 +327,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                 var taxRate = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxRate"].Index].Value);
                 var taxAmount = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxAmount"].Index].Value);
 
-
-
                 Entities.TrnSalesOrderItemEntity trnSalesOrderItemEntity = new Entities.TrnSalesOrderItemEntity()
                 {
                     Id = id,
