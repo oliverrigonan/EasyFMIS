@@ -88,15 +88,14 @@ namespace easyfmis.Controllers
         {
             try
             {
-                var stockIn = from d in db.TrnPurchaseOrders
+                var purchaseOrder = from d in db.TrnPurchaseOrders
                               where d.Id == objPurchaseOrderItem.POId
                               select d;
 
-                if (stockIn.Any() == false)
+                if (purchaseOrder.Any() == false)
                 {
                     return new String[] { "Purchase order transaction not found.", "0" };
                 }
-
 
                 var conversionUnit = from d in db.MstArticleUnits
                                      where d.ArticleId == objPurchaseOrderItem.ItemId

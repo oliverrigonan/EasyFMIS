@@ -266,7 +266,19 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
                 var items = from d in listPurchaseOrderItem
                             select new Entities.DgvPurchaseOrderItemEntity
                             {
-                               
+                                ColumnPurchaseOrderItemListButtonEdit = "Edit",
+                                ColumnPurchaseOrderItemListButtonDelete = "Delete",
+                                ColumnPurchaseOrderItemListId = d.Id,
+                                ColumnPurchaseOrderItemListPOId = d.POId,
+                                ColumnPurchaseOrderItemListItemId = d.ItemId,
+                                ColumnPurchaseOrderItemListItemDescritpion = d.ItemDescription,
+                                ColumnPurchaseOrderItemListUnitId = d.UnitId,
+                                ColumnPurchaseOrderItemListUnit = d.Unit,
+                                ColumnPurchaseOrderItemListQuantity = d.Quantity.ToString("#,##0.00"),
+                                ColumnPurchaseOrderItemListCost = d.Cost.ToString("#,##0.00"),
+                                ColumnPurchaseOrderItemListAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnPurchaseOrderItemListBaseQuantity = d.BaseQuantity.ToString("#,##0.00"),
+                                ColumnPurchaseOrderItemListBaseCost = d.BaseCost.ToString("#,##0.00")
                             };
 
                 return Task.FromResult(items.ToList());
@@ -304,59 +316,40 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
                 GetPurchaseOrderItemCurrentSelectedCell(e.RowIndex);
             }
 
-            if (e.RowIndex > -1 && dataGridViewPurchaseOrderItem.CurrentCell.ColumnIndex == dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListButtonEdit"].Index)
+            if (e.RowIndex > -1 && dataGridViewPurchaseOrderItem.CurrentCell.ColumnIndex == dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListButtonEdit"].Index)
             {
-                var id = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListId"].Index].Value);
-                var sOId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListSOId"].Index].Value);
-                var itemId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListItemId"].Index].Value);
-                var itemDescription = dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListItemDescription"].Index].Value.ToString();
-                var itemInventoryId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListItemInventoryId"].Index].Value);
-                var itemInventoryCode = dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListItemInventoryCode"].Index].Value.ToString();
-                var unitId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListUnitId"].Index].Value);
-                var unit = dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListUnit"].Index].Value.ToString();
-                var price = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListPrice"].Index].Value);
-                var discountId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListDiscountId"].Index].Value);
-                var discountRate = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListDiscountRate"].Index].Value);
-                var discountAmount = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListDiscountAmount"].Index].Value);
-                var netPrice = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListNetPrice"].Index].Value);
-                var quantity = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListQuantity"].Index].Value);
-                var amount = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListAmount"].Index].Value);
-                var taxId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListTaxId"].Index].Value);
-                var taxRate = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListTaxRate"].Index].Value);
-                var taxAmount = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListTaxAmount"].Index].Value);
+                var id = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListId"].Index].Value);
+                var pOId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListPOId"].Index].Value);
+                var itemId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListItemId"].Index].Value);
+                var itemDescription = dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListItemDescritpion"].Index].Value.ToString();
+                var unitId = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListUnitId"].Index].Value);
+                var quantity = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListQuantity"].Index].Value);
+                var Cost = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListCost"].Index].Value);
+                var amount = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListAmount"].Index].Value);
+          
 
                 Entities.TrnPurchaseOrderItemEntity trnPurchaseOrderItemEntity = new Entities.TrnPurchaseOrderItemEntity()
                 {
-                    //Id = id,
-                    //SOId = sOId,
-                    //ItemId = itemId,
-                    //ItemDescription = itemDescription,
-                    //ItemInventoryId = itemInventoryId,
-                    //UnitId = unitId,
-                    //Price = price,
-                    //DiscountId = discountId,
-                    //DiscountRate = discountRate,
-                    //DiscountAmount = discountAmount,
-                    //NetPrice = netPrice,
-                    //Quantity = quantity,
-                    //Amount = amount,
-                    //TaxId = taxId,
-                    //TaxRate = taxRate,
-                    //TaxAmount = taxAmount,
-                    //BaseQuantity = 0,
-                    //BasePrice = 0
+                    Id = id,
+                    POId = pOId,
+                    ItemId = itemId,
+                    ItemDescription = itemDescription,
+                    UnitId = unitId,
+                    Quantity = quantity,
+                    Cost = Cost,
+                    Amount = amount
                 };
 
-                //TrnPurchaseOrderDetailPurchaseOrderItemDetailForm trnPurchaseOrderDetailPurchaseOrderItemDetailForm = new TrnPurchaseOrderDetailPurchaseOrderItemDetailForm(this, trnPurchaseOrderItemEntity);
-                //trnPurchaseOrderDetailPurchaseOrderItemDetailForm.ShowDialog();
+                TrnPurchaseOrderDetailPurchaseOrderItemDetailForm trnPurchaseOrderDetailPurchaseOrderItemDetailForm = new TrnPurchaseOrderDetailPurchaseOrderItemDetailForm(this, trnPurchaseOrderItemEntity);
+                trnPurchaseOrderDetailPurchaseOrderItemDetailForm.ShowDialog();
             }
 
-            if (e.RowIndex > -1 && dataGridViewPurchaseOrderItem.CurrentCell.ColumnIndex == dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListButtonDelete"].Index)
+            if (e.RowIndex > -1 && dataGridViewPurchaseOrderItem.CurrentCell.ColumnIndex == dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListButtonDelete"].Index)
             {
                 DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (deleteDialogResult == DialogResult.Yes)
                 {
-                    var id = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnTrnPurchaseOrderItemListId"].Index].Value);
+                    var id = Convert.ToInt32(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListId"].Index].Value);
 
                     Controllers.TrnPurchaseOrderItemController trnPurchaseOrderItemController = new Controllers.TrnPurchaseOrderItemController();
                     String[] deletePurchaseOrderItem = trnPurchaseOrderItemController.DeletePurchaseOrderItem(id);
@@ -443,8 +436,8 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
 
         private void buttonSearchItem_Click(object sender, EventArgs e)
         {
-            //TrnPurchaseOrderDetailSearchItemForm trnStockOutDetailSearchItemForm = new TrnPurchaseOrderDetailSearchItemForm(this, trnPurchaseOrderEntity);
-            //trnStockOutDetailSearchItemForm.ShowDialog();
+            TrnPurchaseOrderDetailSearchItemForm trnPurchaseOrderDetailSearchItemForm = new TrnPurchaseOrderDetailSearchItemForm(this, trnPurchaseOrderEntity);
+            trnPurchaseOrderDetailSearchItemForm.ShowDialog();
         }
 
     }

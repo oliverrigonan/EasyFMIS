@@ -22,5 +22,5 @@ namespace easyfmis.Entities
         public String ColumnPurchaseOrderItemListBaseQuantity { get; set; }
         public String ColumnPurchaseOrderItemListBaseCost { get; set; }
         public String ColumnPurchaseOrderItemSpace { get; set; }
-    //}
+    }
 }

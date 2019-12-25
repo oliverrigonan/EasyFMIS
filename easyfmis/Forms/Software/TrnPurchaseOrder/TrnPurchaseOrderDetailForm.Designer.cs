@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnPurchaseOrderDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -91,7 +92,7 @@
             this.ColumnPurchaseOrderItemListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTrnSalesOrderItemListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPurchaseOrderItemListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -624,7 +625,7 @@
             this.ColumnPurchaseOrderItemListUnit,
             this.ColumnPurchaseOrderItemListQuantity,
             this.ColumnPurchaseOrderItemListCost,
-            this.ColumnTrnSalesOrderItemListAmount,
+            this.ColumnPurchaseOrderItemListAmount,
             this.ColumnPurchaseOrderItemListBaseQuantity,
             this.ColumnPurchaseOrderItemListBaseCost,
             this.ColumnPurchaseOrderItemSpace});
@@ -633,14 +634,15 @@
             this.dataGridViewPurchaseOrderItem.Name = "dataGridViewPurchaseOrderItem";
             this.dataGridViewPurchaseOrderItem.ReadOnly = true;
             this.dataGridViewPurchaseOrderItem.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.dataGridViewPurchaseOrderItem.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.dataGridViewPurchaseOrderItem.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewPurchaseOrderItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewPurchaseOrderItem.RowTemplate.Height = 24;
             this.dataGridViewPurchaseOrderItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPurchaseOrderItem.Size = new System.Drawing.Size(1376, 253);
             this.dataGridViewPurchaseOrderItem.TabIndex = 1;
             this.dataGridViewPurchaseOrderItem.TabStop = false;
+            this.dataGridViewPurchaseOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPurchaseOrderItem_CellClick);
             // 
             // panel2
             // 
@@ -772,29 +774,32 @@
             this.ColumnPurchaseOrderItemListCost.Visible = false;
             this.ColumnPurchaseOrderItemListCost.Width = 150;
             // 
-            // ColumnTrnSalesOrderItemListAmount
+            // ColumnPurchaseOrderItemListAmount
             // 
-            this.ColumnTrnSalesOrderItemListAmount.DataPropertyName = "ColumnTrnSalesOrderItemListAmount";
+            this.ColumnPurchaseOrderItemListAmount.DataPropertyName = "ColumnPurchaseOrderItemListAmount";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnTrnSalesOrderItemListAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnTrnSalesOrderItemListAmount.HeaderText = "Amount";
-            this.ColumnTrnSalesOrderItemListAmount.Name = "ColumnTrnSalesOrderItemListAmount";
-            this.ColumnTrnSalesOrderItemListAmount.ReadOnly = true;
-            this.ColumnTrnSalesOrderItemListAmount.Width = 150;
+            this.ColumnPurchaseOrderItemListAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnPurchaseOrderItemListAmount.HeaderText = "Amount";
+            this.ColumnPurchaseOrderItemListAmount.Name = "ColumnPurchaseOrderItemListAmount";
+            this.ColumnPurchaseOrderItemListAmount.ReadOnly = true;
+            this.ColumnPurchaseOrderItemListAmount.Width = 150;
             // 
             // ColumnPurchaseOrderItemListBaseQuantity
             // 
             this.ColumnPurchaseOrderItemListBaseQuantity.DataPropertyName = "ColumnPurchaseOrderItemListBaseQuantity";
-            this.ColumnPurchaseOrderItemListBaseQuantity.HeaderText = "BaseQuantity";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnPurchaseOrderItemListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnPurchaseOrderItemListBaseQuantity.HeaderText = "Base Qty.";
             this.ColumnPurchaseOrderItemListBaseQuantity.Name = "ColumnPurchaseOrderItemListBaseQuantity";
             this.ColumnPurchaseOrderItemListBaseQuantity.ReadOnly = true;
+            this.ColumnPurchaseOrderItemListBaseQuantity.Width = 150;
             // 
             // ColumnPurchaseOrderItemListBaseCost
             // 
             this.ColumnPurchaseOrderItemListBaseCost.DataPropertyName = "ColumnPurchaseOrderItemListBaseCost";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnPurchaseOrderItemListBaseCost.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnPurchaseOrderItemListBaseCost.HeaderText = "BaseCost";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnPurchaseOrderItemListBaseCost.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumnPurchaseOrderItemListBaseCost.HeaderText = "Base Cost";
             this.ColumnPurchaseOrderItemListBaseCost.Name = "ColumnPurchaseOrderItemListBaseCost";
             this.ColumnPurchaseOrderItemListBaseCost.ReadOnly = true;
             this.ColumnPurchaseOrderItemListBaseCost.Width = 150;
@@ -894,7 +899,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemSpace;
