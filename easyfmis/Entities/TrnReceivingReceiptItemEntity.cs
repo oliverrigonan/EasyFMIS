@@ -11,6 +11,7 @@ namespace easyfmis.Entities
         public Int32 Id { get; set; }
         public Int32 RRId { get; set; }
         public Int32 POId { get; set; }
+        public String PONumber { get; set; }
         public Int32 ItemId { get; set; }
         public String ItemDescription { get; set; }
         public Int32 UnitId { get; set; }

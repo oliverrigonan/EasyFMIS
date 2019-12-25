@@ -25,6 +25,7 @@ namespace easyfmis.Controllers
                                             Id = d.Id,
                                             RRId = d.RRId,
                                             POId = d.POId,
+                                            PONumber = d.TrnPurchaseOrder.PONumber,
                                             ItemId = d.ItemId,
                                             ItemDescription = d.MstArticle.Article,
                                             UnitId = d.UnitId,
@@ -46,35 +47,44 @@ namespace easyfmis.Controllers
         }
 
         // ===================
-        // List Inventory Item
+        // List Purchase Order
         // ===================
-        public List<Entities.MstArticleInventory> ListInventoryItem(String filter)
+        public List<Entities.TrnPurchaseOrderEntity> ListPurchaseOrder(Int32 supplierId)
         {
-            var items = from d in db.MstArticleInventories
-                        where (d.InventoryCode.Contains(filter)
-                        || d.MstArticle.ArticleCode.Contains(filter)
-                        || d.MstArticle.ArticleBarCode.Contains(filter)
-                        || d.MstArticle.Article.Contains(filter)
-                        || d.MstArticle.Category.Contains(filter)
-                        || d.MstArticle.MstUnit.Unit.Contains(filter))
-                        && d.MstArticle.IsLocked == true
-                        select new Entities.MstArticleInventory
-                        {
-                            Id = d.Id,
-                            InventoryCode = d.InventoryCode,
-                            ArticleId = d.ArticleId,
-                            ArticleCode = d.MstArticle.ArticleCode,
-                            ArticleBarCode = d.MstArticle.ArticleBarCode,
-                            Article = d.MstArticle.Article,
-                            Category = d.MstArticle.Category,
-                            UnitId = d.MstArticle.UnitId,
-                            Unit = d.MstArticle.MstUnit.Unit,
-                            DefaultPrice = d.MstArticle.DefaultPrice,
-                            VATOutTaxId = d.MstArticle.VATOutTaxId,
-                            VATOutTaxRate = d.MstArticle.MstTax1.Rate
-                        };
+            var purchaseOrders = from d in db.TrnPurchaseOrders
+                                 where d.SupplierId == supplierId
+                                 select new Entities.TrnPurchaseOrderEntity
+                                 {
+                                     Id = d.Id,
+                                     PONumber = "PO Number: " + d.PONumber,
+                                 };
 
-            return items.OrderBy(d => d.Article).ToList();
+            return purchaseOrders.OrderBy(d => d.PONumber).ToList();
+        }
+
+        // ========================
+        // List Purchase Order Item
+        // ========================
+        public List<Entities.TrnPurchaseOrderItemEntity> ListPurchaseOrderItem(Int32 POId, String filter)
+        {
+            var purchaseOrderItems = from d in db.TrnPurchaseOrderItems
+                                     where d.POId == POId
+                                     && (d.MstArticle.Article.Contains(filter)
+                                     || d.MstUnit.Unit.Contains(filter))
+                                     && d.MstArticle.IsLocked == true
+                                     select new Entities.TrnPurchaseOrderItemEntity
+                                     {
+                                         Id = d.Id,
+                                         ItemId = d.ItemId,
+                                         ItemDescription = d.MstArticle.Article,
+                                         UnitId = d.UnitId,
+                                         Unit = d.MstUnit.Unit,
+                                         BaseQuantity = d.BaseQuantity,
+                                         VATInTaxId = d.MstArticle.VATInTaxId,
+                                         VATInTaxRate = d.MstArticle.MstTax.Rate
+                                     };
+
+            return purchaseOrderItems.OrderBy(d => d.ItemDescription).ToList();
         }
 
         // ==========================
@@ -93,12 +103,27 @@ namespace easyfmis.Controllers
             return articleUnits.ToList();
         }
 
+        // ======================
+        // Dropdown List - Branch
+        // ======================
+        public List<Entities.MstBranchEntity> DropdownListReceivingReceiptBranch()
+        {
+            var branches = from d in db.MstBranches
+                           select new Entities.MstBranchEntity
+                           {
+                               Id = d.Id,
+                               Branch = d.Branch
+                           };
+
+            return branches.ToList();
+        }
+
         // ===================
         // Dropdown List - Tax
         // ===================
         public List<Entities.MstTaxEntity> DropdownListReceivingReceiptTax()
         {
-            var terms = from d in db.MstTaxes
+            var taxes = from d in db.MstTaxes
                         select new Entities.MstTaxEntity
                         {
                             Id = d.Id,
@@ -106,7 +131,7 @@ namespace easyfmis.Controllers
                             Rate = d.Rate
                         };
 
-            return terms.ToList();
+            return taxes.ToList();
         }
 
         // ==========================
@@ -123,6 +148,16 @@ namespace easyfmis.Controllers
                 if (receivingReceipt.Any() == false)
                 {
                     return new String[] { "Receiving Receipt transaction not found.", "0" };
+                }
+
+                var purchaseOrder = from d in db.TrnPurchaseOrders
+                                    where d.Id == objReceivingReceiptItem.POId
+                                    && d.IsLocked == true
+                                    select d;
+
+                if (purchaseOrder.Any() == false)
+                {
+                    return new String[] { "PO not found.", "0" };
                 }
 
                 var item = from d in db.MstArticles

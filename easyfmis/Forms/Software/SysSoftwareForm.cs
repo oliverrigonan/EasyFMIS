@@ -105,6 +105,7 @@ namespace easyfmis.Forms.Software
         public TrnSalesInvoice.TrnSalesInvoiceForm trnSalesInvoiceForm = null;
         public TrnSalesInvoice.TrnSalesInvoiceDetailForm trnSalesInvoiceDetailForm = null;
         public TrnReceivingReceipt.TrnReceivingReceiptForm trnReceivingReceiptForm = null;
+        public TrnReceivingReceipt.TrnReceivingReceiptDetailForm trnReceivingReceiptDetailForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
         //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
@@ -709,6 +710,30 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageReceivingReceipt);
                 tabControlSoftware.SelectTab(tabPageReceivingReceipt);
+            }
+        }
+
+        public void AddTabPageReceivingReceiptDetail(TrnReceivingReceipt.TrnReceivingReceiptForm trnReceivingReceiptForm, Entities.TrnReceivingReceiptEntity trnReceivingReceiptEntity)
+        {
+            tabPageReceivingReceiptDetail.Controls.Remove(trnReceivingReceiptDetailForm);
+
+            trnReceivingReceiptDetailForm = new TrnReceivingReceipt.TrnReceivingReceiptDetailForm(this, trnReceivingReceiptForm, trnReceivingReceiptEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageReceivingReceiptDetail.Controls.Add(trnReceivingReceiptDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageReceivingReceiptDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageReceivingReceiptDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageReceivingReceiptDetail);
+                tabControlSoftware.SelectTab(tabPageReceivingReceiptDetail);
             }
         }
 
