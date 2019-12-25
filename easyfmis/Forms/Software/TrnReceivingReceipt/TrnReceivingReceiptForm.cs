@@ -147,7 +147,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             String[] addReceivingReceipt = trnReceivingReceiptController.AddReceivingReceipt();
             if (addReceivingReceipt[1].Equals("0") == false)
             {
-                //sysSoftwareForm.AddTabPageReceivingReceiptDetail(this, trnReceivingReceiptController.DetailReceivingReceipt(Convert.ToInt32(addReceivingReceipt[1])));
+                sysSoftwareForm.AddTabPageReceivingReceiptDetail(this, trnReceivingReceiptController.DetailReceivingReceipt(Convert.ToInt32(addReceivingReceipt[1])));
                 UpdateReceivingReceiptDataSource();
             }
             else
@@ -172,7 +172,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             if (e.RowIndex > -1 && dataGridViewReceivingReceipt.CurrentCell.ColumnIndex == dataGridViewReceivingReceipt.Columns["ColumnReceivingReceiptButtonEdit"].Index)
             {
                 Controllers.TrnReceivingReceiptController trnReceivingReceiptController = new Controllers.TrnReceivingReceiptController();
-                //sysSoftwareForm.AddTabPageReceivingReceiptDetail(this, trnReceivingReceiptController.DetailReceivingReceipt(Convert.ToInt32(dataGridViewReceivingReceipt.Rows[e.RowIndex].Cells[2].Value)));
+                sysSoftwareForm.AddTabPageReceivingReceiptDetail(this, trnReceivingReceiptController.DetailReceivingReceipt(Convert.ToInt32(dataGridViewReceivingReceipt.Rows[e.RowIndex].Cells[2].Value)));
             }
 
             if (e.RowIndex > -1 && dataGridViewReceivingReceipt.CurrentCell.ColumnIndex == dataGridViewReceivingReceipt.Columns["ColumnReceivingReceiptButtonDelete"].Index)

@@ -92,5 +92,25 @@ namespace easyfmis.Controllers
 
             return inventories.ToList();
         }
+
+        // ========================================
+        // List Receiving Receipt Inventory Entries
+        // ========================================
+        public List<Entities.TrnInventoryEntity> ListReceivingReceiptInventoryEntries(Int32 RRId)
+        {
+            var inventories = from d in db.TrnInventories
+                              where d.RRId == RRId
+                              select new Entities.TrnInventoryEntity
+                              {
+                                  Branch = d.MstBranch.Branch,
+                                  InventoryDate = d.InventoryDate,
+                                  ItemDescription = d.MstArticle.Article,
+                                  ItemInventoryCode = d.MstArticleInventory.InventoryCode,
+                                  Quantity = d.Quantity,
+                                  Amount = d.Amount
+                              };
+
+            return inventories.ToList();
+        }
     }
 }

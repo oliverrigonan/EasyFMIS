@@ -106,9 +106,11 @@
     <Compile Include="Entities\DgvPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvReceivingReceiptEntity.cs" />
     <Compile Include="Entities\DgvPurchaseOrderEntity.cs" />
+    <Compile Include="Entities\DgvReceivingReceiptItemEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceItemEntity.cs" />
+    <Compile Include="Entities\DgvSearchPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvSearchNonInventoryItemEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
@@ -306,6 +308,24 @@
     </Compile>
     <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.Designer.cs">
       <DependentUpon>TrnReceivingReceiptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailForm.Designer.cs">
+      <DependentUpon>TrnReceivingReceiptDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailSearchPurchaseOrderItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailSearchPurchaseOrderItemForm.Designer.cs">
+      <DependentUpon>TrnReceivingReceiptDetailSearchPurchaseOrderItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.Designer.cs">
+      <DependentUpon>TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceForm.cs">
       <SubType>Form</SubType>
@@ -521,6 +541,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.resx">
       <DependentUpon>TrnReceivingReceiptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailForm.resx">
+      <DependentUpon>TrnReceivingReceiptDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailSearchPurchaseOrderItemForm.resx">
+      <DependentUpon>TrnReceivingReceiptDetailSearchPurchaseOrderItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.resx">
+      <DependentUpon>TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceForm.resx">
       <DependentUpon>TrnSalesInvoiceForm.cs</DependentUpon>
