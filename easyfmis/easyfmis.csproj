@@ -103,6 +103,7 @@
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
+    <Compile Include="Entities\DgvPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvReceivingReceiptEntity.cs" />
     <Compile Include="Entities\DgvPurchaseOrderEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
@@ -287,6 +288,18 @@
     </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.Designer.cs">
+      <DependentUpon>TrnPurchaseOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailForm.Designer.cs">
+      <DependentUpon>TrnPurchaseOrderDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.cs">
       <SubType>Form</SubType>
@@ -500,6 +513,12 @@
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.resx">
+      <DependentUpon>TrnPurchaseOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailForm.resx">
+      <DependentUpon>TrnPurchaseOrderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.resx">
       <DependentUpon>TrnReceivingReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -606,7 +625,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Software\TrnPurchaseOrder\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>

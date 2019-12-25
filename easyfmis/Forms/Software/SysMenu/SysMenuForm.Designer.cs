@@ -47,7 +47,7 @@
             this.buttonSystemTables = new System.Windows.Forms.Button();
             this.buttonStockCount = new System.Windows.Forms.Button();
             this.buttonSalesOrder = new System.Windows.Forms.Button();
-            this.buttonInventory = new System.Windows.Forms.Button();
+            this.buttonPurchaseOrder = new System.Windows.Forms.Button();
             this.buttonStockOut = new System.Windows.Forms.Button();
             this.buttonSalesInvoice = new System.Windows.Forms.Button();
             this.buttonStockIn = new System.Windows.Forms.Button();
@@ -98,7 +98,7 @@
             this.panel1.Controls.Add(this.buttonSystemTables);
             this.panel1.Controls.Add(this.buttonStockCount);
             this.panel1.Controls.Add(this.buttonSalesOrder);
-            this.panel1.Controls.Add(this.buttonInventory);
+            this.panel1.Controls.Add(this.buttonPurchaseOrder);
             this.panel1.Controls.Add(this.buttonStockOut);
             this.panel1.Controls.Add(this.buttonSalesInvoice);
             this.panel1.Controls.Add(this.buttonStockIn);
@@ -401,24 +401,25 @@
             this.buttonSalesOrder.UseVisualStyleBackColor = false;
             this.buttonSalesOrder.Click += new System.EventHandler(this.buttonSalesOrder_Click);
             // 
-            // buttonInventory
+            // buttonPurchaseOrder
             // 
-            this.buttonInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonInventory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonInventory.FlatAppearance.BorderSize = 0;
-            this.buttonInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventory.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonInventory.ForeColor = System.Drawing.Color.White;
-            this.buttonInventory.ImageIndex = 16;
-            this.buttonInventory.ImageList = this.imageListMenuIcons;
-            this.buttonInventory.Location = new System.Drawing.Point(12, 141);
-            this.buttonInventory.Name = "buttonInventory";
-            this.buttonInventory.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonInventory.Size = new System.Drawing.Size(227, 123);
-            this.buttonInventory.TabIndex = 13;
-            this.buttonInventory.Text = "\r\nPurchase Order";
-            this.buttonInventory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonInventory.UseVisualStyleBackColor = false;
+            this.buttonPurchaseOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonPurchaseOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonPurchaseOrder.FlatAppearance.BorderSize = 0;
+            this.buttonPurchaseOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPurchaseOrder.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonPurchaseOrder.ForeColor = System.Drawing.Color.White;
+            this.buttonPurchaseOrder.ImageIndex = 16;
+            this.buttonPurchaseOrder.ImageList = this.imageListMenuIcons;
+            this.buttonPurchaseOrder.Location = new System.Drawing.Point(12, 141);
+            this.buttonPurchaseOrder.Name = "buttonPurchaseOrder";
+            this.buttonPurchaseOrder.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonPurchaseOrder.Size = new System.Drawing.Size(227, 123);
+            this.buttonPurchaseOrder.TabIndex = 13;
+            this.buttonPurchaseOrder.Text = "\r\nPurchase Order";
+            this.buttonPurchaseOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonPurchaseOrder.UseVisualStyleBackColor = false;
+            this.buttonPurchaseOrder.Click += new System.EventHandler(this.buttonPurchaseOrder_Click);
             // 
             // buttonStockOut
             // 
@@ -530,7 +531,7 @@
         private System.Windows.Forms.Button buttonStockIn;
         private System.Windows.Forms.Button buttonInventoryReport;
         private System.Windows.Forms.Button buttonSalesInvoice;
-        private System.Windows.Forms.Button buttonInventory;
+        private System.Windows.Forms.Button buttonPurchaseOrder;
         private System.Windows.Forms.Button buttonStockCount;
         private System.Windows.Forms.Button buttonPOSReport;
         private System.Windows.Forms.Button buttonSettings;

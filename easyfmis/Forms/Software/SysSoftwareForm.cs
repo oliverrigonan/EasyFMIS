@@ -63,6 +63,8 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageSalesOrderDetail = new TabPage { Name = "tabPageSalesOrderDetail", Text = "Activity - Sales Order Detail" };
         public TabPage tabPageSalesInvoice = new TabPage { Name = "tabPageSalesInvoice", Text = "Activity - Sales Invoice List" };
         public TabPage tabPageSalesInvoiceDetail = new TabPage { Name = "tabPageSalesInvoiceDetail", Text = "Activity - Sales Invoice Detail" };
+        public TabPage tabPagePurchaseOrder = new TabPage { Name = "tabPagePurchaseOrder", Text = "Activity - Purchase Order List" };
+        public TabPage tabPagePurchaseOrderDetail = new TabPage { Name = "tabPagePurchaseOrderDetail", Text = "Activity - Purchase Order Detail" };
         public TabPage tabPageReceivingReceipt = new TabPage { Name = "tabPageReceivingReceipt", Text = "Activity - Receiving Receipt List" };
         public TabPage tabPageReceivingReceiptDetail = new TabPage { Name = "tabPageReceivingReceiptDetail", Text = "Activity - Receiving Receipt Detail" };
 
@@ -104,6 +106,9 @@ namespace easyfmis.Forms.Software
         public TrnSalesOrder.TrnSalesOrderDetailForm trnSalesOrderDetailForm = null;
         public TrnSalesInvoice.TrnSalesInvoiceForm trnSalesInvoiceForm = null;
         public TrnSalesInvoice.TrnSalesInvoiceDetailForm trnSalesInvoiceDetailForm = null;
+        public TrnPurchaseOrder.TrnPurchaseOrderForm trnPurchaseOrderForm = null;
+        public TrnPurchaseOrder.TrnPurchaseOrderDetailForm trnPurchaseOrderDetailForm = null;
+
         public TrnReceivingReceipt.TrnReceivingReceiptForm trnReceivingReceiptForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
@@ -637,6 +642,54 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageSalesOrderDetail);
                 tabControlSoftware.SelectTab(tabPageSalesOrderDetail);
+            }
+        }
+
+        public void AddTabPagePurchaseOrderList()
+        {
+            tabPagePurchaseOrder.Controls.Remove(trnPurchaseOrderForm);
+
+            trnPurchaseOrderForm = new TrnPurchaseOrder.TrnPurchaseOrderForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPagePurchaseOrder.Controls.Add(trnPurchaseOrderForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPagePurchaseOrder) == true)
+            {
+                tabControlSoftware.SelectTab(tabPagePurchaseOrder);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPagePurchaseOrder);
+                tabControlSoftware.SelectTab(tabPagePurchaseOrder);
+            }
+        }
+
+        public void AddTabPagePurchaseOrderDetail(TrnPurchaseOrder.TrnPurchaseOrderForm trnPurchaseOrderForm, Entities.TrnPurchaseOrderEntity trnPurchaseOrderEntity)
+        {
+            tabPagePurchaseOrderDetail.Controls.Remove(trnPurchaseOrderDetailForm);
+
+            trnPurchaseOrderDetailForm = new TrnPurchaseOrder.TrnPurchaseOrderDetailForm(this, trnPurchaseOrderForm, trnPurchaseOrderEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPagePurchaseOrderDetail.Controls.Add(trnPurchaseOrderDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPagePurchaseOrderDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPagePurchaseOrderDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPagePurchaseOrderDetail);
+                tabControlSoftware.SelectTab(tabPagePurchaseOrderDetail);
             }
         }
 

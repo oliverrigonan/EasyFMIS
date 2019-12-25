@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    class TrnPurchaseOrderItemEntity
+    public class TrnPurchaseOrderItemEntity
     {
         public Int32 Id { get; set; }
         public Int32 POId { get; set; }

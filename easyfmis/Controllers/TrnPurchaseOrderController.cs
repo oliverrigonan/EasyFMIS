@@ -80,6 +80,7 @@ namespace easyfmis.Controllers
                              {
                                  Id = d.Id,
                                  BranchId = d.BranchId,
+                                 Branch = d.MstBranch.Branch,
                                  PONumber = d.PONumber,
                                  PODate = d.PODate,
                                  ManualPONumber = d.ManualPONumber,
@@ -325,7 +326,7 @@ namespace easyfmis.Controllers
         // =====================
         // Unlock Purchase Order
         // =====================
-        public String[] UnlockPurchaseOrder(Int32 id, Entities.TrnPurchaseOrderEntity objPurchaseOrder)
+        public String[] UnlockPurchaseOrder(Int32 id)
         {
             try
             {
