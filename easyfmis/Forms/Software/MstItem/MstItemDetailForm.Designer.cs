@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -150,6 +150,8 @@
             this.buttonItemInventoryListPageListNext = new System.Windows.Forms.Button();
             this.buttonItemInventoryListPageListLast = new System.Windows.Forms.Button();
             this.textBoxItemInventoryListPageNumber = new System.Windows.Forms.TextBox();
+            this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -287,6 +289,8 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel3.Controls.Add(this.comboBoxArticleGroup);
+            this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.textBoxCategory);
             this.panel3.Controls.Add(this.comboBoxVATOutTax);
             this.panel3.Controls.Add(this.label12);
@@ -442,7 +446,7 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(633, 15);
+            this.textBoxRemarks.Location = new System.Drawing.Point(647, 50);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(353, 101);
@@ -463,7 +467,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label18.Location = new System.Drawing.Point(549, 18);
+            this.label18.Location = new System.Drawing.Point(563, 53);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 23);
             this.label18.TabIndex = 20;
@@ -722,8 +726,8 @@
             // ColumnArtilceUnitListBaseUnitMultiplier
             // 
             this.ColumnArtilceUnitListBaseUnitMultiplier.DataPropertyName = "ColumnArtilceUnitListBaseUnitMultiplier";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnArtilceUnitListBaseUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnArtilceUnitListBaseUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle10;
             this.ColumnArtilceUnitListBaseUnitMultiplier.HeaderText = "Base Unit Multiplier";
             this.ColumnArtilceUnitListBaseUnitMultiplier.Name = "ColumnArtilceUnitListBaseUnitMultiplier";
             this.ColumnArtilceUnitListBaseUnitMultiplier.ReadOnly = true;
@@ -732,8 +736,8 @@
             // ColumnArtilceUnitListUnitMultiplier
             // 
             this.ColumnArtilceUnitListUnitMultiplier.DataPropertyName = "ColumnArtilceUnitListUnitMultiplier";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnArtilceUnitListUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnArtilceUnitListUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle11;
             this.ColumnArtilceUnitListUnitMultiplier.HeaderText = "Unit Multiplier";
             this.ColumnArtilceUnitListUnitMultiplier.Name = "ColumnArtilceUnitListUnitMultiplier";
             this.ColumnArtilceUnitListUnitMultiplier.ReadOnly = true;
@@ -942,8 +946,8 @@
             // ColumnItemPriceListPrice
             // 
             this.ColumnItemPriceListPrice.DataPropertyName = "ColumnItemPriceListPrice";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemPriceListPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemPriceListPrice.DefaultCellStyle = dataGridViewCellStyle12;
             this.ColumnItemPriceListPrice.HeaderText = "Price";
             this.ColumnItemPriceListPrice.Name = "ColumnItemPriceListPrice";
             this.ColumnItemPriceListPrice.ReadOnly = true;
@@ -1175,8 +1179,8 @@
             // ColumnItemComponenQuantity
             // 
             this.ColumnItemComponenQuantity.DataPropertyName = "ColumnItemComponenQuantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenQuantity.DefaultCellStyle = dataGridViewCellStyle13;
             this.ColumnItemComponenQuantity.HeaderText = "Quantity";
             this.ColumnItemComponenQuantity.Name = "ColumnItemComponenQuantity";
             this.ColumnItemComponenQuantity.ReadOnly = true;
@@ -1185,8 +1189,8 @@
             // ColumnItemComponenCost
             // 
             this.ColumnItemComponenCost.DataPropertyName = "ColumnItemComponenCost";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenCost.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenCost.DefaultCellStyle = dataGridViewCellStyle14;
             this.ColumnItemComponenCost.HeaderText = "Cost";
             this.ColumnItemComponenCost.Name = "ColumnItemComponenCost";
             this.ColumnItemComponenCost.ReadOnly = true;
@@ -1195,8 +1199,8 @@
             // ColumnItemComponenAmount
             // 
             this.ColumnItemComponenAmount.DataPropertyName = "ColumnItemComponenAmount";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenAmount.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenAmount.DefaultCellStyle = dataGridViewCellStyle15;
             this.ColumnItemComponenAmount.HeaderText = "Amount";
             this.ColumnItemComponenAmount.Name = "ColumnItemComponenAmount";
             this.ColumnItemComponenAmount.ReadOnly = true;
@@ -1416,8 +1420,8 @@
             // ColumnItemInventoryCost3
             // 
             this.ColumnItemInventoryCost3.DataPropertyName = "ColumnItemInventoryCost3";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemInventoryCost3.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemInventoryCost3.DefaultCellStyle = dataGridViewCellStyle16;
             this.ColumnItemInventoryCost3.HeaderText = "Cost3";
             this.ColumnItemInventoryCost3.Name = "ColumnItemInventoryCost3";
             this.ColumnItemInventoryCost3.ReadOnly = true;
@@ -1426,8 +1430,8 @@
             // ColumnItemInventoryCost4
             // 
             this.ColumnItemInventoryCost4.DataPropertyName = "ColumnItemInventoryCost4";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemInventoryCost4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemInventoryCost4.DefaultCellStyle = dataGridViewCellStyle17;
             this.ColumnItemInventoryCost4.HeaderText = "Cost4";
             this.ColumnItemInventoryCost4.Name = "ColumnItemInventoryCost4";
             this.ColumnItemInventoryCost4.ReadOnly = true;
@@ -1436,8 +1440,8 @@
             // ColumnItemInventoryCost5
             // 
             this.ColumnItemInventoryCost5.DataPropertyName = "ColumnItemInventoryCost5";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemInventoryCost5.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemInventoryCost5.DefaultCellStyle = dataGridViewCellStyle18;
             this.ColumnItemInventoryCost5.HeaderText = "Cost5";
             this.ColumnItemInventoryCost5.Name = "ColumnItemInventoryCost5";
             this.ColumnItemInventoryCost5.ReadOnly = true;
@@ -1527,6 +1531,25 @@
             this.textBoxItemInventoryListPageNumber.Size = new System.Drawing.Size(69, 20);
             this.textBoxItemInventoryListPageNumber.TabIndex = 17;
             this.textBoxItemInventoryListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // comboBoxArticleGroup
+            // 
+            this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxArticleGroup.FormattingEnabled = true;
+            this.comboBoxArticleGroup.Location = new System.Drawing.Point(647, 13);
+            this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
+            this.comboBoxArticleGroup.Size = new System.Drawing.Size(353, 31);
+            this.comboBoxArticleGroup.TabIndex = 44;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label15.Location = new System.Drawing.Point(526, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(115, 23);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "Article Group:";
             // 
             // MstItemDetailForm
             // 
@@ -1681,5 +1704,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemInventoryCost3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemInventoryCost4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemInventoryCost5;
+        private System.Windows.Forms.ComboBox comboBoxArticleGroup;
+        private System.Windows.Forms.Label label15;
     }
 }

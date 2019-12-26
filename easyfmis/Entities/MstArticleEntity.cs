@@ -9,6 +9,7 @@ namespace easyfmis.Entities
     {
         public Int32 Id { get; set; }
         public Int32 ArticleTypeId { get; set; }
+        public Int32 ArticleGroupId { get; set; }
         public String ArticleCode { get; set; }
         public String ArticleBarCode { get; set; }
         public String Article { get; set; }

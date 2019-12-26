@@ -26,13 +26,20 @@ namespace easyfmis.Forms.Software.MstItem
             mstItemListForm = itemListForm;
             mstItemEntity = itemEntity;
 
+            DropdownArticleGroup();
+        }
+
+        public void DropdownArticleGroup()
+        {
+            Controllers.MstArticleController mstArticleController = new Controllers.MstArticleController();
+            var articleGroup = mstArticleController.DropDownListArticleGroup("ITEM");
+            if (articleGroup.Any())
+            {
+                comboBoxArticleGroup.DataSource = articleGroup;
+                comboBoxArticleGroup.DisplayMember = "ArticleGroup";
+                comboBoxArticleGroup.ValueMember = "Id";
+            }
             GetTaxList();
-
-            CreateArticleUnittDataGridView();
-            CreateItemPriceListDataGridView();
-            CreateItemComponentListDataGridView();
-            CreateItemInventoryListDataGridView();
-
         }
 
         public void GetTaxList()
@@ -81,6 +88,7 @@ namespace easyfmis.Forms.Software.MstItem
         {
             UpdateComponents(mstItemEntity.IsLocked);
 
+            comboBoxArticleGroup.SelectedValue = mstItemEntity.ArticleGroupId;
             textBoxItemCode.Text = mstItemEntity.ArticleCode;
             textBoxBarcode.Text = mstItemEntity.ArticleBarCode;
             textBoxDescription.Text = mstItemEntity.Article;
@@ -89,7 +97,15 @@ namespace easyfmis.Forms.Software.MstItem
             comboBoxVATInTax.SelectedValue = mstItemEntity.VATInTaxId;
             comboBoxVATOutTax.SelectedValue = mstItemEntity.VATOutTaxId;
             comboBoxUnit.SelectedValue = mstItemEntity.UnitId;
-            comboBoxDefaultSupplier.SelectedValue = mstItemEntity.DefaultSupplierId;
+
+            Int32 supplierId = 0;
+            comboBoxDefaultSupplier.SelectedValue = supplierId;
+            if (mstItemEntity.DefaultSupplierId != null)
+            {
+                comboBoxDefaultSupplier.SelectedValue = mstItemEntity.DefaultSupplierId;
+
+            }
+
             textBoxCost.Text = mstItemEntity.DefaultCost.ToString("#,##0.00");
             textBoxPrice.Text = mstItemEntity.DefaultPrice.ToString("#,##0.00"); ;
             textBoxReorderQuantity.Text = mstItemEntity.ReorderQuantity.ToString("#,##0.00");
@@ -97,8 +113,10 @@ namespace easyfmis.Forms.Software.MstItem
             textBoxGenericName.Text = mstItemEntity.GenericArticleName;
             textBoxRemarks.Text = mstItemEntity.Remarks;
 
-           
-
+            CreateArticleUnittDataGridView();
+            CreateItemPriceListDataGridView();
+            CreateItemComponentListDataGridView();
+            CreateItemInventoryListDataGridView();
         }
 
         public void UpdateComponents(Boolean isLocked)
@@ -107,6 +125,7 @@ namespace easyfmis.Forms.Software.MstItem
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
 
+            comboBoxArticleGroup.Enabled = !isLocked;
             textBoxItemCode.Enabled = !isLocked;
             textBoxBarcode.Enabled = !isLocked;
             textBoxDescription.Enabled = !isLocked;
@@ -993,7 +1012,7 @@ namespace easyfmis.Forms.Software.MstItem
         //===============
 
         public static List<Entities.DgvItemInventoryEntity> itemInventoryListData = new List<Entities.DgvItemInventoryEntity>();
-        public PagedList<Entities.DgvItemInventoryEntity> itemInventoryListPageList = new PagedList<Entities.DgvItemInventoryEntity> (itemInventoryListData, pageNumber, pageSize);
+        public PagedList<Entities.DgvItemInventoryEntity> itemInventoryListPageList = new PagedList<Entities.DgvItemInventoryEntity>(itemInventoryListData, pageNumber, pageSize);
         public BindingSource itemInventoryListDataSource = new BindingSource();
 
         public Task<List<Entities.DgvItemInventoryEntity>> GetItemInventoryListDataTask()
@@ -1106,7 +1125,8 @@ namespace easyfmis.Forms.Software.MstItem
 
             if (e.RowIndex > -1 && dataGridViewItemInventoryList.CurrentCell.ColumnIndex == dataGridViewItemInventoryList.Columns["ColumnItemInventoryButtonEdit"].Index)
             {
-                Entities.MstArticleInventoryEntity selectedArticleInventory = new Entities.MstArticleInventoryEntity() {
+                Entities.MstArticleInventoryEntity selectedArticleInventory = new Entities.MstArticleInventoryEntity()
+                {
                     Id = Convert.ToInt32(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryId"].Index].Value),
                     BranchId = Convert.ToInt32(dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryBranchId"].Index].Value),
                     BranchCode = dataGridViewItemInventoryList.Rows[e.RowIndex].Cells[dataGridViewItemInventoryList.Columns["ColumnItemInventoryBranchCode"].Index].Value.ToString(),

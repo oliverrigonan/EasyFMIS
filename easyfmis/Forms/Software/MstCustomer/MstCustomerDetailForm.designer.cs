@@ -50,6 +50,8 @@
             this.textBoxCustomer = new System.Windows.Forms.TextBox();
             this.textBoxCustomerCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -147,6 +149,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.Controls.Add(this.comboBoxArticleGroup);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.textBoxTIN);
             this.panel2.Controls.Add(this.label7);
@@ -172,7 +176,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(114, 295);
+            this.label9.Location = new System.Drawing.Point(114, 332);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 23);
             this.label9.TabIndex = 38;
@@ -181,7 +185,7 @@
             // textBoxTIN
             // 
             this.textBoxTIN.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxTIN.Location = new System.Drawing.Point(161, 292);
+            this.textBoxTIN.Location = new System.Drawing.Point(161, 329);
             this.textBoxTIN.Name = "textBoxTIN";
             this.textBoxTIN.Size = new System.Drawing.Size(214, 30);
             this.textBoxTIN.TabIndex = 7;
@@ -190,7 +194,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(38, 261);
+            this.label7.Location = new System.Drawing.Point(38, 298);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 23);
             this.label7.TabIndex = 14;
@@ -199,7 +203,7 @@
             // textBoxEmailAddress
             // 
             this.textBoxEmailAddress.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxEmailAddress.Location = new System.Drawing.Point(161, 258);
+            this.textBoxEmailAddress.Location = new System.Drawing.Point(161, 295);
             this.textBoxEmailAddress.Name = "textBoxEmailAddress";
             this.textBoxEmailAddress.Size = new System.Drawing.Size(284, 30);
             this.textBoxEmailAddress.TabIndex = 5;
@@ -208,7 +212,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(13, 225);
+            this.label6.Location = new System.Drawing.Point(13, 262);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 23);
             this.label6.TabIndex = 12;
@@ -217,7 +221,7 @@
             // textBoxContactNumber
             // 
             this.textBoxContactNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxContactNumber.Location = new System.Drawing.Point(161, 222);
+            this.textBoxContactNumber.Location = new System.Drawing.Point(161, 259);
             this.textBoxContactNumber.Name = "textBoxContactNumber";
             this.textBoxContactNumber.Size = new System.Drawing.Size(214, 30);
             this.textBoxContactNumber.TabIndex = 4;
@@ -226,7 +230,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(25, 189);
+            this.label5.Location = new System.Drawing.Point(25, 226);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 23);
             this.label5.TabIndex = 10;
@@ -235,7 +239,7 @@
             // textBoxContactPerson
             // 
             this.textBoxContactPerson.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxContactPerson.Location = new System.Drawing.Point(161, 186);
+            this.textBoxContactPerson.Location = new System.Drawing.Point(161, 223);
             this.textBoxContactPerson.Name = "textBoxContactPerson";
             this.textBoxContactPerson.Size = new System.Drawing.Size(284, 30);
             this.textBoxContactPerson.TabIndex = 3;
@@ -244,7 +248,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(81, 81);
+            this.label2.Location = new System.Drawing.Point(81, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 23);
             this.label2.TabIndex = 8;
@@ -253,7 +257,7 @@
             // textBoxAddress
             // 
             this.textBoxAddress.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAddress.Location = new System.Drawing.Point(161, 78);
+            this.textBoxAddress.Location = new System.Drawing.Point(161, 115);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(409, 102);
@@ -295,6 +299,25 @@
             this.label4.Size = new System.Drawing.Size(133, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Customer Code:";
+            // 
+            // comboBoxArticleGroup
+            // 
+            this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxArticleGroup.FormattingEnabled = true;
+            this.comboBoxArticleGroup.Location = new System.Drawing.Point(161, 78);
+            this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
+            this.comboBoxArticleGroup.Size = new System.Drawing.Size(214, 31);
+            this.comboBoxArticleGroup.TabIndex = 41;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label10.Location = new System.Drawing.Point(40, 82);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(115, 23);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Article Group:";
             // 
             // MstCustomerDetailForm
             // 
@@ -340,5 +363,7 @@
         private System.Windows.Forms.TextBox textBoxCustomer;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTIN;
+        private System.Windows.Forms.ComboBox comboBoxArticleGroup;
+        private System.Windows.Forms.Label label10;
     }
 }

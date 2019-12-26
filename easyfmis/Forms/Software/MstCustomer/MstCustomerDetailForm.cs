@@ -25,6 +25,19 @@ namespace easyfmis.Forms.Software.MstCustomer
             mstCustomerListForm = itemListForm;
             mstCustomerEntity = customerEntity;
 
+            DropdownArticleGroup();
+        }
+
+        public void DropdownArticleGroup()
+        {
+            Controllers.MstArticleController mstArticleController = new Controllers.MstArticleController();
+            var articleGroup = mstArticleController.DropDownListArticleGroup("CUSTOMER");
+            if (articleGroup.Any())
+            {
+                comboBoxArticleGroup.DataSource = articleGroup;
+                comboBoxArticleGroup.DisplayMember = "ArticleGroup";
+                comboBoxArticleGroup.ValueMember = "Id";
+            }
             GetCustomerDetail();
         }
 
@@ -34,6 +47,7 @@ namespace easyfmis.Forms.Software.MstCustomer
             UpdateComponents(mstCustomerEntity.IsLocked);
 
             textBoxCustomerCode.Text = mstCustomerEntity.ArticleCode;
+            comboBoxArticleGroup.SelectedValue = mstCustomerEntity.ArticleGroupId;
             textBoxCustomer.Text = mstCustomerEntity.Article;
             textBoxAddress.Text = mstCustomerEntity.Address;
             textBoxContactPerson.Text = mstCustomerEntity.ContactPerson;
@@ -46,7 +60,7 @@ namespace easyfmis.Forms.Software.MstCustomer
         {
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
-
+            comboBoxArticleGroup.Enabled = !isLocked;
             textBoxCustomerCode.Enabled = !isLocked;
             textBoxCustomer.Enabled = !isLocked;
             textBoxAddress.Enabled = !isLocked;
@@ -60,6 +74,7 @@ namespace easyfmis.Forms.Software.MstCustomer
         {
             Controllers.MstArticleController mstArticleController = new Controllers.MstArticleController();
 
+            mstCustomerEntity.ArticleGroupId = Convert.ToInt32(comboBoxArticleGroup.SelectedValue);
             mstCustomerEntity.ArticleCode = textBoxCustomerCode.Text;
             mstCustomerEntity.Article = textBoxCustomer.Text;
             mstCustomerEntity.Address = textBoxAddress.Text;

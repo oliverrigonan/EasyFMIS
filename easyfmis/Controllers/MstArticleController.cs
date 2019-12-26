@@ -40,6 +40,7 @@ namespace easyfmis.Controllers
                            {
                                Id = d.Id,
                                ArticleTypeId = d.ArticleTypeId,
+                               ArticleGroupId = d.ArticleTypeId,
                                ArticleCode = d.ArticleCode,
                                ArticleBarCode = d.ArticleBarCode,
                                Article = d.Article,
@@ -86,6 +87,7 @@ namespace easyfmis.Controllers
                           {
                               Id = d.Id,
                               ArticleTypeId = d.ArticleTypeId,
+                              ArticleGroupId = d.ArticleTypeId,
                               ArticleCode = d.ArticleCode,
                               ArticleBarCode = d.ArticleBarCode,
                               Article = d.Article,
@@ -145,6 +147,22 @@ namespace easyfmis.Controllers
             return units.OrderByDescending(d => d.Id).ToList();
         }
 
+        // ==================
+        // List Article Group
+        // ==================
+        public List<Entities.MstArticleGroupEntity> DropDownListArticleGroup(String articleType)
+        {
+            var units = from d in db.MstArticleGroups
+                        where d.MstArticleType.ArticleType == articleType
+                        select new Entities.MstArticleGroupEntity
+                        {
+                            Id = d.Id,
+                            ArticleGroup = d.ArticleGroup
+                        };
+
+            return units.OrderByDescending(d => d.Id).ToList();
+        }
+
         // ===========
         // Add Article
         // ===========
@@ -187,7 +205,15 @@ namespace easyfmis.Controllers
                                   select d;
                 if (articleType.Any() == false)
                 {
-                    return new String[] { "Tax type not found.", "0" };
+                    return new String[] { "Article type not found.", "0" };
+                }
+
+                var articleGroup = from d in db.MstArticleGroups
+                                   where d.MstArticleType.ArticleType == _articleType
+                                   select d;
+                if (articleGroup.Any() == false)
+                {
+                    return new String[] { "Article group not found.", "0" };
                 }
 
                 Int32? supplierId;
@@ -213,6 +239,7 @@ namespace easyfmis.Controllers
                 Data.MstArticle newArticle = new Data.MstArticle()
                 {
                     ArticleTypeId = articleType.FirstOrDefault().Id,
+                    ArticleGroupId = articleGroup.FirstOrDefault().Id,
                     ArticleCode = itemCode,
                     ArticleBarCode = "NA",
                     Article = "NA",
@@ -272,7 +299,7 @@ namespace easyfmis.Controllers
                 if (currentArticle.Any())
                 {
                     var updateArticle = currentArticle.FirstOrDefault();
-                    updateArticle.ArticleTypeId = objArticle.ArticleTypeId;
+                    updateArticle.ArticleGroupId = objArticle.ArticleGroupId;
                     updateArticle.ArticleCode = objArticle.ArticleCode;
                     updateArticle.ArticleBarCode = objArticle.ArticleBarCode;
                     updateArticle.Article = objArticle.Article;
@@ -331,6 +358,7 @@ namespace easyfmis.Controllers
                 {
                     var lockArticle = currentArticle.FirstOrDefault();
                     lockArticle.ArticleTypeId = objArticle.ArticleTypeId;
+                    lockArticle.ArticleGroupId = objArticle.ArticleGroupId;
                     lockArticle.ArticleCode = objArticle.ArticleCode;
                     lockArticle.ArticleBarCode = objArticle.ArticleBarCode;
                     lockArticle.Article = objArticle.Article;

@@ -137,6 +137,7 @@
     <Compile Include="Entities\DgvUserListEntity.cs" />
     <Compile Include="Entities\MstArticleComponentEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
+    <Compile Include="Entities\MstArticleGroupEntity.cs" />
     <Compile Include="Entities\MstArticleInventory.cs" />
     <Compile Include="Entities\MstArticleInventoryEntity.cs" />
     <Compile Include="Entities\MstArticlePriceEntity.cs" />
