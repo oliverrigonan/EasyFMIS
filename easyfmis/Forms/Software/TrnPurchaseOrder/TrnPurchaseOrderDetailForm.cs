@@ -37,7 +37,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
         public void GetSupplierList()
         {
             Controllers.TrnPurchaseOrderController trnPurchaseOrderController = new Controllers.TrnPurchaseOrderController();
-            var supplier = trnPurchaseOrderController.DropdownListPurchaseOrderCustomer();
+            var supplier = trnPurchaseOrderController.DropdownListPurchaseOrderSupplier();
             if (supplier.Any())
             {
                 comboBoxSupplier.DataSource = supplier;

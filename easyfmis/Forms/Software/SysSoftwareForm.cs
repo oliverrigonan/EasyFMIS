@@ -113,8 +113,8 @@ namespace easyfmis.Forms.Software
         public TrnReceivingReceipt.TrnReceivingReceiptDetailForm trnReceivingReceiptDetailForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
-        //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
-        //public TrnDisbursement.TrnDisbursementDetailForm trnDisbursementDetailForm = null;
+        public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
+        public TrnDisbursement.TrnDisbursementDetailForm trnDisbursementDetailForm = null;
 
         //public RepPOSReport.RepPOSReportForm repPOSReportForm = null;
         //public RepSalesReport.RepSalesReportForm repSalesReportForm = null;
@@ -838,53 +838,53 @@ namespace easyfmis.Forms.Software
         //    }
         //}
 
-        //public void AddTabPageDisbursementList()
-        //{
-        //    tabPageDisbursementList.Controls.Remove(trnDisbursementListForm);
+        public void AddTabPageDisbursementList()
+        {
+            tabPageDisbursementList.Controls.Remove(trnDisbursementListForm);
 
-        //    trnDisbursementListForm = new TrnDisbursement.TrnDisbursementListForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            trnDisbursementListForm = new TrnDisbursement.TrnDisbursementListForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageDisbursementList.Controls.Add(trnDisbursementListForm);
+            tabPageDisbursementList.Controls.Add(trnDisbursementListForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageDisbursementList) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageDisbursementList);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageDisbursementList);
-        //        tabControlSoftware.SelectTab(tabPageDisbursementList);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageDisbursementList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageDisbursementList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageDisbursementList);
+                tabControlSoftware.SelectTab(tabPageDisbursementList);
+            }
+        }
 
-        //public void AddTabPageDisbursementDetail(TrnDisbursement.TrnDisbursementListForm disbursementListForm, Entities.TrnDisbursementEntity disbursementEntity)
-        //{
-        //    tabPageDisbursementDetail.Controls.Remove(trnDisbursementDetailForm);
+        public void AddTabPageDisbursementDetail(TrnDisbursement.TrnDisbursementListForm disbursementListForm, Entities.TrnDisbursementEntity disbursementEntity)
+        {
+            tabPageDisbursementDetail.Controls.Remove(trnDisbursementDetailForm);
 
-        //    trnDisbursementDetailForm = new TrnDisbursement.TrnDisbursementDetailForm(this, disbursementListForm, disbursementEntity)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            trnDisbursementDetailForm = new TrnDisbursement.TrnDisbursementDetailForm(this, disbursementListForm, disbursementEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageDisbursementDetail.Controls.Add(trnDisbursementDetailForm);
+            tabPageDisbursementDetail.Controls.Add(trnDisbursementDetailForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageDisbursementDetail) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageDisbursementDetail);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageDisbursementDetail);
-        //        tabControlSoftware.SelectTab(tabPageDisbursementDetail);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageDisbursementDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageDisbursementDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageDisbursementDetail);
+                tabControlSoftware.SelectTab(tabPageDisbursementDetail);
+            }
+        }
 
         //public void AddTabPagePOSReport()
         //{

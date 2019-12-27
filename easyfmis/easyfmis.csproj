@@ -82,6 +82,8 @@
     <Compile Include="Controllers\RepInventoryReportController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
+    <Compile Include="Controllers\TrnDisbursementController.cs" />
+    <Compile Include="Controllers\TrnDisbursementLineController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
     <Compile Include="Controllers\TrnReceivingReceiptController.cs" />
     <Compile Include="Controllers\TrnReceivingReceiptItemController.cs" />
@@ -102,6 +104,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>easyfmisdb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DgvDisbursementLineEntity.cs" />
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
     <Compile Include="Entities\DgvPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvReceivingReceiptEntity.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="Entities\DgvSalesInvoiceItemEntity.cs" />
     <Compile Include="Entities\DgvSearchPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvSearchNonInventoryItemEntity.cs" />
+    <Compile Include="Entities\DgvDisbursementEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
@@ -146,6 +150,7 @@
     <Compile Include="Entities\MstBranchEntity.cs" />
     <Compile Include="Entities\MstCompanyEntity.cs" />
     <Compile Include="Entities\MstDiscountEntity.cs" />
+    <Compile Include="Entities\MstPayTypeEntity.cs" />
     <Compile Include="Entities\MstTaxEntity.cs" />
     <Compile Include="Entities\MstTermEntity.cs" />
     <Compile Include="Entities\MstUnitEntity.cs" />
@@ -156,6 +161,8 @@
     <Compile Include="Entities\SysConnectionStringEntity.cs" />
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
+    <Compile Include="Entities\TrnDisbursementEntity.cs" />
+    <Compile Include="Entities\TrnDisbursementLineEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
     <Compile Include="Entities\TrnReceivingReceiptEntity.cs" />
     <Compile Include="Entities\TrnReceivingReceiptItemEntity.cs" />
@@ -291,6 +298,18 @@
     </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementListForm.Designer.cs">
+      <DependentUpon>TrnDisbursementListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailForm.Designer.cs">
+      <DependentUpon>TrnDisbursementDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.cs">
       <SubType>Form</SubType>
@@ -545,6 +564,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementListForm.resx">
+      <DependentUpon>TrnDisbursementListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailForm.resx">
+      <DependentUpon>TrnDisbursementDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.resx">
       <DependentUpon>TrnPurchaseOrderForm.cs</DependentUpon>

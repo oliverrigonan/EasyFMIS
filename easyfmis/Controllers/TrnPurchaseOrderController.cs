@@ -112,9 +112,9 @@ namespace easyfmis.Controllers
         // ========================
         // Dropdown List - Supplier
         // ========================
-        public List<Entities.MstArticleEntity> DropdownListPurchaseOrderCustomer()
+        public List<Entities.MstArticleEntity> DropdownListPurchaseOrderSupplier()
         {
-            var customers = from d in db.MstArticles
+            var suppliers = from d in db.MstArticles
                             where d.MstArticleType.ArticleType == "SUPPLIER"
                             select new Entities.MstArticleEntity
                             {
@@ -122,7 +122,7 @@ namespace easyfmis.Controllers
                                 Article = d.Article
                             };
 
-            return customers.ToList();
+            return suppliers.ToList();
         }
 
         // ====================

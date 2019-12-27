@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysMenuForm));
             this.imageListMenuIcons = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonDisbursement = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonStockTransfer = new System.Windows.Forms.Button();
@@ -83,7 +83,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.buttonDisbursement);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.buttonStockTransfer);
@@ -109,24 +109,25 @@
             this.panel1.Size = new System.Drawing.Size(1400, 700);
             this.panel1.TabIndex = 19;
             // 
-            // button4
+            // buttonDisbursement
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageKey = "Disbursement.png";
-            this.button4.ImageList = this.imageListMenuIcons;
-            this.button4.Location = new System.Drawing.Point(12, 528);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(10);
-            this.button4.Size = new System.Drawing.Size(227, 123);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "\r\nDisbursement";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonDisbursement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonDisbursement.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonDisbursement.FlatAppearance.BorderSize = 0;
+            this.buttonDisbursement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDisbursement.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonDisbursement.ForeColor = System.Drawing.Color.White;
+            this.buttonDisbursement.ImageKey = "Disbursement.png";
+            this.buttonDisbursement.ImageList = this.imageListMenuIcons;
+            this.buttonDisbursement.Location = new System.Drawing.Point(12, 528);
+            this.buttonDisbursement.Name = "buttonDisbursement";
+            this.buttonDisbursement.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonDisbursement.Size = new System.Drawing.Size(227, 123);
+            this.buttonDisbursement.TabIndex = 22;
+            this.buttonDisbursement.Text = "\r\nDisbursement";
+            this.buttonDisbursement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonDisbursement.UseVisualStyleBackColor = false;
+            this.buttonDisbursement.Click += new System.EventHandler(this.buttonDisbursement_Click);
             // 
             // button3
             // 
@@ -539,7 +540,7 @@
         private System.Windows.Forms.Button buttonUser;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonStockTransfer;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonDisbursement;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
     }
