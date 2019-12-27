@@ -81,6 +81,11 @@ namespace easyfmis.Forms.Software.SysMenu
             sysSoftwareForm.AddTabPagePurchaseOrderList();
         }
 
+        private void buttonCollection_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageCollectionList();
+        }
+
         private void buttonDisbursement_Click(object sender, EventArgs e)
         {
             sysSoftwareForm.AddTabPageDisbursementList();

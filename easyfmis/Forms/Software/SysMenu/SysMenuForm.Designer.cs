@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysMenuForm));
             this.imageListMenuIcons = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.buttonCollection = new System.Windows.Forms.Button();
             this.buttonDisbursement = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -83,6 +85,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.buttonCollection);
             this.panel1.Controls.Add(this.buttonDisbursement);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -129,24 +133,25 @@
             this.buttonDisbursement.UseVisualStyleBackColor = false;
             this.buttonDisbursement.Click += new System.EventHandler(this.buttonDisbursement_Click);
             // 
-            // button3
+            // buttonCollection
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageIndex = 18;
-            this.button3.ImageList = this.imageListMenuIcons;
-            this.button3.Location = new System.Drawing.Point(245, 528);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10);
-            this.button3.Size = new System.Drawing.Size(227, 123);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "\r\nCollection";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonCollection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonCollection.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonCollection.FlatAppearance.BorderSize = 0;
+            this.buttonCollection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCollection.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonCollection.ForeColor = System.Drawing.Color.White;
+            this.buttonCollection.ImageIndex = 18;
+            this.buttonCollection.ImageList = this.imageListMenuIcons;
+            this.buttonCollection.Location = new System.Drawing.Point(245, 528);
+            this.buttonCollection.Name = "buttonCollection";
+            this.buttonCollection.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonCollection.Size = new System.Drawing.Size(227, 123);
+            this.buttonCollection.TabIndex = 21;
+            this.buttonCollection.Text = "\r\nCollection";
+            this.buttonCollection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonCollection.UseVisualStyleBackColor = false;
+            this.buttonCollection.Click += new System.EventHandler(this.buttonCollection_Click);
             // 
             // button2
             // 
@@ -540,6 +545,8 @@
         private System.Windows.Forms.Button buttonUser;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonStockTransfer;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonCollection;
         private System.Windows.Forms.Button buttonDisbursement;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;

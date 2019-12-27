@@ -68,6 +68,9 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageReceivingReceipt = new TabPage { Name = "tabPageReceivingReceipt", Text = "Activity - Receiving Receipt List" };
         public TabPage tabPageReceivingReceiptDetail = new TabPage { Name = "tabPageReceivingReceiptDetail", Text = "Activity - Receiving Receipt Detail" };
 
+        public TabPage tabPageCollection = new TabPage { Name = "tabPageCollection", Text = "Activity - Collection List" };
+        public TabPage tabPageCollectionDetail = new TabPage { Name = "tabPageCollectionDetail", Text = "Activity - Collection Detail" };
+
         public TabPage tabPagePOSReport = new TabPage { Name = "tabPagePOSReport", Text = "Report - POS Report" };
         public TabPage tabPageSalesReports = new TabPage { Name = "tabPageSalesReports ", Text = "Report - Sales Report" };
         public TabPage tabPageInventoryReports = new TabPage { Name = "tabPageInventoryReports ", Text = "Report - Inventory Report" };
@@ -111,6 +114,12 @@ namespace easyfmis.Forms.Software
 
         public TrnReceivingReceipt.TrnReceivingReceiptForm trnReceivingReceiptForm = null;
         public TrnReceivingReceipt.TrnReceivingReceiptDetailForm trnReceivingReceiptDetailForm = null;
+
+        public TrnCollection.TrnCollectionForm trnCollectionForm = null;
+        public TrnCollection.TrnCollectionDetailForm trnCollectionDetailForm = null;
+
+        //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
+        //public TrnDisbursement.TrnDisbursementDetailForm trnDisbursementDetailForm = null;
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
         public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
@@ -787,6 +796,54 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageReceivingReceiptDetail);
                 tabControlSoftware.SelectTab(tabPageReceivingReceiptDetail);
+            }
+        }
+
+        public void AddTabPageCollectionList()
+        {
+            tabPageCollection.Controls.Remove(trnCollectionForm);
+
+            trnCollectionForm = new TrnCollection.TrnCollectionForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageCollection.Controls.Add(trnCollectionForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageCollection) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageCollection);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageCollection);
+                tabControlSoftware.SelectTab(tabPageCollection);
+            }
+        }
+
+        public void AddTabPageCollectionDetail(TrnCollection.TrnCollectionForm trnCollectionForm, Entities.TrnCollectionEntity trnCollectionEntity)
+        {
+            tabPageCollectionDetail.Controls.Remove(trnCollectionDetailForm);
+
+            trnCollectionDetailForm = new TrnCollection.TrnCollectionDetailForm(this, trnCollectionForm, trnCollectionEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageCollectionDetail.Controls.Add(trnCollectionDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageCollectionDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageCollectionDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageCollectionDetail);
+                tabControlSoftware.SelectTab(tabPageCollectionDetail);
             }
         }
 

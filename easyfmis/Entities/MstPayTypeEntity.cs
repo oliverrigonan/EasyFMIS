@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    class MstPayTypeEntity
+    public class MstPayTypeEntity
     {
         public Int32 Id { get; set; }
         public String PayType { get; set; }
-        public Int32 AccountId { get; set; }
-        public Boolean IsLocked { get; set; }
-        public Int32 CreatedBy { get; set; }
-        public DateTime CreatedDateTime { get; set; }
-        public Int32 UpdatedBy { get; set; }
-        public DateTime UpdatedDateTime { get; set; }
     }
 }
