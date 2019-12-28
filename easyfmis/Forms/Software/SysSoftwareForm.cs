@@ -130,7 +130,7 @@ namespace easyfmis.Forms.Software
         public RepInventoryReport.RepInventoryReportForm repInventoryReportForm = null;
         //public RepRemittanceReport.RepRemittanceReportForm repRemittanceReportForm = null;
 
-        //public SysSystemTables.SysSystemTablesForm sysSystemTablesForm = null;
+        public SysSystemTables.SysSystemTablesForm sysSystemTablesForm = null;
 
         //public SysSettings.SysSettingsForm sysSettingsForm = null;
 
@@ -991,29 +991,29 @@ namespace easyfmis.Forms.Software
             }
         }
 
-        //public void AddTabPageSystemTables()
-        //{
-        //    tabPageSystemTables.Controls.Remove(sysSystemTablesForm);
+        public void AddTabPageSystemTables()
+        {
+            tabPageSystemTables.Controls.Remove(sysSystemTablesForm);
 
-        //    sysSystemTablesForm = new SysSystemTables.SysSystemTablesForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            sysSystemTablesForm = new SysSystemTables.SysSystemTablesForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPageSystemTables.Controls.Add(sysSystemTablesForm);
+            tabPageSystemTables.Controls.Add(sysSystemTablesForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPageSystemTables) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageSystemTables);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageSystemTables);
-        //        tabControlSoftware.SelectTab(tabPageSystemTables);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageSystemTables) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageSystemTables);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageSystemTables);
+                tabControlSoftware.SelectTab(tabPageSystemTables);
+            }
+        }
 
         //public void AddTabPageSettings()
         //{

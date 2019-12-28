@@ -90,5 +90,10 @@ namespace easyfmis.Forms.Software.SysMenu
         {
             sysSoftwareForm.AddTabPageDisbursementList();
         }
+
+        private void buttonSystemTables_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageSystemTables();
+        }
     }
 }
