@@ -25,6 +25,7 @@ namespace easyfmis.Controllers
                                         Id = d.Id,
                                         CVId = d.CVId,
                                         ArticleGroupId = d.ArticleGroupId,
+                                        ArticleGroup = d.MstArticleGroup.ArticleGroup,
                                         RRId = d.RRId,
                                         RRNumber = d.TrnReceivingReceipt.RRNumber,
                                         Amount = d.Amount,
@@ -89,19 +90,25 @@ namespace easyfmis.Controllers
                     return new String[] { "Article group not found.", "0" };
                 }
 
+                Int32? rRId;
                 var receiveReceipt = from d in db.TrnReceivingReceipts
                                      where d.Id == objDisbursementLine.RRId
                                      select d;
-                if (receiveReceipt.Any() == false)
+
+                if (receiveReceipt.Any())
                 {
-                    return new String[] { "Receive receipt not found.", "0" };
+                    rRId = receiveReceipt.FirstOrDefault().Id;
+                }
+                else
+                {
+                    rRId = null;
                 }
 
                 Data.TrnDisbursementLine newDisbursementLine = new Data.TrnDisbursementLine
                 {
                     CVId = objDisbursementLine.CVId,
                     ArticleGroupId = articleGroup.FirstOrDefault().Id,
-                    RRId = receiveReceipt.FirstOrDefault().Id,
+                    RRId = rRId,
                     Amount = objDisbursementLine.Amount,
                     OtherInformation = objDisbursementLine.OtherInformation
                 };
@@ -147,21 +154,25 @@ namespace easyfmis.Controllers
                         return new String[] { "Article group not found.", "0" };
                     }
 
+                    Int32? rRId;
                     var receiveReceipt = from d in db.TrnReceivingReceipts
                                          where d.Id == objDisbursementLine.RRId
                                          select d;
-                    if (receiveReceipt.Any() == false)
+                    if (receiveReceipt.Any())
                     {
-                        return new String[] { "Receive receipt not found.", "0" };
+                        rRId = receiveReceipt.FirstOrDefault().Id;
+                    }
+                    else
+                    {
+                        rRId = null;
                     }
 
                     var updateDisbursementLine = disbursementLine.FirstOrDefault();
 
                     updateDisbursementLine.ArticleGroupId = articleGroup.FirstOrDefault().Id;
-                    updateDisbursementLine.RRId = receiveReceipt.FirstOrDefault().Id;
+                    updateDisbursementLine.RRId = rRId;
                     updateDisbursementLine.Amount = objDisbursementLine.Amount;
                     updateDisbursementLine.OtherInformation = objDisbursementLine.OtherInformation;
-                    db.TrnDisbursementLines.InsertOnSubmit(updateDisbursementLine);
                     db.SubmitChanges();
 
                     return new String[] { "", "1" };

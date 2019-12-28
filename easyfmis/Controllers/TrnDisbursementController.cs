@@ -214,6 +214,7 @@ namespace easyfmis.Controllers
 
                 var bank = from d in db.MstArticles
                            where d.IsLocked == true
+                           && d.MstArticleType.ArticleType == "BANK"
                            select d;
 
                 if (bank.Any() == false)
@@ -366,7 +367,7 @@ namespace easyfmis.Controllers
 
                 if (disbursement.Any())
                 {
-                    if (disbursement.FirstOrDefault().IsLocked)
+                    if (!disbursement.FirstOrDefault().IsLocked)
                     {
                         return new String[] { "Already locked.", "0" };
                     }

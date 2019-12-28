@@ -349,7 +349,7 @@
             this.ColumnDisbursementListIsClear.HeaderText = "Clear";
             this.ColumnDisbursementListIsClear.Name = "ColumnDisbursementListIsClear";
             this.ColumnDisbursementListIsClear.ReadOnly = true;
-            this.ColumnDisbursementListIsClear.Width = 35;
+            this.ColumnDisbursementListIsClear.Width = 60;
             // 
             // ColumnDisbursementListIsLocked
             // 
@@ -367,7 +367,7 @@
             this.ColumnDisbursementListSpace.Name = "ColumnDisbursementListSpace";
             this.ColumnDisbursementListSpace.ReadOnly = true;
             // 
-            // TrnDisbursementForm
+            // TrnDisbursementListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -378,7 +378,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "TrnDisbursementForm";
+            this.Name = "TrnDisbursementListForm";
             this.Text = "Stock In List";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisbursement)).EndInit();
             this.panel3.ResumeLayout(false);

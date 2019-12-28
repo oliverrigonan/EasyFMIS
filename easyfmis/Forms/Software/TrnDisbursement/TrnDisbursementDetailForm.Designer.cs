@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnDisbursementDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -86,24 +82,21 @@
             this.textBoxDisbursementLinePageNumber = new System.Windows.Forms.TextBox();
             this.buttonDisbursementLine = new System.Windows.Forms.Button();
             this.dataGridViewDisbursementLine = new System.Windows.Forms.DataGridView();
-            this.ColumnDisbursementLineListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDisbursementLineListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDisbursementLineListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListPOId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListItemDescritpion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineListBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDisbursementLineSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
+            this.ColumnDisbursementLineListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDisbursementLineListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDisbursementLineListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListCVId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListArticleGroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListArticleGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListRRId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListRR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListOtherInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDisbursementLineListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -326,6 +319,8 @@
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(196, 30);
             this.textBoxAmount.TabIndex = 45;
+            this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
+            this.textBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmount_KeyPress);
             // 
             // label16
             // 
@@ -683,7 +678,7 @@
             this.buttonDisbursementLine.TabStop = false;
             this.buttonDisbursementLine.Text = "Add";
             this.buttonDisbursementLine.UseVisualStyleBackColor = false;
-            this.buttonDisbursementLine.Click += new System.EventHandler(this.buttonSearchItem_Click);
+            this.buttonDisbursementLine.Click += new System.EventHandler(this.buttonAddDisbursementLine_Click);
             // 
             // dataGridViewDisbursementLine
             // 
@@ -707,24 +702,21 @@
             this.ColumnDisbursementLineListButtonEdit,
             this.ColumnDisbursementLineListButtonDelete,
             this.ColumnDisbursementLineListId,
-            this.ColumnDisbursementLineListPOId,
-            this.ColumnDisbursementLineListItemId,
-            this.ColumnDisbursementLineListItemDescritpion,
-            this.ColumnDisbursementLineListUnitId,
-            this.ColumnDisbursementLineListUnit,
-            this.ColumnDisbursementLineListQuantity,
-            this.ColumnDisbursementLineListCost,
+            this.ColumnDisbursementLineListCVId,
+            this.ColumnDisbursementLineListArticleGroupId,
+            this.ColumnDisbursementLineListArticleGroup,
+            this.ColumnDisbursementLineListRRId,
+            this.ColumnDisbursementLineListRR,
             this.ColumnDisbursementLineListAmount,
-            this.ColumnDisbursementLineListBaseQuantity,
-            this.ColumnDisbursementLineListBaseCost,
-            this.ColumnDisbursementLineSpace});
+            this.ColumnDisbursementLineListOtherInformation,
+            this.ColumnDisbursementLineListSpace});
             this.dataGridViewDisbursementLine.Location = new System.Drawing.Point(8, 52);
             this.dataGridViewDisbursementLine.MultiSelect = false;
             this.dataGridViewDisbursementLine.Name = "dataGridViewDisbursementLine";
             this.dataGridViewDisbursementLine.ReadOnly = true;
             this.dataGridViewDisbursementLine.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.dataGridViewDisbursementLine.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.dataGridViewDisbursementLine.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewDisbursementLine.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewDisbursementLine.RowTemplate.Height = 24;
             this.dataGridViewDisbursementLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -732,131 +724,6 @@
             this.dataGridViewDisbursementLine.TabIndex = 1;
             this.dataGridViewDisbursementLine.TabStop = false;
             this.dataGridViewDisbursementLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisbursementLine_CellClick);
-            // 
-            // ColumnDisbursementLineListButtonEdit
-            // 
-            this.ColumnDisbursementLineListButtonEdit.DataPropertyName = "ColumnDisbursementLineListButtonEdit";
-            this.ColumnDisbursementLineListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDisbursementLineListButtonEdit.HeaderText = "";
-            this.ColumnDisbursementLineListButtonEdit.Name = "ColumnDisbursementLineListButtonEdit";
-            this.ColumnDisbursementLineListButtonEdit.ReadOnly = true;
-            this.ColumnDisbursementLineListButtonEdit.Width = 70;
-            // 
-            // ColumnDisbursementLineListButtonDelete
-            // 
-            this.ColumnDisbursementLineListButtonDelete.DataPropertyName = "ColumnDisbursementLineListButtonDelete";
-            this.ColumnDisbursementLineListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDisbursementLineListButtonDelete.HeaderText = "";
-            this.ColumnDisbursementLineListButtonDelete.Name = "ColumnDisbursementLineListButtonDelete";
-            this.ColumnDisbursementLineListButtonDelete.ReadOnly = true;
-            this.ColumnDisbursementLineListButtonDelete.Width = 70;
-            // 
-            // ColumnDisbursementLineListId
-            // 
-            this.ColumnDisbursementLineListId.DataPropertyName = "ColumnDisbursementLineListId";
-            this.ColumnDisbursementLineListId.HeaderText = "Id";
-            this.ColumnDisbursementLineListId.Name = "ColumnDisbursementLineListId";
-            this.ColumnDisbursementLineListId.ReadOnly = true;
-            this.ColumnDisbursementLineListId.Visible = false;
-            // 
-            // ColumnDisbursementLineListPOId
-            // 
-            this.ColumnDisbursementLineListPOId.DataPropertyName = "ColumnDisbursementLineListPOId";
-            this.ColumnDisbursementLineListPOId.HeaderText = "PTId";
-            this.ColumnDisbursementLineListPOId.Name = "ColumnDisbursementLineListPOId";
-            this.ColumnDisbursementLineListPOId.ReadOnly = true;
-            this.ColumnDisbursementLineListPOId.Visible = false;
-            // 
-            // ColumnDisbursementLineListItemId
-            // 
-            this.ColumnDisbursementLineListItemId.DataPropertyName = "ColumnDisbursementLineListItemId";
-            this.ColumnDisbursementLineListItemId.HeaderText = "Item Id";
-            this.ColumnDisbursementLineListItemId.Name = "ColumnDisbursementLineListItemId";
-            this.ColumnDisbursementLineListItemId.ReadOnly = true;
-            this.ColumnDisbursementLineListItemId.Visible = false;
-            // 
-            // ColumnDisbursementLineListItemDescritpion
-            // 
-            this.ColumnDisbursementLineListItemDescritpion.DataPropertyName = "ColumnDisbursementLineListItemDescritpion";
-            this.ColumnDisbursementLineListItemDescritpion.HeaderText = "Item Description";
-            this.ColumnDisbursementLineListItemDescritpion.Name = "ColumnDisbursementLineListItemDescritpion";
-            this.ColumnDisbursementLineListItemDescritpion.ReadOnly = true;
-            this.ColumnDisbursementLineListItemDescritpion.Width = 300;
-            // 
-            // ColumnDisbursementLineListUnitId
-            // 
-            this.ColumnDisbursementLineListUnitId.DataPropertyName = "ColumnDisbursementLineListUnitId";
-            this.ColumnDisbursementLineListUnitId.HeaderText = "Unit Id";
-            this.ColumnDisbursementLineListUnitId.Name = "ColumnDisbursementLineListUnitId";
-            this.ColumnDisbursementLineListUnitId.ReadOnly = true;
-            this.ColumnDisbursementLineListUnitId.Visible = false;
-            // 
-            // ColumnDisbursementLineListUnit
-            // 
-            this.ColumnDisbursementLineListUnit.DataPropertyName = "ColumnDisbursementLineListUnit";
-            this.ColumnDisbursementLineListUnit.HeaderText = "Unit";
-            this.ColumnDisbursementLineListUnit.Name = "ColumnDisbursementLineListUnit";
-            this.ColumnDisbursementLineListUnit.ReadOnly = true;
-            this.ColumnDisbursementLineListUnit.Width = 150;
-            // 
-            // ColumnDisbursementLineListQuantity
-            // 
-            this.ColumnDisbursementLineListQuantity.DataPropertyName = "ColumnDisbursementLineListQuantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDisbursementLineListQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnDisbursementLineListQuantity.HeaderText = "Quantity";
-            this.ColumnDisbursementLineListQuantity.Name = "ColumnDisbursementLineListQuantity";
-            this.ColumnDisbursementLineListQuantity.ReadOnly = true;
-            this.ColumnDisbursementLineListQuantity.Width = 150;
-            // 
-            // ColumnDisbursementLineListCost
-            // 
-            this.ColumnDisbursementLineListCost.DataPropertyName = "ColumnDisbursementLineListCost";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDisbursementLineListCost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnDisbursementLineListCost.HeaderText = "Cost";
-            this.ColumnDisbursementLineListCost.Name = "ColumnDisbursementLineListCost";
-            this.ColumnDisbursementLineListCost.ReadOnly = true;
-            this.ColumnDisbursementLineListCost.Visible = false;
-            this.ColumnDisbursementLineListCost.Width = 150;
-            // 
-            // ColumnDisbursementLineListAmount
-            // 
-            this.ColumnDisbursementLineListAmount.DataPropertyName = "ColumnDisbursementLineListAmount";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDisbursementLineListAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnDisbursementLineListAmount.HeaderText = "Amount";
-            this.ColumnDisbursementLineListAmount.Name = "ColumnDisbursementLineListAmount";
-            this.ColumnDisbursementLineListAmount.ReadOnly = true;
-            this.ColumnDisbursementLineListAmount.Width = 150;
-            // 
-            // ColumnDisbursementLineListBaseQuantity
-            // 
-            this.ColumnDisbursementLineListBaseQuantity.DataPropertyName = "ColumnDisbursementLineListBaseQuantity";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDisbursementLineListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnDisbursementLineListBaseQuantity.HeaderText = "Base Qty.";
-            this.ColumnDisbursementLineListBaseQuantity.Name = "ColumnDisbursementLineListBaseQuantity";
-            this.ColumnDisbursementLineListBaseQuantity.ReadOnly = true;
-            this.ColumnDisbursementLineListBaseQuantity.Width = 150;
-            // 
-            // ColumnDisbursementLineListBaseCost
-            // 
-            this.ColumnDisbursementLineListBaseCost.DataPropertyName = "ColumnDisbursementLineListBaseCost";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDisbursementLineListBaseCost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnDisbursementLineListBaseCost.HeaderText = "Base Cost";
-            this.ColumnDisbursementLineListBaseCost.Name = "ColumnDisbursementLineListBaseCost";
-            this.ColumnDisbursementLineListBaseCost.ReadOnly = true;
-            this.ColumnDisbursementLineListBaseCost.Width = 150;
-            // 
-            // ColumnDisbursementLineSpace
-            // 
-            this.ColumnDisbursementLineSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnDisbursementLineSpace.DataPropertyName = "ColumnDisbursementLineSpace";
-            this.ColumnDisbursementLineSpace.HeaderText = "";
-            this.ColumnDisbursementLineSpace.Name = "ColumnDisbursementLineSpace";
-            this.ColumnDisbursementLineSpace.ReadOnly = true;
             // 
             // panel2
             // 
@@ -900,6 +767,98 @@
             this.tabPageStockOutItems.TabIndex = 0;
             this.tabPageStockOutItems.Text = "Disbursement Line";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
+            // 
+            // ColumnDisbursementLineListButtonEdit
+            // 
+            this.ColumnDisbursementLineListButtonEdit.DataPropertyName = "ColumnDisbursementLineListButtonEdit";
+            this.ColumnDisbursementLineListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDisbursementLineListButtonEdit.HeaderText = "";
+            this.ColumnDisbursementLineListButtonEdit.Name = "ColumnDisbursementLineListButtonEdit";
+            this.ColumnDisbursementLineListButtonEdit.ReadOnly = true;
+            this.ColumnDisbursementLineListButtonEdit.Width = 70;
+            // 
+            // ColumnDisbursementLineListButtonDelete
+            // 
+            this.ColumnDisbursementLineListButtonDelete.DataPropertyName = "ColumnDisbursementLineListButtonDelete";
+            this.ColumnDisbursementLineListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDisbursementLineListButtonDelete.HeaderText = "";
+            this.ColumnDisbursementLineListButtonDelete.Name = "ColumnDisbursementLineListButtonDelete";
+            this.ColumnDisbursementLineListButtonDelete.ReadOnly = true;
+            this.ColumnDisbursementLineListButtonDelete.Width = 70;
+            // 
+            // ColumnDisbursementLineListId
+            // 
+            this.ColumnDisbursementLineListId.DataPropertyName = "ColumnDisbursementLineListId";
+            this.ColumnDisbursementLineListId.HeaderText = "Id";
+            this.ColumnDisbursementLineListId.Name = "ColumnDisbursementLineListId";
+            this.ColumnDisbursementLineListId.ReadOnly = true;
+            this.ColumnDisbursementLineListId.Visible = false;
+            // 
+            // ColumnDisbursementLineListCVId
+            // 
+            this.ColumnDisbursementLineListCVId.DataPropertyName = "ColumnDisbursementLineListCVId";
+            this.ColumnDisbursementLineListCVId.HeaderText = "CVId";
+            this.ColumnDisbursementLineListCVId.Name = "ColumnDisbursementLineListCVId";
+            this.ColumnDisbursementLineListCVId.ReadOnly = true;
+            this.ColumnDisbursementLineListCVId.Visible = false;
+            // 
+            // ColumnDisbursementLineListArticleGroupId
+            // 
+            this.ColumnDisbursementLineListArticleGroupId.DataPropertyName = "ColumnDisbursementLineListArticleGroupId";
+            this.ColumnDisbursementLineListArticleGroupId.HeaderText = "ArticleGroupId";
+            this.ColumnDisbursementLineListArticleGroupId.Name = "ColumnDisbursementLineListArticleGroupId";
+            this.ColumnDisbursementLineListArticleGroupId.ReadOnly = true;
+            this.ColumnDisbursementLineListArticleGroupId.Visible = false;
+            // 
+            // ColumnDisbursementLineListArticleGroup
+            // 
+            this.ColumnDisbursementLineListArticleGroup.DataPropertyName = "ColumnDisbursementLineListArticleGroup";
+            this.ColumnDisbursementLineListArticleGroup.HeaderText = "Article Group";
+            this.ColumnDisbursementLineListArticleGroup.Name = "ColumnDisbursementLineListArticleGroup";
+            this.ColumnDisbursementLineListArticleGroup.ReadOnly = true;
+            this.ColumnDisbursementLineListArticleGroup.Width = 150;
+            // 
+            // ColumnDisbursementLineListRRId
+            // 
+            this.ColumnDisbursementLineListRRId.DataPropertyName = "ColumnDisbursementLineListRRId";
+            this.ColumnDisbursementLineListRRId.HeaderText = "Item Id";
+            this.ColumnDisbursementLineListRRId.Name = "ColumnDisbursementLineListRRId";
+            this.ColumnDisbursementLineListRRId.ReadOnly = true;
+            this.ColumnDisbursementLineListRRId.Visible = false;
+            // 
+            // ColumnDisbursementLineListRR
+            // 
+            this.ColumnDisbursementLineListRR.DataPropertyName = "ColumnDisbursementLineListRR";
+            this.ColumnDisbursementLineListRR.HeaderText = "Receiving Receipt";
+            this.ColumnDisbursementLineListRR.Name = "ColumnDisbursementLineListRR";
+            this.ColumnDisbursementLineListRR.ReadOnly = true;
+            this.ColumnDisbursementLineListRR.Width = 150;
+            // 
+            // ColumnDisbursementLineListAmount
+            // 
+            this.ColumnDisbursementLineListAmount.DataPropertyName = "ColumnDisbursementLineListAmount";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnDisbursementLineListAmount.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnDisbursementLineListAmount.HeaderText = "Amount";
+            this.ColumnDisbursementLineListAmount.Name = "ColumnDisbursementLineListAmount";
+            this.ColumnDisbursementLineListAmount.ReadOnly = true;
+            this.ColumnDisbursementLineListAmount.Width = 150;
+            // 
+            // ColumnDisbursementLineListOtherInformation
+            // 
+            this.ColumnDisbursementLineListOtherInformation.DataPropertyName = "ColumnDisbursementLineListOtherInformation";
+            this.ColumnDisbursementLineListOtherInformation.HeaderText = "Other Information";
+            this.ColumnDisbursementLineListOtherInformation.Name = "ColumnDisbursementLineListOtherInformation";
+            this.ColumnDisbursementLineListOtherInformation.ReadOnly = true;
+            this.ColumnDisbursementLineListOtherInformation.Width = 200;
+            // 
+            // ColumnDisbursementLineListSpace
+            // 
+            this.ColumnDisbursementLineListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDisbursementLineListSpace.DataPropertyName = "ColumnDisbursementLineListSpace";
+            this.ColumnDisbursementLineListSpace.HeaderText = "";
+            this.ColumnDisbursementLineListSpace.Name = "ColumnDisbursementLineListSpace";
+            this.ColumnDisbursementLineListSpace.ReadOnly = true;
             // 
             // TrnDisbursementDetailForm
             // 
@@ -974,20 +933,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBoxIsCrossCheck;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnDisbursementLineListButtonEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnDisbursementLineListButtonDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListPOId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListItemId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListItemDescritpion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListUnitId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListBaseQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListBaseCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineSpace;
         private System.Windows.Forms.TextBox textBoxPayee;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label15;
@@ -1000,5 +945,16 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerCheckDate;
         private System.Windows.Forms.CheckBox checkBoxIsClear;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnDisbursementLineListButtonEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnDisbursementLineListButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListCVId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListArticleGroupId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListArticleGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListRRId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListRR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListOtherInformation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListSpace;
     }
 }

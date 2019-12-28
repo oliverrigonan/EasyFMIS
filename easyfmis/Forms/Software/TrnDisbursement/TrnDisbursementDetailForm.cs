@@ -292,7 +292,9 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                                 ColumnDisbursementLineListButtonEdit = "Edit",
                                 ColumnDisbursementLineListButtonDelete = "Delete",
                                 ColumnDisbursementLineListId = d.Id,
+                                ColumnDisbursementLineListCVId = d.CVId,
                                 ColumnDisbursementLineListArticleGroupId = d.ArticleGroupId,
+                                ColumnDisbursementLineListArticleGroup = d.ArticleGroup,
                                 ColumnDisbursementLineListRRId = d.RRId,
                                 ColumnDisbursementLineListRR = d.RRNumber,
                                 ColumnDisbursementLineListAmount = d.Amount.ToString("#,##0.00"),
@@ -337,29 +339,26 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             if (e.RowIndex > -1 && dataGridViewDisbursementLine.CurrentCell.ColumnIndex == dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListButtonEdit"].Index)
             {
                 var id = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListId"].Index].Value);
-                var pOId = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListPOId"].Index].Value);
-                var itemId = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListItemId"].Index].Value);
-                var itemDescription = dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListItemDescritpion"].Index].Value.ToString();
-                var unitId = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListUnitId"].Index].Value);
-                var quantity = Convert.ToDecimal(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListQuantity"].Index].Value);
-                var Cost = Convert.ToDecimal(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListCost"].Index].Value);
+                var cVId = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListCVId"].Index].Value);
+                var articleGroupId = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListArticleGroupId"].Index].Value);
+                var rRId = Convert.ToUInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListRRId"].Index].Value);
                 var amount = Convert.ToDecimal(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListAmount"].Index].Value);
+                var otherInformation = dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListOtherInformation"].Index].Value.ToString();
 
 
-                //Entities.TrnDisbursementLineEntity trnDisbursementLineEntity = new Entities.TrnDisbursementLineEntity()
-                //{
-                //    Id = id,
-                //    POId = pOId,
-                //    ItemId = itemId,
-                //    ItemDescription = itemDescription,
-                //    UnitId = unitId,
-                //    Quantity = quantity,
-                //    Cost = Cost,
-                //    Amount = amount
-                //};
 
-                //TrnPurchaseOrderDetailDisbursementLineDetailForm trnPurchaseOrderDetailDisbursementLineDetailForm = new TrnPurchaseOrderDetailDisbursementLineDetailForm(this, trnDisbursementLineEntity);
-                //trnPurchaseOrderDetailDisbursementLineDetailForm.ShowDialog();
+                Entities.TrnDisbursementLineEntity updateDisbursementLineEntity = new Entities.TrnDisbursementLineEntity()
+                {
+                    Id = id,
+                    CVId = cVId,
+                    ArticleGroupId = articleGroupId,
+                    RRId = (Int32?)rRId,
+                    Amount = amount,
+                    OtherInformation = otherInformation
+                };
+
+                TrnDisbursementDetailDisbursementLineForm trnDisbursementDetailDisbursementLineForm = new TrnDisbursementDetailDisbursementLineForm(this, updateDisbursementLineEntity, trnDisbursementEntity);
+                trnDisbursementDetailDisbursementLineForm.ShowDialog();
             }
 
             if (e.RowIndex > -1 && dataGridViewDisbursementLine.CurrentCell.ColumnIndex == dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListButtonDelete"].Index)
@@ -452,10 +451,36 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             textBoxDisbursementLinePageNumber.Text = pageNumber + " / " + disbursementLinePageList.PageCount;
         }
 
-        private void buttonSearchItem_Click(object sender, EventArgs e)
+        private void buttonAddDisbursementLine_Click(object sender, EventArgs e)
         {
-            //TrnPurchaseOrderDetailSearchItemForm trnPurchaseOrderDetailSearchItemForm = new TrnPurchaseOrderDetailSearchItemForm(this, trnDisbursementEntity);
-            //trnPurchaseOrderDetailSearchItemForm.ShowDialog();
+            TrnDisbursementDetailDisbursementLineForm trnDisbursementDetailDisbursementLineForm = new TrnDisbursementDetailDisbursementLineForm(this, null, trnDisbursementEntity);
+            trnDisbursementDetailDisbursementLineForm.ShowDialog();
+        }
+
+        private void textBoxAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxAmount.Text))
+            {
+                textBoxAmount.Text = "0.00";
+            }
         }
 
     }
