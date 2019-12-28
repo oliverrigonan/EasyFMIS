@@ -79,9 +79,9 @@
             this.label1.Location = new System.Drawing.Point(63, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 35);
+            this.label1.Size = new System.Drawing.Size(257, 35);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Stock-In Item Detail";
+            this.label1.Text = "Purchase Order Item";
             // 
             // buttonClose
             // 
@@ -245,7 +245,7 @@
             this.MaximizeBox = false;
             this.Name = "TrnPurchaseOrderDetailPurchaseOrderItemDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Stock-In Line Item Detail";
+            this.Text = "Purchase Order Item";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
