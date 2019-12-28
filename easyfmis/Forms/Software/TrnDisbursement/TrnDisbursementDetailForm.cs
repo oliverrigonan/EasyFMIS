@@ -345,8 +345,6 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                 var amount = Convert.ToDecimal(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListAmount"].Index].Value);
                 var otherInformation = dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListOtherInformation"].Index].Value.ToString();
 
-
-
                 Entities.TrnDisbursementLineEntity updateDisbursementLineEntity = new Entities.TrnDisbursementLineEntity()
                 {
                     Id = id,

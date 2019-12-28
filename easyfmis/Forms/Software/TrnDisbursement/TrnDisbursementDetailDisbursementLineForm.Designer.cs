@@ -42,7 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxOtherInformation = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxPurchaseOrderItemItemDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -126,12 +125,11 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBoxOtherInformation);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBoxPurchaseOrderItemItemDescription);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(574, 245);
+            this.panel2.Size = new System.Drawing.Size(574, 213);
             this.panel2.TabIndex = 9;
             // 
             // comboBoxArticleGroup
@@ -139,7 +137,7 @@
             this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxArticleGroup.FormattingEnabled = true;
-            this.comboBoxArticleGroup.Location = new System.Drawing.Point(171, 44);
+            this.comboBoxArticleGroup.Location = new System.Drawing.Point(171, 6);
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(386, 31);
             this.comboBoxArticleGroup.TabIndex = 26;
@@ -148,7 +146,7 @@
             // 
             this.comboBoxRR.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxRR.FormattingEnabled = true;
-            this.comboBoxRR.Location = new System.Drawing.Point(171, 81);
+            this.comboBoxRR.Location = new System.Drawing.Point(171, 43);
             this.comboBoxRR.Name = "comboBoxRR";
             this.comboBoxRR.Size = new System.Drawing.Size(386, 31);
             this.comboBoxRR.TabIndex = 25;
@@ -156,7 +154,7 @@
             // textBoxAmount
             // 
             this.textBoxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAmount.Location = new System.Drawing.Point(171, 118);
+            this.textBoxAmount.Location = new System.Drawing.Point(171, 80);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
             this.textBoxAmount.TabIndex = 24;
@@ -169,7 +167,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(89, 121);
+            this.label9.Location = new System.Drawing.Point(89, 83);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 23);
             this.label9.TabIndex = 23;
@@ -179,7 +177,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(12, 157);
+            this.label4.Location = new System.Drawing.Point(12, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 23);
             this.label4.TabIndex = 17;
@@ -188,7 +186,7 @@
             // textBoxOtherInformation
             // 
             this.textBoxOtherInformation.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxOtherInformation.Location = new System.Drawing.Point(171, 154);
+            this.textBoxOtherInformation.Location = new System.Drawing.Point(171, 116);
             this.textBoxOtherInformation.Multiline = true;
             this.textBoxOtherInformation.Name = "textBoxOtherInformation";
             this.textBoxOtherInformation.Size = new System.Drawing.Size(386, 83);
@@ -198,32 +196,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(50, 47);
+            this.label2.Location = new System.Drawing.Point(50, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Article Group:";
             // 
-            // textBoxPurchaseOrderItemItemDescription
-            // 
-            this.textBoxPurchaseOrderItemItemDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPurchaseOrderItemItemDescription.BackColor = System.Drawing.Color.White;
-            this.textBoxPurchaseOrderItemItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPurchaseOrderItemItemDescription.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.textBoxPurchaseOrderItemItemDescription.Location = new System.Drawing.Point(12, 6);
-            this.textBoxPurchaseOrderItemItemDescription.Name = "textBoxPurchaseOrderItemItemDescription";
-            this.textBoxPurchaseOrderItemItemDescription.ReadOnly = true;
-            this.textBoxPurchaseOrderItemItemDescription.Size = new System.Drawing.Size(550, 32);
-            this.textBoxPurchaseOrderItemItemDescription.TabIndex = 12;
-            this.textBoxPurchaseOrderItemItemDescription.TabStop = false;
-            this.textBoxPurchaseOrderItemItemDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(9, 84);
+            this.label3.Location = new System.Drawing.Point(9, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 23);
             this.label3.TabIndex = 14;
@@ -233,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(574, 308);
+            this.ClientSize = new System.Drawing.Size(574, 276);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -260,7 +243,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxPurchaseOrderItemItemDescription;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxOtherInformation;
