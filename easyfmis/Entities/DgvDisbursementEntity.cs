@@ -15,6 +15,7 @@ namespace easyfmis.Entities
         public String ColumnDisbursementListCVNumber { get; set; }
         public String ColumnDisbursementListSupplier { get; set; }
         public String ColumnDisbursementListRemarks { get; set; }
+        public String ColumnDisbursementListAmount { get; set; }
         public Boolean ColumnDisbursementListIsCrossCheck { get; set; }
         public Boolean ColumnDisbursementListIsClear { get; set; }
         public Boolean ColumnDisbursementListIsLocked { get; set; }

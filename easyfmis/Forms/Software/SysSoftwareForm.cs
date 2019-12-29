@@ -17,17 +17,28 @@ namespace easyfmis.Forms.Software
             InitializeComponent();
             InitializeDefaultForm();
 
+            GetUserDetail();
+            panelSidebarMenu.Visible = false;
+        }
+
+        public void GetUserDetail()
+        {
             var current = Modules.SysCurrentModule.GetCurrentSettings();
 
             Controllers.MstUserController userController = new Controllers.MstUserController();
             var currentUserDetail = userController.DetailUser(Convert.ToInt32(current.CurrentUserId));
-
             if (currentUserDetail != null)
             {
                 labelCurrentUserCompanyBranch.Text = "  User: " + currentUserDetail.UserName + "   Company: " + currentUserDetail.Company + "   Branch: " + currentUserDetail.Branch;
             }
+        }
 
-            panelSidebarMenu.Visible = false;
+        public void ClearTabPages()
+        {
+            tabControlSoftware.TabPages.Clear();
+
+            tabControlSoftware.TabPages.Add(tabPageSysMenu);
+            tabControlSoftware.SelectTab(tabPageSysMenu);
         }
 
         // =========
@@ -37,6 +48,10 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageItemDetail = new TabPage { Name = "tabPageItemDetail", Text = "Setup - Item Detail" };
         public TabPage tabPageCustomerList = new TabPage { Name = "tabPageCustomerList", Text = "Setup - Customer List" };
         public TabPage tabPageCustomerDetail = new TabPage { Name = "tabPageCustomerDetail", Text = "Setup - Customer Detail" };
+
+        public TabPage tabPageSupplierList = new TabPage { Name = "tabPageSupplierList", Text = "Setup - Supplier List" };
+        public TabPage tabPageSupplierDetail = new TabPage { Name = "tabPageSupplierDetail", Text = "Setup - Supplier Detail" };
+
         public TabPage tabPageDiscountingList = new TabPage { Name = "tabPageDiscountingList", Text = "Setup - Discounting List" };
         public TabPage tabPageDiscountingDetail = new TabPage { Name = "tabPageDiscountingDetail", Text = "Setup - Discounting Detail" };
         public TabPage tabPageUserList = new TabPage { Name = "tabPageUserList", Text = "Setup - User List" };
@@ -54,10 +69,8 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageStockTransfer = new TabPage { Name = "tabPageStockTransfer", Text = "Activity - Stock Transfer List" };
         public TabPage tabPageStockTransferDetail = new TabPage { Name = "tabPageStockTransferDetail", Text = "Activity - Stock Transfer Detail" };
 
-        public TabPage tabPageStockCountList = new TabPage { Name = "tabPageStockCountList", Text = "Activity - Stock-Count List" };
-        public TabPage tabPageStockCountDetail = new TabPage { Name = "tabPageStockCountDetail", Text = "Activity - Stock-Count Detail" };
-        public TabPage tabPageDisbursementList = new TabPage { Name = "tabPageDisbursementList", Text = "Activity - Remittance List" };
-        public TabPage tabPageDisbursementDetail = new TabPage { Name = "tabPageDisbursementDetail", Text = "Activity - Remittance Detail" };
+        public TabPage tabPageDisbursementList = new TabPage { Name = "tabPageDisbursementList", Text = "Activity - Disbursement List" };
+        public TabPage tabPageDisbursementDetail = new TabPage { Name = "tabPageDisbursementDetail", Text = "Activity - Disbursement Detail" };
 
         public TabPage tabPageSalesOrder = new TabPage { Name = "tabPageSalesOrder", Text = "Activity - Sales Order List" };
         public TabPage tabPageSalesOrderDetail = new TabPage { Name = "tabPageSalesOrderDetail", Text = "Activity - Sales Order Detail" };
@@ -71,8 +84,6 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageCollection = new TabPage { Name = "tabPageCollection", Text = "Activity - Collection List" };
         public TabPage tabPageCollectionDetail = new TabPage { Name = "tabPageCollectionDetail", Text = "Activity - Collection Detail" };
 
-        public TabPage tabPagePOSReport = new TabPage { Name = "tabPagePOSReport", Text = "Report - POS Report" };
-        public TabPage tabPageSalesReports = new TabPage { Name = "tabPageSalesReports ", Text = "Report - Sales Report" };
         public TabPage tabPageInventoryReports = new TabPage { Name = "tabPageInventoryReports ", Text = "Report - Inventory Report" };
         public TabPage tabPageRemittanceReports = new TabPage { Name = "tabPageRemittanceReports ", Text = "Report - Remittance Report" };
 
@@ -80,6 +91,11 @@ namespace easyfmis.Forms.Software
 
         public TabPage tabPageSettings = new TabPage { Name = "tabPageSettings", Text = "Settings" };
 
+        public TabPage tabPageStockCountList = new TabPage { Name = "tabPageStockCountList", Text = "Activity - Stock-Count List" };
+        public TabPage tabPageStockCountDetail = new TabPage { Name = "tabPageStockCountDetail", Text = "Activity - Stock-Count Detail" };
+
+        public TabPage tabPageAccountsPayableReport = new TabPage { Name = "tabPageAccountsPayableReport", Text = "Report - Accounts Payable Report" };
+        public TabPage tabPageAccountsReceivableReport = new TabPage { Name = "tabPageAccountsReceivableReport", Text = "Report - Accounts Receivable Report" };
 
         // =====
         // Forms
@@ -88,6 +104,9 @@ namespace easyfmis.Forms.Software
         public MstItem.MstItemDetailForm mstItemDetailForm = null;
         public MstCustomer.MstCustomerListForm mstCustomerListForm = null;
         public MstCustomer.MstCustomerDetailForm mstCustomerDetailForm = null;
+        public MstSupplier.MstSupplierListForm mstSupplierListForm = null;
+        public MstSupplier.MstSupplierDetailForm mstSupplierDetailForm = null;
+
         //public MstDiscounting.MstDiscountingListForm mstDiscountingListForm = null;
         //public MstDiscounting.MstDiscountingDetailForm mstDiscountingDetailForm = null;
         public MstUser.MstUserListForm mstUserListForm = null;
@@ -125,8 +144,8 @@ namespace easyfmis.Forms.Software
         public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
         public TrnDisbursement.TrnDisbursementDetailForm trnDisbursementDetailForm = null;
 
-        //public RepPOSReport.RepPOSReportForm repPOSReportForm = null;
-        //public RepSalesReport.RepSalesReportForm repSalesReportForm = null;
+        public RepAccountsPayableReport.RepAccountsPayableReportForm repAccountsPayableReportForm = null;
+        public RepAccountsReceivableReport.RepAccountsReceivableReportForm repAccountsReceivableReportForm = null;
         public RepInventoryReport.RepInventoryReportForm repInventoryReportForm = null;
         //public RepRemittanceReport.RepRemittanceReportForm repRemittanceReportForm = null;
 
@@ -266,6 +285,54 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageCustomerDetail);
                 tabControlSoftware.SelectTab(tabPageCustomerDetail);
+            }
+        }
+
+        public void AddTabPageSupplierList()
+        {
+            tabPageSupplierList.Controls.Remove(mstSupplierListForm);
+
+            mstSupplierListForm = new MstSupplier.MstSupplierListForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageSupplierList.Controls.Add(mstSupplierListForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageSupplierList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageSupplierList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageSupplierList);
+                tabControlSoftware.SelectTab(tabPageSupplierList);
+            }
+        }
+
+        public void AddTabPageSupplierDetail(MstSupplier.MstSupplierListForm itemListForm, Entities.MstArticleEntity itemEntity)
+        {
+            tabPageSupplierDetail.Controls.Remove(mstSupplierDetailForm);
+
+            mstSupplierDetailForm = new MstSupplier.MstSupplierDetailForm(this, itemListForm, itemEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageSupplierDetail.Controls.Add(mstSupplierDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageSupplierDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageSupplierDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageSupplierDetail);
+                tabControlSoftware.SelectTab(tabPageSupplierDetail);
             }
         }
 
@@ -943,29 +1010,53 @@ namespace easyfmis.Forms.Software
             }
         }
 
-        //public void AddTabPagePOSReport()
-        //{
-        //    tabPagePOSReport.Controls.Remove(repPOSReportForm);
+        public void AddTabPageAccountsPayableReport()
+        {
+            tabPageAccountsPayableReport.Controls.Remove(repAccountsPayableReportForm);
 
-        //    repPOSReportForm = new RepPOSReport.RepPOSReportForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
+            repAccountsPayableReportForm = new RepAccountsPayableReport.RepAccountsPayableReportForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
 
-        //    tabPagePOSReport.Controls.Add(repPOSReportForm);
+            tabPageAccountsPayableReport.Controls.Add(repAccountsPayableReportForm);
 
-        //    if (tabControlSoftware.TabPages.Contains(tabPagePOSReport) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPagePOSReport);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPagePOSReport);
-        //        tabControlSoftware.SelectTab(tabPagePOSReport);
-        //    }
-        //}
+            if (tabControlSoftware.TabPages.Contains(tabPageAccountsPayableReport) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageAccountsPayableReport);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageAccountsPayableReport);
+                tabControlSoftware.SelectTab(tabPageAccountsPayableReport);
+            }
+        }
+
+        public void AddTabPageAccountsReceivableReport()
+        {
+            tabPageAccountsReceivableReport.Controls.Remove(repAccountsReceivableReportForm);
+
+            repAccountsReceivableReportForm = new RepAccountsReceivableReport.RepAccountsReceivableReportForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageAccountsReceivableReport.Controls.Add(repAccountsReceivableReportForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageAccountsReceivableReport) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageAccountsReceivableReport);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageAccountsReceivableReport);
+                tabControlSoftware.SelectTab(tabPageAccountsReceivableReport);
+            }
+        }
 
         public void AddTabPageInventoryReports()
         {
@@ -1039,30 +1130,6 @@ namespace easyfmis.Forms.Software
         //    {
         //        tabControlSoftware.TabPages.Add(tabPageSettings);
         //        tabControlSoftware.SelectTab(tabPageSettings);
-        //    }
-        //}
-
-        //public void AddTabPageSalesReport()
-        //{
-        //    tabPageSalesReports.Controls.Remove(repSalesReportForm);
-
-        //    repSalesReportForm = new RepSalesReport.RepSalesReportForm(this)
-        //    {
-        //        TopLevel = false,
-        //        Visible = true,
-        //        Dock = DockStyle.Fill
-        //    };
-
-        //    tabPageSalesReports.Controls.Add(repSalesReportForm);
-
-        //    if (tabControlSoftware.TabPages.Contains(tabPageSalesReports) == true)
-        //    {
-        //        tabControlSoftware.SelectTab(tabPageSalesReports);
-        //    }
-        //    else
-        //    {
-        //        tabControlSoftware.TabPages.Add(tabPageSalesReports);
-        //        tabControlSoftware.SelectTab(tabPageSalesReports);
         //    }
         //}
 
@@ -1197,6 +1264,12 @@ namespace easyfmis.Forms.Software
         private void activityToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void changeBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SysSoftwareChangeBranchForm sysSoftwareChangeBranchForm = new SysSoftwareChangeBranchForm(this);
+            sysSoftwareChangeBranchForm.ShowDialog();
         }
     }
 }

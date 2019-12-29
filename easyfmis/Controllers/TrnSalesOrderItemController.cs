@@ -81,6 +81,9 @@ namespace easyfmis.Controllers
         // =========
         public List<Entities.MstArticleInventory> ListInventoryItem(String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var items = from d in db.MstArticleInventories
                         where (d.InventoryCode.Contains(filter)
                         || d.MstArticle.ArticleCode.Contains(filter)
@@ -89,6 +92,7 @@ namespace easyfmis.Controllers
                         || d.MstArticle.Category.Contains(filter)
                         || d.MstArticle.MstUnit.Unit.Contains(filter))
                         && d.MstArticle.IsLocked == true
+                        && d.BranchId == currentBranchId
                         select new Entities.MstArticleInventory
                         {
                             Id = d.Id,
@@ -115,8 +119,12 @@ namespace easyfmis.Controllers
         // ============================
         public List<Entities.MstArticleInventory> DropdownListArticleInventory(Int32 articleId)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var articleInventories = from d in db.MstArticleInventories
                                      where d.ArticleId == articleId
+                                     && d.BranchId == currentBranchId
                                      select new Entities.MstArticleInventory
                                      {
                                          Id = d.Id,
@@ -164,13 +172,13 @@ namespace easyfmis.Controllers
         public List<Entities.MstTaxEntity> DropdownListTax()
         {
             var taxes = from d in db.MstTaxes
-                            where d.IsLocked == true
-                            select new Entities.MstTaxEntity
-                            {
-                                Id = d.Id,
-                                Tax = d.Tax,
-                                Rate = d.Rate
-                            };
+                        where d.IsLocked == true
+                        select new Entities.MstTaxEntity
+                        {
+                            Id = d.Id,
+                            Tax = d.Tax,
+                            Rate = d.Rate
+                        };
 
             return taxes.ToList();
         }

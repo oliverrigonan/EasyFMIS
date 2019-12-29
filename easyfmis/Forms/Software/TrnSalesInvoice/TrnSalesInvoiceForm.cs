@@ -107,8 +107,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSalesInvoiceSIDate = d.SIDate.ToShortDateString(),
                                 ColumnSalesInvoiceSINumber = d.SINumber,
                                 ColumnSalesInvoiceManualSINumber = d.ManualSINumber,
+                                ColumnSalesInvoiceCustomer = d.Customer,
                                 ColumnSalesInvoiceRemarks = d.Remarks,
                                 ColumnSalesInvoiceAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnSalesInvoicePaidAmount = d.PaidAmount.ToString("#,##0.00"),
                                 ColumnSalesInvoiceIsLocked = d.IsLocked,
                                 ColumnSalesInvoiceSpace = ""
                             };

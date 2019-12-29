@@ -34,18 +34,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCollection = new System.Windows.Forms.Button();
             this.buttonDisbursement = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonAccountsReceivableReport = new System.Windows.Forms.Button();
             this.buttonStockTransfer = new System.Windows.Forms.Button();
             this.buttonItem = new System.Windows.Forms.Button();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonCompany = new System.Windows.Forms.Button();
             this.buttonReceivingReceipt = new System.Windows.Forms.Button();
-            this.buttonDiscounting = new System.Windows.Forms.Button();
+            this.buttonSupplier = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonCustomer = new System.Windows.Forms.Button();
             this.buttonPOSReport = new System.Windows.Forms.Button();
             this.buttonSystemTables = new System.Windows.Forms.Button();
-            this.buttonStockCount = new System.Windows.Forms.Button();
+            this.buttonAccountsPayableReport = new System.Windows.Forms.Button();
             this.buttonSalesOrder = new System.Windows.Forms.Button();
             this.buttonPurchaseOrder = new System.Windows.Forms.Button();
             this.buttonStockOut = new System.Windows.Forms.Button();
@@ -85,18 +85,18 @@
             // 
             this.panel1.Controls.Add(this.buttonCollection);
             this.panel1.Controls.Add(this.buttonDisbursement);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.buttonAccountsReceivableReport);
             this.panel1.Controls.Add(this.buttonStockTransfer);
             this.panel1.Controls.Add(this.buttonItem);
             this.panel1.Controls.Add(this.buttonUser);
             this.panel1.Controls.Add(this.buttonCompany);
             this.panel1.Controls.Add(this.buttonReceivingReceipt);
-            this.panel1.Controls.Add(this.buttonDiscounting);
+            this.panel1.Controls.Add(this.buttonSupplier);
             this.panel1.Controls.Add(this.buttonSettings);
             this.panel1.Controls.Add(this.buttonCustomer);
             this.panel1.Controls.Add(this.buttonPOSReport);
             this.panel1.Controls.Add(this.buttonSystemTables);
-            this.panel1.Controls.Add(this.buttonStockCount);
+            this.panel1.Controls.Add(this.buttonAccountsPayableReport);
             this.panel1.Controls.Add(this.buttonSalesOrder);
             this.panel1.Controls.Add(this.buttonPurchaseOrder);
             this.panel1.Controls.Add(this.buttonStockOut);
@@ -149,24 +149,25 @@
             this.buttonDisbursement.UseVisualStyleBackColor = false;
             this.buttonDisbursement.Click += new System.EventHandler(this.buttonDisbursement_Click);
             // 
-            // button2
+            // buttonAccountsReceivableReport
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageKey = "Reports.png";
-            this.button2.ImageList = this.imageListMenuIcons;
-            this.button2.Location = new System.Drawing.Point(245, 399);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10);
-            this.button2.Size = new System.Drawing.Size(227, 123);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "\r\nAccounts Receivable";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonAccountsReceivableReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAccountsReceivableReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAccountsReceivableReport.FlatAppearance.BorderSize = 0;
+            this.buttonAccountsReceivableReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAccountsReceivableReport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonAccountsReceivableReport.ForeColor = System.Drawing.Color.White;
+            this.buttonAccountsReceivableReport.ImageKey = "Reports.png";
+            this.buttonAccountsReceivableReport.ImageList = this.imageListMenuIcons;
+            this.buttonAccountsReceivableReport.Location = new System.Drawing.Point(245, 399);
+            this.buttonAccountsReceivableReport.Name = "buttonAccountsReceivableReport";
+            this.buttonAccountsReceivableReport.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonAccountsReceivableReport.Size = new System.Drawing.Size(227, 123);
+            this.buttonAccountsReceivableReport.TabIndex = 13;
+            this.buttonAccountsReceivableReport.Text = "\r\nAccounts Receivable";
+            this.buttonAccountsReceivableReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonAccountsReceivableReport.UseVisualStyleBackColor = false;
+            this.buttonAccountsReceivableReport.Click += new System.EventHandler(this.buttonAccountsReceivableReport_Click);
             // 
             // buttonStockTransfer
             // 
@@ -268,24 +269,25 @@
             this.buttonReceivingReceipt.UseVisualStyleBackColor = false;
             this.buttonReceivingReceipt.Click += new System.EventHandler(this.buttonReceivingReceipt_Click);
             // 
-            // buttonDiscounting
+            // buttonSupplier
             // 
-            this.buttonDiscounting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDiscounting.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDiscounting.FlatAppearance.BorderSize = 0;
-            this.buttonDiscounting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDiscounting.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonDiscounting.ForeColor = System.Drawing.Color.White;
-            this.buttonDiscounting.ImageIndex = 15;
-            this.buttonDiscounting.ImageList = this.imageListMenuIcons;
-            this.buttonDiscounting.Location = new System.Drawing.Point(12, 12);
-            this.buttonDiscounting.Name = "buttonDiscounting";
-            this.buttonDiscounting.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonDiscounting.Size = new System.Drawing.Size(227, 123);
-            this.buttonDiscounting.TabIndex = 0;
-            this.buttonDiscounting.Text = "\r\nSupplier";
-            this.buttonDiscounting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonDiscounting.UseVisualStyleBackColor = false;
+            this.buttonSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSupplier.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSupplier.FlatAppearance.BorderSize = 0;
+            this.buttonSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSupplier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonSupplier.ForeColor = System.Drawing.Color.White;
+            this.buttonSupplier.ImageIndex = 15;
+            this.buttonSupplier.ImageList = this.imageListMenuIcons;
+            this.buttonSupplier.Location = new System.Drawing.Point(12, 12);
+            this.buttonSupplier.Name = "buttonSupplier";
+            this.buttonSupplier.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonSupplier.Size = new System.Drawing.Size(227, 123);
+            this.buttonSupplier.TabIndex = 0;
+            this.buttonSupplier.Text = "\r\nSupplier";
+            this.buttonSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonSupplier.UseVisualStyleBackColor = false;
+            this.buttonSupplier.Click += new System.EventHandler(this.buttonSupplier_Click);
             // 
             // buttonSettings
             // 
@@ -365,24 +367,25 @@
             this.buttonSystemTables.UseVisualStyleBackColor = false;
             this.buttonSystemTables.Click += new System.EventHandler(this.buttonSystemTables_Click);
             // 
-            // buttonStockCount
+            // buttonAccountsPayableReport
             // 
-            this.buttonStockCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonStockCount.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonStockCount.FlatAppearance.BorderSize = 0;
-            this.buttonStockCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStockCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonStockCount.ForeColor = System.Drawing.Color.White;
-            this.buttonStockCount.ImageIndex = 6;
-            this.buttonStockCount.ImageList = this.imageListMenuIcons;
-            this.buttonStockCount.Location = new System.Drawing.Point(12, 399);
-            this.buttonStockCount.Name = "buttonStockCount";
-            this.buttonStockCount.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonStockCount.Size = new System.Drawing.Size(227, 123);
-            this.buttonStockCount.TabIndex = 12;
-            this.buttonStockCount.Text = "\r\nAccounts Payable";
-            this.buttonStockCount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonStockCount.UseVisualStyleBackColor = false;
+            this.buttonAccountsPayableReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAccountsPayableReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAccountsPayableReport.FlatAppearance.BorderSize = 0;
+            this.buttonAccountsPayableReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAccountsPayableReport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonAccountsPayableReport.ForeColor = System.Drawing.Color.White;
+            this.buttonAccountsPayableReport.ImageIndex = 6;
+            this.buttonAccountsPayableReport.ImageList = this.imageListMenuIcons;
+            this.buttonAccountsPayableReport.Location = new System.Drawing.Point(12, 399);
+            this.buttonAccountsPayableReport.Name = "buttonAccountsPayableReport";
+            this.buttonAccountsPayableReport.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonAccountsPayableReport.Size = new System.Drawing.Size(227, 123);
+            this.buttonAccountsPayableReport.TabIndex = 12;
+            this.buttonAccountsPayableReport.Text = "\r\nAccounts Payable";
+            this.buttonAccountsPayableReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonAccountsPayableReport.UseVisualStyleBackColor = false;
+            this.buttonAccountsPayableReport.Click += new System.EventHandler(this.buttonAccountsPayableReport_Click);
             // 
             // buttonSalesOrder
             // 
@@ -526,7 +529,7 @@
         private System.Windows.Forms.Button buttonItem;
         private System.Windows.Forms.ImageList imageListMenuIcons;
         private System.Windows.Forms.Button buttonCompany;
-        private System.Windows.Forms.Button buttonDiscounting;
+        private System.Windows.Forms.Button buttonSupplier;
         private System.Windows.Forms.Button buttonCustomer;
         private System.Windows.Forms.Button buttonSystemTables;
         private System.Windows.Forms.Button buttonSalesOrder;
@@ -535,7 +538,7 @@
         private System.Windows.Forms.Button buttonInventoryReport;
         private System.Windows.Forms.Button buttonSalesInvoice;
         private System.Windows.Forms.Button buttonPurchaseOrder;
-        private System.Windows.Forms.Button buttonStockCount;
+        private System.Windows.Forms.Button buttonAccountsPayableReport;
         private System.Windows.Forms.Button buttonPOSReport;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Button buttonReceivingReceipt;
@@ -544,6 +547,6 @@
         private System.Windows.Forms.Button buttonStockTransfer;
         private System.Windows.Forms.Button buttonCollection;
         private System.Windows.Forms.Button buttonDisbursement;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonAccountsReceivableReport;
     }
 }

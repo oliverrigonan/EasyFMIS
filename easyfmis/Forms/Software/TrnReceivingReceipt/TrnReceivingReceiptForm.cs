@@ -107,8 +107,10 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                                 ColumnReceivingReceiptRRDate = d.RRDate.ToShortDateString(),
                                 ColumnReceivingReceiptRRNumber = d.RRNumber,
                                 ColumnReceivingReceiptManualRRNumber = d.ManualRRNumber,
+                                ColumnReceivingReceiptSupplier = d.Supplier,
                                 ColumnReceivingReceiptRemarks = d.Remarks,
                                 ColumnReceivingReceiptAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnReceivingReceiptPaidAmount = d.PaidAmount.ToString("#,##0.00"),
                                 ColumnReceivingReceiptIsLocked = d.IsLocked,
                                 ColumnReceivingReceiptSpace = ""
                             };

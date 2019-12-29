@@ -79,6 +79,8 @@
     <Compile Include="Controllers\MstCompanyController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\MstUserFormController.cs" />
+    <Compile Include="Controllers\RepAccountsReceivableReportController.cs" />
+    <Compile Include="Controllers\RepAccountsPayableReportController.cs" />
     <Compile Include="Controllers\RepInventoryReportController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
@@ -112,10 +114,13 @@
     <Compile Include="Entities\DgvDisbursementLineEntity.cs" />
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
     <Compile Include="Entities\DgvMstCustomerEntities.cs" />
+    <Compile Include="Entities\DgvMstSupplierEntities.cs" />
     <Compile Include="Entities\DgvPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvReceivingReceiptEntity.cs" />
     <Compile Include="Entities\DgvPurchaseOrderEntity.cs" />
     <Compile Include="Entities\DgvReceivingReceiptItemEntity.cs" />
+    <Compile Include="Entities\DgvRepAccountsReceivableReportEntity.cs" />
+    <Compile Include="Entities\DgvRepAccountsPayableReportEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceItemEntity.cs" />
@@ -162,8 +167,10 @@
     <Compile Include="Entities\MstUnitEntity.cs" />
     <Compile Include="Entities\MstUserEntity.cs" />
     <Compile Include="Entities\MstUserFormEntity.cs" />
-    <Compile Include="Entities\RepInventoryReportStockCard.cs" />
-    <Compile Include="Entities\RepInventoryReport.cs" />
+    <Compile Include="Entities\RepAccountsPayableEntity.cs" />
+    <Compile Include="Entities\RepAccountsReceivableEntity.cs" />
+    <Compile Include="Entities\RepInventoryReportStockCardEntity.cs" />
+    <Compile Include="Entities\RepInventoryReportEntity.cs" />
     <Compile Include="Entities\SysConnectionStringEntity.cs" />
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
@@ -259,6 +266,18 @@
     <Compile Include="Forms\Software\MstItem\MstItemListForm.Designer.cs">
       <DependentUpon>MstItemListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierDetailForm.designer.cs">
+      <DependentUpon>MstSupplierDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierListForm.Designer.cs">
+      <DependentUpon>MstSupplierListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\MstUser\MstUserDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +295,30 @@
     </Compile>
     <Compile Include="Forms\Software\MstUser\MstUserListForm.designer.cs">
       <DependentUpon>MstUserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportForm.designer.cs">
+      <DependentUpon>RepAccountsPayableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.designer.cs">
+      <DependentUpon>RepAccountsPayableReportAccountsPayableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.designer.cs">
+      <DependentUpon>RepAccountsReceivableReportAccountsReceivableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.designer.cs">
+      <DependentUpon>RepAccountsReceivableReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.cs">
       <SubType>Form</SubType>
@@ -300,6 +343,12 @@
     </Compile>
     <Compile Include="Forms\Software\SysMenu\SysMenuForm.Designer.cs">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\SysSoftwareChangeBranchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSoftwareChangeBranchForm.Designer.cs">
+      <DependentUpon>SysSoftwareChangeBranchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.cs">
       <SubType>Form</SubType>
@@ -349,11 +398,11 @@
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailForm.Designer.cs">
       <DependentUpon>TrnDisbursementDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineForm.cs">
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineForm.Designer.cs">
-      <DependentUpon>TrnDisbursementDetailDisbursementLineForm.cs</DependentUpon>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.Designer.cs">
+      <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.cs">
       <SubType>Form</SubType>
@@ -543,6 +592,8 @@
     </Compile>
     <Compile Include="Modules\SysConnectionStringModule.cs" />
     <Compile Include="Modules\SysCurrentModule.cs" />
+    <Compile Include="Modules\TrnAccountsPayableModule.cs" />
+    <Compile Include="Modules\TrnAccountsReceivableModule.cs" />
     <Compile Include="Modules\TrnInventoryModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -585,6 +636,12 @@
     <EmbeddedResource Include="Forms\Software\MstItem\MstItemListForm.resx">
       <DependentUpon>MstItemListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstSupplier\MstSupplierDetailForm.resx">
+      <DependentUpon>MstSupplierDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstSupplier\MstSupplierListForm.resx">
+      <DependentUpon>MstSupplierListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstUser\MstUserDetailForm.resx">
       <DependentUpon>MstUserDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -593,6 +650,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstUser\MstUserListForm.resx">
       <DependentUpon>MstUserListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportForm.resx">
+      <DependentUpon>RepAccountsPayableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.resx">
+      <DependentUpon>RepAccountsPayableReportAccountsPayableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.resx">
+      <DependentUpon>RepAccountsReceivableReportAccountsReceivableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.resx">
+      <DependentUpon>RepAccountsReceivableReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.resx">
       <DependentUpon>RepInventoryReportForm.cs</DependentUpon>
@@ -605,6 +674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysMenu\SysMenuForm.resx">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSoftwareChangeBranchForm.resx">
+      <DependentUpon>SysSoftwareChangeBranchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
@@ -630,8 +702,8 @@
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailForm.resx">
       <DependentUpon>TrnDisbursementDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineForm.resx">
-      <DependentUpon>TrnDisbursementDetailDisbursementLineForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.resx">
+      <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.resx">
       <DependentUpon>TrnPurchaseOrderForm.cs</DependentUpon>

@@ -44,11 +44,12 @@
             this.tabPageSysMenu = new System.Windows.Forms.TabPage();
             this.panelSidebarMenu = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.changeBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remittanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +74,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -266,6 +266,18 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // changeBranchToolStripMenuItem
+            // 
+            this.changeBranchToolStripMenuItem.Image = global::easyfmis.Properties.Resources.building;
+            this.changeBranchToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changeBranchToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.changeBranchToolStripMenuItem.Name = "changeBranchToolStripMenuItem";
+            this.changeBranchToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.changeBranchToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
+            this.changeBranchToolStripMenuItem.Text = "Change Branch";
+            this.changeBranchToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changeBranchToolStripMenuItem.Click += new System.EventHandler(this.changeBranchToolStripMenuItem_Click);
+            // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
@@ -297,25 +309,25 @@
             // 
             this.discountToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Supplier;
             this.discountToolStripMenuItem.Name = "discountToolStripMenuItem";
-            this.discountToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.discountToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
             this.discountToolStripMenuItem.Text = "Supplier";
             this.discountToolStripMenuItem.Click += new System.EventHandler(this.discountToolStripMenuItem_Click);
-            // 
-            // itemToolStripMenuItem
-            // 
-            this.itemToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
-            this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
-            this.itemToolStripMenuItem.Text = "Item";
-            this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Customer;
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
             this.customerToolStripMenuItem.Text = "Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
+            // 
+            // itemToolStripMenuItem
+            // 
+            this.itemToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Item;
+            this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(160, 28);
+            this.itemToolStripMenuItem.Text = "Item";
+            this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
             // activityToolStripMenuItem
             // 
@@ -438,20 +450,20 @@
             // 
             this.systemTablesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.System_Tables;
             this.systemTablesToolStripMenuItem.Name = "systemTablesToolStripMenuItem";
-            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.systemTablesToolStripMenuItem.Text = "System Tables";
             this.systemTablesToolStripMenuItem.Click += new System.EventHandler(this.systemTablesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
             // 
             // utilitiesToolStripMenuItem
             // 
             this.utilitiesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.building1;
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.utilitiesToolStripMenuItem.Text = "Company";
             this.utilitiesToolStripMenuItem.Click += new System.EventHandler(this.utilitiesToolStripMenuItem_Click);
             // 
@@ -459,7 +471,7 @@
             // 
             this.userToolStripMenuItem.Image = global::easyfmis.Properties.Resources.User;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
             this.userToolStripMenuItem.Text = "User";
             // 
             // reportsToolStripMenuItem
@@ -526,17 +538,6 @@
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // changeBranchToolStripMenuItem
-            // 
-            this.changeBranchToolStripMenuItem.Image = global::easyfmis.Properties.Resources.building;
-            this.changeBranchToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeBranchToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.changeBranchToolStripMenuItem.Name = "changeBranchToolStripMenuItem";
-            this.changeBranchToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.changeBranchToolStripMenuItem.Size = new System.Drawing.Size(169, 31);
-            this.changeBranchToolStripMenuItem.Text = "Change Branch";
-            this.changeBranchToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SysSoftwareForm
             // 

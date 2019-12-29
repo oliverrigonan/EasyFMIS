@@ -29,22 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnSalesInvoiceForm));
             this.textBoxSalesInvoiceFilter = new System.Windows.Forms.TextBox();
             this.buttonSalesInvoicePageListFirst = new System.Windows.Forms.Button();
             this.buttonSalesInvoicePageListPrevious = new System.Windows.Forms.Button();
             this.buttonSalesInvoicePageListNext = new System.Windows.Forms.Button();
             this.dataGridViewSalesInvoice = new System.Windows.Forms.DataGridView();
-            this.ColumnSalesInvoiceButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnSalesInvoiceButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnSalesInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSalesInvoiceSIDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSalesInvoiceSINumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSalesInvoiceManualSINumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSalesInvoiceRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSalesInvoiceAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSalesInvoiceIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnSalesInvoiceSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSalesInvoicePageListLast = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxSalesInvoicePageNumber = new System.Windows.Forms.TextBox();
@@ -55,6 +46,18 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ColumnSalesInvoiceButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnSalesInvoiceButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnSalesInvoiceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoiceSIDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoiceSINumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoiceManualSINumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoiceCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoiceRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoiceAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoicePaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSalesInvoiceIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnSalesInvoiceSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesInvoice)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -133,8 +136,10 @@
             this.ColumnSalesInvoiceSIDate,
             this.ColumnSalesInvoiceSINumber,
             this.ColumnSalesInvoiceManualSINumber,
+            this.ColumnSalesInvoiceCustomer,
             this.ColumnSalesInvoiceRemarks,
             this.ColumnSalesInvoiceAmount,
+            this.ColumnSalesInvoicePaidAmount,
             this.ColumnSalesInvoiceIsLocked,
             this.ColumnSalesInvoiceSpace});
             this.dataGridViewSalesInvoice.Location = new System.Drawing.Point(12, 42);
@@ -147,89 +152,6 @@
             this.dataGridViewSalesInvoice.Size = new System.Drawing.Size(1376, 536);
             this.dataGridViewSalesInvoice.TabIndex = 20;
             this.dataGridViewSalesInvoice.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalesInvoice_CellClick);
-            // 
-            // ColumnSalesInvoiceButtonEdit
-            // 
-            this.ColumnSalesInvoiceButtonEdit.DataPropertyName = "ColumnSalesInvoiceButtonEdit";
-            this.ColumnSalesInvoiceButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSalesInvoiceButtonEdit.HeaderText = "";
-            this.ColumnSalesInvoiceButtonEdit.Name = "ColumnSalesInvoiceButtonEdit";
-            this.ColumnSalesInvoiceButtonEdit.ReadOnly = true;
-            this.ColumnSalesInvoiceButtonEdit.Width = 70;
-            // 
-            // ColumnSalesInvoiceButtonDelete
-            // 
-            this.ColumnSalesInvoiceButtonDelete.DataPropertyName = "ColumnSalesInvoiceButtonDelete";
-            this.ColumnSalesInvoiceButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSalesInvoiceButtonDelete.HeaderText = "";
-            this.ColumnSalesInvoiceButtonDelete.Name = "ColumnSalesInvoiceButtonDelete";
-            this.ColumnSalesInvoiceButtonDelete.ReadOnly = true;
-            this.ColumnSalesInvoiceButtonDelete.Width = 70;
-            // 
-            // ColumnSalesInvoiceId
-            // 
-            this.ColumnSalesInvoiceId.DataPropertyName = "ColumnSalesInvoiceId";
-            this.ColumnSalesInvoiceId.HeaderText = "Id";
-            this.ColumnSalesInvoiceId.Name = "ColumnSalesInvoiceId";
-            this.ColumnSalesInvoiceId.ReadOnly = true;
-            this.ColumnSalesInvoiceId.Visible = false;
-            // 
-            // ColumnSalesInvoiceSIDate
-            // 
-            this.ColumnSalesInvoiceSIDate.DataPropertyName = "ColumnSalesInvoiceSIDate";
-            this.ColumnSalesInvoiceSIDate.HeaderText = "SI Date";
-            this.ColumnSalesInvoiceSIDate.Name = "ColumnSalesInvoiceSIDate";
-            this.ColumnSalesInvoiceSIDate.ReadOnly = true;
-            // 
-            // ColumnSalesInvoiceSINumber
-            // 
-            this.ColumnSalesInvoiceSINumber.DataPropertyName = "ColumnSalesInvoiceSINumber";
-            this.ColumnSalesInvoiceSINumber.HeaderText = "SI Number";
-            this.ColumnSalesInvoiceSINumber.Name = "ColumnSalesInvoiceSINumber";
-            this.ColumnSalesInvoiceSINumber.ReadOnly = true;
-            this.ColumnSalesInvoiceSINumber.Width = 125;
-            // 
-            // ColumnSalesInvoiceManualSINumber
-            // 
-            this.ColumnSalesInvoiceManualSINumber.DataPropertyName = "ColumnSalesInvoiceManualSINumber";
-            this.ColumnSalesInvoiceManualSINumber.HeaderText = "Manual SI Number";
-            this.ColumnSalesInvoiceManualSINumber.Name = "ColumnSalesInvoiceManualSINumber";
-            this.ColumnSalesInvoiceManualSINumber.ReadOnly = true;
-            this.ColumnSalesInvoiceManualSINumber.Width = 150;
-            // 
-            // ColumnSalesInvoiceRemarks
-            // 
-            this.ColumnSalesInvoiceRemarks.DataPropertyName = "ColumnSalesInvoiceRemarks";
-            this.ColumnSalesInvoiceRemarks.HeaderText = "Remarks";
-            this.ColumnSalesInvoiceRemarks.Name = "ColumnSalesInvoiceRemarks";
-            this.ColumnSalesInvoiceRemarks.ReadOnly = true;
-            this.ColumnSalesInvoiceRemarks.Width = 350;
-            // 
-            // ColumnSalesInvoiceAmount
-            // 
-            this.ColumnSalesInvoiceAmount.DataPropertyName = "ColumnSalesInvoiceAmount";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceAmount.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnSalesInvoiceAmount.HeaderText = "Amount";
-            this.ColumnSalesInvoiceAmount.Name = "ColumnSalesInvoiceAmount";
-            this.ColumnSalesInvoiceAmount.ReadOnly = true;
-            this.ColumnSalesInvoiceAmount.Width = 150;
-            // 
-            // ColumnSalesInvoiceIsLocked
-            // 
-            this.ColumnSalesInvoiceIsLocked.DataPropertyName = "ColumnSalesInvoiceIsLocked";
-            this.ColumnSalesInvoiceIsLocked.HeaderText = "L";
-            this.ColumnSalesInvoiceIsLocked.Name = "ColumnSalesInvoiceIsLocked";
-            this.ColumnSalesInvoiceIsLocked.ReadOnly = true;
-            this.ColumnSalesInvoiceIsLocked.Width = 35;
-            // 
-            // ColumnSalesInvoiceSpace
-            // 
-            this.ColumnSalesInvoiceSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSalesInvoiceSpace.DataPropertyName = "ColumnSalesInvoiceSpace";
-            this.ColumnSalesInvoiceSpace.HeaderText = "";
-            this.ColumnSalesInvoiceSpace.Name = "ColumnSalesInvoiceSpace";
-            this.ColumnSalesInvoiceSpace.ReadOnly = true;
             // 
             // buttonSalesInvoicePageListLast
             // 
@@ -361,6 +283,107 @@
             this.panel1.Size = new System.Drawing.Size(1400, 63);
             this.panel1.TabIndex = 6;
             // 
+            // ColumnSalesInvoiceButtonEdit
+            // 
+            this.ColumnSalesInvoiceButtonEdit.DataPropertyName = "ColumnSalesInvoiceButtonEdit";
+            this.ColumnSalesInvoiceButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSalesInvoiceButtonEdit.HeaderText = "";
+            this.ColumnSalesInvoiceButtonEdit.Name = "ColumnSalesInvoiceButtonEdit";
+            this.ColumnSalesInvoiceButtonEdit.ReadOnly = true;
+            this.ColumnSalesInvoiceButtonEdit.Width = 70;
+            // 
+            // ColumnSalesInvoiceButtonDelete
+            // 
+            this.ColumnSalesInvoiceButtonDelete.DataPropertyName = "ColumnSalesInvoiceButtonDelete";
+            this.ColumnSalesInvoiceButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSalesInvoiceButtonDelete.HeaderText = "";
+            this.ColumnSalesInvoiceButtonDelete.Name = "ColumnSalesInvoiceButtonDelete";
+            this.ColumnSalesInvoiceButtonDelete.ReadOnly = true;
+            this.ColumnSalesInvoiceButtonDelete.Width = 70;
+            // 
+            // ColumnSalesInvoiceId
+            // 
+            this.ColumnSalesInvoiceId.DataPropertyName = "ColumnSalesInvoiceId";
+            this.ColumnSalesInvoiceId.HeaderText = "Id";
+            this.ColumnSalesInvoiceId.Name = "ColumnSalesInvoiceId";
+            this.ColumnSalesInvoiceId.ReadOnly = true;
+            this.ColumnSalesInvoiceId.Visible = false;
+            // 
+            // ColumnSalesInvoiceSIDate
+            // 
+            this.ColumnSalesInvoiceSIDate.DataPropertyName = "ColumnSalesInvoiceSIDate";
+            this.ColumnSalesInvoiceSIDate.HeaderText = "SI Date";
+            this.ColumnSalesInvoiceSIDate.Name = "ColumnSalesInvoiceSIDate";
+            this.ColumnSalesInvoiceSIDate.ReadOnly = true;
+            // 
+            // ColumnSalesInvoiceSINumber
+            // 
+            this.ColumnSalesInvoiceSINumber.DataPropertyName = "ColumnSalesInvoiceSINumber";
+            this.ColumnSalesInvoiceSINumber.HeaderText = "SI Number";
+            this.ColumnSalesInvoiceSINumber.Name = "ColumnSalesInvoiceSINumber";
+            this.ColumnSalesInvoiceSINumber.ReadOnly = true;
+            this.ColumnSalesInvoiceSINumber.Width = 125;
+            // 
+            // ColumnSalesInvoiceManualSINumber
+            // 
+            this.ColumnSalesInvoiceManualSINumber.DataPropertyName = "ColumnSalesInvoiceManualSINumber";
+            this.ColumnSalesInvoiceManualSINumber.HeaderText = "Manual SI Number";
+            this.ColumnSalesInvoiceManualSINumber.Name = "ColumnSalesInvoiceManualSINumber";
+            this.ColumnSalesInvoiceManualSINumber.ReadOnly = true;
+            this.ColumnSalesInvoiceManualSINumber.Width = 150;
+            // 
+            // ColumnSalesInvoiceCustomer
+            // 
+            this.ColumnSalesInvoiceCustomer.DataPropertyName = "ColumnSalesInvoiceCustomer";
+            this.ColumnSalesInvoiceCustomer.HeaderText = "Customer";
+            this.ColumnSalesInvoiceCustomer.Name = "ColumnSalesInvoiceCustomer";
+            this.ColumnSalesInvoiceCustomer.ReadOnly = true;
+            this.ColumnSalesInvoiceCustomer.Width = 200;
+            // 
+            // ColumnSalesInvoiceRemarks
+            // 
+            this.ColumnSalesInvoiceRemarks.DataPropertyName = "ColumnSalesInvoiceRemarks";
+            this.ColumnSalesInvoiceRemarks.HeaderText = "Remarks";
+            this.ColumnSalesInvoiceRemarks.Name = "ColumnSalesInvoiceRemarks";
+            this.ColumnSalesInvoiceRemarks.ReadOnly = true;
+            this.ColumnSalesInvoiceRemarks.Width = 250;
+            // 
+            // ColumnSalesInvoiceAmount
+            // 
+            this.ColumnSalesInvoiceAmount.DataPropertyName = "ColumnSalesInvoiceAmount";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceAmount.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnSalesInvoiceAmount.HeaderText = "Amount";
+            this.ColumnSalesInvoiceAmount.Name = "ColumnSalesInvoiceAmount";
+            this.ColumnSalesInvoiceAmount.ReadOnly = true;
+            this.ColumnSalesInvoiceAmount.Width = 150;
+            // 
+            // ColumnSalesInvoicePaidAmount
+            // 
+            this.ColumnSalesInvoicePaidAmount.DataPropertyName = "ColumnSalesInvoicePaidAmount";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoicePaidAmount.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnSalesInvoicePaidAmount.HeaderText = "Paid Amount";
+            this.ColumnSalesInvoicePaidAmount.Name = "ColumnSalesInvoicePaidAmount";
+            this.ColumnSalesInvoicePaidAmount.ReadOnly = true;
+            this.ColumnSalesInvoicePaidAmount.Width = 150;
+            // 
+            // ColumnSalesInvoiceIsLocked
+            // 
+            this.ColumnSalesInvoiceIsLocked.DataPropertyName = "ColumnSalesInvoiceIsLocked";
+            this.ColumnSalesInvoiceIsLocked.HeaderText = "L";
+            this.ColumnSalesInvoiceIsLocked.Name = "ColumnSalesInvoiceIsLocked";
+            this.ColumnSalesInvoiceIsLocked.ReadOnly = true;
+            this.ColumnSalesInvoiceIsLocked.Width = 35;
+            // 
+            // ColumnSalesInvoiceSpace
+            // 
+            this.ColumnSalesInvoiceSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSalesInvoiceSpace.DataPropertyName = "ColumnSalesInvoiceSpace";
+            this.ColumnSalesInvoiceSpace.HeaderText = "";
+            this.ColumnSalesInvoiceSpace.Name = "ColumnSalesInvoiceSpace";
+            this.ColumnSalesInvoiceSpace.ReadOnly = true;
+            // 
             // TrnSalesInvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -409,8 +432,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceSIDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceSINumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceManualSINumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceCustomer;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceRemarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoicePaidAmount;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnSalesInvoiceIsLocked;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceSpace;
     }

@@ -34,9 +34,13 @@ namespace easyfmis.Controllers
         // ===============
         public List<Entities.TrnCollectionEntity> ListCollection(DateTime dateFilter, String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var collections = from d in db.TrnCollections
                               where d.ORDate == dateFilter
                               && d.ORNumber.Contains(filter)
+                              && d.BranchId == currentBranchId
                               select new Entities.TrnCollectionEntity
                               {
                                   Id = d.Id,
@@ -255,6 +259,22 @@ namespace easyfmis.Controllers
                     lockCollection.UpdatedDateTime = DateTime.Now;
                     db.SubmitChanges();
 
+                    var collectionLines = from d in db.TrnCollectionLines
+                                          where d.ORId == id
+                                          && d.SIId != null
+                                          select d;
+
+                    if (collectionLines.Any())
+                    {
+                        foreach (var collectionLine in collectionLines)
+                        {
+                            Int32 SIId = Convert.ToInt32(collectionLine.SIId);
+
+                            Modules.TrnAccountsReceivableModule accountsReceivable = new Modules.TrnAccountsReceivableModule();
+                            accountsReceivable.UpdateAccountsReceivable(SIId);
+                        }
+                    }
+
                     return new String[] { "", "1" };
                 }
                 else
@@ -297,6 +317,22 @@ namespace easyfmis.Controllers
                     unlockCollection.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     unlockCollection.UpdatedDateTime = DateTime.Now;
                     db.SubmitChanges();
+
+                    var collectionLines = from d in db.TrnCollectionLines
+                                          where d.ORId == id
+                                          && d.SIId != null
+                                          select d;
+
+                    if (collectionLines.Any())
+                    {
+                        foreach (var collectionLine in collectionLines)
+                        {
+                            Int32 SIId = Convert.ToInt32(collectionLine.SIId);
+
+                            Modules.TrnAccountsReceivableModule accountsReceivable = new Modules.TrnAccountsReceivableModule();
+                            accountsReceivable.UpdateAccountsReceivable(SIId);
+                        }
+                    }
 
                     return new String[] { "", "1" };
                 }

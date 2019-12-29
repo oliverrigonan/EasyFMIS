@@ -1,6 +1,6 @@
 ﻿namespace easyfmis.Forms.Software.TrnDisbursement
 {
-    partial class TrnDisbursementDetailDisbursementLineForm
+    partial class TrnDisbursementDetailDisbursementLineDetailForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnDisbursementDetailDisbursementLineForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnDisbursementDetailDisbursementLineDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,12 +58,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(574, 63);
+            this.panel1.Size = new System.Drawing.Size(651, 63);
             this.panel1.TabIndex = 8;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Stock_In;
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Disbursement;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 40);
@@ -78,9 +78,9 @@
             this.label1.Location = new System.Drawing.Point(63, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 35);
+            this.label1.Size = new System.Drawing.Size(311, 35);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Disbursement";
+            this.label1.Text = "Disbursement Line Detail";
             // 
             // buttonClose
             // 
@@ -91,7 +91,7 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(474, 12);
+            this.buttonClose.Location = new System.Drawing.Point(551, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
             this.buttonClose.TabIndex = 21;
@@ -108,7 +108,7 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(380, 12);
+            this.buttonSave.Location = new System.Drawing.Point(457, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
             this.buttonSave.TabIndex = 20;
@@ -129,7 +129,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(574, 213);
+            this.panel2.Size = new System.Drawing.Size(651, 242);
             this.panel2.TabIndex = 9;
             // 
             // comboBoxArticleGroup
@@ -139,7 +139,7 @@
             this.comboBoxArticleGroup.FormattingEnabled = true;
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(171, 6);
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
-            this.comboBoxArticleGroup.Size = new System.Drawing.Size(386, 31);
+            this.comboBoxArticleGroup.Size = new System.Drawing.Size(374, 31);
             this.comboBoxArticleGroup.TabIndex = 0;
             // 
             // comboBoxRR
@@ -148,7 +148,7 @@
             this.comboBoxRR.FormattingEnabled = true;
             this.comboBoxRR.Location = new System.Drawing.Point(171, 43);
             this.comboBoxRR.Name = "comboBoxRR";
-            this.comboBoxRR.Size = new System.Drawing.Size(386, 31);
+            this.comboBoxRR.Size = new System.Drawing.Size(269, 31);
             this.comboBoxRR.TabIndex = 1;
             // 
             // textBoxAmount
@@ -161,6 +161,7 @@
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
             this.textBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmount_KeyPress);
+            this.textBoxAmount.Leave += new System.EventHandler(this.textBoxAmount_Leave);
             // 
             // label9
             // 
@@ -188,7 +189,7 @@
             this.textBoxOtherInformation.Location = new System.Drawing.Point(171, 116);
             this.textBoxOtherInformation.Multiline = true;
             this.textBoxOtherInformation.Name = "textBoxOtherInformation";
-            this.textBoxOtherInformation.Size = new System.Drawing.Size(386, 83);
+            this.textBoxOtherInformation.Size = new System.Drawing.Size(374, 114);
             this.textBoxOtherInformation.TabIndex = 3;
             // 
             // label2
@@ -205,25 +206,25 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(9, 46);
+            this.label3.Location = new System.Drawing.Point(63, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 23);
+            this.label3.Size = new System.Drawing.Size(102, 23);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Receiveing Receipt:";
+            this.label3.Text = "RR Number:";
             // 
-            // TrnDisbursementDetailDisbursementLineForm
+            // TrnDisbursementDetailDisbursementLineDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(574, 276);
+            this.ClientSize = new System.Drawing.Size(651, 305);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "TrnDisbursementDetailDisbursementLineForm";
+            this.Name = "TrnDisbursementDetailDisbursementLineDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Disbursement";
+            this.Text = "Disbursement Line Detail";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

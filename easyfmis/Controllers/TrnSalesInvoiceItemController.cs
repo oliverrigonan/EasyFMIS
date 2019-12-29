@@ -54,6 +54,9 @@ namespace easyfmis.Controllers
         // ===================
         public List<Entities.MstArticleInventory> ListInventoryItem(String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var items = from d in db.MstArticleInventories
                         where (d.InventoryCode.Contains(filter)
                         || d.MstArticle.ArticleCode.Contains(filter)
@@ -62,6 +65,7 @@ namespace easyfmis.Controllers
                         || d.MstArticle.Category.Contains(filter)
                         || d.MstArticle.MstUnit.Unit.Contains(filter))
                         && d.MstArticle.IsLocked == true
+                        && d.BranchId == currentBranchId
                         select new Entities.MstArticleInventory
                         {
                             Id = d.Id,
@@ -117,8 +121,12 @@ namespace easyfmis.Controllers
         // ============================
         public List<Entities.MstArticleInventory> DropdownListArticleInventory(Int32 articleId)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var articleInventories = from d in db.MstArticleInventories
                                      where d.ArticleId == articleId
+                                     && d.BranchId == currentBranchId
                                      select new Entities.MstArticleInventory
                                      {
                                          Id = d.Id,
@@ -286,6 +294,21 @@ namespace easyfmis.Controllers
                 db.TrnSalesInvoiceItems.InsertOnSubmit(newSalesInvoiceItem);
                 db.SubmitChanges();
 
+                Decimal amount = 0;
+                var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
+                                        where d.SIId == salesInvoice.FirstOrDefault().Id
+                                        select d;
+
+                if (salesInvoiceItems.Any())
+                {
+                    amount = salesInvoiceItems.Sum(d => d.Amount);
+                }
+
+                var updateSalesInvoice = salesInvoice.FirstOrDefault();
+                updateSalesInvoice.Amount = amount;
+                updateSalesInvoice.BalanceAmount = amount;
+                db.SubmitChanges();
+
                 return new String[] { "", "1" };
             }
             catch (Exception e)
@@ -374,7 +397,21 @@ namespace easyfmis.Controllers
                     updateSalesInvoiceItem.TaxRate = objSalesInvoiceItem.TaxRate;
                     updateSalesInvoiceItem.TaxAmount = objSalesInvoiceItem.TaxAmount;
                     updateSalesInvoiceItem.BaseQuantity = baseQuantity;
+                    db.SubmitChanges();
 
+                    Decimal amount = 0;
+                    var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
+                                            where d.SIId == salesInvoice.FirstOrDefault().Id
+                                            select d;
+
+                    if (salesInvoiceItems.Any())
+                    {
+                        amount = salesInvoiceItems.Sum(d => d.Amount);
+                    }
+
+                    var updateSalesInvoice = salesInvoice.FirstOrDefault();
+                    updateSalesInvoice.Amount = amount;
+                    updateSalesInvoice.BalanceAmount = amount;
                     db.SubmitChanges();
 
                     return new String[] { "", "1" };
@@ -403,9 +440,33 @@ namespace easyfmis.Controllers
 
                 if (salesInvoiceItem.Any())
                 {
+                    Int32 SIId = salesInvoiceItem.FirstOrDefault().SIId;
+
                     var deleteSalesInvoiceItem = salesInvoiceItem.FirstOrDefault();
                     db.TrnSalesInvoiceItems.DeleteOnSubmit(deleteSalesInvoiceItem);
                     db.SubmitChanges();
+
+                    var salesInvoice = from d in db.TrnSalesInvoices
+                                       where d.Id == SIId
+                                       select d;
+
+                    if (salesInvoice.Any())
+                    {
+                        Decimal amount = 0;
+                        var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
+                                                where d.SIId == salesInvoice.FirstOrDefault().Id
+                                                select d;
+
+                        if (salesInvoiceItems.Any())
+                        {
+                            amount = salesInvoiceItems.Sum(d => d.Amount);
+                        }
+
+                        var updateSalesInvoice = salesInvoice.FirstOrDefault();
+                        updateSalesInvoice.Amount = amount;
+                        updateSalesInvoice.BalanceAmount = amount;
+                        db.SubmitChanges();
+                    }
 
                     return new String[] { "", "1" };
                 }

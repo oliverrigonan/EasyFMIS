@@ -108,9 +108,11 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                                         ColumnDisbursementListCVNumber = d.CVNumber,
                                         ColumnDisbursementListSupplier = d.Supplier,
                                         ColumnDisbursementListRemarks = d.Remarks,
+                                        ColumnDisbursementListAmount = d.Amount.ToString("#,##0.00"),
                                         ColumnDisbursementListIsCrossCheck = d.IsCrossCheck,
                                         ColumnDisbursementListIsClear = d.IsClear,
-                                        ColumnDisbursementListIsLocked = d.IsLocked
+                                        ColumnDisbursementListIsLocked = d.IsLocked,
+                                        ColumnDisbursementListSpace = ""
                                     };
 
                 return Task.FromResult(disbursement.ToList());

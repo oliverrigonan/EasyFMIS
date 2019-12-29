@@ -51,8 +51,12 @@ namespace easyfmis.Controllers
         // ===================
         public List<Entities.TrnPurchaseOrderEntity> ListPurchaseOrder(Int32 supplierId)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var purchaseOrders = from d in db.TrnPurchaseOrders
                                  where d.SupplierId == supplierId
+                                 && d.BranchId == currentBranchId
                                  select new Entities.TrnPurchaseOrderEntity
                                  {
                                      Id = d.Id,
@@ -222,6 +226,21 @@ namespace easyfmis.Controllers
                 db.TrnReceivingReceiptItems.InsertOnSubmit(newReceivingReceiptItem);
                 db.SubmitChanges();
 
+                Decimal amount = 0;
+                var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                            where d.RRId == receivingReceipt.FirstOrDefault().Id
+                                            select d;
+
+                if (receivingReceiptItems.Any())
+                {
+                    amount = receivingReceiptItems.Sum(d => d.Amount);
+                }
+
+                var updateReceivingReceipt = receivingReceipt.FirstOrDefault();
+                updateReceivingReceipt.Amount = amount;
+                updateReceivingReceipt.BalanceAmount = amount;
+                db.SubmitChanges();
+
                 return new String[] { "", "1" };
             }
             catch (Exception e)
@@ -295,7 +314,21 @@ namespace easyfmis.Controllers
                     updateReceivingReceiptItem.BranchId = objReceivingReceiptItem.BranchId;
                     updateReceivingReceiptItem.BaseQuantity = baseQuantity;
                     updateReceivingReceiptItem.BaseCost = baseCost;
+                    db.SubmitChanges();
 
+                    Decimal amount = 0;
+                    var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                                where d.RRId == receivingReceipt.FirstOrDefault().Id
+                                                select d;
+
+                    if (receivingReceiptItems.Any())
+                    {
+                        amount = receivingReceiptItems.Sum(d => d.Amount);
+                    }
+
+                    var updateReceivingReceipt = receivingReceipt.FirstOrDefault();
+                    updateReceivingReceipt.Amount = amount;
+                    updateReceivingReceipt.BalanceAmount = amount;
                     db.SubmitChanges();
 
                     return new String[] { "", "1" };
@@ -324,9 +357,33 @@ namespace easyfmis.Controllers
 
                 if (receivingReceiptItem.Any())
                 {
+                    Int32 RRId = receivingReceiptItem.FirstOrDefault().RRId;
+
                     var deleteReceivingReceiptItem = receivingReceiptItem.FirstOrDefault();
                     db.TrnReceivingReceiptItems.DeleteOnSubmit(deleteReceivingReceiptItem);
                     db.SubmitChanges();
+
+                    var receivingReceipt = from d in db.TrnReceivingReceipts
+                                           where d.Id == RRId
+                                           select d;
+
+                    if (receivingReceipt.Any())
+                    {
+                        Decimal amount = 0;
+                        var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                                    where d.RRId == receivingReceipt.FirstOrDefault().Id
+                                                    select d;
+
+                        if (receivingReceiptItems.Any())
+                        {
+                            amount = receivingReceiptItems.Sum(d => d.Amount);
+                        }
+
+                        var updateReceivingReceipt = receivingReceipt.FirstOrDefault();
+                        updateReceivingReceipt.Amount = amount;
+                        updateReceivingReceipt.BalanceAmount = amount;
+                        db.SubmitChanges();
+                    }
 
                     return new String[] { "", "1" };
                 }

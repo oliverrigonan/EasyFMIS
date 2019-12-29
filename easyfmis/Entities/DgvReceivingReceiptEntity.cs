@@ -14,8 +14,10 @@ namespace easyfmis.Entities
         public String ColumnReceivingReceiptRRDate { get; set; }
         public String ColumnReceivingReceiptRRNumber { get; set; }
         public String ColumnReceivingReceiptManualRRNumber { get; set; }
+        public String ColumnReceivingReceiptSupplier { get; set; }
         public String ColumnReceivingReceiptRemarks { get; set; }
         public String ColumnReceivingReceiptAmount { get; set; }
+        public String ColumnReceivingReceiptPaidAmount { get; set; }
         public Boolean ColumnReceivingReceiptIsLocked { get; set; }
         public String ColumnReceivingReceiptSpace { get; set; }
     }
