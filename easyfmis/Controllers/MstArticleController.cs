@@ -73,7 +73,7 @@ namespace easyfmis.Controllers
                                UpdatedDateTime = d.UpdatedDateTime
                            };
 
-            return articles.OrderByDescending(d=> d.Id).ToList();
+            return articles.OrderByDescending(d=> d.ArticleCode).ToList();
         }
 
         // ==============
@@ -177,7 +177,7 @@ namespace easyfmis.Controllers
                 }
 
                 String itemCode = "0000000001";
-                var lastItemCode = from d in db.MstArticles.OrderByDescending(d => d.Id)
+                var lastItemCode = from d in db.MstArticles.OrderByDescending(d => d.ArticleCode)
                                    where d.MstArticleType.ArticleType == _articleType
                                    select d;
                 if (lastItemCode.Any())

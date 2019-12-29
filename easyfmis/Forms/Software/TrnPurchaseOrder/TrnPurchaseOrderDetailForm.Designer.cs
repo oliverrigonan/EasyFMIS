@@ -78,10 +78,6 @@
             this.textBoxPurchaseOrderItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewPurchaseOrderItem = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.ColumnPurchaseOrderItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnPurchaseOrderItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnPurchaseOrderItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,6 +92,10 @@
             this.ColumnPurchaseOrderItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -134,7 +134,7 @@
             this.buttonLock.Location = new System.Drawing.Point(1018, 12);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(88, 40);
-            this.buttonLock.TabIndex = 5;
+            this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
             this.buttonLock.Click += new System.EventHandler(this.buttonLock_Click);
@@ -151,7 +151,7 @@
             this.buttonUnlock.Location = new System.Drawing.Point(1112, 12);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
-            this.buttonUnlock.TabIndex = 4;
+            this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
             this.buttonUnlock.Click += new System.EventHandler(this.buttonUnlock_Click);
@@ -189,7 +189,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 23;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -206,7 +206,7 @@
             this.buttonPrint.Location = new System.Drawing.Point(1206, 12);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(88, 40);
-            this.buttonPrint.TabIndex = 0;
+            this.buttonPrint.TabIndex = 22;
             this.buttonPrint.Text = "Print";
             this.buttonPrint.UseVisualStyleBackColor = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
@@ -253,7 +253,7 @@
             this.checkBoxIsClosed.Location = new System.Drawing.Point(1018, 80);
             this.checkBoxIsClosed.Name = "checkBoxIsClosed";
             this.checkBoxIsClosed.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxIsClosed.TabIndex = 39;
+            this.checkBoxIsClosed.TabIndex = 12;
             this.checkBoxIsClosed.UseVisualStyleBackColor = true;
             // 
             // label14
@@ -284,7 +284,7 @@
             this.comboBoxRequestedBy.Location = new System.Drawing.Point(588, 151);
             this.comboBoxRequestedBy.Name = "comboBoxRequestedBy";
             this.comboBoxRequestedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxRequestedBy.TabIndex = 36;
+            this.comboBoxRequestedBy.TabIndex = 8;
             // 
             // label9
             // 
@@ -303,7 +303,7 @@
             this.dateTimePickerDateNeeded.Location = new System.Drawing.Point(154, 114);
             this.dateTimePickerDateNeeded.Name = "dateTimePickerDateNeeded";
             this.dateTimePickerDateNeeded.Size = new System.Drawing.Size(196, 30);
-            this.dateTimePickerDateNeeded.TabIndex = 34;
+            this.dateTimePickerDateNeeded.TabIndex = 3;
             // 
             // label8
             // 
@@ -321,7 +321,7 @@
             this.comboBoxTerm.Location = new System.Drawing.Point(588, 6);
             this.comboBoxTerm.Name = "comboBoxTerm";
             this.comboBoxTerm.Size = new System.Drawing.Size(196, 31);
-            this.comboBoxTerm.TabIndex = 32;
+            this.comboBoxTerm.TabIndex = 6;
             // 
             // label6
             // 
@@ -339,7 +339,7 @@
             this.comboBoxSupplier.Location = new System.Drawing.Point(154, 186);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
             this.comboBoxSupplier.Size = new System.Drawing.Size(196, 31);
-            this.comboBoxSupplier.TabIndex = 30;
+            this.comboBoxSupplier.TabIndex = 5;
             // 
             // textBoxManualPONumber
             // 
@@ -347,7 +347,7 @@
             this.textBoxManualPONumber.Location = new System.Drawing.Point(154, 150);
             this.textBoxManualPONumber.Name = "textBoxManualPONumber";
             this.textBoxManualPONumber.Size = new System.Drawing.Size(196, 30);
-            this.textBoxManualPONumber.TabIndex = 29;
+            this.textBoxManualPONumber.TabIndex = 4;
             // 
             // label3
             // 
@@ -366,7 +366,8 @@
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(298, 30);
-            this.textBoxBranch.TabIndex = 27;
+            this.textBoxBranch.TabIndex = 0;
+            this.textBoxBranch.TabStop = false;
             // 
             // label5
             // 
@@ -385,7 +386,7 @@
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(298, 102);
-            this.textBoxRemarks.TabIndex = 24;
+            this.textBoxRemarks.TabIndex = 7;
             // 
             // label13
             // 
@@ -424,7 +425,7 @@
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(1018, 43);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxApprovedBy.TabIndex = 17;
+            this.comboBoxApprovedBy.TabIndex = 11;
             // 
             // comboBoxCheckedBy
             // 
@@ -433,7 +434,7 @@
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(1018, 6);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxCheckedBy.TabIndex = 16;
+            this.comboBoxCheckedBy.TabIndex = 10;
             // 
             // comboBoxPreparedBy
             // 
@@ -443,7 +444,7 @@
             this.comboBoxPreparedBy.Location = new System.Drawing.Point(588, 188);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxPreparedBy.TabIndex = 15;
+            this.comboBoxPreparedBy.TabIndex = 9;
             // 
             // label7
             // 
@@ -491,7 +492,8 @@
             this.textBoxPONumber.Name = "textBoxPONumber";
             this.textBoxPONumber.ReadOnly = true;
             this.textBoxPONumber.Size = new System.Drawing.Size(196, 30);
-            this.textBoxPONumber.TabIndex = 0;
+            this.textBoxPONumber.TabIndex = 1;
+            this.textBoxPONumber.TabStop = false;
             // 
             // panel4
             // 
@@ -576,6 +578,7 @@
             this.textBoxPurchaseOrderItemPageNumber.ReadOnly = true;
             this.textBoxPurchaseOrderItemPageNumber.Size = new System.Drawing.Size(69, 20);
             this.textBoxPurchaseOrderItemPageNumber.TabIndex = 17;
+            this.textBoxPurchaseOrderItemPageNumber.TabStop = false;
             this.textBoxPurchaseOrderItemPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonSearchItem
@@ -590,8 +593,7 @@
             this.buttonSearchItem.Location = new System.Drawing.Point(1296, 6);
             this.buttonSearchItem.Name = "buttonSearchItem";
             this.buttonSearchItem.Size = new System.Drawing.Size(88, 40);
-            this.buttonSearchItem.TabIndex = 8;
-            this.buttonSearchItem.TabStop = false;
+            this.buttonSearchItem.TabIndex = 13;
             this.buttonSearchItem.Text = "Add";
             this.buttonSearchItem.UseVisualStyleBackColor = false;
             this.buttonSearchItem.Click += new System.EventHandler(this.buttonSearchItem_Click);
@@ -643,49 +645,6 @@
             this.dataGridViewPurchaseOrderItem.TabIndex = 1;
             this.dataGridViewPurchaseOrderItem.TabStop = false;
             this.dataGridViewPurchaseOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPurchaseOrderItem_CellClick);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewPurchaseOrderItem);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Purchase Order Items";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // ColumnPurchaseOrderItemListButtonEdit
             // 
@@ -811,6 +770,50 @@
             this.ColumnPurchaseOrderItemSpace.HeaderText = "";
             this.ColumnPurchaseOrderItemSpace.Name = "ColumnPurchaseOrderItemSpace";
             this.ColumnPurchaseOrderItemSpace.ReadOnly = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.TabIndex = 9;
+            this.tabControl1.TabStop = false;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewPurchaseOrderItem);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Purchase Order Items";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // TrnPurchaseOrderDetailForm
             // 

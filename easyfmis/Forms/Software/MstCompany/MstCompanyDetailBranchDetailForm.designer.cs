@@ -90,7 +90,7 @@
             this.buttonClose.Location = new System.Drawing.Point(338, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -107,7 +107,7 @@
             this.buttonSave.Location = new System.Drawing.Point(244, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -140,7 +140,7 @@
             this.textBoxBranch.Location = new System.Drawing.Point(85, 42);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.Size = new System.Drawing.Size(341, 30);
-            this.textBoxBranch.TabIndex = 18;
+            this.textBoxBranch.TabIndex = 1;
             // 
             // textBoxBranchCode
             // 
@@ -148,7 +148,7 @@
             this.textBoxBranchCode.Location = new System.Drawing.Point(85, 6);
             this.textBoxBranchCode.Name = "textBoxBranchCode";
             this.textBoxBranchCode.Size = new System.Drawing.Size(150, 30);
-            this.textBoxBranchCode.TabIndex = 17;
+            this.textBoxBranchCode.TabIndex = 0;
             // 
             // label2
             // 

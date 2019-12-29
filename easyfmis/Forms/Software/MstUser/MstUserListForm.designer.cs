@@ -36,13 +36,6 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxUserListFilter = new System.Windows.Forms.TextBox();
             this.dataGridViewUserList = new System.Windows.Forms.DataGridView();
-            this.textBoxUserListPageNumber = new System.Windows.Forms.TextBox();
-            this.buttonUserListPageListLast = new System.Windows.Forms.Button();
-            this.buttonUserListPageListNext = new System.Windows.Forms.Button();
-            this.buttonUserListPageListPrevious = new System.Windows.Forms.Button();
-            this.buttonUserListPageListFirst = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.ColumnUserListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnUserListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnUserListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +46,13 @@
             this.ColumnUserListCompanyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUserListCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUserListIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.textBoxUserListPageNumber = new System.Windows.Forms.TextBox();
+            this.buttonUserListPageListLast = new System.Windows.Forms.Button();
+            this.buttonUserListPageListNext = new System.Windows.Forms.Button();
+            this.buttonUserListPageListPrevious = new System.Windows.Forms.Button();
+            this.buttonUserListPageListFirst = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserList)).BeginInit();
@@ -106,7 +106,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -123,7 +123,7 @@
             this.buttonAdd.Location = new System.Drawing.Point(1206, 12);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(88, 40);
-            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.TabIndex = 20;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -135,7 +135,7 @@
             this.textBoxUserListFilter.Location = new System.Drawing.Point(12, 6);
             this.textBoxUserListFilter.Name = "textBoxUserListFilter";
             this.textBoxUserListFilter.Size = new System.Drawing.Size(1376, 30);
-            this.textBoxUserListFilter.TabIndex = 8;
+            this.textBoxUserListFilter.TabIndex = 0;
             this.textBoxUserListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUserListFilter_KeyDown);
             // 
             // dataGridViewUserList
@@ -169,6 +169,88 @@
             this.dataGridViewUserList.Size = new System.Drawing.Size(1376, 536);
             this.dataGridViewUserList.TabIndex = 9;
             this.dataGridViewUserList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUserList_CellClick);
+            // 
+            // ColumnUserListButtonEdit
+            // 
+            this.ColumnUserListButtonEdit.DataPropertyName = "ColumnUserListButtonEdit";
+            this.ColumnUserListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnUserListButtonEdit.HeaderText = "";
+            this.ColumnUserListButtonEdit.Name = "ColumnUserListButtonEdit";
+            this.ColumnUserListButtonEdit.ReadOnly = true;
+            this.ColumnUserListButtonEdit.Width = 70;
+            // 
+            // ColumnUserListButtonDelete
+            // 
+            this.ColumnUserListButtonDelete.DataPropertyName = "ColumnUserListButtonDelete";
+            this.ColumnUserListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnUserListButtonDelete.HeaderText = "";
+            this.ColumnUserListButtonDelete.Name = "ColumnUserListButtonDelete";
+            this.ColumnUserListButtonDelete.ReadOnly = true;
+            this.ColumnUserListButtonDelete.Width = 70;
+            // 
+            // ColumnUserListId
+            // 
+            this.ColumnUserListId.DataPropertyName = "ColumnUserListId";
+            this.ColumnUserListId.HeaderText = "Id";
+            this.ColumnUserListId.Name = "ColumnUserListId";
+            this.ColumnUserListId.ReadOnly = true;
+            this.ColumnUserListId.Visible = false;
+            // 
+            // ColumnUserListUserName
+            // 
+            this.ColumnUserListUserName.DataPropertyName = "ColumnUserListUserName";
+            this.ColumnUserListUserName.HeaderText = "Username";
+            this.ColumnUserListUserName.Name = "ColumnUserListUserName";
+            this.ColumnUserListUserName.ReadOnly = true;
+            this.ColumnUserListUserName.Width = 250;
+            // 
+            // ColumnUserListFullName
+            // 
+            this.ColumnUserListFullName.DataPropertyName = "ColumnUserListFullName";
+            this.ColumnUserListFullName.HeaderText = "Fullname";
+            this.ColumnUserListFullName.Name = "ColumnUserListFullName";
+            this.ColumnUserListFullName.ReadOnly = true;
+            this.ColumnUserListFullName.Width = 250;
+            // 
+            // ColumnUserListBranchId
+            // 
+            this.ColumnUserListBranchId.DataPropertyName = "ColumnUserListBranchId";
+            this.ColumnUserListBranchId.HeaderText = "BranchId";
+            this.ColumnUserListBranchId.Name = "ColumnUserListBranchId";
+            this.ColumnUserListBranchId.ReadOnly = true;
+            this.ColumnUserListBranchId.Visible = false;
+            // 
+            // ColumnUserListBranch
+            // 
+            this.ColumnUserListBranch.DataPropertyName = "ColumnUserListBranch";
+            this.ColumnUserListBranch.HeaderText = "Branch";
+            this.ColumnUserListBranch.Name = "ColumnUserListBranch";
+            this.ColumnUserListBranch.ReadOnly = true;
+            this.ColumnUserListBranch.Width = 200;
+            // 
+            // ColumnUserListCompanyId
+            // 
+            this.ColumnUserListCompanyId.DataPropertyName = "ColumnUserListCompanyId";
+            this.ColumnUserListCompanyId.HeaderText = "CompanyId";
+            this.ColumnUserListCompanyId.Name = "ColumnUserListCompanyId";
+            this.ColumnUserListCompanyId.ReadOnly = true;
+            this.ColumnUserListCompanyId.Visible = false;
+            // 
+            // ColumnUserListCompany
+            // 
+            this.ColumnUserListCompany.DataPropertyName = "ColumnUserListCompany";
+            this.ColumnUserListCompany.HeaderText = "Company";
+            this.ColumnUserListCompany.Name = "ColumnUserListCompany";
+            this.ColumnUserListCompany.ReadOnly = true;
+            this.ColumnUserListCompany.Width = 200;
+            // 
+            // ColumnUserListIsLocked
+            // 
+            this.ColumnUserListIsLocked.DataPropertyName = "ColumnUserListIsLocked";
+            this.ColumnUserListIsLocked.HeaderText = "L";
+            this.ColumnUserListIsLocked.Name = "ColumnUserListIsLocked";
+            this.ColumnUserListIsLocked.ReadOnly = true;
+            this.ColumnUserListIsLocked.Width = 35;
             // 
             // textBoxUserListPageNumber
             // 
@@ -265,88 +347,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1400, 53);
             this.panel3.TabIndex = 18;
-            // 
-            // ColumnUserListButtonEdit
-            // 
-            this.ColumnUserListButtonEdit.DataPropertyName = "ColumnUserListButtonEdit";
-            this.ColumnUserListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnUserListButtonEdit.HeaderText = "";
-            this.ColumnUserListButtonEdit.Name = "ColumnUserListButtonEdit";
-            this.ColumnUserListButtonEdit.ReadOnly = true;
-            this.ColumnUserListButtonEdit.Width = 70;
-            // 
-            // ColumnUserListButtonDelete
-            // 
-            this.ColumnUserListButtonDelete.DataPropertyName = "ColumnUserListButtonDelete";
-            this.ColumnUserListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnUserListButtonDelete.HeaderText = "";
-            this.ColumnUserListButtonDelete.Name = "ColumnUserListButtonDelete";
-            this.ColumnUserListButtonDelete.ReadOnly = true;
-            this.ColumnUserListButtonDelete.Width = 70;
-            // 
-            // ColumnUserListId
-            // 
-            this.ColumnUserListId.DataPropertyName = "ColumnUserListId";
-            this.ColumnUserListId.HeaderText = "Id";
-            this.ColumnUserListId.Name = "ColumnUserListId";
-            this.ColumnUserListId.ReadOnly = true;
-            this.ColumnUserListId.Visible = false;
-            // 
-            // ColumnUserListUserName
-            // 
-            this.ColumnUserListUserName.DataPropertyName = "ColumnUserListUserName";
-            this.ColumnUserListUserName.HeaderText = "Username";
-            this.ColumnUserListUserName.Name = "ColumnUserListUserName";
-            this.ColumnUserListUserName.ReadOnly = true;
-            this.ColumnUserListUserName.Width = 250;
-            // 
-            // ColumnUserListFullName
-            // 
-            this.ColumnUserListFullName.DataPropertyName = "ColumnUserListFullName";
-            this.ColumnUserListFullName.HeaderText = "Fullname";
-            this.ColumnUserListFullName.Name = "ColumnUserListFullName";
-            this.ColumnUserListFullName.ReadOnly = true;
-            this.ColumnUserListFullName.Width = 250;
-            // 
-            // ColumnUserListBranchId
-            // 
-            this.ColumnUserListBranchId.DataPropertyName = "ColumnUserListBranchId";
-            this.ColumnUserListBranchId.HeaderText = "BranchId";
-            this.ColumnUserListBranchId.Name = "ColumnUserListBranchId";
-            this.ColumnUserListBranchId.ReadOnly = true;
-            this.ColumnUserListBranchId.Visible = false;
-            // 
-            // ColumnUserListBranch
-            // 
-            this.ColumnUserListBranch.DataPropertyName = "ColumnUserListBranch";
-            this.ColumnUserListBranch.HeaderText = "Branch";
-            this.ColumnUserListBranch.Name = "ColumnUserListBranch";
-            this.ColumnUserListBranch.ReadOnly = true;
-            this.ColumnUserListBranch.Width = 200;
-            // 
-            // ColumnUserListCompanyId
-            // 
-            this.ColumnUserListCompanyId.DataPropertyName = "ColumnUserListCompanyId";
-            this.ColumnUserListCompanyId.HeaderText = "CompanyId";
-            this.ColumnUserListCompanyId.Name = "ColumnUserListCompanyId";
-            this.ColumnUserListCompanyId.ReadOnly = true;
-            this.ColumnUserListCompanyId.Visible = false;
-            // 
-            // ColumnUserListCompany
-            // 
-            this.ColumnUserListCompany.DataPropertyName = "ColumnUserListCompany";
-            this.ColumnUserListCompany.HeaderText = "Company";
-            this.ColumnUserListCompany.Name = "ColumnUserListCompany";
-            this.ColumnUserListCompany.ReadOnly = true;
-            this.ColumnUserListCompany.Width = 200;
-            // 
-            // ColumnUserListIsLocked
-            // 
-            this.ColumnUserListIsLocked.DataPropertyName = "ColumnUserListIsLocked";
-            this.ColumnUserListIsLocked.HeaderText = "L";
-            this.ColumnUserListIsLocked.Name = "ColumnUserListIsLocked";
-            this.ColumnUserListIsLocked.ReadOnly = true;
-            this.ColumnUserListIsLocked.Width = 35;
             // 
             // MstUserListForm
             // 

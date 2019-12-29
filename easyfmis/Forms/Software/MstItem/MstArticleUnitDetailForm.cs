@@ -39,10 +39,17 @@ namespace easyfmis.Forms.Software.MstItem
         }
 
         public void LoadArticleUnit(){
-            if (mstArticleUnitEntity != null) {
+            if (mstArticleUnitEntity != null)
+            {
                 textBoxBaseUnitMultiplier.Text = mstArticleUnitEntity.BaseUnitMultiplier.ToString("#,##0.00");
                 textBoxUnitMultiplier.Text = mstArticleUnitEntity.UnitMultiplier.ToString("#,##0.00");
                 comboBoxUnit.SelectedValue = mstArticleUnitEntity.UnitId;
+            }
+            else
+            {
+                textBoxBaseUnitMultiplier.Text = (0).ToString("#,##0.00");
+                textBoxUnitMultiplier.Text = (0).ToString("#,##0.00");
+
             }
         }
 

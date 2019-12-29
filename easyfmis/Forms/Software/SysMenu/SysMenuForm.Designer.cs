@@ -123,7 +123,7 @@
             this.buttonCollection.Name = "buttonCollection";
             this.buttonCollection.Padding = new System.Windows.Forms.Padding(10);
             this.buttonCollection.Size = new System.Drawing.Size(227, 123);
-            this.buttonCollection.TabIndex = 21;
+            this.buttonCollection.TabIndex = 17;
             this.buttonCollection.Text = "\r\nCollection";
             this.buttonCollection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonCollection.UseVisualStyleBackColor = false;
@@ -143,7 +143,7 @@
             this.buttonDisbursement.Name = "buttonDisbursement";
             this.buttonDisbursement.Padding = new System.Windows.Forms.Padding(10);
             this.buttonDisbursement.Size = new System.Drawing.Size(227, 123);
-            this.buttonDisbursement.TabIndex = 22;
+            this.buttonDisbursement.TabIndex = 16;
             this.buttonDisbursement.Text = "\r\nDisbursement";
             this.buttonDisbursement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonDisbursement.UseVisualStyleBackColor = false;
@@ -163,7 +163,7 @@
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(10);
             this.button2.Size = new System.Drawing.Size(227, 123);
-            this.button2.TabIndex = 20;
+            this.button2.TabIndex = 13;
             this.button2.Text = "\r\nAccounts Receivable";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = false;
@@ -182,7 +182,7 @@
             this.buttonStockTransfer.Name = "buttonStockTransfer";
             this.buttonStockTransfer.Padding = new System.Windows.Forms.Padding(10);
             this.buttonStockTransfer.Size = new System.Drawing.Size(227, 123);
-            this.buttonStockTransfer.TabIndex = 19;
+            this.buttonStockTransfer.TabIndex = 18;
             this.buttonStockTransfer.Text = "\r\nStock Transfer";
             this.buttonStockTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonStockTransfer.UseVisualStyleBackColor = false;
@@ -202,7 +202,7 @@
             this.buttonItem.Name = "buttonItem";
             this.buttonItem.Padding = new System.Windows.Forms.Padding(10);
             this.buttonItem.Size = new System.Drawing.Size(227, 123);
-            this.buttonItem.TabIndex = 3;
+            this.buttonItem.TabIndex = 2;
             this.buttonItem.Text = "\r\nItem";
             this.buttonItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonItem.UseVisualStyleBackColor = false;
@@ -222,7 +222,7 @@
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Padding = new System.Windows.Forms.Padding(10);
             this.buttonUser.Size = new System.Drawing.Size(227, 123);
-            this.buttonUser.TabIndex = 18;
+            this.buttonUser.TabIndex = 7;
             this.buttonUser.Text = "\r\nUser";
             this.buttonUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonUser.UseVisualStyleBackColor = false;
@@ -242,7 +242,7 @@
             this.buttonCompany.Name = "buttonCompany";
             this.buttonCompany.Padding = new System.Windows.Forms.Padding(10);
             this.buttonCompany.Size = new System.Drawing.Size(227, 123);
-            this.buttonCompany.TabIndex = 4;
+            this.buttonCompany.TabIndex = 3;
             this.buttonCompany.Text = "\r\nCompany";
             this.buttonCompany.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonCompany.UseVisualStyleBackColor = false;
@@ -262,7 +262,7 @@
             this.buttonReceivingReceipt.Name = "buttonReceivingReceipt";
             this.buttonReceivingReceipt.Padding = new System.Windows.Forms.Padding(10);
             this.buttonReceivingReceipt.Size = new System.Drawing.Size(227, 123);
-            this.buttonReceivingReceipt.TabIndex = 17;
+            this.buttonReceivingReceipt.TabIndex = 8;
             this.buttonReceivingReceipt.Text = "\r\nReceiving Receipt";
             this.buttonReceivingReceipt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonReceivingReceipt.UseVisualStyleBackColor = false;
@@ -282,7 +282,7 @@
             this.buttonDiscounting.Name = "buttonDiscounting";
             this.buttonDiscounting.Padding = new System.Windows.Forms.Padding(10);
             this.buttonDiscounting.Size = new System.Drawing.Size(227, 123);
-            this.buttonDiscounting.TabIndex = 5;
+            this.buttonDiscounting.TabIndex = 0;
             this.buttonDiscounting.Text = "\r\nSupplier";
             this.buttonDiscounting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonDiscounting.UseVisualStyleBackColor = false;
@@ -301,7 +301,7 @@
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Padding = new System.Windows.Forms.Padding(10);
             this.buttonSettings.Size = new System.Drawing.Size(227, 123);
-            this.buttonSettings.TabIndex = 16;
+            this.buttonSettings.TabIndex = 19;
             this.buttonSettings.Text = "\r\nSettings";
             this.buttonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonSettings.UseVisualStyleBackColor = false;
@@ -320,7 +320,7 @@
             this.buttonCustomer.Name = "buttonCustomer";
             this.buttonCustomer.Padding = new System.Windows.Forms.Padding(10);
             this.buttonCustomer.Size = new System.Drawing.Size(227, 123);
-            this.buttonCustomer.TabIndex = 6;
+            this.buttonCustomer.TabIndex = 1;
             this.buttonCustomer.Text = "\r\nCustomer";
             this.buttonCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonCustomer.UseVisualStyleBackColor = false;
@@ -359,7 +359,7 @@
             this.buttonSystemTables.Name = "buttonSystemTables";
             this.buttonSystemTables.Padding = new System.Windows.Forms.Padding(10);
             this.buttonSystemTables.Size = new System.Drawing.Size(227, 123);
-            this.buttonSystemTables.TabIndex = 7;
+            this.buttonSystemTables.TabIndex = 11;
             this.buttonSystemTables.Text = "\r\nSystem Tables";
             this.buttonSystemTables.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonSystemTables.UseVisualStyleBackColor = false;
@@ -379,7 +379,7 @@
             this.buttonStockCount.Name = "buttonStockCount";
             this.buttonStockCount.Padding = new System.Windows.Forms.Padding(10);
             this.buttonStockCount.Size = new System.Drawing.Size(227, 123);
-            this.buttonStockCount.TabIndex = 14;
+            this.buttonStockCount.TabIndex = 12;
             this.buttonStockCount.Text = "\r\nAccounts Payable";
             this.buttonStockCount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonStockCount.UseVisualStyleBackColor = false;
@@ -398,7 +398,7 @@
             this.buttonSalesOrder.Name = "buttonSalesOrder";
             this.buttonSalesOrder.Padding = new System.Windows.Forms.Padding(10);
             this.buttonSalesOrder.Size = new System.Drawing.Size(227, 123);
-            this.buttonSalesOrder.TabIndex = 8;
+            this.buttonSalesOrder.TabIndex = 5;
             this.buttonSalesOrder.Text = "\r\nSales Order";
             this.buttonSalesOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonSalesOrder.UseVisualStyleBackColor = false;
@@ -418,7 +418,7 @@
             this.buttonPurchaseOrder.Name = "buttonPurchaseOrder";
             this.buttonPurchaseOrder.Padding = new System.Windows.Forms.Padding(10);
             this.buttonPurchaseOrder.Size = new System.Drawing.Size(227, 123);
-            this.buttonPurchaseOrder.TabIndex = 13;
+            this.buttonPurchaseOrder.TabIndex = 4;
             this.buttonPurchaseOrder.Text = "\r\nPurchase Order";
             this.buttonPurchaseOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonPurchaseOrder.UseVisualStyleBackColor = false;
@@ -438,7 +438,7 @@
             this.buttonStockOut.Name = "buttonStockOut";
             this.buttonStockOut.Padding = new System.Windows.Forms.Padding(10);
             this.buttonStockOut.Size = new System.Drawing.Size(227, 123);
-            this.buttonStockOut.TabIndex = 9;
+            this.buttonStockOut.TabIndex = 10;
             this.buttonStockOut.Text = "\r\nStock Out";
             this.buttonStockOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonStockOut.UseVisualStyleBackColor = false;
@@ -458,7 +458,7 @@
             this.buttonSalesInvoice.Name = "buttonSalesInvoice";
             this.buttonSalesInvoice.Padding = new System.Windows.Forms.Padding(10);
             this.buttonSalesInvoice.Size = new System.Drawing.Size(227, 123);
-            this.buttonSalesInvoice.TabIndex = 12;
+            this.buttonSalesInvoice.TabIndex = 9;
             this.buttonSalesInvoice.Text = "\r\nSales Invoice";
             this.buttonSalesInvoice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonSalesInvoice.UseVisualStyleBackColor = false;
@@ -478,7 +478,7 @@
             this.buttonStockIn.Name = "buttonStockIn";
             this.buttonStockIn.Padding = new System.Windows.Forms.Padding(10);
             this.buttonStockIn.Size = new System.Drawing.Size(227, 123);
-            this.buttonStockIn.TabIndex = 10;
+            this.buttonStockIn.TabIndex = 6;
             this.buttonStockIn.Text = "\r\nStock In";
             this.buttonStockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonStockIn.UseVisualStyleBackColor = false;
@@ -498,7 +498,7 @@
             this.buttonInventoryReport.Name = "buttonInventoryReport";
             this.buttonInventoryReport.Padding = new System.Windows.Forms.Padding(10);
             this.buttonInventoryReport.Size = new System.Drawing.Size(227, 123);
-            this.buttonInventoryReport.TabIndex = 11;
+            this.buttonInventoryReport.TabIndex = 14;
             this.buttonInventoryReport.Text = "\r\nInventory Report";
             this.buttonInventoryReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonInventoryReport.UseVisualStyleBackColor = false;

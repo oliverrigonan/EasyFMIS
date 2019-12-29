@@ -30,10 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,6 +37,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnReceivingReceiptDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -80,25 +80,6 @@
             this.textBoxReceivingReceiptItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchPurchaseOrderItem = new System.Windows.Forms.Button();
             this.dataGridViewReceivingReceiptItem = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageReceivingReceiptItems = new System.Windows.Forms.TabPage();
-            this.tabPageInventoryEntries = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.buttonInventoryEntriesPageListFirst = new System.Windows.Forms.Button();
-            this.buttonInventoryEntriesPageListPrevious = new System.Windows.Forms.Button();
-            this.buttonInventoryEntriesPageListNext = new System.Windows.Forms.Button();
-            this.buttonInventoryEntriesPageListLast = new System.Windows.Forms.Button();
-            this.textBoxInventoryEntriesPageNumber = new System.Windows.Forms.TextBox();
-            this.dataGridViewInventoryEntries = new System.Windows.Forms.DataGridView();
-            this.ColumnInventoryEntriesBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesInventoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReceivingReceiptItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnReceivingReceiptItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnReceivingReceiptItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,6 +102,25 @@
             this.ColumnReceivingReceiptItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReceivingReceiptItemListBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReceivingReceiptItemListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageReceivingReceiptItems = new System.Windows.Forms.TabPage();
+            this.tabPageInventoryEntries = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.buttonInventoryEntriesPageListFirst = new System.Windows.Forms.Button();
+            this.buttonInventoryEntriesPageListPrevious = new System.Windows.Forms.Button();
+            this.buttonInventoryEntriesPageListNext = new System.Windows.Forms.Button();
+            this.buttonInventoryEntriesPageListLast = new System.Windows.Forms.Button();
+            this.textBoxInventoryEntriesPageNumber = new System.Windows.Forms.TextBox();
+            this.dataGridViewInventoryEntries = new System.Windows.Forms.DataGridView();
+            this.ColumnInventoryEntriesBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesInventoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -162,7 +162,7 @@
             this.buttonLock.Location = new System.Drawing.Point(1018, 12);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(88, 40);
-            this.buttonLock.TabIndex = 5;
+            this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
             this.buttonLock.Click += new System.EventHandler(this.buttonLock_Click);
@@ -179,7 +179,7 @@
             this.buttonUnlock.Location = new System.Drawing.Point(1112, 12);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
-            this.buttonUnlock.TabIndex = 4;
+            this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
             this.buttonUnlock.Click += new System.EventHandler(this.buttonUnlock_Click);
@@ -217,7 +217,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 23;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -234,7 +234,7 @@
             this.buttonPrint.Location = new System.Drawing.Point(1206, 12);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(88, 40);
-            this.buttonPrint.TabIndex = 0;
+            this.buttonPrint.TabIndex = 22;
             this.buttonPrint.Text = "Print";
             this.buttonPrint.UseVisualStyleBackColor = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
@@ -288,7 +288,7 @@
             this.comboBoxReceivedBy.Location = new System.Drawing.Point(600, 77);
             this.comboBoxReceivedBy.Name = "comboBoxReceivedBy";
             this.comboBoxReceivedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxReceivedBy.TabIndex = 34;
+            this.comboBoxReceivedBy.TabIndex = 7;
             // 
             // label8
             // 
@@ -307,7 +307,7 @@
             this.comboBoxSupplier.Location = new System.Drawing.Point(179, 150);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
             this.comboBoxSupplier.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxSupplier.TabIndex = 32;
+            this.comboBoxSupplier.TabIndex = 4;
             // 
             // label6
             // 
@@ -326,7 +326,7 @@
             this.comboBoxTerm.Location = new System.Drawing.Point(179, 187);
             this.comboBoxTerm.Name = "comboBoxTerm";
             this.comboBoxTerm.Size = new System.Drawing.Size(196, 31);
-            this.comboBoxTerm.TabIndex = 30;
+            this.comboBoxTerm.TabIndex = 5;
             // 
             // label3
             // 
@@ -344,7 +344,7 @@
             this.textBoxManualRRNumber.Location = new System.Drawing.Point(179, 114);
             this.textBoxManualRRNumber.Name = "textBoxManualRRNumber";
             this.textBoxManualRRNumber.Size = new System.Drawing.Size(196, 30);
-            this.textBoxManualRRNumber.TabIndex = 28;
+            this.textBoxManualRRNumber.TabIndex = 3;
             // 
             // textBoxBranch
             // 
@@ -353,7 +353,8 @@
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(298, 30);
-            this.textBoxBranch.TabIndex = 27;
+            this.textBoxBranch.TabIndex = 0;
+            this.textBoxBranch.TabStop = false;
             // 
             // label5
             // 
@@ -372,7 +373,7 @@
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(298, 65);
-            this.textBoxRemarks.TabIndex = 24;
+            this.textBoxRemarks.TabIndex = 6;
             // 
             // label13
             // 
@@ -411,7 +412,7 @@
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(600, 187);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxApprovedBy.TabIndex = 17;
+            this.comboBoxApprovedBy.TabIndex = 10;
             // 
             // comboBoxCheckedBy
             // 
@@ -420,7 +421,7 @@
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(600, 150);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxCheckedBy.TabIndex = 16;
+            this.comboBoxCheckedBy.TabIndex = 9;
             // 
             // comboBoxPreparedBy
             // 
@@ -430,7 +431,7 @@
             this.comboBoxPreparedBy.Location = new System.Drawing.Point(600, 114);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxPreparedBy.TabIndex = 15;
+            this.comboBoxPreparedBy.TabIndex = 8;
             // 
             // label7
             // 
@@ -478,7 +479,8 @@
             this.textBoxRRNumber.Name = "textBoxRRNumber";
             this.textBoxRRNumber.ReadOnly = true;
             this.textBoxRRNumber.Size = new System.Drawing.Size(196, 30);
-            this.textBoxRRNumber.TabIndex = 0;
+            this.textBoxRRNumber.TabIndex = 1;
+            this.textBoxRRNumber.TabStop = false;
             // 
             // panel4
             // 
@@ -563,6 +565,7 @@
             this.textBoxReceivingReceiptItemPageNumber.ReadOnly = true;
             this.textBoxReceivingReceiptItemPageNumber.Size = new System.Drawing.Size(69, 20);
             this.textBoxReceivingReceiptItemPageNumber.TabIndex = 17;
+            this.textBoxReceivingReceiptItemPageNumber.TabStop = false;
             this.textBoxReceivingReceiptItemPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonSearchPurchaseOrderItem
@@ -577,7 +580,7 @@
             this.buttonSearchPurchaseOrderItem.Location = new System.Drawing.Point(1296, 6);
             this.buttonSearchPurchaseOrderItem.Name = "buttonSearchPurchaseOrderItem";
             this.buttonSearchPurchaseOrderItem.Size = new System.Drawing.Size(88, 40);
-            this.buttonSearchPurchaseOrderItem.TabIndex = 8;
+            this.buttonSearchPurchaseOrderItem.TabIndex = 11;
             this.buttonSearchPurchaseOrderItem.TabStop = false;
             this.buttonSearchPurchaseOrderItem.Text = "Add";
             this.buttonSearchPurchaseOrderItem.UseVisualStyleBackColor = false;
@@ -639,6 +642,198 @@
             this.dataGridViewReceivingReceiptItem.TabStop = false;
             this.dataGridViewReceivingReceiptItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReceivingReceiptItem_CellClick);
             // 
+            // ColumnReceivingReceiptItemListButtonEdit
+            // 
+            this.ColumnReceivingReceiptItemListButtonEdit.DataPropertyName = "ColumnReceivingReceiptItemListButtonEdit";
+            this.ColumnReceivingReceiptItemListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnReceivingReceiptItemListButtonEdit.HeaderText = "";
+            this.ColumnReceivingReceiptItemListButtonEdit.Name = "ColumnReceivingReceiptItemListButtonEdit";
+            this.ColumnReceivingReceiptItemListButtonEdit.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListButtonEdit.Width = 70;
+            // 
+            // ColumnReceivingReceiptItemListButtonDelete
+            // 
+            this.ColumnReceivingReceiptItemListButtonDelete.DataPropertyName = "ColumnReceivingReceiptItemListButtonDelete";
+            this.ColumnReceivingReceiptItemListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnReceivingReceiptItemListButtonDelete.HeaderText = "";
+            this.ColumnReceivingReceiptItemListButtonDelete.Name = "ColumnReceivingReceiptItemListButtonDelete";
+            this.ColumnReceivingReceiptItemListButtonDelete.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListButtonDelete.Width = 70;
+            // 
+            // ColumnReceivingReceiptItemListId
+            // 
+            this.ColumnReceivingReceiptItemListId.DataPropertyName = "ColumnReceivingReceiptItemListId";
+            this.ColumnReceivingReceiptItemListId.HeaderText = "Id";
+            this.ColumnReceivingReceiptItemListId.Name = "ColumnReceivingReceiptItemListId";
+            this.ColumnReceivingReceiptItemListId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListRRId
+            // 
+            this.ColumnReceivingReceiptItemListRRId.DataPropertyName = "ColumnReceivingReceiptItemListRRId";
+            this.ColumnReceivingReceiptItemListRRId.HeaderText = "RRId";
+            this.ColumnReceivingReceiptItemListRRId.Name = "ColumnReceivingReceiptItemListRRId";
+            this.ColumnReceivingReceiptItemListRRId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListRRId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListPOId
+            // 
+            this.ColumnReceivingReceiptItemListPOId.DataPropertyName = "ColumnReceivingReceiptItemListPOId";
+            this.ColumnReceivingReceiptItemListPOId.HeaderText = "PO Id";
+            this.ColumnReceivingReceiptItemListPOId.Name = "ColumnReceivingReceiptItemListPOId";
+            this.ColumnReceivingReceiptItemListPOId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListPOId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListPONumber
+            // 
+            this.ColumnReceivingReceiptItemListPONumber.DataPropertyName = "ColumnReceivingReceiptItemListPONumber";
+            this.ColumnReceivingReceiptItemListPONumber.HeaderText = "PO Number";
+            this.ColumnReceivingReceiptItemListPONumber.Name = "ColumnReceivingReceiptItemListPONumber";
+            this.ColumnReceivingReceiptItemListPONumber.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListPONumber.Width = 200;
+            // 
+            // ColumnReceivingReceiptItemListItemId
+            // 
+            this.ColumnReceivingReceiptItemListItemId.DataPropertyName = "ColumnReceivingReceiptItemListItemId";
+            this.ColumnReceivingReceiptItemListItemId.HeaderText = "Item Id";
+            this.ColumnReceivingReceiptItemListItemId.Name = "ColumnReceivingReceiptItemListItemId";
+            this.ColumnReceivingReceiptItemListItemId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListItemId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListItemDescription
+            // 
+            this.ColumnReceivingReceiptItemListItemDescription.DataPropertyName = "ColumnReceivingReceiptItemListItemDescription";
+            this.ColumnReceivingReceiptItemListItemDescription.HeaderText = "Item Description";
+            this.ColumnReceivingReceiptItemListItemDescription.Name = "ColumnReceivingReceiptItemListItemDescription";
+            this.ColumnReceivingReceiptItemListItemDescription.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListItemDescription.Width = 300;
+            // 
+            // ColumnReceivingReceiptItemListUnitId
+            // 
+            this.ColumnReceivingReceiptItemListUnitId.DataPropertyName = "ColumnReceivingReceiptItemListUnitId";
+            this.ColumnReceivingReceiptItemListUnitId.HeaderText = "Unit Id";
+            this.ColumnReceivingReceiptItemListUnitId.Name = "ColumnReceivingReceiptItemListUnitId";
+            this.ColumnReceivingReceiptItemListUnitId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListUnitId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListUnit
+            // 
+            this.ColumnReceivingReceiptItemListUnit.DataPropertyName = "ColumnReceivingReceiptItemListUnit";
+            this.ColumnReceivingReceiptItemListUnit.HeaderText = "Unit";
+            this.ColumnReceivingReceiptItemListUnit.Name = "ColumnReceivingReceiptItemListUnit";
+            this.ColumnReceivingReceiptItemListUnit.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListUnit.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListQuantity
+            // 
+            this.ColumnReceivingReceiptItemListQuantity.DataPropertyName = "ColumnReceivingReceiptItemListQuantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnReceivingReceiptItemListQuantity.HeaderText = "Quantity";
+            this.ColumnReceivingReceiptItemListQuantity.Name = "ColumnReceivingReceiptItemListQuantity";
+            this.ColumnReceivingReceiptItemListQuantity.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListQuantity.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListCost
+            // 
+            this.ColumnReceivingReceiptItemListCost.DataPropertyName = "ColumnReceivingReceiptItemListCost";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnReceivingReceiptItemListCost.HeaderText = "Cost";
+            this.ColumnReceivingReceiptItemListCost.Name = "ColumnReceivingReceiptItemListCost";
+            this.ColumnReceivingReceiptItemListCost.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListCost.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListAmount
+            // 
+            this.ColumnReceivingReceiptItemListAmount.DataPropertyName = "ColumnReceivingReceiptItemListAmount";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnReceivingReceiptItemListAmount.HeaderText = "Amount";
+            this.ColumnReceivingReceiptItemListAmount.Name = "ColumnReceivingReceiptItemListAmount";
+            this.ColumnReceivingReceiptItemListAmount.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListAmount.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListBranchId
+            // 
+            this.ColumnReceivingReceiptItemListBranchId.DataPropertyName = "ColumnReceivingReceiptItemListBranchId";
+            this.ColumnReceivingReceiptItemListBranchId.HeaderText = "Branch Id";
+            this.ColumnReceivingReceiptItemListBranchId.Name = "ColumnReceivingReceiptItemListBranchId";
+            this.ColumnReceivingReceiptItemListBranchId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBranchId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListBranch
+            // 
+            this.ColumnReceivingReceiptItemListBranch.DataPropertyName = "ColumnReceivingReceiptItemListBranch";
+            this.ColumnReceivingReceiptItemListBranch.HeaderText = "Branch";
+            this.ColumnReceivingReceiptItemListBranch.Name = "ColumnReceivingReceiptItemListBranch";
+            this.ColumnReceivingReceiptItemListBranch.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBranch.Width = 200;
+            // 
+            // ColumnReceivingReceiptItemListTaxId
+            // 
+            this.ColumnReceivingReceiptItemListTaxId.DataPropertyName = "ColumnReceivingReceiptItemListTaxId";
+            this.ColumnReceivingReceiptItemListTaxId.HeaderText = "Tax Id";
+            this.ColumnReceivingReceiptItemListTaxId.Name = "ColumnReceivingReceiptItemListTaxId";
+            this.ColumnReceivingReceiptItemListTaxId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTaxId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListTax
+            // 
+            this.ColumnReceivingReceiptItemListTax.DataPropertyName = "ColumnReceivingReceiptItemListTax";
+            this.ColumnReceivingReceiptItemListTax.HeaderText = "Tax";
+            this.ColumnReceivingReceiptItemListTax.Name = "ColumnReceivingReceiptItemListTax";
+            this.ColumnReceivingReceiptItemListTax.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTax.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListTaxRate
+            // 
+            this.ColumnReceivingReceiptItemListTaxRate.DataPropertyName = "ColumnReceivingReceiptItemListTaxRate";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListTaxRate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnReceivingReceiptItemListTaxRate.HeaderText = "Tax Rate";
+            this.ColumnReceivingReceiptItemListTaxRate.Name = "ColumnReceivingReceiptItemListTaxRate";
+            this.ColumnReceivingReceiptItemListTaxRate.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTaxRate.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListTaxAmount
+            // 
+            this.ColumnReceivingReceiptItemListTaxAmount.DataPropertyName = "ColumnReceivingReceiptItemListTaxAmount";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListTaxAmount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumnReceivingReceiptItemListTaxAmount.HeaderText = "Tax Amount";
+            this.ColumnReceivingReceiptItemListTaxAmount.Name = "ColumnReceivingReceiptItemListTaxAmount";
+            this.ColumnReceivingReceiptItemListTaxAmount.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTaxAmount.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListBaseQuantity
+            // 
+            this.ColumnReceivingReceiptItemListBaseQuantity.DataPropertyName = "ColumnReceivingReceiptItemListBaseQuantity";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ColumnReceivingReceiptItemListBaseQuantity.HeaderText = "Base Quantity";
+            this.ColumnReceivingReceiptItemListBaseQuantity.Name = "ColumnReceivingReceiptItemListBaseQuantity";
+            this.ColumnReceivingReceiptItemListBaseQuantity.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBaseQuantity.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListBaseCost
+            // 
+            this.ColumnReceivingReceiptItemListBaseCost.DataPropertyName = "ColumnReceivingReceiptItemListBaseCost";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListBaseCost.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ColumnReceivingReceiptItemListBaseCost.HeaderText = "Base Cost";
+            this.ColumnReceivingReceiptItemListBaseCost.Name = "ColumnReceivingReceiptItemListBaseCost";
+            this.ColumnReceivingReceiptItemListBaseCost.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBaseCost.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListSpace
+            // 
+            this.ColumnReceivingReceiptItemListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnReceivingReceiptItemListSpace.DataPropertyName = "ColumnReceivingReceiptItemListSpace";
+            this.ColumnReceivingReceiptItemListSpace.HeaderText = "";
+            this.ColumnReceivingReceiptItemListSpace.Name = "ColumnReceivingReceiptItemListSpace";
+            this.ColumnReceivingReceiptItemListSpace.ReadOnly = true;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel6);
@@ -669,6 +864,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1400, 404);
             this.tabControl1.TabIndex = 9;
+            this.tabControl1.TabStop = false;
             // 
             // tabPageReceivingReceiptItems
             // 
@@ -879,198 +1075,6 @@
             this.ColumnInventoryEntriesSpace.HeaderText = "";
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
-            // 
-            // ColumnReceivingReceiptItemListButtonEdit
-            // 
-            this.ColumnReceivingReceiptItemListButtonEdit.DataPropertyName = "ColumnReceivingReceiptItemListButtonEdit";
-            this.ColumnReceivingReceiptItemListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnReceivingReceiptItemListButtonEdit.HeaderText = "";
-            this.ColumnReceivingReceiptItemListButtonEdit.Name = "ColumnReceivingReceiptItemListButtonEdit";
-            this.ColumnReceivingReceiptItemListButtonEdit.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListButtonEdit.Width = 70;
-            // 
-            // ColumnReceivingReceiptItemListButtonDelete
-            // 
-            this.ColumnReceivingReceiptItemListButtonDelete.DataPropertyName = "ColumnReceivingReceiptItemListButtonDelete";
-            this.ColumnReceivingReceiptItemListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnReceivingReceiptItemListButtonDelete.HeaderText = "";
-            this.ColumnReceivingReceiptItemListButtonDelete.Name = "ColumnReceivingReceiptItemListButtonDelete";
-            this.ColumnReceivingReceiptItemListButtonDelete.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListButtonDelete.Width = 70;
-            // 
-            // ColumnReceivingReceiptItemListId
-            // 
-            this.ColumnReceivingReceiptItemListId.DataPropertyName = "ColumnReceivingReceiptItemListId";
-            this.ColumnReceivingReceiptItemListId.HeaderText = "Id";
-            this.ColumnReceivingReceiptItemListId.Name = "ColumnReceivingReceiptItemListId";
-            this.ColumnReceivingReceiptItemListId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListRRId
-            // 
-            this.ColumnReceivingReceiptItemListRRId.DataPropertyName = "ColumnReceivingReceiptItemListRRId";
-            this.ColumnReceivingReceiptItemListRRId.HeaderText = "RRId";
-            this.ColumnReceivingReceiptItemListRRId.Name = "ColumnReceivingReceiptItemListRRId";
-            this.ColumnReceivingReceiptItemListRRId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListRRId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListPOId
-            // 
-            this.ColumnReceivingReceiptItemListPOId.DataPropertyName = "ColumnReceivingReceiptItemListPOId";
-            this.ColumnReceivingReceiptItemListPOId.HeaderText = "PO Id";
-            this.ColumnReceivingReceiptItemListPOId.Name = "ColumnReceivingReceiptItemListPOId";
-            this.ColumnReceivingReceiptItemListPOId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListPOId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListPONumber
-            // 
-            this.ColumnReceivingReceiptItemListPONumber.DataPropertyName = "ColumnReceivingReceiptItemListPONumber";
-            this.ColumnReceivingReceiptItemListPONumber.HeaderText = "PO Number";
-            this.ColumnReceivingReceiptItemListPONumber.Name = "ColumnReceivingReceiptItemListPONumber";
-            this.ColumnReceivingReceiptItemListPONumber.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListPONumber.Width = 200;
-            // 
-            // ColumnReceivingReceiptItemListItemId
-            // 
-            this.ColumnReceivingReceiptItemListItemId.DataPropertyName = "ColumnReceivingReceiptItemListItemId";
-            this.ColumnReceivingReceiptItemListItemId.HeaderText = "Item Id";
-            this.ColumnReceivingReceiptItemListItemId.Name = "ColumnReceivingReceiptItemListItemId";
-            this.ColumnReceivingReceiptItemListItemId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListItemId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListItemDescription
-            // 
-            this.ColumnReceivingReceiptItemListItemDescription.DataPropertyName = "ColumnReceivingReceiptItemListItemDescription";
-            this.ColumnReceivingReceiptItemListItemDescription.HeaderText = "Item Description";
-            this.ColumnReceivingReceiptItemListItemDescription.Name = "ColumnReceivingReceiptItemListItemDescription";
-            this.ColumnReceivingReceiptItemListItemDescription.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListItemDescription.Width = 300;
-            // 
-            // ColumnReceivingReceiptItemListUnitId
-            // 
-            this.ColumnReceivingReceiptItemListUnitId.DataPropertyName = "ColumnReceivingReceiptItemListUnitId";
-            this.ColumnReceivingReceiptItemListUnitId.HeaderText = "Unit Id";
-            this.ColumnReceivingReceiptItemListUnitId.Name = "ColumnReceivingReceiptItemListUnitId";
-            this.ColumnReceivingReceiptItemListUnitId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListUnitId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListUnit
-            // 
-            this.ColumnReceivingReceiptItemListUnit.DataPropertyName = "ColumnReceivingReceiptItemListUnit";
-            this.ColumnReceivingReceiptItemListUnit.HeaderText = "Unit";
-            this.ColumnReceivingReceiptItemListUnit.Name = "ColumnReceivingReceiptItemListUnit";
-            this.ColumnReceivingReceiptItemListUnit.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListUnit.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListQuantity
-            // 
-            this.ColumnReceivingReceiptItemListQuantity.DataPropertyName = "ColumnReceivingReceiptItemListQuantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnReceivingReceiptItemListQuantity.HeaderText = "Quantity";
-            this.ColumnReceivingReceiptItemListQuantity.Name = "ColumnReceivingReceiptItemListQuantity";
-            this.ColumnReceivingReceiptItemListQuantity.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListQuantity.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListCost
-            // 
-            this.ColumnReceivingReceiptItemListCost.DataPropertyName = "ColumnReceivingReceiptItemListCost";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListCost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnReceivingReceiptItemListCost.HeaderText = "Cost";
-            this.ColumnReceivingReceiptItemListCost.Name = "ColumnReceivingReceiptItemListCost";
-            this.ColumnReceivingReceiptItemListCost.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListCost.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListAmount
-            // 
-            this.ColumnReceivingReceiptItemListAmount.DataPropertyName = "ColumnReceivingReceiptItemListAmount";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnReceivingReceiptItemListAmount.HeaderText = "Amount";
-            this.ColumnReceivingReceiptItemListAmount.Name = "ColumnReceivingReceiptItemListAmount";
-            this.ColumnReceivingReceiptItemListAmount.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListAmount.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListBranchId
-            // 
-            this.ColumnReceivingReceiptItemListBranchId.DataPropertyName = "ColumnReceivingReceiptItemListBranchId";
-            this.ColumnReceivingReceiptItemListBranchId.HeaderText = "Branch Id";
-            this.ColumnReceivingReceiptItemListBranchId.Name = "ColumnReceivingReceiptItemListBranchId";
-            this.ColumnReceivingReceiptItemListBranchId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBranchId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListBranch
-            // 
-            this.ColumnReceivingReceiptItemListBranch.DataPropertyName = "ColumnReceivingReceiptItemListBranch";
-            this.ColumnReceivingReceiptItemListBranch.HeaderText = "Branch";
-            this.ColumnReceivingReceiptItemListBranch.Name = "ColumnReceivingReceiptItemListBranch";
-            this.ColumnReceivingReceiptItemListBranch.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBranch.Width = 200;
-            // 
-            // ColumnReceivingReceiptItemListTaxId
-            // 
-            this.ColumnReceivingReceiptItemListTaxId.DataPropertyName = "ColumnReceivingReceiptItemListTaxId";
-            this.ColumnReceivingReceiptItemListTaxId.HeaderText = "Tax Id";
-            this.ColumnReceivingReceiptItemListTaxId.Name = "ColumnReceivingReceiptItemListTaxId";
-            this.ColumnReceivingReceiptItemListTaxId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTaxId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListTax
-            // 
-            this.ColumnReceivingReceiptItemListTax.DataPropertyName = "ColumnReceivingReceiptItemListTax";
-            this.ColumnReceivingReceiptItemListTax.HeaderText = "Tax";
-            this.ColumnReceivingReceiptItemListTax.Name = "ColumnReceivingReceiptItemListTax";
-            this.ColumnReceivingReceiptItemListTax.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTax.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListTaxRate
-            // 
-            this.ColumnReceivingReceiptItemListTaxRate.DataPropertyName = "ColumnReceivingReceiptItemListTaxRate";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListTaxRate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnReceivingReceiptItemListTaxRate.HeaderText = "Tax Rate";
-            this.ColumnReceivingReceiptItemListTaxRate.Name = "ColumnReceivingReceiptItemListTaxRate";
-            this.ColumnReceivingReceiptItemListTaxRate.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTaxRate.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListTaxAmount
-            // 
-            this.ColumnReceivingReceiptItemListTaxAmount.DataPropertyName = "ColumnReceivingReceiptItemListTaxAmount";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListTaxAmount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnReceivingReceiptItemListTaxAmount.HeaderText = "Tax Amount";
-            this.ColumnReceivingReceiptItemListTaxAmount.Name = "ColumnReceivingReceiptItemListTaxAmount";
-            this.ColumnReceivingReceiptItemListTaxAmount.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTaxAmount.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListBaseQuantity
-            // 
-            this.ColumnReceivingReceiptItemListBaseQuantity.DataPropertyName = "ColumnReceivingReceiptItemListBaseQuantity";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ColumnReceivingReceiptItemListBaseQuantity.HeaderText = "Base Quantity";
-            this.ColumnReceivingReceiptItemListBaseQuantity.Name = "ColumnReceivingReceiptItemListBaseQuantity";
-            this.ColumnReceivingReceiptItemListBaseQuantity.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBaseQuantity.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListBaseCost
-            // 
-            this.ColumnReceivingReceiptItemListBaseCost.DataPropertyName = "ColumnReceivingReceiptItemListBaseCost";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListBaseCost.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ColumnReceivingReceiptItemListBaseCost.HeaderText = "Base Cost";
-            this.ColumnReceivingReceiptItemListBaseCost.Name = "ColumnReceivingReceiptItemListBaseCost";
-            this.ColumnReceivingReceiptItemListBaseCost.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBaseCost.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListSpace
-            // 
-            this.ColumnReceivingReceiptItemListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnReceivingReceiptItemListSpace.DataPropertyName = "ColumnReceivingReceiptItemListSpace";
-            this.ColumnReceivingReceiptItemListSpace.HeaderText = "";
-            this.ColumnReceivingReceiptItemListSpace.Name = "ColumnReceivingReceiptItemListSpace";
-            this.ColumnReceivingReceiptItemListSpace.ReadOnly = true;
             // 
             // TrnReceivingReceiptDetailForm
             // 

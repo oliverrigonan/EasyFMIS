@@ -197,7 +197,7 @@
             this.textBoxStartDate.Name = "textBoxStartDate";
             this.textBoxStartDate.ReadOnly = true;
             this.textBoxStartDate.Size = new System.Drawing.Size(149, 30);
-            this.textBoxStartDate.TabIndex = 33;
+            this.textBoxStartDate.TabIndex = 0;
             // 
             // textBoxEndDate
             // 
@@ -206,7 +206,7 @@
             this.textBoxEndDate.Name = "textBoxEndDate";
             this.textBoxEndDate.ReadOnly = true;
             this.textBoxEndDate.Size = new System.Drawing.Size(149, 30);
-            this.textBoxEndDate.TabIndex = 35;
+            this.textBoxEndDate.TabIndex = 1;
             // 
             // label5
             // 
@@ -235,7 +235,7 @@
             this.textBoxCompany.Name = "textBoxCompany";
             this.textBoxCompany.ReadOnly = true;
             this.textBoxCompany.Size = new System.Drawing.Size(363, 30);
-            this.textBoxCompany.TabIndex = 29;
+            this.textBoxCompany.TabIndex = 2;
             // 
             // label2
             // 
@@ -264,7 +264,7 @@
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(336, 30);
-            this.textBoxBranch.TabIndex = 31;
+            this.textBoxBranch.TabIndex = 3;
             // 
             // dataGridViewInventoryReport
             // 
@@ -411,7 +411,7 @@
             this.buttonGenerateCSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGenerateCSV.Name = "buttonGenerateCSV";
             this.buttonGenerateCSV.Size = new System.Drawing.Size(88, 40);
-            this.buttonGenerateCSV.TabIndex = 5;
+            this.buttonGenerateCSV.TabIndex = 20;
             this.buttonGenerateCSV.TabStop = false;
             this.buttonGenerateCSV.Text = "CSV";
             this.buttonGenerateCSV.UseVisualStyleBackColor = false;
@@ -452,7 +452,7 @@
             this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_OnClick);
