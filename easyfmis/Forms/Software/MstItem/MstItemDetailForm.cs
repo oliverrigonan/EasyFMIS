@@ -18,6 +18,9 @@ namespace easyfmis.Forms.Software.MstItem
         public MstItemListForm mstItemListForm;
         public Entities.MstArticleEntity mstItemEntity;
 
+        public List<Entities.MstArticlePriceEntity> mstArticlePriceEntity;
+        public List<Entities.MstArticleUnitEntity> mstArticleUnitEntities;
+
         public MstItemDetailForm(SysSoftwareForm softwareForm, MstItemListForm itemListForm, Entities.MstArticleEntity itemEntity)
         {
             InitializeComponent();
@@ -158,35 +161,43 @@ namespace easyfmis.Forms.Software.MstItem
 
         private void buttonLock_Click(object sender, EventArgs e)
         {
-            Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
-
-            mstItemEntity.ArticleCode = textBoxItemCode.Text;
-            mstItemEntity.ArticleBarCode = textBoxBarcode.Text;
-            mstItemEntity.Article = textBoxDescription.Text;
-            mstItemEntity.ArticleAlias = textBoxAlias.Text;
-            mstItemEntity.Category = textBoxCategory.Text;
-            mstItemEntity.VATInTaxId = Convert.ToInt32(comboBoxVATInTax.SelectedValue);
-            mstItemEntity.VATOutTaxId = Convert.ToInt32(comboBoxVATOutTax.SelectedValue);
-            mstItemEntity.UnitId = Convert.ToInt32(comboBoxUnit.SelectedValue);
-            mstItemEntity.DefaultSupplierId = Convert.ToInt32(comboBoxDefaultSupplier.SelectedValue);
-            mstItemEntity.DefaultCost = Convert.ToDecimal(textBoxCost.Text);
-            mstItemEntity.DefaultPrice = Convert.ToDecimal(textBoxPrice.Text);
-            mstItemEntity.ReorderQuantity = Convert.ToDecimal(textBoxReorderQuantity.Text);
-            mstItemEntity.IsInventory = checkBoxIsInventory.Checked;
-            mstItemEntity.GenericArticleName = textBoxGenericName.Text;
-            mstItemEntity.Remarks = textBoxRemarks.Text;
-
-            String[] lockItem = mstItemController.LockArticle(mstItemEntity);
-            if (lockItem[1].Equals("0") == false)
+            if (mstArticlePriceEntity.Count > 0 && mstArticleUnitEntities.Count > 0)
             {
-                UpdateComponents(true);
-                mstItemListForm.UpdateItemListDataSource();
+                Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
+
+                mstItemEntity.ArticleCode = textBoxItemCode.Text;
+                mstItemEntity.ArticleBarCode = textBoxBarcode.Text;
+                mstItemEntity.Article = textBoxDescription.Text;
+                mstItemEntity.ArticleAlias = textBoxAlias.Text;
+                mstItemEntity.Category = textBoxCategory.Text;
+                mstItemEntity.VATInTaxId = Convert.ToInt32(comboBoxVATInTax.SelectedValue);
+                mstItemEntity.VATOutTaxId = Convert.ToInt32(comboBoxVATOutTax.SelectedValue);
+                mstItemEntity.UnitId = Convert.ToInt32(comboBoxUnit.SelectedValue);
+                mstItemEntity.DefaultSupplierId = Convert.ToInt32(comboBoxDefaultSupplier.SelectedValue);
+                mstItemEntity.DefaultCost = Convert.ToDecimal(textBoxCost.Text);
+                mstItemEntity.DefaultPrice = Convert.ToDecimal(textBoxPrice.Text);
+                mstItemEntity.ReorderQuantity = Convert.ToDecimal(textBoxReorderQuantity.Text);
+                mstItemEntity.IsInventory = checkBoxIsInventory.Checked;
+                mstItemEntity.GenericArticleName = textBoxGenericName.Text;
+                mstItemEntity.Remarks = textBoxRemarks.Text;
+
+                String[] lockItem = mstItemController.LockArticle(mstItemEntity);
+                if (lockItem[1].Equals("0") == false)
+                {
+                    UpdateComponents(true);
+                    mstItemListForm.UpdateItemListDataSource();
+                }
+                else
+                {
+                    UpdateComponents(false);
+                    MessageBox.Show(lockItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                UpdateComponents(false);
-                MessageBox.Show(lockItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No Unit or Price!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void buttonUnlock_Click(object sender, EventArgs e)
@@ -289,6 +300,9 @@ namespace easyfmis.Forms.Software.MstItem
         public static Int32 pageSize = 50;
         public static Int32 pageNumber = 1;
 
+
+
+
         public static List<Entities.DgvItemUnitEntity> itemUnitConversionListData = new List<Entities.DgvItemUnitEntity>();
         public PagedList<Entities.DgvItemUnitEntity> itemUnitConversionPageList = new PagedList<Entities.DgvItemUnitEntity>(itemUnitConversionListData, pageNumber, pageSize);
         public BindingSource itemUnitConversionListDataSource = new BindingSource();
@@ -297,6 +311,7 @@ namespace easyfmis.Forms.Software.MstItem
         {
             Controllers.MstArticleUnitController mstArticleUnitController = new Controllers.MstArticleUnitController();
             List<Entities.MstArticleUnitEntity> listArticleUnit = mstArticleUnitController.ListArticleList(mstItemEntity.Id);
+            mstArticleUnitEntities = listArticleUnit;
             if (listArticleUnit.Any())
             {
                 var itemPrices = from d in listArticleUnit
@@ -307,6 +322,7 @@ namespace easyfmis.Forms.Software.MstItem
                                      ColumnArtilceUnitListId = d.Id,
                                      ColumnArtilceUnitListArticleId = d.ArticleId,
                                      ColumnArtilceUnitListBaseUnitMultiplier = d.BaseUnitMultiplier.ToString("#,##0.00"),
+                                     ColumnArtilceUnitListBaseUnit = d.BaseUnit,
                                      ColumnArtilceUnitListUnitMultiplier = d.UnitMultiplier.ToString("#,##0.00"),
                                      ColumnItemUnitConversionListUnitId = d.UnitId,
                                      ColumnArtilceUnitListUnit = d.Unit
@@ -465,7 +481,7 @@ namespace easyfmis.Forms.Software.MstItem
 
         private void buttonAddUnitConvertion_Click(object sender, EventArgs e)
         {
-            MstArticleUnitDetailForm mstArticleUnitDetailForm = new MstArticleUnitDetailForm(this, null, mstItemEntity.Id);
+            MstArticleUnitDetailForm mstArticleUnitDetailForm = new MstArticleUnitDetailForm(this, null, mstItemEntity);
             mstArticleUnitDetailForm.ShowDialog();
         }
 
@@ -487,7 +503,7 @@ namespace easyfmis.Forms.Software.MstItem
                     UnitId = Convert.ToInt32(dataGridViewUnitConversion.Rows[e.RowIndex].Cells[dataGridViewUnitConversion.Columns["ColumnItemUnitConversionListUnitId"].Index].Value)
                 };
 
-                MstArticleUnitDetailForm mstArticleUnitDetailForm = new MstArticleUnitDetailForm(this, selectedArticleUnit, selectedArticleUnit.ArticleId);
+                MstArticleUnitDetailForm mstArticleUnitDetailForm = new MstArticleUnitDetailForm(this, selectedArticleUnit, mstItemEntity);
                 mstArticleUnitDetailForm.ShowDialog();
             }
 
@@ -593,6 +609,7 @@ namespace easyfmis.Forms.Software.MstItem
         {
             Controllers.MstArticlePriceController mstItemPriceController = new Controllers.MstArticlePriceController();
             List<Entities.MstArticlePriceEntity> listItemPrice = mstItemPriceController.ListItemPrice(mstItemEntity.Id);
+            mstArticlePriceEntity = listItemPrice;
             if (listItemPrice.Any())
             {
                 var itemPrices = from d in listItemPrice
@@ -782,6 +799,7 @@ namespace easyfmis.Forms.Software.MstItem
             MstArticleComponentForm mstArticleComponentForm = new MstArticleComponentForm(this, newItemComponent);
             mstArticleComponentForm.ShowDialog();
         }
+
 
         public Task<List<Entities.DgvItemComponentEntity>> GetItemComponentListDataTask()
         {

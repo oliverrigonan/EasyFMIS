@@ -14,7 +14,7 @@ namespace easyfmis.Controllers
         public Data.easyfmisdbDataContext db = new Data.easyfmisdbDataContext(Modules.SysConnectionStringModule.GetConnectionString());
 
         // =============
-        // List Stock-In 
+        // List Sales Order Item 
         // =============
         public List<Entities.TrnSalesOrderItemEntity> ListSalesOrderItem(Int32 sOId)
         {
@@ -64,12 +64,13 @@ namespace easyfmis.Controllers
                         {
                             Id = d.Id,
                             ArticleCode = d.ArticleCode,
-                            ArticleBarCode = d.ArticleBarCode,
                             Article = d.Article,
                             Category = d.Category,
                             UnitId = d.UnitId,
                             Unit = d.MstUnit.Unit,
-                            DefaultPrice = d.DefaultPrice
+                            DefaultPrice = d.DefaultPrice,
+                            VATOutTaxId = d.VATOutTaxId,
+                            VATOutTaxRate = d.MstTax1.Rate
                         };
 
             return items.OrderBy(d => d.Article).ToList();
@@ -219,13 +220,17 @@ namespace easyfmis.Controllers
                     return new String[] { "Item not found.", "0" };
                 }
 
+                Int32? ItemInventoryId;
                 var itemInventory = from d in db.MstArticleInventories
                                     where d.Id == objSalesOrderItem.ItemInventoryId
                                     select d;
 
-                if (itemInventory.Any() == false)
+                if (itemInventory.Any())
                 {
-                    return new String[] { "Inventory code not found.", "0" };
+                    ItemInventoryId = itemInventory.FirstOrDefault().Id;
+                }
+                else {
+                    ItemInventoryId = null;
                 }
 
                 var conversionUnit = from d in db.MstArticleUnits
@@ -255,7 +260,7 @@ namespace easyfmis.Controllers
                 {
                     SOId = objSalesOrderItem.SOId,
                     ItemId = objSalesOrderItem.ItemId,
-                    ItemInventoryId = objSalesOrderItem.ItemInventoryId,
+                    ItemInventoryId = ItemInventoryId,
                     UnitId = objSalesOrderItem.UnitId,
                     Price = objSalesOrderItem.Price,
                     DiscountId = objSalesOrderItem.DiscountId,
@@ -411,5 +416,7 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
+
+
     }
 }

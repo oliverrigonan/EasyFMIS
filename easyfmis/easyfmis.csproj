@@ -119,6 +119,7 @@
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceItemEntity.cs" />
+    <Compile Include="Entities\DgvSalesInvoiceItemEntitySalesOrderitemEntity.cs" />
     <Compile Include="Entities\DgvSearchPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvSearchNonInventoryItemEntity.cs" />
     <Compile Include="Entities\DgvDisbursementEntity.cs" />

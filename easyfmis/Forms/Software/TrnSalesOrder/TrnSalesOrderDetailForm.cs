@@ -294,7 +294,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             dataGridViewSalesOrderItem.DataSource = salesOrderItemDataSource;
         }
 
-        public void GetStockOutItemCurrentSelectedCell(Int32 rowIndex)
+        public void GetSalesOrderItemCurrentSelectedCell(Int32 rowIndex)
         {
 
         }
@@ -303,7 +303,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
         {
             if (e.RowIndex > -1)
             {
-                GetStockOutItemCurrentSelectedCell(e.RowIndex);
+                GetSalesOrderItemCurrentSelectedCell(e.RowIndex);
             }
 
             if (e.RowIndex > -1 && dataGridViewSalesOrderItem.CurrentCell.ColumnIndex == dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListButtonEdit"].Index)

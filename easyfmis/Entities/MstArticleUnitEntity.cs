@@ -11,6 +11,7 @@ namespace easyfmis.Entities
         public Int32 Id { get; set; }
         public Int32 ArticleId { get; set; }
         public Decimal BaseUnitMultiplier { get; set; }
+        public String BaseUnit { get; set; }
         public Decimal UnitMultiplier { get; set; }
         public Int32 UnitId { get; set; }
         public String Unit { get; set; }

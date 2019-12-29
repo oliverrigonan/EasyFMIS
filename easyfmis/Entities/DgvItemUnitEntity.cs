@@ -12,6 +12,8 @@ namespace easyfmis.Entities
         public String ColumnItemArtilceUnitButtonDelete { get; set; }
         public Int32 ColumnArtilceUnitListId { get; set; }
         public Int32 ColumnArtilceUnitListArticleId { get; set; }
+        public String ColumnArtilceUnitListBaseUnit { get; set; }
+        public String ColumnArtilceUnitListEquals { get; set; }
         public String ColumnArtilceUnitListBaseUnitMultiplier { get; set; }
         public String ColumnArtilceUnitListUnitMultiplier { get; set; }
         public Int32 ColumnItemUnitConversionListUnitId { get; set; }
