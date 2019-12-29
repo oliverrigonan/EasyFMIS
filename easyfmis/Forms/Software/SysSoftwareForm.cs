@@ -17,17 +17,28 @@ namespace easyfmis.Forms.Software
             InitializeComponent();
             InitializeDefaultForm();
 
+            GetUserDetail();
+            panelSidebarMenu.Visible = false;
+        }
+
+        public void GetUserDetail()
+        {
             var current = Modules.SysCurrentModule.GetCurrentSettings();
 
             Controllers.MstUserController userController = new Controllers.MstUserController();
             var currentUserDetail = userController.DetailUser(Convert.ToInt32(current.CurrentUserId));
-
             if (currentUserDetail != null)
             {
                 labelCurrentUserCompanyBranch.Text = "  User: " + currentUserDetail.UserName + "   Company: " + currentUserDetail.Company + "   Branch: " + currentUserDetail.Branch;
             }
+        }
 
-            panelSidebarMenu.Visible = false;
+        public void ClearTabPages()
+        {
+            tabControlSoftware.TabPages.Clear();
+
+            tabControlSoftware.TabPages.Add(tabPageSysMenu);
+            tabControlSoftware.SelectTab(tabPageSysMenu);
         }
 
         // =========
@@ -1253,6 +1264,12 @@ namespace easyfmis.Forms.Software
         private void activityToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void changeBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SysSoftwareChangeBranchForm sysSoftwareChangeBranchForm = new SysSoftwareChangeBranchForm(this);
+            sysSoftwareChangeBranchForm.ShowDialog();
         }
     }
 }

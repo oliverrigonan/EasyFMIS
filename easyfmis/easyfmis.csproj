@@ -343,6 +343,12 @@
     <Compile Include="Forms\Software\SysMenu\SysMenuForm.Designer.cs">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\SysSoftwareChangeBranchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSoftwareChangeBranchForm.Designer.cs">
+      <DependentUpon>SysSoftwareChangeBranchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -667,6 +673,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysMenu\SysMenuForm.resx">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSoftwareChangeBranchForm.resx">
+      <DependentUpon>SysSoftwareChangeBranchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
