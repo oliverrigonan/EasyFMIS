@@ -79,6 +79,8 @@
     <Compile Include="Controllers\MstCompanyController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\MstUserFormController.cs" />
+    <Compile Include="Controllers\RepAccountsReceivableReportController.cs" />
+    <Compile Include="Controllers\RepAccountsPayableReportController.cs" />
     <Compile Include="Controllers\RepInventoryReportController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
@@ -116,6 +118,8 @@
     <Compile Include="Entities\DgvReceivingReceiptEntity.cs" />
     <Compile Include="Entities\DgvPurchaseOrderEntity.cs" />
     <Compile Include="Entities\DgvReceivingReceiptItemEntity.cs" />
+    <Compile Include="Entities\DgvRepAccountsReceivableReportEntity.cs" />
+    <Compile Include="Entities\DgvRepAccountsPayableReportEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceItemEntity.cs" />
@@ -161,8 +165,10 @@
     <Compile Include="Entities\MstUnitEntity.cs" />
     <Compile Include="Entities\MstUserEntity.cs" />
     <Compile Include="Entities\MstUserFormEntity.cs" />
-    <Compile Include="Entities\RepInventoryReportStockCard.cs" />
-    <Compile Include="Entities\RepInventoryReport.cs" />
+    <Compile Include="Entities\RepAccountsPayableEntity.cs" />
+    <Compile Include="Entities\RepAccountsReceivableEntity.cs" />
+    <Compile Include="Entities\RepInventoryReportStockCardEntity.cs" />
+    <Compile Include="Entities\RepInventoryReportEntity.cs" />
     <Compile Include="Entities\SysConnectionStringEntity.cs" />
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
@@ -275,6 +281,30 @@
     </Compile>
     <Compile Include="Forms\Software\MstUser\MstUserListForm.designer.cs">
       <DependentUpon>MstUserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportForm.designer.cs">
+      <DependentUpon>RepAccountsPayableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.designer.cs">
+      <DependentUpon>RepAccountsPayableReportAccountsPayableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.designer.cs">
+      <DependentUpon>RepAccountsReceivableReportAccountsReceivableReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.designer.cs">
+      <DependentUpon>RepAccountsReceivableReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.cs">
       <SubType>Form</SubType>
@@ -594,6 +624,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstUser\MstUserListForm.resx">
       <DependentUpon>MstUserListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportForm.resx">
+      <DependentUpon>RepAccountsPayableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.resx">
+      <DependentUpon>RepAccountsPayableReportAccountsPayableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.resx">
+      <DependentUpon>RepAccountsReceivableReportAccountsReceivableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.resx">
+      <DependentUpon>RepAccountsReceivableReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportForm.resx">
       <DependentUpon>RepInventoryReportForm.cs</DependentUpon>

@@ -48,7 +48,6 @@ namespace easyfmis.Forms.Software.SysMenu
         private void buttonUser_Click(object sender, EventArgs e)
         {
             sysSoftwareForm.AddTabPageUserList();
-
         }
 
         private void buttonCompany_Click(object sender, EventArgs e)
@@ -94,6 +93,16 @@ namespace easyfmis.Forms.Software.SysMenu
         private void buttonSystemTables_Click(object sender, EventArgs e)
         {
             sysSoftwareForm.AddTabPageSystemTables();
+        }
+
+        private void buttonAccountsPayableReport_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageAccountsPayableReport();
+        }
+
+        private void buttonAccountsReceivableReport_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageAccountsReceivableReport();
         }
     }
 }

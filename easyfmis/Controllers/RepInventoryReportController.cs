@@ -63,13 +63,13 @@ namespace easyfmis.Controllers
         // =====================
         // List Inventory Report
         // =====================
-        public List<Entities.RepInventoryReport> ListInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        public List<Entities.RepInventoryReportEntity> ListInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
         {
             var beginningInventories = from d in db.TrnInventories
                                        where d.InventoryDate < startDate
                                        && d.MstBranch.CompanyId == companyId
                                        && d.BranchId == branchId
-                                       select new Entities.RepInventoryReport
+                                       select new Entities.RepInventoryReportEntity
                                        {
                                            BarCode = d.MstArticle.ArticleBarCode,
                                            ItemDescription = d.MstArticle.Article,
@@ -88,7 +88,7 @@ namespace easyfmis.Controllers
                                      && d.InventoryDate <= endDate
                                      && d.MstBranch.CompanyId == companyId
                                      && d.BranchId == branchId
-                                     select new Entities.RepInventoryReport
+                                     select new Entities.RepInventoryReportEntity
                                      {
                                          BarCode = d.MstArticle.ArticleBarCode,
                                          ItemDescription = d.MstArticle.Article,
@@ -115,7 +115,7 @@ namespace easyfmis.Controllers
                                              d.Cost
                                          }
                                          into g
-                                         select new Entities.RepInventoryReport
+                                         select new Entities.RepInventoryReportEntity
                                          {
                                              BarCode = g.Key.BarCode,
                                              ItemDescription = g.Key.ItemDescription,
@@ -135,19 +135,19 @@ namespace easyfmis.Controllers
                 }
                 else
                 {
-                    return new List<Entities.RepInventoryReport>();
+                    return new List<Entities.RepInventoryReportEntity>();
                 }
             }
             else
             {
-                return new List<Entities.RepInventoryReport>();
+                return new List<Entities.RepInventoryReportEntity>();
             }
         }
 
         // ================================
         // List Stock Card Inventory Report
         // ================================
-        public List<Entities.RepInventoryReportStockCard> ListStockCardInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, Int32 itemId)
+        public List<Entities.RepInventoryReportStockCardEntity> ListStockCardInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, Int32 itemId)
         {
             var beginningInventories = from d in db.TrnInventories
                                        where d.InventoryDate < startDate
@@ -172,7 +172,7 @@ namespace easyfmis.Controllers
                                                   d.Cost
                                               }
                                               into g
-                                              select new Entities.RepInventoryReportStockCard
+                                              select new Entities.RepInventoryReportStockCardEntity
                                               {
                                                   Document = g.Key.Document,
                                                   InventoryDate = g.Key.InventoryDate,
@@ -191,7 +191,7 @@ namespace easyfmis.Controllers
                                      && d.MstBranch.CompanyId == companyId
                                      && d.BranchId == branchId
                                      && d.ItemId == itemId
-                                     select new Entities.RepInventoryReportStockCard
+                                     select new Entities.RepInventoryReportStockCardEntity
                                      {
                                          Document = d.SIId != null ? "SI-" + d.TrnSalesInvoice.MstBranch.BranchCode + "-" + d.TrnSalesInvoice.SINumber :
                                                     d.INId != null ? "IN-" + d.TrnStockIn.MstBranch.BranchCode + "-" + d.TrnStockIn.INNumber :
@@ -207,14 +207,14 @@ namespace easyfmis.Controllers
                                          Amount = d.MstArticleInventory.Cost1 * d.Quantity
                                      };
 
-            List<Entities.RepInventoryReportStockCard> stockCard = new List<Entities.RepInventoryReportStockCard>();
+            List<Entities.RepInventoryReportStockCardEntity> stockCard = new List<Entities.RepInventoryReportStockCardEntity>();
             Decimal runningQuantity = 0;
 
             if (groupedBeginningInventories.ToList().Any())
             {
                 foreach (var groupedBeginningInventory in groupedBeginningInventories)
                 {
-                    stockCard.Add(new Entities.RepInventoryReportStockCard()
+                    stockCard.Add(new Entities.RepInventoryReportStockCardEntity()
                     {
                         Document = groupedBeginningInventory.Document,
                         InventoryDate = groupedBeginningInventory.InventoryDate,
@@ -237,7 +237,7 @@ namespace easyfmis.Controllers
                 {
                     runningQuantity = currentInventory.InQuantity - currentInventory.OutQuantity;
 
-                    stockCard.Add(new Entities.RepInventoryReportStockCard()
+                    stockCard.Add(new Entities.RepInventoryReportStockCardEntity()
                     {
                         Document = currentInventory.Document,
                         InventoryDate = currentInventory.InventoryDate,
