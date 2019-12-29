@@ -222,6 +222,21 @@ namespace easyfmis.Controllers
                 db.TrnReceivingReceiptItems.InsertOnSubmit(newReceivingReceiptItem);
                 db.SubmitChanges();
 
+                Decimal amount = 0;
+                var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                            where d.RRId == receivingReceipt.FirstOrDefault().Id
+                                            select d;
+
+                if (receivingReceiptItems.Any())
+                {
+                    amount = receivingReceiptItems.Sum(d => d.Amount);
+                }
+
+                var updateReceivingReceipt = receivingReceipt.FirstOrDefault();
+                updateReceivingReceipt.Amount = amount;
+                updateReceivingReceipt.BalanceAmount = amount;
+                db.SubmitChanges();
+
                 return new String[] { "", "1" };
             }
             catch (Exception e)
@@ -295,7 +310,21 @@ namespace easyfmis.Controllers
                     updateReceivingReceiptItem.BranchId = objReceivingReceiptItem.BranchId;
                     updateReceivingReceiptItem.BaseQuantity = baseQuantity;
                     updateReceivingReceiptItem.BaseCost = baseCost;
+                    db.SubmitChanges();
 
+                    Decimal amount = 0;
+                    var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                                where d.RRId == receivingReceipt.FirstOrDefault().Id
+                                                select d;
+
+                    if (receivingReceiptItems.Any())
+                    {
+                        amount = receivingReceiptItems.Sum(d => d.Amount);
+                    }
+
+                    var updateReceivingReceipt = receivingReceipt.FirstOrDefault();
+                    updateReceivingReceipt.Amount = amount;
+                    updateReceivingReceipt.BalanceAmount = amount;
                     db.SubmitChanges();
 
                     return new String[] { "", "1" };
@@ -324,9 +353,33 @@ namespace easyfmis.Controllers
 
                 if (receivingReceiptItem.Any())
                 {
+                    Int32 RRId = receivingReceiptItem.FirstOrDefault().RRId;
+
                     var deleteReceivingReceiptItem = receivingReceiptItem.FirstOrDefault();
                     db.TrnReceivingReceiptItems.DeleteOnSubmit(deleteReceivingReceiptItem);
                     db.SubmitChanges();
+
+                    var receivingReceipt = from d in db.TrnReceivingReceipts
+                                           where d.Id == RRId
+                                           select d;
+
+                    if (receivingReceipt.Any())
+                    {
+                        Decimal amount = 0;
+                        var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                                    where d.RRId == receivingReceipt.FirstOrDefault().Id
+                                                    select d;
+
+                        if (receivingReceiptItems.Any())
+                        {
+                            amount = receivingReceiptItems.Sum(d => d.Amount);
+                        }
+
+                        var updateReceivingReceipt = receivingReceipt.FirstOrDefault();
+                        updateReceivingReceipt.Amount = amount;
+                        updateReceivingReceipt.BalanceAmount = amount;
+                        db.SubmitChanges();
+                    }
 
                     return new String[] { "", "1" };
                 }

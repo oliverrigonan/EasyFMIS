@@ -106,6 +106,7 @@ namespace easyfmis.Forms.Software.TrnCollection
                                 ColumnCollectionId = d.Id,
                                 ColumnCollectionORDate = d.ORDate.ToShortDateString(),
                                 ColumnCollectionORNumber = d.ORNumber,
+                                ColumnCollectionCustomer = d.Customer,
                                 ColumnCollectionRemarks = d.Remarks,
                                 ColumnCollectionIsLocked = d.IsLocked,
                                 ColumnCollectionSpace = ""

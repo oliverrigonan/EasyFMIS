@@ -47,6 +47,7 @@ namespace easyfmis.Controllers
                                        Id = d.Id,
                                        RRNumber = d.RRNumber
                                    };
+
             return receivingReceipt.OrderByDescending(d => d.Id).ToList();
         }
 
@@ -90,30 +91,40 @@ namespace easyfmis.Controllers
                     return new String[] { "Article group not found.", "0" };
                 }
 
-                Int32? rRId;
+                Int32? RRId = null;
                 var receiveReceipt = from d in db.TrnReceivingReceipts
                                      where d.Id == objDisbursementLine.RRId
                                      select d;
 
                 if (receiveReceipt.Any())
                 {
-                    rRId = receiveReceipt.FirstOrDefault().Id;
-                }
-                else
-                {
-                    rRId = null;
+                    RRId = receiveReceipt.FirstOrDefault().Id;
                 }
 
                 Data.TrnDisbursementLine newDisbursementLine = new Data.TrnDisbursementLine
                 {
                     CVId = objDisbursementLine.CVId,
                     ArticleGroupId = articleGroup.FirstOrDefault().Id,
-                    RRId = rRId,
+                    RRId = RRId,
                     Amount = objDisbursementLine.Amount,
                     OtherInformation = objDisbursementLine.OtherInformation
                 };
 
                 db.TrnDisbursementLines.InsertOnSubmit(newDisbursementLine);
+                db.SubmitChanges();
+
+                Decimal amount = 0;
+                var disbursementLines = from d in db.TrnDisbursementLines
+                                        where d.CVId == disbursement.FirstOrDefault().Id
+                                        select d;
+
+                if (disbursementLines.Any())
+                {
+                    amount = disbursementLines.Sum(d => d.Amount);
+                }
+
+                var updateDisbursement = disbursement.FirstOrDefault();
+                updateDisbursement.Amount = amount;
                 db.SubmitChanges();
 
                 return new String[] { "", "1" };
@@ -154,25 +165,35 @@ namespace easyfmis.Controllers
                         return new String[] { "Article group not found.", "0" };
                     }
 
-                    Int32? rRId;
+                    Int32? RRId = null;
                     var receiveReceipt = from d in db.TrnReceivingReceipts
                                          where d.Id == objDisbursementLine.RRId
                                          select d;
+
                     if (receiveReceipt.Any())
                     {
-                        rRId = receiveReceipt.FirstOrDefault().Id;
-                    }
-                    else
-                    {
-                        rRId = null;
+                        RRId = receiveReceipt.FirstOrDefault().Id;
                     }
 
                     var updateDisbursementLine = disbursementLine.FirstOrDefault();
-
                     updateDisbursementLine.ArticleGroupId = articleGroup.FirstOrDefault().Id;
-                    updateDisbursementLine.RRId = rRId;
+                    updateDisbursementLine.RRId = RRId;
                     updateDisbursementLine.Amount = objDisbursementLine.Amount;
                     updateDisbursementLine.OtherInformation = objDisbursementLine.OtherInformation;
+                    db.SubmitChanges();
+
+                    Decimal amount = 0;
+                    var disbursementLines = from d in db.TrnDisbursementLines
+                                            where d.CVId == disbursement.FirstOrDefault().Id
+                                            select d;
+
+                    if (disbursementLines.Any())
+                    {
+                        amount = disbursementLines.Sum(d => d.Amount);
+                    }
+
+                    var updateDisbursement = disbursement.FirstOrDefault();
+                    updateDisbursement.Amount = amount;
                     db.SubmitChanges();
 
                     return new String[] { "", "1" };
@@ -202,9 +223,32 @@ namespace easyfmis.Controllers
 
                 if (disbursementLine.Any())
                 {
+                    Int32 CVId = disbursementLine.FirstOrDefault().CVId;
+
                     var deleteDisbursementLine = disbursementLine.FirstOrDefault();
                     db.TrnDisbursementLines.DeleteOnSubmit(deleteDisbursementLine);
                     db.SubmitChanges();
+
+                    var disbursement = from d in db.TrnDisbursements
+                                       where d.Id == CVId
+                                       select d;
+
+                    if (disbursement.Any())
+                    {
+                        Decimal amount = 0;
+                        var disbursementLines = from d in db.TrnDisbursementLines
+                                                where d.CVId == disbursement.FirstOrDefault().Id
+                                                select d;
+
+                        if (disbursementLines.Any())
+                        {
+                            amount = disbursementLines.Sum(d => d.Amount);
+                        }
+
+                        var updateDisbursement = disbursement.FirstOrDefault();
+                        updateDisbursement.Amount = amount;
+                        db.SubmitChanges();
+                    }
 
                     return new String[] { "", "1" };
                 }
@@ -219,6 +263,5 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
     }
 }

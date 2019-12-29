@@ -293,6 +293,16 @@ namespace easyfmis.Controllers
                         return new String[] { "Already locked.", "0" };
                     }
 
+                    Decimal amount = 0;
+                    var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
+                                            where d.SIId == id
+                                            select d;
+
+                    if (salesInvoiceItems.Any())
+                    {
+                        amount = salesInvoiceItems.Sum(d => d.Amount);
+                    }
+
                     var lockSalesInvoice = salesInvoice.FirstOrDefault();
                     lockSalesInvoice.SIDate = Convert.ToDateTime(objSalesInvoice.SIDate);
                     lockSalesInvoice.ManualSINumber = objSalesInvoice.ManualSINumber;
@@ -303,6 +313,8 @@ namespace easyfmis.Controllers
                     lockSalesInvoice.CheckedBy = objSalesInvoice.CheckedBy;
                     lockSalesInvoice.ApprovedBy = objSalesInvoice.ApprovedBy;
                     lockSalesInvoice.IsLocked = true;
+                    lockSalesInvoice.Amount = amount;
+                    lockSalesInvoice.BalanceAmount = amount;
                     lockSalesInvoice.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     lockSalesInvoice.UpdatedDateTime = DateTime.Now;
                     db.SubmitChanges();
@@ -345,6 +357,16 @@ namespace easyfmis.Controllers
                     if (salesInvoice.FirstOrDefault().IsLocked == false)
                     {
                         return new String[] { "Already unlocked.", "0" };
+                    }
+
+                    var collectionLines = from d in db.TrnCollectionLines
+                                          where d.SIId == id
+                                          && d.TrnCollection.IsLocked == true
+                                          select d;
+
+                    if (collectionLines.Any())
+                    {
+                        return new String[] { "Cannot unlock if paid.", "0" };
                     }
 
                     var unlockSalesInvoice = salesInvoice.FirstOrDefault();

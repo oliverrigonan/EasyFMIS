@@ -115,7 +115,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
         {
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = !isLocked;
+            buttonPrint.Enabled = isLocked;
 
             buttonSearchPurchaseOrderItem.Enabled = !isLocked;
 

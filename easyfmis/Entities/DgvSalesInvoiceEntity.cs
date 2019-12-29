@@ -14,8 +14,10 @@ namespace easyfmis.Entities
         public String ColumnSalesInvoiceSIDate { get; set; }
         public String ColumnSalesInvoiceSINumber { get; set; }
         public String ColumnSalesInvoiceManualSINumber { get; set; }
+        public String ColumnSalesInvoiceCustomer { get; set; }
         public String ColumnSalesInvoiceRemarks { get; set; }
         public String ColumnSalesInvoiceAmount { get; set; }
+        public String ColumnSalesInvoicePaidAmount { get; set; }
         public Boolean ColumnSalesInvoiceIsLocked { get; set; }
         public String ColumnSalesInvoiceSpace { get; set; }
     }

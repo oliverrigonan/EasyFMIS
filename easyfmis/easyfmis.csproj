@@ -348,11 +348,11 @@
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailForm.Designer.cs">
       <DependentUpon>TrnDisbursementDetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineForm.cs">
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineForm.Designer.cs">
-      <DependentUpon>TrnDisbursementDetailDisbursementLineForm.cs</DependentUpon>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.Designer.cs">
+      <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.cs">
       <SubType>Form</SubType>
@@ -542,6 +542,8 @@
     </Compile>
     <Compile Include="Modules\SysConnectionStringModule.cs" />
     <Compile Include="Modules\SysCurrentModule.cs" />
+    <Compile Include="Modules\TrnAccountsPayableModule.cs" />
+    <Compile Include="Modules\TrnAccountsReceivableModule.cs" />
     <Compile Include="Modules\TrnInventoryModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -629,8 +631,8 @@
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailForm.resx">
       <DependentUpon>TrnDisbursementDetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineForm.resx">
-      <DependentUpon>TrnDisbursementDetailDisbursementLineForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.resx">
+      <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.resx">
       <DependentUpon>TrnPurchaseOrderForm.cs</DependentUpon>

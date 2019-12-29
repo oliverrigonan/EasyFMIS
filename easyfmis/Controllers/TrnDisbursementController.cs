@@ -137,8 +137,6 @@ namespace easyfmis.Controllers
             return users.ToList();
         }
 
-
-
         // ========================
         // Dropdown List - Pay Type
         // ========================
@@ -155,9 +153,9 @@ namespace easyfmis.Controllers
             return payType.ToList();
         }
 
-        //========================
-        //Dropdown List - Pay Type
-        //========================
+        // ========================
+        // Dropdown List - Pay Type
+        // ========================
         public List<Entities.MstArticleEntity> DropdownListBank()
         {
             var bank = from d in db.MstArticles
@@ -172,10 +170,9 @@ namespace easyfmis.Controllers
             return bank.ToList();
         }
 
-
-        // ===============
-        // Add Sales Order
-        // ===============
+        // ================
+        // Add Disbursement
+        // ================
         public String[] AddDisbursement()
         {
             try
@@ -186,16 +183,8 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-                String cVNumber = "0000000001";
-                var lastCV = from d in db.TrnDisbursements.OrderByDescending(d => d.Id) select d;
-                if (lastCV.Any())
-                {
-                    Int32 newPONumber = Convert.ToInt32(lastCV.FirstOrDefault().CVNumber) + 1;
-                    cVNumber = FillLeadingZeroes(newPONumber, 10);
-                }
-
                 var supplier = from d in db.MstArticles
-                               where d.MstArticleType.ArticleType == "SUPPLIER"
+                               where d.ArticleTypeId == 3
                                select d;
 
                 if (supplier.Any() == false)
@@ -222,10 +211,18 @@ namespace easyfmis.Controllers
                     return new String[] { "Bank not found.", "0" };
                 }
 
+                String CVNumber = "0000000001";
+                var lastCV = from d in db.TrnDisbursements.OrderByDescending(d => d.Id) select d;
+                if (lastCV.Any())
+                {
+                    Int32 newCVNumber = Convert.ToInt32(lastCV.FirstOrDefault().CVNumber) + 1;
+                    CVNumber = FillLeadingZeroes(newCVNumber, 10);
+                }
+
                 Data.TrnDisbursement newDisbursement = new Data.TrnDisbursement
                 {
                     BranchId = currentUserLogin.FirstOrDefault().BranchId,
-                    CVNumber = cVNumber,
+                    CVNumber = CVNumber,
                     CVDate = DateTime.Today,
                     ManualCVNumber = "NA",
                     SupplierId = supplier.FirstOrDefault().Id,
@@ -272,6 +269,37 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+                var supplier = from d in db.MstArticles
+                               where d.ArticleTypeId == 3
+                               && d.Id == objDisbursement.SupplierId
+                               select d;
+
+                if (supplier.Any() == false)
+                {
+                    return new String[] { "Supplier not found.", "0" };
+                }
+
+                var payType = from d in db.MstPayTypes
+                              where d.IsLocked == true
+                              && d.Id == objDisbursement.PayTypeId
+                              select d;
+
+                if (payType.Any() == false)
+                {
+                    return new String[] { "Pay type not found.", "0" };
+                }
+
+                var bank = from d in db.MstArticles
+                           where d.IsLocked == true
+                           && d.ArticleTypeId == 4
+                           && d.Id == objDisbursement.BankId
+                           select d;
+
+                if (bank.Any() == false)
+                {
+                    return new String[] { "Bank not found.", "0" };
+                }
+
                 var checkedByUser = from d in db.MstUsers
                                     where d.Id == objDisbursement.CheckedBy
                                     && d.IsLocked == true
@@ -303,8 +331,8 @@ namespace easyfmis.Controllers
                 }
 
                 var disbursement = from d in db.TrnDisbursements
-                                    where d.Id == id
-                                    select d;
+                                   where d.Id == id
+                                   select d;
 
                 if (disbursement.Any())
                 {
@@ -334,6 +362,22 @@ namespace easyfmis.Controllers
                     lockDisbursement.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     lockDisbursement.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
+
+                    var disbursementLines = from d in db.TrnDisbursementLines
+                                            where d.CVId == id
+                                            && d.RRId != null
+                                            select d;
+
+                    if (disbursementLines.Any())
+                    {
+                        foreach (var disbursementLine in disbursementLines)
+                        {
+                            Int32 RRId = Convert.ToInt32(disbursementLine.RRId);
+
+                            Modules.TrnAccountsPayableModule accountsPayable = new Modules.TrnAccountsPayableModule();
+                            accountsPayable.UpdateAccountsPayable(RRId);
+                        }
+                    }
 
                     return new String[] { "", "1" };
                 }
@@ -377,6 +421,22 @@ namespace easyfmis.Controllers
                     unlockDisbursement.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     unlockDisbursement.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
+
+                    var disbursementLines = from d in db.TrnDisbursementLines
+                                            where d.CVId == id
+                                            && d.RRId != null
+                                            select d;
+
+                    if (disbursementLines.Any())
+                    {
+                        foreach (var disbursementLine in disbursementLines)
+                        {
+                            Int32 RRId = Convert.ToInt32(disbursementLine.RRId);
+
+                            Modules.TrnAccountsPayableModule accountsPayable = new Modules.TrnAccountsPayableModule();
+                            accountsPayable.UpdateAccountsPayable(RRId);
+                        }
+                    }
 
                     return new String[] { "", "1" };
                 }
@@ -426,6 +486,5 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
     }
 }

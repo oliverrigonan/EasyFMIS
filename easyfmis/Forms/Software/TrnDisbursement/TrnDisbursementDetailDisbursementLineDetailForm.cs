@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace easyfmis.Forms.Software.TrnDisbursement
 {
-    public partial class TrnDisbursementDetailDisbursementLineForm : Form
+    public partial class TrnDisbursementDetailDisbursementLineDetailForm : Form
     {
         public TrnDisbursementDetailForm trnDisbursementDetailForm;
         public Entities.TrnDisbursementLineEntity trnDisbursementLineEntity;
         public Entities.TrnDisbursementEntity trnDisbursementEntity;
         public Int32 disbursementId;
 
-        public TrnDisbursementDetailDisbursementLineForm(TrnDisbursementDetailForm disbursementDetailForm, Entities.TrnDisbursementLineEntity disbursementLineEntity, Entities.TrnDisbursementEntity disbursementEntity)
+        public TrnDisbursementDetailDisbursementLineDetailForm(TrnDisbursementDetailForm disbursementDetailForm, Entities.TrnDisbursementLineEntity disbursementLineEntity, Entities.TrnDisbursementEntity disbursementEntity)
         {
             InitializeComponent();
 
@@ -79,7 +79,6 @@ namespace easyfmis.Forms.Software.TrnDisbursement
 
         public void SavePurchaseOrderItem()
         {
-
             Controllers.TrnDisbursementLineController trnDisbursementLineController = new Controllers.TrnDisbursementLineController();
             if (trnDisbursementLineEntity == null)
             {
@@ -160,5 +159,9 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             }
         }
 
+        private void textBoxAmount_Leave(object sender, EventArgs e)
+        {
+            textBoxAmount.Text = Convert.ToDecimal(textBoxAmount.Text).ToString("#,##0.00");
+        }
     }
 }

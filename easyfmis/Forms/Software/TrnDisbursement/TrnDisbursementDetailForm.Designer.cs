@@ -82,6 +82,10 @@
             this.textBoxDisbursementLinePageNumber = new System.Windows.Forms.TextBox();
             this.buttonDisbursementLine = new System.Windows.Forms.Button();
             this.dataGridViewDisbursementLine = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.ColumnDisbursementLineListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDisbursementLineListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDisbursementLineListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,10 +97,6 @@
             this.ColumnDisbursementLineListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDisbursementLineListOtherInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDisbursementLineListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -159,7 +159,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Stock_Out;
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Disbursement;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 40);
@@ -174,9 +174,9 @@
             this.label1.Location = new System.Drawing.Point(63, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 35);
+            this.label1.Size = new System.Drawing.Size(255, 35);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Purchase Order Detail";
+            this.label1.Text = "Disbursement Detail";
             // 
             // buttonClose
             // 
@@ -253,14 +253,14 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1400, 234);
+            this.panel3.Size = new System.Drawing.Size(1400, 228);
             this.panel3.TabIndex = 0;
             this.panel3.TabStop = true;
             // 
             // checkBoxIsClear
             // 
             this.checkBoxIsClear.AutoSize = true;
-            this.checkBoxIsClear.Location = new System.Drawing.Point(1154, 49);
+            this.checkBoxIsClear.Location = new System.Drawing.Point(1091, 83);
             this.checkBoxIsClear.Name = "checkBoxIsClear";
             this.checkBoxIsClear.Size = new System.Drawing.Size(18, 17);
             this.checkBoxIsClear.TabIndex = 13;
@@ -270,17 +270,17 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label18.Location = new System.Drawing.Point(1042, 45);
+            this.label18.Location = new System.Drawing.Point(1015, 80);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(106, 23);
+            this.label18.Size = new System.Drawing.Size(70, 23);
             this.label18.TabIndex = 50;
-            this.label18.Text = "Cross Check:";
+            this.label18.Text = "Is Clear:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label17.Location = new System.Drawing.Point(911, 9);
+            this.label17.Location = new System.Drawing.Point(884, 46);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(101, 23);
             this.label17.TabIndex = 49;
@@ -290,7 +290,7 @@
             // 
             this.dateTimePickerCheckDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dateTimePickerCheckDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerCheckDate.Location = new System.Drawing.Point(1018, 6);
+            this.dateTimePickerCheckDate.Location = new System.Drawing.Point(991, 43);
             this.dateTimePickerCheckDate.Name = "dateTimePickerCheckDate";
             this.dateTimePickerCheckDate.Size = new System.Drawing.Size(196, 30);
             this.dateTimePickerCheckDate.TabIndex = 11;
@@ -298,16 +298,16 @@
             // textBoxCheckNumber
             // 
             this.textBoxCheckNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCheckNumber.Location = new System.Drawing.Point(588, 186);
+            this.textBoxCheckNumber.Location = new System.Drawing.Point(991, 6);
             this.textBoxCheckNumber.Name = "textBoxCheckNumber";
-            this.textBoxCheckNumber.Size = new System.Drawing.Size(196, 30);
+            this.textBoxCheckNumber.Size = new System.Drawing.Size(298, 30);
             this.textBoxCheckNumber.TabIndex = 10;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label10.Location = new System.Drawing.Point(494, 189);
+            this.label10.Location = new System.Drawing.Point(897, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 23);
             this.label10.TabIndex = 46;
@@ -316,10 +316,12 @@
             // textBoxAmount
             // 
             this.textBoxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAmount.Location = new System.Drawing.Point(588, 150);
+            this.textBoxAmount.Location = new System.Drawing.Point(570, 187);
             this.textBoxAmount.Name = "textBoxAmount";
-            this.textBoxAmount.Size = new System.Drawing.Size(196, 30);
+            this.textBoxAmount.ReadOnly = true;
+            this.textBoxAmount.Size = new System.Drawing.Size(298, 30);
             this.textBoxAmount.TabIndex = 9;
+            this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
             this.textBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmount_KeyPress);
             // 
@@ -327,7 +329,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label16.Location = new System.Drawing.Point(506, 153);
+            this.label16.Location = new System.Drawing.Point(488, 190);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(76, 23);
             this.label16.TabIndex = 44;
@@ -337,7 +339,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label15.Location = new System.Drawing.Point(531, 46);
+            this.label15.Location = new System.Drawing.Point(513, 46);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(51, 23);
             this.label15.TabIndex = 43;
@@ -346,16 +348,16 @@
             // comboBoxBank
             // 
             this.comboBoxBank.FormattingEnabled = true;
-            this.comboBoxBank.Location = new System.Drawing.Point(588, 43);
+            this.comboBoxBank.Location = new System.Drawing.Point(570, 43);
             this.comboBoxBank.Name = "comboBoxBank";
-            this.comboBoxBank.Size = new System.Drawing.Size(196, 31);
+            this.comboBoxBank.Size = new System.Drawing.Size(298, 31);
             this.comboBoxBank.TabIndex = 7;
             // 
             // textBoxPayee
             // 
             this.textBoxPayee.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPayee.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPayee.Location = new System.Drawing.Point(154, 187);
+            this.textBoxPayee.Location = new System.Drawing.Point(180, 187);
             this.textBoxPayee.Name = "textBoxPayee";
             this.textBoxPayee.ReadOnly = true;
             this.textBoxPayee.Size = new System.Drawing.Size(298, 30);
@@ -365,7 +367,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(79, 190);
+            this.label9.Location = new System.Drawing.Point(116, 190);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 23);
             this.label9.TabIndex = 40;
@@ -374,7 +376,7 @@
             // checkBoxIsCrossCheck
             // 
             this.checkBoxIsCrossCheck.AutoSize = true;
-            this.checkBoxIsCrossCheck.Location = new System.Drawing.Point(1018, 50);
+            this.checkBoxIsCrossCheck.Location = new System.Drawing.Point(991, 83);
             this.checkBoxIsCrossCheck.Name = "checkBoxIsCrossCheck";
             this.checkBoxIsCrossCheck.Size = new System.Drawing.Size(18, 17);
             this.checkBoxIsCrossCheck.TabIndex = 12;
@@ -384,7 +386,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label14.Location = new System.Drawing.Point(906, 44);
+            this.label14.Location = new System.Drawing.Point(879, 79);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(106, 23);
             this.label14.TabIndex = 38;
@@ -394,7 +396,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(502, 9);
+            this.label8.Location = new System.Drawing.Point(484, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 23);
             this.label8.TabIndex = 33;
@@ -403,7 +405,7 @@
             // comboBoxPayType
             // 
             this.comboBoxPayType.FormattingEnabled = true;
-            this.comboBoxPayType.Location = new System.Drawing.Point(588, 6);
+            this.comboBoxPayType.Location = new System.Drawing.Point(570, 6);
             this.comboBoxPayType.Name = "comboBoxPayType";
             this.comboBoxPayType.Size = new System.Drawing.Size(196, 31);
             this.comboBoxPayType.TabIndex = 6;
@@ -412,7 +414,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(70, 153);
+            this.label6.Location = new System.Drawing.Point(98, 153);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 23);
             this.label6.TabIndex = 31;
@@ -421,15 +423,15 @@
             // comboBoxSupplier
             // 
             this.comboBoxSupplier.FormattingEnabled = true;
-            this.comboBoxSupplier.Location = new System.Drawing.Point(154, 150);
+            this.comboBoxSupplier.Location = new System.Drawing.Point(180, 150);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
-            this.comboBoxSupplier.Size = new System.Drawing.Size(196, 31);
+            this.comboBoxSupplier.Size = new System.Drawing.Size(298, 31);
             this.comboBoxSupplier.TabIndex = 4;
             // 
             // textBoxManualCVNumber
             // 
             this.textBoxManualCVNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxManualCVNumber.Location = new System.Drawing.Point(154, 114);
+            this.textBoxManualCVNumber.Location = new System.Drawing.Point(180, 114);
             this.textBoxManualCVNumber.Name = "textBoxManualCVNumber";
             this.textBoxManualCVNumber.Size = new System.Drawing.Size(196, 30);
             this.textBoxManualCVNumber.TabIndex = 3;
@@ -438,16 +440,16 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(11, 117);
+            this.label3.Location = new System.Drawing.Point(3, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 23);
+            this.label3.Size = new System.Drawing.Size(171, 23);
             this.label3.TabIndex = 28;
-            this.label3.Text = " Manual CV No.:";
+            this.label3.Text = " Manual CV Number:";
             // 
             // textBoxBranch
             // 
             this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxBranch.Location = new System.Drawing.Point(154, 6);
+            this.textBoxBranch.Location = new System.Drawing.Point(180, 6);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(298, 30);
@@ -458,7 +460,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(79, 9);
+            this.label5.Location = new System.Drawing.Point(107, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 23);
             this.label5.TabIndex = 26;
@@ -467,17 +469,17 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(588, 79);
+            this.textBoxRemarks.Location = new System.Drawing.Point(570, 79);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(298, 65);
+            this.textBoxRemarks.Size = new System.Drawing.Size(298, 102);
             this.textBoxRemarks.TabIndex = 8;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(901, 157);
+            this.label13.Location = new System.Drawing.Point(874, 187);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(111, 23);
             this.label13.TabIndex = 23;
@@ -487,7 +489,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(910, 123);
+            this.label12.Location = new System.Drawing.Point(883, 150);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(102, 23);
             this.label12.TabIndex = 22;
@@ -497,7 +499,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(906, 83);
+            this.label11.Location = new System.Drawing.Point(879, 113);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 23);
             this.label11.TabIndex = 21;
@@ -507,7 +509,7 @@
             // 
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
-            this.comboBoxApprovedBy.Location = new System.Drawing.Point(1018, 154);
+            this.comboBoxApprovedBy.Location = new System.Drawing.Point(991, 184);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(298, 31);
             this.comboBoxApprovedBy.TabIndex = 16;
@@ -516,7 +518,7 @@
             // 
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
-            this.comboBoxCheckedBy.Location = new System.Drawing.Point(1018, 117);
+            this.comboBoxCheckedBy.Location = new System.Drawing.Point(991, 147);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(298, 31);
             this.comboBoxCheckedBy.TabIndex = 15;
@@ -526,7 +528,7 @@
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
-            this.comboBoxPreparedBy.Location = new System.Drawing.Point(1018, 80);
+            this.comboBoxPreparedBy.Location = new System.Drawing.Point(991, 110);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(298, 31);
             this.comboBoxPreparedBy.TabIndex = 14;
@@ -535,7 +537,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(504, 82);
+            this.label7.Location = new System.Drawing.Point(486, 82);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 23);
             this.label7.TabIndex = 11;
@@ -545,7 +547,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(69, 82);
+            this.label4.Location = new System.Drawing.Point(97, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 23);
             this.label4.TabIndex = 8;
@@ -555,7 +557,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(42, 45);
+            this.label2.Location = new System.Drawing.Point(70, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 23);
             this.label2.TabIndex = 6;
@@ -565,7 +567,7 @@
             // 
             this.dateTimePickerCVDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dateTimePickerCVDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerCVDate.Location = new System.Drawing.Point(154, 78);
+            this.dateTimePickerCVDate.Location = new System.Drawing.Point(180, 78);
             this.dateTimePickerCVDate.Name = "dateTimePickerCVDate";
             this.dateTimePickerCVDate.Size = new System.Drawing.Size(196, 30);
             this.dateTimePickerCVDate.TabIndex = 2;
@@ -573,7 +575,7 @@
             // textBoxCVNumber
             // 
             this.textBoxCVNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCVNumber.Location = new System.Drawing.Point(154, 42);
+            this.textBoxCVNumber.Location = new System.Drawing.Point(180, 42);
             this.textBoxCVNumber.Name = "textBoxCVNumber";
             this.textBoxCVNumber.ReadOnly = true;
             this.textBoxCVNumber.Size = new System.Drawing.Size(196, 30);
@@ -589,7 +591,7 @@
             this.panel4.Controls.Add(this.buttonDisbursementLinePageListLast);
             this.panel4.Controls.Add(this.textBoxDisbursementLinePageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 311);
+            this.panel4.Location = new System.Drawing.Point(3, 317);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
@@ -723,10 +725,53 @@
             this.dataGridViewDisbursementLine.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewDisbursementLine.RowTemplate.Height = 24;
             this.dataGridViewDisbursementLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDisbursementLine.Size = new System.Drawing.Size(1376, 253);
+            this.dataGridViewDisbursementLine.Size = new System.Drawing.Size(1376, 259);
             this.dataGridViewDisbursementLine.TabIndex = 1;
             this.dataGridViewDisbursementLine.TabStop = false;
             this.dataGridViewDisbursementLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisbursementLine_CellClick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 228);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 409);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 409);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonDisbursementLine);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewDisbursementLine);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 373);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Disbursement Line";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // ColumnDisbursementLineListButtonEdit
             // 
@@ -776,7 +821,7 @@
             this.ColumnDisbursementLineListArticleGroup.HeaderText = "Article Group";
             this.ColumnDisbursementLineListArticleGroup.Name = "ColumnDisbursementLineListArticleGroup";
             this.ColumnDisbursementLineListArticleGroup.ReadOnly = true;
-            this.ColumnDisbursementLineListArticleGroup.Width = 150;
+            this.ColumnDisbursementLineListArticleGroup.Width = 200;
             // 
             // ColumnDisbursementLineListRRId
             // 
@@ -789,7 +834,7 @@
             // ColumnDisbursementLineListRR
             // 
             this.ColumnDisbursementLineListRR.DataPropertyName = "ColumnDisbursementLineListRR";
-            this.ColumnDisbursementLineListRR.HeaderText = "Receiving Receipt";
+            this.ColumnDisbursementLineListRR.HeaderText = "RR Number";
             this.ColumnDisbursementLineListRR.Name = "ColumnDisbursementLineListRR";
             this.ColumnDisbursementLineListRR.ReadOnly = true;
             this.ColumnDisbursementLineListRR.Width = 150;
@@ -810,7 +855,7 @@
             this.ColumnDisbursementLineListOtherInformation.HeaderText = "Other Information";
             this.ColumnDisbursementLineListOtherInformation.Name = "ColumnDisbursementLineListOtherInformation";
             this.ColumnDisbursementLineListOtherInformation.ReadOnly = true;
-            this.ColumnDisbursementLineListOtherInformation.Width = 200;
+            this.ColumnDisbursementLineListOtherInformation.Width = 250;
             // 
             // ColumnDisbursementLineListSpace
             // 
@@ -819,49 +864,6 @@
             this.ColumnDisbursementLineListSpace.HeaderText = "";
             this.ColumnDisbursementLineListSpace.Name = "ColumnDisbursementLineListSpace";
             this.ColumnDisbursementLineListSpace.ReadOnly = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonDisbursementLine);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewDisbursementLine);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Disbursement Line";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // TrnDisbursementDetailForm
             // 

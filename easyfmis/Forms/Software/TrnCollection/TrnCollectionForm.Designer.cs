@@ -34,14 +34,6 @@
             this.buttonCollectionPageListPrevious = new System.Windows.Forms.Button();
             this.buttonCollectionPageListNext = new System.Windows.Forms.Button();
             this.dataGridViewCollection = new System.Windows.Forms.DataGridView();
-            this.ColumnCollectionButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnCollectionButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnCollectionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCollectionORDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCollectionORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCollectionRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCollectionIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnCollectionSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonCollectionPageListLast = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxCollectionPageNumber = new System.Windows.Forms.TextBox();
@@ -52,6 +44,15 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ColumnCollectionButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnCollectionButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnCollectionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCollectionORDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCollectionORNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCollectionCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCollectionRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCollectionIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnCollectionSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCollection)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -129,6 +130,7 @@
             this.ColumnCollectionId,
             this.ColumnCollectionORDate,
             this.ColumnCollectionORNumber,
+            this.ColumnCollectionCustomer,
             this.ColumnCollectionRemarks,
             this.ColumnCollectionIsLocked,
             this.ColumnCollectionSpace});
@@ -142,71 +144,6 @@
             this.dataGridViewCollection.Size = new System.Drawing.Size(1376, 536);
             this.dataGridViewCollection.TabIndex = 20;
             this.dataGridViewCollection.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCollection_CellClick);
-            // 
-            // ColumnCollectionButtonEdit
-            // 
-            this.ColumnCollectionButtonEdit.DataPropertyName = "ColumnCollectionButtonEdit";
-            this.ColumnCollectionButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnCollectionButtonEdit.HeaderText = "";
-            this.ColumnCollectionButtonEdit.Name = "ColumnCollectionButtonEdit";
-            this.ColumnCollectionButtonEdit.ReadOnly = true;
-            this.ColumnCollectionButtonEdit.Width = 70;
-            // 
-            // ColumnCollectionButtonDelete
-            // 
-            this.ColumnCollectionButtonDelete.DataPropertyName = "ColumnCollectionButtonDelete";
-            this.ColumnCollectionButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnCollectionButtonDelete.HeaderText = "";
-            this.ColumnCollectionButtonDelete.Name = "ColumnCollectionButtonDelete";
-            this.ColumnCollectionButtonDelete.ReadOnly = true;
-            this.ColumnCollectionButtonDelete.Width = 70;
-            // 
-            // ColumnCollectionId
-            // 
-            this.ColumnCollectionId.DataPropertyName = "ColumnCollectionId";
-            this.ColumnCollectionId.HeaderText = "Id";
-            this.ColumnCollectionId.Name = "ColumnCollectionId";
-            this.ColumnCollectionId.ReadOnly = true;
-            this.ColumnCollectionId.Visible = false;
-            // 
-            // ColumnCollectionORDate
-            // 
-            this.ColumnCollectionORDate.DataPropertyName = "ColumnCollectionORDate";
-            this.ColumnCollectionORDate.HeaderText = "OR Date";
-            this.ColumnCollectionORDate.Name = "ColumnCollectionORDate";
-            this.ColumnCollectionORDate.ReadOnly = true;
-            // 
-            // ColumnCollectionORNumber
-            // 
-            this.ColumnCollectionORNumber.DataPropertyName = "ColumnCollectionORNumber";
-            this.ColumnCollectionORNumber.HeaderText = "OR Number";
-            this.ColumnCollectionORNumber.Name = "ColumnCollectionORNumber";
-            this.ColumnCollectionORNumber.ReadOnly = true;
-            this.ColumnCollectionORNumber.Width = 125;
-            // 
-            // ColumnCollectionRemarks
-            // 
-            this.ColumnCollectionRemarks.DataPropertyName = "ColumnCollectionRemarks";
-            this.ColumnCollectionRemarks.HeaderText = "Remarks";
-            this.ColumnCollectionRemarks.Name = "ColumnCollectionRemarks";
-            this.ColumnCollectionRemarks.ReadOnly = true;
-            this.ColumnCollectionRemarks.Width = 350;
-            // 
-            // ColumnCollectionIsLocked
-            // 
-            this.ColumnCollectionIsLocked.DataPropertyName = "ColumnCollectionIsLocked";
-            this.ColumnCollectionIsLocked.HeaderText = "L";
-            this.ColumnCollectionIsLocked.Name = "ColumnCollectionIsLocked";
-            this.ColumnCollectionIsLocked.ReadOnly = true;
-            this.ColumnCollectionIsLocked.Width = 35;
-            // 
-            // ColumnCollectionSpace
-            // 
-            this.ColumnCollectionSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnCollectionSpace.DataPropertyName = "ColumnCollectionSpace";
-            this.ColumnCollectionSpace.HeaderText = "";
-            this.ColumnCollectionSpace.Name = "ColumnCollectionSpace";
-            this.ColumnCollectionSpace.ReadOnly = true;
             // 
             // buttonCollectionPageListLast
             // 
@@ -338,6 +275,79 @@
             this.panel1.Size = new System.Drawing.Size(1400, 63);
             this.panel1.TabIndex = 6;
             // 
+            // ColumnCollectionButtonEdit
+            // 
+            this.ColumnCollectionButtonEdit.DataPropertyName = "ColumnCollectionButtonEdit";
+            this.ColumnCollectionButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnCollectionButtonEdit.HeaderText = "";
+            this.ColumnCollectionButtonEdit.Name = "ColumnCollectionButtonEdit";
+            this.ColumnCollectionButtonEdit.ReadOnly = true;
+            this.ColumnCollectionButtonEdit.Width = 70;
+            // 
+            // ColumnCollectionButtonDelete
+            // 
+            this.ColumnCollectionButtonDelete.DataPropertyName = "ColumnCollectionButtonDelete";
+            this.ColumnCollectionButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnCollectionButtonDelete.HeaderText = "";
+            this.ColumnCollectionButtonDelete.Name = "ColumnCollectionButtonDelete";
+            this.ColumnCollectionButtonDelete.ReadOnly = true;
+            this.ColumnCollectionButtonDelete.Width = 70;
+            // 
+            // ColumnCollectionId
+            // 
+            this.ColumnCollectionId.DataPropertyName = "ColumnCollectionId";
+            this.ColumnCollectionId.HeaderText = "Id";
+            this.ColumnCollectionId.Name = "ColumnCollectionId";
+            this.ColumnCollectionId.ReadOnly = true;
+            this.ColumnCollectionId.Visible = false;
+            // 
+            // ColumnCollectionORDate
+            // 
+            this.ColumnCollectionORDate.DataPropertyName = "ColumnCollectionORDate";
+            this.ColumnCollectionORDate.HeaderText = "OR Date";
+            this.ColumnCollectionORDate.Name = "ColumnCollectionORDate";
+            this.ColumnCollectionORDate.ReadOnly = true;
+            // 
+            // ColumnCollectionORNumber
+            // 
+            this.ColumnCollectionORNumber.DataPropertyName = "ColumnCollectionORNumber";
+            this.ColumnCollectionORNumber.HeaderText = "OR Number";
+            this.ColumnCollectionORNumber.Name = "ColumnCollectionORNumber";
+            this.ColumnCollectionORNumber.ReadOnly = true;
+            this.ColumnCollectionORNumber.Width = 125;
+            // 
+            // ColumnCollectionCustomer
+            // 
+            this.ColumnCollectionCustomer.DataPropertyName = "ColumnCollectionCustomer";
+            this.ColumnCollectionCustomer.HeaderText = "Customer";
+            this.ColumnCollectionCustomer.Name = "ColumnCollectionCustomer";
+            this.ColumnCollectionCustomer.ReadOnly = true;
+            this.ColumnCollectionCustomer.Width = 200;
+            // 
+            // ColumnCollectionRemarks
+            // 
+            this.ColumnCollectionRemarks.DataPropertyName = "ColumnCollectionRemarks";
+            this.ColumnCollectionRemarks.HeaderText = "Remarks";
+            this.ColumnCollectionRemarks.Name = "ColumnCollectionRemarks";
+            this.ColumnCollectionRemarks.ReadOnly = true;
+            this.ColumnCollectionRemarks.Width = 350;
+            // 
+            // ColumnCollectionIsLocked
+            // 
+            this.ColumnCollectionIsLocked.DataPropertyName = "ColumnCollectionIsLocked";
+            this.ColumnCollectionIsLocked.HeaderText = "L";
+            this.ColumnCollectionIsLocked.Name = "ColumnCollectionIsLocked";
+            this.ColumnCollectionIsLocked.ReadOnly = true;
+            this.ColumnCollectionIsLocked.Width = 35;
+            // 
+            // ColumnCollectionSpace
+            // 
+            this.ColumnCollectionSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCollectionSpace.DataPropertyName = "ColumnCollectionSpace";
+            this.ColumnCollectionSpace.HeaderText = "";
+            this.ColumnCollectionSpace.Name = "ColumnCollectionSpace";
+            this.ColumnCollectionSpace.ReadOnly = true;
+            // 
             // TrnCollectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -385,6 +395,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCollectionId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCollectionORDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCollectionORNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCollectionCustomer;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCollectionRemarks;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnCollectionIsLocked;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCollectionSpace;

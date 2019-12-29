@@ -34,39 +34,39 @@ namespace easyfmis.Controllers
         // ======================
         public List<Entities.TrnReceivingReceiptEntity> ListReceivingReceipt(DateTime dateFilter, String filter)
         {
-            var salesInvoices = from d in db.TrnReceivingReceipts
-                                where d.RRDate == dateFilter
-                                && d.RRNumber.Contains(filter)
-                                select new Entities.TrnReceivingReceiptEntity
-                                {
-                                    Id = d.Id,
-                                    BranchId = d.BranchId,
-                                    Branch = d.MstBranch.Branch,
-                                    RRNumber = d.RRNumber,
-                                    RRDate = d.RRDate,
-                                    ManualRRNumber = d.ManualRRNumber,
-                                    SupplierId = d.SupplierId,
-                                    Supplier = d.MstArticle.Article,
-                                    TermId = d.TermId,
-                                    Remarks = d.Remarks,
-                                    ReceivedBy = d.ReceivedBy,
-                                    PreparedBy = d.PreparedBy,
-                                    CheckedBy = d.CheckedBy,
-                                    ApprovedBy = d.ApprovedBy,
-                                    IsLocked = d.IsLocked,
-                                    Amount = d.Amount,
-                                    PaidAmount = d.PaidAmount,
-                                    MemoAmount = d.MemoAmount,
-                                    BalanceAmount = d.BalanceAmount,
-                                    CreatedBy = d.CreatedBy,
-                                    CreatedDateTime = d.CreatedDateTime,
-                                    CreatedByUserName = d.MstUser3.UserName,
-                                    UpdatedBy = d.UpdatedBy,
-                                    UpdatedDateTime = d.UpdatedDateTime,
-                                    UpdatedByUserName = d.MstUser4.UserName
-                                };
+            var receivingReceipts = from d in db.TrnReceivingReceipts
+                                    where d.RRDate == dateFilter
+                                    && d.RRNumber.Contains(filter)
+                                    select new Entities.TrnReceivingReceiptEntity
+                                    {
+                                        Id = d.Id,
+                                        BranchId = d.BranchId,
+                                        Branch = d.MstBranch.Branch,
+                                        RRNumber = d.RRNumber,
+                                        RRDate = d.RRDate,
+                                        ManualRRNumber = d.ManualRRNumber,
+                                        SupplierId = d.SupplierId,
+                                        Supplier = d.MstArticle.Article,
+                                        TermId = d.TermId,
+                                        Remarks = d.Remarks,
+                                        ReceivedBy = d.ReceivedBy,
+                                        PreparedBy = d.PreparedBy,
+                                        CheckedBy = d.CheckedBy,
+                                        ApprovedBy = d.ApprovedBy,
+                                        IsLocked = d.IsLocked,
+                                        Amount = d.Amount,
+                                        PaidAmount = d.PaidAmount,
+                                        MemoAmount = d.MemoAmount,
+                                        BalanceAmount = d.BalanceAmount,
+                                        CreatedBy = d.CreatedBy,
+                                        CreatedDateTime = d.CreatedDateTime,
+                                        CreatedByUserName = d.MstUser3.UserName,
+                                        UpdatedBy = d.UpdatedBy,
+                                        UpdatedDateTime = d.UpdatedDateTime,
+                                        UpdatedByUserName = d.MstUser4.UserName
+                                    };
 
-            return salesInvoices.OrderByDescending(d => d.Id).ToList();
+            return receivingReceipts.OrderByDescending(d => d.Id).ToList();
         }
 
         // ========================
@@ -74,38 +74,38 @@ namespace easyfmis.Controllers
         // ========================
         public Entities.TrnReceivingReceiptEntity DetailReceivingReceipt(Int32 id)
         {
-            var salesInvoice = from d in db.TrnReceivingReceipts
-                               where d.Id == id
-                               select new Entities.TrnReceivingReceiptEntity
-                               {
-                                   Id = d.Id,
-                                   BranchId = d.BranchId,
-                                   Branch = d.MstBranch.Branch,
-                                   RRNumber = d.RRNumber,
-                                   RRDate = d.RRDate,
-                                   ManualRRNumber = d.ManualRRNumber,
-                                   SupplierId = d.SupplierId,
-                                   Supplier = d.MstArticle.Article,
-                                   TermId = d.TermId,
-                                   Remarks = d.Remarks,
-                                   ReceivedBy = d.ReceivedBy,
-                                   PreparedBy = d.PreparedBy,
-                                   CheckedBy = d.CheckedBy,
-                                   ApprovedBy = d.ApprovedBy,
-                                   IsLocked = d.IsLocked,
-                                   Amount = d.Amount,
-                                   PaidAmount = d.PaidAmount,
-                                   MemoAmount = d.MemoAmount,
-                                   BalanceAmount = d.BalanceAmount,
-                                   CreatedBy = d.CreatedBy,
-                                   CreatedDateTime = d.CreatedDateTime,
-                                   CreatedByUserName = d.MstUser3.UserName,
-                                   UpdatedBy = d.UpdatedBy,
-                                   UpdatedDateTime = d.UpdatedDateTime,
-                                   UpdatedByUserName = d.MstUser4.UserName
-                               };
+            var receivingReceipt = from d in db.TrnReceivingReceipts
+                                   where d.Id == id
+                                   select new Entities.TrnReceivingReceiptEntity
+                                   {
+                                       Id = d.Id,
+                                       BranchId = d.BranchId,
+                                       Branch = d.MstBranch.Branch,
+                                       RRNumber = d.RRNumber,
+                                       RRDate = d.RRDate,
+                                       ManualRRNumber = d.ManualRRNumber,
+                                       SupplierId = d.SupplierId,
+                                       Supplier = d.MstArticle.Article,
+                                       TermId = d.TermId,
+                                       Remarks = d.Remarks,
+                                       ReceivedBy = d.ReceivedBy,
+                                       PreparedBy = d.PreparedBy,
+                                       CheckedBy = d.CheckedBy,
+                                       ApprovedBy = d.ApprovedBy,
+                                       IsLocked = d.IsLocked,
+                                       Amount = d.Amount,
+                                       PaidAmount = d.PaidAmount,
+                                       MemoAmount = d.MemoAmount,
+                                       BalanceAmount = d.BalanceAmount,
+                                       CreatedBy = d.CreatedBy,
+                                       CreatedDateTime = d.CreatedDateTime,
+                                       CreatedByUserName = d.MstUser3.UserName,
+                                       UpdatedBy = d.UpdatedBy,
+                                       UpdatedDateTime = d.UpdatedDateTime,
+                                       UpdatedByUserName = d.MstUser4.UserName
+                                   };
 
-            return salesInvoice.FirstOrDefault();
+            return receivingReceipt.FirstOrDefault();
         }
 
         // ========================
@@ -186,20 +186,20 @@ namespace easyfmis.Controllers
                     return new String[] { "Term not found.", "0" };
                 }
 
-                String salesInvoiceNumber = "0000000001";
+                String receivingReceiptNumber = "0000000001";
                 var lastReceivingReceipt = from d in db.TrnReceivingReceipts.OrderByDescending(d => d.Id) select d;
                 if (lastReceivingReceipt.Any())
                 {
                     Int32 newRRNumber = Convert.ToInt32(lastReceivingReceipt.FirstOrDefault().RRNumber) + 1;
-                    salesInvoiceNumber = FillLeadingZeroes(newRRNumber, 10);
+                    receivingReceiptNumber = FillLeadingZeroes(newRRNumber, 10);
                 }
 
                 Data.TrnReceivingReceipt newReceivingReceipt = new Data.TrnReceivingReceipt()
                 {
                     BranchId = currentUserLogin.FirstOrDefault().BranchId,
                     RRDate = DateTime.Today,
-                    RRNumber = salesInvoiceNumber,
-                    ManualRRNumber = salesInvoiceNumber,
+                    RRNumber = receivingReceiptNumber,
+                    ManualRRNumber = receivingReceiptNumber,
                     SupplierId = supplier.FirstOrDefault().Id,
                     TermId = term.FirstOrDefault().Id,
                     Remarks = "",
@@ -282,18 +282,28 @@ namespace easyfmis.Controllers
                     return new String[] { "Approved by user not found.", "0" };
                 }
 
-                var salesInvoice = from d in db.TrnReceivingReceipts
-                                   where d.Id == id
-                                   select d;
+                var receivingReceipt = from d in db.TrnReceivingReceipts
+                                       where d.Id == id
+                                       select d;
 
-                if (salesInvoice.Any())
+                if (receivingReceipt.Any())
                 {
-                    if (salesInvoice.FirstOrDefault().IsLocked)
+                    if (receivingReceipt.FirstOrDefault().IsLocked)
                     {
                         return new String[] { "Already locked.", "0" };
                     }
 
-                    var lockReceivingReceipt = salesInvoice.FirstOrDefault();
+                    Decimal amount = 0;
+                    var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                                where d.RRId == id
+                                                select d;
+
+                    if (receivingReceiptItems.Any())
+                    {
+                        amount = receivingReceiptItems.Sum(d => d.Amount);
+                    }
+
+                    var lockReceivingReceipt = receivingReceipt.FirstOrDefault();
                     lockReceivingReceipt.RRDate = Convert.ToDateTime(objReceivingReceipt.RRDate);
                     lockReceivingReceipt.ManualRRNumber = objReceivingReceipt.ManualRRNumber;
                     lockReceivingReceipt.SupplierId = objReceivingReceipt.SupplierId;
@@ -303,6 +313,8 @@ namespace easyfmis.Controllers
                     lockReceivingReceipt.CheckedBy = objReceivingReceipt.CheckedBy;
                     lockReceivingReceipt.ApprovedBy = objReceivingReceipt.ApprovedBy;
                     lockReceivingReceipt.IsLocked = true;
+                    lockReceivingReceipt.Amount = amount;
+                    lockReceivingReceipt.BalanceAmount = amount;
                     lockReceivingReceipt.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     lockReceivingReceipt.UpdatedDateTime = DateTime.Now;
                     db.SubmitChanges();
@@ -336,18 +348,28 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-                var salesInvoice = from d in db.TrnReceivingReceipts
-                                   where d.Id == id
-                                   select d;
+                var receivingReceipt = from d in db.TrnReceivingReceipts
+                                       where d.Id == id
+                                       select d;
 
-                if (salesInvoice.Any())
+                if (receivingReceipt.Any())
                 {
-                    if (salesInvoice.FirstOrDefault().IsLocked == false)
+                    if (receivingReceipt.FirstOrDefault().IsLocked == false)
                     {
                         return new String[] { "Already unlocked.", "0" };
                     }
 
-                    var unlockReceivingReceipt = salesInvoice.FirstOrDefault();
+                    var disbursementLines = from d in db.TrnDisbursementLines
+                                            where d.RRId == id
+                                            && d.TrnDisbursement.IsLocked == true
+                                            select d;
+
+                    if (disbursementLines.Any())
+                    {
+                        return new String[] { "Cannot unlock if paid.", "0" };
+                    }
+
+                    var unlockReceivingReceipt = receivingReceipt.FirstOrDefault();
                     unlockReceivingReceipt.IsLocked = false;
                     unlockReceivingReceipt.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     unlockReceivingReceipt.UpdatedDateTime = DateTime.Now;
@@ -382,18 +404,18 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-                var salesInvoice = from d in db.TrnReceivingReceipts
-                                   where d.Id == id
-                                   select d;
+                var receivingReceipt = from d in db.TrnReceivingReceipts
+                                       where d.Id == id
+                                       select d;
 
-                if (salesInvoice.Any())
+                if (receivingReceipt.Any())
                 {
-                    if (salesInvoice.FirstOrDefault().IsLocked)
+                    if (receivingReceipt.FirstOrDefault().IsLocked)
                     {
                         return new String[] { "Receiving Receipt is locked", "0" };
                     }
 
-                    var deleteReceivingReceipt = salesInvoice.FirstOrDefault();
+                    var deleteReceivingReceipt = receivingReceipt.FirstOrDefault();
                     db.TrnReceivingReceipts.DeleteOnSubmit(deleteReceivingReceipt);
                     db.SubmitChanges();
 
