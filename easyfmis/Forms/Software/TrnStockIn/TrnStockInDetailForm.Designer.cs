@@ -142,7 +142,7 @@
             this.buttonLock.Location = new System.Drawing.Point(1018, 12);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(88, 40);
-            this.buttonLock.TabIndex = 5;
+            this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
             this.buttonLock.Click += new System.EventHandler(this.buttonLock_Click);
@@ -159,7 +159,7 @@
             this.buttonUnlock.Location = new System.Drawing.Point(1112, 12);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
-            this.buttonUnlock.TabIndex = 4;
+            this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
             this.buttonUnlock.Click += new System.EventHandler(this.buttonUnlock_Click);
@@ -197,7 +197,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 23;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -214,7 +214,7 @@
             this.buttonPrint.Location = new System.Drawing.Point(1206, 12);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(88, 40);
-            this.buttonPrint.TabIndex = 0;
+            this.buttonPrint.TabIndex = 22;
             this.buttonPrint.Text = "Print";
             this.buttonPrint.UseVisualStyleBackColor = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
@@ -250,7 +250,8 @@
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(298, 30);
-            this.textBoxBranch.TabIndex = 27;
+            this.textBoxBranch.TabIndex = 0;
+            this.textBoxBranch.TabStop = false;
             // 
             // label5
             // 
@@ -269,7 +270,7 @@
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(298, 107);
-            this.textBoxRemarks.TabIndex = 24;
+            this.textBoxRemarks.TabIndex = 3;
             // 
             // label13
             // 
@@ -308,7 +309,7 @@
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(540, 80);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(288, 31);
-            this.comboBoxApprovedBy.TabIndex = 17;
+            this.comboBoxApprovedBy.TabIndex = 6;
             // 
             // comboBoxCheckedBy
             // 
@@ -317,7 +318,7 @@
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(540, 43);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(288, 31);
-            this.comboBoxCheckedBy.TabIndex = 16;
+            this.comboBoxCheckedBy.TabIndex = 5;
             // 
             // comboBoxPreparedBy
             // 
@@ -327,7 +328,7 @@
             this.comboBoxPreparedBy.Location = new System.Drawing.Point(540, 6);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(288, 31);
-            this.comboBoxPreparedBy.TabIndex = 15;
+            this.comboBoxPreparedBy.TabIndex = 4;
             // 
             // label7
             // 
@@ -375,7 +376,8 @@
             this.textBoxINNumber.Name = "textBoxINNumber";
             this.textBoxINNumber.ReadOnly = true;
             this.textBoxINNumber.Size = new System.Drawing.Size(196, 30);
-            this.textBoxINNumber.TabIndex = 0;
+            this.textBoxINNumber.TabIndex = 1;
+            this.textBoxINNumber.TabStop = false;
             // 
             // panel4
             // 
@@ -460,6 +462,7 @@
             this.textBoxStockInItemPageNumber.ReadOnly = true;
             this.textBoxStockInItemPageNumber.Size = new System.Drawing.Size(69, 20);
             this.textBoxStockInItemPageNumber.TabIndex = 17;
+            this.textBoxStockInItemPageNumber.TabStop = false;
             this.textBoxStockInItemPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonSearchItem
@@ -474,7 +477,7 @@
             this.buttonSearchItem.Location = new System.Drawing.Point(1296, 6);
             this.buttonSearchItem.Name = "buttonSearchItem";
             this.buttonSearchItem.Size = new System.Drawing.Size(88, 40);
-            this.buttonSearchItem.TabIndex = 8;
+            this.buttonSearchItem.TabIndex = 7;
             this.buttonSearchItem.TabStop = false;
             this.buttonSearchItem.Text = "Add";
             this.buttonSearchItem.UseVisualStyleBackColor = false;
@@ -682,6 +685,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1400, 403);
             this.tabControl1.TabIndex = 9;
+            this.tabControl1.TabStop = false;
             // 
             // tabPageStockInItems
             // 

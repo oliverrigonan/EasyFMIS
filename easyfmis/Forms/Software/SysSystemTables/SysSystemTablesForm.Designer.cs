@@ -70,7 +70,7 @@
             this.textBoxBankListFilter.Location = new System.Drawing.Point(12, 6);
             this.textBoxBankListFilter.Name = "textBoxBankListFilter";
             this.textBoxBankListFilter.Size = new System.Drawing.Size(1344, 30);
-            this.textBoxBankListFilter.TabIndex = 19;
+            this.textBoxBankListFilter.TabIndex = 0;
             this.textBoxBankListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBankListFilter_KeyDown);
             // 
             // buttonBankListPageListFirst
@@ -297,7 +297,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1282, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -314,7 +314,7 @@
             this.buttonAdd.Location = new System.Drawing.Point(1188, 12);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(88, 40);
-            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.TabIndex = 20;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);

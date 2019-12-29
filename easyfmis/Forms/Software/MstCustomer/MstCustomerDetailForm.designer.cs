@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxTIN = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,8 +52,6 @@
             this.textBoxCustomer = new System.Windows.Forms.TextBox();
             this.textBoxCustomerCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -83,7 +83,7 @@
             this.buttonLock.Location = new System.Drawing.Point(1112, 12);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(88, 40);
-            this.buttonLock.TabIndex = 6;
+            this.buttonLock.TabIndex = 20;
             this.buttonLock.TabStop = false;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@
             this.buttonUnlock.Location = new System.Drawing.Point(1206, 12);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
-            this.buttonUnlock.TabIndex = 5;
+            this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.TabStop = false;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
@@ -140,7 +140,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 22;
             this.buttonClose.TabStop = false;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
@@ -171,6 +171,25 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(1400, 637);
             this.panel2.TabIndex = 6;
+            // 
+            // comboBoxArticleGroup
+            // 
+            this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxArticleGroup.FormattingEnabled = true;
+            this.comboBoxArticleGroup.Location = new System.Drawing.Point(161, 78);
+            this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
+            this.comboBoxArticleGroup.Size = new System.Drawing.Size(214, 31);
+            this.comboBoxArticleGroup.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label10.Location = new System.Drawing.Point(40, 82);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(115, 23);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Article Group:";
             // 
             // label9
             // 
@@ -206,7 +225,7 @@
             this.textBoxEmailAddress.Location = new System.Drawing.Point(161, 295);
             this.textBoxEmailAddress.Name = "textBoxEmailAddress";
             this.textBoxEmailAddress.Size = new System.Drawing.Size(284, 30);
-            this.textBoxEmailAddress.TabIndex = 5;
+            this.textBoxEmailAddress.TabIndex = 6;
             // 
             // label6
             // 
@@ -224,7 +243,7 @@
             this.textBoxContactNumber.Location = new System.Drawing.Point(161, 259);
             this.textBoxContactNumber.Name = "textBoxContactNumber";
             this.textBoxContactNumber.Size = new System.Drawing.Size(214, 30);
-            this.textBoxContactNumber.TabIndex = 4;
+            this.textBoxContactNumber.TabIndex = 5;
             // 
             // label5
             // 
@@ -242,7 +261,7 @@
             this.textBoxContactPerson.Location = new System.Drawing.Point(161, 223);
             this.textBoxContactPerson.Name = "textBoxContactPerson";
             this.textBoxContactPerson.Size = new System.Drawing.Size(284, 30);
-            this.textBoxContactPerson.TabIndex = 3;
+            this.textBoxContactPerson.TabIndex = 4;
             // 
             // label2
             // 
@@ -261,7 +280,7 @@
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(409, 102);
-            this.textBoxAddress.TabIndex = 2;
+            this.textBoxAddress.TabIndex = 3;
             // 
             // label3
             // 
@@ -289,6 +308,7 @@
             this.textBoxCustomerCode.ReadOnly = true;
             this.textBoxCustomerCode.Size = new System.Drawing.Size(214, 30);
             this.textBoxCustomerCode.TabIndex = 0;
+            this.textBoxCustomerCode.TabStop = false;
             // 
             // label4
             // 
@@ -299,25 +319,6 @@
             this.label4.Size = new System.Drawing.Size(133, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Customer Code:";
-            // 
-            // comboBoxArticleGroup
-            // 
-            this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxArticleGroup.FormattingEnabled = true;
-            this.comboBoxArticleGroup.Location = new System.Drawing.Point(161, 78);
-            this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
-            this.comboBoxArticleGroup.Size = new System.Drawing.Size(214, 31);
-            this.comboBoxArticleGroup.TabIndex = 41;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label10.Location = new System.Drawing.Point(40, 82);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(115, 23);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "Article Group:";
             // 
             // MstCustomerDetailForm
             // 

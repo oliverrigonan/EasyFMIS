@@ -94,7 +94,7 @@
             this.buttonClose.Location = new System.Drawing.Point(474, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -111,7 +111,7 @@
             this.buttonSave.Location = new System.Drawing.Point(380, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -140,7 +140,7 @@
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(171, 6);
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(386, 31);
-            this.comboBoxArticleGroup.TabIndex = 26;
+            this.comboBoxArticleGroup.TabIndex = 0;
             // 
             // comboBoxRR
             // 
@@ -149,7 +149,7 @@
             this.comboBoxRR.Location = new System.Drawing.Point(171, 43);
             this.comboBoxRR.Name = "comboBoxRR";
             this.comboBoxRR.Size = new System.Drawing.Size(386, 31);
-            this.comboBoxRR.TabIndex = 25;
+            this.comboBoxRR.TabIndex = 1;
             // 
             // textBoxAmount
             // 
@@ -157,8 +157,7 @@
             this.textBoxAmount.Location = new System.Drawing.Point(171, 80);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxAmount.TabIndex = 24;
-            this.textBoxAmount.TabStop = false;
+            this.textBoxAmount.TabIndex = 2;
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
             this.textBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmount_KeyPress);
@@ -190,7 +189,7 @@
             this.textBoxOtherInformation.Multiline = true;
             this.textBoxOtherInformation.Name = "textBoxOtherInformation";
             this.textBoxOtherInformation.Size = new System.Drawing.Size(386, 83);
-            this.textBoxOtherInformation.TabIndex = 16;
+            this.textBoxOtherInformation.TabIndex = 3;
             // 
             // label2
             // 

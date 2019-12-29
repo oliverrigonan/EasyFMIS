@@ -47,15 +47,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridViewSearchInventoryItem = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBoxSearchNonInventoryItemFilter = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.buttonSearchNonInventoryItemPageListFirst = new System.Windows.Forms.Button();
-            this.buttonSearchNonInventoryItemPageListPrevious = new System.Windows.Forms.Button();
-            this.buttonSearchNonInventoryItemPageListNext = new System.Windows.Forms.Button();
-            this.buttonSearchNonInventoryItemPageListLast = new System.Windows.Forms.Button();
-            this.textBoxSearchNonInventoryItemPageNumber = new System.Windows.Forms.TextBox();
-            this.dataGridViewSearchNonInventoryItem = new System.Windows.Forms.DataGridView();
             this.ColumnSearchInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchInventoryItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchInventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +60,15 @@
             this.ColumnSearchInventoryItemVATOutTaxId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchInventoryItemVATOutTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchInventoryItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxSearchNonInventoryItemFilter = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonSearchNonInventoryItemPageListFirst = new System.Windows.Forms.Button();
+            this.buttonSearchNonInventoryItemPageListPrevious = new System.Windows.Forms.Button();
+            this.buttonSearchNonInventoryItemPageListNext = new System.Windows.Forms.Button();
+            this.buttonSearchNonInventoryItemPageListLast = new System.Windows.Forms.Button();
+            this.textBoxSearchNonInventoryItemPageNumber = new System.Windows.Forms.TextBox();
+            this.dataGridViewSearchNonInventoryItem = new System.Windows.Forms.DataGridView();
             this.ColumnSearchNonInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchNonInventoryItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSearchNonInventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,7 +136,7 @@
             this.buttonClose.Location = new System.Drawing.Point(882, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 20;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -149,7 +149,7 @@
             this.textBoxSearchInventoryItemFilter.Location = new System.Drawing.Point(8, 6);
             this.textBoxSearchInventoryItemFilter.Name = "textBoxSearchInventoryItemFilter";
             this.textBoxSearchInventoryItemFilter.Size = new System.Drawing.Size(958, 30);
-            this.textBoxSearchInventoryItemFilter.TabIndex = 5;
+            this.textBoxSearchInventoryItemFilter.TabIndex = 0;
             this.textBoxSearchInventoryItemFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchInventoryItemFilter_KeyDown);
             // 
             // panel3
@@ -306,6 +306,116 @@
             this.dataGridViewSearchInventoryItem.TabIndex = 6;
             this.dataGridViewSearchInventoryItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSearchInventoryItem_CellClick);
             // 
+            // ColumnSearchInventoryId
+            // 
+            this.ColumnSearchInventoryId.DataPropertyName = "ColumnSearchInventoryId";
+            this.ColumnSearchInventoryId.HeaderText = "Id";
+            this.ColumnSearchInventoryId.Name = "ColumnSearchInventoryId";
+            this.ColumnSearchInventoryId.ReadOnly = true;
+            this.ColumnSearchInventoryId.Visible = false;
+            // 
+            // ColumnSearchInventoryItemId
+            // 
+            this.ColumnSearchInventoryItemId.DataPropertyName = "ColumnSearchInventoryItemId";
+            this.ColumnSearchInventoryItemId.HeaderText = "ItemId";
+            this.ColumnSearchInventoryItemId.Name = "ColumnSearchInventoryItemId";
+            this.ColumnSearchInventoryItemId.ReadOnly = true;
+            this.ColumnSearchInventoryItemId.Visible = false;
+            // 
+            // ColumnSearchInventoryItemBarCode
+            // 
+            this.ColumnSearchInventoryItemBarCode.DataPropertyName = "ColumnSearchInventoryItemBarCode";
+            this.ColumnSearchInventoryItemBarCode.HeaderText = "Barcode";
+            this.ColumnSearchInventoryItemBarCode.Name = "ColumnSearchInventoryItemBarCode";
+            this.ColumnSearchInventoryItemBarCode.ReadOnly = true;
+            this.ColumnSearchInventoryItemBarCode.Width = 150;
+            // 
+            // ColumnSearchInventoryItemDescription
+            // 
+            this.ColumnSearchInventoryItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSearchInventoryItemDescription.DataPropertyName = "ColumnSearchInventoryItemDescription";
+            this.ColumnSearchInventoryItemDescription.HeaderText = "Item Description";
+            this.ColumnSearchInventoryItemDescription.Name = "ColumnSearchInventoryItemDescription";
+            this.ColumnSearchInventoryItemDescription.ReadOnly = true;
+            // 
+            // ColumnSearchInventoryItemInventoryCode
+            // 
+            this.ColumnSearchInventoryItemInventoryCode.DataPropertyName = "ColumnSearchInventoryItemInventoryCode";
+            this.ColumnSearchInventoryItemInventoryCode.HeaderText = "Inventory Code";
+            this.ColumnSearchInventoryItemInventoryCode.Name = "ColumnSearchInventoryItemInventoryCode";
+            this.ColumnSearchInventoryItemInventoryCode.ReadOnly = true;
+            this.ColumnSearchInventoryItemInventoryCode.Width = 150;
+            // 
+            // ColumnSearchInventoryItemUnitId
+            // 
+            this.ColumnSearchInventoryItemUnitId.DataPropertyName = "ColumnSearchInventoryItemUnitId";
+            this.ColumnSearchInventoryItemUnitId.HeaderText = "UnitId";
+            this.ColumnSearchInventoryItemUnitId.Name = "ColumnSearchInventoryItemUnitId";
+            this.ColumnSearchInventoryItemUnitId.ReadOnly = true;
+            this.ColumnSearchInventoryItemUnitId.Visible = false;
+            // 
+            // ColumnSearchInventoryItemUnit
+            // 
+            this.ColumnSearchInventoryItemUnit.DataPropertyName = "ColumnSearchInventoryItemUnit";
+            this.ColumnSearchInventoryItemUnit.HeaderText = "Unit";
+            this.ColumnSearchInventoryItemUnit.Name = "ColumnSearchInventoryItemUnit";
+            this.ColumnSearchInventoryItemUnit.ReadOnly = true;
+            // 
+            // ColumnSearchInventoryItemQuantity
+            // 
+            this.ColumnSearchInventoryItemQuantity.DataPropertyName = "ColumnSearchInventoryItemQuantity";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSearchInventoryItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnSearchInventoryItemQuantity.HeaderText = "Quantity";
+            this.ColumnSearchInventoryItemQuantity.Name = "ColumnSearchInventoryItemQuantity";
+            this.ColumnSearchInventoryItemQuantity.ReadOnly = true;
+            this.ColumnSearchInventoryItemQuantity.Visible = false;
+            // 
+            // ColumnSearchInventoryItemPrice
+            // 
+            this.ColumnSearchInventoryItemPrice.DataPropertyName = "ColumnSearchInventoryItemPrice";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSearchInventoryItemPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnSearchInventoryItemPrice.HeaderText = "Price";
+            this.ColumnSearchInventoryItemPrice.Name = "ColumnSearchInventoryItemPrice";
+            this.ColumnSearchInventoryItemPrice.ReadOnly = true;
+            // 
+            // ColumnSearchInventoryItemButtonPick
+            // 
+            this.ColumnSearchInventoryItemButtonPick.DataPropertyName = "ColumnSearchInventoryItemButtonPick";
+            this.ColumnSearchInventoryItemButtonPick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSearchInventoryItemButtonPick.HeaderText = "Pick";
+            this.ColumnSearchInventoryItemButtonPick.Name = "ColumnSearchInventoryItemButtonPick";
+            this.ColumnSearchInventoryItemButtonPick.ReadOnly = true;
+            this.ColumnSearchInventoryItemButtonPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnSearchInventoryItemButtonPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnSearchInventoryItemButtonPick.Width = 70;
+            // 
+            // ColumnSearchInventoryItemVATOutTaxId
+            // 
+            this.ColumnSearchInventoryItemVATOutTaxId.DataPropertyName = "ColumnSearchInventoryItemVATOutTaxId";
+            this.ColumnSearchInventoryItemVATOutTaxId.HeaderText = "VAT Out Tax Id";
+            this.ColumnSearchInventoryItemVATOutTaxId.Name = "ColumnSearchInventoryItemVATOutTaxId";
+            this.ColumnSearchInventoryItemVATOutTaxId.ReadOnly = true;
+            this.ColumnSearchInventoryItemVATOutTaxId.Visible = false;
+            // 
+            // ColumnSearchInventoryItemVATOutTaxRate
+            // 
+            this.ColumnSearchInventoryItemVATOutTaxRate.DataPropertyName = "ColumnSearchInventoryItemVATOutTaxRate";
+            this.ColumnSearchInventoryItemVATOutTaxRate.HeaderText = "VAT OutT ax Rate";
+            this.ColumnSearchInventoryItemVATOutTaxRate.Name = "ColumnSearchInventoryItemVATOutTaxRate";
+            this.ColumnSearchInventoryItemVATOutTaxRate.ReadOnly = true;
+            this.ColumnSearchInventoryItemVATOutTaxRate.Visible = false;
+            // 
+            // ColumnSearchInventoryItemSpace
+            // 
+            this.ColumnSearchInventoryItemSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSearchInventoryItemSpace.DataPropertyName = "ColumnSearchInventoryItemSpace";
+            this.ColumnSearchInventoryItemSpace.HeaderText = "";
+            this.ColumnSearchInventoryItemSpace.Name = "ColumnSearchInventoryItemSpace";
+            this.ColumnSearchInventoryItemSpace.ReadOnly = true;
+            this.ColumnSearchInventoryItemSpace.Visible = false;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.textBoxSearchNonInventoryItemFilter);
@@ -327,7 +437,7 @@
             this.textBoxSearchNonInventoryItemFilter.Location = new System.Drawing.Point(8, 6);
             this.textBoxSearchNonInventoryItemFilter.Name = "textBoxSearchNonInventoryItemFilter";
             this.textBoxSearchNonInventoryItemFilter.Size = new System.Drawing.Size(958, 30);
-            this.textBoxSearchNonInventoryItemFilter.TabIndex = 20;
+            this.textBoxSearchNonInventoryItemFilter.TabIndex = 0;
             // 
             // panel4
             // 
@@ -445,116 +555,6 @@
             this.dataGridViewSearchNonInventoryItem.Size = new System.Drawing.Size(958, 400);
             this.dataGridViewSearchNonInventoryItem.TabIndex = 21;
             this.dataGridViewSearchNonInventoryItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSearchNonInventoryItem_CellClick);
-            // 
-            // ColumnSearchInventoryId
-            // 
-            this.ColumnSearchInventoryId.DataPropertyName = "ColumnSearchInventoryId";
-            this.ColumnSearchInventoryId.HeaderText = "Id";
-            this.ColumnSearchInventoryId.Name = "ColumnSearchInventoryId";
-            this.ColumnSearchInventoryId.ReadOnly = true;
-            this.ColumnSearchInventoryId.Visible = false;
-            // 
-            // ColumnSearchInventoryItemId
-            // 
-            this.ColumnSearchInventoryItemId.DataPropertyName = "ColumnSearchInventoryItemId";
-            this.ColumnSearchInventoryItemId.HeaderText = "ItemId";
-            this.ColumnSearchInventoryItemId.Name = "ColumnSearchInventoryItemId";
-            this.ColumnSearchInventoryItemId.ReadOnly = true;
-            this.ColumnSearchInventoryItemId.Visible = false;
-            // 
-            // ColumnSearchInventoryItemBarCode
-            // 
-            this.ColumnSearchInventoryItemBarCode.DataPropertyName = "ColumnSearchInventoryItemBarCode";
-            this.ColumnSearchInventoryItemBarCode.HeaderText = "Barcode";
-            this.ColumnSearchInventoryItemBarCode.Name = "ColumnSearchInventoryItemBarCode";
-            this.ColumnSearchInventoryItemBarCode.ReadOnly = true;
-            this.ColumnSearchInventoryItemBarCode.Width = 150;
-            // 
-            // ColumnSearchInventoryItemDescription
-            // 
-            this.ColumnSearchInventoryItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSearchInventoryItemDescription.DataPropertyName = "ColumnSearchInventoryItemDescription";
-            this.ColumnSearchInventoryItemDescription.HeaderText = "Item Description";
-            this.ColumnSearchInventoryItemDescription.Name = "ColumnSearchInventoryItemDescription";
-            this.ColumnSearchInventoryItemDescription.ReadOnly = true;
-            // 
-            // ColumnSearchInventoryItemInventoryCode
-            // 
-            this.ColumnSearchInventoryItemInventoryCode.DataPropertyName = "ColumnSearchInventoryItemInventoryCode";
-            this.ColumnSearchInventoryItemInventoryCode.HeaderText = "Inventory Code";
-            this.ColumnSearchInventoryItemInventoryCode.Name = "ColumnSearchInventoryItemInventoryCode";
-            this.ColumnSearchInventoryItemInventoryCode.ReadOnly = true;
-            this.ColumnSearchInventoryItemInventoryCode.Width = 150;
-            // 
-            // ColumnSearchInventoryItemUnitId
-            // 
-            this.ColumnSearchInventoryItemUnitId.DataPropertyName = "ColumnSearchInventoryItemUnitId";
-            this.ColumnSearchInventoryItemUnitId.HeaderText = "UnitId";
-            this.ColumnSearchInventoryItemUnitId.Name = "ColumnSearchInventoryItemUnitId";
-            this.ColumnSearchInventoryItemUnitId.ReadOnly = true;
-            this.ColumnSearchInventoryItemUnitId.Visible = false;
-            // 
-            // ColumnSearchInventoryItemUnit
-            // 
-            this.ColumnSearchInventoryItemUnit.DataPropertyName = "ColumnSearchInventoryItemUnit";
-            this.ColumnSearchInventoryItemUnit.HeaderText = "Unit";
-            this.ColumnSearchInventoryItemUnit.Name = "ColumnSearchInventoryItemUnit";
-            this.ColumnSearchInventoryItemUnit.ReadOnly = true;
-            // 
-            // ColumnSearchInventoryItemQuantity
-            // 
-            this.ColumnSearchInventoryItemQuantity.DataPropertyName = "ColumnSearchInventoryItemQuantity";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSearchInventoryItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnSearchInventoryItemQuantity.HeaderText = "Quantity";
-            this.ColumnSearchInventoryItemQuantity.Name = "ColumnSearchInventoryItemQuantity";
-            this.ColumnSearchInventoryItemQuantity.ReadOnly = true;
-            this.ColumnSearchInventoryItemQuantity.Visible = false;
-            // 
-            // ColumnSearchInventoryItemPrice
-            // 
-            this.ColumnSearchInventoryItemPrice.DataPropertyName = "ColumnSearchInventoryItemPrice";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSearchInventoryItemPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnSearchInventoryItemPrice.HeaderText = "Price";
-            this.ColumnSearchInventoryItemPrice.Name = "ColumnSearchInventoryItemPrice";
-            this.ColumnSearchInventoryItemPrice.ReadOnly = true;
-            // 
-            // ColumnSearchInventoryItemButtonPick
-            // 
-            this.ColumnSearchInventoryItemButtonPick.DataPropertyName = "ColumnSearchInventoryItemButtonPick";
-            this.ColumnSearchInventoryItemButtonPick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSearchInventoryItemButtonPick.HeaderText = "Pick";
-            this.ColumnSearchInventoryItemButtonPick.Name = "ColumnSearchInventoryItemButtonPick";
-            this.ColumnSearchInventoryItemButtonPick.ReadOnly = true;
-            this.ColumnSearchInventoryItemButtonPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnSearchInventoryItemButtonPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnSearchInventoryItemButtonPick.Width = 70;
-            // 
-            // ColumnSearchInventoryItemVATOutTaxId
-            // 
-            this.ColumnSearchInventoryItemVATOutTaxId.DataPropertyName = "ColumnSearchInventoryItemVATOutTaxId";
-            this.ColumnSearchInventoryItemVATOutTaxId.HeaderText = "VAT Out Tax Id";
-            this.ColumnSearchInventoryItemVATOutTaxId.Name = "ColumnSearchInventoryItemVATOutTaxId";
-            this.ColumnSearchInventoryItemVATOutTaxId.ReadOnly = true;
-            this.ColumnSearchInventoryItemVATOutTaxId.Visible = false;
-            // 
-            // ColumnSearchInventoryItemVATOutTaxRate
-            // 
-            this.ColumnSearchInventoryItemVATOutTaxRate.DataPropertyName = "ColumnSearchInventoryItemVATOutTaxRate";
-            this.ColumnSearchInventoryItemVATOutTaxRate.HeaderText = "VAT OutT ax Rate";
-            this.ColumnSearchInventoryItemVATOutTaxRate.Name = "ColumnSearchInventoryItemVATOutTaxRate";
-            this.ColumnSearchInventoryItemVATOutTaxRate.ReadOnly = true;
-            this.ColumnSearchInventoryItemVATOutTaxRate.Visible = false;
-            // 
-            // ColumnSearchInventoryItemSpace
-            // 
-            this.ColumnSearchInventoryItemSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSearchInventoryItemSpace.DataPropertyName = "ColumnSearchInventoryItemSpace";
-            this.ColumnSearchInventoryItemSpace.HeaderText = "";
-            this.ColumnSearchInventoryItemSpace.Name = "ColumnSearchInventoryItemSpace";
-            this.ColumnSearchInventoryItemSpace.ReadOnly = true;
-            this.ColumnSearchInventoryItemSpace.Visible = false;
             // 
             // ColumnSearchNonInventoryId
             // 

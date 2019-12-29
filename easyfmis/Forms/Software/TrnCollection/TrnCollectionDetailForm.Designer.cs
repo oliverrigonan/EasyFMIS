@@ -66,10 +66,6 @@
             this.textBoxCollectionLinePageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewCollectionLine = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageCollectionLines = new System.Windows.Forms.TabPage();
             this.ColumnCollectionLineListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnCollectionLineListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnCollectionLineListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +90,10 @@
             this.ColumnCollectionLineListGiftCertificateNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCollectionLineListOtherInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCollectionLineListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageCollectionLines = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -132,7 +132,7 @@
             this.buttonLock.Location = new System.Drawing.Point(1018, 12);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(88, 40);
-            this.buttonLock.TabIndex = 5;
+            this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
             this.buttonLock.Click += new System.EventHandler(this.buttonLock_Click);
@@ -149,7 +149,7 @@
             this.buttonUnlock.Location = new System.Drawing.Point(1112, 12);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
-            this.buttonUnlock.TabIndex = 4;
+            this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
             this.buttonUnlock.Click += new System.EventHandler(this.buttonUnlock_Click);
@@ -187,7 +187,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 23;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -204,7 +204,7 @@
             this.buttonPrint.Location = new System.Drawing.Point(1206, 12);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(88, 40);
-            this.buttonPrint.TabIndex = 0;
+            this.buttonPrint.TabIndex = 22;
             this.buttonPrint.Text = "Print";
             this.buttonPrint.UseVisualStyleBackColor = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
@@ -254,7 +254,7 @@
             this.comboBoxCustomer.Location = new System.Drawing.Point(188, 150);
             this.comboBoxCustomer.Name = "comboBoxCustomer";
             this.comboBoxCustomer.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxCustomer.TabIndex = 32;
+            this.comboBoxCustomer.TabIndex = 4;
             // 
             // label3
             // 
@@ -272,7 +272,7 @@
             this.textBoxManualORNumber.Location = new System.Drawing.Point(188, 114);
             this.textBoxManualORNumber.Name = "textBoxManualORNumber";
             this.textBoxManualORNumber.Size = new System.Drawing.Size(196, 30);
-            this.textBoxManualORNumber.TabIndex = 28;
+            this.textBoxManualORNumber.TabIndex = 3;
             // 
             // textBoxBranch
             // 
@@ -281,7 +281,8 @@
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(298, 30);
-            this.textBoxBranch.TabIndex = 27;
+            this.textBoxBranch.TabIndex = 0;
+            this.textBoxBranch.TabStop = false;
             // 
             // label5
             // 
@@ -300,7 +301,7 @@
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(298, 66);
-            this.textBoxRemarks.TabIndex = 24;
+            this.textBoxRemarks.TabIndex = 5;
             // 
             // label13
             // 
@@ -339,7 +340,7 @@
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(611, 150);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxApprovedBy.TabIndex = 17;
+            this.comboBoxApprovedBy.TabIndex = 8;
             // 
             // comboBoxCheckedBy
             // 
@@ -348,7 +349,7 @@
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(611, 113);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxCheckedBy.TabIndex = 16;
+            this.comboBoxCheckedBy.TabIndex = 7;
             // 
             // comboBoxPreparedBy
             // 
@@ -358,7 +359,7 @@
             this.comboBoxPreparedBy.Location = new System.Drawing.Point(611, 77);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(298, 31);
-            this.comboBoxPreparedBy.TabIndex = 15;
+            this.comboBoxPreparedBy.TabIndex = 6;
             // 
             // label7
             // 
@@ -406,7 +407,8 @@
             this.textBoxORNumber.Name = "textBoxORNumber";
             this.textBoxORNumber.ReadOnly = true;
             this.textBoxORNumber.Size = new System.Drawing.Size(196, 30);
-            this.textBoxORNumber.TabIndex = 0;
+            this.textBoxORNumber.TabIndex = 1;
+            this.textBoxORNumber.TabStop = false;
             // 
             // panel4
             // 
@@ -491,6 +493,7 @@
             this.textBoxCollectionLinePageNumber.ReadOnly = true;
             this.textBoxCollectionLinePageNumber.Size = new System.Drawing.Size(69, 20);
             this.textBoxCollectionLinePageNumber.TabIndex = 17;
+            this.textBoxCollectionLinePageNumber.TabStop = false;
             this.textBoxCollectionLinePageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonSearchItem
@@ -505,8 +508,7 @@
             this.buttonSearchItem.Location = new System.Drawing.Point(1296, 6);
             this.buttonSearchItem.Name = "buttonSearchItem";
             this.buttonSearchItem.Size = new System.Drawing.Size(88, 40);
-            this.buttonSearchItem.TabIndex = 8;
-            this.buttonSearchItem.TabStop = false;
+            this.buttonSearchItem.TabIndex = 9;
             this.buttonSearchItem.Text = "Add";
             this.buttonSearchItem.UseVisualStyleBackColor = false;
             this.buttonSearchItem.Click += new System.EventHandler(this.buttonSearchItem_Click);
@@ -568,49 +570,6 @@
             this.dataGridViewCollectionLine.TabIndex = 1;
             this.dataGridViewCollectionLine.TabStop = false;
             this.dataGridViewCollectionLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCollectionLine_CellClick);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 191);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 446);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageCollectionLines);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 446);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // tabPageCollectionLines
-            // 
-            this.tabPageCollectionLines.Controls.Add(this.buttonSearchItem);
-            this.tabPageCollectionLines.Controls.Add(this.panel4);
-            this.tabPageCollectionLines.Controls.Add(this.dataGridViewCollectionLine);
-            this.tabPageCollectionLines.Location = new System.Drawing.Point(4, 32);
-            this.tabPageCollectionLines.Name = "tabPageCollectionLines";
-            this.tabPageCollectionLines.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCollectionLines.Size = new System.Drawing.Size(1392, 410);
-            this.tabPageCollectionLines.TabIndex = 0;
-            this.tabPageCollectionLines.Text = "Collection Lines";
-            this.tabPageCollectionLines.UseVisualStyleBackColor = true;
             // 
             // ColumnCollectionLineListButtonEdit
             // 
@@ -807,6 +766,50 @@
             this.ColumnCollectionLineListSpace.HeaderText = "";
             this.ColumnCollectionLineListSpace.Name = "ColumnCollectionLineListSpace";
             this.ColumnCollectionLineListSpace.ReadOnly = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 191);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 446);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageCollectionLines);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 446);
+            this.tabControl1.TabIndex = 9;
+            this.tabControl1.TabStop = false;
+            // 
+            // tabPageCollectionLines
+            // 
+            this.tabPageCollectionLines.Controls.Add(this.buttonSearchItem);
+            this.tabPageCollectionLines.Controls.Add(this.panel4);
+            this.tabPageCollectionLines.Controls.Add(this.dataGridViewCollectionLine);
+            this.tabPageCollectionLines.Location = new System.Drawing.Point(4, 32);
+            this.tabPageCollectionLines.Name = "tabPageCollectionLines";
+            this.tabPageCollectionLines.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCollectionLines.Size = new System.Drawing.Size(1392, 410);
+            this.tabPageCollectionLines.TabIndex = 0;
+            this.tabPageCollectionLines.Text = "Collection Lines";
+            this.tabPageCollectionLines.UseVisualStyleBackColor = true;
             // 
             // TrnCollectionDetailForm
             // 

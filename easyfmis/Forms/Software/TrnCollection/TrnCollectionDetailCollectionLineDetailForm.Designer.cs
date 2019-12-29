@@ -118,7 +118,7 @@
             this.buttonClose.Location = new System.Drawing.Point(617, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -135,7 +135,7 @@
             this.buttonSave.Location = new System.Drawing.Point(523, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -197,7 +197,7 @@
             this.textBoxOtherInformation.Multiline = true;
             this.textBoxOtherInformation.Name = "textBoxOtherInformation";
             this.textBoxOtherInformation.Size = new System.Drawing.Size(344, 100);
-            this.textBoxOtherInformation.TabIndex = 58;
+            this.textBoxOtherInformation.TabIndex = 15;
             // 
             // textBoxGiftCertificateNumber
             // 
@@ -205,7 +205,7 @@
             this.textBoxGiftCertificateNumber.Location = new System.Drawing.Point(267, 513);
             this.textBoxGiftCertificateNumber.Name = "textBoxGiftCertificateNumber";
             this.textBoxGiftCertificateNumber.Size = new System.Drawing.Size(344, 30);
-            this.textBoxGiftCertificateNumber.TabIndex = 57;
+            this.textBoxGiftCertificateNumber.TabIndex = 14;
             // 
             // label16
             // 
@@ -223,7 +223,7 @@
             this.textBoxCreditCardExpiry.Location = new System.Drawing.Point(267, 477);
             this.textBoxCreditCardExpiry.Name = "textBoxCreditCardExpiry";
             this.textBoxCreditCardExpiry.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCreditCardExpiry.TabIndex = 55;
+            this.textBoxCreditCardExpiry.TabIndex = 13;
             // 
             // label15
             // 
@@ -241,7 +241,7 @@
             this.textBoxCreditCardHolderName.Location = new System.Drawing.Point(267, 441);
             this.textBoxCreditCardHolderName.Name = "textBoxCreditCardHolderName";
             this.textBoxCreditCardHolderName.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCreditCardHolderName.TabIndex = 53;
+            this.textBoxCreditCardHolderName.TabIndex = 12;
             // 
             // label14
             // 
@@ -259,7 +259,7 @@
             this.textBoxCreditCardReferenceNumber.Location = new System.Drawing.Point(267, 405);
             this.textBoxCreditCardReferenceNumber.Name = "textBoxCreditCardReferenceNumber";
             this.textBoxCreditCardReferenceNumber.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCreditCardReferenceNumber.TabIndex = 51;
+            this.textBoxCreditCardReferenceNumber.TabIndex = 11;
             // 
             // label13
             // 
@@ -277,7 +277,7 @@
             this.textBoxCreditCardBank.Location = new System.Drawing.Point(267, 369);
             this.textBoxCreditCardBank.Name = "textBoxCreditCardBank";
             this.textBoxCreditCardBank.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCreditCardBank.TabIndex = 49;
+            this.textBoxCreditCardBank.TabIndex = 10;
             // 
             // label12
             // 
@@ -295,7 +295,7 @@
             this.textBoxCreditCardType.Location = new System.Drawing.Point(267, 333);
             this.textBoxCreditCardType.Name = "textBoxCreditCardType";
             this.textBoxCreditCardType.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCreditCardType.TabIndex = 47;
+            this.textBoxCreditCardType.TabIndex = 9;
             // 
             // label11
             // 
@@ -313,7 +313,7 @@
             this.textBoxCreditCardNumber.Location = new System.Drawing.Point(267, 297);
             this.textBoxCreditCardNumber.Name = "textBoxCreditCardNumber";
             this.textBoxCreditCardNumber.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCreditCardNumber.TabIndex = 45;
+            this.textBoxCreditCardNumber.TabIndex = 8;
             // 
             // label10
             // 
@@ -331,7 +331,7 @@
             this.textBoxCreditCardVerificationCode.Location = new System.Drawing.Point(267, 261);
             this.textBoxCreditCardVerificationCode.Name = "textBoxCreditCardVerificationCode";
             this.textBoxCreditCardVerificationCode.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCreditCardVerificationCode.TabIndex = 43;
+            this.textBoxCreditCardVerificationCode.TabIndex = 7;
             // 
             // label9
             // 
@@ -349,7 +349,7 @@
             this.textBoxCheckBank.Location = new System.Drawing.Point(267, 225);
             this.textBoxCheckBank.Name = "textBoxCheckBank";
             this.textBoxCheckBank.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCheckBank.TabIndex = 41;
+            this.textBoxCheckBank.TabIndex = 6;
             // 
             // label8
             // 
@@ -378,7 +378,7 @@
             this.dateTimePickerCheckDate.Location = new System.Drawing.Point(267, 189);
             this.dateTimePickerCheckDate.Name = "dateTimePickerCheckDate";
             this.dateTimePickerCheckDate.Size = new System.Drawing.Size(151, 30);
-            this.dateTimePickerCheckDate.TabIndex = 38;
+            this.dateTimePickerCheckDate.TabIndex = 5;
             // 
             // textBoxCheckNumber
             // 
@@ -386,7 +386,7 @@
             this.textBoxCheckNumber.Location = new System.Drawing.Point(267, 153);
             this.textBoxCheckNumber.Name = "textBoxCheckNumber";
             this.textBoxCheckNumber.Size = new System.Drawing.Size(344, 30);
-            this.textBoxCheckNumber.TabIndex = 37;
+            this.textBoxCheckNumber.TabIndex = 4;
             // 
             // label6
             // 
@@ -405,7 +405,7 @@
             this.comboBoxPayType.Location = new System.Drawing.Point(267, 116);
             this.comboBoxPayType.Name = "comboBoxPayType";
             this.comboBoxPayType.Size = new System.Drawing.Size(344, 31);
-            this.comboBoxPayType.TabIndex = 35;
+            this.comboBoxPayType.TabIndex = 3;
             // 
             // label5
             // 
@@ -424,7 +424,7 @@
             this.comboBoxSINumber.Location = new System.Drawing.Point(267, 43);
             this.comboBoxSINumber.Name = "comboBoxSINumber";
             this.comboBoxSINumber.Size = new System.Drawing.Size(344, 31);
-            this.comboBoxSINumber.TabIndex = 33;
+            this.comboBoxSINumber.TabIndex = 1;
             // 
             // label4
             // 
@@ -442,7 +442,7 @@
             this.textBoxAmount.Location = new System.Drawing.Point(267, 80);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(344, 30);
-            this.textBoxAmount.TabIndex = 31;
+            this.textBoxAmount.TabIndex = 2;
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCollectionLineAmount_KeyPress);
             this.textBoxAmount.Leave += new System.EventHandler(this.textBoxCollectionLineCost_Leave);
@@ -464,7 +464,7 @@
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(267, 6);
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(344, 31);
-            this.comboBoxArticleGroup.TabIndex = 25;
+            this.comboBoxArticleGroup.TabIndex = 0;
             // 
             // label3
             // 

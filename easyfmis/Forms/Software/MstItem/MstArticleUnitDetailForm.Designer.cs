@@ -51,7 +51,7 @@
             this.comboBoxUnit.Location = new System.Drawing.Point(178, 141);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(287, 31);
-            this.comboBoxUnit.TabIndex = 19;
+            this.comboBoxUnit.TabIndex = 2;
             // 
             // textBoxUnitMultiplier
             // 
@@ -59,7 +59,7 @@
             this.textBoxUnitMultiplier.Location = new System.Drawing.Point(178, 105);
             this.textBoxUnitMultiplier.Name = "textBoxUnitMultiplier";
             this.textBoxUnitMultiplier.Size = new System.Drawing.Size(287, 30);
-            this.textBoxUnitMultiplier.TabIndex = 18;
+            this.textBoxUnitMultiplier.TabIndex = 1;
             this.textBoxUnitMultiplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUnitMultiplier_KeyPress);
             this.textBoxUnitMultiplier.Leave += new System.EventHandler(this.textBoxUnitMultiplier_Leave);
             // 
@@ -99,7 +99,7 @@
             this.textBoxBaseUnitMultiplier.Location = new System.Drawing.Point(178, 69);
             this.textBoxBaseUnitMultiplier.Name = "textBoxBaseUnitMultiplier";
             this.textBoxBaseUnitMultiplier.Size = new System.Drawing.Size(287, 30);
-            this.textBoxBaseUnitMultiplier.TabIndex = 14;
+            this.textBoxBaseUnitMultiplier.TabIndex = 0;
             this.textBoxBaseUnitMultiplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBaseUnitMultiplier_KeyPress);
             this.textBoxBaseUnitMultiplier.Leave += new System.EventHandler(this.textBoxBaseUnitMultiplie_Leave);
             // 
@@ -128,7 +128,7 @@
             this.buttonSave.Location = new System.Drawing.Point(377, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 4;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -166,7 +166,7 @@
             this.buttonClose.Location = new System.Drawing.Point(471, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);

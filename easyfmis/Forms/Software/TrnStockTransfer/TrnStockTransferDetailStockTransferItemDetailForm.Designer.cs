@@ -97,7 +97,7 @@
             this.buttonClose.Location = new System.Drawing.Point(544, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -114,7 +114,7 @@
             this.buttonSave.Location = new System.Drawing.Point(450, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -145,7 +145,7 @@
             this.comboBoxInventoryCode.Location = new System.Drawing.Point(149, 80);
             this.comboBoxInventoryCode.Name = "comboBoxInventoryCode";
             this.comboBoxInventoryCode.Size = new System.Drawing.Size(389, 31);
-            this.comboBoxInventoryCode.TabIndex = 27;
+            this.comboBoxInventoryCode.TabIndex = 1;
             // 
             // label5
             // 
@@ -164,7 +164,7 @@
             this.comboBoxUnit.Location = new System.Drawing.Point(149, 117);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(138, 31);
-            this.comboBoxUnit.TabIndex = 25;
+            this.comboBoxUnit.TabIndex = 2;
             // 
             // textBoxAmount
             // 
@@ -173,7 +173,7 @@
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.ReadOnly = true;
             this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxAmount.TabIndex = 24;
+            this.textBoxAmount.TabIndex = 4;
             this.textBoxAmount.TabStop = false;
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -203,7 +203,7 @@
             this.textBoxCost.Location = new System.Drawing.Point(149, 154);
             this.textBoxCost.Name = "textBoxCost";
             this.textBoxCost.Size = new System.Drawing.Size(269, 30);
-            this.textBoxCost.TabIndex = 16;
+            this.textBoxCost.TabIndex = 3;
             this.textBoxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxCost.TextChanged += new System.EventHandler(this.textBoxStockTransferItemCost_TextChanged);
             this.textBoxCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStockTransferItemCost_KeyPress);
@@ -240,7 +240,7 @@
             this.textBoxQuantity.Location = new System.Drawing.Point(149, 44);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(269, 30);
-            this.textBoxQuantity.TabIndex = 11;
+            this.textBoxQuantity.TabIndex = 0;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxStockTransferItemQuantity_TextChanged);
             this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStockTransferItemQuantity_KeyPress);

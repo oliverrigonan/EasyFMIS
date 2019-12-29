@@ -113,8 +113,8 @@ namespace easyfmis.Controllers
         // ========================
         public List<Entities.MstArticleEntity> DropdownListReceivingReceiptSupplier()
         {
-            var customers = from d in db.MstArticles
-                            where d.ArticleTypeId == 2
+            var suppliers = from d in db.MstArticles
+                            where d.ArticleTypeId == 3
                             && d.IsLocked == true
                             select new Entities.MstArticleEntity
                             {
@@ -122,7 +122,7 @@ namespace easyfmis.Controllers
                                 Article = d.Article
                             };
 
-            return customers.ToList();
+            return suppliers.ToList();
         }
 
         // ====================
@@ -168,12 +168,12 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-                var customer = from d in db.MstArticles
-                               where d.ArticleTypeId == 2
+                var supplier = from d in db.MstArticles
+                               where d.ArticleTypeId == 3
                                && d.IsLocked == true
                                select d;
 
-                if (customer.Any() == false)
+                if (supplier.Any() == false)
                 {
                     return new String[] { "Supplier not found.", "0" };
                 }
@@ -200,7 +200,7 @@ namespace easyfmis.Controllers
                     RRDate = DateTime.Today,
                     RRNumber = salesInvoiceNumber,
                     ManualRRNumber = salesInvoiceNumber,
-                    SupplierId = customer.FirstOrDefault().Id,
+                    SupplierId = supplier.FirstOrDefault().Id,
                     TermId = term.FirstOrDefault().Id,
                     Remarks = "",
                     ReceivedBy = currentUserLogin.FirstOrDefault().Id,
@@ -242,13 +242,13 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-                var customer = from d in db.MstArticles
+                var supplier = from d in db.MstArticles
                                where d.Id == objReceivingReceipt.SupplierId
-                               && d.ArticleTypeId == 2
+                               && d.ArticleTypeId == 3
                                && d.IsLocked == true
                                select d;
 
-                if (customer.Any() == false)
+                if (supplier.Any() == false)
                 {
                     return new String[] { "Supplier not found.", "0" };
                 }

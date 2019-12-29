@@ -39,6 +39,7 @@
             this.buttonUnlock = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.buttonAddBranch = new System.Windows.Forms.Button();
             this.dataGridViewBranchFormList = new System.Windows.Forms.DataGridView();
             this.ColumnBranchListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnBranchListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -46,7 +47,6 @@
             this.ColumnBranchListBranchCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBranchListBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBranchListCompanyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonAddBranch = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.buttonBranchListPageListFirst = new System.Windows.Forms.Button();
             this.buttonBranchListPageListPrevious = new System.Windows.Forms.Button();
@@ -93,7 +93,7 @@
             this.buttonLock.Location = new System.Drawing.Point(1112, 12);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(88, 40);
-            this.buttonLock.TabIndex = 4;
+            this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
             this.buttonLock.Click += new System.EventHandler(this.buttonLock_Click);
@@ -131,7 +131,7 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 22;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -148,7 +148,7 @@
             this.buttonUnlock.Location = new System.Drawing.Point(1206, 12);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
-            this.buttonUnlock.TabIndex = 0;
+            this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
             this.buttonUnlock.Click += new System.EventHandler(this.buttonUnlock_Click);
@@ -174,6 +174,24 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1400, 504);
             this.panel6.TabIndex = 29;
+            // 
+            // buttonAddBranch
+            // 
+            this.buttonAddBranch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddBranch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddBranch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(34)))), ((int)(((byte)(116)))));
+            this.buttonAddBranch.FlatAppearance.BorderSize = 0;
+            this.buttonAddBranch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonAddBranch.ForeColor = System.Drawing.Color.White;
+            this.buttonAddBranch.Location = new System.Drawing.Point(1300, 6);
+            this.buttonAddBranch.Name = "buttonAddBranch";
+            this.buttonAddBranch.Size = new System.Drawing.Size(88, 40);
+            this.buttonAddBranch.TabIndex = 8;
+            this.buttonAddBranch.TabStop = false;
+            this.buttonAddBranch.Text = "Add";
+            this.buttonAddBranch.UseVisualStyleBackColor = false;
+            this.buttonAddBranch.Click += new System.EventHandler(this.buttonAddBranch_Click);
             // 
             // dataGridViewBranchFormList
             // 
@@ -265,24 +283,6 @@
             this.ColumnBranchListCompanyId.ReadOnly = true;
             this.ColumnBranchListCompanyId.Visible = false;
             // 
-            // buttonAddBranch
-            // 
-            this.buttonAddBranch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddBranch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonAddBranch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(34)))), ((int)(((byte)(116)))));
-            this.buttonAddBranch.FlatAppearance.BorderSize = 0;
-            this.buttonAddBranch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buttonAddBranch.ForeColor = System.Drawing.Color.White;
-            this.buttonAddBranch.Location = new System.Drawing.Point(1300, 6);
-            this.buttonAddBranch.Name = "buttonAddBranch";
-            this.buttonAddBranch.Size = new System.Drawing.Size(88, 40);
-            this.buttonAddBranch.TabIndex = 8;
-            this.buttonAddBranch.TabStop = false;
-            this.buttonAddBranch.Text = "Add";
-            this.buttonAddBranch.UseVisualStyleBackColor = false;
-            this.buttonAddBranch.Click += new System.EventHandler(this.buttonAddBranch_Click);
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
@@ -366,6 +366,7 @@
             this.textBoxBranchListPageNumber.ReadOnly = true;
             this.textBoxBranchListPageNumber.Size = new System.Drawing.Size(69, 20);
             this.textBoxBranchListPageNumber.TabIndex = 17;
+            this.textBoxBranchListPageNumber.TabStop = false;
             this.textBoxBranchListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel3
@@ -388,8 +389,7 @@
             this.textBoxCompanyCode.Location = new System.Drawing.Point(106, 6);
             this.textBoxCompanyCode.Name = "textBoxCompanyCode";
             this.textBoxCompanyCode.Size = new System.Drawing.Size(319, 30);
-            this.textBoxCompanyCode.TabIndex = 3;
-            this.textBoxCompanyCode.TabStop = false;
+            this.textBoxCompanyCode.TabIndex = 0;
             // 
             // label4
             // 
@@ -408,7 +408,6 @@
             this.textBoxCompany.Name = "textBoxCompany";
             this.textBoxCompany.Size = new System.Drawing.Size(319, 30);
             this.textBoxCompany.TabIndex = 1;
-            this.textBoxCompany.TabStop = false;
             // 
             // label3
             // 

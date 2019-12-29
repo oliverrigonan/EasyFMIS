@@ -60,7 +60,7 @@
             this.textBoxCost2.Location = new System.Drawing.Point(142, 208);
             this.textBoxCost2.Name = "textBoxCost2";
             this.textBoxCost2.Size = new System.Drawing.Size(195, 30);
-            this.textBoxCost2.TabIndex = 56;
+            this.textBoxCost2.TabIndex = 4;
             this.textBoxCost2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
@@ -81,7 +81,7 @@
             this.textBoxCost1.Name = "textBoxCost1";
             this.textBoxCost1.ReadOnly = true;
             this.textBoxCost1.Size = new System.Drawing.Size(195, 30);
-            this.textBoxCost1.TabIndex = 52;
+            this.textBoxCost1.TabIndex = 3;
             this.textBoxCost1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
@@ -100,7 +100,7 @@
             this.textBoxQuantity.Location = new System.Drawing.Point(142, 140);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(195, 30);
-            this.textBoxQuantity.TabIndex = 50;
+            this.textBoxQuantity.TabIndex = 2;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
@@ -138,7 +138,7 @@
             this.buttonSave.Location = new System.Drawing.Point(307, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 4;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -176,7 +176,7 @@
             this.buttonClose.Location = new System.Drawing.Point(401, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -188,7 +188,7 @@
             this.textBoxCost4.Location = new System.Drawing.Point(142, 276);
             this.textBoxCost4.Name = "textBoxCost4";
             this.textBoxCost4.Size = new System.Drawing.Size(195, 30);
-            this.textBoxCost4.TabIndex = 61;
+            this.textBoxCost4.TabIndex = 6;
             this.textBoxCost4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
@@ -208,7 +208,7 @@
             this.textBoxCost3.Location = new System.Drawing.Point(142, 242);
             this.textBoxCost3.Name = "textBoxCost3";
             this.textBoxCost3.Size = new System.Drawing.Size(195, 30);
-            this.textBoxCost3.TabIndex = 59;
+            this.textBoxCost3.TabIndex = 5;
             this.textBoxCost3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
@@ -228,7 +228,7 @@
             this.textBoxCost5.Location = new System.Drawing.Point(142, 310);
             this.textBoxCost5.Name = "textBoxCost5";
             this.textBoxCost5.Size = new System.Drawing.Size(195, 30);
-            this.textBoxCost5.TabIndex = 63;
+            this.textBoxCost5.TabIndex = 7;
             this.textBoxCost5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
@@ -259,7 +259,7 @@
             this.textBoxInventoryCode.Name = "textBoxInventoryCode";
             this.textBoxInventoryCode.ReadOnly = true;
             this.textBoxInventoryCode.Size = new System.Drawing.Size(350, 30);
-            this.textBoxInventoryCode.TabIndex = 57;
+            this.textBoxInventoryCode.TabIndex = 1;
             // 
             // textBoxBranchCode
             // 
@@ -267,7 +267,7 @@
             this.textBoxBranchCode.Location = new System.Drawing.Point(142, 69);
             this.textBoxBranchCode.Name = "textBoxBranchCode";
             this.textBoxBranchCode.Size = new System.Drawing.Size(350, 30);
-            this.textBoxBranchCode.TabIndex = 65;
+            this.textBoxBranchCode.TabIndex = 0;
             // 
             // label6
             // 

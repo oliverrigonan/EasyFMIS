@@ -30,6 +30,10 @@
         {
             this.listBoxInventoryReport = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboBoxItem = new System.Windows.Forms.ComboBox();
+            this.labelItem = new System.Windows.Forms.Label();
+            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
+            this.labelBranch = new System.Windows.Forms.Label();
             this.comboBoxCompany = new System.Windows.Forms.ComboBox();
             this.labelCompany = new System.Windows.Forms.Label();
             this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
@@ -44,10 +48,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
-            this.labelBranch = new System.Windows.Forms.Label();
-            this.comboBoxItem = new System.Windows.Forms.ComboBox();
-            this.labelItem = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,13 +90,53 @@
             this.panel4.Size = new System.Drawing.Size(1400, 637);
             this.panel4.TabIndex = 10;
             // 
+            // comboBoxItem
+            // 
+            this.comboBoxItem.FormattingEnabled = true;
+            this.comboBoxItem.Location = new System.Drawing.Point(506, 196);
+            this.comboBoxItem.Name = "comboBoxItem";
+            this.comboBoxItem.Size = new System.Drawing.Size(416, 31);
+            this.comboBoxItem.TabIndex = 4;
+            this.comboBoxItem.Visible = false;
+            // 
+            // labelItem
+            // 
+            this.labelItem.AutoSize = true;
+            this.labelItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.labelItem.Location = new System.Drawing.Point(448, 199);
+            this.labelItem.Name = "labelItem";
+            this.labelItem.Size = new System.Drawing.Size(49, 23);
+            this.labelItem.TabIndex = 29;
+            this.labelItem.Text = "Item:";
+            this.labelItem.Visible = false;
+            // 
+            // comboBoxBranch
+            // 
+            this.comboBoxBranch.FormattingEnabled = true;
+            this.comboBoxBranch.Location = new System.Drawing.Point(506, 159);
+            this.comboBoxBranch.Name = "comboBoxBranch";
+            this.comboBoxBranch.Size = new System.Drawing.Size(416, 31);
+            this.comboBoxBranch.TabIndex = 3;
+            this.comboBoxBranch.Visible = false;
+            // 
+            // labelBranch
+            // 
+            this.labelBranch.AutoSize = true;
+            this.labelBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.labelBranch.Location = new System.Drawing.Point(433, 162);
+            this.labelBranch.Name = "labelBranch";
+            this.labelBranch.Size = new System.Drawing.Size(67, 23);
+            this.labelBranch.TabIndex = 27;
+            this.labelBranch.Text = "Branch:";
+            this.labelBranch.Visible = false;
+            // 
             // comboBoxCompany
             // 
             this.comboBoxCompany.FormattingEnabled = true;
             this.comboBoxCompany.Location = new System.Drawing.Point(506, 122);
             this.comboBoxCompany.Name = "comboBoxCompany";
             this.comboBoxCompany.Size = new System.Drawing.Size(416, 31);
-            this.comboBoxCompany.TabIndex = 26;
+            this.comboBoxCompany.TabIndex = 2;
             this.comboBoxCompany.Visible = false;
             this.comboBoxCompany.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompany_SelectedIndexChanged);
             // 
@@ -117,7 +157,7 @@
             this.dateTimePickerStartDate.Location = new System.Drawing.Point(506, 50);
             this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
             this.dateTimePickerStartDate.Size = new System.Drawing.Size(220, 30);
-            this.dateTimePickerStartDate.TabIndex = 24;
+            this.dateTimePickerStartDate.TabIndex = 0;
             this.dateTimePickerStartDate.Visible = false;
             // 
             // labelStartDate
@@ -148,7 +188,7 @@
             this.dateTimePickerEndDate.Location = new System.Drawing.Point(506, 86);
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             this.dateTimePickerEndDate.Size = new System.Drawing.Size(220, 30);
-            this.dateTimePickerEndDate.TabIndex = 21;
+            this.dateTimePickerEndDate.TabIndex = 1;
             this.dateTimePickerEndDate.Visible = false;
             // 
             // panel3
@@ -209,7 +249,7 @@
             this.buttonView.Location = new System.Drawing.Point(1206, 12);
             this.buttonView.Name = "buttonView";
             this.buttonView.Size = new System.Drawing.Size(88, 40);
-            this.buttonView.TabIndex = 5;
+            this.buttonView.TabIndex = 20;
             this.buttonView.TabStop = false;
             this.buttonView.Text = "View";
             this.buttonView.UseVisualStyleBackColor = false;
@@ -248,51 +288,11 @@
             this.buttonClose.Location = new System.Drawing.Point(1300, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_OnClick);
-            // 
-            // comboBoxBranch
-            // 
-            this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(506, 159);
-            this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(416, 31);
-            this.comboBoxBranch.TabIndex = 28;
-            this.comboBoxBranch.Visible = false;
-            // 
-            // labelBranch
-            // 
-            this.labelBranch.AutoSize = true;
-            this.labelBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelBranch.Location = new System.Drawing.Point(433, 162);
-            this.labelBranch.Name = "labelBranch";
-            this.labelBranch.Size = new System.Drawing.Size(67, 23);
-            this.labelBranch.TabIndex = 27;
-            this.labelBranch.Text = "Branch:";
-            this.labelBranch.Visible = false;
-            // 
-            // comboBoxItem
-            // 
-            this.comboBoxItem.FormattingEnabled = true;
-            this.comboBoxItem.Location = new System.Drawing.Point(506, 196);
-            this.comboBoxItem.Name = "comboBoxItem";
-            this.comboBoxItem.Size = new System.Drawing.Size(416, 31);
-            this.comboBoxItem.TabIndex = 30;
-            this.comboBoxItem.Visible = false;
-            // 
-            // labelItem
-            // 
-            this.labelItem.AutoSize = true;
-            this.labelItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelItem.Location = new System.Drawing.Point(448, 199);
-            this.labelItem.Name = "labelItem";
-            this.labelItem.Size = new System.Drawing.Size(49, 23);
-            this.labelItem.TabIndex = 29;
-            this.labelItem.Text = "Item:";
-            this.labelItem.Visible = false;
             // 
             // RepInventoryReportForm
             // 

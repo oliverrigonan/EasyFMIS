@@ -83,7 +83,7 @@
             this.buttonLock.Location = new System.Drawing.Point(275, 12);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(88, 40);
-            this.buttonLock.TabIndex = 6;
+            this.buttonLock.TabIndex = 20;
             this.buttonLock.TabStop = false;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@
             this.buttonUnlock.Location = new System.Drawing.Point(369, 12);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
-            this.buttonUnlock.TabIndex = 5;
+            this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.TabStop = false;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
@@ -140,7 +140,7 @@
             this.buttonClose.Location = new System.Drawing.Point(463, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 23;
             this.buttonClose.TabStop = false;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
@@ -179,7 +179,7 @@
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(161, 78);
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(214, 31);
-            this.comboBoxArticleGroup.TabIndex = 41;
+            this.comboBoxArticleGroup.TabIndex = 2;
             // 
             // label10
             // 
@@ -207,7 +207,7 @@
             this.textBoxTIN.Location = new System.Drawing.Point(161, 329);
             this.textBoxTIN.Name = "textBoxTIN";
             this.textBoxTIN.Size = new System.Drawing.Size(214, 30);
-            this.textBoxTIN.TabIndex = 7;
+            this.textBoxTIN.TabIndex = 6;
             // 
             // label7
             // 
@@ -261,7 +261,7 @@
             this.textBoxContactPerson.Location = new System.Drawing.Point(161, 223);
             this.textBoxContactPerson.Name = "textBoxContactPerson";
             this.textBoxContactPerson.Size = new System.Drawing.Size(284, 30);
-            this.textBoxContactPerson.TabIndex = 3;
+            this.textBoxContactPerson.TabIndex = 4;
             // 
             // label2
             // 
@@ -280,7 +280,7 @@
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(390, 102);
-            this.textBoxAddress.TabIndex = 2;
+            this.textBoxAddress.TabIndex = 3;
             // 
             // label3
             // 

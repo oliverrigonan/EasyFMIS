@@ -111,7 +111,7 @@
             this.buttonClose.Location = new System.Drawing.Point(487, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -128,7 +128,7 @@
             this.buttonSave.Location = new System.Drawing.Point(393, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -173,7 +173,8 @@
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.ReadOnly = true;
             this.textBoxPrice.Size = new System.Drawing.Size(269, 30);
-            this.textBoxPrice.TabIndex = 43;
+            this.textBoxPrice.TabIndex = 10;
+            this.textBoxPrice.TabStop = false;
             this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxPrice.Click += new System.EventHandler(this.textBoxPrice_Click);
             // 
@@ -204,7 +205,8 @@
             this.textBoxNetPrice.Name = "textBoxNetPrice";
             this.textBoxNetPrice.ReadOnly = true;
             this.textBoxNetPrice.Size = new System.Drawing.Size(269, 30);
-            this.textBoxNetPrice.TabIndex = 40;
+            this.textBoxNetPrice.TabIndex = 11;
+            this.textBoxNetPrice.TabStop = false;
             this.textBoxNetPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label12
@@ -223,7 +225,7 @@
             this.textBoxDiscountRate.Location = new System.Drawing.Point(172, 225);
             this.textBoxDiscountRate.Name = "textBoxDiscountRate";
             this.textBoxDiscountRate.Size = new System.Drawing.Size(269, 30);
-            this.textBoxDiscountRate.TabIndex = 38;
+            this.textBoxDiscountRate.TabIndex = 4;
             this.textBoxDiscountRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxDiscountRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDiscountRate_KeyPress);
             this.textBoxDiscountRate.Leave += new System.EventHandler(this.textBoxDiscountRate_Leave);
@@ -245,7 +247,8 @@
             this.textBoxTaxAmount.Name = "textBoxTaxAmount";
             this.textBoxTaxAmount.ReadOnly = true;
             this.textBoxTaxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxTaxAmount.TabIndex = 36;
+            this.textBoxTaxAmount.TabIndex = 14;
+            this.textBoxTaxAmount.TabStop = false;
             this.textBoxTaxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
@@ -265,7 +268,8 @@
             this.textBoxTaxRate.Name = "textBoxTaxRate";
             this.textBoxTaxRate.ReadOnly = true;
             this.textBoxTaxRate.Size = new System.Drawing.Size(269, 30);
-            this.textBoxTaxRate.TabIndex = 34;
+            this.textBoxTaxRate.TabIndex = 13;
+            this.textBoxTaxRate.TabStop = false;
             this.textBoxTaxRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // comboBoxTax
@@ -275,7 +279,7 @@
             this.comboBoxTax.Location = new System.Drawing.Point(172, 369);
             this.comboBoxTax.Name = "comboBoxTax";
             this.comboBoxTax.Size = new System.Drawing.Size(138, 31);
-            this.comboBoxTax.TabIndex = 33;
+            this.comboBoxTax.TabIndex = 6;
             this.comboBoxTax.SelectedIndexChanged += new System.EventHandler(this.comboBoxTax_SelectedIndexChanged);
             // 
             // label10
@@ -304,7 +308,7 @@
             this.textBoxDiscountAmount.Location = new System.Drawing.Point(172, 261);
             this.textBoxDiscountAmount.Name = "textBoxDiscountAmount";
             this.textBoxDiscountAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxDiscountAmount.TabIndex = 30;
+            this.textBoxDiscountAmount.TabIndex = 5;
             this.textBoxDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxDiscountAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDiscountAmount_KeyPress);
             this.textBoxDiscountAmount.Leave += new System.EventHandler(this.textBoxDiscountAmount_Leave);
@@ -316,7 +320,7 @@
             this.comboBoxDiscount.Location = new System.Drawing.Point(172, 189);
             this.comboBoxDiscount.Name = "comboBoxDiscount";
             this.comboBoxDiscount.Size = new System.Drawing.Size(138, 31);
-            this.comboBoxDiscount.TabIndex = 29;
+            this.comboBoxDiscount.TabIndex = 3;
             this.comboBoxDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiscount_SelectedIndexChanged);
             // 
             // label6
@@ -336,7 +340,7 @@
             this.comboBoxInventoryCode.Location = new System.Drawing.Point(172, 80);
             this.comboBoxInventoryCode.Name = "comboBoxInventoryCode";
             this.comboBoxInventoryCode.Size = new System.Drawing.Size(389, 31);
-            this.comboBoxInventoryCode.TabIndex = 27;
+            this.comboBoxInventoryCode.TabIndex = 1;
             // 
             // label5
             // 
@@ -355,7 +359,7 @@
             this.comboBoxUnit.Location = new System.Drawing.Point(172, 153);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(138, 31);
-            this.comboBoxUnit.TabIndex = 25;
+            this.comboBoxUnit.TabIndex = 2;
             // 
             // textBoxAmount
             // 
@@ -364,7 +368,7 @@
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.ReadOnly = true;
             this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxAmount.TabIndex = 24;
+            this.textBoxAmount.TabIndex = 12;
             this.textBoxAmount.TabStop = false;
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -409,7 +413,7 @@
             this.textBoxQuantity.Location = new System.Drawing.Point(172, 44);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(269, 30);
-            this.textBoxQuantity.TabIndex = 11;
+            this.textBoxQuantity.TabIndex = 0;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxItemQuantity_KeyPress);
             this.textBoxQuantity.Leave += new System.EventHandler(this.textBoxItemQuantity_Leave);

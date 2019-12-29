@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnSalesInvoiceDetailSalesInvoiceItemDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -59,10 +60,9 @@
             this.textBoxSalesInvoiceItemItemDescription = new System.Windows.Forms.TextBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,6 +77,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(660, 63);
             this.panel1.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.POS;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -101,7 +111,7 @@
             this.buttonClose.Location = new System.Drawing.Point(560, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 1;
+            this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -118,7 +128,7 @@
             this.buttonSave.Location = new System.Drawing.Point(466, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
-            this.buttonSave.TabIndex = 0;
+            this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -173,7 +183,8 @@
             this.textBoxTaxAmount.Name = "textBoxTaxAmount";
             this.textBoxTaxAmount.ReadOnly = true;
             this.textBoxTaxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxTaxAmount.TabIndex = 40;
+            this.textBoxTaxAmount.TabIndex = 11;
+            this.textBoxTaxAmount.TabStop = false;
             this.textBoxTaxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label12
@@ -193,7 +204,8 @@
             this.textBoxTaxRate.Name = "textBoxTaxRate";
             this.textBoxTaxRate.ReadOnly = true;
             this.textBoxTaxRate.Size = new System.Drawing.Size(269, 30);
-            this.textBoxTaxRate.TabIndex = 38;
+            this.textBoxTaxRate.TabIndex = 10;
+            this.textBoxTaxRate.TabStop = false;
             this.textBoxTaxRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // comboBoxTax
@@ -203,7 +215,7 @@
             this.comboBoxTax.Location = new System.Drawing.Point(177, 371);
             this.comboBoxTax.Name = "comboBoxTax";
             this.comboBoxTax.Size = new System.Drawing.Size(377, 31);
-            this.comboBoxTax.TabIndex = 37;
+            this.comboBoxTax.TabIndex = 9;
             this.comboBoxTax.SelectedIndexChanged += new System.EventHandler(this.comboBoxTax_SelectedIndexChanged);
             // 
             // label13
@@ -232,7 +244,7 @@
             this.textBoxDiscountAmount.Location = new System.Drawing.Point(177, 263);
             this.textBoxDiscountAmount.Name = "textBoxDiscountAmount";
             this.textBoxDiscountAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxDiscountAmount.TabIndex = 34;
+            this.textBoxDiscountAmount.TabIndex = 6;
             this.textBoxDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxDiscountAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salesInvoiceTextBox_KeyPress);
             this.textBoxDiscountAmount.Leave += new System.EventHandler(this.salesInvoiceComputeDiscountRateTextBox_Leave);
@@ -253,7 +265,7 @@
             this.textBoxDiscountRate.Location = new System.Drawing.Point(177, 227);
             this.textBoxDiscountRate.Name = "textBoxDiscountRate";
             this.textBoxDiscountRate.Size = new System.Drawing.Size(269, 30);
-            this.textBoxDiscountRate.TabIndex = 32;
+            this.textBoxDiscountRate.TabIndex = 5;
             this.textBoxDiscountRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxDiscountRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salesInvoiceTextBox_KeyPress);
             this.textBoxDiscountRate.Leave += new System.EventHandler(this.salesInvoiceTextBox_Leave);
@@ -265,7 +277,7 @@
             this.comboBoxDiscount.Location = new System.Drawing.Point(177, 190);
             this.comboBoxDiscount.Name = "comboBoxDiscount";
             this.comboBoxDiscount.Size = new System.Drawing.Size(377, 31);
-            this.comboBoxDiscount.TabIndex = 31;
+            this.comboBoxDiscount.TabIndex = 4;
             this.comboBoxDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiscount_SelectedIndexChanged);
             // 
             // label7
@@ -296,7 +308,8 @@
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.ReadOnly = true;
             this.textBoxPrice.Size = new System.Drawing.Size(269, 30);
-            this.textBoxPrice.TabIndex = 28;
+            this.textBoxPrice.TabIndex = 3;
+            this.textBoxPrice.TabStop = false;
             this.textBoxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxPrice.Click += new System.EventHandler(this.textBoxPrice_Click);
             // 
@@ -307,7 +320,7 @@
             this.comboBoxInventoryCode.Location = new System.Drawing.Point(177, 80);
             this.comboBoxInventoryCode.Name = "comboBoxInventoryCode";
             this.comboBoxInventoryCode.Size = new System.Drawing.Size(377, 31);
-            this.comboBoxInventoryCode.TabIndex = 27;
+            this.comboBoxInventoryCode.TabIndex = 1;
             // 
             // label5
             // 
@@ -326,7 +339,7 @@
             this.comboBoxUnit.Location = new System.Drawing.Point(177, 117);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(138, 31);
-            this.comboBoxUnit.TabIndex = 25;
+            this.comboBoxUnit.TabIndex = 2;
             // 
             // textBoxAmount
             // 
@@ -335,7 +348,7 @@
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.ReadOnly = true;
             this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxAmount.TabIndex = 24;
+            this.textBoxAmount.TabIndex = 8;
             this.textBoxAmount.TabStop = false;
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -366,7 +379,8 @@
             this.textBoxNetPrice.Name = "textBoxNetPrice";
             this.textBoxNetPrice.ReadOnly = true;
             this.textBoxNetPrice.Size = new System.Drawing.Size(269, 30);
-            this.textBoxNetPrice.TabIndex = 16;
+            this.textBoxNetPrice.TabIndex = 7;
+            this.textBoxNetPrice.TabStop = false;
             this.textBoxNetPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
@@ -400,7 +414,7 @@
             this.textBoxQuantity.Location = new System.Drawing.Point(177, 44);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(269, 30);
-            this.textBoxQuantity.TabIndex = 11;
+            this.textBoxQuantity.TabIndex = 0;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salesInvoiceTextBox_KeyPress);
             this.textBoxQuantity.Leave += new System.EventHandler(this.salesInvoiceTextBox_Leave);
@@ -414,16 +428,6 @@
             this.label3.Size = new System.Drawing.Size(46, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Unit:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.POS;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // TrnSalesInvoiceDetailSalesInvoiceItemDetailForm
             // 
@@ -440,9 +444,9 @@
             this.Text = "Sales Invoice Item Detail";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
