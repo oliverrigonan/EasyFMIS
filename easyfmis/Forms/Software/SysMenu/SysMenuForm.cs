@@ -104,5 +104,10 @@ namespace easyfmis.Forms.Software.SysMenu
         {
             sysSoftwareForm.AddTabPageAccountsReceivableReport();
         }
+
+        private void buttonSupplier_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageSupplierList();
+        }
     }
 }

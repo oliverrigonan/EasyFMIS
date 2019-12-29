@@ -40,7 +40,7 @@
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonCompany = new System.Windows.Forms.Button();
             this.buttonReceivingReceipt = new System.Windows.Forms.Button();
-            this.buttonDiscounting = new System.Windows.Forms.Button();
+            this.buttonSupplier = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonCustomer = new System.Windows.Forms.Button();
             this.buttonPOSReport = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
             this.panel1.Controls.Add(this.buttonUser);
             this.panel1.Controls.Add(this.buttonCompany);
             this.panel1.Controls.Add(this.buttonReceivingReceipt);
-            this.panel1.Controls.Add(this.buttonDiscounting);
+            this.panel1.Controls.Add(this.buttonSupplier);
             this.panel1.Controls.Add(this.buttonSettings);
             this.panel1.Controls.Add(this.buttonCustomer);
             this.panel1.Controls.Add(this.buttonPOSReport);
@@ -269,24 +269,25 @@
             this.buttonReceivingReceipt.UseVisualStyleBackColor = false;
             this.buttonReceivingReceipt.Click += new System.EventHandler(this.buttonReceivingReceipt_Click);
             // 
-            // buttonDiscounting
+            // buttonSupplier
             // 
-            this.buttonDiscounting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDiscounting.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDiscounting.FlatAppearance.BorderSize = 0;
-            this.buttonDiscounting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDiscounting.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonDiscounting.ForeColor = System.Drawing.Color.White;
-            this.buttonDiscounting.ImageIndex = 15;
-            this.buttonDiscounting.ImageList = this.imageListMenuIcons;
-            this.buttonDiscounting.Location = new System.Drawing.Point(12, 12);
-            this.buttonDiscounting.Name = "buttonDiscounting";
-            this.buttonDiscounting.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonDiscounting.Size = new System.Drawing.Size(227, 123);
-            this.buttonDiscounting.TabIndex = 0;
-            this.buttonDiscounting.Text = "\r\nSupplier";
-            this.buttonDiscounting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonDiscounting.UseVisualStyleBackColor = false;
+            this.buttonSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSupplier.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSupplier.FlatAppearance.BorderSize = 0;
+            this.buttonSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSupplier.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonSupplier.ForeColor = System.Drawing.Color.White;
+            this.buttonSupplier.ImageIndex = 15;
+            this.buttonSupplier.ImageList = this.imageListMenuIcons;
+            this.buttonSupplier.Location = new System.Drawing.Point(12, 12);
+            this.buttonSupplier.Name = "buttonSupplier";
+            this.buttonSupplier.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonSupplier.Size = new System.Drawing.Size(227, 123);
+            this.buttonSupplier.TabIndex = 0;
+            this.buttonSupplier.Text = "\r\nSupplier";
+            this.buttonSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonSupplier.UseVisualStyleBackColor = false;
+            this.buttonSupplier.Click += new System.EventHandler(this.buttonSupplier_Click);
             // 
             // buttonSettings
             // 
@@ -528,7 +529,7 @@
         private System.Windows.Forms.Button buttonItem;
         private System.Windows.Forms.ImageList imageListMenuIcons;
         private System.Windows.Forms.Button buttonCompany;
-        private System.Windows.Forms.Button buttonDiscounting;
+        private System.Windows.Forms.Button buttonSupplier;
         private System.Windows.Forms.Button buttonCustomer;
         private System.Windows.Forms.Button buttonSystemTables;
         private System.Windows.Forms.Button buttonSalesOrder;

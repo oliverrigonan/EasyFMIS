@@ -114,6 +114,7 @@
     <Compile Include="Entities\DgvDisbursementLineEntity.cs" />
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
     <Compile Include="Entities\DgvMstCustomerEntities.cs" />
+    <Compile Include="Entities\DgvMstSupplierEntities.cs" />
     <Compile Include="Entities\DgvPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvReceivingReceiptEntity.cs" />
     <Compile Include="Entities\DgvPurchaseOrderEntity.cs" />
@@ -263,6 +264,18 @@
     </Compile>
     <Compile Include="Forms\Software\MstItem\MstItemListForm.Designer.cs">
       <DependentUpon>MstItemListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierDetailForm.designer.cs">
+      <DependentUpon>MstSupplierDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\MstSupplier\MstSupplierListForm.Designer.cs">
+      <DependentUpon>MstSupplierListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\MstUser\MstUserDetailForm.cs">
       <SubType>Form</SubType>
@@ -615,6 +628,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstItem\MstItemListForm.resx">
       <DependentUpon>MstItemListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstSupplier\MstSupplierDetailForm.resx">
+      <DependentUpon>MstSupplierDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\MstSupplier\MstSupplierListForm.resx">
+      <DependentUpon>MstSupplierListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstUser\MstUserDetailForm.resx">
       <DependentUpon>MstUserDetailForm.cs</DependentUpon>
