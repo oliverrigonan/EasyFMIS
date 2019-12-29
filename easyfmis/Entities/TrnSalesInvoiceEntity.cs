@@ -25,8 +25,7 @@ namespace easyfmis.Entities
         public Boolean IsLocked { get; set; }
         public Decimal Amount { get; set; }
         public Decimal PaidAmount { get; set; }
-        public Decimal CreditAmount { get; set; }
-        public Decimal DebitAmount { get; set; }
+        public Decimal MemoAmount { get; set; }
         public Decimal BalanceAmount { get; set; }
         public Int32 CreatedBy { get; set; }
         public String CreatedByUserName { get; set; }
