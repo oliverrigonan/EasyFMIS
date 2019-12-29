@@ -34,9 +34,13 @@ namespace easyfmis.Controllers
         // ===================
         public List<Entities.TrnStockTransferEntity> ListStockTransfer(DateTime dateFilter, String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var stockTransfers = from d in db.TrnStockTransfers
                                  where d.STDate == dateFilter
                                  && d.STNumber.Contains(filter)
+                                 && d.BranchId == currentBranchId
                                  select new Entities.TrnStockTransferEntity
                                  {
                                      Id = d.Id,

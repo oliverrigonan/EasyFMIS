@@ -34,9 +34,13 @@ namespace easyfmis.Controllers
         // ==================
         public List<Entities.TrnSalesInvoiceEntity> ListSalesInvoice(DateTime dateFilter, String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var salesInvoices = from d in db.TrnSalesInvoices
                                 where d.SIDate == dateFilter
                                 && d.SINumber.Contains(filter)
+                                && d.BranchId == currentBranchId
                                 select new Entities.TrnSalesInvoiceEntity
                                 {
                                     Id = d.Id,

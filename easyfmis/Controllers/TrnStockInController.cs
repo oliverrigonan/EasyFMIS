@@ -34,9 +34,13 @@ namespace easyfmis.Controllers
         // =============
         public List<Entities.TrnStockInEntity> ListStockIn(DateTime dateFilter, String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var stockIns = from d in db.TrnStockIns
                            where d.INDate == dateFilter
                            && d.INNumber.Contains(filter)
+                           && d.BranchId == currentBranchId
                            select new Entities.TrnStockInEntity
                            {
                                Id = d.Id,

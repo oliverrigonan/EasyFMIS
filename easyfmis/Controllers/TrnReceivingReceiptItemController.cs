@@ -51,8 +51,12 @@ namespace easyfmis.Controllers
         // ===================
         public List<Entities.TrnPurchaseOrderEntity> ListPurchaseOrder(Int32 supplierId)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var purchaseOrders = from d in db.TrnPurchaseOrders
                                  where d.SupplierId == supplierId
+                                 && d.BranchId == currentBranchId
                                  select new Entities.TrnPurchaseOrderEntity
                                  {
                                      Id = d.Id,

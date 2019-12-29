@@ -34,9 +34,13 @@ namespace easyfmis.Controllers
         // =================
         public List<Entities.TrnDisbursementEntity> ListDisbursement(DateTime dateFilter, String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var disbursements = from d in db.TrnDisbursements
                                 where d.CVDate == dateFilter
                                 && d.CVNumber.Contains(filter)
+                                && d.BranchId == currentBranchId
                                 select new Entities.TrnDisbursementEntity
                                 {
                                     Id = d.Id,

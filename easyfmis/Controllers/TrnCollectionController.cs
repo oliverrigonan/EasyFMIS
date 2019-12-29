@@ -34,9 +34,13 @@ namespace easyfmis.Controllers
         // ===============
         public List<Entities.TrnCollectionEntity> ListCollection(DateTime dateFilter, String filter)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var collections = from d in db.TrnCollections
                               where d.ORDate == dateFilter
                               && d.ORNumber.Contains(filter)
+                              && d.BranchId == currentBranchId
                               select new Entities.TrnCollectionEntity
                               {
                                   Id = d.Id,
