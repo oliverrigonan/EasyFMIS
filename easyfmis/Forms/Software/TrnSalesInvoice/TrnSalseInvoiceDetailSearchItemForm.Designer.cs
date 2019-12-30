@@ -482,7 +482,6 @@
             this.textBoxSearchNonInventoryItemFilter.Size = new System.Drawing.Size(958, 30);
             this.textBoxSearchNonInventoryItemFilter.TabIndex = 0;
             this.textBoxSearchNonInventoryItemFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchNonInventoryItemFilter_KeyDown);
-            this.textBoxSearchNonInventoryItemFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearchNonInventoryItemFilter_KeyPress);
             // 
             // panel4
             // 
