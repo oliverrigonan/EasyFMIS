@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
         public Task<List<Entities.DgvSalesInvoiceEntity>> GetSalesInvoiceDataTask()
         {
-            DateTime dateFilter = dateTimePickerSalesInvoiceFilter.Value.Date;
+            DateTime startDateateFilter = dateTimePickerSalesInvoiceFilterStartDate.Value.Date;
+            DateTime endDateFilter = dateTimePickerSalesInvoiceFilterStartDate.Value.Date;
+
             String filter = textBoxSalesInvoiceFilter.Text;
             Controllers.TrnSalesInvoiceController trnSalesInvoiceController = new Controllers.TrnSalesInvoiceController();
 
-            List<Entities.TrnSalesInvoiceEntity> listSalesInvoice = trnSalesInvoiceController.ListSalesInvoice(dateFilter, filter);
+            List<Entities.TrnSalesInvoiceEntity> listSalesInvoice = trnSalesInvoiceController.ListSalesInvoice(startDateateFilter, endDateFilter, filter);
             if (listSalesInvoice.Any())
             {
                 var items = from d in listSalesInvoice
@@ -207,7 +209,12 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             }
         }
 
-        private void dateTimePickerSalesInvoiceFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerSalesInvoiceFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateSalesInvoiceDataSource();
+        }
+
+        private void dateTimePickerSalesInvoiceFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateSalesInvoiceDataSource();
         }

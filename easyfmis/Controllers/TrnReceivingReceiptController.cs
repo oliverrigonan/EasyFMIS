@@ -32,13 +32,14 @@ namespace easyfmis.Controllers
         // ======================
         // List Receiving Receipt
         // ======================
-        public List<Entities.TrnReceivingReceiptEntity> ListReceivingReceipt(DateTime dateFilter, String filter)
+        public List<Entities.TrnReceivingReceiptEntity> ListReceivingReceipt(DateTime endDateFilter, DateTime startDateFilter, String filter)
         {
             var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
             var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
 
             var receivingReceipts = from d in db.TrnReceivingReceipts
-                                    where d.RRDate == dateFilter
+                                    where d.RRDate >= endDateFilter
+                                    && d.RRDate >= startDateFilter
                                     && d.RRNumber.Contains(filter)
                                     && d.BranchId == currentBranchId
                                     select new Entities.TrnReceivingReceiptEntity

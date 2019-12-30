@@ -32,13 +32,14 @@ namespace easyfmis.Controllers
         // ==============
         // List Stock-Out 
         // ==============
-        public List<Entities.TrnStockOutEntity> ListStockOut(DateTime dateFilter, String filter)
+        public List<Entities.TrnStockOutEntity> ListStockOut(DateTime startDateFilter, DateTime endDateFilter, String filter)
         {
             var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
             var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
 
             var stockOuts = from d in db.TrnStockOuts
-                            where d.OTDate == dateFilter
+                            where d.OTDate >= startDateFilter
+                            && d.OTDate <= endDateFilter
                             && d.OTNumber.Contains(filter)
                             && d.BranchId == currentBranchId
                             select new Entities.TrnStockOutEntity

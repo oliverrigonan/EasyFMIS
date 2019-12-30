@@ -46,12 +46,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxStockOutPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePickerStockOutFilter = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStockOutFilterStartDate = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePickerStockOutFilterEndDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockOut)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,9 +64,9 @@
             // 
             this.textBoxStockOutFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxStockOutFilter.Location = new System.Drawing.Point(159, 6);
+            this.textBoxStockOutFilter.Location = new System.Drawing.Point(306, 6);
             this.textBoxStockOutFilter.Name = "textBoxStockOutFilter";
-            this.textBoxStockOutFilter.Size = new System.Drawing.Size(1229, 30);
+            this.textBoxStockOutFilter.Size = new System.Drawing.Size(1082, 30);
             this.textBoxStockOutFilter.TabIndex = 1;
             this.textBoxStockOutFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxStockOutFilter_KeyDown);
             // 
@@ -251,7 +252,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateTimePickerStockOutFilter);
+            this.panel2.Controls.Add(this.dateTimePickerStockOutFilterEndDate);
+            this.panel2.Controls.Add(this.dateTimePickerStockOutFilterStartDate);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.dataGridViewStockOut);
             this.panel2.Controls.Add(this.textBoxStockOutFilter);
@@ -261,14 +263,14 @@
             this.panel2.Size = new System.Drawing.Size(1400, 637);
             this.panel2.TabIndex = 7;
             // 
-            // dateTimePickerStockOutFilter
+            // dateTimePickerStockOutFilterStartDate
             // 
-            this.dateTimePickerStockOutFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerStockOutFilter.Location = new System.Drawing.Point(12, 6);
-            this.dateTimePickerStockOutFilter.Name = "dateTimePickerStockOutFilter";
-            this.dateTimePickerStockOutFilter.Size = new System.Drawing.Size(141, 30);
-            this.dateTimePickerStockOutFilter.TabIndex = 0;
-            this.dateTimePickerStockOutFilter.ValueChanged += new System.EventHandler(this.dateTimePickerStockOutFilter_ValueChanged);
+            this.dateTimePickerStockOutFilterStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStockOutFilterStartDate.Location = new System.Drawing.Point(12, 6);
+            this.dateTimePickerStockOutFilterStartDate.Name = "dateTimePickerStockOutFilterStartDate";
+            this.dateTimePickerStockOutFilterStartDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerStockOutFilterStartDate.TabIndex = 0;
+            this.dateTimePickerStockOutFilterStartDate.ValueChanged += new System.EventHandler(this.dateTimePickerStockOutFilterStartDate_ValueChanged);
             // 
             // pictureBox1
             // 
@@ -338,6 +340,15 @@
             this.panel1.Size = new System.Drawing.Size(1400, 63);
             this.panel1.TabIndex = 6;
             // 
+            // dateTimePickerStockOutFilterEndDate
+            // 
+            this.dateTimePickerStockOutFilterEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStockOutFilterEndDate.Location = new System.Drawing.Point(159, 6);
+            this.dateTimePickerStockOutFilterEndDate.Name = "dateTimePickerStockOutFilterEndDate";
+            this.dateTimePickerStockOutFilterEndDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerStockOutFilterEndDate.TabIndex = 22;
+            this.dateTimePickerStockOutFilterEndDate.ValueChanged += new System.EventHandler(this.dateTimePickerStockOutFilterEndDate_ValueChanged);
+            // 
             // TrnStockOutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -379,7 +390,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerStockOutFilter;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStockOutFilterStartDate;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockOutButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockOutButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutId;
@@ -388,5 +399,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutRemarks;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnStockOutIsLocked;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutSpace;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStockOutFilterEndDate;
     }
 }

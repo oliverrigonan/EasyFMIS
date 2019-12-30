@@ -47,7 +47,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxSalesOrderPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePickerSalesOrderFilter = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerSalesOrderFilterEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerSalesOrderFilterStartDate = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
@@ -64,9 +65,9 @@
             // 
             this.textBoxSalesOrderFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSalesOrderFilter.Location = new System.Drawing.Point(159, 6);
+            this.textBoxSalesOrderFilter.Location = new System.Drawing.Point(306, 6);
             this.textBoxSalesOrderFilter.Name = "textBoxSalesOrderFilter";
-            this.textBoxSalesOrderFilter.Size = new System.Drawing.Size(1229, 30);
+            this.textBoxSalesOrderFilter.Size = new System.Drawing.Size(1082, 30);
             this.textBoxSalesOrderFilter.TabIndex = 1;
             this.textBoxSalesOrderFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSalesOrderFilter_KeyDown);
             // 
@@ -261,7 +262,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateTimePickerSalesOrderFilter);
+            this.panel2.Controls.Add(this.dateTimePickerSalesOrderFilterEndDate);
+            this.panel2.Controls.Add(this.dateTimePickerSalesOrderFilterStartDate);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.dataGridViewSalesOrder);
             this.panel2.Controls.Add(this.textBoxSalesOrderFilter);
@@ -271,14 +273,23 @@
             this.panel2.Size = new System.Drawing.Size(1400, 637);
             this.panel2.TabIndex = 7;
             // 
-            // dateTimePickerSalesOrderFilter
+            // dateTimePickerSalesOrderFilterEndDate
             // 
-            this.dateTimePickerSalesOrderFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerSalesOrderFilter.Location = new System.Drawing.Point(12, 6);
-            this.dateTimePickerSalesOrderFilter.Name = "dateTimePickerSalesOrderFilter";
-            this.dateTimePickerSalesOrderFilter.Size = new System.Drawing.Size(141, 30);
-            this.dateTimePickerSalesOrderFilter.TabIndex = 0;
-            this.dateTimePickerSalesOrderFilter.ValueChanged += new System.EventHandler(this.dateTimePickerSalesOrderFilter_ValueChanged);
+            this.dateTimePickerSalesOrderFilterEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerSalesOrderFilterEndDate.Location = new System.Drawing.Point(159, 6);
+            this.dateTimePickerSalesOrderFilterEndDate.Name = "dateTimePickerSalesOrderFilterEndDate";
+            this.dateTimePickerSalesOrderFilterEndDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerSalesOrderFilterEndDate.TabIndex = 22;
+            this.dateTimePickerSalesOrderFilterEndDate.ValueChanged += new System.EventHandler(this.dateTimePickerSalesOrderFilterEndDate_ValueChanged);
+            // 
+            // dateTimePickerSalesOrderFilterStartDate
+            // 
+            this.dateTimePickerSalesOrderFilterStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerSalesOrderFilterStartDate.Location = new System.Drawing.Point(12, 6);
+            this.dateTimePickerSalesOrderFilterStartDate.Name = "dateTimePickerSalesOrderFilterStartDate";
+            this.dateTimePickerSalesOrderFilterStartDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerSalesOrderFilterStartDate.TabIndex = 0;
+            this.dateTimePickerSalesOrderFilterStartDate.ValueChanged += new System.EventHandler(this.dateTimePickerSalesOrderFilterStartDate_ValueChanged);
             // 
             // pictureBox1
             // 
@@ -389,7 +400,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerSalesOrderFilter;
+        private System.Windows.Forms.DateTimePicker dateTimePickerSalesOrderFilterStartDate;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnTrnSalesOrderListButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnTrnSalesOrderListButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListId;
@@ -399,5 +410,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListRemarks;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnTrnSalesOrderListsLocked;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderListSpace;
+        private System.Windows.Forms.DateTimePicker dateTimePickerSalesOrderFilterEndDate;
     }
 }

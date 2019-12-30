@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
 
         public Task<List<Entities.DgvReceivingReceiptEntity>> GetReceivingReceiptDataTask()
         {
-            DateTime dateFilter = dateTimePickerReceivingReceiptFilter.Value.Date;
+            DateTime startDateFilter = dateTimePickerReceivingReceiptFilterStartDate.Value.Date;
+            DateTime endDateFilter = dateTimePickerReceivingReceiptFilterEndDate.Value.Date;
+
             String filter = textBoxReceivingReceiptFilter.Text;
             Controllers.TrnReceivingReceiptController trnReceivingReceiptController = new Controllers.TrnReceivingReceiptController();
 
-            List<Entities.TrnReceivingReceiptEntity> listReceivingReceipt = trnReceivingReceiptController.ListReceivingReceipt(dateFilter, filter);
+            List<Entities.TrnReceivingReceiptEntity> listReceivingReceipt = trnReceivingReceiptController.ListReceivingReceipt(startDateFilter, endDateFilter, filter);
             if (listReceivingReceipt.Any())
             {
                 var items = from d in listReceivingReceipt
@@ -207,7 +209,12 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             }
         }
 
-        private void dateTimePickerReceivingReceiptFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerReceivingReceiptFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateReceivingReceiptDataSource();
+        }
+
+        private void dateTimePickerReceivingReceiptFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateReceivingReceiptDataSource();
         }

@@ -32,13 +32,14 @@ namespace easyfmis.Controllers
         // ================
         // List Sales Order
         // ================
-        public List<Entities.TrnSalesOrderEntity> ListSalesOrder(DateTime dateFilter, String filter)
+        public List<Entities.TrnSalesOrderEntity> ListSalesOrder(DateTime startDateFilter, DateTime endDateFilter, String filter)
         {
             var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
             var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
 
             var salesOrders = from d in db.TrnSalesOrders
-                              where d.SODate == dateFilter
+                              where d.SODate >= startDateFilter
+                              && d.SODate <= endDateFilter
                               && d.SONumber.Contains(filter)
                               && d.BranchId == currentBranchId
                               select new Entities.TrnSalesOrderEntity

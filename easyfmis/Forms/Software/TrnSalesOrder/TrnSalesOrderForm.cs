@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         public Task<List<Entities.DgvTrnSalesOrderEntity>> GetSalesOrderDataTask()
         {
-            DateTime dateFilter = dateTimePickerSalesOrderFilter.Value.Date;
+            DateTime startateFilter = dateTimePickerSalesOrderFilterStartDate.Value.Date;
+            DateTime endDateFilter = dateTimePickerSalesOrderFilterEndDate.Value.Date;
+
             String filter = textBoxSalesOrderFilter.Text;
             Controllers.TrnSalesOrderController trnSalesOrderController = new Controllers.TrnSalesOrderController();
 
-            List<Entities.TrnSalesOrderEntity> listSalesOrder = trnSalesOrderController.ListSalesOrder(dateFilter, filter);
+            List<Entities.TrnSalesOrderEntity> listSalesOrder = trnSalesOrderController.ListSalesOrder(startateFilter, endDateFilter, filter);
             if (listSalesOrder.Any())
             {
                 var items = from d in listSalesOrder
@@ -204,7 +206,12 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             }
         }
 
-        private void dateTimePickerSalesOrderFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerSalesOrderFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateSalesOrderDataSource();
+        }
+
+        private void dateTimePickerSalesOrderFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateSalesOrderDataSource();
         }

@@ -32,13 +32,14 @@ namespace easyfmis.Controllers
         // ===================
         // List Purchase Order
         // ===================
-        public List<Entities.TrnPurchaseOrderEntity> ListPurchaseOrder(DateTime dateFilter, String filter)
+        public List<Entities.TrnPurchaseOrderEntity> ListPurchaseOrder(DateTime startDateFilter, DateTime endDateFilter, String filter)
         {
             var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
             var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
 
             var purchaseOrders = from d in db.TrnPurchaseOrders
-                                 where d.PODate == dateFilter
+                                 where d.PODate >= startDateFilter
+                                 && d.PODate <= endDateFilter
                                  && d.PONumber.Contains(filter)
                                  && d.BranchId == currentBranchId
                                  select new Entities.TrnPurchaseOrderEntity

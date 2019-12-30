@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnDisbursement
 
         public Task<List<Entities.DgvDisbursementEntity>> GetDisbursementDataTask()
         {
-            DateTime dateFilter = dateTimePickerDisbursementFilter.Value.Date;
+            DateTime startDateFilter = dateTimePickerDisbursementFilterStartDate.Value.Date;
+            DateTime endDateFilter = dateTimePickerDisbursementFilterEndDate.Value.Date;
+
             String filter = textBoxDisbursementFilter.Text;
             Controllers.TrnDisbursementController trnDisbursementController = new Controllers.TrnDisbursementController();
 
-            List<Entities.TrnDisbursementEntity> listDisbursment = trnDisbursementController.ListDisbursement(dateFilter, filter);
+            List<Entities.TrnDisbursementEntity> listDisbursment = trnDisbursementController.ListDisbursement(startDateFilter, endDateFilter, filter);
             if (listDisbursment.Any())
             {
                 var disbursement = from d in listDisbursment
@@ -208,7 +210,12 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             }
         }
 
-        private void dateTimePickerDisbursementFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerDisbursementFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDisbursementDataSource();
+        }
+
+        private void dateTimePickerDisbursementFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateDisbursementDataSource();
         }

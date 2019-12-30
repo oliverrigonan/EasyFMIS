@@ -35,16 +35,6 @@
             this.buttonDisbursementPageListPrevious = new System.Windows.Forms.Button();
             this.buttonDisbursementPageListNext = new System.Windows.Forms.Button();
             this.dataGridViewDisbursement = new System.Windows.Forms.DataGridView();
-            this.buttonDisbursementPageListLast = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBoxDisbursementPageNumber = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePickerDisbursementFilter = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ColumnDisbursementListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDisbursementListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDisbursementListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +47,17 @@
             this.ColumnDisbursementListIsClear = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnDisbursementListIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnDisbursementListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonDisbursementPageListLast = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBoxDisbursementPageNumber = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dateTimePickerDisbursementFilterEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDisbursementFilterStartDate = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisbursement)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,9 +69,9 @@
             // 
             this.textBoxDisbursementFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDisbursementFilter.Location = new System.Drawing.Point(159, 6);
+            this.textBoxDisbursementFilter.Location = new System.Drawing.Point(306, 6);
             this.textBoxDisbursementFilter.Name = "textBoxDisbursementFilter";
-            this.textBoxDisbursementFilter.Size = new System.Drawing.Size(1229, 30);
+            this.textBoxDisbursementFilter.Size = new System.Drawing.Size(1082, 30);
             this.textBoxDisbursementFilter.TabIndex = 1;
             this.textBoxDisbursementFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxDisbursementFilter_KeyDown);
             // 
@@ -151,136 +152,6 @@
             this.dataGridViewDisbursement.Size = new System.Drawing.Size(1376, 536);
             this.dataGridViewDisbursement.TabIndex = 20;
             this.dataGridViewDisbursement.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisbursement_CellClick);
-            // 
-            // buttonDisbursementPageListLast
-            // 
-            this.buttonDisbursementPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDisbursementPageListLast.FlatAppearance.BorderSize = 0;
-            this.buttonDisbursementPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDisbursementPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonDisbursementPageListLast.Location = new System.Drawing.Point(348, 9);
-            this.buttonDisbursementPageListLast.Name = "buttonDisbursementPageListLast";
-            this.buttonDisbursementPageListLast.Size = new System.Drawing.Size(82, 32);
-            this.buttonDisbursementPageListLast.TabIndex = 16;
-            this.buttonDisbursementPageListLast.Text = "Last";
-            this.buttonDisbursementPageListLast.UseVisualStyleBackColor = false;
-            this.buttonDisbursementPageListLast.Click += new System.EventHandler(this.buttonDisbursementPageListLast_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.buttonDisbursementPageListFirst);
-            this.panel3.Controls.Add(this.buttonDisbursementPageListPrevious);
-            this.panel3.Controls.Add(this.buttonDisbursementPageListNext);
-            this.panel3.Controls.Add(this.buttonDisbursementPageListLast);
-            this.panel3.Controls.Add(this.textBoxDisbursementPageNumber);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 584);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1400, 53);
-            this.panel3.TabIndex = 21;
-            // 
-            // textBoxDisbursementPageNumber
-            // 
-            this.textBoxDisbursementPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxDisbursementPageNumber.BackColor = System.Drawing.Color.White;
-            this.textBoxDisbursementPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDisbursementPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxDisbursementPageNumber.Location = new System.Drawing.Point(188, 14);
-            this.textBoxDisbursementPageNumber.Name = "textBoxDisbursementPageNumber";
-            this.textBoxDisbursementPageNumber.ReadOnly = true;
-            this.textBoxDisbursementPageNumber.Size = new System.Drawing.Size(69, 20);
-            this.textBoxDisbursementPageNumber.TabIndex = 17;
-            this.textBoxDisbursementPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dateTimePickerDisbursementFilter);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.dataGridViewDisbursement);
-            this.panel2.Controls.Add(this.textBoxDisbursementFilter);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 7;
-            // 
-            // dateTimePickerDisbursementFilter
-            // 
-            this.dateTimePickerDisbursementFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDisbursementFilter.Location = new System.Drawing.Point(12, 6);
-            this.dateTimePickerDisbursementFilter.Name = "dateTimePickerDisbursementFilter";
-            this.dateTimePickerDisbursementFilter.Size = new System.Drawing.Size(141, 30);
-            this.dateTimePickerDisbursementFilter.TabIndex = 0;
-            this.dateTimePickerDisbursementFilter.ValueChanged += new System.EventHandler(this.dateTimePickerDisbursementFilter_ValueChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Disbursement;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 35);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Disbursement List";
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
-            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(88, 40);
-            this.buttonClose.TabIndex = 21;
-            this.buttonClose.Text = "Close";
-            this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonAdd.FlatAppearance.BorderSize = 0;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(1206, 12);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(88, 40);
-            this.buttonAdd.TabIndex = 20;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.buttonClose);
-            this.panel1.Controls.Add(this.buttonAdd);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1400, 63);
-            this.panel1.TabIndex = 6;
             // 
             // ColumnDisbursementListButtonEdit
             // 
@@ -381,6 +252,146 @@
             this.ColumnDisbursementListSpace.Name = "ColumnDisbursementListSpace";
             this.ColumnDisbursementListSpace.ReadOnly = true;
             // 
+            // buttonDisbursementPageListLast
+            // 
+            this.buttonDisbursementPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonDisbursementPageListLast.FlatAppearance.BorderSize = 0;
+            this.buttonDisbursementPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDisbursementPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonDisbursementPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonDisbursementPageListLast.Name = "buttonDisbursementPageListLast";
+            this.buttonDisbursementPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonDisbursementPageListLast.TabIndex = 16;
+            this.buttonDisbursementPageListLast.Text = "Last";
+            this.buttonDisbursementPageListLast.UseVisualStyleBackColor = false;
+            this.buttonDisbursementPageListLast.Click += new System.EventHandler(this.buttonDisbursementPageListLast_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.buttonDisbursementPageListFirst);
+            this.panel3.Controls.Add(this.buttonDisbursementPageListPrevious);
+            this.panel3.Controls.Add(this.buttonDisbursementPageListNext);
+            this.panel3.Controls.Add(this.buttonDisbursementPageListLast);
+            this.panel3.Controls.Add(this.textBoxDisbursementPageNumber);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 584);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1400, 53);
+            this.panel3.TabIndex = 21;
+            // 
+            // textBoxDisbursementPageNumber
+            // 
+            this.textBoxDisbursementPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxDisbursementPageNumber.BackColor = System.Drawing.Color.White;
+            this.textBoxDisbursementPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDisbursementPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBoxDisbursementPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxDisbursementPageNumber.Name = "textBoxDisbursementPageNumber";
+            this.textBoxDisbursementPageNumber.ReadOnly = true;
+            this.textBoxDisbursementPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxDisbursementPageNumber.TabIndex = 17;
+            this.textBoxDisbursementPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dateTimePickerDisbursementFilterEndDate);
+            this.panel2.Controls.Add(this.dateTimePickerDisbursementFilterStartDate);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.dataGridViewDisbursement);
+            this.panel2.Controls.Add(this.textBoxDisbursementFilter);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 7;
+            // 
+            // dateTimePickerDisbursementFilterEndDate
+            // 
+            this.dateTimePickerDisbursementFilterEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDisbursementFilterEndDate.Location = new System.Drawing.Point(159, 6);
+            this.dateTimePickerDisbursementFilterEndDate.Name = "dateTimePickerDisbursementFilterEndDate";
+            this.dateTimePickerDisbursementFilterEndDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerDisbursementFilterEndDate.TabIndex = 22;
+            this.dateTimePickerDisbursementFilterEndDate.ValueChanged += new System.EventHandler(this.dateTimePickerDisbursementFilterEndDate_ValueChanged);
+            // 
+            // dateTimePickerDisbursementFilterStartDate
+            // 
+            this.dateTimePickerDisbursementFilterStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDisbursementFilterStartDate.Location = new System.Drawing.Point(12, 6);
+            this.dateTimePickerDisbursementFilterStartDate.Name = "dateTimePickerDisbursementFilterStartDate";
+            this.dateTimePickerDisbursementFilterStartDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerDisbursementFilterStartDate.TabIndex = 0;
+            this.dateTimePickerDisbursementFilterStartDate.ValueChanged += new System.EventHandler(this.dateTimePickerDisbursementFilterStartDate_ValueChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Disbursement;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(227, 35);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Disbursement List";
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(79)))), ((int)(((byte)(28)))));
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClose.ForeColor = System.Drawing.Color.White;
+            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(88, 40);
+            this.buttonClose.TabIndex = 21;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(1206, 12);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(88, 40);
+            this.buttonAdd.TabIndex = 20;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.buttonClose);
+            this.panel1.Controls.Add(this.buttonAdd);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1400, 63);
+            this.panel1.TabIndex = 6;
+            // 
             // TrnDisbursementListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -422,7 +433,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDisbursementFilter;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDisbursementFilterStartDate;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnDisbursementListButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnDisbursementListButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementListId;
@@ -435,5 +446,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnDisbursementListIsClear;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnDisbursementListIsLocked;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementListSpace;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDisbursementFilterEndDate;
     }
 }

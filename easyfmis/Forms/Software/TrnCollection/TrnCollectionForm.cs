@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnCollection
 
         public Task<List<Entities.DgvCollectionEntity>> GetCollectionDataTask()
         {
-            DateTime dateFilter = dateTimePickerCollectionFilter.Value.Date;
+            DateTime startDateFilter = dateTimePickerCollectionFilterDateStart.Value.Date;
+            DateTime endDateFilter = dateTimePickerCollectionFilterDateEnd.Value.Date;
+
             String filter = textBoxCollectionFilter.Text;
             Controllers.TrnCollectionController trnCollectionController = new Controllers.TrnCollectionController();
 
-            List<Entities.TrnCollectionEntity> listCollection = trnCollectionController.ListCollection(dateFilter, filter);
+            List<Entities.TrnCollectionEntity> listCollection = trnCollectionController.ListCollection(startDateFilter, endDateFilter, filter);
             if (listCollection.Any())
             {
                 var items = from d in listCollection
@@ -204,7 +206,12 @@ namespace easyfmis.Forms.Software.TrnCollection
             }
         }
 
-        private void dateTimePickerCollectionFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerCollectionFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateCollectionDataSource();
+        }
+
+        private void dateTimePickerCollectionFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateCollectionDataSource();
         }

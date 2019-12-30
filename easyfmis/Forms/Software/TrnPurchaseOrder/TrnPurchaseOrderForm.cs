@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
 
         public Task<List<Entities.DgvPurchaseOrderEntity>> GetPurchaseOrderDataTask()
         {
-            DateTime dateFilter = dateTimePickerPurchaseOrderFilter.Value.Date;
+            DateTime startDateFilter = dateTimePickerPurchaseOrderFilterStartDate.Value.Date;
+            DateTime endDateFilter = dateTimePickerPurchaseOrderFilterEndDate.Value.Date;
+
             String filter = textBoxPurchaseOrderFilter.Text;
             Controllers.TrnPurchaseOrderController trnPurchaseOrderController = new Controllers.TrnPurchaseOrderController();
 
-            List<Entities.TrnPurchaseOrderEntity> listPurchaseOrder = trnPurchaseOrderController.ListPurchaseOrder(dateFilter, filter);
+            List<Entities.TrnPurchaseOrderEntity> listPurchaseOrder = trnPurchaseOrderController.ListPurchaseOrder(startDateFilter, endDateFilter, filter);
             if (listPurchaseOrder.Any())
             {
                 var purchaseOrder = from d in listPurchaseOrder
@@ -205,7 +207,12 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             }
         }
 
-        private void dateTimePickerPurchaseOrderFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerPurchaseOrderFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdatePurchaseOrderDataSource();
+        }
+
+        private void dateTimePickerPurchaseOrderFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdatePurchaseOrderDataSource();
         }

@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
         public Task<List<Entities.DgvStockOutEntity>> GetStockOutDataTask()
         {
-            DateTime dateFilter = dateTimePickerStockOutFilter.Value.Date;
+            DateTime endDateFilter = dateTimePickerStockOutFilterStartDate.Value.Date;
+            DateTime startDateFilter = dateTimePickerStockOutFilterEndDate.Value.Date;
+
             String filter = textBoxStockOutFilter.Text;
             Controllers.TrnStockOutController trnStockOutController = new Controllers.TrnStockOutController();
 
-            List<Entities.TrnStockOutEntity> listStockOut = trnStockOutController.ListStockOut(dateFilter, filter);
+            List<Entities.TrnStockOutEntity> listStockOut = trnStockOutController.ListStockOut(endDateFilter, startDateFilter, filter);
             if (listStockOut.Any())
             {
                 var items = from d in listStockOut
@@ -203,7 +205,12 @@ namespace easyfmis.Forms.Software.TrnStockOut
             }
         }
 
-        private void dateTimePickerStockOutFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerStockOutFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateStockOutDataSource();
+        }
+
+        private void dateTimePickerStockOutFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateStockOutDataSource();
         }

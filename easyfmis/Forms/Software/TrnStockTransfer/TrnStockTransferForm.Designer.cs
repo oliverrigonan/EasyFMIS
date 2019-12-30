@@ -47,12 +47,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxStockTransferPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePickerStockTransferFilter = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStockTransferFilterStartDate = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePickerStockTransferFilterEndDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockTransfer)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,9 +65,9 @@
             // 
             this.textBoxStockTransferFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxStockTransferFilter.Location = new System.Drawing.Point(159, 6);
+            this.textBoxStockTransferFilter.Location = new System.Drawing.Point(306, 6);
             this.textBoxStockTransferFilter.Name = "textBoxStockTransferFilter";
-            this.textBoxStockTransferFilter.Size = new System.Drawing.Size(1229, 30);
+            this.textBoxStockTransferFilter.Size = new System.Drawing.Size(1082, 30);
             this.textBoxStockTransferFilter.TabIndex = 1;
             this.textBoxStockTransferFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxStockTransferFilter_KeyDown);
             // 
@@ -261,7 +262,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateTimePickerStockTransferFilter);
+            this.panel2.Controls.Add(this.dateTimePickerStockTransferFilterEndDate);
+            this.panel2.Controls.Add(this.dateTimePickerStockTransferFilterStartDate);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.dataGridViewStockTransfer);
             this.panel2.Controls.Add(this.textBoxStockTransferFilter);
@@ -271,14 +273,14 @@
             this.panel2.Size = new System.Drawing.Size(1400, 637);
             this.panel2.TabIndex = 7;
             // 
-            // dateTimePickerStockTransferFilter
+            // dateTimePickerStockTransferFilterStartDate
             // 
-            this.dateTimePickerStockTransferFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerStockTransferFilter.Location = new System.Drawing.Point(12, 6);
-            this.dateTimePickerStockTransferFilter.Name = "dateTimePickerStockTransferFilter";
-            this.dateTimePickerStockTransferFilter.Size = new System.Drawing.Size(141, 30);
-            this.dateTimePickerStockTransferFilter.TabIndex = 0;
-            this.dateTimePickerStockTransferFilter.ValueChanged += new System.EventHandler(this.dateTimePickerStockTransferFilter_ValueChanged);
+            this.dateTimePickerStockTransferFilterStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStockTransferFilterStartDate.Location = new System.Drawing.Point(12, 6);
+            this.dateTimePickerStockTransferFilterStartDate.Name = "dateTimePickerStockTransferFilterStartDate";
+            this.dateTimePickerStockTransferFilterStartDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerStockTransferFilterStartDate.TabIndex = 0;
+            this.dateTimePickerStockTransferFilterStartDate.ValueChanged += new System.EventHandler(this.dateTimePickerStockTransferFilterStartDate_ValueChanged);
             // 
             // pictureBox1
             // 
@@ -348,6 +350,15 @@
             this.panel1.Size = new System.Drawing.Size(1400, 63);
             this.panel1.TabIndex = 6;
             // 
+            // dateTimePickerStockTransferFilterEndDate
+            // 
+            this.dateTimePickerStockTransferFilterEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStockTransferFilterEndDate.Location = new System.Drawing.Point(159, 6);
+            this.dateTimePickerStockTransferFilterEndDate.Name = "dateTimePickerStockTransferFilterEndDate";
+            this.dateTimePickerStockTransferFilterEndDate.Size = new System.Drawing.Size(141, 30);
+            this.dateTimePickerStockTransferFilterEndDate.TabIndex = 22;
+            this.dateTimePickerStockTransferFilterEndDate.ValueChanged += new System.EventHandler(this.dateTimePickerStockTransferFilterEndDate_ValueChanged);
+            // 
             // TrnStockTransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -389,7 +400,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerStockTransferFilter;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStockTransferFilterStartDate;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockTransferButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockTransferButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferId;
@@ -399,5 +410,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferRemarks;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnStockTransferIsLocked;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferSpace;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStockTransferFilterEndDate;
     }
 }

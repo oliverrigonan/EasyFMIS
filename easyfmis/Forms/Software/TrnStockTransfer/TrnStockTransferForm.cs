@@ -91,11 +91,13 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
 
         public Task<List<Entities.DgvStockTransferEntity>> GetStockTransferDataTask()
         {
-            DateTime dateFilter = dateTimePickerStockTransferFilter.Value.Date;
+            DateTime startDateFilter = dateTimePickerStockTransferFilterStartDate.Value.Date;
+            DateTime endDateFilter = dateTimePickerStockTransferFilterStartDate.Value.Date;
+
             String filter = textBoxStockTransferFilter.Text;
             Controllers.TrnStockTransferController trnStockTransferController = new Controllers.TrnStockTransferController();
 
-            List<Entities.TrnStockTransferEntity> listStockTransfer = trnStockTransferController.ListStockTransfer(dateFilter, filter);
+            List<Entities.TrnStockTransferEntity> listStockTransfer = trnStockTransferController.ListStockTransfer(startDateFilter, endDateFilter, filter);
             if (listStockTransfer.Any())
             {
                 var items = from d in listStockTransfer
@@ -204,7 +206,12 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             }
         }
 
-        private void dateTimePickerStockTransferFilter_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerStockTransferFilterStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateStockTransferDataSource();
+        }
+
+        private void dateTimePickerStockTransferFilterEndDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateStockTransferDataSource();
         }
