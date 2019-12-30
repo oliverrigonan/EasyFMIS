@@ -123,9 +123,12 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                             select new Entities.DgvSearchPurchaseOrderItemEntity
                             {
                                 ColumnSearchPurchaseOrderItemId = d.ItemId,
+                                ColumnSearchPurchaseOrderItemBarCode = d.ItemBarCode,
                                 ColumnSearchPurchaseOrderItemDescription = d.ItemDescription,
                                 ColumnSearchPurchaseOrderItemUnitId = d.UnitId,
                                 ColumnSearchPurchaseOrderItemUnit = d.Unit,
+                                ColumnSearchPurchaseOrderItemBaseQuantity = d.BaseQuantity.ToString("#,#00.00"),
+                                ColumnSearchPurchaseOrderItemBaseCost = d.BaseCost.ToString("#,#00.00"),
                                 ColumnSearchPurchaseOrderItemVATInTaxId = d.VATInTaxId,
                                 ColumnSearchPurchaseOrderItemVATInTaxRate = d.VATInTaxRate.ToString("#,#00.00"),
                                 ColumnSearchPurchaseOrderItemButtonPick = "Pick"
@@ -165,6 +168,8 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                 var itemDescription = dataGridViewSearchPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewSearchPurchaseOrderItem.Columns["ColumnSearchPurchaseOrderItemDescription"].Index].Value.ToString();
                 var unitId = Convert.ToInt32(dataGridViewSearchPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewSearchPurchaseOrderItem.Columns["ColumnSearchPurchaseOrderItemUnitId"].Index].Value);
                 var unit = dataGridViewSearchPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewSearchPurchaseOrderItem.Columns["ColumnSearchPurchaseOrderItemUnit"].Index].Value.ToString();
+                var quantity = Convert.ToDecimal(dataGridViewSearchPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewSearchPurchaseOrderItem.Columns["ColumnSearchPurchaseOrderItemBaseQuantity"].Index].Value);
+                var cost = Convert.ToDecimal(dataGridViewSearchPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewSearchPurchaseOrderItem.Columns["ColumnSearchPurchaseOrderItemBaseCost"].Index].Value);
                 var taxId = Convert.ToInt32(dataGridViewSearchPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewSearchPurchaseOrderItem.Columns["ColumnSearchPurchaseOrderItemVATInTaxId"].Index].Value);
                 var taxRate = Convert.ToDecimal(dataGridViewSearchPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewSearchPurchaseOrderItem.Columns["ColumnSearchPurchaseOrderItemVATInTaxRate"].Index].Value);
                 var branchId = trnReceivingReceiptEntity.BranchId;
@@ -178,13 +183,13 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                     ItemDescription = itemDescription,
                     UnitId = unitId,
                     Unit = unit,
-                    Quantity = 1,
-                    Cost = 0,
+                    Quantity = quantity,
+                    Cost = cost,
                     TaxId = taxId,
                     TaxRate = taxRate,
                     TaxAmount = 0,
                     BranchId = branchId,
-                    Amount = 0,
+                    Amount = quantity * cost,
                     BaseCost = 0,
                     BaseQuantity = 0
                 };

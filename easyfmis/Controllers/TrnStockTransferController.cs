@@ -42,6 +42,9 @@ namespace easyfmis.Controllers
                                  && d.STDate >= endDateFilter
                                  && d.STNumber.Contains(filter)
                                  && d.BranchId == currentBranchId
+                                 && (d.STNumber.Contains(filter)
+                                 || d.Remarks.Contains(filter)
+                                 || d.MstBranch1.Branch.Contains(filter))
                                  select new Entities.TrnStockTransferEntity
                                  {
                                      Id = d.Id,

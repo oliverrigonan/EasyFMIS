@@ -42,6 +42,9 @@ namespace easyfmis.Controllers
                                  && d.PODate <= endDateFilter
                                  && d.PONumber.Contains(filter)
                                  && d.BranchId == currentBranchId
+                                 && (d.PONumber.Contains(filter)
+                                 || d.MstArticle.Article.Contains(filter)
+                                 || d.Remarks.Contains(filter))
                                  select new Entities.TrnPurchaseOrderEntity
                                  {
                                      Id = d.Id,

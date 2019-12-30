@@ -42,6 +42,8 @@ namespace easyfmis.Controllers
                             && d.OTDate <= endDateFilter
                             && d.OTNumber.Contains(filter)
                             && d.BranchId == currentBranchId
+                            && (d.OTNumber.Contains(filter)
+                            || d.Remarks.Contains(filter))
                             select new Entities.TrnStockOutEntity
                             {
                                 Id = d.Id,

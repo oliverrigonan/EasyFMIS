@@ -42,6 +42,9 @@ namespace easyfmis.Controllers
                                 && d.CVDate <= endDateFilter
                                 && d.CVNumber.Contains(filter)
                                 && d.BranchId == currentBranchId
+                                && (d.CVNumber.Contains(filter)
+                                || d.MstArticle.Article.Contains(filter)
+                                || d.Remarks.Contains(filter))
                                 select new Entities.TrnDisbursementEntity
                                 {
                                     Id = d.Id,

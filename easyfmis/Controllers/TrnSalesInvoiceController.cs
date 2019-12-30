@@ -42,6 +42,10 @@ namespace easyfmis.Controllers
                                 && d.SIDate >= endDateFilter
                                 && d.SINumber.Contains(filter)
                                 && d.BranchId == currentBranchId
+                                && (d.SINumber.Contains(filter) 
+                                || d.ManualSINumber.Contains(filter)
+                                || d.MstArticle.Article.Contains(filter)
+                                || d.Remarks.Contains(filter))
                                 select new Entities.TrnSalesInvoiceEntity
                                 {
                                     Id = d.Id,

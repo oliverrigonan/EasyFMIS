@@ -100,8 +100,8 @@ namespace easyfmis.Forms.Software.MstCompany
             if (listCompany.Any())
             {
                 var items = from d in listCompany
-                            where d.CompanyCode.Contains(filter)
-                            || d.Company.Contains(filter)
+                            where d.CompanyCode.ToLower().Contains(filter.ToLower())
+                            || d.Company.ToLower().Contains(filter.ToLower())
                             select new Entities.DgvMstCompanyEntity
                             {
                                 ColumnCompanyListButtonEdit = "Edit",

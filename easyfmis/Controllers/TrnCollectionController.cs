@@ -42,6 +42,9 @@ namespace easyfmis.Controllers
                               && d.ORDate <= endDateFilter
                               && d.ORNumber.Contains(filter)
                               && d.BranchId == currentBranchId
+                              && (d.ORNumber.Contains(filter)
+                              || d.MstArticle.Article.Contains(filter)
+                              || d.Remarks.Contains(filter))
                               select new Entities.TrnCollectionEntity
                               {
                                   Id = d.Id,

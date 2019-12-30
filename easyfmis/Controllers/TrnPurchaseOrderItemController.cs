@@ -45,10 +45,9 @@ namespace easyfmis.Controllers
         {
             var items = from d in db.MstArticles
                         where d.ArticleTypeId == 1
-                        && (d.ArticleCode.Contains(filter)
-                        || d.ArticleBarCode.Contains(filter)
+                        && (d.ArticleBarCode.Contains(filter)
                         || d.Article.Contains(filter)
-                        || d.Category.Contains(filter))
+                        || d.MstUnit.Unit.Contains(filter))
                         && d.IsLocked == true
                         select new Entities.MstArticleEntity
                         {

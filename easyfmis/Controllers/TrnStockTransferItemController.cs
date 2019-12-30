@@ -50,10 +50,8 @@ namespace easyfmis.Controllers
 
             var items = from d in db.MstArticleInventories
                         where (d.InventoryCode.Contains(filter)
-                        || d.MstArticle.ArticleCode.Contains(filter)
                         || d.MstArticle.ArticleBarCode.Contains(filter)
                         || d.MstArticle.Article.Contains(filter)
-                        || d.MstArticle.Category.Contains(filter)
                         || d.MstArticle.MstUnit.Unit.Contains(filter))
                         && d.MstArticle.IsLocked == true
                         && d.BranchId == currentBranchId
@@ -65,7 +63,6 @@ namespace easyfmis.Controllers
                             ArticleCode = d.MstArticle.ArticleCode,
                             ArticleBarCode = d.MstArticle.ArticleBarCode,
                             Article = d.MstArticle.Article,
-                            Category = d.MstArticle.Category,
                             UnitId = d.MstArticle.UnitId,
                             Unit = d.MstArticle.MstUnit.Unit,
                             DefaultPrice = d.MstArticle.DefaultPrice,

@@ -42,6 +42,9 @@ namespace easyfmis.Controllers
                                     && d.RRDate >= startDateFilter
                                     && d.RRNumber.Contains(filter)
                                     && d.BranchId == currentBranchId
+                                    && (d.RRNumber.Contains(filter)
+                                    || d.MstArticle.Article.Contains(filter)
+                                    || d.Remarks.Contains(filter))
                                     select new Entities.TrnReceivingReceiptEntity
                                     {
                                         Id = d.Id,

@@ -128,7 +128,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
         {
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = !isLocked;
+            buttonPrint.Enabled = isLocked;
 
             buttonDisbursementLine.Enabled = !isLocked;
 

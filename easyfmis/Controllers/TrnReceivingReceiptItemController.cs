@@ -73,17 +73,20 @@ namespace easyfmis.Controllers
         {
             var purchaseOrderItems = from d in db.TrnPurchaseOrderItems
                                      where d.POId == POId
-                                     && (d.MstArticle.Article.Contains(filter)
+                                     && (d.MstArticle.ArticleBarCode.Contains(filter)
+                                     || d.MstArticle.Article.Contains(filter)
                                      || d.MstUnit.Unit.Contains(filter))
                                      && d.MstArticle.IsLocked == true
                                      select new Entities.TrnPurchaseOrderItemEntity
                                      {
                                          Id = d.Id,
                                          ItemId = d.ItemId,
+                                         ItemBarCode = d.MstArticle.ArticleBarCode,
                                          ItemDescription = d.MstArticle.Article,
                                          UnitId = d.UnitId,
                                          Unit = d.MstUnit.Unit,
                                          BaseQuantity = d.BaseQuantity,
+                                         BaseCost = d.BaseCost,
                                          VATInTaxId = d.MstArticle.VATInTaxId,
                                          VATInTaxRate = d.MstArticle.MstTax.Rate
                                      };

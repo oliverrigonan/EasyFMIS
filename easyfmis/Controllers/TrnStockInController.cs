@@ -42,6 +42,8 @@ namespace easyfmis.Controllers
                            && d.INDate <= endDateFilter
                            && d.INNumber.Contains(filter)
                            && d.BranchId == currentBranchId
+                           && (d.INNumber.Contains(filter)
+                           || d.Remarks.Contains(filter))
                            select new Entities.TrnStockInEntity
                            {
                                Id = d.Id,
