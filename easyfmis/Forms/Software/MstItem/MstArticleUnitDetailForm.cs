@@ -14,14 +14,15 @@ namespace easyfmis.Forms.Software.MstItem
     {
         MstItemDetailForm mstItemDetailForm;
         Entities.MstArticleUnitEntity mstArticleUnitEntity;
+        Entities.MstArticleEntity itemArticleEntity;
         static Int32 articleId = 0;
-        public MstArticleUnitDetailForm(MstItemDetailForm itemDetailForm, Entities.MstArticleUnitEntity articleUnitEntity, Int32 itemId)
+        public MstArticleUnitDetailForm(MstItemDetailForm itemDetailForm, Entities.MstArticleUnitEntity articleUnitEntity, Entities.MstArticleEntity mstItemArticleEntity)
         {
             InitializeComponent();
             mstItemDetailForm = itemDetailForm;
             mstArticleUnitEntity = articleUnitEntity;
 
-            articleId = itemId;
+            itemArticleEntity = mstItemArticleEntity;
 
             GetUnitList();
         }
@@ -31,10 +32,18 @@ namespace easyfmis.Forms.Software.MstItem
             Controllers.MstArticleUnitController mstArticleUnitController = new Controllers.MstArticleUnitController();
             if (mstArticleUnitController.DropDownListUnit().Any())
             {
-                comboBoxUnit.DataSource = mstArticleUnitController.DropDownListUnit();
-                comboBoxUnit.ValueMember = "Id";
-                comboBoxUnit.DisplayMember = "Unit";
+                comboBoxBaseUnit.DataSource = mstArticleUnitController.DropDownListUnit();
+                comboBoxBaseUnit.ValueMember = "Id";
+                comboBoxBaseUnit.DisplayMember = "Unit";
             }
+
+            if (mstArticleUnitController.DropDownListUnit().Any())
+            {
+                comboBoxConvertedUnit.DataSource = mstArticleUnitController.DropDownListUnit();
+                comboBoxConvertedUnit.ValueMember = "Id";
+                comboBoxConvertedUnit.DisplayMember = "Unit";
+            }
+
             LoadArticleUnit();
         }
 
@@ -43,7 +52,8 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 textBoxBaseUnitMultiplier.Text = mstArticleUnitEntity.BaseUnitMultiplier.ToString("#,##0.00");
                 textBoxUnitMultiplier.Text = mstArticleUnitEntity.UnitMultiplier.ToString("#,##0.00");
-                comboBoxUnit.SelectedValue = mstArticleUnitEntity.UnitId;
+                comboBoxBaseUnit.SelectedValue = itemArticleEntity.UnitId;
+                comboBoxConvertedUnit.SelectedValue = mstArticleUnitEntity.UnitId;
             }
             else
             {
@@ -59,10 +69,10 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 Entities.MstArticleUnitEntity newArticleUnit = new Entities.MstArticleUnitEntity()
                 {
-                    ArticleId = articleId,
+                    ArticleId = itemArticleEntity.Id,
                     BaseUnitMultiplier = Convert.ToDecimal(textBoxBaseUnitMultiplier.Text),
                     UnitMultiplier = Convert.ToDecimal(textBoxUnitMultiplier.Text),
-                    UnitId = Convert.ToInt32(comboBoxUnit.SelectedValue)
+                    UnitId = Convert.ToInt32(comboBoxConvertedUnit.SelectedValue)
                 };
 
                 Controllers.MstArticleUnitController mstArticleUnitController = new Controllers.MstArticleUnitController();
@@ -81,7 +91,8 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 mstArticleUnitEntity.BaseUnitMultiplier = Convert.ToDecimal(textBoxBaseUnitMultiplier.Text);
                 mstArticleUnitEntity.UnitMultiplier = Convert.ToDecimal(textBoxUnitMultiplier.Text);
-                mstArticleUnitEntity.UnitId = Convert.ToInt32(comboBoxUnit.SelectedValue);
+                mstArticleUnitEntity.UnitId = Convert.ToInt32(comboBoxConvertedUnit.SelectedValue);
+
                 Controllers.MstArticleUnitController mstArticleUnitController = new Controllers.MstArticleUnitController();
 
                 String[] updatArticleUnit = mstArticleUnitController.UpdateArticleUnit(mstArticleUnitEntity);

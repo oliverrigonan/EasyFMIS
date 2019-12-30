@@ -26,6 +26,7 @@ namespace easyfmis.Controllers
                                    Id = d.Id,
                                    ArticleId = d.ArticleId,
                                    BaseUnitMultiplier = d.BaseUnitMultiplier,
+                                   BaseUnit = d.MstUnit.Unit,
                                    UnitMultiplier = d.UnitMultiplier,
                                    UnitId = d.UnitId,
                                    Unit = d.MstUnit.Unit

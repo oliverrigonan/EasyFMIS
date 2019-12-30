@@ -347,6 +347,9 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                                 ColumnSearchNonInventoryItemDescription = d.Article,
                                 ColumnSearchNonInventoryItemUnitId = d.UnitId,
                                 ColumnSearchNonInventoryItemUnit = d.Unit,
+                                ColumnSearchNonInventoryItemPrice = d.DefaultPrice.ToString("#,##0.00"),
+                                ColumnSearchNonInventoryVATOutTaxId = d.VATOutTaxId,
+                                ColumnSearchNonInventoryVATOutTaxRate = d.VATOutTaxRate.ToString("#,##0.00"),
                                 ColumnSearchNonInventoryItemButtonPick = "Pick"
                             };
 
@@ -379,20 +382,36 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             if (dataGridViewSearchNonInventoryItem.CurrentCell.ColumnIndex == dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemButtonPick"].Index)
             {
                 var salesOrderId = trnSalesOrderEntity.Id;
-                var itemId = Convert.ToInt32(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryId"].Index].Value);
+                var itemId = Convert.ToInt32(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemId"].Index].Value);
                 var itemDescription = dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemDescription"].Index].Value.ToString();
                 var unitId = Convert.ToInt32(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemUnitId"].Index].Value);
                 var unit = dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemUnit"].Index].Value.ToString();
+                var price = Convert.ToDecimal(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryItemPrice"].Index].Value);
+                var taxId = Convert.ToInt32(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryVATOutTaxId"].Index].Value);
+                var taxRate = Convert.ToDecimal(dataGridViewSearchNonInventoryItem.Rows[e.RowIndex].Cells[dataGridViewSearchNonInventoryItem.Columns["ColumnSearchNonInventoryVATOutTaxRate"].Index].Value);
 
-                Entities.TrnSalesOrderItemEntity addSalesOrderItem = new Entities.TrnSalesOrderItemEntity()
+                Entities.TrnSalesOrderItemEntity trnSalesOrderItem = new Entities.TrnSalesOrderItemEntity()
                 {
                     SOId = salesOrderId,
                     ItemId = itemId,
-                    ItemInventoryId = null,
+                    ItemDescription = itemDescription,
                     UnitId = unitId,
+                    Price = price,
+                    DiscountId = 2,
+                    DiscountRate = 0,
+                    DiscountAmount = 0,
+                    NetPrice = 0,
+                    Quantity = 0,
+                    Amount = 0,
+                    TaxAmount = 0,
+                    BaseQuantity = 0,
+                    BasePrice = 0,
+                    TaxId = taxId,
+                    TaxRate = taxRate,
                 };
 
-                //TrnSalesOrderDetailSalesOrderItemDetailForm trnSalesOrderDetailSalesOrderItemDetailForm = new TrnSalesOrderDetailSalesOrderItemDetailForm();
+                TrnSalesOrderDetailSalesOrderItemDetailForm trnSalesOrderDetailSalesOrderItemDetailForm = new TrnSalesOrderDetailSalesOrderItemDetailForm(trnSalesOrderDetailForm, trnSalesOrderItem);
+                trnSalesOrderDetailSalesOrderItemDetailForm.ShowDialog();
             }
         }
 

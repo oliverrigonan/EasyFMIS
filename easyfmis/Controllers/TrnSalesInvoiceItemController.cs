@@ -477,5 +477,56 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
+
+        // ================
+        // List Sales Order
+        // ================
+        public List<Entities.TrnSalesOrderEntity> ListSalesOrder(Int32 customerId)
+        {
+            var salesOrders = from d in db.TrnSalesOrders
+                              where d.CustomerId == customerId
+                              select new Entities.TrnSalesOrderEntity
+                              {
+                                  Id = d.Id,
+                                  SONumber = "SO Number - " + d.SONumber,
+                              };
+
+            return salesOrders.OrderByDescending(d => d.Id).ToList();
+        }
+
+        // =============
+        // List Sales Order Item 
+        // =============
+        public List<Entities.TrnSalesOrderItemEntity> ListSalesOrderItem(Int32 sOId)
+        {
+            var salesOrderItem = from d in db.TrnSalesOrderItems
+                                 where d.SOId == sOId
+                                 select new Entities.TrnSalesOrderItemEntity
+                                 {
+                                     Id = d.Id,
+                                     SOId = d.SOId,
+                                     ItemId = d.ItemId,
+                                     BarCode = d.MstArticle.ArticleCode,
+                                     ItemDescription = d.MstArticle.Article,
+                                     ItemInventoryId = d.ItemInventoryId,
+                                     ItemInventoryCode = d.MstArticleInventory.InventoryCode,
+                                     UnitId = d.UnitId,
+                                     Unit = d.MstUnit.Unit,
+                                     Price = d.Price,
+                                     DiscountId = d.DiscountId,
+                                     DiscountRate = d.DiscountRate,
+                                     DiscountAmount = d.DiscountAmount,
+                                     NetPrice = d.NetPrice,
+                                     Quantity = d.Quantity,
+                                     Amount = d.Amount,
+                                     TaxId = d.TaxId,
+                                     TaxRate = d.TaxRate,
+                                     TaxAmount = d.TaxAmount,
+                                     BaseQuantity = d.BaseQuantity,
+                                     BasePrice = d.BasePrice,
+                                 };
+
+            return salesOrderItem.OrderByDescending(d => d.Id).ToList();
+        }
     }
 }

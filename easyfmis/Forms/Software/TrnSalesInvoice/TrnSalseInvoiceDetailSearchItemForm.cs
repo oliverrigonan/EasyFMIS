@@ -37,6 +37,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
             CreateSearchInventoryItemDataGridView();
             CreateSearchNonInventoryItemDataGridView();
+            GetSONumberList(trnSalesInvoiceEntity.CustomerId);
         }
 
         public void UpdateSearchInventoryItemDataSource()
@@ -493,9 +494,273 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             textBoxSearchNonInventoryItemPageNumber.Text = SearchNonInventoryItemPageNumber + " / " + searchNonInventoryItemPageList.PageCount;
         }
 
-        private void textBoxSearchNonInventoryItemFilter_KeyPress(object sender, KeyPressEventArgs e)
+        public static List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> salesOrderItemData = new List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>();
+        public static Int32 salesOrdertemPageNumber = 1;
+        public static Int32 stockOutItemPageSize = 50;
+        public PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, salesOrdertemPageNumber, stockOutItemPageSize);
+        public BindingSource salesOrderItemDataSource = new BindingSource();
+
+
+        public void GetSONumberList(Int32 customerId)
+        {
+            Controllers.TrnSalesInvoiceItemController trnSalesInvoiceItemController = new Controllers.TrnSalesInvoiceItemController();
+            var salesOrderList = trnSalesInvoiceItemController.ListSalesOrder(customerId);
+            if (salesOrderList.Any())
+            {
+                comboBoxSONumber.DataSource = salesOrderList;
+                comboBoxSONumber.DisplayMember = "SONumber";
+                comboBoxSONumber.ValueMember = "Id";
+
+                CreateSalesOrderItemDataGridView();
+            }
+        }
+
+        public Task<List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>> GetSalesOrderItemDataTask()
+        {
+            Controllers.TrnSalesInvoiceItemController trnSalesInvoiceItemController = new Controllers.TrnSalesInvoiceItemController();
+            var SOId = Convert.ToInt32(comboBoxSONumber.SelectedValue);
+            var stringFilter = textBoxSearchSalesOrderItemFilter.Text;
+            List<Entities.TrnSalesOrderItemEntity> listSalesOrderItem = trnSalesInvoiceItemController.ListSalesOrderItem(SOId);
+            if (listSalesOrderItem.Any())
+            {
+                var items = from d in listSalesOrderItem
+                            where d.BarCode.Contains(stringFilter)
+                            || d.ItemDescription.Contains(stringFilter)
+                            select new Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity
+                            {
+                                ColumnTrnSalesOrderItemListId = d.Id,
+                                ColumnTrnSalesOrderItemListSOId = d.SOId,
+                                ColumnTrnSalesOrderItemListBarCode = d.BarCode,
+                                ColumnTrnSalesOrderItemListItemId = d.ItemId,
+                                ColumnTrnSalesOrderItemListItemDescription = d.ItemDescription,
+                                ColumnTrnSalesOrderItemListItemInventoryId = d.ItemInventoryId,
+                                ColumnTrnSalesOrderItemListItemInventoryCode = d.ItemInventoryCode,
+                                ColumnTrnSalesOrderItemListUnitId = d.UnitId,
+                                ColumnTrnSalesOrderItemListUnit = d.Unit,
+                                ColumnTrnSalesOrderItemListPrice = d.Price.ToString("#,##0.00"),
+                                ColumnTrnSalesOrderItemListDiscountId = d.DiscountId,
+                                ColumnTrnSalesOrderItemListDiscount = d.Discount,
+                                ColumnTrnSalesOrderItemListDiscountRate = d.DiscountRate.ToString("#,##0.00"),
+                                ColumnTrnSalesOrderItemListDiscountAmount = d.DiscountAmount.ToString("#,##0.00"),
+                                ColumnTrnSalesOrderItemListNetPrice = d.NetPrice.ToString("#,##0.00"),
+                                ColumnTrnSalesOrderItemListQuantity = d.Quantity.ToString("#,##0.00"),
+                                ColumnTrnSalesOrderItemListAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnTrnSalesOrderItemListTaxId = d.TaxId,
+                                ColumnTrnSalesOrderItemListTax = d.Tax,
+                                ColumnTrnSalesOrderItemListTaxRate = d.TaxRate.ToString("#,##0.00"),
+                                ColumnTrnSalesOrderItemListTaxAmount = d.TaxAmount.ToString("#,##0.00"),
+                                ColumnSalesOrderItemListPick = "Pick"
+                            };
+
+                return Task.FromResult(items.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>());
+            }
+        }
+
+        public async void SetStockOutItemDataSourceAsync()
+        {
+            List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> getStockOutItemData = await GetSalesOrderItemDataTask();
+            if (getStockOutItemData.Any())
+            {
+                salesOrderItemData = getStockOutItemData;
+                salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, salesOrdertemPageNumber, stockOutItemPageSize);
+
+                if (salesOrderItemPageSize.PageCount == 1)
+                {
+                    buttonSalesOrderItemPageListFirst.Enabled = false;
+                    buttonSalesOrderItemPageListPrevious.Enabled = false;
+                    buttonSalesOrderItemPageListNext.Enabled = false;
+                    buttonSalesOrderItemPageListLast.Enabled = false;
+                }
+                else if (salesOrdertemPageNumber == 1)
+                {
+                    buttonSalesOrderItemPageListFirst.Enabled = false;
+                    buttonSalesOrderItemPageListPrevious.Enabled = false;
+                    buttonSalesOrderItemPageListNext.Enabled = true;
+                    buttonSalesOrderItemPageListLast.Enabled = true;
+                }
+                else if (salesOrdertemPageNumber == salesOrderItemPageSize.PageCount)
+                {
+                    buttonSalesOrderItemPageListFirst.Enabled = true;
+                    buttonSalesOrderItemPageListPrevious.Enabled = true;
+                    buttonSalesOrderItemPageListNext.Enabled = false;
+                    buttonSalesOrderItemPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonSalesOrderItemPageListFirst.Enabled = true;
+                    buttonSalesOrderItemPageListPrevious.Enabled = true;
+                    buttonSalesOrderItemPageListNext.Enabled = true;
+                    buttonSalesOrderItemPageListLast.Enabled = true;
+                }
+
+                textBoxSalesOrderItemPageNumber.Text = salesOrdertemPageNumber + " / " + salesOrderItemPageSize.PageCount;
+                salesOrderItemDataSource.DataSource = salesOrderItemPageSize;
+            }
+            else
+            {
+                buttonSalesOrderItemPageListFirst.Enabled = false;
+                buttonSalesOrderItemPageListPrevious.Enabled = false;
+                buttonSalesOrderItemPageListNext.Enabled = false;
+                buttonSalesOrderItemPageListLast.Enabled = false;
+
+                salesOrdertemPageNumber = 1;
+
+                salesOrderItemData = new List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>();
+                salesOrderItemDataSource.Clear();
+                textBoxSalesOrderItemPageNumber.Text = "1 / 1";
+            }
+        }
+
+
+        public void UpdateSalesOrderItemDataSource()
+        {
+            SetStockOutItemDataSourceAsync();
+        }
+
+        public void CreateSalesOrderItemDataGridView()
+        {
+            UpdateSalesOrderItemDataSource();
+
+            dataGridViewSalesOrderItem.Columns[dataGridViewSalesOrderItem.Columns["ColumnSalesOrderItemListPick"].Index].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewSalesOrderItem.Columns[dataGridViewSalesOrderItem.Columns["ColumnSalesOrderItemListPick"].Index].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewSalesOrderItem.Columns[dataGridViewSalesOrderItem.Columns["ColumnSalesOrderItemListPick"].Index].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewSalesOrderItem.DataSource = salesOrderItemDataSource;
+        }
+
+        public void GetSalesOrderItemCurrentSelectedCell(Int32 rowIndex)
         {
 
+        }
+
+        private void dataGridViewSalesOrderItem_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetSalesOrderItemCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewSalesOrderItem.CurrentCell.ColumnIndex == dataGridViewSalesOrderItem.Columns["ColumnSalesOrderItemListPick"].Index)
+            {
+                var SIId = trnSalesInvoiceEntity.Id;
+                var itemId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemId"].Index].Value);
+                var itemDescription = dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemDescription"].Index].Value.ToString();
+                var itemInventoryId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemInventoryId"].Index].Value);
+                var itemInventoryCode = dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListItemInventoryCode"].Index].Value.ToString();
+                var unitId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListUnitId"].Index].Value);
+                var unit = dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListUnit"].Index].Value.ToString();
+                var price = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListPrice"].Index].Value);
+                var discountId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListDiscountId"].Index].Value);
+                var discountRate = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListDiscountRate"].Index].Value);
+                var discountAmount = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListDiscountAmount"].Index].Value);
+                var netPrice = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListNetPrice"].Index].Value);
+                var quantity = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListQuantity"].Index].Value);
+                var amount = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListAmount"].Index].Value);
+                var taxId = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxId"].Index].Value);
+                var taxRate = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxRate"].Index].Value);
+                var taxAmount = Convert.ToDecimal(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListTaxAmount"].Index].Value);
+
+                Entities.TrnSalesInvoiceItemEntity trnSalesInvoiceItemEntity = new Entities.TrnSalesInvoiceItemEntity()
+                {
+                    SIId = SIId,
+                    ItemId = itemId,
+                    ItemDescription = itemDescription,
+                    ItemInventoryId = itemInventoryId,
+                    UnitId = unitId,
+                    Price = price,
+                    DiscountId = discountId,
+                    DiscountRate = discountRate,
+                    DiscountAmount = discountAmount,
+                    NetPrice = netPrice,
+                    Quantity = quantity,
+                    Amount = amount,
+                    TaxId = taxId,
+                    TaxRate = taxRate,
+                    TaxAmount = taxAmount,
+                    BaseQuantity = 0,
+                    BasePrice = price
+                };
+
+                TrnSalesInvoiceDetailSalesInvoiceItemDetailForm trnSalesInvoiceDetailSalesInvoiceItemDetailForm = new TrnSalesInvoiceDetailSalesInvoiceItemDetailForm(trnSalesInvoiceDetailForm, trnSalesInvoiceItemEntity);
+                trnSalesInvoiceDetailSalesInvoiceItemDetailForm.ShowDialog();
+            }
+        }
+
+        private void buttonStockOutItemPageListFirst_Click(object sender, EventArgs e)
+        {
+            salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, 1, stockOutItemPageSize);
+            salesOrderItemDataSource.DataSource = salesOrderItemPageSize;
+
+            buttonSalesOrderItemPageListFirst.Enabled = false;
+            buttonSalesOrderItemPageListPrevious.Enabled = false;
+            buttonSalesOrderItemPageListNext.Enabled = true;
+            buttonSalesOrderItemPageListLast.Enabled = true;
+
+            salesOrdertemPageNumber = 1;
+            textBoxSalesOrderItemPageNumber.Text = salesOrdertemPageNumber + " / " + salesOrderItemPageSize.PageCount;
+        }
+
+        private void buttonStockOutItemPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (salesOrderItemPageSize.HasPreviousPage == true)
+            {
+                salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, --salesOrdertemPageNumber, stockOutItemPageSize);
+                salesOrderItemDataSource.DataSource = salesOrderItemPageSize;
+            }
+
+            buttonSalesOrderItemPageListNext.Enabled = true;
+            buttonSalesOrderItemPageListLast.Enabled = true;
+
+            if (salesOrdertemPageNumber == 1)
+            {
+                buttonSalesOrderItemPageListFirst.Enabled = false;
+                buttonSalesOrderItemPageListPrevious.Enabled = false;
+            }
+
+            textBoxSalesOrderItemPageNumber.Text = salesOrdertemPageNumber + " / " + salesOrderItemPageSize.PageCount;
+        }
+
+        private void buttonStockOutItemPageListNext_Click(object sender, EventArgs e)
+        {
+            if (salesOrderItemPageSize.HasNextPage == true)
+            {
+                salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, ++salesOrdertemPageNumber, stockOutItemPageSize);
+                salesOrderItemDataSource.DataSource = salesOrderItemPageSize;
+            }
+
+            buttonSalesOrderItemPageListFirst.Enabled = true;
+            buttonSalesOrderItemPageListPrevious.Enabled = true;
+
+            if (salesOrdertemPageNumber == salesOrderItemPageSize.PageCount)
+            {
+                buttonSalesOrderItemPageListNext.Enabled = false;
+                buttonSalesOrderItemPageListLast.Enabled = false;
+            }
+
+            textBoxSalesOrderItemPageNumber.Text = salesOrdertemPageNumber + " / " + salesOrderItemPageSize.PageCount;
+        }
+
+        private void buttonStockOutItemPageListLast_Click(object sender, EventArgs e)
+        {
+            salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, salesOrderItemPageSize.PageCount, stockOutItemPageSize);
+            salesOrderItemDataSource.DataSource = salesOrderItemPageSize;
+
+            buttonSalesOrderItemPageListFirst.Enabled = true;
+            buttonSalesOrderItemPageListPrevious.Enabled = true;
+            buttonSalesOrderItemPageListNext.Enabled = false;
+            buttonSalesOrderItemPageListLast.Enabled = false;
+
+            salesOrdertemPageNumber = salesOrderItemPageSize.PageCount;
+            textBoxSalesOrderItemPageNumber.Text = salesOrdertemPageNumber + " / " + salesOrderItemPageSize.PageCount;
+        }
+
+        private void textBoxSearchSalesOrderItemFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            UpdateSalesOrderItemDataSource();
         }
     }
 }

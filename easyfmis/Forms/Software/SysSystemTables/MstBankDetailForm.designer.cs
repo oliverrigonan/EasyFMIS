@@ -207,7 +207,7 @@
             this.textBoxTIN.Location = new System.Drawing.Point(161, 329);
             this.textBoxTIN.Name = "textBoxTIN";
             this.textBoxTIN.Size = new System.Drawing.Size(214, 30);
-            this.textBoxTIN.TabIndex = 6;
+            this.textBoxTIN.TabIndex = 7;
             // 
             // label7
             // 
@@ -225,7 +225,7 @@
             this.textBoxEmailAddress.Location = new System.Drawing.Point(161, 295);
             this.textBoxEmailAddress.Name = "textBoxEmailAddress";
             this.textBoxEmailAddress.Size = new System.Drawing.Size(284, 30);
-            this.textBoxEmailAddress.TabIndex = 5;
+            this.textBoxEmailAddress.TabIndex = 6;
             // 
             // label6
             // 
@@ -243,7 +243,7 @@
             this.textBoxContactNumber.Location = new System.Drawing.Point(161, 259);
             this.textBoxContactNumber.Name = "textBoxContactNumber";
             this.textBoxContactNumber.Size = new System.Drawing.Size(214, 30);
-            this.textBoxContactNumber.TabIndex = 4;
+            this.textBoxContactNumber.TabIndex = 5;
             // 
             // label5
             // 
