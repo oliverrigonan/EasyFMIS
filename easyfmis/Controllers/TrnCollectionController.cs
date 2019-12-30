@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var collections = from d in db.TrnCollections
                               where d.ORDate >= startDateFilter
                               && d.ORDate <= endDateFilter
-                              && d.ORNumber.Contains(filter)
                               && d.BranchId == currentBranchId
                               && (d.ORNumber.Contains(filter)
                               || d.MstArticle.Article.Contains(filter)

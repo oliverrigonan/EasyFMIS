@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var stockTransfers = from d in db.TrnStockTransfers
                                  where d.STDate >= startDateFilter
                                  && d.STDate >= endDateFilter
-                                 && d.STNumber.Contains(filter)
                                  && d.BranchId == currentBranchId
                                  && (d.STNumber.Contains(filter)
                                  || d.Remarks.Contains(filter)

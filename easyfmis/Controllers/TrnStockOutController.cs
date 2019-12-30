@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var stockOuts = from d in db.TrnStockOuts
                             where d.OTDate >= startDateFilter
                             && d.OTDate <= endDateFilter
-                            && d.OTNumber.Contains(filter)
                             && d.BranchId == currentBranchId
                             && (d.OTNumber.Contains(filter)
                             || d.Remarks.Contains(filter))

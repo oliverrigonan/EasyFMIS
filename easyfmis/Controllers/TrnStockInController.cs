@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var stockIns = from d in db.TrnStockIns
                            where d.INDate >= startDateFilter
                            && d.INDate <= endDateFilter
-                           && d.INNumber.Contains(filter)
                            && d.BranchId == currentBranchId
                            && (d.INNumber.Contains(filter)
                            || d.Remarks.Contains(filter))

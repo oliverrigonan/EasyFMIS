@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var salesOrders = from d in db.TrnSalesOrders
                               where d.SODate >= startDateFilter
                               && d.SODate <= endDateFilter
-                              && d.SONumber.Contains(filter)
                               && d.BranchId == currentBranchId
                               && (d.SONumber.Contains(filter)
                               || d.ManualSONumber.Contains(filter)

@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var receivingReceipts = from d in db.TrnReceivingReceipts
                                     where d.RRDate >= endDateFilter
                                     && d.RRDate >= startDateFilter
-                                    && d.RRNumber.Contains(filter)
                                     && d.BranchId == currentBranchId
                                     && (d.RRNumber.Contains(filter)
                                     || d.MstArticle.Article.Contains(filter)

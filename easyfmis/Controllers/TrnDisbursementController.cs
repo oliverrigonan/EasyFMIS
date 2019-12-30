@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var disbursements = from d in db.TrnDisbursements
                                 where d.CVDate >= startDateFilter
                                 && d.CVDate <= endDateFilter
-                                && d.CVNumber.Contains(filter)
                                 && d.BranchId == currentBranchId
                                 && (d.CVNumber.Contains(filter)
                                 || d.MstArticle.Article.Contains(filter)

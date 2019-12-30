@@ -40,7 +40,6 @@ namespace easyfmis.Controllers
             var salesInvoices = from d in db.TrnSalesInvoices
                                 where d.SIDate >= startDateFilter
                                 && d.SIDate >= endDateFilter
-                                && d.SINumber.Contains(filter)
                                 && d.BranchId == currentBranchId
                                 && (d.SINumber.Contains(filter) 
                                 || d.ManualSINumber.Contains(filter)
