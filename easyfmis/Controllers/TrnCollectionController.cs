@@ -39,8 +39,10 @@ namespace easyfmis.Controllers
 
             var collections = from d in db.TrnCollections
                               where d.ORDate == dateFilter
-                              && d.ORNumber.Contains(filter)
                               && d.BranchId == currentBranchId
+                              && (d.ORNumber.Contains(filter)
+                              || d.MstArticle.Article.Contains(filter)
+                              || d.Remarks.Contains(filter))
                               select new Entities.TrnCollectionEntity
                               {
                                   Id = d.Id,

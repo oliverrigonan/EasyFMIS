@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnReceivingReceiptDetailSearchPurchaseOrderItemForm));
@@ -37,13 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.dataGridViewSearchPurchaseOrderItem = new System.Windows.Forms.DataGridView();
-            this.ColumnSearchPurchaseOrderItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchPurchaseOrderItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchPurchaseOrderItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchPurchaseOrderItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchPurchaseOrderItemVATInTaxId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchPurchaseOrderItemVATInTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSearchPurchaseOrderItemButtonPick = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBoxSearchPurchaseOrderItemFilter = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonSearchPurchaseOrderItemPageListFirst = new System.Windows.Forms.Button();
@@ -53,6 +48,16 @@
             this.textBoxSearchPurchaseOrderItemPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBoxPONumber = new System.Windows.Forms.ComboBox();
+            this.ColumnSearchPurchaseOrderItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemVATInTaxId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemVATInTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSearchPurchaseOrderItemButtonPick = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchPurchaseOrderItem)).BeginInit();
@@ -130,96 +135,41 @@
             this.dataGridViewSearchPurchaseOrderItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSearchPurchaseOrderItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnSearchPurchaseOrderItemId,
+            this.ColumnSearchPurchaseOrderItemBarCode,
             this.ColumnSearchPurchaseOrderItemDescription,
             this.ColumnSearchPurchaseOrderItemUnitId,
             this.ColumnSearchPurchaseOrderItemUnit,
+            this.ColumnSearchPurchaseOrderItemBaseQuantity,
+            this.ColumnSearchPurchaseOrderItemBaseCost,
             this.ColumnSearchPurchaseOrderItemVATInTaxId,
             this.ColumnSearchPurchaseOrderItemVATInTaxRate,
             this.ColumnSearchPurchaseOrderItemButtonPick});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSearchPurchaseOrderItem.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSearchPurchaseOrderItem.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewSearchPurchaseOrderItem.Location = new System.Drawing.Point(12, 43);
             this.dataGridViewSearchPurchaseOrderItem.MultiSelect = false;
             this.dataGridViewSearchPurchaseOrderItem.Name = "dataGridViewSearchPurchaseOrderItem";
             this.dataGridViewSearchPurchaseOrderItem.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSearchPurchaseOrderItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSearchPurchaseOrderItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewSearchPurchaseOrderItem.RowHeadersVisible = false;
             this.dataGridViewSearchPurchaseOrderItem.RowTemplate.Height = 24;
             this.dataGridViewSearchPurchaseOrderItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSearchPurchaseOrderItem.Size = new System.Drawing.Size(958, 438);
             this.dataGridViewSearchPurchaseOrderItem.TabIndex = 6;
             this.dataGridViewSearchPurchaseOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSearchPurchaseOrderItem_CellClick);
-            // 
-            // ColumnSearchPurchaseOrderItemId
-            // 
-            this.ColumnSearchPurchaseOrderItemId.DataPropertyName = "ColumnSearchPurchaseOrderItemId";
-            this.ColumnSearchPurchaseOrderItemId.HeaderText = "Id";
-            this.ColumnSearchPurchaseOrderItemId.Name = "ColumnSearchPurchaseOrderItemId";
-            this.ColumnSearchPurchaseOrderItemId.ReadOnly = true;
-            this.ColumnSearchPurchaseOrderItemId.Visible = false;
-            // 
-            // ColumnSearchPurchaseOrderItemDescription
-            // 
-            this.ColumnSearchPurchaseOrderItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSearchPurchaseOrderItemDescription.DataPropertyName = "ColumnSearchPurchaseOrderItemDescription";
-            this.ColumnSearchPurchaseOrderItemDescription.HeaderText = "Item Description";
-            this.ColumnSearchPurchaseOrderItemDescription.Name = "ColumnSearchPurchaseOrderItemDescription";
-            this.ColumnSearchPurchaseOrderItemDescription.ReadOnly = true;
-            // 
-            // ColumnSearchPurchaseOrderItemUnitId
-            // 
-            this.ColumnSearchPurchaseOrderItemUnitId.DataPropertyName = "ColumnSearchPurchaseOrderItemUnitId";
-            this.ColumnSearchPurchaseOrderItemUnitId.HeaderText = "UnitId";
-            this.ColumnSearchPurchaseOrderItemUnitId.Name = "ColumnSearchPurchaseOrderItemUnitId";
-            this.ColumnSearchPurchaseOrderItemUnitId.ReadOnly = true;
-            this.ColumnSearchPurchaseOrderItemUnitId.Visible = false;
-            // 
-            // ColumnSearchPurchaseOrderItemUnit
-            // 
-            this.ColumnSearchPurchaseOrderItemUnit.DataPropertyName = "ColumnSearchPurchaseOrderItemUnit";
-            this.ColumnSearchPurchaseOrderItemUnit.HeaderText = "Unit";
-            this.ColumnSearchPurchaseOrderItemUnit.Name = "ColumnSearchPurchaseOrderItemUnit";
-            this.ColumnSearchPurchaseOrderItemUnit.ReadOnly = true;
-            // 
-            // ColumnSearchPurchaseOrderItemVATInTaxId
-            // 
-            this.ColumnSearchPurchaseOrderItemVATInTaxId.DataPropertyName = "ColumnSearchPurchaseOrderItemVATInTaxId";
-            this.ColumnSearchPurchaseOrderItemVATInTaxId.HeaderText = "VAT In Tax Id";
-            this.ColumnSearchPurchaseOrderItemVATInTaxId.Name = "ColumnSearchPurchaseOrderItemVATInTaxId";
-            this.ColumnSearchPurchaseOrderItemVATInTaxId.ReadOnly = true;
-            this.ColumnSearchPurchaseOrderItemVATInTaxId.Visible = false;
-            // 
-            // ColumnSearchPurchaseOrderItemVATInTaxRate
-            // 
-            this.ColumnSearchPurchaseOrderItemVATInTaxRate.DataPropertyName = "ColumnSearchPurchaseOrderItemVATInTaxRate";
-            this.ColumnSearchPurchaseOrderItemVATInTaxRate.HeaderText = "VAT In Tax Rate";
-            this.ColumnSearchPurchaseOrderItemVATInTaxRate.Name = "ColumnSearchPurchaseOrderItemVATInTaxRate";
-            this.ColumnSearchPurchaseOrderItemVATInTaxRate.ReadOnly = true;
-            this.ColumnSearchPurchaseOrderItemVATInTaxRate.Visible = false;
-            // 
-            // ColumnSearchPurchaseOrderItemButtonPick
-            // 
-            this.ColumnSearchPurchaseOrderItemButtonPick.DataPropertyName = "ColumnSearchPurchaseOrderItemButtonPick";
-            this.ColumnSearchPurchaseOrderItemButtonPick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSearchPurchaseOrderItemButtonPick.HeaderText = "Pick";
-            this.ColumnSearchPurchaseOrderItemButtonPick.Name = "ColumnSearchPurchaseOrderItemButtonPick";
-            this.ColumnSearchPurchaseOrderItemButtonPick.ReadOnly = true;
-            this.ColumnSearchPurchaseOrderItemButtonPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnSearchPurchaseOrderItemButtonPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnSearchPurchaseOrderItemButtonPick.Width = 70;
             // 
             // textBoxSearchPurchaseOrderItemFilter
             // 
@@ -343,6 +293,90 @@
             this.comboBoxPONumber.TabIndex = 0;
             this.comboBoxPONumber.SelectedIndexChanged += new System.EventHandler(this.comboBoxPONumber_SelectedIndexChanged);
             // 
+            // ColumnSearchPurchaseOrderItemId
+            // 
+            this.ColumnSearchPurchaseOrderItemId.DataPropertyName = "ColumnSearchPurchaseOrderItemId";
+            this.ColumnSearchPurchaseOrderItemId.HeaderText = "Id";
+            this.ColumnSearchPurchaseOrderItemId.Name = "ColumnSearchPurchaseOrderItemId";
+            this.ColumnSearchPurchaseOrderItemId.ReadOnly = true;
+            this.ColumnSearchPurchaseOrderItemId.Visible = false;
+            // 
+            // ColumnSearchPurchaseOrderItemBarCode
+            // 
+            this.ColumnSearchPurchaseOrderItemBarCode.DataPropertyName = "ColumnSearchPurchaseOrderItemBarCode";
+            this.ColumnSearchPurchaseOrderItemBarCode.HeaderText = "Bar Code";
+            this.ColumnSearchPurchaseOrderItemBarCode.Name = "ColumnSearchPurchaseOrderItemBarCode";
+            this.ColumnSearchPurchaseOrderItemBarCode.ReadOnly = true;
+            this.ColumnSearchPurchaseOrderItemBarCode.Width = 150;
+            // 
+            // ColumnSearchPurchaseOrderItemDescription
+            // 
+            this.ColumnSearchPurchaseOrderItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSearchPurchaseOrderItemDescription.DataPropertyName = "ColumnSearchPurchaseOrderItemDescription";
+            this.ColumnSearchPurchaseOrderItemDescription.HeaderText = "Item Description";
+            this.ColumnSearchPurchaseOrderItemDescription.Name = "ColumnSearchPurchaseOrderItemDescription";
+            this.ColumnSearchPurchaseOrderItemDescription.ReadOnly = true;
+            // 
+            // ColumnSearchPurchaseOrderItemUnitId
+            // 
+            this.ColumnSearchPurchaseOrderItemUnitId.DataPropertyName = "ColumnSearchPurchaseOrderItemUnitId";
+            this.ColumnSearchPurchaseOrderItemUnitId.HeaderText = "UnitId";
+            this.ColumnSearchPurchaseOrderItemUnitId.Name = "ColumnSearchPurchaseOrderItemUnitId";
+            this.ColumnSearchPurchaseOrderItemUnitId.ReadOnly = true;
+            this.ColumnSearchPurchaseOrderItemUnitId.Visible = false;
+            // 
+            // ColumnSearchPurchaseOrderItemUnit
+            // 
+            this.ColumnSearchPurchaseOrderItemUnit.DataPropertyName = "ColumnSearchPurchaseOrderItemUnit";
+            this.ColumnSearchPurchaseOrderItemUnit.HeaderText = "Unit";
+            this.ColumnSearchPurchaseOrderItemUnit.Name = "ColumnSearchPurchaseOrderItemUnit";
+            this.ColumnSearchPurchaseOrderItemUnit.ReadOnly = true;
+            // 
+            // ColumnSearchPurchaseOrderItemBaseQuantity
+            // 
+            this.ColumnSearchPurchaseOrderItemBaseQuantity.DataPropertyName = "ColumnSearchPurchaseOrderItemBaseQuantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSearchPurchaseOrderItemBaseQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnSearchPurchaseOrderItemBaseQuantity.HeaderText = "Quantity";
+            this.ColumnSearchPurchaseOrderItemBaseQuantity.Name = "ColumnSearchPurchaseOrderItemBaseQuantity";
+            this.ColumnSearchPurchaseOrderItemBaseQuantity.ReadOnly = true;
+            // 
+            // ColumnSearchPurchaseOrderItemBaseCost
+            // 
+            this.ColumnSearchPurchaseOrderItemBaseCost.DataPropertyName = "ColumnSearchPurchaseOrderItemBaseCost";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSearchPurchaseOrderItemBaseCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnSearchPurchaseOrderItemBaseCost.HeaderText = "Cost";
+            this.ColumnSearchPurchaseOrderItemBaseCost.Name = "ColumnSearchPurchaseOrderItemBaseCost";
+            this.ColumnSearchPurchaseOrderItemBaseCost.ReadOnly = true;
+            // 
+            // ColumnSearchPurchaseOrderItemVATInTaxId
+            // 
+            this.ColumnSearchPurchaseOrderItemVATInTaxId.DataPropertyName = "ColumnSearchPurchaseOrderItemVATInTaxId";
+            this.ColumnSearchPurchaseOrderItemVATInTaxId.HeaderText = "VAT In Tax Id";
+            this.ColumnSearchPurchaseOrderItemVATInTaxId.Name = "ColumnSearchPurchaseOrderItemVATInTaxId";
+            this.ColumnSearchPurchaseOrderItemVATInTaxId.ReadOnly = true;
+            this.ColumnSearchPurchaseOrderItemVATInTaxId.Visible = false;
+            // 
+            // ColumnSearchPurchaseOrderItemVATInTaxRate
+            // 
+            this.ColumnSearchPurchaseOrderItemVATInTaxRate.DataPropertyName = "ColumnSearchPurchaseOrderItemVATInTaxRate";
+            this.ColumnSearchPurchaseOrderItemVATInTaxRate.HeaderText = "VAT In Tax Rate";
+            this.ColumnSearchPurchaseOrderItemVATInTaxRate.Name = "ColumnSearchPurchaseOrderItemVATInTaxRate";
+            this.ColumnSearchPurchaseOrderItemVATInTaxRate.ReadOnly = true;
+            this.ColumnSearchPurchaseOrderItemVATInTaxRate.Visible = false;
+            // 
+            // ColumnSearchPurchaseOrderItemButtonPick
+            // 
+            this.ColumnSearchPurchaseOrderItemButtonPick.DataPropertyName = "ColumnSearchPurchaseOrderItemButtonPick";
+            this.ColumnSearchPurchaseOrderItemButtonPick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSearchPurchaseOrderItemButtonPick.HeaderText = "Pick";
+            this.ColumnSearchPurchaseOrderItemButtonPick.Name = "ColumnSearchPurchaseOrderItemButtonPick";
+            this.ColumnSearchPurchaseOrderItemButtonPick.ReadOnly = true;
+            this.ColumnSearchPurchaseOrderItemButtonPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnSearchPurchaseOrderItemButtonPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnSearchPurchaseOrderItemButtonPick.Width = 70;
+            // 
             // TrnReceivingReceiptDetailSearchPurchaseOrderItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -384,9 +418,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBoxPONumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemUnitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemBaseQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemVATInTaxId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSearchPurchaseOrderItemVATInTaxRate;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnSearchPurchaseOrderItemButtonPick;

@@ -100,11 +100,11 @@ namespace easyfmis.Forms.Software.MstItem
             if (listItem.Any())
             {
                 var items = from d in listItem
-                            where d.ArticleCode.Contains(filter)
-                            || d.Article.Contains(filter)
-                            || d.ArticleBarCode.Contains(filter)
-                            || d.Category.Contains(filter)
-                            || d.Unit.Contains(filter)
+                            where d.ArticleCode.ToLower().Contains(filter.ToLower())
+                            || d.Article.ToLower().Contains(filter.ToLower())
+                            || d.ArticleBarCode.ToLower().Contains(filter.ToLower())
+                            || d.Category.ToLower().Contains(filter.ToLower())
+                            || d.Unit.ToLower().Contains(filter.ToLower())
                             select new Entities.DgvItemListItemEntity
                             {
                                 ColumnItemListButtonEdit = "Edit",

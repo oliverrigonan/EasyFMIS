@@ -39,8 +39,10 @@ namespace easyfmis.Controllers
 
             var purchaseOrders = from d in db.TrnPurchaseOrders
                                  where d.PODate == dateFilter
-                                 && d.PONumber.Contains(filter)
                                  && d.BranchId == currentBranchId
+                                 && (d.PONumber.Contains(filter)
+                                 || d.MstArticle.Article.Contains(filter)
+                                 || d.Remarks.Contains(filter))
                                  select new Entities.TrnPurchaseOrderEntity
                                  {
                                      Id = d.Id,

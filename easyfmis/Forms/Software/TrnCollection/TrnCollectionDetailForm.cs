@@ -95,7 +95,7 @@ namespace easyfmis.Forms.Software.TrnCollection
         {
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = !isLocked;
+            buttonPrint.Enabled = isLocked;
 
             buttonSearchItem.Enabled = !isLocked;
 

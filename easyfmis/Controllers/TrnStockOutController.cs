@@ -39,8 +39,9 @@ namespace easyfmis.Controllers
 
             var stockOuts = from d in db.TrnStockOuts
                             where d.OTDate == dateFilter
-                            && d.OTNumber.Contains(filter)
                             && d.BranchId == currentBranchId
+                            && (d.OTNumber.Contains(filter)
+                            || d.Remarks.Contains(filter))
                             select new Entities.TrnStockOutEntity
                             {
                                 Id = d.Id,

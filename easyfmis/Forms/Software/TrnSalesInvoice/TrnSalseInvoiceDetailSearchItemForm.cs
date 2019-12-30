@@ -492,5 +492,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             SearchNonInventoryItemPageNumber = searchNonInventoryItemPageList.PageCount;
             textBoxSearchNonInventoryItemPageNumber.Text = SearchNonInventoryItemPageNumber + " / " + searchNonInventoryItemPageList.PageCount;
         }
+
+        private void textBoxSearchNonInventoryItemFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

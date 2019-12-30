@@ -56,8 +56,7 @@ namespace easyfmis.Controllers
                         where d.ArticleTypeId == 1
                         && (d.ArticleCode.Contains(filter)
                         || d.ArticleBarCode.Contains(filter)
-                        || d.Article.Contains(filter)
-                        || d.Category.Contains(filter))
+                        || d.Article.Contains(filter))
                         && d.IsInventory == false
                         && d.IsLocked == true
                         select new Entities.MstArticleEntity
@@ -88,7 +87,6 @@ namespace easyfmis.Controllers
                         || d.MstArticle.ArticleCode.Contains(filter)
                         || d.MstArticle.ArticleBarCode.Contains(filter)
                         || d.MstArticle.Article.Contains(filter)
-                        || d.MstArticle.Category.Contains(filter)
                         || d.MstArticle.MstUnit.Unit.Contains(filter))
                         && d.MstArticle.IsLocked == true
                         && d.BranchId == currentBranchId

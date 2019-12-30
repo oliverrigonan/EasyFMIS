@@ -81,7 +81,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
         {
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = !isLocked;
+            buttonPrint.Enabled = isLocked;
 
             buttonSearchItem.Enabled = !isLocked;
 

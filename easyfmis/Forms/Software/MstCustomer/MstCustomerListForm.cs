@@ -101,10 +101,10 @@ namespace easyfmis.Forms.Software.MstCustomer
             if (listCustomer.Any())
             {
                 var items = from d in listCustomer
-                            where d.ArticleCode.Contains(filter)
-                            || d.ArticleBarCode.Contains(filter)
-                            || d.Article.Contains(filter)
-                            || d.Category.Contains(filter)
+                            where d.ArticleCode.ToLower().Contains(filter.ToLower())
+                            || d.ArticleBarCode.ToLower().Contains(filter.ToLower())
+                            || d.Article.ToLower().Contains(filter.ToLower())
+                            || d.Category.ToLower().Contains(filter.ToLower())
                             select new Entities.DgvMstCustomerEntities
                             {
                                 ColumnCustomerListButtonEdit = "Edit",

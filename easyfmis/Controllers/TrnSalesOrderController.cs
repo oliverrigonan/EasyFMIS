@@ -39,8 +39,11 @@ namespace easyfmis.Controllers
 
             var salesOrders = from d in db.TrnSalesOrders
                               where d.SODate == dateFilter
-                              && d.SONumber.Contains(filter)
                               && d.BranchId == currentBranchId
+                              && (d.SONumber.Contains(filter)
+                              || d.ManualSONumber.Contains(filter)
+                              || d.MstArticle.Article.Contains(filter)
+                              || d.Remarks.Contains(filter))
                               select new Entities.TrnSalesOrderEntity
                               {
                                   Id = d.Id,

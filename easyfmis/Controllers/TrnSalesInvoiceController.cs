@@ -39,8 +39,11 @@ namespace easyfmis.Controllers
 
             var salesInvoices = from d in db.TrnSalesInvoices
                                 where d.SIDate == dateFilter
-                                && d.SINumber.Contains(filter)
                                 && d.BranchId == currentBranchId
+                                && (d.SINumber.Contains(filter) 
+                                || d.ManualSINumber.Contains(filter)
+                                || d.MstArticle.Article.Contains(filter)
+                                || d.Remarks.Contains(filter))
                                 select new Entities.TrnSalesInvoiceEntity
                                 {
                                     Id = d.Id,
