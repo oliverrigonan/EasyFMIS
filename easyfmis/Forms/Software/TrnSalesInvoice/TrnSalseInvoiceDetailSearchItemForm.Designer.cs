@@ -93,8 +93,6 @@
             this.buttonSalesOrderItemPageListLast = new System.Windows.Forms.Button();
             this.textBoxSalesOrderItemPageNumber = new System.Windows.Forms.TextBox();
             this.dataGridViewSalesOrderItem = new System.Windows.Forms.DataGridView();
-            this.comboBoxSONumber = new System.Windows.Forms.ComboBox();
-            this.textBoxSearchSalesOrderItemFilter = new System.Windows.Forms.TextBox();
             this.ColumnTrnSalesOrderItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListSOId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,6 +115,8 @@
             this.ColumnTrnSalesOrderItemListTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalesOrderItemListPick = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.comboBoxSONumber = new System.Windows.Forms.ComboBox();
+            this.textBoxSearchSalesOrderItemFilter = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -482,7 +482,6 @@
             this.textBoxSearchNonInventoryItemFilter.Size = new System.Drawing.Size(958, 30);
             this.textBoxSearchNonInventoryItemFilter.TabIndex = 0;
             this.textBoxSearchNonInventoryItemFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchNonInventoryItemFilter_KeyDown);
-            this.textBoxSearchNonInventoryItemFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearchNonInventoryItemFilter_KeyPress);
             // 
             // panel4
             // 
@@ -822,7 +821,7 @@
             this.ColumnTrnSalesOrderItemListTaxRate,
             this.ColumnTrnSalesOrderItemListTaxAmount,
             this.ColumnSalesOrderItemListPick});
-            this.dataGridViewSalesOrderItem.Location = new System.Drawing.Point(12, 44);
+            this.dataGridViewSalesOrderItem.Location = new System.Drawing.Point(5, 44);
             this.dataGridViewSalesOrderItem.MultiSelect = false;
             this.dataGridViewSalesOrderItem.Name = "dataGridViewSalesOrderItem";
             this.dataGridViewSalesOrderItem.ReadOnly = true;
@@ -832,32 +831,10 @@
             this.dataGridViewSalesOrderItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewSalesOrderItem.RowTemplate.Height = 24;
             this.dataGridViewSalesOrderItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSalesOrderItem.Size = new System.Drawing.Size(944, 395);
+            this.dataGridViewSalesOrderItem.Size = new System.Drawing.Size(957, 395);
             this.dataGridViewSalesOrderItem.TabIndex = 20;
             this.dataGridViewSalesOrderItem.TabStop = false;
             this.dataGridViewSalesOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalesOrderItem_CellClick);
-            // 
-            // comboBoxSONumber
-            // 
-            this.comboBoxSONumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxSONumber.FormattingEnabled = true;
-            this.comboBoxSONumber.IntegralHeight = false;
-            this.comboBoxSONumber.ItemHeight = 23;
-            this.comboBoxSONumber.Location = new System.Drawing.Point(12, 6);
-            this.comboBoxSONumber.Name = "comboBoxSONumber";
-            this.comboBoxSONumber.Size = new System.Drawing.Size(245, 31);
-            this.comboBoxSONumber.TabIndex = 0;
-            // 
-            // textBoxSearchSalesOrderItemFilter
-            // 
-            this.textBoxSearchSalesOrderItemFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearchSalesOrderItemFilter.Font = new System.Drawing.Font("Segoe UI", 10.7F);
-            this.textBoxSearchSalesOrderItemFilter.Location = new System.Drawing.Point(263, 7);
-            this.textBoxSearchSalesOrderItemFilter.Name = "textBoxSearchSalesOrderItemFilter";
-            this.textBoxSearchSalesOrderItemFilter.Size = new System.Drawing.Size(693, 31);
-            this.textBoxSearchSalesOrderItemFilter.TabIndex = 1;
-            this.textBoxSearchSalesOrderItemFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchSalesOrderItemFilter_KeyDown);
             // 
             // ColumnTrnSalesOrderItemListId
             // 
@@ -1050,6 +1027,28 @@
             this.ColumnSalesOrderItemListPick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnSalesOrderItemListPick.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ColumnSalesOrderItemListPick.Width = 70;
+            // 
+            // comboBoxSONumber
+            // 
+            this.comboBoxSONumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxSONumber.FormattingEnabled = true;
+            this.comboBoxSONumber.IntegralHeight = false;
+            this.comboBoxSONumber.ItemHeight = 23;
+            this.comboBoxSONumber.Location = new System.Drawing.Point(5, 6);
+            this.comboBoxSONumber.Name = "comboBoxSONumber";
+            this.comboBoxSONumber.Size = new System.Drawing.Size(245, 31);
+            this.comboBoxSONumber.TabIndex = 0;
+            // 
+            // textBoxSearchSalesOrderItemFilter
+            // 
+            this.textBoxSearchSalesOrderItemFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearchSalesOrderItemFilter.Font = new System.Drawing.Font("Segoe UI", 10.7F);
+            this.textBoxSearchSalesOrderItemFilter.Location = new System.Drawing.Point(256, 7);
+            this.textBoxSearchSalesOrderItemFilter.Name = "textBoxSearchSalesOrderItemFilter";
+            this.textBoxSearchSalesOrderItemFilter.Size = new System.Drawing.Size(706, 31);
+            this.textBoxSearchSalesOrderItemFilter.TabIndex = 1;
+            this.textBoxSearchSalesOrderItemFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchSalesOrderItemFilter_KeyDown);
             // 
             // TrnSalesInvoiceDetailSearchItemForm
             // 
