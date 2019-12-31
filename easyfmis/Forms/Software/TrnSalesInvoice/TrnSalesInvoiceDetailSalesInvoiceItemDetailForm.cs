@@ -238,7 +238,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
                     if (taxRate > 0)
                     {
-                        taxAmount = amount * (taxRate / 100);
+                        taxAmount = (amount / (1 + (taxRate / 100))) * (taxRate / 100);
                     }
 
                     textBoxTaxAmount.Text = taxAmount.ToString("#,##0.00");
