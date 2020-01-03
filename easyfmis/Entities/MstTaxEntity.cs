@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    class MstTaxEntity
+    public class MstTaxEntity
     {
         public Int32 Id { get; set; }
         public String TaxCode { get; set; }
