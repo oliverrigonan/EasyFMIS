@@ -16,12 +16,19 @@ namespace easyfmis.Forms.Software.SysSystemTables
 
         public SysSoftwareForm sysSoftwareForm;
 
-        public static Int32 pageNumber = 1;
         public static Int32 pageSize = 50;
 
+        public static List<Entities.DgvDiscountListEntity> discountListData = new List<Entities.DgvDiscountListEntity>();
+        public PagedList<Entities.DgvDiscountListEntity> discountListPageList = new PagedList<Entities.DgvDiscountListEntity>(discountListData, discountListPageNumber, pageSize);
+        public BindingSource discountListDataSource = new BindingSource();
+        public static Int32 discountListPageNumber = 1;
+
         public static List<Entities.DgvBankListEntity> bankListData = new List<Entities.DgvBankListEntity>();
-        public PagedList<Entities.DgvBankListEntity> bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, pageNumber, pageSize);
+        public PagedList<Entities.DgvBankListEntity> bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, bankPageNumber, pageSize);
         public BindingSource bankListDataSource = new BindingSource();
+        public static Int32 bankPageNumber = 1;
+
+
 
         public SysSystemTablesForm(SysSoftwareForm softwareForm)
         {
@@ -30,7 +37,243 @@ namespace easyfmis.Forms.Software.SysSystemTables
             sysSoftwareForm = softwareForm;
 
             CreateBankListDataGridView();
+            CreateDiscountListDataGridView();
         }
+
+        // =======
+        // ACCOUNT
+        // =======
+        // =======
+        // Account
+        // =======
+        public void UpdateDiscountListDataSource()
+        {
+            SetDiscountListDataSourceAsync();
+        }
+
+        public async void SetDiscountListDataSourceAsync()
+        {
+            List<Entities.DgvDiscountListEntity> getDiscountListData = await GetDiscountListDataTask();
+            if (getDiscountListData.Any())
+            {
+                discountListData = getDiscountListData;
+                discountListPageList = new PagedList<Entities.DgvDiscountListEntity>(discountListData, discountListPageNumber, pageSize);
+
+                if (discountListPageList.PageCount == 1)
+                {
+                    buttonDiscountListPageListFirst.Enabled = false;
+                    buttonDiscountListPageListPrevious.Enabled = false;
+                    buttonDiscountListPageListNext.Enabled = false;
+                    buttonDiscountListPageListLast.Enabled = false;
+                }
+                else if (discountListPageNumber == 1)
+                {
+                    buttonDiscountListPageListFirst.Enabled = false;
+                    buttonDiscountListPageListPrevious.Enabled = false;
+                    buttonDiscountListPageListNext.Enabled = true;
+                    buttonDiscountListPageListLast.Enabled = true;
+                }
+                else if (discountListPageNumber == discountListPageList.PageCount)
+                {
+                    buttonDiscountListPageListFirst.Enabled = true;
+                    buttonDiscountListPageListPrevious.Enabled = true;
+                    buttonDiscountListPageListNext.Enabled = false;
+                    buttonDiscountListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonDiscountListPageListFirst.Enabled = true;
+                    buttonDiscountListPageListPrevious.Enabled = true;
+                    buttonDiscountListPageListNext.Enabled = true;
+                    buttonDiscountListPageListLast.Enabled = true;
+                }
+
+                textBoxDiscountListPageNumber.Text = discountListPageNumber + " / " + discountListPageList.PageCount;
+                discountListDataSource.DataSource = discountListPageList;
+            }
+            else
+            {
+                buttonDiscountListPageListFirst.Enabled = false;
+                buttonDiscountListPageListPrevious.Enabled = false;
+                buttonDiscountListPageListNext.Enabled = false;
+                buttonDiscountListPageListLast.Enabled = false;
+
+                discountListPageNumber = 1;
+
+                discountListData = new List<Entities.DgvDiscountListEntity>();
+                discountListDataSource.Clear();
+                textBoxDiscountListPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public Task<List<Entities.DgvDiscountListEntity>> GetDiscountListDataTask()
+        {
+            String filter = textBoxDiscountListFilter.Text;
+            Controllers.MstDiscountController mstDiscountController = new Controllers.MstDiscountController();
+
+            List<Entities.MstDiscountEntity> listAccount = mstDiscountController.ListDiscount(filter);
+            if (listAccount.Any())
+            {
+                var accounts = from d in listAccount
+                               select new Entities.DgvDiscountListEntity
+                               {
+                                   ColumnDiscountListEdit = "Edit",
+                                   ColumnDiscountListDelete = "Delete",
+                                   ColumnDiscountListId = d.Id,
+                                   ColumnDiscountListDiscount = d.Discount,
+                                   ColumnDiscountListDiscountRate = d.DiscountRate.ToString("#,##0.00")
+                               };
+
+                return Task.FromResult(accounts.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvDiscountListEntity>());
+            }
+        }
+
+        public void CreateDiscountListDataGridView()
+        {
+            UpdateDiscountListDataSource();
+
+            dataGridViewDiscountList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewDiscountList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewDiscountList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewDiscountList.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewDiscountList.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewDiscountList.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewDiscountList.DataSource = discountListDataSource;
+        }
+
+        public void GetAccountListCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonDiscountListPageListFirst_Click(object sender, EventArgs e)
+        {
+            discountListPageList = new PagedList<Entities.DgvDiscountListEntity>(discountListData, 1, pageSize);
+            discountListDataSource.DataSource = discountListPageList;
+
+            buttonDiscountListPageListFirst.Enabled = false;
+            buttonDiscountListPageListPrevious.Enabled = false;
+            buttonDiscountListPageListNext.Enabled = true;
+            buttonDiscountListPageListLast.Enabled = true;
+
+            discountListPageNumber = 1;
+            textBoxDiscountListPageNumber.Text = discountListPageNumber + " / " + discountListPageList.PageCount;
+        }
+
+        private void buttonDiscountListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (discountListPageList.HasPreviousPage == true)
+            {
+                discountListPageList = new PagedList<Entities.DgvDiscountListEntity>(discountListData, --discountListPageNumber, pageSize);
+                discountListDataSource.DataSource = discountListPageList;
+            }
+
+            buttonDiscountListPageListNext.Enabled = true;
+            buttonDiscountListPageListLast.Enabled = true;
+
+            if (discountListPageNumber == 1)
+            {
+                buttonDiscountListPageListFirst.Enabled = false;
+                buttonDiscountListPageListPrevious.Enabled = false;
+            }
+
+            textBoxDiscountListPageNumber.Text = discountListPageNumber + " / " + discountListPageList.PageCount;
+        }
+
+        private void buttonDiscountListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (discountListPageList.HasNextPage == true)
+            {
+                discountListPageList = new PagedList<Entities.DgvDiscountListEntity>(discountListData, ++discountListPageNumber, pageSize);
+                discountListDataSource.DataSource = discountListPageList;
+            }
+
+            buttonDiscountListPageListFirst.Enabled = true;
+            buttonDiscountListPageListPrevious.Enabled = true;
+
+            if (discountListPageNumber == discountListPageList.PageCount)
+            {
+                buttonDiscountListPageListNext.Enabled = false;
+                buttonDiscountListPageListLast.Enabled = false;
+            }
+
+            textBoxDiscountListPageNumber.Text = discountListPageNumber + " / " + discountListPageList.PageCount;
+        }
+
+        private void buttonDiscountListPageListLast_Click(object sender, EventArgs e)
+        {
+            discountListPageList = new PagedList<Entities.DgvDiscountListEntity>(discountListData, discountListPageList.PageCount, pageSize);
+            discountListDataSource.DataSource = discountListPageList;
+
+            buttonDiscountListPageListFirst.Enabled = true;
+            buttonDiscountListPageListPrevious.Enabled = true;
+            buttonDiscountListPageListNext.Enabled = false;
+            buttonDiscountListPageListLast.Enabled = false;
+
+            discountListPageNumber = discountListPageList.PageCount;
+            textBoxDiscountListPageNumber.Text = discountListPageNumber + " / " + discountListPageList.PageCount;
+        }
+
+        private void dataGridViewDiscountList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetAccountListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewDiscountList.CurrentCell.ColumnIndex == dataGridViewDiscountList.Columns["ColumnDiscountListEdit"].Index)
+            {
+                Entities.MstDiscountEntity discount = new Entities.MstDiscountEntity
+                {
+                    Id = Convert.ToInt32(dataGridViewDiscountList.Rows[e.RowIndex].Cells[2].Value),
+                    Discount = dataGridViewDiscountList.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    DiscountRate = Convert.ToDecimal(dataGridViewDiscountList.Rows[e.RowIndex].Cells[4].Value)
+                };
+
+                SysSystemTablesDiscountDetailForm sysSystemTablesDiscountDetailForm = new SysSystemTablesDiscountDetailForm(this, discount);
+                sysSystemTablesDiscountDetailForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewDiscountList.CurrentCell.ColumnIndex == dataGridViewDiscountList.Columns["ColumnDiscountListDelete"].Index)
+            {
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Discount?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstDiscountController mstDiscountController = new Controllers.MstDiscountController();
+
+                    String[] deleteDiscount = mstDiscountController.DeleteDiscount(Convert.ToInt32(dataGridViewDiscountList.Rows[e.RowIndex].Cells[2].Value));
+                    if (deleteDiscount[1].Equals("0") == false)
+                    {
+                        Int32 currentPageNumber = discountListPageNumber;
+
+                        discountListPageNumber = 1;
+                        UpdateDiscountListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteDiscount[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void textBoxDiscountListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateDiscountListDataSource();
+            }
+        }
+
+        // ====
+        // BANK
+        // ====
 
         public void UpdateBankListDataSource()
         {
@@ -43,7 +286,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
             if (getBankListData.Any())
             {
                 bankListData = getBankListData;
-                bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, pageNumber, pageSize);
+                bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, bankPageNumber, pageSize);
 
                 if (bankListPageList.PageCount == 1)
                 {
@@ -52,14 +295,14 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     buttonBankListPageListNext.Enabled = false;
                     buttonBankListPageListLast.Enabled = false;
                 }
-                else if (pageNumber == 1)
+                else if (bankPageNumber == 1)
                 {
                     buttonBankListPageListFirst.Enabled = false;
                     buttonBankListPageListPrevious.Enabled = false;
                     buttonBankListPageListNext.Enabled = true;
                     buttonBankListPageListLast.Enabled = true;
                 }
-                else if (pageNumber == bankListPageList.PageCount)
+                else if (bankPageNumber == bankListPageList.PageCount)
                 {
                     buttonBankListPageListFirst.Enabled = true;
                     buttonBankListPageListPrevious.Enabled = true;
@@ -74,7 +317,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     buttonBankListPageListLast.Enabled = true;
                 }
 
-                textBoxBankListPageNumber.Text = pageNumber + " / " + bankListPageList.PageCount;
+                textBoxBankListPageNumber.Text = bankPageNumber + " / " + bankListPageList.PageCount;
                 bankListDataSource.DataSource = bankListPageList;
             }
             else
@@ -84,7 +327,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
                 buttonBankListPageListNext.Enabled = false;
                 buttonBankListPageListLast.Enabled = false;
 
-                pageNumber = 1;
+                bankPageNumber = 1;
 
                 bankListData = new List<Entities.DgvBankListEntity>();
                 bankListDataSource.Clear();
@@ -150,22 +393,6 @@ namespace easyfmis.Forms.Software.SysSystemTables
             sysSoftwareForm.RemoveTabPage();
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            Controllers.MstArticleController mstBankController = new Controllers.MstArticleController();
-            String[] addBank = mstBankController.AddArticle("BANK");
-            if (addBank[1].Equals("0") == false)
-            {
-
-                MstBankDetailForm mstBankDetailForm = new MstBankDetailForm(this, mstBankController.DetailArticle(Convert.ToInt32(addBank[1])));
-                UpdateBankListDataSource();
-                mstBankDetailForm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show(addBank[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void dataGridViewBankList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -187,11 +414,11 @@ namespace easyfmis.Forms.Software.SysSystemTables
 
                 if (isLocked == true)
                 {
-                    MessageBox.Show("Already locked.", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Already locked.", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    DialogResult deleteDialogResult = MessageBox.Show("Delete Bank?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult deleteDialogResult = MessageBox.Show("Delete Bank?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (deleteDialogResult == DialogResult.Yes)
                     {
                         Controllers.MstArticleController mstBankController = new Controllers.MstArticleController();
@@ -199,24 +426,24 @@ namespace easyfmis.Forms.Software.SysSystemTables
                         String[] deleteBank = mstBankController.DeleteArticle(Convert.ToInt32(dataGridViewBankList.Rows[e.RowIndex].Cells[2].Value));
                         if (deleteBank[1].Equals("0") == false)
                         {
-                            Int32 currentPageNumber = pageNumber;
+                            Int32 currentPageNumber = bankPageNumber;
 
-                            pageNumber = 1;
+                            bankPageNumber = 1;
                             UpdateBankListDataSource();
 
                             if (bankListPageList != null)
                             {
                                 if (bankListData.Count() % pageSize == 1)
                                 {
-                                    pageNumber = currentPageNumber - 1;
+                                    bankPageNumber = currentPageNumber - 1;
                                 }
                                 else if (bankListData.Count() < 1)
                                 {
-                                    pageNumber = 1;
+                                    bankPageNumber = 1;
                                 }
                                 else
                                 {
-                                    pageNumber = currentPageNumber;
+                                    bankPageNumber = currentPageNumber;
                                 }
 
                                 bankListDataSource.DataSource = bankListPageList;
@@ -224,7 +451,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
                         }
                         else
                         {
-                            MessageBox.Show(deleteBank[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(deleteBank[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -249,48 +476,48 @@ namespace easyfmis.Forms.Software.SysSystemTables
             buttonBankListPageListNext.Enabled = true;
             buttonBankListPageListLast.Enabled = true;
 
-            pageNumber = 1;
-            textBoxBankListPageNumber.Text = pageNumber + " / " + bankListPageList.PageCount;
+            bankPageNumber = 1;
+            textBoxBankListPageNumber.Text = bankPageNumber + " / " + bankListPageList.PageCount;
         }
 
         private void buttonBankListPageListPrevious_Click(object sender, EventArgs e)
         {
             if (bankListPageList.HasPreviousPage == true)
             {
-                bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, --pageNumber, pageSize);
+                bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, --bankPageNumber, pageSize);
                 bankListDataSource.DataSource = bankListPageList;
             }
 
             buttonBankListPageListNext.Enabled = true;
             buttonBankListPageListLast.Enabled = true;
 
-            if (pageNumber == 1)
+            if (bankPageNumber == 1)
             {
                 buttonBankListPageListFirst.Enabled = false;
                 buttonBankListPageListPrevious.Enabled = false;
             }
 
-            textBoxBankListPageNumber.Text = pageNumber + " / " + bankListPageList.PageCount;
+            textBoxBankListPageNumber.Text = bankPageNumber + " / " + bankListPageList.PageCount;
         }
 
         private void buttonBankListPageListNext_Click(object sender, EventArgs e)
         {
             if (bankListPageList.HasNextPage == true)
             {
-                bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, ++pageNumber, pageSize);
+                bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, ++bankPageNumber, pageSize);
                 bankListDataSource.DataSource = bankListPageList;
             }
 
             buttonBankListPageListFirst.Enabled = true;
             buttonBankListPageListPrevious.Enabled = true;
 
-            if (pageNumber == bankListPageList.PageCount)
+            if (bankPageNumber == bankListPageList.PageCount)
             {
                 buttonBankListPageListNext.Enabled = false;
                 buttonBankListPageListLast.Enabled = false;
             }
 
-            textBoxBankListPageNumber.Text = pageNumber + " / " + bankListPageList.PageCount;
+            textBoxBankListPageNumber.Text = bankPageNumber + " / " + bankListPageList.PageCount;
         }
 
         private void buttonBankListPageListLast_Click(object sender, EventArgs e)
@@ -303,8 +530,40 @@ namespace easyfmis.Forms.Software.SysSystemTables
             buttonBankListPageListNext.Enabled = false;
             buttonBankListPageListLast.Enabled = false;
 
-            pageNumber = bankListPageList.PageCount;
-            textBoxBankListPageNumber.Text = pageNumber + " / " + bankListPageList.PageCount;
+            bankPageNumber = bankListPageList.PageCount;
+            textBoxBankListPageNumber.Text = bankPageNumber + " / " + bankListPageList.PageCount;
+        }
+
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            String selectedTab = tabControlSystemTable.SelectedTab.Text.ToString();
+            switch (selectedTab)
+            {
+                case "Bank":
+                    Controllers.MstArticleController mstBankController = new Controllers.MstArticleController();
+                    String[] addBank = mstBankController.AddArticle("BANK");
+                    if (addBank[1].Equals("0") == false)
+                    {
+
+                        MstBankDetailForm mstBankDetailForm = new MstBankDetailForm(this, mstBankController.DetailArticle(Convert.ToInt32(addBank[1])));
+                        UpdateBankListDataSource();
+                        mstBankDetailForm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show(addBank[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
+                case "Discount":
+                    SysSystemTablesDiscountDetailForm sysSystemTablesDiscountDetailForm = new SysSystemTablesDiscountDetailForm(this, null);
+                    sysSystemTablesDiscountDetailForm.ShowDialog();
+                    break;
+                case "Tax":
+
+                    break;
+
+            }
         }
     }
 }
