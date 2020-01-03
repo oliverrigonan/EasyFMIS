@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>easyfmis</RootNamespace>
     <AssemblyName>easyfmis</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -27,6 +27,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -389,6 +390,12 @@
     <Compile Include="Forms\Software\TrnCollection\TrnCollectionDetailCollectionLineDetailForm.Designer.cs">
       <DependentUpon>TrnCollectionDetailCollectionLineDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnCollection\TrnCollectionDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnCollection\TrnCollectionDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnCollectionDetailPrintPreviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,6 +413,12 @@
     </Compile>
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.Designer.cs">
       <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnDisbursementDetailPrintPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.cs">
       <SubType>Form</SubType>
@@ -436,6 +449,12 @@
     </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPurchaseOrderItemDetailForm.Designer.cs">
       <DependentUpon>TrnPurchaseOrderDetailPurchaseOrderItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnReceivingReceiptDetailPrintPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.cs">
       <SubType>Form</SubType>
@@ -479,6 +498,12 @@
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.Designer.cs">
       <DependentUpon>TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnSalesInvoiceDetailPrintPreviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalseInvoiceDetailSearchItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +515,12 @@
     </Compile>
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailSalesInvoiceItemDetailForm.Designer.cs">
       <DependentUpon>TrnSalesInvoiceDetailSalesInvoiceItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnSalesOrderDetailPrintPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailPriceForm.cs">
       <SubType>Form</SubType>
@@ -520,6 +551,24 @@
     </Compile>
     <Compile Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailForm.Designer.cs">
       <DependentUpon>TrnSalesOrderDetailSalesOrderItemDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockIn\TrnStockInDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnStockInDetailPrintPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockOut\TrnStockOutDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockOut\TrnStockOutDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnStockOutDetailPrintPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnStockTransferDetailPrintPreviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.cs">
       <SubType>Form</SubType>
@@ -705,6 +754,9 @@
     <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionDetailCollectionLineDetailForm.resx">
       <DependentUpon>TrnCollectionDetailCollectionLineDetailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnCollectionDetailPrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementListForm.resx">
       <DependentUpon>TrnDisbursementListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -713,6 +765,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.resx">
       <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnDisbursementDetailPrintPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.resx">
       <DependentUpon>TrnPurchaseOrderDetailPrintPreviewForm.cs</DependentUpon>
@@ -728,6 +783,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPurchaseOrderItemDetailForm.resx">
       <DependentUpon>TrnPurchaseOrderDetailPurchaseOrderItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnReceivingReceiptDetailPrintPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptForm.resx">
       <DependentUpon>TrnReceivingReceiptForm.cs</DependentUpon>
@@ -750,11 +808,17 @@
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.resx">
       <DependentUpon>TrnSalesInvoiceDetailSalesInvoiceItemDetailItemPriceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnSalesInvoiceDetailPrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalseInvoiceDetailSearchItemForm.resx">
       <DependentUpon>TrnSalseInvoiceDetailSearchItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceDetailSalesInvoiceItemDetailForm.resx">
       <DependentUpon>TrnSalesInvoiceDetailSalesInvoiceItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnSalesOrderDetailPrintPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailPriceForm.resx">
       <DependentUpon>TrnSalesOrderDetailSalesOrderItemDetailPriceForm.cs</DependentUpon>
@@ -770,6 +834,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesOrder\TrnSalesOrderDetailSalesOrderItemDetailForm.resx">
       <DependentUpon>TrnSalesOrderDetailSalesOrderItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockIn\TrnStockInDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnStockInDetailPrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockOut\TrnStockOutDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnStockOutDetailPrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnStockTransferDetailPrintPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnStockTransfer\TrnStockTransferDetailForm.resx">
       <DependentUpon>TrnStockTransferDetailForm.cs</DependentUpon>

@@ -210,7 +210,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-
+            new TrnDisbursementDetailPrintPreviewForm(trnDisbursementEntity.Id);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

@@ -142,7 +142,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-
+            new TrnStockOutDetailPrintPreviewForm(trnStockOutEntity.Id);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

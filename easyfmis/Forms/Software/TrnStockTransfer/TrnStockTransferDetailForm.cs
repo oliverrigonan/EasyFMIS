@@ -158,7 +158,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-
+            new TrnStockTransferDetailPrintPreviewForm(trnStockTransferEntity.Id);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

@@ -156,7 +156,7 @@ namespace easyfmis.Forms.Software.TrnCollection
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-
+            new TrnCollectionDetailPrintPreviewForm(trnCollectionEntity.Id);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
