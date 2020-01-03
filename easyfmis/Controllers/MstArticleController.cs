@@ -293,11 +293,19 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+                var checkBarcode = from d in db.MstArticles
+                                   where d.ArticleBarCode == objArticle.ArticleBarCode
+                                   select d;
+                if (checkBarcode.Any()) {
+                    return new String[] { "Barcode already exist.", "0" };
+                }
+
                 var currentArticle = from d in db.MstArticles
                                      where d.Id == objArticle.Id
                                      select d;
                 if (currentArticle.Any())
                 {
+
                     var updateArticle = currentArticle.FirstOrDefault();
                     updateArticle.ArticleGroupId = objArticle.ArticleGroupId;
                     updateArticle.ArticleCode = objArticle.ArticleCode;
@@ -349,6 +357,14 @@ namespace easyfmis.Controllers
                 if (currentUserLogin.Any() == false)
                 {
                     return new String[] { "Current login user not found.", "0" };
+                }
+
+                var checkBarcode = from d in db.MstArticles
+                                   where d.ArticleBarCode == objArticle.ArticleBarCode
+                                   select d;
+                if (checkBarcode.Any())
+                {
+                    return new String[] { "Barcode already exist.", "0" };
                 }
 
                 var currentArticle = from d in db.MstArticles

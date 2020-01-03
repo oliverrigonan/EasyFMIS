@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MstAccountController.cs" />
     <Compile Include="Controllers\MstArtciclePriceController.cs" />
     <Compile Include="Controllers\MstArticleComponentController.cs" />
     <Compile Include="Controllers\MstArticleController.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Controllers\MstArticleUnitController.cs" />
     <Compile Include="Controllers\MstBranchController.cs" />
     <Compile Include="Controllers\MstCompanyController.cs" />
+    <Compile Include="Controllers\MstDiscountController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\MstUserFormController.cs" />
     <Compile Include="Controllers\RepAccountsReceivableReportController.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Entities\DgvCollectionEntity.cs" />
     <Compile Include="Entities\DgvCollectionLineEntity.cs" />
     <Compile Include="Entities\DgvDisbursementLineEntity.cs" />
+    <Compile Include="Entities\DgvDiscountListEntity.cs" />
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
     <Compile Include="Entities\DgvMstCustomerEntities.cs" />
     <Compile Include="Entities\DgvMstSupplierEntities.cs" />
@@ -132,6 +135,7 @@
     <Compile Include="Entities\DgvSearchPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvSearchNonInventoryItemEntity.cs" />
     <Compile Include="Entities\DgvDisbursementEntity.cs" />
+    <Compile Include="Entities\DgvSystemTablesAccountListEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
@@ -154,6 +158,8 @@
     <Compile Include="Entities\DgvTrnSalesOrderItemEntity.cs" />
     <Compile Include="Entities\DgvMstItemPrice.cs" />
     <Compile Include="Entities\DgvUserListEntity.cs" />
+    <Compile Include="Entities\MstAccountEntity.cs" />
+    <Compile Include="Entities\MstAccountType.cs" />
     <Compile Include="Entities\MstArticleComponentEntity.cs" />
     <Compile Include="Entities\MstArticleEntity.cs" />
     <Compile Include="Entities\MstArticleGroupEntity.cs" />
@@ -371,6 +377,12 @@
     </Compile>
     <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesForm.Designer.cs">
       <DependentUpon>SysSystemTablesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesDiscountDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesDiscountDetailForm.designer.cs">
+      <DependentUpon>SysSystemTablesDiscountDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnCollection\TrnCollectionForm.cs">
       <SubType>Form</SubType>
@@ -744,6 +756,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesForm.resx">
       <DependentUpon>SysSystemTablesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesDiscountDetailForm.resx">
+      <DependentUpon>SysSystemTablesDiscountDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionForm.resx">
       <DependentUpon>TrnCollectionForm.cs</DependentUpon>
