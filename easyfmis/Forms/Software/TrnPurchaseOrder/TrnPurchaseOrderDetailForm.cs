@@ -187,7 +187,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
-
+            new TrnPurchaseOrderDetailPrintPreviewForm(trnPurchaseOrderEntity.Id);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

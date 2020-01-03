@@ -51,6 +51,9 @@
     <ApplicationIcon>easyerp.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -416,6 +419,12 @@
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.Designer.cs">
       <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.Designer.cs">
+      <DependentUpon>TrnPurchaseOrderDetailPrintPreviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -720,6 +729,9 @@
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailDisbursementLineDetailForm.resx">
       <DependentUpon>TrnDisbursementDetailDisbursementLineDetailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.resx">
+      <DependentUpon>TrnPurchaseOrderDetailPrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderForm.resx">
       <DependentUpon>TrnPurchaseOrderForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -847,6 +859,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PDFFiles\TrnCollection\" />
+    <Folder Include="PDFFiles\TrnDisbursement\" />
+    <Folder Include="PDFFiles\TrnPurchaseOrder\" />
+    <Folder Include="PDFFiles\TrnReceivingReceipt\" />
+    <Folder Include="PDFFiles\TrnSalesInvoice\" />
+    <Folder Include="PDFFiles\TrnSalesOrder\" />
+    <Folder Include="PDFFiles\TrnStockIn\" />
+    <Folder Include="PDFFiles\TrnStockOut\" />
+    <Folder Include="PDFFiles\TrnStockTransfer\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>

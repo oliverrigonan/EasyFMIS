@@ -67,7 +67,6 @@
             this.comboBoxPreparedBy = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerPODate = new System.Windows.Forms.DateTimePicker();
             this.textBoxPONumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -96,6 +95,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -466,16 +466,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "PO Date:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(42, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 23);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "PO Number:";
-            // 
             // dateTimePickerPODate
             // 
             this.dateTimePickerPODate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
@@ -815,6 +805,16 @@
             this.tabPageStockOutItems.Text = "Purchase Order Items";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label2.Location = new System.Drawing.Point(42, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 23);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "PO Number:";
+            // 
             // TrnPurchaseOrderDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -863,7 +863,6 @@
         private System.Windows.Forms.ComboBox comboBoxPreparedBy;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePickerPODate;
         private System.Windows.Forms.TextBox textBoxPONumber;
         private System.Windows.Forms.Panel panel4;
@@ -906,5 +905,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemSpace;
+        private System.Windows.Forms.Label label2;
     }
 }
