@@ -1235,5 +1235,14 @@ namespace easyfmis.Forms.Software.MstItem
             pageNumber = itemInventoryListPageList.PageCount;
             textBoxItemInventoryListPageNumber.Text = pageNumber + " / " + itemInventoryListPageList.PageCount;
         }
+
+        private void comboBoxUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mstItemEntity.UnitId != Convert.ToInt32(comboBoxUnit.SelectedValue))
+            {
+                mstItemEntity.UnitId = Convert.ToInt32(comboBoxUnit.SelectedValue);
+            }
+        }
+
     }
 }

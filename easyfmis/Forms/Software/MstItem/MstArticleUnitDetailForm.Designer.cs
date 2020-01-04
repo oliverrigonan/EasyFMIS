@@ -48,12 +48,15 @@
             // 
             // comboBoxBaseUnit
             // 
+            this.comboBoxBaseUnit.DropDownWidth = 150;
+            this.comboBoxBaseUnit.Enabled = false;
             this.comboBoxBaseUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxBaseUnit.FormattingEnabled = true;
             this.comboBoxBaseUnit.Location = new System.Drawing.Point(327, 96);
             this.comboBoxBaseUnit.Name = "comboBoxBaseUnit";
             this.comboBoxBaseUnit.Size = new System.Drawing.Size(180, 31);
             this.comboBoxBaseUnit.TabIndex = 2;
+            this.comboBoxBaseUnit.TabStop = false;
             // 
             // textBoxUnitMultiplier
             // 
@@ -175,8 +178,13 @@
             // 
             // comboBoxConvertedUnit
             // 
+            this.comboBoxConvertedUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxConvertedUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxConvertedUnit.DropDownHeight = 90;
+            this.comboBoxConvertedUnit.DropDownWidth = 150;
             this.comboBoxConvertedUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxConvertedUnit.FormattingEnabled = true;
+            this.comboBoxConvertedUnit.IntegralHeight = false;
             this.comboBoxConvertedUnit.Location = new System.Drawing.Point(327, 133);
             this.comboBoxConvertedUnit.Name = "comboBoxConvertedUnit";
             this.comboBoxConvertedUnit.Size = new System.Drawing.Size(180, 31);

@@ -203,6 +203,7 @@ namespace easyfmis.Controllers
                 var articleType = from d in db.MstArticleTypes
                                   where d.ArticleType == _articleType
                                   select d;
+
                 if (articleType.Any() == false)
                 {
                     return new String[] { "Article type not found.", "0" };
@@ -294,9 +295,10 @@ namespace easyfmis.Controllers
                 }
 
                 var checkBarcode = from d in db.MstArticles
-                                   where d.ArticleBarCode == objArticle.ArticleBarCode
+                                   where d.ArticleBarCode == objArticle.ArticleBarCode 
+                                   && d.Id != objArticle.Id
                                    select d;
-                if (checkBarcode.Any()) {
+                if (checkBarcode.Any() && checkBarcode.FirstOrDefault().MstArticleType.ArticleType == "ITEM") {
                     return new String[] { "Barcode already exist.", "0" };
                 }
 
@@ -359,17 +361,22 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-                var checkBarcode = from d in db.MstArticles
-                                   where d.ArticleBarCode == objArticle.ArticleBarCode
-                                   select d;
-                if (checkBarcode.Any())
-                {
-                    return new String[] { "Barcode already exist.", "0" };
-                }
-
                 var currentArticle = from d in db.MstArticles
                                      where d.Id == objArticle.Id
                                      select d;
+
+                if (currentArticle.FirstOrDefault().MstArticleType.ArticleType == "ITEM") {
+                    var checkBarcode = from d in db.MstArticles
+                                       where d.ArticleBarCode == objArticle.ArticleBarCode
+                                       && d.Id != objArticle.Id
+                                       select d;
+
+                    if (checkBarcode.Any())
+                    {
+                        return new String[] { "Barcode already exist.", "0" };
+                    }
+                }
+                
                 if (currentArticle.Any())
                 {
                     var lockArticle = currentArticle.FirstOrDefault();

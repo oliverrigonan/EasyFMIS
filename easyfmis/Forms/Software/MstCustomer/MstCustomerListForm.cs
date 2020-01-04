@@ -43,6 +43,7 @@ namespace easyfmis.Forms.Software.MstCustomer
             if (getCustomerListData.Any())
             {
                 customerListData = getCustomerListData;
+                pageNumber = 1;
                 customerListPageList = new PagedList<Entities.DgvMstCustomerEntities>(customerListData, pageNumber, pageSize);
 
                 if (customerListPageList.PageCount == 1)

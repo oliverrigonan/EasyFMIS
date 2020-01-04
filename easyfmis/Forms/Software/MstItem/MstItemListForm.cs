@@ -41,6 +41,7 @@ namespace easyfmis.Forms.Software.MstItem
             List<Entities.DgvItemListItemEntity> getItemListData = await GetItemListDataTask();
             if (getItemListData.Any())
             {
+                pageNumber = 1;
                 itemListData = getItemListData;
                 itemListPageList = new PagedList<Entities.DgvItemListItemEntity>(itemListData, pageNumber, pageSize);
 
@@ -215,24 +216,28 @@ namespace easyfmis.Forms.Software.MstItem
 
                             pageNumber = 1;
                             UpdateItemListDataSource();
+                            //if (itemListPageList != null)
+                            //{
+                            //    if (itemListData.Count() % pageSize == 1)
+                            //    {
+                            //        pageNumber = currentPageNumber - 1;
 
-                            if (itemListPageList != null)
-                            {
-                                if (itemListData.Count() % pageSize == 1)
-                                {
-                                    pageNumber = currentPageNumber - 1;
-                                }
-                                else if (itemListData.Count() < 1)
-                                {
-                                    pageNumber = 1;
-                                }
-                                else
-                                {
-                                    pageNumber = currentPageNumber;
-                                }
+                            //        if (currentPageNumber != 0)
+                            //        {
+                            //            pageNumber = currentPageNumber;
+                            //        }
+                            //    }
+                            //    else if (itemListData.Count() < 1)
+                            //    {
+                            //        pageNumber = 1;
+                            //    }
+                            //    else
+                            //    {
+                            //        pageNumber = currentPageNumber;
+                            //    }
 
-                                itemListDataSource.DataSource = itemListPageList;
-                            }
+                            //    itemListDataSource.DataSource = itemListPageList;
+                            //}
                         }
                         else
                         {

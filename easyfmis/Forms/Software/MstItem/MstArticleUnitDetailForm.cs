@@ -59,7 +59,7 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 textBoxBaseUnitMultiplier.Text = (0).ToString("#,##0.00");
                 textBoxUnitMultiplier.Text = (0).ToString("#,##0.00");
-
+                comboBoxBaseUnit.SelectedValue = itemArticleEntity.UnitId;
             }
         }
 
