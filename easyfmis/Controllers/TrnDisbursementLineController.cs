@@ -45,7 +45,8 @@ namespace easyfmis.Controllers
                                    select new Entities.TrnReceivingReceiptEntity
                                    {
                                        Id = d.Id,
-                                       RRNumber = d.RRNumber
+                                       RRNumber = d.RRNumber,
+                                       Amount = d.Amount
                                    };
 
             return receivingReceipt.OrderByDescending(d => d.Id).ToList();

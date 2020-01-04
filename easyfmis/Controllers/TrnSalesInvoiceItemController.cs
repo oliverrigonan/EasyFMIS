@@ -74,6 +74,7 @@ namespace easyfmis.Controllers
                             ArticleBarCode = d.MstArticle.ArticleBarCode,
                             Article = d.MstArticle.Article,
                             Category = d.MstArticle.Category,
+                            Quantity = d.Quantity,
                             UnitId = d.MstArticle.UnitId,
                             Unit = d.MstArticle.MstUnit.Unit,
                             DefaultPrice = d.MstArticle.DefaultPrice,

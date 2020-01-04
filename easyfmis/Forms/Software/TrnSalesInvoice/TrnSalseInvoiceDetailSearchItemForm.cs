@@ -118,7 +118,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSearchInventoryItemDescription = d.Article,
                                 ColumnSearchInventoryItemUnitId = d.UnitId,
                                 ColumnSearchInventoryItemUnit = d.Unit,
-                                ColumnSearchInventoryItemQuantity = "0.00",
+                                ColumnSearchInventoryItemQuantity = d.Quantity.ToString("#,##0.00"),
                                 ColumnSearchInventoryItemPrice = d.DefaultPrice.ToString("#,##0.00"),
                                 ColumnSearchInventoryItemButtonPick = "Pick",
                                 ColumnSearchInventoryItemVATOutTaxId = d.VATOutTaxId,

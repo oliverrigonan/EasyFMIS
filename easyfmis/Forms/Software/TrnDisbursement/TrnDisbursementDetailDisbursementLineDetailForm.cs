@@ -163,5 +163,19 @@ namespace easyfmis.Forms.Software.TrnDisbursement
         {
             textBoxAmount.Text = Convert.ToDecimal(textBoxAmount.Text).ToString("#,##0.00");
         }
+
+        private void comboBoxRR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxRR.SelectedItem == null)
+            {
+                return;
+            }
+
+            var selectedItemRR = (Entities.TrnReceivingReceiptEntity)comboBoxRR.SelectedItem;
+            if (selectedItemRR != null)
+            {
+                textBoxAmount.Text = selectedItemRR.Amount.ToString("#,##0.00");
+            }
+        }
     }
 }

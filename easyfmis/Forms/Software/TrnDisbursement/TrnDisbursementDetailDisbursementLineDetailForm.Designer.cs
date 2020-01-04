@@ -153,6 +153,7 @@
             this.comboBoxRR.Name = "comboBoxRR";
             this.comboBoxRR.Size = new System.Drawing.Size(269, 31);
             this.comboBoxRR.TabIndex = 1;
+            this.comboBoxRR.SelectedIndexChanged += new System.EventHandler(this.comboBoxRR_SelectedIndexChanged);
             // 
             // textBoxAmount
             // 
