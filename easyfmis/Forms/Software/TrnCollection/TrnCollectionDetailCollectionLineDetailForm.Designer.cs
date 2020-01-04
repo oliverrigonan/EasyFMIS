@@ -425,6 +425,7 @@
             this.comboBoxSINumber.Name = "comboBoxSINumber";
             this.comboBoxSINumber.Size = new System.Drawing.Size(344, 31);
             this.comboBoxSINumber.TabIndex = 1;
+            this.comboBoxSINumber.SelectedIndexChanged += new System.EventHandler(this.comboBoxSINumber_SelectedIndexChanged);
             // 
             // label4
             // 

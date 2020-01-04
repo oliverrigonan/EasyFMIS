@@ -211,5 +211,19 @@ namespace easyfmis.Forms.Software.TrnCollection
         {
             textBoxAmount.Text = Convert.ToDecimal(textBoxAmount.Text).ToString("#,##0.00");
         }
+
+        private void comboBoxSINumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSINumber.SelectedItem == null)
+            {
+                return;
+            }
+
+            var selectedItemSINumber = (Entities.TrnSalesInvoiceEntity)comboBoxSINumber.SelectedItem;
+            if (selectedItemSINumber != null)
+            {
+                textBoxAmount.Text = selectedItemSINumber.Amount.ToString("#,##0.00");
+            }
+        }
     }
 }

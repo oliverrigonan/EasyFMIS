@@ -75,7 +75,8 @@ namespace easyfmis.Controllers
                                 select new Entities.TrnSalesInvoiceEntity
                                 {
                                     Id = d.Id,
-                                    SINumber = d.SINumber
+                                    SINumber = d.SINumber,
+                                    Amount = d.Amount
                                 };
 
             return salesInvoices.ToList();
