@@ -67,6 +67,7 @@
             this.comboBoxPreparedBy = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerPODate = new System.Windows.Forms.DateTimePicker();
             this.textBoxPONumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -95,7 +96,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -278,6 +278,7 @@
             // 
             // comboBoxRequestedBy
             // 
+            this.comboBoxRequestedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxRequestedBy.Enabled = false;
             this.comboBoxRequestedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxRequestedBy.FormattingEnabled = true;
@@ -317,6 +318,7 @@
             // 
             // comboBoxTerm
             // 
+            this.comboBoxTerm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTerm.FormattingEnabled = true;
             this.comboBoxTerm.Location = new System.Drawing.Point(588, 6);
             this.comboBoxTerm.Name = "comboBoxTerm";
@@ -335,6 +337,8 @@
             // 
             // comboBoxSupplier
             // 
+            this.comboBoxSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxSupplier.FormattingEnabled = true;
             this.comboBoxSupplier.Location = new System.Drawing.Point(154, 186);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
@@ -420,6 +424,8 @@
             // 
             // comboBoxApprovedBy
             // 
+            this.comboBoxApprovedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(1018, 43);
@@ -429,6 +435,8 @@
             // 
             // comboBoxCheckedBy
             // 
+            this.comboBoxCheckedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(1018, 6);
@@ -438,6 +446,8 @@
             // 
             // comboBoxPreparedBy
             // 
+            this.comboBoxPreparedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxPreparedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
@@ -465,6 +475,16 @@
             this.label4.Size = new System.Drawing.Size(78, 23);
             this.label4.TabIndex = 8;
             this.label4.Text = "PO Date:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label2.Location = new System.Drawing.Point(42, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 23);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "PO Number:";
             // 
             // dateTimePickerPODate
             // 
@@ -804,16 +824,6 @@
             this.tabPageStockOutItems.TabIndex = 0;
             this.tabPageStockOutItems.Text = "Purchase Order Items";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(42, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 23);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "PO Number:";
             // 
             // TrnPurchaseOrderDetailForm
             // 
