@@ -210,6 +210,8 @@
             // 
             // comboBoxTax
             // 
+            this.comboBoxTax.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxTax.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxTax.FormattingEnabled = true;
             this.comboBoxTax.Location = new System.Drawing.Point(177, 371);
@@ -272,6 +274,8 @@
             // 
             // comboBoxDiscount
             // 
+            this.comboBoxDiscount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxDiscount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxDiscount.FormattingEnabled = true;
             this.comboBoxDiscount.Location = new System.Drawing.Point(177, 190);
@@ -315,6 +319,8 @@
             // 
             // comboBoxInventoryCode
             // 
+            this.comboBoxInventoryCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxInventoryCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxInventoryCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxInventoryCode.FormattingEnabled = true;
             this.comboBoxInventoryCode.Location = new System.Drawing.Point(177, 80);
@@ -334,6 +340,8 @@
             // 
             // comboBoxUnit
             // 
+            this.comboBoxUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxUnit.FormattingEnabled = true;
             this.comboBoxUnit.Location = new System.Drawing.Point(177, 117);
