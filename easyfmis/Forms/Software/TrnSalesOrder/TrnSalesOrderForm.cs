@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             List<Entities.DgvTrnSalesOrderEntity> getSalesOrderData = await GetSalesOrderDataTask();
             if (getSalesOrderData.Any())
             {
+                pageNumber = 1;
                 salesOrderListData = getSalesOrderData;
                 salesOrderListPageList = new PagedList<Entities.DgvTrnSalesOrderEntity>(salesOrderListData, pageNumber, pageSize);
 

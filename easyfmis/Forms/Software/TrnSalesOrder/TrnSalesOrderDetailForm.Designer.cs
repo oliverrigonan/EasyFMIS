@@ -258,6 +258,8 @@
             // 
             // comboBoxTerm
             // 
+            this.comboBoxTerm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxTerm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTerm.FormattingEnabled = true;
             this.comboBoxTerm.Location = new System.Drawing.Point(154, 186);
             this.comboBoxTerm.Name = "comboBoxTerm";
@@ -276,6 +278,8 @@
             // 
             // comboBoxCustomer
             // 
+            this.comboBoxCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCustomer.FormattingEnabled = true;
             this.comboBoxCustomer.Location = new System.Drawing.Point(154, 150);
             this.comboBoxCustomer.Name = "comboBoxCustomer";
@@ -361,6 +365,8 @@
             // 
             // comboBoxApprovedBy
             // 
+            this.comboBoxApprovedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(588, 189);
@@ -370,6 +376,8 @@
             // 
             // comboBoxCheckedBy
             // 
+            this.comboBoxCheckedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(588, 152);
@@ -379,6 +387,8 @@
             // 
             // comboBoxPreparedBy
             // 
+            this.comboBoxPreparedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxPreparedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
