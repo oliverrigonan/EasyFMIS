@@ -82,10 +82,6 @@
             this.textBoxDisbursementLinePageNumber = new System.Windows.Forms.TextBox();
             this.buttonDisbursementLine = new System.Windows.Forms.Button();
             this.dataGridViewDisbursementLine = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.ColumnDisbursementLineListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDisbursementLineListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDisbursementLineListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +93,10 @@
             this.ColumnDisbursementLineListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDisbursementLineListOtherInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDisbursementLineListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -347,6 +347,8 @@
             // 
             // comboBoxBank
             // 
+            this.comboBoxBank.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxBank.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxBank.FormattingEnabled = true;
             this.comboBoxBank.Location = new System.Drawing.Point(570, 43);
             this.comboBoxBank.Name = "comboBoxBank";
@@ -404,6 +406,8 @@
             // 
             // comboBoxPayType
             // 
+            this.comboBoxPayType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxPayType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPayType.FormattingEnabled = true;
             this.comboBoxPayType.Location = new System.Drawing.Point(570, 6);
             this.comboBoxPayType.Name = "comboBoxPayType";
@@ -422,6 +426,8 @@
             // 
             // comboBoxSupplier
             // 
+            this.comboBoxSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxSupplier.FormattingEnabled = true;
             this.comboBoxSupplier.Location = new System.Drawing.Point(180, 150);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
@@ -507,6 +513,8 @@
             // 
             // comboBoxApprovedBy
             // 
+            this.comboBoxApprovedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(991, 184);
@@ -516,6 +524,8 @@
             // 
             // comboBoxCheckedBy
             // 
+            this.comboBoxCheckedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(991, 147);
@@ -525,6 +535,8 @@
             // 
             // comboBoxPreparedBy
             // 
+            this.comboBoxPreparedBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxPreparedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
@@ -730,49 +742,6 @@
             this.dataGridViewDisbursementLine.TabStop = false;
             this.dataGridViewDisbursementLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisbursementLine_CellClick);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 228);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 409);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 409);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonDisbursementLine);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewDisbursementLine);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 373);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Disbursement Line";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
-            // 
             // ColumnDisbursementLineListButtonEdit
             // 
             this.ColumnDisbursementLineListButtonEdit.DataPropertyName = "ColumnDisbursementLineListButtonEdit";
@@ -864,6 +833,49 @@
             this.ColumnDisbursementLineListSpace.HeaderText = "";
             this.ColumnDisbursementLineListSpace.Name = "ColumnDisbursementLineListSpace";
             this.ColumnDisbursementLineListSpace.ReadOnly = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 228);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 409);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 409);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonDisbursementLine);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewDisbursementLine);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 373);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Disbursement Line";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // TrnDisbursementDetailForm
             // 

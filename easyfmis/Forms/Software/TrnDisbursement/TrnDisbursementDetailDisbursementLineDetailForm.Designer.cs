@@ -134,7 +134,8 @@
             // 
             // comboBoxArticleGroup
             // 
-            this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxArticleGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxArticleGroup.FormattingEnabled = true;
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(171, 6);
@@ -144,6 +145,8 @@
             // 
             // comboBoxRR
             // 
+            this.comboBoxRR.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxRR.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxRR.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxRR.FormattingEnabled = true;
             this.comboBoxRR.Location = new System.Drawing.Point(171, 43);
