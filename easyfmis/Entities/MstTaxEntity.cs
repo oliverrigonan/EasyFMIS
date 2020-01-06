@@ -13,6 +13,7 @@ namespace easyfmis.Entities
         public String Tax { get; set; }
         public Decimal Rate { get; set; }
         public Int32 AccountId { get; set; }
+        public String Account { get; set; }
         public Boolean IsLocked { get; set; }
         public Int32 CreatedBy { get; set; }
         public DateTime CreatedDateTime { get; set; }

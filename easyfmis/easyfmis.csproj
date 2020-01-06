@@ -80,9 +80,14 @@
     <Compile Include="Controllers\MstArticleInventoryController.cs" />
     <Compile Include="Controllers\MstArticlePriceController.cs" />
     <Compile Include="Controllers\MstArticleUnitController.cs" />
+    <Compile Include="Controllers\MstArtricleGroupController.cs" />
     <Compile Include="Controllers\MstBranchController.cs" />
     <Compile Include="Controllers\MstCompanyController.cs" />
     <Compile Include="Controllers\MstDiscountController.cs" />
+    <Compile Include="Controllers\MstPayTypeController.cs" />
+    <Compile Include="Controllers\MstTaxController.cs" />
+    <Compile Include="Controllers\MstTermController.cs" />
+    <Compile Include="Controllers\MstUnitController.cs" />
     <Compile Include="Controllers\MstUserController.cs" />
     <Compile Include="Controllers\MstUserFormController.cs" />
     <Compile Include="Controllers\RepAccountsReceivableReportController.cs" />

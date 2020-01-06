@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -39,6 +39,12 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.dataGridViewDiscountList = new System.Windows.Forms.DataGridView();
+            this.ColumnDiscountListEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDiscountListDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDiscountListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDiscountListDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDiscountListDiscountRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDiscountListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxDiscountListFilter = new System.Windows.Forms.TextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.buttonDiscountListPageListFirst = new System.Windows.Forms.Button();
@@ -127,12 +133,6 @@
             this.ColumnBankListIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnBankListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxBankListFilter = new System.Windows.Forms.TextBox();
-            this.ColumnDiscountListEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDiscountListDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnDiscountListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDiscountListDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDiscountListDiscountRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDiscountListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlSystemTable.SuspendLayout();
@@ -294,6 +294,58 @@
             this.dataGridViewDiscountList.Size = new System.Drawing.Size(1358, 479);
             this.dataGridViewDiscountList.TabIndex = 24;
             this.dataGridViewDiscountList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDiscountList_CellClick);
+            // 
+            // ColumnDiscountListEdit
+            // 
+            this.ColumnDiscountListEdit.DataPropertyName = "ColumnDiscountListEdit";
+            this.ColumnDiscountListEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDiscountListEdit.HeaderText = "";
+            this.ColumnDiscountListEdit.Name = "ColumnDiscountListEdit";
+            this.ColumnDiscountListEdit.ReadOnly = true;
+            this.ColumnDiscountListEdit.Width = 70;
+            // 
+            // ColumnDiscountListDelete
+            // 
+            this.ColumnDiscountListDelete.DataPropertyName = "ColumnDiscountListDelete";
+            this.ColumnDiscountListDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnDiscountListDelete.HeaderText = "";
+            this.ColumnDiscountListDelete.Name = "ColumnDiscountListDelete";
+            this.ColumnDiscountListDelete.ReadOnly = true;
+            this.ColumnDiscountListDelete.Width = 70;
+            // 
+            // ColumnDiscountListId
+            // 
+            this.ColumnDiscountListId.DataPropertyName = "ColumnDiscountListId";
+            this.ColumnDiscountListId.HeaderText = "Id";
+            this.ColumnDiscountListId.Name = "ColumnDiscountListId";
+            this.ColumnDiscountListId.ReadOnly = true;
+            this.ColumnDiscountListId.Visible = false;
+            // 
+            // ColumnDiscountListDiscount
+            // 
+            this.ColumnDiscountListDiscount.DataPropertyName = "ColumnDiscountListDiscount";
+            this.ColumnDiscountListDiscount.HeaderText = "Discount";
+            this.ColumnDiscountListDiscount.Name = "ColumnDiscountListDiscount";
+            this.ColumnDiscountListDiscount.ReadOnly = true;
+            this.ColumnDiscountListDiscount.Width = 150;
+            // 
+            // ColumnDiscountListDiscountRate
+            // 
+            this.ColumnDiscountListDiscountRate.DataPropertyName = "ColumnDiscountListDiscountRate";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnDiscountListDiscountRate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnDiscountListDiscountRate.HeaderText = "Discount Rate";
+            this.ColumnDiscountListDiscountRate.Name = "ColumnDiscountListDiscountRate";
+            this.ColumnDiscountListDiscountRate.ReadOnly = true;
+            this.ColumnDiscountListDiscountRate.Width = 250;
+            // 
+            // ColumnDiscountListSpace
+            // 
+            this.ColumnDiscountListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnDiscountListSpace.DataPropertyName = "ColumnDiscountListSpace";
+            this.ColumnDiscountListSpace.HeaderText = "";
+            this.ColumnDiscountListSpace.Name = "ColumnDiscountListSpace";
+            this.ColumnDiscountListSpace.ReadOnly = true;
             // 
             // textBoxDiscountListFilter
             // 
@@ -675,8 +727,8 @@
             // ColumnTaxListRate
             // 
             this.ColumnTaxListRate.DataPropertyName = "ColumnTaxListRate";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnTaxListRate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnTaxListRate.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColumnTaxListRate.HeaderText = "Rate";
             this.ColumnTaxListRate.Name = "ColumnTaxListRate";
             this.ColumnTaxListRate.ReadOnly = true;
@@ -1134,6 +1186,7 @@
             this.tabPage10.Controls.Add(this.panel2);
             this.tabPage10.Location = new System.Drawing.Point(4, 32);
             this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage10.Size = new System.Drawing.Size(1374, 583);
             this.tabPage10.TabIndex = 7;
             this.tabPage10.Text = "Bank";
@@ -1145,9 +1198,9 @@
             this.panel2.Controls.Add(this.dataGridViewBankList);
             this.panel2.Controls.Add(this.textBoxBankListFilter);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1374, 583);
+            this.panel2.Size = new System.Drawing.Size(1368, 577);
             this.panel2.TabIndex = 8;
             // 
             // panel3
@@ -1159,9 +1212,9 @@
             this.panel3.Controls.Add(this.buttonBankListPageListLast);
             this.panel3.Controls.Add(this.textBoxBankListPageNumber);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 530);
+            this.panel3.Location = new System.Drawing.Point(0, 524);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1374, 53);
+            this.panel3.Size = new System.Drawing.Size(1368, 53);
             this.panel3.TabIndex = 21;
             // 
             // buttonBankListPageListFirst
@@ -1251,14 +1304,14 @@
             this.ColumnBankListAddress,
             this.ColumnBankListIsLocked,
             this.ColumnBankListSpace});
-            this.dataGridViewBankList.Location = new System.Drawing.Point(12, 42);
+            this.dataGridViewBankList.Location = new System.Drawing.Point(5, 39);
             this.dataGridViewBankList.MultiSelect = false;
             this.dataGridViewBankList.Name = "dataGridViewBankList";
             this.dataGridViewBankList.ReadOnly = true;
             this.dataGridViewBankList.RowHeadersVisible = false;
             this.dataGridViewBankList.RowTemplate.Height = 24;
             this.dataGridViewBankList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBankList.Size = new System.Drawing.Size(1350, 482);
+            this.dataGridViewBankList.Size = new System.Drawing.Size(1344, 479);
             this.dataGridViewBankList.TabIndex = 20;
             this.dataGridViewBankList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBankList_CellClick);
             // 
@@ -1340,62 +1393,10 @@
             // 
             this.textBoxBankListFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxBankListFilter.Location = new System.Drawing.Point(12, 6);
+            this.textBoxBankListFilter.Location = new System.Drawing.Point(5, 3);
             this.textBoxBankListFilter.Name = "textBoxBankListFilter";
-            this.textBoxBankListFilter.Size = new System.Drawing.Size(1350, 30);
+            this.textBoxBankListFilter.Size = new System.Drawing.Size(1344, 30);
             this.textBoxBankListFilter.TabIndex = 0;
-            // 
-            // ColumnDiscountListEdit
-            // 
-            this.ColumnDiscountListEdit.DataPropertyName = "ColumnDiscountListEdit";
-            this.ColumnDiscountListEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDiscountListEdit.HeaderText = "";
-            this.ColumnDiscountListEdit.Name = "ColumnDiscountListEdit";
-            this.ColumnDiscountListEdit.ReadOnly = true;
-            this.ColumnDiscountListEdit.Width = 70;
-            // 
-            // ColumnDiscountListDelete
-            // 
-            this.ColumnDiscountListDelete.DataPropertyName = "ColumnDiscountListDelete";
-            this.ColumnDiscountListDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnDiscountListDelete.HeaderText = "";
-            this.ColumnDiscountListDelete.Name = "ColumnDiscountListDelete";
-            this.ColumnDiscountListDelete.ReadOnly = true;
-            this.ColumnDiscountListDelete.Width = 70;
-            // 
-            // ColumnDiscountListId
-            // 
-            this.ColumnDiscountListId.DataPropertyName = "ColumnDiscountListId";
-            this.ColumnDiscountListId.HeaderText = "Id";
-            this.ColumnDiscountListId.Name = "ColumnDiscountListId";
-            this.ColumnDiscountListId.ReadOnly = true;
-            this.ColumnDiscountListId.Visible = false;
-            // 
-            // ColumnDiscountListDiscount
-            // 
-            this.ColumnDiscountListDiscount.DataPropertyName = "ColumnDiscountListDiscount";
-            this.ColumnDiscountListDiscount.HeaderText = "Discount";
-            this.ColumnDiscountListDiscount.Name = "ColumnDiscountListDiscount";
-            this.ColumnDiscountListDiscount.ReadOnly = true;
-            this.ColumnDiscountListDiscount.Width = 150;
-            // 
-            // ColumnDiscountListDiscountRate
-            // 
-            this.ColumnDiscountListDiscountRate.DataPropertyName = "ColumnDiscountListDiscountRate";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDiscountListDiscountRate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnDiscountListDiscountRate.HeaderText = "Discount Rate";
-            this.ColumnDiscountListDiscountRate.Name = "ColumnDiscountListDiscountRate";
-            this.ColumnDiscountListDiscountRate.ReadOnly = true;
-            this.ColumnDiscountListDiscountRate.Width = 250;
-            // 
-            // ColumnDiscountListSpace
-            // 
-            this.ColumnDiscountListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnDiscountListSpace.DataPropertyName = "ColumnDiscountListSpace";
-            this.ColumnDiscountListSpace.HeaderText = "";
-            this.ColumnDiscountListSpace.Name = "ColumnDiscountListSpace";
-            this.ColumnDiscountListSpace.ReadOnly = true;
             // 
             // SysSystemTablesForm
             // 
