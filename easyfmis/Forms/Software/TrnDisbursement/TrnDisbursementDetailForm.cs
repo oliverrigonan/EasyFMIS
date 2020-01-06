@@ -229,6 +229,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             List<Entities.DgvDisbursementLineEntity> getDisbursementLineData = await GetDisbursementLineDataTask();
             if (getDisbursementLineData.Any())
             {
+                pageNumber = 1;
                 disbursementLineData = getDisbursementLineData;
                 disbursementLinePageList = new PagedList<Entities.DgvDisbursementLineEntity>(disbursementLineData, pageNumber, pageSize);
 

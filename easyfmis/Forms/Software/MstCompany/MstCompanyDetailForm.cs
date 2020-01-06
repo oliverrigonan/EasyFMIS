@@ -114,6 +114,7 @@ namespace easyfmis.Forms.Software.MstCompany
             List<Entities.DgvMstBranchEntity> getCompanyFormListData = await GetCompanyListDataTask();
             if (getCompanyFormListData.Any())
             {
+                branchPageNumber = 1;
                 branchData = getCompanyFormListData;
                 branchPageList = new PagedList<Entities.DgvMstBranchEntity>(branchData, branchPageNumber, branchPageSize);
 

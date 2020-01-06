@@ -41,6 +41,7 @@ namespace easyfmis.Forms.Software.MstSupplier
             List<Entities.DgvMstSupplierEntities> getSupplierListData = await GetSupplierListDataTask();
             if (getSupplierListData.Any())
             {
+                pageNumber = 1;
                 supplierListData = getSupplierListData;
                 supplierListPageList = new PagedList<Entities.DgvMstSupplierEntities>(supplierListData, pageNumber, pageSize);
 

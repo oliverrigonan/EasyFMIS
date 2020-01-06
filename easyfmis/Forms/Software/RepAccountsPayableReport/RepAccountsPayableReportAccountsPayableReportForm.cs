@@ -81,7 +81,7 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             accountsPayableReportList = GetAccountsPayableReportListData(dateAsOf, companyId, branchId);
             if (accountsPayableReportList.Any())
             {
-
+                pageNumber = 1;
                 pageList = new PagedList<Entities.DgvRepAccountsPayableReportEntity>(accountsPayableReportList, pageNumber, pageSize);
 
                 if (pageList.PageCount == 1)

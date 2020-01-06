@@ -203,6 +203,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             List<Entities.DgvSalesInvoiceItemEntity> getSalesInvoiceItemData = await GetSalesInvoiceItemDataTask();
             if (getSalesInvoiceItemData.Any())
             {
+                salesInvoiceItemPageNumber = 1;
                 salesInvoiceItemData = getSalesInvoiceItemData;
                 salesInvoiceItemPageList = new PagedList<Entities.DgvSalesInvoiceItemEntity>(salesInvoiceItemData, salesInvoiceItemPageNumber, salesInvoiceItemPageSize);
 
@@ -476,6 +477,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             List<Entities.DgvTrnInventoryEntriesEntity> getInventoryEntriesData = await GetInventoryEntriesDataTask();
             if (getInventoryEntriesData.Any())
             {
+                inventoryEntriesPageNumber = 1;
                 inventoryEntriesData = getInventoryEntriesData;
                 inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
 

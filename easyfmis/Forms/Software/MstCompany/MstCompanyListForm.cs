@@ -41,6 +41,7 @@ namespace easyfmis.Forms.Software.MstCompany
             List<Entities.DgvMstCompanyEntity> getCompanyListData = await GetCompanyListDataTask();
             if (getCompanyListData.Any())
             {
+                pageNumber = 1;
                 companyListData = getCompanyListData;
                 companyListPageList = new PagedList<Entities.DgvMstCompanyEntity>(companyListData, pageNumber, pageSize);
 

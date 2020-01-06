@@ -23,6 +23,13 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
         public BindingSource searchInventoryItemDataSource = new BindingSource();
 
 
+        public static List<Entities.DgvSearchNonInventoryItemEntity> searchNonInventoryItemData = new List<Entities.DgvSearchNonInventoryItemEntity>();
+        public static Int32 nonInventoryItemPageNumber = 1;
+        public static Int32 nonInventoryItemPpageSize = 50;
+        public PagedList<Entities.DgvSearchNonInventoryItemEntity> searchItemPageList = new PagedList<Entities.DgvSearchNonInventoryItemEntity>(searchNonInventoryItemData, nonInventoryItemPageNumber, nonInventoryItemPpageSize);
+        public BindingSource searchNonInventoryItemDataSource = new BindingSource();
+
+
         public TrnSalesOrderDetailSearchItemForm(TrnSalesOrderDetailForm salesOrderDetailForm, Entities.TrnSalesOrderEntity salesOrderEntity)
         {
             InitializeComponent();
@@ -44,6 +51,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             List<Entities.DgvSearchInventoryItemEntity> getSearchItemData = await GetSearchInventoryItemDataTask();
             if (getSearchItemData.Any())
             {
+                inventoryItemPageNumber = 1;
                 searchInventoryItemData = getSearchItemData;
                 searchInventoryItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchInventoryItemData, inventoryItemPageNumber, inventoryItemPageSize);
 
@@ -265,12 +273,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             Close();
         }
 
-        public static List<Entities.DgvSearchNonInventoryItemEntity> searchNonInventoryItemData = new List<Entities.DgvSearchNonInventoryItemEntity>();
-        public static Int32 nonInventoryItemPageNumber = 1;
-        public static Int32 nonInventoryItemPpageSize = 50;
-        public PagedList<Entities.DgvSearchNonInventoryItemEntity> searchItemPageList = new PagedList<Entities.DgvSearchNonInventoryItemEntity>(searchNonInventoryItemData, nonInventoryItemPageNumber, nonInventoryItemPpageSize);
-        public BindingSource searchNonInventoryItemDataSource = new BindingSource();
-
         public void UpdateSearchItemDataSource()
         {
             SetSearchItemDataSourceAsync();
@@ -281,6 +283,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             List<Entities.DgvSearchNonInventoryItemEntity> getSearchItemData = await GetSearchItemDataTask();
             if (getSearchItemData.Any())
             {
+                nonInventoryItemPageNumber = 1;
                 searchNonInventoryItemData = getSearchItemData;
                 searchItemPageList = new PagedList<Entities.DgvSearchNonInventoryItemEntity>(searchNonInventoryItemData, nonInventoryItemPageNumber, nonInventoryItemPpageSize);
 

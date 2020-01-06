@@ -161,6 +161,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
             List<Entities.DgvStockOutItemEntity> getStockOutItemData = await GetStockOutItemDataTask();
             if (getStockOutItemData.Any())
             {
+                stockOutItemPageNumber = 1;
                 stockOutItemData = getStockOutItemData;
                 stockOutItemPageList = new PagedList<Entities.DgvStockOutItemEntity>(stockOutItemData, stockOutItemPageNumber, stockOutItemPageSize);
 
@@ -413,6 +414,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
             List<Entities.DgvTrnInventoryEntriesEntity> getInventoryEntriesData = await GetInventoryEntriesDataTask();
             if (getInventoryEntriesData.Any())
             {
+                inventoryEntriesPageNumber = 1;
                 inventoryEntriesData = getInventoryEntriesData;
                 inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
 

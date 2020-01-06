@@ -56,6 +56,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
             List<Entities.DgvDiscountListEntity> getDiscountListData = await GetDiscountListDataTask();
             if (getDiscountListData.Any())
             {
+                discountListPageNumber = 1;
                 discountListData = getDiscountListData;
                 discountListPageList = new PagedList<Entities.DgvDiscountListEntity>(discountListData, discountListPageNumber, pageSize);
 
@@ -285,6 +286,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
             List<Entities.DgvBankListEntity> getBankListData = await GetBankListDataTask();
             if (getBankListData.Any())
             {
+                bankPageNumber = 1;
                 bankListData = getBankListData;
                 bankListPageList = new PagedList<Entities.DgvBankListEntity>(bankListData, bankPageNumber, pageSize);
 

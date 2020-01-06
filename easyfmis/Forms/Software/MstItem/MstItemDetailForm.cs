@@ -300,9 +300,6 @@ namespace easyfmis.Forms.Software.MstItem
         public static Int32 pageSize = 50;
         public static Int32 pageNumber = 1;
 
-
-
-
         public static List<Entities.DgvItemUnitEntity> itemUnitConversionListData = new List<Entities.DgvItemUnitEntity>();
         public PagedList<Entities.DgvItemUnitEntity> itemUnitConversionPageList = new PagedList<Entities.DgvItemUnitEntity>(itemUnitConversionListData, pageNumber, pageSize);
         public BindingSource itemUnitConversionListDataSource = new BindingSource();
@@ -341,6 +338,7 @@ namespace easyfmis.Forms.Software.MstItem
             List<Entities.DgvItemUnitEntity> getArtileUnitListData = await GetArtileUnitListDataTask();
             if (getArtileUnitListData.Any())
             {
+                pageNumber = 1;
                 itemUnitConversionListData = getArtileUnitListData;
                 itemUnitConversionPageList = new PagedList<Entities.DgvItemUnitEntity>(itemUnitConversionListData, pageNumber, pageSize);
 
@@ -555,6 +553,7 @@ namespace easyfmis.Forms.Software.MstItem
             List<Entities.DgvItemDetailItemPriceListEntity> getItemPriceListData = await GetItemPriceListDataTask();
             if (getItemPriceListData.Any())
             {
+                pageNumber = 1;
                 itemPriceListData = getItemPriceListData;
                 itemPriceListPageList = new PagedList<Entities.DgvItemDetailItemPriceListEntity>(itemPriceListData, pageNumber, pageSize);
 
@@ -837,6 +836,7 @@ namespace easyfmis.Forms.Software.MstItem
             List<Entities.DgvItemComponentEntity> getItemComponentListData = await GetItemComponentListDataTask();
             if (getItemComponentListData.Any())
             {
+                pageNumber = 1;
                 itemComponentListData = getItemComponentListData;
                 itemComponentListPageList = new PagedList<Entities.DgvItemComponentEntity>(itemComponentListData, pageNumber, pageSize);
 
@@ -1069,6 +1069,7 @@ namespace easyfmis.Forms.Software.MstItem
             List<Entities.DgvItemInventoryEntity> getItemInventoryListData = await GetItemInventoryListDataTask();
             if (getItemInventoryListData.Any())
             {
+                pageNumber = 1;
                 itemInventoryListData = getItemInventoryListData;
                 itemInventoryListPageList = new PagedList<Entities.DgvItemInventoryEntity>(itemInventoryListData, pageNumber, pageSize);
 

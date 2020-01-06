@@ -641,7 +641,7 @@
             this.ColumnPurchaseOrderItemListBaseQuantity,
             this.ColumnPurchaseOrderItemListBaseCost,
             this.ColumnPurchaseOrderItemSpace});
-            this.dataGridViewPurchaseOrderItem.Location = new System.Drawing.Point(8, 52);
+            this.dataGridViewPurchaseOrderItem.Location = new System.Drawing.Point(17, 52);
             this.dataGridViewPurchaseOrderItem.MultiSelect = false;
             this.dataGridViewPurchaseOrderItem.Name = "dataGridViewPurchaseOrderItem";
             this.dataGridViewPurchaseOrderItem.ReadOnly = true;

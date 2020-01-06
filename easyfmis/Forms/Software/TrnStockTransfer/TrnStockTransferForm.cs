@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             List<Entities.DgvStockTransferEntity> getStockTransferData = await GetStockTransferDataTask();
             if (getStockTransferData.Any())
             {
+                pageNumber = 1;
                 itemListData = getStockTransferData;
                 itemListPageList = new PagedList<Entities.DgvStockTransferEntity>(itemListData, pageNumber, pageSize);
 

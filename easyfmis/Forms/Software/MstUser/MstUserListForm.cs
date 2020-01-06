@@ -40,6 +40,7 @@ namespace easyfmis.Forms.Software.MstUser
             List<Entities.DgvUserListEntity> getUserListData = await GetUserListDataTask();
             if (getUserListData.Any())
             {
+                pageNumber = 1;
                 userListData = getUserListData;
                 userListPageList = new PagedList<Entities.DgvUserListEntity>(userListData, pageNumber, pageSize);
 

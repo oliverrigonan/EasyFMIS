@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
             List<Entities.DgvStockInEntity> getStockInData = await GetStockInDataTask();
             if (getStockInData.Any())
             {
+                pageNumber = 1;
                 itemListData = getStockInData;
                 itemListPageList = new PagedList<Entities.DgvStockInEntity>(itemListData, pageNumber, pageSize);
 

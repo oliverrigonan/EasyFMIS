@@ -50,6 +50,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             List<Entities.DgvSearchInventoryItemEntity> getSearchInventoryItemData = await GetSearchInventoryItemDataTask();
             if (getSearchInventoryItemData.Any())
             {
+                SearchInventoryItemPageNumber = 1;
                 searchInventoryItemData = getSearchInventoryItemData;
                 searchInventoryItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchInventoryItemData, SearchInventoryItemPageNumber, pageSize);
 
@@ -282,6 +283,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             List<Entities.DgvSearchNonInventoryItemEntity> getSearchNonInventoryItemData = await GetSearchNonInventoryItemDataTask();
             if (getSearchNonInventoryItemData.Any())
             {
+                SearchNonInventoryItemPageNumber = 1;
                 searchNonInventoryItemData = getSearchNonInventoryItemData;
                 searchNonInventoryItemPageList = new PagedList<Entities.DgvSearchNonInventoryItemEntity>(searchNonInventoryItemData, SearchNonInventoryItemPageNumber, pageSize);
 

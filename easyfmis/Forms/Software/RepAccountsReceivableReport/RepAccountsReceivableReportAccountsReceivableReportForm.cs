@@ -81,7 +81,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             accountsReceivableReportList = GetAccountsReceivableReportListData(dateAsOf, companyId, branchId);
             if (accountsReceivableReportList.Any())
             {
-
+                pageNumber = 1;
                 pageList = new PagedList<Entities.DgvRepAccountsReceivableReportEntity>(accountsReceivableReportList, pageNumber, pageSize);
 
                 if (pageList.PageCount == 1)
