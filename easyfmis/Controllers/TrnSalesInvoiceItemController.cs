@@ -498,10 +498,11 @@ namespace easyfmis.Controllers
         // =============
         // List Sales Order Item 
         // =============
-        public List<Entities.TrnSalesOrderItemEntity> ListSalesOrderItem(Int32 sOId)
+        public List<Entities.TrnSalesOrderItemEntity> ListSalesOrderItem(Int32 sOId, Int32 customerId)
         {
             var salesOrderItem = from d in db.TrnSalesOrderItems
                                  where d.SOId == sOId
+                                 && d.TrnSalesOrder.CustomerId == customerId
                                  select new Entities.TrnSalesOrderItemEntity
                                  {
                                      Id = d.Id,

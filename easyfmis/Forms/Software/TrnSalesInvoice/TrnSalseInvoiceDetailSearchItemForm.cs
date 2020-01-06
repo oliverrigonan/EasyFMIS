@@ -28,6 +28,12 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         public PagedList<Entities.DgvSearchNonInventoryItemEntity> searchNonInventoryItemPageList = new PagedList<Entities.DgvSearchNonInventoryItemEntity>(searchNonInventoryItemData, SearchNonInventoryItemPageNumber, pageSize);
         public BindingSource searchNonInventoryItemDataSource = new BindingSource();
 
+        public static List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> salesOrderItemData = new List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>();
+        public static Int32 salesOrdertemPageNumber = 1;
+        public static Int32 stockOutItemPageSize = 50;
+        public PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, salesOrdertemPageNumber, stockOutItemPageSize);
+        public BindingSource salesOrderItemDataSource = new BindingSource();
+
         public TrnSalesInvoiceDetailSearchItemForm(TrnSalesInvoiceDetailForm salesInvoiceDetailForm, Entities.TrnSalesInvoiceEntity salesInvoiceEntity)
         {
             InitializeComponent();
@@ -496,13 +502,6 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             textBoxSearchNonInventoryItemPageNumber.Text = SearchNonInventoryItemPageNumber + " / " + searchNonInventoryItemPageList.PageCount;
         }
 
-        public static List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> salesOrderItemData = new List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>();
-        public static Int32 salesOrdertemPageNumber = 1;
-        public static Int32 stockOutItemPageSize = 50;
-        public PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> salesOrderItemPageSize = new PagedList<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>(salesOrderItemData, salesOrdertemPageNumber, stockOutItemPageSize);
-        public BindingSource salesOrderItemDataSource = new BindingSource();
-
-
         public void GetSONumberList(Int32 customerId)
         {
             Controllers.TrnSalesInvoiceItemController trnSalesInvoiceItemController = new Controllers.TrnSalesInvoiceItemController();
@@ -522,7 +521,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             Controllers.TrnSalesInvoiceItemController trnSalesInvoiceItemController = new Controllers.TrnSalesInvoiceItemController();
             var SOId = Convert.ToInt32(comboBoxSONumber.SelectedValue);
             var stringFilter = textBoxSearchSalesOrderItemFilter.Text;
-            List<Entities.TrnSalesOrderItemEntity> listSalesOrderItem = trnSalesInvoiceItemController.ListSalesOrderItem(SOId);
+            List<Entities.TrnSalesOrderItemEntity> listSalesOrderItem = trnSalesInvoiceItemController.ListSalesOrderItem(SOId, trnSalesInvoiceEntity.CustomerId);
             if (listSalesOrderItem.Any())
             {
                 var items = from d in listSalesOrderItem
