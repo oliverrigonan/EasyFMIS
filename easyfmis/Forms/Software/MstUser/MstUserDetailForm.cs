@@ -152,7 +152,7 @@ namespace easyfmis.Forms.Software.MstUser
             List<Entities.DgvMstUserFormEntity> getUserFormListData = await GetUserFormListDataTask();
             if (getUserFormListData.Any())
             {
-                pageNumber = 1;
+                userFormPageNumber = 1;
                 userFormData = getUserFormListData;
                 userFormPageList = new PagedList<Entities.DgvMstUserFormEntity>(userFormData, userFormPageNumber, userFormPageSize);
 

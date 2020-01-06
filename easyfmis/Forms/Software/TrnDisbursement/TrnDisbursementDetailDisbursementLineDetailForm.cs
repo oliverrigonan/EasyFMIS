@@ -66,9 +66,6 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                 textBoxAmount.Text = trnDisbursementLineEntity.Amount.ToString("#,##0.00");
                 textBoxOtherInformation.Text = trnDisbursementLineEntity.OtherInformation;
             }
-            else {
-                textBoxAmount.Text = (0).ToString("#,##0.00");
-            }
         }
 
 
@@ -168,7 +165,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
         {
             if (comboBoxRR.SelectedItem == null)
             {
-                return;
+                textBoxAmount.Text = (0).ToString("#,##0.00");
             }
 
             var selectedItemRR = (Entities.TrnReceivingReceiptEntity)comboBoxRR.SelectedItem;
