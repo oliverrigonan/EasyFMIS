@@ -44,6 +44,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
+            this.labelStartDate = new System.Windows.Forms.Label();
+            this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
+            this.labelEndDate = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,7 +62,11 @@
             this.listBoxAccountsPayableReport.FormattingEnabled = true;
             this.listBoxAccountsPayableReport.ItemHeight = 23;
             this.listBoxAccountsPayableReport.Items.AddRange(new object[] {
-            "Accounts Payable Report"});
+            "Accounts Payable Report",
+            "",
+            "Purchase Order Detail Report",
+            "Receiving Receipt Detail Report",
+            "Disbursement Detail Report"});
             this.listBoxAccountsPayableReport.Location = new System.Drawing.Point(0, 0);
             this.listBoxAccountsPayableReport.Name = "listBoxAccountsPayableReport";
             this.listBoxAccountsPayableReport.Size = new System.Drawing.Size(380, 619);
@@ -67,6 +75,10 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.dateTimePickerEndDate);
+            this.panel4.Controls.Add(this.labelEndDate);
+            this.panel4.Controls.Add(this.dateTimePickerStartDate);
+            this.panel4.Controls.Add(this.labelStartDate);
             this.panel4.Controls.Add(this.comboBoxBranch);
             this.panel4.Controls.Add(this.labelBranch);
             this.panel4.Controls.Add(this.comboBoxCompany);
@@ -84,7 +96,7 @@
             // comboBoxBranch
             // 
             this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(504, 123);
+            this.comboBoxBranch.Location = new System.Drawing.Point(504, 195);
             this.comboBoxBranch.Name = "comboBoxBranch";
             this.comboBoxBranch.Size = new System.Drawing.Size(416, 31);
             this.comboBoxBranch.TabIndex = 3;
@@ -94,7 +106,7 @@
             // 
             this.labelBranch.AutoSize = true;
             this.labelBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelBranch.Location = new System.Drawing.Point(431, 126);
+            this.labelBranch.Location = new System.Drawing.Point(431, 198);
             this.labelBranch.Name = "labelBranch";
             this.labelBranch.Size = new System.Drawing.Size(67, 23);
             this.labelBranch.TabIndex = 27;
@@ -104,7 +116,7 @@
             // comboBoxCompany
             // 
             this.comboBoxCompany.FormattingEnabled = true;
-            this.comboBoxCompany.Location = new System.Drawing.Point(504, 86);
+            this.comboBoxCompany.Location = new System.Drawing.Point(504, 158);
             this.comboBoxCompany.Name = "comboBoxCompany";
             this.comboBoxCompany.Size = new System.Drawing.Size(416, 31);
             this.comboBoxCompany.TabIndex = 2;
@@ -115,7 +127,7 @@
             // 
             this.labelCompany.AutoSize = true;
             this.labelCompany.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelCompany.Location = new System.Drawing.Point(411, 89);
+            this.labelCompany.Location = new System.Drawing.Point(411, 161);
             this.labelCompany.Name = "labelCompany";
             this.labelCompany.Size = new System.Drawing.Size(87, 23);
             this.labelCompany.TabIndex = 25;
@@ -125,7 +137,7 @@
             // dateTimePickerDateAsOf
             // 
             this.dateTimePickerDateAsOf.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDateAsOf.Location = new System.Drawing.Point(504, 50);
+            this.dateTimePickerDateAsOf.Location = new System.Drawing.Point(504, 122);
             this.dateTimePickerDateAsOf.Name = "dateTimePickerDateAsOf";
             this.dateTimePickerDateAsOf.Size = new System.Drawing.Size(220, 30);
             this.dateTimePickerDateAsOf.TabIndex = 0;
@@ -135,7 +147,7 @@
             // 
             this.labelDateAsOf.AutoSize = true;
             this.labelDateAsOf.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelDateAsOf.Location = new System.Drawing.Point(407, 53);
+            this.labelDateAsOf.Location = new System.Drawing.Point(407, 125);
             this.labelDateAsOf.Name = "labelDateAsOf";
             this.labelDateAsOf.Size = new System.Drawing.Size(91, 23);
             this.labelDateAsOf.TabIndex = 23;
@@ -245,6 +257,46 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_OnClick);
             // 
+            // dateTimePickerStartDate
+            // 
+            this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(504, 50);
+            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
+            this.dateTimePickerStartDate.Size = new System.Drawing.Size(220, 30);
+            this.dateTimePickerStartDate.TabIndex = 28;
+            this.dateTimePickerStartDate.Visible = false;
+            // 
+            // labelStartDate
+            // 
+            this.labelStartDate.AutoSize = true;
+            this.labelStartDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.labelStartDate.Location = new System.Drawing.Point(408, 53);
+            this.labelStartDate.Name = "labelStartDate";
+            this.labelStartDate.Size = new System.Drawing.Size(90, 23);
+            this.labelStartDate.TabIndex = 29;
+            this.labelStartDate.Text = "Start Date:";
+            this.labelStartDate.Visible = false;
+            // 
+            // dateTimePickerEndDate
+            // 
+            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(504, 86);
+            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
+            this.dateTimePickerEndDate.Size = new System.Drawing.Size(220, 30);
+            this.dateTimePickerEndDate.TabIndex = 30;
+            this.dateTimePickerEndDate.Visible = false;
+            // 
+            // labelEndDate
+            // 
+            this.labelEndDate.AutoSize = true;
+            this.labelEndDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.labelEndDate.Location = new System.Drawing.Point(414, 89);
+            this.labelEndDate.Name = "labelEndDate";
+            this.labelEndDate.Size = new System.Drawing.Size(84, 23);
+            this.labelEndDate.TabIndex = 31;
+            this.labelEndDate.Text = "End Date:";
+            this.labelEndDate.Visible = false;
+            // 
             // RepAccountsPayableReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -286,5 +338,9 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.ComboBox comboBoxBranch;
         private System.Windows.Forms.Label labelBranch;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEndDate;
+        private System.Windows.Forms.Label labelEndDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
+        private System.Windows.Forms.Label labelStartDate;
     }
 }

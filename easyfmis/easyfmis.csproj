@@ -932,15 +932,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PDFFiles\TrnCollection\" />
-    <Folder Include="PDFFiles\TrnDisbursement\" />
-    <Folder Include="PDFFiles\TrnPurchaseOrder\" />
-    <Folder Include="PDFFiles\TrnReceivingReceipt\" />
-    <Folder Include="PDFFiles\TrnSalesInvoice\" />
-    <Folder Include="PDFFiles\TrnSalesOrder\" />
-    <Folder Include="PDFFiles\TrnStockIn\" />
-    <Folder Include="PDFFiles\TrnStockOut\" />
-    <Folder Include="PDFFiles\TrnStockTransfer\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>

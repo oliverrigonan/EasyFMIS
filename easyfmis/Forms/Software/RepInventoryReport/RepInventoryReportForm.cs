@@ -76,34 +76,123 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                 switch (selectedItem)
                 {
                     case "Inventory Report":
-
                         labelStartDate.Visible = true;
                         dateTimePickerStartDate.Visible = true;
+
                         labelEndDate.Visible = true;
                         dateTimePickerEndDate.Visible = true;
+
                         labelCompany.Visible = true;
                         comboBoxCompany.Visible = true;
+
                         labelBranch.Visible = true;
                         comboBoxBranch.Visible = true;
+
                         labelItem.Visible = false;
                         comboBoxItem.Visible = false;
 
                         break;
                     case "Stock Card":
-
                         labelStartDate.Visible = true;
                         dateTimePickerStartDate.Visible = true;
+
                         labelEndDate.Visible = true;
                         dateTimePickerEndDate.Visible = true;
+
                         labelCompany.Visible = true;
                         comboBoxCompany.Visible = true;
+
                         labelBranch.Visible = true;
                         comboBoxBranch.Visible = true;
+
                         labelItem.Visible = true;
                         comboBoxItem.Visible = true;
 
                         break;
+                    case "Stock-In Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        break;
+                    case "Stock-Out Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        break;
+                    case "Stock Transfer Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        break;
+                    case "Item List":
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
+
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
+
+                        labelCompany.Visible = false;
+                        comboBoxCompany.Visible = false;
+
+                        labelBranch.Visible = false;
+                        comboBoxBranch.Visible = false;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        break;
                     default:
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
+
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
+
+                        labelCompany.Visible = false;
+                        comboBoxCompany.Visible = false;
+
+                        labelBranch.Visible = false;
+                        comboBoxBranch.Visible = false;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
                         break;
                 }
             }
