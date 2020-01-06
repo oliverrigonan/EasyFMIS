@@ -42,6 +42,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             List<Entities.DgvSearchInventoryItemEntity> getSearchItemData = await GetSearchItemDataTask();
             if (getSearchItemData.Any())
             {
+                pageNumber = 1;
                 searchItemData = getSearchItemData;
                 searchItemPageList = new PagedList<Entities.DgvSearchInventoryItemEntity>(searchItemData, pageNumber, pageSize);
 

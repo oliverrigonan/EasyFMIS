@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
             List<Entities.DgvStockOutEntity> getStockOutData = await GetStockOutDataTask();
             if (getStockOutData.Any())
             {
+                pageNumber = 1;
                 itemListData = getStockOutData;
                 itemListPageList = new PagedList<Entities.DgvStockOutEntity>(itemListData, pageNumber, pageSize);
 

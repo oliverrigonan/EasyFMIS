@@ -80,7 +80,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             inventoryReportList = GetInventoryReportListData(startDate, endDate, companyId, branchId);
             if (inventoryReportList.Any())
             {
-
+                pageNumber = 1;
                 pageList = new PagedList<Entities.DgvRepInventoryReportEntity>(inventoryReportList, pageNumber, pageSize);
 
                 if (pageList.PageCount == 1)

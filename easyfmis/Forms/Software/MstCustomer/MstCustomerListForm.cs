@@ -42,8 +42,8 @@ namespace easyfmis.Forms.Software.MstCustomer
             List<Entities.DgvMstCustomerEntities> getCustomerListData = await GetCustomerListDataTask();
             if (getCustomerListData.Any())
             {
-                customerListData = getCustomerListData;
                 pageNumber = 1;
+                customerListData = getCustomerListData;
                 customerListPageList = new PagedList<Entities.DgvMstCustomerEntities>(customerListData, pageNumber, pageSize);
 
                 if (customerListPageList.PageCount == 1)

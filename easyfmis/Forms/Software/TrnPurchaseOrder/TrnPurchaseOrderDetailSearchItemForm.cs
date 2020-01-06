@@ -42,6 +42,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             List<Entities.DgvSearchItemEntity> getSearchItemData = await GetSearchItemDataTask();
             if (getSearchItemData.Any())
             {
+                pageNumber = 1;
                 searchItemData = getSearchItemData;
                 searchItemPageList = new PagedList<Entities.DgvSearchItemEntity>(searchItemData, pageNumber, pageSize);
 

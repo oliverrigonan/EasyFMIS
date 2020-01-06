@@ -203,6 +203,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             List<Entities.DgvReceivingReceiptItemEntity> getReceivingReceiptItemData = await GetReceivingReceiptItemDataTask();
             if (getReceivingReceiptItemData.Any())
             {
+                receivingReceiptItemPageNumber = 1;
                 receivingReceiptItemData = getReceivingReceiptItemData;
                 receivingReceiptItemPageList = new PagedList<Entities.DgvReceivingReceiptItemEntity>(receivingReceiptItemData, receivingReceiptItemPageNumber, receivingReceiptItemPageSize);
 
@@ -467,6 +468,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             List<Entities.DgvTrnInventoryEntriesEntity> getInventoryEntriesData = await GetInventoryEntriesDataTask();
             if (getInventoryEntriesData.Any())
             {
+                inventoryEntriesPageNumber = 1;
                 inventoryEntriesData = getInventoryEntriesData;
                 inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
 

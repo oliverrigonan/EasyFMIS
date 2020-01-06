@@ -177,6 +177,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             List<Entities.DgvStockTransferItemEntity> getStockTransferItemData = await GetStockTransferItemDataTask();
             if (getStockTransferItemData.Any())
             {
+                stockOutItemPageNumber = 1;
                 stockOutItemData = getStockTransferItemData;
                 stockOutItemPageList = new PagedList<Entities.DgvStockTransferItemEntity>(stockOutItemData, stockOutItemPageNumber, stockOutItemPageSize);
 
@@ -429,6 +430,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             List<Entities.DgvTrnInventoryEntriesEntity> getInventoryEntriesData = await GetInventoryEntriesDataTask();
             if (getInventoryEntriesData.Any())
             {
+                inventoryEntriesPageNumber = 1;
                 inventoryEntriesData = getInventoryEntriesData;
                 inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
 

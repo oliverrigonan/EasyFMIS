@@ -206,6 +206,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             List<Entities.DgvPurchaseOrderItemEntity> getStockOutItemData = await GetPurchaseOrderItemDataTask();
             if (getStockOutItemData.Any())
             {
+                pageNumber = 1;
                 purchaseOrderItemData = getStockOutItemData;
                 purchaseOrderItemPageSize = new PagedList<Entities.DgvPurchaseOrderItemEntity>(purchaseOrderItemData, pageNumber, pageSize);
 

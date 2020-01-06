@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             List<Entities.DgvPurchaseOrderEntity> getPurchaseOrderData = await GetPurchaseOrderDataTask();
             if (getPurchaseOrderData.Any())
             {
+                pageNumber = 1;
                 purchaseOrderListData = getPurchaseOrderData;
                 purchaseOrderListPageList = new PagedList<Entities.DgvPurchaseOrderEntity>(purchaseOrderListData, pageNumber, pageSize);
 

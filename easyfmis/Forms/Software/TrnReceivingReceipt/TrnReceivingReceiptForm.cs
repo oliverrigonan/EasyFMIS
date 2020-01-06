@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             List<Entities.DgvReceivingReceiptEntity> getReceivingReceiptData = await GetReceivingReceiptDataTask();
             if (getReceivingReceiptData.Any())
             {
+                pageNumber = 1;
                 itemListData = getReceivingReceiptData;
                 itemListPageList = new PagedList<Entities.DgvReceivingReceiptEntity>(itemListData, pageNumber, pageSize);
 

@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             List<Entities.DgvSalesInvoiceEntity> getSalesInvoiceData = await GetSalesInvoiceDataTask();
             if (getSalesInvoiceData.Any())
             {
+                pageNumber = 1;
                 itemListData = getSalesInvoiceData;
                 itemListPageList = new PagedList<Entities.DgvSalesInvoiceEntity>(itemListData, pageNumber, pageSize);
 

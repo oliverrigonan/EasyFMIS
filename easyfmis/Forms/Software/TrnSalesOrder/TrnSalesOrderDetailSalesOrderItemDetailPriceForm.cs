@@ -54,6 +54,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             List<Entities.DgvMstItemPrice> getItemPriceListData = await GetItemPriceListDataTask();
             if (getItemPriceListData.Any())
             {
+                pageNumber = 1;
                 itemPriceListData = getItemPriceListData;
                 itemPriceListPageList = new PagedList<Entities.DgvMstItemPrice>(itemPriceListData, pageNumber, pageSize);
 

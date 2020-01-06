@@ -61,6 +61,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             List<Entities.DgvSearchPurchaseOrderItemEntity> getSearchPurchaseOrderItemData = await GetSearchPurchaseOrderItemDataTask(POId);
             if (getSearchPurchaseOrderItemData.Any())
             {
+                pageNumber = 1;
                 searchItemData = getSearchPurchaseOrderItemData;
                 searchItemPageList = new PagedList<Entities.DgvSearchPurchaseOrderItemEntity>(searchItemData, pageNumber, pageSize);
 

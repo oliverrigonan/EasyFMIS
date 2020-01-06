@@ -185,6 +185,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             List<Entities.DgvTrnSalesOrderItemEntity> getStockOutItemData = await GetSalesOrderItemDataTask();
             if (getStockOutItemData.Any())
             {
+                salesOrdertemPageNumber = 1;
                 salesOrderItemData = getStockOutItemData;
                 salesOrderItemPageSize = new PagedList<Entities.DgvTrnSalesOrderItemEntity>(salesOrderItemData, salesOrdertemPageNumber, stockOutItemPageSize);
 

@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.TrnCollection
             List<Entities.DgvCollectionEntity> getCollectionData = await GetCollectionDataTask();
             if (getCollectionData.Any())
             {
+                pageNumber = 1;
                 itemListData = getCollectionData;
                 itemListPageList = new PagedList<Entities.DgvCollectionEntity>(itemListData, pageNumber, pageSize);
 
