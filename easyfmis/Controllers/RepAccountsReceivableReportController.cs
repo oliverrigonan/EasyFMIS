@@ -94,6 +94,23 @@ namespace easyfmis.Controllers
             return branches.ToList();
         }
 
+        // ======================
+        // Dropdown List Customer
+        // ======================
+        public List<Entities.MstArticleEntity> DropdownListCustomer()
+        {
+            var customers = from d in db.MstArticles
+                            where d.ArticleTypeId == 2
+                            && d.IsLocked == true
+                            select new Entities.MstArticleEntity
+                            {
+                                Id = d.Id,
+                                Article = d.Article
+                            };
+
+            return customers.ToList();
+        }
+
         // ===============================
         // Accounts Receivable Report List
         // ===============================

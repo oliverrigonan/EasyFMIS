@@ -63,7 +63,13 @@
             this.listBoxInventoryReport.ItemHeight = 23;
             this.listBoxInventoryReport.Items.AddRange(new object[] {
             "Inventory Report",
-            "Stock Card"});
+            "Stock Card",
+            "",
+            "Stock-In Detail Report",
+            "Stock-Out Detail Report",
+            "Stock Transfer Detail Report",
+            "",
+            "Item List"});
             this.listBoxInventoryReport.Location = new System.Drawing.Point(0, 0);
             this.listBoxInventoryReport.Name = "listBoxInventoryReport";
             this.listBoxInventoryReport.Size = new System.Drawing.Size(380, 619);

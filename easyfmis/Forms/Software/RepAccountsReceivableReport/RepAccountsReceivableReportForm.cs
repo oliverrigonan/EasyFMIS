@@ -47,11 +47,24 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                     comboBoxBranch.DataSource = repAccountsReceivableReportController.DropdownListBranch(companyId);
                     comboBoxBranch.ValueMember = "Id";
                     comboBoxBranch.DisplayMember = "Branch";
+
+                    GetCustomers();
                 }
             }
             else
             {
 
+            }
+        }
+
+        public void GetCustomers()
+        {
+            Controllers.RepAccountsReceivableReportController repAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
+            if (repAccountsReceivableReportController.DropdownListCustomer().Any())
+            {
+                comboBoxCustomer.DataSource = repAccountsReceivableReportController.DropdownListCustomer();
+                comboBoxCustomer.ValueMember = "Id";
+                comboBoxCustomer.DisplayMember = "Article";
             }
         }
 
@@ -63,15 +76,124 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                 switch (selectedItem)
                 {
                     case "Accounts Receivable Report":
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
+
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
+
                         labelDateAsOf.Visible = true;
                         dateTimePickerDateAsOf.Visible = true;
+
                         labelCompany.Visible = true;
                         comboBoxCompany.Visible = true;
+
                         labelBranch.Visible = true;
                         comboBoxBranch.Visible = true;
 
+                        labelCustomer.Visible = false;
+                        comboBoxCustomer.Visible = false;
+
+                        break;
+                    case "Statement of Account":
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
+
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
+
+                        labelDateAsOf.Visible = true;
+                        dateTimePickerDateAsOf.Visible = true;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelCustomer.Visible = true;
+                        comboBoxCustomer.Visible = true;
+
+                        break;
+                    case "Sales Order Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelCustomer.Visible = false;
+                        comboBoxCustomer.Visible = false;
+
+                        break;
+                    case "Sales Invoice Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelCustomer.Visible = false;
+                        comboBoxCustomer.Visible = false;
+
+                        break;
+                    case "Collection Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelCustomer.Visible = false;
+                        comboBoxCustomer.Visible = false;
+
                         break;
                     default:
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
+
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = false;
+                        comboBoxCompany.Visible = false;
+
+                        labelBranch.Visible = false;
+                        comboBoxBranch.Visible = false;
+
+                        labelCustomer.Visible = false;
+                        comboBoxCustomer.Visible = false;
+
                         break;
                 }
             }

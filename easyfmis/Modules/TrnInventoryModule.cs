@@ -26,21 +26,23 @@ namespace easyfmis.Modules
 
                 if (articleInventory.Any())
                 {
+                    Decimal quantity = 0;
+                    Decimal cost = 0;
+
                     var inventories = from d in db.TrnInventories
                                       where d.ItemInventoryId == id
                                       select d;
 
                     if (inventories.Any())
                     {
-                        Decimal quantity = inventories.Sum(d => d.Quantity);
-                        Decimal cost = inventories.OrderByDescending(d => d.Id).FirstOrDefault().MstArticleInventory.Cost1;
-
-                        var updateArticleInventory = articleInventory.FirstOrDefault();
-                        updateArticleInventory.Quantity = quantity;
-                        updateArticleInventory.Cost1 = cost;
-
-                        db.SubmitChanges();
+                        quantity = inventories.Sum(d => d.Quantity);
+                        cost = inventories.OrderByDescending(d => d.Id).FirstOrDefault().MstArticleInventory.Cost1;
                     }
+
+                    var updateArticleInventory = articleInventory.FirstOrDefault();
+                    updateArticleInventory.Quantity = quantity;
+                    updateArticleInventory.Cost1 = cost;
+                    db.SubmitChanges();
                 }
             }
             catch (Exception ex)

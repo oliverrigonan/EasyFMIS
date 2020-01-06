@@ -63,15 +63,89 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
                 switch (selectedItem)
                 {
                     case "Accounts Payable Report":
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
+
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
+
                         labelDateAsOf.Visible = true;
                         dateTimePickerDateAsOf.Visible = true;
+
                         labelCompany.Visible = true;
                         comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        break;
+                    case "Purchase Order Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        break;
+                    case "Receiving Receipt Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        break;
+                    case "Disbursement Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
                         labelBranch.Visible = true;
                         comboBoxBranch.Visible = true;
 
                         break;
                     default:
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
+
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
+
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
+
+                        labelCompany.Visible = false;
+                        comboBoxCompany.Visible = false;
+
+                        labelBranch.Visible = false;
+                        comboBoxBranch.Visible = false;
+
                         break;
                 }
             }
