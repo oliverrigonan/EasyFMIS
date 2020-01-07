@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace easyfmis.Forms.Software.SysSystemTables
 {
-    public partial class MstBankDetailForm : Form
+    public partial class SysSystemTablesBankDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
 
         public SysSystemTablesForm sysSystemTablesForm;
         public Entities.MstArticleEntity mstBankEntity;
 
-        public MstBankDetailForm(SysSystemTablesForm systemTablesForm, Entities.MstArticleEntity bankEntity)
+        public SysSystemTablesBankDetailForm(SysSystemTablesForm systemTablesForm, Entities.MstArticleEntity bankEntity)
         {
             InitializeComponent();
 

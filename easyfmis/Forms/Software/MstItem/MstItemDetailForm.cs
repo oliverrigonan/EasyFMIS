@@ -134,8 +134,6 @@ namespace easyfmis.Forms.Software.MstItem
             textBoxDescription.Enabled = !isLocked;
             textBoxAlias.Enabled = !isLocked;
             textBoxCategory.Enabled = !isLocked;
-            comboBoxVATInTax.Enabled = !isLocked;
-            comboBoxVATOutTax.Enabled = !isLocked;
             comboBoxUnit.Enabled = !isLocked;
             comboBoxDefaultSupplier.Enabled = !isLocked;
             textBoxCost.Enabled = !isLocked;

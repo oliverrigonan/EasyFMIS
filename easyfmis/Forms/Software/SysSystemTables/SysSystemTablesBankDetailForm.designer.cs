@@ -1,6 +1,6 @@
 ﻿namespace easyfmis.Forms.Software.SysSystemTables
 {
-    partial class MstBankDetailForm
+    partial class SysSystemTablesBankDetailForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MstBankDetailForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysSystemTablesBankDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
             this.buttonUnlock = new System.Windows.Forms.Button();

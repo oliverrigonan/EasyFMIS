@@ -28,6 +28,11 @@ namespace easyfmis.Forms.Software.SysSystemTables
         public BindingSource bankListDataSource = new BindingSource();
         public static Int32 bankPageNumber = 1;
 
+        public static List<Entities.DgvSystemTablesPayTypeListEntity> payTypeListData = new List<Entities.DgvSystemTablesPayTypeListEntity>();
+        public PagedList<Entities.DgvSystemTablesPayTypeListEntity> payTypeListPageList = new PagedList<Entities.DgvSystemTablesPayTypeListEntity>(payTypeListData, payTypeListPageNumber, pageSize);
+        public BindingSource payTypeListDataSource = new BindingSource();
+        public static Int32 payTypeListPageNumber = 1;
+
 
 
         public SysSystemTablesForm(SysSoftwareForm softwareForm)
@@ -38,6 +43,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
 
             CreateBankListDataGridView();
             CreateDiscountListDataGridView();
+            CreatePayTypeListDataGridView();
         }
 
         // =======
@@ -406,7 +412,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
             if (e.RowIndex > -1 && dataGridViewBankList.CurrentCell.ColumnIndex == dataGridViewBankList.Columns["ColumnBankListButtonEdit"].Index)
             {
                 Controllers.MstArticleController mstBankController = new Controllers.MstArticleController();
-                MstBankDetailForm mstBankDetailForm = new MstBankDetailForm(this, mstBankController.DetailArticle(Convert.ToInt32(dataGridViewBankList.Rows[e.RowIndex].Cells[2].Value)));
+                SysSystemTablesBankDetailForm mstBankDetailForm = new SysSystemTablesBankDetailForm(this, mstBankController.DetailArticle(Convert.ToInt32(dataGridViewBankList.Rows[e.RowIndex].Cells[2].Value)));
                 mstBankDetailForm.ShowDialog();
             }
 
@@ -537,6 +543,237 @@ namespace easyfmis.Forms.Software.SysSystemTables
         }
 
 
+        // ========
+        // Pay Type
+        // ========
+        public void UpdatePayTypeListDataSource()
+        {
+            SetPayTypeListDataSourceAsync();
+        }
+
+        public async void SetPayTypeListDataSourceAsync()
+        {
+            List<Entities.DgvSystemTablesPayTypeListEntity> getPayTypeListData = await GetPayTypeListDataTask();
+            if (getPayTypeListData.Any())
+            {
+                payTypeListData = getPayTypeListData;
+                payTypeListPageList = new PagedList<Entities.DgvSystemTablesPayTypeListEntity>(payTypeListData, payTypeListPageNumber, pageSize);
+
+                if (payTypeListPageList.PageCount == 1)
+                {
+                    buttonPayTypeListPageListFirst.Enabled = false;
+                    buttonPayTypeListPageListPrevious.Enabled = false;
+                    buttonPayTypeListPageListNext.Enabled = false;
+                    buttonPayTypeListPageListLast.Enabled = false;
+                }
+                else if (payTypeListPageNumber == 1)
+                {
+                    buttonPayTypeListPageListFirst.Enabled = false;
+                    buttonPayTypeListPageListPrevious.Enabled = false;
+                    buttonPayTypeListPageListNext.Enabled = true;
+                    buttonPayTypeListPageListLast.Enabled = true;
+                }
+                else if (payTypeListPageNumber == payTypeListPageList.PageCount)
+                {
+                    buttonPayTypeListPageListFirst.Enabled = true;
+                    buttonPayTypeListPageListPrevious.Enabled = true;
+                    buttonPayTypeListPageListNext.Enabled = false;
+                    buttonPayTypeListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonPayTypeListPageListFirst.Enabled = true;
+                    buttonPayTypeListPageListPrevious.Enabled = true;
+                    buttonPayTypeListPageListNext.Enabled = true;
+                    buttonPayTypeListPageListLast.Enabled = true;
+                }
+
+                textBoxPayTypeListPageNumber.Text = payTypeListPageNumber + " / " + payTypeListPageList.PageCount;
+                payTypeListDataSource.DataSource = payTypeListPageList;
+            }
+            else
+            {
+                buttonPayTypeListPageListFirst.Enabled = false;
+                buttonPayTypeListPageListPrevious.Enabled = false;
+                buttonPayTypeListPageListNext.Enabled = false;
+                buttonPayTypeListPageListLast.Enabled = false;
+
+                payTypeListPageNumber = 1;
+
+                payTypeListData = new List<Entities.DgvSystemTablesPayTypeListEntity>();
+                payTypeListDataSource.Clear();
+                textBoxPayTypeListPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public Task<List<Entities.DgvSystemTablesPayTypeListEntity>> GetPayTypeListDataTask()
+        {
+            String filter = textBoxPayTypeListFilter.Text;
+            Controllers.MstPayTypeController mstPayTypeController = new Controllers.MstPayTypeController();
+
+            List<Entities.MstPayTypeEntity> listPayType = mstPayTypeController.ListPayType(filter);
+            if (listPayType.Any())
+            {
+                var payTypes = from d in listPayType
+                               select new Entities.DgvSystemTablesPayTypeListEntity
+                               {
+                                   ColumnPayTypeListButtonEdit = "Edit",
+                                   ColumnPayTypeListButtonDelete = "Delete",
+                                   ColumnPayTypeListId = d.Id,
+                                   ColumnPayTypeListPayType = d.PayType,
+                                   ColumnAccountId = Convert.ToInt32(d.AccountId),
+                                   ColumnPayTypeListAccount = d.Account
+                               };
+
+                return Task.FromResult(payTypes.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvSystemTablesPayTypeListEntity>());
+            }
+        }
+
+        public void CreatePayTypeListDataGridView()
+        {
+            UpdatePayTypeListDataSource();
+
+            dataGridViewPayTypeList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewPayTypeList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewPayTypeList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewPayTypeList.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewPayTypeList.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewPayTypeList.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewPayTypeList.DataSource = payTypeListDataSource;
+        }
+
+        private void textBoxPayTypeListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdatePayTypeListDataSource();
+            }
+        }
+
+        private void dataGridViewPayTypeList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetPayTypeListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewPayTypeList.CurrentCell.ColumnIndex == dataGridViewPayTypeList.Columns["ColumnPayTypeListButtonEdit"].Index)
+            {
+                Entities.MstPayTypeEntity selectePaytype = new Entities.MstPayTypeEntity()
+                {
+                    Id = Convert.ToInt32(dataGridViewPayTypeList.Rows[e.RowIndex].Cells[2].Value),
+                    PayType = dataGridViewPayTypeList.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    AccountId = Convert.ToInt32(dataGridViewPayTypeList.Rows[e.RowIndex].Cells[4].Value)
+                };
+
+                SysSystemTablesPayTypeDetailForm sysSystemTablesPayTypeDetailForm = new SysSystemTablesPayTypeDetailForm(this, selectePaytype);
+                sysSystemTablesPayTypeDetailForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewPayTypeList.CurrentCell.ColumnIndex == dataGridViewPayTypeList.Columns["ColumnPayTypeListButtonDelete"].Index)
+            {
+
+                DialogResult deleteDialogResult = MessageBox.Show("Delete PayType?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstPayTypeController mstPayTypeController = new Controllers.MstPayTypeController();
+
+                    String[] deletePayType = mstPayTypeController.DeletePayType(Convert.ToInt32(dataGridViewPayTypeList.Rows[e.RowIndex].Cells[2].Value));
+                    if (deletePayType[1].Equals("0") == false)
+                    {
+                        Int32 currentPageNumber = payTypeListPageNumber;
+
+                        payTypeListPageNumber = 1;
+                        UpdatePayTypeListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deletePayType[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void GetPayTypeListCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonPayTypeListPageListFirst_Click(object sender, EventArgs e)
+        {
+            payTypeListPageList = new PagedList<Entities.DgvSystemTablesPayTypeListEntity>(payTypeListData, 1, pageSize);
+            payTypeListDataSource.DataSource = payTypeListPageList;
+
+            buttonPayTypeListPageListFirst.Enabled = false;
+            buttonPayTypeListPageListPrevious.Enabled = false;
+            buttonPayTypeListPageListNext.Enabled = true;
+            buttonPayTypeListPageListLast.Enabled = true;
+
+            payTypeListPageNumber = 1;
+            textBoxPayTypeListPageNumber.Text = payTypeListPageNumber + " / " + payTypeListPageList.PageCount;
+        }
+
+        private void buttonPayTypeListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (payTypeListPageList.HasPreviousPage == true)
+            {
+                payTypeListPageList = new PagedList<Entities.DgvSystemTablesPayTypeListEntity>(payTypeListData, --payTypeListPageNumber, pageSize);
+                payTypeListDataSource.DataSource = payTypeListPageList;
+            }
+
+            buttonPayTypeListPageListNext.Enabled = true;
+            buttonPayTypeListPageListLast.Enabled = true;
+
+            if (payTypeListPageNumber == 1)
+            {
+                buttonPayTypeListPageListFirst.Enabled = false;
+                buttonPayTypeListPageListPrevious.Enabled = false;
+            }
+
+            textBoxPayTypeListPageNumber.Text = payTypeListPageNumber + " / " + payTypeListPageList.PageCount;
+        }
+
+        private void buttonPayTypeListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (payTypeListPageList.HasNextPage == true)
+            {
+                payTypeListPageList = new PagedList<Entities.DgvSystemTablesPayTypeListEntity>(payTypeListData, ++payTypeListPageNumber, pageSize);
+                payTypeListDataSource.DataSource = payTypeListPageList;
+            }
+
+            buttonPayTypeListPageListFirst.Enabled = true;
+            buttonPayTypeListPageListPrevious.Enabled = true;
+
+            if (payTypeListPageNumber == payTypeListPageList.PageCount)
+            {
+                buttonPayTypeListPageListNext.Enabled = false;
+                buttonPayTypeListPageListLast.Enabled = false;
+            }
+
+            textBoxPayTypeListPageNumber.Text = payTypeListPageNumber + " / " + payTypeListPageList.PageCount;
+        }
+
+        private void buttonPayTypeListPageListLast_Click(object sender, EventArgs e)
+        {
+            payTypeListPageList = new PagedList<Entities.DgvSystemTablesPayTypeListEntity>(payTypeListData, payTypeListPageList.PageCount, pageSize);
+            payTypeListDataSource.DataSource = payTypeListPageList;
+
+            buttonPayTypeListPageListFirst.Enabled = true;
+            buttonPayTypeListPageListPrevious.Enabled = true;
+            buttonPayTypeListPageListNext.Enabled = false;
+            buttonPayTypeListPageListLast.Enabled = false;
+
+            payTypeListPageNumber = payTypeListPageList.PageCount;
+            textBoxPayTypeListPageNumber.Text = payTypeListPageNumber + " / " + payTypeListPageList.PageCount;
+        }
+
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             String selectedTab = tabControlSystemTable.SelectedTab.Text.ToString();
@@ -548,7 +785,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     if (addBank[1].Equals("0") == false)
                     {
 
-                        MstBankDetailForm mstBankDetailForm = new MstBankDetailForm(this, mstBankController.DetailArticle(Convert.ToInt32(addBank[1])));
+                        SysSystemTablesBankDetailForm mstBankDetailForm = new SysSystemTablesBankDetailForm(this, mstBankController.DetailArticle(Convert.ToInt32(addBank[1])));
                         UpdateBankListDataSource();
                         mstBankDetailForm.ShowDialog();
                     }
@@ -561,8 +798,9 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     SysSystemTablesDiscountDetailForm sysSystemTablesDiscountDetailForm = new SysSystemTablesDiscountDetailForm(this, null);
                     sysSystemTablesDiscountDetailForm.ShowDialog();
                     break;
-                case "Tax":
-
+                case "Pay Type":
+                    SysSystemTablesPayTypeDetailForm sysSystemTablesPayTypeDetailForm = new SysSystemTablesPayTypeDetailForm(this, null);
+                    sysSystemTablesPayTypeDetailForm.ShowDialog();
                     break;
 
             }

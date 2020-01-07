@@ -141,6 +141,7 @@
     <Compile Include="Entities\DgvSearchNonInventoryItemEntity.cs" />
     <Compile Include="Entities\DgvDisbursementEntity.cs" />
     <Compile Include="Entities\DgvSystemTablesAccountListEntity.cs" />
+    <Compile Include="Entities\DgvSystemTablesPayTypeListEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
@@ -371,11 +372,11 @@
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Software\SysSystemTables\MstBankDetailForm.cs">
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesBankDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Software\SysSystemTables\MstBankDetailForm.designer.cs">
-      <DependentUpon>MstBankDetailForm.cs</DependentUpon>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesBankDetailForm.designer.cs">
+      <DependentUpon>SysSystemTablesBankDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesForm.cs">
       <SubType>Form</SubType>
@@ -388,6 +389,12 @@
     </Compile>
     <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesDiscountDetailForm.designer.cs">
       <DependentUpon>SysSystemTablesDiscountDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesPayTypeDetailForm .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesPayTypeDetailForm .designer.cs">
+      <DependentUpon>SysSystemTablesPayTypeDetailForm .cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnCollection\TrnCollectionForm.cs">
       <SubType>Form</SubType>
@@ -756,14 +763,17 @@
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Software\SysSystemTables\MstBankDetailForm.resx">
-      <DependentUpon>MstBankDetailForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesBankDetailForm.resx">
+      <DependentUpon>SysSystemTablesBankDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesForm.resx">
       <DependentUpon>SysSystemTablesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesDiscountDetailForm.resx">
       <DependentUpon>SysSystemTablesDiscountDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesPayTypeDetailForm .resx">
+      <DependentUpon>SysSystemTablesPayTypeDetailForm .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionForm.resx">
       <DependentUpon>TrnCollectionForm.cs</DependentUpon>
