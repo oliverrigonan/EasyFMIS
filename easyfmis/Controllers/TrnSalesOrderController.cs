@@ -177,10 +177,13 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
 
                 String sONumber = "0000000001";
-                var lastSO = from d in db.TrnSalesOrders.OrderByDescending(d => d.Id) select d;
+                var lastSO = from d in db.TrnSalesOrders.OrderByDescending(d => d.Id)
+                             where d.BranchId == currentBranchId
+                             select d;
+
                 if (lastSO.Any())
                 {
                     Int32 newSONumber = Convert.ToInt32(lastSO.FirstOrDefault().SONumber) + 1;
@@ -270,8 +273,8 @@ namespace easyfmis.Controllers
                 }
 
                 var salesOrder = from d in db.TrnSalesOrders
-                              where d.Id == id
-                              select d;
+                                 where d.Id == id
+                                 select d;
 
                 if (salesOrder.Any())
                 {
@@ -281,7 +284,7 @@ namespace easyfmis.Controllers
                     }
 
                     var lockSalesOder = salesOrder.FirstOrDefault();
-                    lockSalesOder.ManualSONumber= objSalesOrder.ManualSONumber;
+                    lockSalesOder.ManualSONumber = objSalesOrder.ManualSONumber;
                     lockSalesOder.SODate = Convert.ToDateTime(objSalesOrder.SODate);
                     lockSalesOder.CustomerId = objSalesOrder.CustomerId;
                     lockSalesOder.TermId = objSalesOrder.TermId;

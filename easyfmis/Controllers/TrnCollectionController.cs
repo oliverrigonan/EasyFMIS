@@ -148,6 +148,7 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+
                 var customer = from d in db.MstArticles
                                where d.ArticleTypeId == 2
                                && d.IsLocked == true
@@ -158,8 +159,13 @@ namespace easyfmis.Controllers
                     return new String[] { "Customer not found.", "0" };
                 }
 
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
                 String collectionNumber = "0000000001";
-                var lastCollection = from d in db.TrnCollections.OrderByDescending(d => d.Id) select d;
+                var lastCollection = from d in db.TrnCollections.OrderByDescending(d => d.Id)
+                                     where d.BranchId == currentBranchId
+                                     select d;
+
                 if (lastCollection.Any())
                 {
                     Int32 newORNumber = Convert.ToInt32(lastCollection.FirstOrDefault().ORNumber) + 1;

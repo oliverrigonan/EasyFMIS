@@ -34,46 +34,141 @@ namespace easyfmis.Controllers
         // ============
         public List<Entities.MstArticleEntity> ListArticle(Int32 articleTypeId)
         {
-            var articles = from d in db.MstArticles
-                           where d.ArticleTypeId == articleTypeId
-                           select new Entities.MstArticleEntity
-                           {
-                               Id = d.Id,
-                               ArticleTypeId = d.ArticleTypeId,
-                               ArticleGroupId = d.ArticleTypeId,
-                               ArticleCode = d.ArticleCode,
-                               ArticleBarCode = d.ArticleBarCode,
-                               Article = d.Article,
-                               ArticleAlias = d.ArticleAlias,
-                               GenericArticleName = d.GenericArticleName,
-                               Category = d.Category,
-                               VATInTaxId = d.VATInTaxId,
-                               VATInTax = d.MstTax.Tax,
-                               VATOutTaxId = d.VATOutTaxId,
-                               VATOutTax = d.MstTax1.Tax,
-                               UnitId = d.UnitId,
-                               Unit = d.MstUnit.Unit,
-                               DefaultSupplierId = d.DefaultSupplierId,
-                               DefaultCost = d.DefaultCost,
-                               DefaultPrice = d.DefaultPrice,
-                               ReorderQuantity = d.ReorderQuantity,
-                               IsInventory = d.IsInventory,
-                               Address = d.Address,
-                               ContactPerson = d.ContactNumber,
-                               ContactNumber = d.ContactNumber,
-                               EmailAddress = d.EmailAddress,
-                               TIN = d.TIN,
-                               Remarks = d.Remarks,
-                               IsLocked = d.IsLocked,
-                               CreatedBy = d.CreatedBy,
-                               CreatedByUserName = d.MstUser.UserName,
-                               CreatedByDateTime = d.CreatedByDateTime,
-                               UpdatedBy = d.UpdatedBy,
-                               UpdatedByUserName = d.MstUser.UserName,
-                               UpdatedDateTime = d.UpdatedDateTime
-                           };
+            if (articleTypeId == 1)
+            {
+                var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+                if (currentUserLogin.FirstOrDefault().UserName.ToLower() == "admin")
+                {
+                    var articles = from d in db.MstArticles
+                                   where d.ArticleTypeId == articleTypeId
+                                   select new Entities.MstArticleEntity
+                                   {
+                                       Id = d.Id,
+                                       ArticleTypeId = d.ArticleTypeId,
+                                       ArticleGroupId = d.ArticleTypeId,
+                                       ArticleCode = d.ArticleCode,
+                                       ArticleBarCode = d.ArticleBarCode,
+                                       Article = d.Article,
+                                       ArticleAlias = d.ArticleAlias,
+                                       GenericArticleName = d.GenericArticleName,
+                                       Category = d.Category,
+                                       VATInTaxId = d.VATInTaxId,
+                                       VATInTax = d.MstTax.Tax,
+                                       VATOutTaxId = d.VATOutTaxId,
+                                       VATOutTax = d.MstTax1.Tax,
+                                       UnitId = d.UnitId,
+                                       Unit = d.MstUnit.Unit,
+                                       DefaultSupplierId = d.DefaultSupplierId,
+                                       DefaultCost = d.DefaultCost,
+                                       DefaultPrice = d.DefaultPrice,
+                                       ReorderQuantity = d.ReorderQuantity,
+                                       IsInventory = d.IsInventory,
+                                       Address = d.Address,
+                                       ContactPerson = d.ContactNumber,
+                                       ContactNumber = d.ContactNumber,
+                                       EmailAddress = d.EmailAddress,
+                                       TIN = d.TIN,
+                                       Remarks = d.Remarks,
+                                       IsLocked = d.IsLocked,
+                                       CreatedBy = d.CreatedBy,
+                                       CreatedByUserName = d.MstUser.UserName,
+                                       CreatedByDateTime = d.CreatedByDateTime,
+                                       UpdatedBy = d.UpdatedBy,
+                                       UpdatedByUserName = d.MstUser.UserName,
+                                       UpdatedDateTime = d.UpdatedDateTime
+                                   };
 
-            return articles.OrderByDescending(d=> d.ArticleCode).ToList();
+                    return articles.OrderByDescending(d => d.ArticleCode).ToList();
+                }
+                else
+                {
+                    var articles = from d in db.MstArticles
+                                   where d.ArticleTypeId == articleTypeId
+                                   && d.Article != "Default Supplier"
+                                   select new Entities.MstArticleEntity
+                                   {
+                                       Id = d.Id,
+                                       ArticleTypeId = d.ArticleTypeId,
+                                       ArticleGroupId = d.ArticleTypeId,
+                                       ArticleCode = d.ArticleCode,
+                                       ArticleBarCode = d.ArticleBarCode,
+                                       Article = d.Article,
+                                       ArticleAlias = d.ArticleAlias,
+                                       GenericArticleName = d.GenericArticleName,
+                                       Category = d.Category,
+                                       VATInTaxId = d.VATInTaxId,
+                                       VATInTax = d.MstTax.Tax,
+                                       VATOutTaxId = d.VATOutTaxId,
+                                       VATOutTax = d.MstTax1.Tax,
+                                       UnitId = d.UnitId,
+                                       Unit = d.MstUnit.Unit,
+                                       DefaultSupplierId = d.DefaultSupplierId,
+                                       DefaultCost = d.DefaultCost,
+                                       DefaultPrice = d.DefaultPrice,
+                                       ReorderQuantity = d.ReorderQuantity,
+                                       IsInventory = d.IsInventory,
+                                       Address = d.Address,
+                                       ContactPerson = d.ContactNumber,
+                                       ContactNumber = d.ContactNumber,
+                                       EmailAddress = d.EmailAddress,
+                                       TIN = d.TIN,
+                                       Remarks = d.Remarks,
+                                       IsLocked = d.IsLocked,
+                                       CreatedBy = d.CreatedBy,
+                                       CreatedByUserName = d.MstUser.UserName,
+                                       CreatedByDateTime = d.CreatedByDateTime,
+                                       UpdatedBy = d.UpdatedBy,
+                                       UpdatedByUserName = d.MstUser.UserName,
+                                       UpdatedDateTime = d.UpdatedDateTime
+                                   };
+
+                    return articles.OrderByDescending(d => d.ArticleCode).ToList();
+                }
+            }
+            else
+            {
+                var articles = from d in db.MstArticles
+                               where d.ArticleTypeId == articleTypeId
+                               select new Entities.MstArticleEntity
+                               {
+                                   Id = d.Id,
+                                   ArticleTypeId = d.ArticleTypeId,
+                                   ArticleGroupId = d.ArticleTypeId,
+                                   ArticleCode = d.ArticleCode,
+                                   ArticleBarCode = d.ArticleBarCode,
+                                   Article = d.Article,
+                                   ArticleAlias = d.ArticleAlias,
+                                   GenericArticleName = d.GenericArticleName,
+                                   Category = d.Category,
+                                   VATInTaxId = d.VATInTaxId,
+                                   VATInTax = d.MstTax.Tax,
+                                   VATOutTaxId = d.VATOutTaxId,
+                                   VATOutTax = d.MstTax1.Tax,
+                                   UnitId = d.UnitId,
+                                   Unit = d.MstUnit.Unit,
+                                   DefaultSupplierId = d.DefaultSupplierId,
+                                   DefaultCost = d.DefaultCost,
+                                   DefaultPrice = d.DefaultPrice,
+                                   ReorderQuantity = d.ReorderQuantity,
+                                   IsInventory = d.IsInventory,
+                                   Address = d.Address,
+                                   ContactPerson = d.ContactNumber,
+                                   ContactNumber = d.ContactNumber,
+                                   EmailAddress = d.EmailAddress,
+                                   TIN = d.TIN,
+                                   Remarks = d.Remarks,
+                                   IsLocked = d.IsLocked,
+                                   CreatedBy = d.CreatedBy,
+                                   CreatedByUserName = d.MstUser.UserName,
+                                   CreatedByDateTime = d.CreatedByDateTime,
+                                   UpdatedBy = d.UpdatedBy,
+                                   UpdatedByUserName = d.MstUser.UserName,
+                                   UpdatedDateTime = d.UpdatedDateTime
+                               };
+
+                return articles.OrderByDescending(d => d.ArticleCode).ToList();
+
+            }
         }
 
         // ==============
@@ -193,11 +288,20 @@ namespace easyfmis.Controllers
                     return new String[] { "Unit not found.", "0" };
                 }
 
-                var tax = from d in db.MstTaxes
-                          select d;
-                if (tax.Any() == false)
+                var taxVATIn = from d in db.MstTaxes
+                               where d.TaxCode == "VATIN"
+                               select d;
+                if (taxVATIn.Any() == false)
                 {
-                    return new String[] { "Tax not found.", "0" };
+                    return new String[] { "VAT INPUT Tax not found.", "0" };
+                }
+
+                var taxVATOut = from d in db.MstTaxes
+                                where d.TaxCode == "VATOUT"
+                                select d;
+                if (taxVATOut.Any() == false)
+                {
+                    return new String[] { "VAT OUTPUT Tax not found.", "0" };
                 }
 
                 var articleType = from d in db.MstArticleTypes
@@ -219,8 +323,8 @@ namespace easyfmis.Controllers
 
                 Int32? supplierId;
                 var supplier = from d in db.MstArticles
-                              where d.MstArticleType.Id == 3
-                              select d;
+                               where d.MstArticleType.Id == 3
+                               select d;
                 if (_articleType == "ITEM")
                 {
                     if (supplier.Any())
@@ -247,8 +351,8 @@ namespace easyfmis.Controllers
                     ArticleAlias = "NA",
                     GenericArticleName = "NA",
                     Category = "NA",
-                    VATInTaxId = tax.FirstOrDefault().Id,
-                    VATOutTaxId = tax.FirstOrDefault().Id,
+                    VATInTaxId = taxVATIn.FirstOrDefault().Id,
+                    VATOutTaxId = taxVATOut.FirstOrDefault().Id,
                     UnitId = unit.FirstOrDefault().Id,
                     DefaultSupplierId = supplierId,
                     DefaultCost = 0,
@@ -295,10 +399,12 @@ namespace easyfmis.Controllers
                 }
 
                 var checkBarcode = from d in db.MstArticles
-                                   where d.ArticleBarCode == objArticle.ArticleBarCode 
+                                   where d.ArticleBarCode == objArticle.ArticleBarCode
                                    && d.Id != objArticle.Id
                                    select d;
-                if (checkBarcode.Any() && checkBarcode.FirstOrDefault().MstArticleType.ArticleType == "ITEM") {
+
+                if (checkBarcode.Any() && checkBarcode.FirstOrDefault().MstArticleType.ArticleType == "ITEM")
+                {
                     return new String[] { "Barcode already exist.", "0" };
                 }
 
@@ -365,7 +471,8 @@ namespace easyfmis.Controllers
                                      where d.Id == objArticle.Id
                                      select d;
 
-                if (currentArticle.FirstOrDefault().MstArticleType.ArticleType == "ITEM") {
+                if (currentArticle.FirstOrDefault().MstArticleType.ArticleType == "ITEM")
+                {
                     var checkBarcode = from d in db.MstArticles
                                        where d.ArticleBarCode == objArticle.ArticleBarCode
                                        && d.Id != objArticle.Id
@@ -376,7 +483,7 @@ namespace easyfmis.Controllers
                         return new String[] { "Barcode already exist.", "0" };
                     }
                 }
-                
+
                 if (currentArticle.Any())
                 {
                     var lockArticle = currentArticle.FirstOrDefault();

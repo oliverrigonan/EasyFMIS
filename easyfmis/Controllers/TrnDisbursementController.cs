@@ -218,8 +218,13 @@ namespace easyfmis.Controllers
                     return new String[] { "Bank not found.", "0" };
                 }
 
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
                 String CVNumber = "0000000001";
-                var lastCV = from d in db.TrnDisbursements.OrderByDescending(d => d.Id) select d;
+                var lastCV = from d in db.TrnDisbursements.OrderByDescending(d => d.Id)
+                             where d.BranchId == currentBranchId
+                             select d;
+
                 if (lastCV.Any())
                 {
                     Int32 newCVNumber = Convert.ToInt32(lastCV.FirstOrDefault().CVNumber) + 1;

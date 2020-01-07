@@ -32,7 +32,7 @@ namespace easyfmis.Controllers
         // ======================
         // List Receiving Receipt
         // ======================
-        public List<Entities.TrnReceivingReceiptEntity> ListReceivingReceipt(DateTime startDateFilter, DateTime endDateFilter,  String filter)
+        public List<Entities.TrnReceivingReceiptEntity> ListReceivingReceipt(DateTime startDateFilter, DateTime endDateFilter, String filter)
         {
             var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
             var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
@@ -193,8 +193,13 @@ namespace easyfmis.Controllers
                     return new String[] { "Term not found.", "0" };
                 }
 
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
                 String receivingReceiptNumber = "0000000001";
-                var lastReceivingReceipt = from d in db.TrnReceivingReceipts.OrderByDescending(d => d.Id) select d;
+                var lastReceivingReceipt = from d in db.TrnReceivingReceipts.OrderByDescending(d => d.Id)
+                                           where d.BranchId == currentBranchId
+                                           select d;
+
                 if (lastReceivingReceipt.Any())
                 {
                     Int32 newRRNumber = Convert.ToInt32(lastReceivingReceipt.FirstOrDefault().RRNumber) + 1;

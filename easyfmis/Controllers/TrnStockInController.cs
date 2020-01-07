@@ -124,8 +124,12 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
                 String stockInNumber = "0000000001";
-                var lastStockIn = from d in db.TrnStockIns.OrderByDescending(d => d.Id) select d;
+                var lastStockIn = from d in db.TrnStockIns.OrderByDescending(d => d.Id)
+                                  where d.BranchId == currentBranchId
+                                  select d;
                 if (lastStockIn.Any())
                 {
                     Int32 newINNumber = Convert.ToInt32(lastStockIn.FirstOrDefault().INNumber) + 1;

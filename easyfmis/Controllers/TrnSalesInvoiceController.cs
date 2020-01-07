@@ -41,7 +41,7 @@ namespace easyfmis.Controllers
                                 where d.SIDate >= startDateFilter
                                 && d.SIDate >= endDateFilter
                                 && d.BranchId == currentBranchId
-                                && (d.SINumber.Contains(filter) 
+                                && (d.SINumber.Contains(filter)
                                 || d.ManualSINumber.Contains(filter)
                                 || d.MstArticle.Article.Contains(filter)
                                 || d.Remarks.Contains(filter))
@@ -194,8 +194,13 @@ namespace easyfmis.Controllers
                     return new String[] { "Term not found.", "0" };
                 }
 
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
                 String salesInvoiceNumber = "0000000001";
-                var lastSalesInvoice = from d in db.TrnSalesInvoices.OrderByDescending(d => d.Id) select d;
+                var lastSalesInvoice = from d in db.TrnSalesInvoices.OrderByDescending(d => d.Id)
+                                       where d.BranchId == currentBranchId
+                                       select d;
+
                 if (lastSalesInvoice.Any())
                 {
                     Int32 newSINumber = Convert.ToInt32(lastSalesInvoice.FirstOrDefault().SINumber) + 1;

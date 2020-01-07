@@ -82,36 +82,36 @@ namespace easyfmis.Controllers
         public Entities.TrnPurchaseOrderEntity DetailPurchaseOrder(Int32 id)
         {
             var purchaseOrder = from d in db.TrnPurchaseOrders
-                             where d.Id == id
-                             select new Entities.TrnPurchaseOrderEntity
-                             {
-                                 Id = d.Id,
-                                 BranchId = d.BranchId,
-                                 Branch = d.MstBranch.Branch,
-                                 PONumber = d.PONumber,
-                                 PODate = d.PODate,
-                                 ManualPONumber = d.ManualPONumber,
-                                 SupplierId = d.SupplierId,
-                                 Supplier = d.MstArticle.Article,
-                                 TermId = d.TermId,
-                                 Term = d.MstTerm.Term,
-                                 DateNeeded = d.DateNeeded,
-                                 Remarks = d.Remarks,
-                                 IsClose = d.IsClose,
-                                 RequestedBy = d.RequestedBy,
-                                 RequestedByFullName = d.MstUser.FullName,
-                                 PreparedBy = d.PreparedBy,
-                                 PreparedByFullName = d.MstUser1.FullName,
-                                 CheckedBy = d.CheckedBy,
-                                 CheckedByFullName = d.MstUser2.FullName,
-                                 ApprovedBy = d.ApprovedBy,
-                                 ApprovedByFullName = d.MstUser3.FullName,
-                                 IsLocked = d.IsLocked,
-                                 CreatedBy = d.CheckedBy,
-                                 CreatedDateTime = d.CreatedDateTime,
-                                 UpdatedBy = d.UpdatedBy,
-                                 UpdatedDateTime = d.UpdatedDateTime
-                             };
+                                where d.Id == id
+                                select new Entities.TrnPurchaseOrderEntity
+                                {
+                                    Id = d.Id,
+                                    BranchId = d.BranchId,
+                                    Branch = d.MstBranch.Branch,
+                                    PONumber = d.PONumber,
+                                    PODate = d.PODate,
+                                    ManualPONumber = d.ManualPONumber,
+                                    SupplierId = d.SupplierId,
+                                    Supplier = d.MstArticle.Article,
+                                    TermId = d.TermId,
+                                    Term = d.MstTerm.Term,
+                                    DateNeeded = d.DateNeeded,
+                                    Remarks = d.Remarks,
+                                    IsClose = d.IsClose,
+                                    RequestedBy = d.RequestedBy,
+                                    RequestedByFullName = d.MstUser.FullName,
+                                    PreparedBy = d.PreparedBy,
+                                    PreparedByFullName = d.MstUser1.FullName,
+                                    CheckedBy = d.CheckedBy,
+                                    CheckedByFullName = d.MstUser2.FullName,
+                                    ApprovedBy = d.ApprovedBy,
+                                    ApprovedByFullName = d.MstUser3.FullName,
+                                    IsLocked = d.IsLocked,
+                                    CreatedBy = d.CheckedBy,
+                                    CreatedDateTime = d.CreatedDateTime,
+                                    UpdatedBy = d.UpdatedBy,
+                                    UpdatedDateTime = d.UpdatedDateTime
+                                };
 
             return purchaseOrder.FirstOrDefault();
         }
@@ -176,8 +176,13 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
                 String PONumber = "0000000001";
-                var lastPO = from d in db.TrnPurchaseOrders.OrderByDescending(d => d.Id) select d;
+                var lastPO = from d in db.TrnPurchaseOrders.OrderByDescending(d => d.Id)
+                             where d.BranchId == currentBranchId
+                             select d;
+
                 if (lastPO.Any())
                 {
                     Int32 newPONumber = Convert.ToInt32(lastPO.FirstOrDefault().PONumber) + 1;
@@ -250,9 +255,9 @@ namespace easyfmis.Controllers
                 }
 
                 var requestedByUser = from d in db.MstUsers
-                                    where d.Id == objPurchaseOrder.RequestedBy
-                                    && d.IsLocked == true
-                                    select d;
+                                      where d.Id == objPurchaseOrder.RequestedBy
+                                      && d.IsLocked == true
+                                      select d;
 
                 if (requestedByUser.Any() == false)
                 {
@@ -270,9 +275,9 @@ namespace easyfmis.Controllers
                 }
 
                 var preparedByUser = from d in db.MstUsers
-                                    where d.Id == objPurchaseOrder.PreparedBy
-                                    && d.IsLocked == true
-                                    select d;
+                                     where d.Id == objPurchaseOrder.PreparedBy
+                                     && d.IsLocked == true
+                                     select d;
 
                 if (preparedByUser.Any() == false)
                 {
@@ -290,8 +295,8 @@ namespace easyfmis.Controllers
                 }
 
                 var purchaseOrder = from d in db.TrnPurchaseOrders
-                                 where d.Id == id
-                                 select d;
+                                    where d.Id == id
+                                    select d;
 
                 if (purchaseOrder.Any())
                 {
