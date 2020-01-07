@@ -511,9 +511,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 comboBoxSONumber.DataSource = salesOrderList;
                 comboBoxSONumber.DisplayMember = "SONumber";
                 comboBoxSONumber.ValueMember = "Id";
-
-                CreateSalesOrderItemDataGridView();
             }
+            CreateSalesOrderItemDataGridView();
         }
 
         public Task<List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity>> GetSalesOrderItemDataTask()
@@ -561,7 +560,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             }
         }
 
-        public async void SetStockOutItemDataSourceAsync()
+        public async void SetStockSalesOrdertemDataSourceAsync()
         {
             List<Entities.DgvSalesInvoiceItemEntitySalesOrderitemEntity> getStockOutItemData = await GetSalesOrderItemDataTask();
             if (getStockOutItemData.Any())
@@ -619,7 +618,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
         public void UpdateSalesOrderItemDataSource()
         {
-            SetStockOutItemDataSourceAsync();
+            SetStockSalesOrdertemDataSourceAsync();
         }
 
         public void CreateSalesOrderItemDataGridView()
@@ -760,6 +759,13 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         }
 
         private void textBoxSearchSalesOrderItemFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            UpdateSalesOrderItemDataSource();
+        }
+
+
+
+        private void comboBoxSONumber_SelectionChangedCommitted(object sender, EventArgs e)
         {
             UpdateSalesOrderItemDataSource();
         }

@@ -210,7 +210,7 @@ namespace easyfmis.Controllers
 
                 Data.TrnSalesOrder newSalesOrder = new Data.TrnSalesOrder()
                 {
-                    BranchId = currentUserLogin.FirstOrDefault().BranchId,
+                    BranchId = currentBranchId,
                     SONumber = sONumber,
                     SODate = DateTime.Today,
                     ManualSONumber = "NA",
