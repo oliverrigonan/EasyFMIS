@@ -400,6 +400,8 @@
             // 
             // comboBoxPayType
             // 
+            this.comboBoxPayType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxPayType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPayType.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPayType.FormattingEnabled = true;
             this.comboBoxPayType.Location = new System.Drawing.Point(267, 116);
@@ -419,6 +421,8 @@
             // 
             // comboBoxSINumber
             // 
+            this.comboBoxSINumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxSINumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxSINumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxSINumber.FormattingEnabled = true;
             this.comboBoxSINumber.Location = new System.Drawing.Point(267, 43);
@@ -460,6 +464,8 @@
             // 
             // comboBoxArticleGroup
             // 
+            this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxArticleGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxArticleGroup.FormattingEnabled = true;
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(267, 6);

@@ -138,6 +138,8 @@
             // 
             // comboBoxCompany
             // 
+            this.comboBoxCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCompany.FormattingEnabled = true;
             this.comboBoxCompany.Location = new System.Drawing.Point(506, 122);
             this.comboBoxCompany.Name = "comboBoxCompany";

@@ -174,6 +174,8 @@
             // 
             // comboBoxArticleGroup
             // 
+            this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxArticleGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxArticleGroup.FormattingEnabled = true;
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(161, 78);
@@ -319,7 +321,7 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Bank Code:";
             // 
-            // MstBankDetailForm
+            // SysSystemTablesBankDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -329,7 +331,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "MstBankDetailForm";
+            this.Name = "SysSystemTablesBankDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bank Detail";
             this.panel1.ResumeLayout(false);

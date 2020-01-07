@@ -112,6 +112,8 @@
             // 
             // comboBoxAccount
             // 
+            this.comboBoxAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxAccount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxAccount.FormattingEnabled = true;
             this.comboBoxAccount.Location = new System.Drawing.Point(98, 105);

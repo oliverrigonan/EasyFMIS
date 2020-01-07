@@ -500,8 +500,12 @@ namespace easyfmis.Controllers
         // =============
         public List<Entities.TrnSalesOrderItemEntity> ListSalesOrderItem(Int32 sOId, Int32 customerId)
         {
+            var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
             var salesOrderItem = from d in db.TrnSalesOrderItems
                                  where d.SOId == sOId
+                                 && d.TrnSalesOrder.MstBranch.Id == currentBranchId
                                  && d.TrnSalesOrder.CustomerId == customerId
                                  select new Entities.TrnSalesOrderItemEntity
                                  {

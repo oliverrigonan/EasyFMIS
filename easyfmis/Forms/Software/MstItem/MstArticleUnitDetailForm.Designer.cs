@@ -178,7 +178,7 @@
             // 
             // comboBoxConvertedUnit
             // 
-            this.comboBoxConvertedUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxConvertedUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxConvertedUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxConvertedUnit.DropDownHeight = 90;
             this.comboBoxConvertedUnit.DropDownWidth = 150;

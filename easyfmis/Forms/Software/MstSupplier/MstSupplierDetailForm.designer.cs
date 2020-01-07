@@ -124,7 +124,7 @@
             this.label1.Location = new System.Drawing.Point(63, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 35);
+            this.label1.Size = new System.Drawing.Size(190, 35);
             this.label1.TabIndex = 2;
             this.label1.Text = "Supplier Detail";
             // 
@@ -174,6 +174,8 @@
             // 
             // comboBoxArticleGroup
             // 
+            this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxArticleGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxArticleGroup.FormattingEnabled = true;
             this.comboBoxArticleGroup.Location = new System.Drawing.Point(161, 78);
@@ -288,7 +290,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label3.Location = new System.Drawing.Point(67, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 23);
+            this.label3.Size = new System.Drawing.Size(76, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Supplier:";
             // 
@@ -316,7 +318,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.label4.Location = new System.Drawing.Point(22, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 23);
+            this.label4.Size = new System.Drawing.Size(121, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Supplier Code:";
             // 

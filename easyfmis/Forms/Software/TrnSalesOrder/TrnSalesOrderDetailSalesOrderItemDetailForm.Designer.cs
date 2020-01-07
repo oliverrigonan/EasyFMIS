@@ -274,7 +274,7 @@
             // 
             // comboBoxTax
             // 
-            this.comboBoxTax.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxTax.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxTax.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxTax.FormattingEnabled = true;
@@ -317,7 +317,7 @@
             // 
             // comboBoxDiscount
             // 
-            this.comboBoxDiscount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxDiscount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxDiscount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxDiscount.FormattingEnabled = true;
@@ -339,7 +339,7 @@
             // 
             // comboBoxInventoryCode
             // 
-            this.comboBoxInventoryCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxInventoryCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxInventoryCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxInventoryCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxInventoryCode.FormattingEnabled = true;
@@ -360,7 +360,7 @@
             // 
             // comboBoxUnit
             // 
-            this.comboBoxUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxUnit.FormattingEnabled = true;
