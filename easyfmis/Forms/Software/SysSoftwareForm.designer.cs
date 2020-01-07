@@ -132,7 +132,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(190, 20);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Version: 1.201912141821";
+            this.label2.Text = "Version: 1.202001070443";
             // 
             // label4
             // 
