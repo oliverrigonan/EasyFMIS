@@ -288,6 +288,8 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                                 ColumnReceivingReceiptItemListSpace = ""
                             };
 
+                textBoxTotalRRAmount.Text = listReceivingReceiptItem.Sum(d => d.Amount).ToString("#,##0.00");
+
                 return Task.FromResult(items.ToList());
             }
             else

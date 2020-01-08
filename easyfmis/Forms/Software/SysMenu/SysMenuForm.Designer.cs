@@ -43,7 +43,7 @@
             this.buttonSupplier = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonCustomer = new System.Windows.Forms.Button();
-            this.buttonPOSReport = new System.Windows.Forms.Button();
+            this.buttonMemo = new System.Windows.Forms.Button();
             this.buttonSystemTables = new System.Windows.Forms.Button();
             this.buttonAccountsPayableReport = new System.Windows.Forms.Button();
             this.buttonSalesOrder = new System.Windows.Forms.Button();
@@ -94,7 +94,7 @@
             this.panel1.Controls.Add(this.buttonSupplier);
             this.panel1.Controls.Add(this.buttonSettings);
             this.panel1.Controls.Add(this.buttonCustomer);
-            this.panel1.Controls.Add(this.buttonPOSReport);
+            this.panel1.Controls.Add(this.buttonMemo);
             this.panel1.Controls.Add(this.buttonSystemTables);
             this.panel1.Controls.Add(this.buttonAccountsPayableReport);
             this.panel1.Controls.Add(this.buttonSalesOrder);
@@ -328,24 +328,25 @@
             this.buttonCustomer.UseVisualStyleBackColor = false;
             this.buttonCustomer.Click += new System.EventHandler(this.buttonCustomer_Click);
             // 
-            // buttonPOSReport
+            // buttonMemo
             // 
-            this.buttonPOSReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonPOSReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonPOSReport.FlatAppearance.BorderSize = 0;
-            this.buttonPOSReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPOSReport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonPOSReport.ForeColor = System.Drawing.Color.White;
-            this.buttonPOSReport.ImageKey = "Reports.png";
-            this.buttonPOSReport.ImageList = this.imageListMenuIcons;
-            this.buttonPOSReport.Location = new System.Drawing.Point(711, 399);
-            this.buttonPOSReport.Name = "buttonPOSReport";
-            this.buttonPOSReport.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonPOSReport.Size = new System.Drawing.Size(227, 123);
-            this.buttonPOSReport.TabIndex = 15;
-            this.buttonPOSReport.Text = "\r\nOther Reports";
-            this.buttonPOSReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonPOSReport.UseVisualStyleBackColor = false;
+            this.buttonMemo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonMemo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonMemo.FlatAppearance.BorderSize = 0;
+            this.buttonMemo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMemo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonMemo.ForeColor = System.Drawing.Color.White;
+            this.buttonMemo.ImageKey = "Reports.png";
+            this.buttonMemo.ImageList = this.imageListMenuIcons;
+            this.buttonMemo.Location = new System.Drawing.Point(711, 399);
+            this.buttonMemo.Name = "buttonMemo";
+            this.buttonMemo.Padding = new System.Windows.Forms.Padding(10);
+            this.buttonMemo.Size = new System.Drawing.Size(227, 123);
+            this.buttonMemo.TabIndex = 15;
+            this.buttonMemo.Text = "Memo";
+            this.buttonMemo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonMemo.UseVisualStyleBackColor = false;
+            this.buttonMemo.Click += new System.EventHandler(this.buttonMemo_Click);
             // 
             // buttonSystemTables
             // 
@@ -539,7 +540,7 @@
         private System.Windows.Forms.Button buttonSalesInvoice;
         private System.Windows.Forms.Button buttonPurchaseOrder;
         private System.Windows.Forms.Button buttonAccountsPayableReport;
-        private System.Windows.Forms.Button buttonPOSReport;
+        private System.Windows.Forms.Button buttonMemo;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Button buttonReceivingReceipt;
         private System.Windows.Forms.Button buttonUser;

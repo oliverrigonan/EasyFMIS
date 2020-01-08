@@ -109,5 +109,10 @@ namespace easyfmis.Forms.Software.SysMenu
         {
             sysSoftwareForm.AddTabPageSupplierList();
         }
+
+        private void buttonMemo_Click(object sender, EventArgs e)
+        {
+            sysSoftwareForm.AddTabPageMemoList();
+        }
     }
 }

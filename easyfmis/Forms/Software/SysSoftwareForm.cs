@@ -72,6 +72,9 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageDisbursementList = new TabPage { Name = "tabPageDisbursementList", Text = "Activity - Disbursement List" };
         public TabPage tabPageDisbursementDetail = new TabPage { Name = "tabPageDisbursementDetail", Text = "Activity - Disbursement Detail" };
 
+        public TabPage tabPageMemoList = new TabPage { Name = "tabPageMemoList", Text = "Activity - Memo List" };
+        public TabPage tabPageMemoDetail = new TabPage { Name = "tabPageMemoDetail", Text = "Activity - Memo Detail" };
+
         public TabPage tabPageSalesOrder = new TabPage { Name = "tabPageSalesOrder", Text = "Activity - Sales Order List" };
         public TabPage tabPageSalesOrderDetail = new TabPage { Name = "tabPageSalesOrderDetail", Text = "Activity - Sales Order Detail" };
         public TabPage tabPageSalesInvoice = new TabPage { Name = "tabPageSalesInvoice", Text = "Activity - Sales Invoice List" };
@@ -137,8 +140,9 @@ namespace easyfmis.Forms.Software
         public TrnCollection.TrnCollectionForm trnCollectionForm = null;
         public TrnCollection.TrnCollectionDetailForm trnCollectionDetailForm = null;
 
-        //public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
-        //public TrnDisbursement.TrnDisbursementDetailForm trnDisbursementDetailForm = null;
+        public TrnMemo.TrnMemoForm trnMemoForm  = null;
+        //public TrnMemo.TrnDisbursementDetailForm trnDisbursementDetailForm = null;
+
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
         public TrnDisbursement.TrnDisbursementListForm trnDisbursementListForm = null;
@@ -1007,6 +1011,30 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageDisbursementDetail);
                 tabControlSoftware.SelectTab(tabPageDisbursementDetail);
+            }
+        }
+
+        public void AddTabPageMemoList()
+        {
+            tabPageMemoList.Controls.Remove(trnMemoForm);
+
+            trnMemoForm = new TrnMemo.TrnMemoForm(this)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageMemoList.Controls.Add(trnMemoForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageMemoList) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageMemoList);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageMemoList);
+                tabControlSoftware.SelectTab(tabPageMemoList);
             }
         }
 

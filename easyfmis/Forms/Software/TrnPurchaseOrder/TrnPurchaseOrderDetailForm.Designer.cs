@@ -96,6 +96,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
+            this.textBoxTotalPOAmount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -510,6 +511,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.textBoxTotalPOAmount);
             this.panel4.Controls.Add(this.buttonPurchaseOrderItemPageListFirst);
             this.panel4.Controls.Add(this.buttonPurchaseOrderItemPageListPrevious);
             this.panel4.Controls.Add(this.buttonPurchaseOrderItemPageListNext);
@@ -827,6 +829,18 @@
             this.tabPageStockOutItems.Text = "Purchase Order Items";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
+            // textBoxTotalPOAmount
+            // 
+            this.textBoxTotalPOAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalPOAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalPOAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalPOAmount.Location = new System.Drawing.Point(816, 9);
+            this.textBoxTotalPOAmount.Name = "textBoxTotalPOAmount";
+            this.textBoxTotalPOAmount.Size = new System.Drawing.Size(549, 34);
+            this.textBoxTotalPOAmount.TabIndex = 18;
+            this.textBoxTotalPOAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // TrnPurchaseOrderDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -918,5 +932,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemSpace;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxTotalPOAmount;
     }
 }

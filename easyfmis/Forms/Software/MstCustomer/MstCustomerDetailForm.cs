@@ -54,6 +54,7 @@ namespace easyfmis.Forms.Software.MstCustomer
             textBoxContactNumber.Text = mstCustomerEntity.ContactNumber;
             textBoxEmailAddress.Text = mstCustomerEntity.EmailAddress;
             textBoxTIN.Text = mstCustomerEntity.TIN;
+            textBoxRemarks.Text = mstCustomerEntity.Remarks;
         }
 
         public void UpdateComponents(Boolean isLocked)
@@ -68,6 +69,7 @@ namespace easyfmis.Forms.Software.MstCustomer
             textBoxContactNumber.Enabled = !isLocked;
             textBoxTIN.Enabled = !isLocked;
             textBoxEmailAddress.Enabled = !isLocked;
+            textBoxRemarks.Enabled = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
@@ -82,6 +84,7 @@ namespace easyfmis.Forms.Software.MstCustomer
             mstCustomerEntity.ContactNumber = textBoxContactNumber.Text;
             mstCustomerEntity.EmailAddress = textBoxEmailAddress.Text;
             mstCustomerEntity.TIN = textBoxTIN.Text;
+            mstCustomerEntity.Remarks = textBoxRemarks.Text;
 
 
             String[] lockCustomer = mstArticleController.LockArticle(mstCustomerEntity);

@@ -121,6 +121,7 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxTotalRRAmount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -495,6 +496,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.textBoxTotalRRAmount);
             this.panel4.Controls.Add(this.buttonReceivingReceiptItemPageListFirst);
             this.panel4.Controls.Add(this.buttonReceivingReceiptItemPageListPrevious);
             this.panel4.Controls.Add(this.buttonReceivingReceiptItemPageListNext);
@@ -1086,6 +1088,18 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
+            // textBoxTotalRRAmount
+            // 
+            this.textBoxTotalRRAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalRRAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalRRAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalRRAmount.Location = new System.Drawing.Point(816, 9);
+            this.textBoxTotalRRAmount.Name = "textBoxTotalRRAmount";
+            this.textBoxTotalRRAmount.Size = new System.Drawing.Size(549, 34);
+            this.textBoxTotalRRAmount.TabIndex = 19;
+            this.textBoxTotalRRAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // TrnReceivingReceiptDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1200,5 +1214,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListSpace;
+        private System.Windows.Forms.TextBox textBoxTotalRRAmount;
     }
 }

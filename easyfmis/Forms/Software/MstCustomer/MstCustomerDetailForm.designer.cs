@@ -52,6 +52,8 @@
             this.textBoxCustomer = new System.Windows.Forms.TextBox();
             this.textBoxCustomerCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxRemarks = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -149,6 +151,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.textBoxRemarks);
             this.panel2.Controls.Add(this.comboBoxArticleGroup);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
@@ -322,6 +326,25 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Customer Code:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label8.Location = new System.Drawing.Point(81, 368);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 23);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "Remarks:";
+            // 
+            // textBoxRemarks
+            // 
+            this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxRemarks.Location = new System.Drawing.Point(161, 365);
+            this.textBoxRemarks.Multiline = true;
+            this.textBoxRemarks.Name = "textBoxRemarks";
+            this.textBoxRemarks.Size = new System.Drawing.Size(409, 102);
+            this.textBoxRemarks.TabIndex = 41;
+            // 
             // MstCustomerDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -368,5 +391,7 @@
         private System.Windows.Forms.TextBox textBoxTIN;
         private System.Windows.Forms.ComboBox comboBoxArticleGroup;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxRemarks;
     }
 }

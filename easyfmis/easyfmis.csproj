@@ -98,6 +98,7 @@
     <Compile Include="Controllers\TrnDisbursementController.cs" />
     <Compile Include="Controllers\TrnDisbursementLineController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
+    <Compile Include="Controllers\TrnMemoController.cs" />
     <Compile Include="Controllers\TrnReceivingReceiptController.cs" />
     <Compile Include="Controllers\TrnReceivingReceiptItemController.cs" />
     <Compile Include="Controllers\TrnPurchaseOrderController.cs" />
@@ -160,6 +161,8 @@
     <Compile Include="Entities\DgvStockInItemEntity.cs" />
     <Compile Include="Entities\DgvStockInEntity.cs" />
     <Compile Include="Entities\DgvSearchItemEntity.cs" />
+    <Compile Include="Entities\DgvTrnMemoEntity.cs" />
+    <Compile Include="Entities\DgvTrnMemoLineEntity.cs" />
     <Compile Include="Entities\DgvTrnSalesOrderEntity.cs" />
     <Compile Include="Entities\DgvTrnSalesOrderItemEntity.cs" />
     <Compile Include="Entities\DgvMstItemPrice.cs" />
@@ -194,6 +197,8 @@
     <Compile Include="Entities\TrnDisbursementEntity.cs" />
     <Compile Include="Entities\TrnDisbursementLineEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
+    <Compile Include="Entities\TrnMemoEntity.cs" />
+    <Compile Include="Entities\TrnMemoLineEntity.cs" />
     <Compile Include="Entities\TrnReceivingReceiptEntity.cs" />
     <Compile Include="Entities\TrnReceivingReceiptItemEntity.cs" />
     <Compile Include="Entities\TrnPurchaseOrderEntity.cs" />
@@ -443,6 +448,18 @@
     </Compile>
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailPrintPreviewForm.Designer.cs">
       <DependentUpon>TrnDisbursementDetailPrintPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoForm.Designer.cs">
+      <DependentUpon>TrnMemoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoDetailForm.Designer.cs">
+      <DependentUpon>TrnMemoDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.cs">
       <SubType>Form</SubType>
@@ -798,6 +815,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailPrintPreviewForm.resx">
       <DependentUpon>TrnDisbursementDetailPrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnMemo\TrnMemoForm.resx">
+      <DependentUpon>TrnMemoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnMemo\TrnMemoDetailForm.resx">
+      <DependentUpon>TrnMemoDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.resx">
       <DependentUpon>TrnPurchaseOrderDetailPrintPreviewForm.cs</DependentUpon>

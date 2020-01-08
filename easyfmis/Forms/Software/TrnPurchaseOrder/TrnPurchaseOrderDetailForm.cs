@@ -282,6 +282,8 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
                                 ColumnPurchaseOrderItemListBaseCost = d.BaseCost.ToString("#,##0.00")
                             };
 
+                textBoxTotalPOAmount.Text = listPurchaseOrderItem.Sum(d => d.Amount).ToString("#,##0.00");
+
                 return Task.FromResult(items.ToList());
             }
             else
