@@ -1,6 +1,6 @@
 ﻿namespace easyfmis.Forms.Software.TrnMemo
 {
-    partial class TrnMemoForm
+    partial class TrnMemoListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnMemoForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnMemoListForm));
             this.textBoxMemoFilter = new System.Windows.Forms.TextBox();
             this.buttonMemoPageListFirst = new System.Windows.Forms.Button();
             this.buttonMemoPageListPrevious = new System.Windows.Forms.Button();

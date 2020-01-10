@@ -11,7 +11,10 @@ namespace easyfmis.Entities
         public String ColumnMemoLineListButtonEdit { get; set; }
         public String ColumnMemoLineListButtonDelete { get; set; }
         public Int32 ColumnMemoLineListId { get; set; }
+        public Int32 ColumnMemoLineListMOId { get; set; }
+        public Int32? ColumnMemoLineListSIId { get; set; }
         public String ColumnMemoLineListSINumber { get; set; }
+        public Int32? ColumnMemoLineListRRId { get; set; }
         public String ColumnMemoLineListRRNumber { get; set; }
         public String ColumnMemoLineListAmount { get; set; }
         public String ColumnMemoLineListParticulars { get; set; }

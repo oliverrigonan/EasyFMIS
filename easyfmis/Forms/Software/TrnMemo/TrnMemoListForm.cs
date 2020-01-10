@@ -11,7 +11,7 @@ using PagedList;
 
 namespace easyfmis.Forms.Software.TrnMemo
 {
-    public partial class TrnMemoForm : Form
+    public partial class TrnMemoListForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
 
@@ -21,7 +21,7 @@ namespace easyfmis.Forms.Software.TrnMemo
         public PagedList<Entities.DgvTrnMemoEntity> memoListPageList = new PagedList<Entities.DgvTrnMemoEntity>(memoListData, pageNumber, pageSize);
         public BindingSource memoListDataSource = new BindingSource();
 
-        public TrnMemoForm(SysSoftwareForm softwareForm)
+        public TrnMemoListForm(SysSoftwareForm softwareForm)
         {
             InitializeComponent();
             sysSoftwareForm = softwareForm;
@@ -149,12 +149,12 @@ namespace easyfmis.Forms.Software.TrnMemo
             String[] addMemo = trnMemoController.AddMemo();
             if (addMemo[1].Equals("0") == false)
             {
-                //sysSoftwareForm.AddTabPageMemoDetail(this, trnMemoController.DetailMemo(Convert.ToInt32(addMemo[1])));
-                //UpdateMemoDataSource();
+                sysSoftwareForm.AddTabPageMemoDetail(this, trnMemoController.DetailMemo(Convert.ToInt32(addMemo[1])));
+                UpdateMemoDataSource();
             }
             else
             {
-                MessageBox.Show(addMemo[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(addMemo[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -173,8 +173,8 @@ namespace easyfmis.Forms.Software.TrnMemo
 
             if (e.RowIndex > -1 && dataGridViewMemo.CurrentCell.ColumnIndex == dataGridViewMemo.Columns["ColumnMemoListButtonEdit"].Index)
             {
-            //    Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
-            //    sysSoftwareForm.AddTabPageMemoDetail(this, trnMemoController.DetailMemo(Convert.ToInt32(dataGridViewMemo.Rows[e.RowIndex].Cells[dataGridViewMemo.Columns["ColumnMemoListId"].Index].Value)));
+                Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
+                sysSoftwareForm.AddTabPageMemoDetail(this, trnMemoController.DetailMemo(Convert.ToInt32(dataGridViewMemo.Rows[e.RowIndex].Cells[dataGridViewMemo.Columns["ColumnMemoListId"].Index].Value)));
             }
 
             if (e.RowIndex > -1 && dataGridViewMemo.CurrentCell.ColumnIndex == dataGridViewMemo.Columns["ColumnMemoListButtonDelete"].Index)
@@ -183,11 +183,11 @@ namespace easyfmis.Forms.Software.TrnMemo
 
                 if (isLocked == true)
                 {
-                    MessageBox.Show("Already locked.", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Already locked.", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    DialogResult deleteDialogResult = MessageBox.Show("Delete Sales order?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult deleteDialogResult = MessageBox.Show("Delete Memo?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (deleteDialogResult == DialogResult.Yes)
                     {
                         Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
@@ -200,7 +200,7 @@ namespace easyfmis.Forms.Software.TrnMemo
                         }
                         else
                         {
-                            MessageBox.Show(deleteMemo[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(deleteMemo[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

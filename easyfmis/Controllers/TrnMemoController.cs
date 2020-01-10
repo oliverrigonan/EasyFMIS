@@ -48,6 +48,7 @@ namespace easyfmis.Controllers
                        {
                            Id = d.Id,
                            BranchId = d.BranchId,
+                           Branch = d.MstBranch.Branch,
                            MONumber = d.MONumber,
                            MODate = d.MODate,
                            ArticleId = d.ArticleId,
@@ -77,6 +78,7 @@ namespace easyfmis.Controllers
                        {
                            Id = d.Id,
                            BranchId = d.BranchId,
+                           Branch = d.MstBranch.Branch,
                            MONumber = d.MONumber,
                            MODate = d.MODate,
                            ArticleId = d.ArticleId,
@@ -94,14 +96,14 @@ namespace easyfmis.Controllers
             return memo.FirstOrDefault();
         }
 
-        // ========================
-        // Dropdown List - Supplier
-        // ========================
-        public List<Entities.MstArticleEntity> DropdownListMemoSupplier()
+        // =======================
+        // Dropdown List - Article
+        // =======================
+        public List<Entities.MstArticleEntity> DropdownListMemoArticle()
         {
             var suppliers = from d in db.MstArticles
                             where d.MstArticleType.ArticleType == "SUPPLIER"
-                              && d.MstArticleType.ArticleType == "CUSTOMER"
+                              || d.MstArticleType.ArticleType == "CUSTOMER"
                             select new Entities.MstArticleEntity
                             {
                                 Id = d.Id,

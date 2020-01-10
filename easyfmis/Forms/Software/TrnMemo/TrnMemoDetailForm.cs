@@ -14,7 +14,7 @@ namespace easyfmis.Forms.Software.TrnMemo
     public partial class TrnMemoDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
-        TrnMemoForm trnMemoForm;
+        TrnMemoListForm trnMemoForm;
         public Entities.TrnMemoEntity trnMemoEntity;
 
         public static List<Entities.DgvTrnMemoLineEntity> memoLineData = new List<Entities.DgvTrnMemoLineEntity>();
@@ -23,7 +23,7 @@ namespace easyfmis.Forms.Software.TrnMemo
         public PagedList<Entities.DgvTrnMemoLineEntity> memoLinePageSize = new PagedList<Entities.DgvTrnMemoLineEntity>(memoLineData, pageNumber, pageSize);
         public BindingSource memoLineDataSource = new BindingSource();
 
-        public TrnMemoDetailForm(SysSoftwareForm softwareForm, TrnMemoForm purchaseOrderForm, Entities.TrnMemoEntity memoEntity)
+        public TrnMemoDetailForm(SysSoftwareForm softwareForm, TrnMemoListForm purchaseOrderForm, Entities.TrnMemoEntity memoEntity)
         {
             InitializeComponent();
             sysSoftwareForm = softwareForm;
@@ -31,27 +31,28 @@ namespace easyfmis.Forms.Software.TrnMemo
             trnMemoForm = purchaseOrderForm;
             trnMemoEntity = memoEntity;
 
-            GetSupplierList();
+            GetArticleList();
         }
 
-        public void GetSupplierList()
+        public void GetArticleList()
         {
-            Controllers.TrnPurchaseOrderController trnPurchaseOrderController = new Controllers.TrnPurchaseOrderController();
-            var supplier = trnPurchaseOrderController.DropdownListPurchaseOrderSupplier();
-            if (supplier.Any())
+            Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
+            var articles = trnMemoController.DropdownListMemoArticle();
+            if (articles.Any())
             {
-                comboBoxArticle.DataSource = supplier;
+                comboBoxArticle.DataSource = articles;
                 comboBoxArticle.ValueMember = "Id";
                 comboBoxArticle.DisplayMember = "Article";
 
-                GetUserList();
             }
+                GetUserList();
+
         }
 
         public void GetUserList()
         {
-            Controllers.TrnPurchaseOrderController trnPurchaseOrderController = new Controllers.TrnPurchaseOrderController();
-            var user = trnPurchaseOrderController.DropdownListPurchaseOrderUser();
+            Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
+            var user = trnMemoController.DropdownListMemoUser();
             if (user.Any())
             {
                 comboBoxPreparedBy.DataSource = user;
@@ -65,23 +66,22 @@ namespace easyfmis.Forms.Software.TrnMemo
                 comboBoxApprovedBy.DataSource = user;
                 comboBoxApprovedBy.ValueMember = "Id";
                 comboBoxApprovedBy.DisplayMember = "FullName";
-
-                GetPurchaseOrderDetail();
             }
+            GetMemoDetail();
         }
 
-        public void GetPurchaseOrderDetail()
+        public void GetMemoDetail()
         {
-            //UpdateComponents(trnMemoEntity.IsLocked);
+            UpdateComponents(trnMemoEntity.IsLocked);
 
-            //textBoxBranch.Text = trnMemoEntity.Branch;
-            //textBoxMONumber.Text = trnMemoEntity.PONumber;
-            //dateTimePickerPODate.Value = trnMemoEntity.PODate;
-            //comboBoxArticle.SelectedValue = trnMemoEntity.SupplierId;
-            //textBoxRemarks.Text = trnMemoEntity.Remarks;
-            //comboBoxPreparedBy.SelectedValue = trnMemoEntity.PreparedBy;
-            //comboBoxCheckedBy.SelectedValue = trnMemoEntity.CheckedBy;
-            //comboBoxApprovedBy.SelectedValue = trnMemoEntity.ApprovedBy;
+            textBoxBranch.Text = trnMemoEntity.Branch;
+            textBoxMONumber.Text = trnMemoEntity.MONumber;
+            dateTimePickerMODate.Value = trnMemoEntity.MODate;
+            comboBoxArticle.SelectedValue = trnMemoEntity.ArticleId;
+            textBoxRemarks.Text = trnMemoEntity.Remarks;
+            comboBoxPreparedBy.SelectedValue = trnMemoEntity.PreparedBy;
+            comboBoxCheckedBy.SelectedValue = trnMemoEntity.CheckedBy;
+            comboBoxApprovedBy.SelectedValue = trnMemoEntity.ApprovedBy;
 
             CreateMemoLineDataGridView();
         }
@@ -90,13 +90,10 @@ namespace easyfmis.Forms.Software.TrnMemo
         {
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = isLocked;
-
-            buttonSearchItem.Enabled = !isLocked;
 
             textBoxBranch.Enabled = !isLocked;
             textBoxMONumber.Enabled = !isLocked;
-            dateTimePickerPODate.Enabled = !isLocked;
+            dateTimePickerMODate.Enabled = !isLocked;
             comboBoxArticle.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;
             comboBoxPreparedBy.Enabled = !isLocked;
@@ -109,57 +106,47 @@ namespace easyfmis.Forms.Software.TrnMemo
 
         private void buttonLock_Click(object sender, EventArgs e)
         {
-            //Controllers.TrnPurchaseOrderController trnPurchaseOrderController = new Controllers.TrnPurchaseOrderController();
+            Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
 
-            //Entities.TrnPurchaseOrderEntity purchaseOrderEntity = new Entities.TrnPurchaseOrderEntity()
-            //{
-            //    Id = trnMemoEntity.Id,
-            //    BranchId = trnMemoEntity.BranchId,
-            //    PONumber = trnMemoEntity.PONumber,
-            //    PODate = dateTimePickerPODate.Value.Date,
-            //    ManualPONumber = textBoxManualPONumber.Text,
-            //    SupplierId = Convert.ToInt32(comboBoxArticle.SelectedValue),
-            //    TermId = Convert.ToInt32(comboBoxTerm.SelectedValue),
-            //    DateNeeded = dateTimePickerDateNeeded.Value.Date,
-            //    Remarks = textBoxRemarks.Text,
-            //    IsClose = checkBoxIsClosed.Checked,
-            //    RequestedBy = Convert.ToInt32(comboBoxRequestedBy.SelectedValue),
-            //    PreparedBy = Convert.ToInt32(comboBoxPreparedBy.SelectedValue),
-            //    CheckedBy = Convert.ToInt32(comboBoxCheckedBy.SelectedValue),
-            //    ApprovedBy = Convert.ToInt32(comboBoxApprovedBy.SelectedValue),
-            //};
+            Entities.TrnMemoEntity memoLineEntity = new Entities.TrnMemoEntity()
+            {
+                Id = trnMemoEntity.Id,
+                BranchId = trnMemoEntity.BranchId,
+                MONumber = textBoxMONumber.Text,
+                MODate = dateTimePickerMODate.Value.Date,
+                ArticleId = Convert.ToInt32(comboBoxArticle.SelectedValue),
+                Remarks = textBoxRemarks.Text,
+                PreparedBy = Convert.ToInt32(comboBoxPreparedBy.SelectedValue),
+                CheckedBy = Convert.ToInt32(comboBoxCheckedBy.SelectedValue),
+                ApprovedBy = Convert.ToInt32(comboBoxApprovedBy.SelectedValue),
+            };
 
-            //String[] lockPurchaseOrder = trnPurchaseOrderController.LockPurchaseOrder(trnMemoEntity.Id, purchaseOrderEntity);
-            //if (lockPurchaseOrder[1].Equals("0") == false)
-            //{
-            //    UpdateComponents(true);
-            //    trnMemoForm.UpdatePurchaseOrderDataSource();
-            //}
-            //else
-            //{
-            //    MessageBox.Show(lockPurchaseOrder[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            String[] lockMemo = trnMemoController.LockMemo(trnMemoEntity.Id, memoLineEntity);
+            if (lockMemo[1].Equals("0") == false)
+            {
+                UpdateComponents(true);
+                trnMemoForm.UpdateMemoDataSource();
+            }
+            else
+            {
+                MessageBox.Show(lockMemo[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonUnlock_Click(object sender, EventArgs e)
         {
-            Controllers.TrnPurchaseOrderController trnPurchaseOrderController = new Controllers.TrnPurchaseOrderController();
+            Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
 
-            String[] unlockPurchaseOrder = trnPurchaseOrderController.UnlockPurchaseOrder(trnMemoEntity.Id);
-            if (unlockPurchaseOrder[1].Equals("0") == false)
+            String[] unlockMemo = trnMemoController.UnlockMemo(trnMemoEntity.Id);
+            if (unlockMemo[1].Equals("0") == false)
             {
                 UpdateComponents(false);
                 trnMemoForm.UpdateMemoDataSource();
             }
             else
             {
-                MessageBox.Show(unlockPurchaseOrder[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(unlockMemo[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void buttonPrint_Click(object sender, EventArgs e)
-        {
-            //new TrnPurchaseOrderDetailPrintPreviewForm(trnMemoEntity.Id);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -170,16 +157,16 @@ namespace easyfmis.Forms.Software.TrnMemo
 
         public void UpdateMemoLineDataSource()
         {
-            SetStockOutItemDataSourceAsync();
+            SetMemoLineDataSourceAsync();
         }
 
-        public async void SetStockOutItemDataSourceAsync()
+        public async void SetMemoLineDataSourceAsync()
         {
-            List<Entities.DgvTrnMemoLineEntity> getStockOutItemData = await GetMemoLineDataTask();
-            if (getStockOutItemData.Any())
+            List<Entities.DgvTrnMemoLineEntity> getMemoLineData = await GetMemoLineDataTask();
+            if (getMemoLineData.Any())
             {
                 pageNumber = 1;
-                memoLineData = getStockOutItemData;
+                memoLineData = getMemoLineData;
                 memoLinePageSize = new PagedList<Entities.DgvTrnMemoLineEntity>(memoLineData, pageNumber, pageSize);
 
                 if (memoLinePageSize.PageCount == 1)
@@ -231,37 +218,32 @@ namespace easyfmis.Forms.Software.TrnMemo
 
         public Task<List<Entities.DgvTrnMemoLineEntity>> GetMemoLineDataTask()
         {
-            //Controllers.TrnMemoLineController trnMemoLineController = new Controllers.TrnMemoLineController();
+            Controllers.TrnMemoLineController trnMemoLineController = new Controllers.TrnMemoLineController();
 
-            //List<Entities.TrnMemoLineEntity> listMemoLine = trnMemoLineController.ListMemoLine(trnMemoEntity.Id);
-            //if (listMemoLine.Any())
-            //{
-            //    var items = from d in listMemoLine
-            //                select new Entities.DgvTrnMemoLineEntity
-            //                {
-            //                    //ColumnMemoLineListButtonEdit = "Edit",
-            //                    //ColumnMemoLineListButtonDelete = "Delete",
-            //                    //ColumnMemoLineListId = d.Id,
-            //                    //ColumnMemoLineListPOId = d.POId,
-            //                    //ColumnMemoLineListItemId = d.ItemId,
-            //                    //ColumnMemoLineListItemDescritpion = d.ItemDescription,
-            //                    //ColumnMemoLineListUnitId = d.UnitId,
-            //                    //ColumnMemoLineListUnit = d.Unit,
-            //                    //ColumnMemoLineListQuantity = d.Quantity.ToString("#,##0.00"),
-            //                    //ColumnMemoLineListCost = d.Cost.ToString("#,##0.00"),
-            //                    //ColumnMemoLineListAmount = d.Amount.ToString("#,##0.00"),
-            //                    //ColumnMemoLineListBaseQuantity = d.BaseQuantity.ToString("#,##0.00"),
-            //                    //ColumnMemoLineListBaseCost = d.BaseCost.ToString("#,##0.00")
-            //                };
+            List<Entities.TrnMemoLineEntity> listMemoLine = trnMemoLineController.ListMemoLine(trnMemoEntity.Id);
+            if (listMemoLine.Any())
+            {
+                var items = from d in listMemoLine
+                            select new Entities.DgvTrnMemoLineEntity
+                            {
+                                ColumnMemoLineListButtonEdit = "Edit",
+                                ColumnMemoLineListButtonDelete = "Delete",
+                                ColumnMemoLineListId = d.Id,
+                                ColumnMemoLineListMOId = d.MOId,
+                                ColumnMemoLineListSIId = d.SIId,
+                                ColumnMemoLineListSINumber = d.SINumber,
+                                ColumnMemoLineListRRId = d.RRId,
+                                ColumnMemoLineListRRNumber = d.RRNumber,
+                                ColumnMemoLineListAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnMemoLineListParticulars = d.Particulars
+                            };
 
-            //    textBoxTotalPOAmount.Text = listMemoLine.Sum(d => d.Amount).ToString("#,##0.00");
-
-            //    return Task.FromResult(items.ToList());
-            //}
-            //else
-            //{
-            return Task.FromResult(new List<Entities.DgvTrnMemoLineEntity>());
-            //}
+                return Task.FromResult(items.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvTrnMemoLineEntity>());
+            }
         }
 
         public void CreateMemoLineDataGridView()
@@ -293,50 +275,45 @@ namespace easyfmis.Forms.Software.TrnMemo
 
             if (e.RowIndex > -1 && dataGridViewMemoLine.CurrentCell.ColumnIndex == dataGridViewMemoLine.Columns["ColumnMemoLineListButtonEdit"].Index)
             {
-                //var id = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListId"].Index].Value);
-                //var pOId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListPOId"].Index].Value);
-                //var itemId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListItemId"].Index].Value);
-                //var itemDescription = dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListItemDescritpion"].Index].Value.ToString();
-                //var unitId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListUnitId"].Index].Value);
-                //var quantity = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListQuantity"].Index].Value);
-                //var Cost = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListCost"].Index].Value);
-                //var amount = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListAmount"].Index].Value);
-          
+                var id = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListId"].Index].Value);
+                var mOId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListMOId"].Index].Value);
+                var sIId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListSIId "].Index].Value);
+                var rRId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListRRId"].Index].Value);
+                var amount = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListAmount"].Index].Value);
+                var particulars = dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListParticulars"].Index].Value.ToString();
 
-                //Entities.TrnMemoLineEntity trnMemoLineEntity = new Entities.TrnMemoLineEntity()
-                //{
-                //    Id = id,
-                //    POId = pOId,
-                //    ItemId = itemId,
-                //    ItemDescription = itemDescription,
-                //    UnitId = unitId,
-                //    Quantity = quantity,
-                //    Cost = Cost,
-                //    Amount = amount
-                //};
+                Entities.TrnMemoLineEntity objMemoLineEntity = new Entities.TrnMemoLineEntity()
+                {
+                    Id = id,
+                    MOId = mOId,
+                    SIId = sIId,
+                    RRId = rRId,
+                    Amount = amount,
+                    Particulars = particulars
+                };
 
-                //TrnPurchaseOrderDetailMemoLineDetailForm trnPurchaseOrderDetailMemoLineDetailForm = new TrnPurchaseOrderDetailMemoLineDetailForm(this, trnMemoLineEntity);
-                //trnPurchaseOrderDetailMemoLineDetailForm.ShowDialog();
+                TrnMemoDetailMemoLineDetailForm trnMemoDetailMemoLineDetailForm = new TrnMemoDetailMemoLineDetailForm(this, trnMemoEntity, objMemoLineEntity);
+                trnMemoDetailMemoLineDetailForm.ShowDialog();
             }
 
             if (e.RowIndex > -1 && dataGridViewMemoLine.CurrentCell.ColumnIndex == dataGridViewMemoLine.Columns["ColumnMemoLineListButtonDelete"].Index)
             {
-                DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (deleteDialogResult == DialogResult.Yes)
                 {
-                    //var id = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListId"].Index].Value);
+                    var id = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListId"].Index].Value);
 
-                    //Controllers.TrnMemoLineController trnMemoLineController = new Controllers.TrnMemoLineController();
-                    //String[] deleteMemoLine = trnMemoLineController.DeleteMemoLine(id);
-                    //if (deleteMemoLine[1].Equals("0") == false)
-                    //{
-                    //    pageNumber = 1;
-                    //    UpdateMemoLineDataSource();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show(deleteMemoLine[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //}
+                    Controllers.TrnMemoLineController trnMemoLineController = new Controllers.TrnMemoLineController();
+                    String[] deleteMemoLine = trnMemoLineController.DeleteMemoLine(id);
+                    if (deleteMemoLine[1].Equals("0") == false)
+                    {
+                        pageNumber = 1;
+                        UpdateMemoLineDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteMemoLine[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -409,15 +386,15 @@ namespace easyfmis.Forms.Software.TrnMemo
             textBoxMemoLinePageNumber.Text = pageNumber + " / " + memoLinePageSize.PageCount;
         }
 
-        private void buttonSearchItem_Click(object sender, EventArgs e)
+        private void buttonAddMemoLine_Click(object sender, EventArgs e)
         {
-            //TrnPurchaseOrderDetailSearchItemForm trnPurchaseOrderDetailSearchItemForm = new TrnPurchaseOrderDetailSearchItemForm(this, trnMemoEntity);
-            //trnPurchaseOrderDetailSearchItemForm.ShowDialog();
+            TrnMemoDetailMemoLineDetailForm trnMemoDetailMemoLineDetailForm = new TrnMemoDetailMemoLineDetailForm(this, trnMemoEntity ,null);
+            trnMemoDetailMemoLineDetailForm.ShowDialog();
         }
 
-        private void TrnMemoDetailForm_Load(object sender, EventArgs e)
+        private void comboBoxArticle_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            trnMemoEntity.ArticleId = Convert.ToInt32(comboBoxArticle.SelectedValue);
         }
     }
 }
