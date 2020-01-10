@@ -38,6 +38,19 @@ namespace easyfmis.Forms.Software.MstSupplier
                 comboBoxArticleGroup.DisplayMember = "ArticleGroup";
                 comboBoxArticleGroup.ValueMember = "Id";
             }
+            GetDropdownTerm();
+        }
+
+        public void GetDropdownTerm()
+        {
+            Controllers.MstArticleController mstArticleController = new Controllers.MstArticleController();
+            var terms = mstArticleController.DropDownListTerms();
+            if (terms.Any())
+            {
+                comboBoxTerms.DataSource = terms;
+                comboBoxTerms.ValueMember = "Id";
+                comboBoxTerms.DisplayMember = "Term";
+            }
             GetSupplierDetail();
         }
 
@@ -54,6 +67,7 @@ namespace easyfmis.Forms.Software.MstSupplier
             textBoxContactNumber.Text = mstSupplierEntity.ContactNumber;
             textBoxEmailAddress.Text = mstSupplierEntity.EmailAddress;
             textBoxTIN.Text = mstSupplierEntity.TIN;
+            comboBoxTerms.SelectedValue = mstSupplierEntity.TermId;
             textBoxRemarks.Text = mstSupplierEntity.Remarks;
 
         }
@@ -71,6 +85,7 @@ namespace easyfmis.Forms.Software.MstSupplier
             textBoxTIN.Enabled = !isLocked;
             textBoxEmailAddress.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;
+            comboBoxTerms.Enabled = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
@@ -85,6 +100,7 @@ namespace easyfmis.Forms.Software.MstSupplier
             mstSupplierEntity.ContactNumber = textBoxContactNumber.Text;
             mstSupplierEntity.EmailAddress = textBoxEmailAddress.Text;
             mstSupplierEntity.TIN = textBoxTIN.Text;
+            mstSupplierEntity.TermId = Convert.ToInt32(comboBoxTerms.SelectedValue);
             mstSupplierEntity.Remarks = textBoxRemarks.Text;
 
             String[] lockSupplier = mstArticleController.LockArticle(mstSupplierEntity);

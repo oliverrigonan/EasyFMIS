@@ -25,10 +25,10 @@ namespace easyfmis.Forms.Software.MstCustomer
             mstCustomerListForm = itemListForm;
             mstCustomerEntity = customerEntity;
 
-            DropdownArticleGroup();
+            GetDropdownArticleGroup();
         }
 
-        public void DropdownArticleGroup()
+        public void GetDropdownArticleGroup()
         {
             Controllers.MstArticleController mstArticleController = new Controllers.MstArticleController();
             var articleGroup = mstArticleController.DropDownListArticleGroup("CUSTOMER");
@@ -37,6 +37,19 @@ namespace easyfmis.Forms.Software.MstCustomer
                 comboBoxArticleGroup.DataSource = articleGroup;
                 comboBoxArticleGroup.DisplayMember = "ArticleGroup";
                 comboBoxArticleGroup.ValueMember = "Id";
+            }
+            GetDropdownTerm();
+        }
+
+        public void GetDropdownTerm()
+        {
+            Controllers.MstArticleController mstArticleController = new Controllers.MstArticleController();
+            var terms = mstArticleController.DropDownListTerms();
+            if (terms.Any())
+            {
+                comboBoxTerms.DataSource = terms;
+                comboBoxTerms.ValueMember = "Id";
+                comboBoxTerms.DisplayMember = "Term";
             }
             GetCustomerDetail();
         }
@@ -54,7 +67,10 @@ namespace easyfmis.Forms.Software.MstCustomer
             textBoxContactNumber.Text = mstCustomerEntity.ContactNumber;
             textBoxEmailAddress.Text = mstCustomerEntity.EmailAddress;
             textBoxTIN.Text = mstCustomerEntity.TIN;
+            comboBoxTerms.SelectedValue = mstCustomerEntity.TermId;
+            textBoxCreditLimit.Text = mstCustomerEntity.CreditLimit.ToString("#,##0.00");
             textBoxRemarks.Text = mstCustomerEntity.Remarks;
+            textBoxShippingInstructions.Text = mstCustomerEntity.ShippingInstruction;
         }
 
         public void UpdateComponents(Boolean isLocked)
@@ -70,6 +86,9 @@ namespace easyfmis.Forms.Software.MstCustomer
             textBoxTIN.Enabled = !isLocked;
             textBoxEmailAddress.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;
+            comboBoxTerms.Enabled = !isLocked;
+            textBoxCreditLimit.Enabled = !isLocked;
+            textBoxShippingInstructions.Enabled = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
@@ -85,7 +104,9 @@ namespace easyfmis.Forms.Software.MstCustomer
             mstCustomerEntity.EmailAddress = textBoxEmailAddress.Text;
             mstCustomerEntity.TIN = textBoxTIN.Text;
             mstCustomerEntity.Remarks = textBoxRemarks.Text;
-
+            mstCustomerEntity.TermId = Convert.ToInt32(comboBoxTerms.SelectedValue);
+            mstCustomerEntity.CreditLimit = Convert.ToDecimal(textBoxCreditLimit.Text);
+            mstCustomerEntity.ShippingInstruction = textBoxShippingInstructions.Text;
 
             String[] lockCustomer = mstArticleController.LockArticle(mstCustomerEntity);
             if (lockCustomer[1].Equals("0") == false)

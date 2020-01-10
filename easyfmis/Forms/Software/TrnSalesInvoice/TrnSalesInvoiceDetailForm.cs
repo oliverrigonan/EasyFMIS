@@ -633,5 +633,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             inventoryEntriesPageNumber = inventoryEntriesPageList.PageCount;
             textBoxInventoryEntriesPageNumber.Text = inventoryEntriesPageNumber + " / " + inventoryEntriesPageList.PageCount;
         }
+
+        private void comboBoxCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            trnSalesInvoiceEntity.CustomerId = Convert.ToInt32(comboBoxCustomer.SelectedValue);
+        }
     }
 }

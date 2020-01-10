@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxRemarks = new System.Windows.Forms.TextBox();
             this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,8 +54,12 @@
             this.textBoxCustomer = new System.Windows.Forms.TextBox();
             this.textBoxCustomerCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxRemarks = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxShippingInstructions = new System.Windows.Forms.TextBox();
+            this.comboBoxTerms = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxCreditLimit = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -151,6 +157,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.textBoxCreditLimit);
+            this.panel2.Controls.Add(this.comboBoxTerms);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.textBoxShippingInstructions);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.textBoxRemarks);
             this.panel2.Controls.Add(this.comboBoxArticleGroup);
@@ -175,6 +187,25 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(1400, 637);
             this.panel2.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label8.Location = new System.Drawing.Point(77, 443);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 23);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "Remarks:";
+            // 
+            // textBoxRemarks
+            // 
+            this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxRemarks.Location = new System.Drawing.Point(161, 440);
+            this.textBoxRemarks.Multiline = true;
+            this.textBoxRemarks.Name = "textBoxRemarks";
+            this.textBoxRemarks.Size = new System.Drawing.Size(409, 102);
+            this.textBoxRemarks.TabIndex = 41;
             // 
             // comboBoxArticleGroup
             // 
@@ -201,7 +232,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(114, 332);
+            this.label9.Location = new System.Drawing.Point(114, 334);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 23);
             this.label9.TabIndex = 38;
@@ -210,7 +241,7 @@
             // textBoxTIN
             // 
             this.textBoxTIN.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxTIN.Location = new System.Drawing.Point(161, 329);
+            this.textBoxTIN.Location = new System.Drawing.Point(161, 331);
             this.textBoxTIN.Name = "textBoxTIN";
             this.textBoxTIN.Size = new System.Drawing.Size(214, 30);
             this.textBoxTIN.TabIndex = 7;
@@ -326,24 +357,63 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Customer Code:";
             // 
-            // label8
+            // label11
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(81, 368);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 23);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "Remarks:";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label11.Location = new System.Drawing.Point(582, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(175, 23);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Shipping Instructions:";
             // 
-            // textBoxRemarks
+            // textBoxShippingInstructions
             // 
-            this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(161, 365);
-            this.textBoxRemarks.Multiline = true;
-            this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(409, 102);
-            this.textBoxRemarks.TabIndex = 41;
+            this.textBoxShippingInstructions.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxShippingInstructions.Location = new System.Drawing.Point(763, 7);
+            this.textBoxShippingInstructions.Multiline = true;
+            this.textBoxShippingInstructions.Name = "textBoxShippingInstructions";
+            this.textBoxShippingInstructions.Size = new System.Drawing.Size(409, 102);
+            this.textBoxShippingInstructions.TabIndex = 43;
+            // 
+            // comboBoxTerms
+            // 
+            this.comboBoxTerms.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxTerms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxTerms.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxTerms.FormattingEnabled = true;
+            this.comboBoxTerms.Location = new System.Drawing.Point(161, 367);
+            this.comboBoxTerms.Name = "comboBoxTerms";
+            this.comboBoxTerms.Size = new System.Drawing.Size(214, 31);
+            this.comboBoxTerms.TabIndex = 45;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label12.Location = new System.Drawing.Point(97, 371);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 23);
+            this.label12.TabIndex = 46;
+            this.label12.Text = "Terms:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label13.Location = new System.Drawing.Point(53, 407);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 23);
+            this.label13.TabIndex = 48;
+            this.label13.Text = "Credit Limit:";
+            // 
+            // textBoxCreditLimit
+            // 
+            this.textBoxCreditLimit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxCreditLimit.Location = new System.Drawing.Point(161, 404);
+            this.textBoxCreditLimit.Name = "textBoxCreditLimit";
+            this.textBoxCreditLimit.Size = new System.Drawing.Size(214, 30);
+            this.textBoxCreditLimit.TabIndex = 47;
             // 
             // MstCustomerDetailForm
             // 
@@ -393,5 +463,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxRemarks;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBoxCreditLimit;
+        private System.Windows.Forms.ComboBox comboBoxTerms;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxShippingInstructions;
     }
 }

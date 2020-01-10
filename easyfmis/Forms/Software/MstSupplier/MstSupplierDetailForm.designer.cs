@@ -36,7 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
+            this.textBoxRemarks = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxTIN = new System.Windows.Forms.TextBox();
@@ -52,8 +54,8 @@
             this.textBoxSupplier = new System.Windows.Forms.TextBox();
             this.textBoxSupplierCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxRemarks = new System.Windows.Forms.TextBox();
+            this.comboBoxTerms = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -151,6 +153,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.Controls.Add(this.comboBoxTerms);
+            this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.comboBoxArticleGroup);
             this.panel2.Controls.Add(this.textBoxRemarks);
@@ -176,6 +180,16 @@
             this.panel2.Size = new System.Drawing.Size(1400, 637);
             this.panel2.TabIndex = 6;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label8.Location = new System.Drawing.Point(81, 405);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 23);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Remarks:";
+            // 
             // comboBoxArticleGroup
             // 
             this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
@@ -186,6 +200,15 @@
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(214, 31);
             this.comboBoxArticleGroup.TabIndex = 2;
+            // 
+            // textBoxRemarks
+            // 
+            this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxRemarks.Location = new System.Drawing.Point(161, 402);
+            this.textBoxRemarks.Multiline = true;
+            this.textBoxRemarks.Name = "textBoxRemarks";
+            this.textBoxRemarks.Size = new System.Drawing.Size(409, 102);
+            this.textBoxRemarks.TabIndex = 43;
             // 
             // label10
             // 
@@ -326,24 +349,26 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Supplier Code:";
             // 
-            // label8
+            // comboBoxTerms
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(81, 368);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 23);
-            this.label8.TabIndex = 44;
-            this.label8.Text = "Remarks:";
+            this.comboBoxTerms.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxTerms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxTerms.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.comboBoxTerms.FormattingEnabled = true;
+            this.comboBoxTerms.Location = new System.Drawing.Point(161, 365);
+            this.comboBoxTerms.Name = "comboBoxTerms";
+            this.comboBoxTerms.Size = new System.Drawing.Size(214, 31);
+            this.comboBoxTerms.TabIndex = 47;
             // 
-            // textBoxRemarks
+            // label12
             // 
-            this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(161, 365);
-            this.textBoxRemarks.Multiline = true;
-            this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(409, 102);
-            this.textBoxRemarks.TabIndex = 43;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label12.Location = new System.Drawing.Point(97, 369);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 23);
+            this.label12.TabIndex = 48;
+            this.label12.Text = "Terms:";
             // 
             // MstSupplierDetailForm
             // 
@@ -393,5 +418,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxRemarks;
+        private System.Windows.Forms.ComboBox comboBoxTerms;
+        private System.Windows.Forms.Label label12;
     }
 }

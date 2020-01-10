@@ -140,8 +140,8 @@ namespace easyfmis.Forms.Software
         public TrnCollection.TrnCollectionForm trnCollectionForm = null;
         public TrnCollection.TrnCollectionDetailForm trnCollectionDetailForm = null;
 
-        public TrnMemo.TrnMemoForm trnMemoForm  = null;
-        //public TrnMemo.TrnDisbursementDetailForm trnDisbursementDetailForm = null;
+        public TrnMemo.TrnMemoListForm trnMemoForm  = null;
+        public TrnMemo.TrnMemoDetailForm trnMemoDetailForm = null;
 
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
         //public TrnStockCount.TrnStockCountDetailForm trnStockCountDetailForm = null;
@@ -1018,7 +1018,7 @@ namespace easyfmis.Forms.Software
         {
             tabPageMemoList.Controls.Remove(trnMemoForm);
 
-            trnMemoForm = new TrnMemo.TrnMemoForm(this)
+            trnMemoForm = new TrnMemo.TrnMemoListForm(this)
             {
                 TopLevel = false,
                 Visible = true,
@@ -1035,6 +1035,30 @@ namespace easyfmis.Forms.Software
             {
                 tabControlSoftware.TabPages.Add(tabPageMemoList);
                 tabControlSoftware.SelectTab(tabPageMemoList);
+            }
+        }
+
+        public void AddTabPageMemoDetail(TrnMemo.TrnMemoListForm trnMemoForm, Entities.TrnMemoEntity trnMemoEntity)
+        {
+            tabPageMemoDetail.Controls.Remove(trnMemoDetailForm);
+
+            trnMemoDetailForm = new TrnMemo.TrnMemoDetailForm(this, trnMemoForm, trnMemoEntity)
+            {
+                TopLevel = false,
+                Visible = true,
+                Dock = DockStyle.Fill
+            };
+
+            tabPageMemoDetail.Controls.Add(trnMemoDetailForm);
+
+            if (tabControlSoftware.TabPages.Contains(tabPageMemoDetail) == true)
+            {
+                tabControlSoftware.SelectTab(tabPageMemoDetail);
+            }
+            else
+            {
+                tabControlSoftware.TabPages.Add(tabPageMemoDetail);
+                tabControlSoftware.SelectTab(tabPageMemoDetail);
             }
         }
 

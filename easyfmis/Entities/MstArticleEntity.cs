@@ -23,11 +23,14 @@ namespace easyfmis.Entities
         public Decimal VATOutTaxRate { get; set; }
         public Int32 UnitId { get; set; }
         public String Unit { get; set; }
+        public Int32 TermId { get; set; }
+        public String Term { get; set; }
         public Int32? DefaultSupplierId { get; set; }
         public String DefaultSupplier { get; set; }
         public Decimal DefaultCost { get; set; }
         public Decimal DefaultPrice { get; set; }
         public Decimal ReorderQuantity { get; set; }
+        public Decimal CreditLimit { get; set; }
         public Boolean IsInventory { get; set; }
         public String Address { get; set; }
         public String ContactPerson { get; set; }
@@ -35,6 +38,7 @@ namespace easyfmis.Entities
         public String EmailAddress { get; set; }
         public String TIN { get; set; }
         public String Remarks { get; set; }
+        public String ShippingInstruction { get; set; }
         public Boolean IsLocked { get; set; }
         public Int32 CreatedBy { get; set; }
         public String CreatedByUserName { get; set; }

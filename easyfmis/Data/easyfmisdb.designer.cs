@@ -162,7 +162,7 @@ namespace easyfmis.Data
     #endregion
 		
 		public easyfmisdbDataContext() : 
-				base(global::easyfmis.Properties.Settings.Default.easyerpConnectionString1, mappingSource)
+				base(global::easyfmis.Properties.Settings.Default.easyerpConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2242,6 +2242,8 @@ namespace easyfmis.Data
 		
 		private int _UnitId;
 		
+		private int _TermId;
+		
 		private System.Nullable<int> _DefaultSupplierId;
 		
 		private decimal _DefaultCost;
@@ -2249,6 +2251,8 @@ namespace easyfmis.Data
 		private decimal _DefaultPrice;
 		
 		private decimal _ReorderQuantity;
+		
+		private decimal _CreditLimit;
 		
 		private bool _IsInventory;
 		
@@ -2273,6 +2277,8 @@ namespace easyfmis.Data
 		private int _UpdatedBy;
 		
 		private System.DateTime _UpdatedDateTime;
+		
+		private string _ShippingInstruction;
 		
 		private EntitySet<TrnStockTransferItem> _TrnStockTransferItems;
 		
@@ -2324,6 +2330,8 @@ namespace easyfmis.Data
 		
 		private EntityRef<MstTax> _MstTax1;
 		
+		private EntityRef<MstTerm> _MstTerm;
+		
 		private EntityRef<MstUnit> _MstUnit;
 		
 		private EntityRef<MstUser> _MstUser;
@@ -2358,6 +2366,8 @@ namespace easyfmis.Data
     partial void OnVATOutTaxIdChanged();
     partial void OnUnitIdChanging(int value);
     partial void OnUnitIdChanged();
+    partial void OnTermIdChanging(int value);
+    partial void OnTermIdChanged();
     partial void OnDefaultSupplierIdChanging(System.Nullable<int> value);
     partial void OnDefaultSupplierIdChanged();
     partial void OnDefaultCostChanging(decimal value);
@@ -2366,6 +2376,8 @@ namespace easyfmis.Data
     partial void OnDefaultPriceChanged();
     partial void OnReorderQuantityChanging(decimal value);
     partial void OnReorderQuantityChanged();
+    partial void OnCreditLimitChanging(decimal value);
+    partial void OnCreditLimitChanged();
     partial void OnIsInventoryChanging(bool value);
     partial void OnIsInventoryChanged();
     partial void OnAddressChanging(string value);
@@ -2390,6 +2402,8 @@ namespace easyfmis.Data
     partial void OnUpdatedByChanged();
     partial void OnUpdatedDateTimeChanging(System.DateTime value);
     partial void OnUpdatedDateTimeChanged();
+    partial void OnShippingInstructionChanging(string value);
+    partial void OnShippingInstructionChanged();
     #endregion
 		
 		public MstArticle()
@@ -2419,6 +2433,7 @@ namespace easyfmis.Data
 			this._MstArticleType = default(EntityRef<MstArticleType>);
 			this._MstTax = default(EntityRef<MstTax>);
 			this._MstTax1 = default(EntityRef<MstTax>);
+			this._MstTerm = default(EntityRef<MstTerm>);
 			this._MstUnit = default(EntityRef<MstUnit>);
 			this._MstUser = default(EntityRef<MstUser>);
 			this._MstUser1 = default(EntityRef<MstUser>);
@@ -2685,6 +2700,30 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TermId", DbType="Int NOT NULL")]
+		public int TermId
+		{
+			get
+			{
+				return this._TermId;
+			}
+			set
+			{
+				if ((this._TermId != value))
+				{
+					if (this._MstTerm.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTermIdChanging(value);
+					this.SendPropertyChanging();
+					this._TermId = value;
+					this.SendPropertyChanged("TermId");
+					this.OnTermIdChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultSupplierId", DbType="Int")]
 		public System.Nullable<int> DefaultSupplierId
 		{
@@ -2761,6 +2800,26 @@ namespace easyfmis.Data
 					this._ReorderQuantity = value;
 					this.SendPropertyChanged("ReorderQuantity");
 					this.OnReorderQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreditLimit", DbType="Decimal(18,5) NOT NULL")]
+		public decimal CreditLimit
+		{
+			get
+			{
+				return this._CreditLimit;
+			}
+			set
+			{
+				if ((this._CreditLimit != value))
+				{
+					this.OnCreditLimitChanging(value);
+					this.SendPropertyChanging();
+					this._CreditLimit = value;
+					this.SendPropertyChanged("CreditLimit");
+					this.OnCreditLimitChanged();
 				}
 			}
 		}
@@ -3009,6 +3068,26 @@ namespace easyfmis.Data
 					this._UpdatedDateTime = value;
 					this.SendPropertyChanged("UpdatedDateTime");
 					this.OnUpdatedDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippingInstruction", DbType="NVarChar(MAX)")]
+		public string ShippingInstruction
+		{
+			get
+			{
+				return this._ShippingInstruction;
+			}
+			set
+			{
+				if ((this._ShippingInstruction != value))
+				{
+					this.OnShippingInstructionChanging(value);
+					this.SendPropertyChanging();
+					this._ShippingInstruction = value;
+					this.SendPropertyChanged("ShippingInstruction");
+					this.OnShippingInstructionChanged();
 				}
 			}
 		}
@@ -3418,6 +3497,40 @@ namespace easyfmis.Data
 						this._VATOutTaxId = default(int);
 					}
 					this.SendPropertyChanged("MstTax1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_MstArticle", Storage="_MstTerm", ThisKey="TermId", OtherKey="Id", IsForeignKey=true)]
+		public MstTerm MstTerm
+		{
+			get
+			{
+				return this._MstTerm.Entity;
+			}
+			set
+			{
+				MstTerm previousValue = this._MstTerm.Entity;
+				if (((previousValue != value) 
+							|| (this._MstTerm.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstTerm.Entity = null;
+						previousValue.MstArticles.Remove(this);
+					}
+					this._MstTerm.Entity = value;
+					if ((value != null))
+					{
+						value.MstArticles.Add(this);
+						this._TermId = value.Id;
+					}
+					else
+					{
+						this._TermId = default(int);
+					}
+					this.SendPropertyChanged("MstTerm");
 				}
 			}
 		}
@@ -7842,6 +7955,8 @@ namespace easyfmis.Data
 		
 		private System.DateTime _UpdatedDateTime;
 		
+		private EntitySet<MstArticle> _MstArticles;
+		
 		private EntitySet<TrnPurchaseOrder> _TrnPurchaseOrders;
 		
 		private EntitySet<TrnReceivingReceipt> _TrnReceivingReceipts;
@@ -7878,6 +7993,7 @@ namespace easyfmis.Data
 		
 		public MstTerm()
 		{
+			this._MstArticles = new EntitySet<MstArticle>(new Action<MstArticle>(this.attach_MstArticles), new Action<MstArticle>(this.detach_MstArticles));
 			this._TrnPurchaseOrders = new EntitySet<TrnPurchaseOrder>(new Action<TrnPurchaseOrder>(this.attach_TrnPurchaseOrders), new Action<TrnPurchaseOrder>(this.detach_TrnPurchaseOrders));
 			this._TrnReceivingReceipts = new EntitySet<TrnReceivingReceipt>(new Action<TrnReceivingReceipt>(this.attach_TrnReceivingReceipts), new Action<TrnReceivingReceipt>(this.detach_TrnReceivingReceipts));
 			this._TrnSalesInvoices = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices));
@@ -8055,6 +8171,19 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_MstArticle", Storage="_MstArticles", ThisKey="Id", OtherKey="TermId")]
+		public EntitySet<MstArticle> MstArticles
+		{
+			get
+			{
+				return this._MstArticles;
+			}
+			set
+			{
+				this._MstArticles.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTerm_TrnPurchaseOrder", Storage="_TrnPurchaseOrders", ThisKey="Id", OtherKey="TermId")]
 		public EntitySet<TrnPurchaseOrder> TrnPurchaseOrders
 		{
@@ -8193,6 +8322,18 @@ namespace easyfmis.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_MstArticles(MstArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTerm = this;
+		}
+		
+		private void detach_MstArticles(MstArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstTerm = null;
 		}
 		
 		private void attach_TrnPurchaseOrders(TrnPurchaseOrder entity)

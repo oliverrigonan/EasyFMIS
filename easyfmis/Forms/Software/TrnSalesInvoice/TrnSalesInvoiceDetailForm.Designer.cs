@@ -318,6 +318,7 @@
             this.comboBoxCustomer.Name = "comboBoxCustomer";
             this.comboBoxCustomer.Size = new System.Drawing.Size(298, 31);
             this.comboBoxCustomer.TabIndex = 4;
+            this.comboBoxCustomer.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomer_SelectedIndexChanged);
             // 
             // label6
             // 

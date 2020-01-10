@@ -99,6 +99,7 @@
     <Compile Include="Controllers\TrnDisbursementLineController.cs" />
     <Compile Include="Controllers\TrnInventoryController.cs" />
     <Compile Include="Controllers\TrnMemoController.cs" />
+    <Compile Include="Controllers\TrnMemoLineController.cs" />
     <Compile Include="Controllers\TrnReceivingReceiptController.cs" />
     <Compile Include="Controllers\TrnReceivingReceiptItemController.cs" />
     <Compile Include="Controllers\TrnPurchaseOrderController.cs" />
@@ -449,17 +450,23 @@
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailPrintPreviewForm.Designer.cs">
       <DependentUpon>TrnDisbursementDetailPrintPreviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Software\TrnMemo\TrnMemoForm.cs">
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Software\TrnMemo\TrnMemoForm.Designer.cs">
-      <DependentUpon>TrnMemoForm.cs</DependentUpon>
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoListForm.Designer.cs">
+      <DependentUpon>TrnMemoListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnMemo\TrnMemoDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Software\TrnMemo\TrnMemoDetailForm.Designer.cs">
       <DependentUpon>TrnMemoDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoDetailMemoLineDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnMemo\TrnMemoDetailMemoLineDetailForm.Designer.cs">
+      <DependentUpon>TrnMemoDetailMemoLineDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.cs">
       <SubType>Form</SubType>
@@ -816,11 +823,14 @@
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementDetailPrintPreviewForm.resx">
       <DependentUpon>TrnDisbursementDetailPrintPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Software\TrnMemo\TrnMemoForm.resx">
-      <DependentUpon>TrnMemoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Software\TrnMemo\TrnMemoListForm.resx">
+      <DependentUpon>TrnMemoListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnMemo\TrnMemoDetailForm.resx">
       <DependentUpon>TrnMemoDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnMemo\TrnMemoDetailMemoLineDetailForm.resx">
+      <DependentUpon>TrnMemoDetailMemoLineDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnPurchaseOrder\TrnPurchaseOrderDetailPrintPreviewForm.resx">
       <DependentUpon>TrnPurchaseOrderDetailPrintPreviewForm.cs</DependentUpon>

@@ -192,10 +192,12 @@ namespace easyfmis.Controllers
                               VATInTaxId = d.VATInTaxId,
                               VATOutTaxId = d.VATOutTaxId,
                               UnitId = d.UnitId,
+                              TermId = d.TermId,
                               DefaultSupplierId = d.DefaultSupplierId,
                               DefaultCost = d.DefaultCost,
                               DefaultPrice = d.DefaultPrice,
                               ReorderQuantity = d.ReorderQuantity,
+                              CreditLimit = d.CreditLimit,
                               IsInventory = d.IsInventory,
                               Address = d.Address,
                               ContactPerson = d.ContactPerson,
@@ -203,6 +205,7 @@ namespace easyfmis.Controllers
                               EmailAddress = d.EmailAddress,
                               TIN = d.TIN,
                               Remarks = d.Remarks,
+                              ShippingInstruction = d.ShippingInstruction,
                               IsLocked = d.IsLocked,
                               CreatedBy = d.CreatedBy,
                               CreatedByDateTime = d.CreatedByDateTime,
@@ -256,6 +259,22 @@ namespace easyfmis.Controllers
                         };
 
             return units.OrderByDescending(d => d.Id).ToList();
+        }
+
+        // ==================
+        // List Article Group
+        // ==================
+        public List<Entities.MstTermEntity> DropDownListTerms()
+        {
+            var terms = from d in db.MstTerms
+                        where d.IsLocked == true
+                        select new Entities.MstTermEntity
+                        {
+                            Id = d.Id,
+                            Term = d.Term
+                        };
+
+            return terms.OrderByDescending(d => d.Id).ToList();
         }
 
         // ===========
@@ -341,6 +360,14 @@ namespace easyfmis.Controllers
                     supplierId = null;
                 }
 
+                var term = from d in db.MstTerms
+                                   where d.IsLocked == true
+                                   select d;
+                if (term.Any() == false)
+                {
+                    return new String[] { "Terms not found.", "0" };
+                }
+
                 Data.MstArticle newArticle = new Data.MstArticle()
                 {
                     ArticleTypeId = articleType.FirstOrDefault().Id,
@@ -354,10 +381,12 @@ namespace easyfmis.Controllers
                     VATInTaxId = taxVATIn.FirstOrDefault().Id,
                     VATOutTaxId = taxVATOut.FirstOrDefault().Id,
                     UnitId = unit.FirstOrDefault().Id,
+                    TermId = term.FirstOrDefault().Id,
                     DefaultSupplierId = supplierId,
                     DefaultCost = 0,
                     DefaultPrice = 0,
                     ReorderQuantity = 0,
+                    CreditLimit = 1000000,
                     IsInventory = false,
                     Address = "NA",
                     ContactPerson = "NA",
@@ -365,6 +394,7 @@ namespace easyfmis.Controllers
                     EmailAddress = "NA",
                     TIN = "NA",
                     Remarks = "NA",
+                    ShippingInstruction = "NA",
                     IsLocked = false,
                     CreatedBy = currentUserLogin.FirstOrDefault().Id,
                     CreatedByDateTime = DateTime.Today,
@@ -408,6 +438,14 @@ namespace easyfmis.Controllers
                     return new String[] { "Barcode already exist.", "0" };
                 }
 
+                var term = from d in db.MstTerms
+                           where d.Id == objArticle.TermId
+                           select d;
+                if (term.Any() == false)
+                {
+                    return new String[] { "Terms not found.", "0" };
+                }
+
                 var currentArticle = from d in db.MstArticles
                                      where d.Id == objArticle.Id
                                      select d;
@@ -425,10 +463,12 @@ namespace easyfmis.Controllers
                     updateArticle.VATInTaxId = objArticle.VATInTaxId;
                     updateArticle.VATOutTaxId = objArticle.VATOutTaxId;
                     updateArticle.UnitId = objArticle.UnitId;
+                    updateArticle.TermId = objArticle.TermId;
                     updateArticle.DefaultSupplierId = Convert.ToInt32(objArticle.DefaultSupplierId);
                     updateArticle.DefaultCost = objArticle.DefaultCost;
                     updateArticle.DefaultPrice = objArticle.DefaultPrice;
                     updateArticle.ReorderQuantity = objArticle.ReorderQuantity;
+                    updateArticle.CreditLimit = objArticle.CreditLimit;
                     updateArticle.IsInventory = objArticle.IsInventory;
                     updateArticle.Address = objArticle.Address;
                     updateArticle.ContactPerson = objArticle.ContactPerson;
@@ -436,6 +476,7 @@ namespace easyfmis.Controllers
                     updateArticle.EmailAddress = objArticle.EmailAddress;
                     updateArticle.TIN = objArticle.TIN;
                     updateArticle.Remarks = objArticle.Remarks;
+                    updateArticle.ShippingInstruction = objArticle.ShippingInstruction;
                     updateArticle.IsLocked = objArticle.IsLocked;
                     updateArticle.UpdatedBy = objArticle.UpdatedBy;
                     updateArticle.UpdatedDateTime = DateTime.Today;
@@ -498,10 +539,12 @@ namespace easyfmis.Controllers
                     lockArticle.VATInTaxId = objArticle.VATInTaxId;
                     lockArticle.VATOutTaxId = objArticle.VATOutTaxId;
                     lockArticle.UnitId = objArticle.UnitId;
+                    lockArticle.TermId = objArticle.TermId;
                     lockArticle.DefaultSupplierId = objArticle.DefaultSupplierId;
                     lockArticle.DefaultCost = objArticle.DefaultCost;
                     lockArticle.DefaultPrice = objArticle.DefaultPrice;
                     lockArticle.ReorderQuantity = objArticle.ReorderQuantity;
+                    lockArticle.CreditLimit = objArticle.CreditLimit;
                     lockArticle.IsInventory = objArticle.IsInventory;
                     lockArticle.Address = objArticle.Address;
                     lockArticle.ContactPerson = objArticle.ContactPerson;
@@ -509,6 +552,7 @@ namespace easyfmis.Controllers
                     lockArticle.EmailAddress = objArticle.EmailAddress;
                     lockArticle.TIN = objArticle.TIN;
                     lockArticle.Remarks = objArticle.Remarks;
+                    lockArticle.ShippingInstruction = objArticle.ShippingInstruction;
                     lockArticle.IsLocked = true;
                     lockArticle.UpdatedBy = objArticle.UpdatedBy;
                     lockArticle.UpdatedDateTime = DateTime.Today;
