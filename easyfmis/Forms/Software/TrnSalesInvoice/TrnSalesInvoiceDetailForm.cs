@@ -291,6 +291,9 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSalesInvoiceItemListSpace = ""
                             };
 
+                textBoxTotalDiscountAmount.Text = listSalesInvoiceItem.Sum(d => d.DiscountAmount).ToString("#,##0.00");
+                textBoxTotalAmount.Text = listSalesInvoiceItem.Sum(d => d.Amount).ToString("#,##0.00");
+
                 return Task.FromResult(items.ToList());
             }
             else

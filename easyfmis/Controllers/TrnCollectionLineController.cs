@@ -75,6 +75,7 @@ namespace easyfmis.Controllers
             var salesInvoices = from d in db.TrnSalesInvoices
                                 where d.CustomerId == customerId
                                 && d.MstBranch.Id == currentBranchId
+                                && d.Amount > 0
                                 && d.IsLocked == true
                                 select new Entities.TrnSalesInvoiceEntity
                                 {

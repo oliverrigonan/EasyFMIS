@@ -46,7 +46,6 @@
             this.buttonLock = new System.Windows.Forms.Button();
             this.buttonUnlock = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -73,6 +72,10 @@
             this.dateTimePickerRRDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxRRNumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxTotalTaxAmount = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.buttonReceivingReceiptItemPageListFirst = new System.Windows.Forms.Button();
             this.buttonReceivingReceiptItemPageListPrevious = new System.Windows.Forms.Button();
             this.buttonReceivingReceiptItemPageListNext = new System.Windows.Forms.Button();
@@ -121,7 +124,6 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxTotalRRAmount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -142,7 +144,6 @@
             this.panel1.Controls.Add(this.buttonLock);
             this.panel1.Controls.Add(this.buttonUnlock);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -194,17 +195,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 35);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Receiving Receipt Detail";
             // 
             // buttonClose
             // 
@@ -496,7 +486,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.textBoxTotalRRAmount);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.textBoxTotalTaxAmount);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.textBoxTotalAmount);
             this.panel4.Controls.Add(this.buttonReceivingReceiptItemPageListFirst);
             this.panel4.Controls.Add(this.buttonReceivingReceiptItemPageListPrevious);
             this.panel4.Controls.Add(this.buttonReceivingReceiptItemPageListNext);
@@ -507,6 +500,50 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1001, 14);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(146, 23);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Total Tax Amount:";
+            // 
+            // textBoxTotalTaxAmount
+            // 
+            this.textBoxTotalTaxAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalTaxAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalTaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalTaxAmount.Location = new System.Drawing.Point(1150, 13);
+            this.textBoxTotalTaxAmount.Name = "textBoxTotalTaxAmount";
+            this.textBoxTotalTaxAmount.Size = new System.Drawing.Size(220, 27);
+            this.textBoxTotalTaxAmount.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(658, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 23);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Total Amount:";
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(778, 13);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(220, 27);
+            this.textBoxTotalAmount.TabIndex = 19;
             // 
             // buttonReceivingReceiptItemPageListFirst
             // 
@@ -1088,18 +1125,6 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
-            // textBoxTotalRRAmount
-            // 
-            this.textBoxTotalRRAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTotalRRAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTotalRRAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalRRAmount.Location = new System.Drawing.Point(816, 9);
-            this.textBoxTotalRRAmount.Name = "textBoxTotalRRAmount";
-            this.textBoxTotalRRAmount.Size = new System.Drawing.Size(549, 34);
-            this.textBoxTotalRRAmount.TabIndex = 19;
-            this.textBoxTotalRRAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // TrnReceivingReceiptDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1114,7 +1139,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrnReceivingReceiptDetail";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1137,7 +1161,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonLock;
         private System.Windows.Forms.Button buttonUnlock;
@@ -1214,6 +1237,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListSpace;
-        private System.Windows.Forms.TextBox textBoxTotalRRAmount;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxTotalTaxAmount;
+        private System.Windows.Forms.Label label1;
     }
 }

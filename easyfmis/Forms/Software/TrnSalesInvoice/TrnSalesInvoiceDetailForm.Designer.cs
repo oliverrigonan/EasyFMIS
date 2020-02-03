@@ -127,6 +127,10 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxTotalDiscountAmount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -504,6 +508,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.textBoxTotalAmount);
+            this.panel4.Controls.Add(this.label14);
+            this.panel4.Controls.Add(this.textBoxTotalDiscountAmount);
             this.panel4.Controls.Add(this.buttonSalesInvoiceItemPageListFirst);
             this.panel4.Controls.Add(this.buttonSalesInvoiceItemPageListPrevious);
             this.panel4.Controls.Add(this.buttonSalesInvoiceItemPageListNext);
@@ -1131,6 +1139,50 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1036, 14);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(117, 23);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Total Amount:";
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(1156, 13);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(220, 27);
+            this.textBoxTotalAmount.TabIndex = 25;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(621, 14);
+            this.label14.Margin = new System.Windows.Forms.Padding(0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(189, 23);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Total Discount Amount:";
+            // 
+            // textBoxTotalDiscountAmount
+            // 
+            this.textBoxTotalDiscountAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalDiscountAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalDiscountAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalDiscountAmount.Location = new System.Drawing.Point(813, 13);
+            this.textBoxTotalDiscountAmount.Name = "textBoxTotalDiscountAmount";
+            this.textBoxTotalDiscountAmount.Size = new System.Drawing.Size(220, 27);
+            this.textBoxTotalDiscountAmount.TabIndex = 23;
+            // 
             // TrnSalesInvoiceDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1248,5 +1300,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceItemListBasePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceItemListSpace;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBoxTotalDiscountAmount;
     }
 }

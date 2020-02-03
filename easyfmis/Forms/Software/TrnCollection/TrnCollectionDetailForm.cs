@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace easyfmis.Forms.Software.TrnCollection
 {
     public partial class TrnCollectionDetailForm : Form
@@ -233,6 +234,7 @@ namespace easyfmis.Forms.Software.TrnCollection
             List<Entities.TrnCollectionLineEntity> listCollectionLine = trnCollectionLineController.ListCollectionLine(trnCollectionEntity.Id);
             if (listCollectionLine.Any())
             {
+
                 var items = from d in listCollectionLine
                             select new Entities.DgvCollectionLineEntity
                             {
@@ -262,6 +264,8 @@ namespace easyfmis.Forms.Software.TrnCollection
                                 ColumnCollectionLineListSpace = ""
                             };
 
+                textBoxTotalAmount.Text = listCollectionLine.Sum(d => d.Amount).ToString("#,##0.00");
+
                 return Task.FromResult(items.ToList());
             }
             else
@@ -269,6 +273,8 @@ namespace easyfmis.Forms.Software.TrnCollection
                 return Task.FromResult(new List<Entities.DgvCollectionLineEntity>());
             }
         }
+
+
 
         public void CreateCollectionLineDataGridView()
         {
@@ -299,55 +305,58 @@ namespace easyfmis.Forms.Software.TrnCollection
 
             if (e.RowIndex > -1 && dataGridViewCollectionLine.CurrentCell.ColumnIndex == dataGridViewCollectionLine.Columns["ColumnCollectionLineListButtonEdit"].Index)
             {
+
                 var id = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListId"].Index].Value);
-                var ORId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListORId"].Index].Value);
-                var articleGroupId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListArticleGroupId"].Index].Value);
-                var articleGroup = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListArticleGroup"].Index].Value.ToString();
-                var SIId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListSIId"].Index].Value);
-                var SINumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListSINumber"].Index].Value.ToString();
-                var amount = Convert.ToDecimal(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListAmount"].Index].Value);
-                var payTypeId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListPayTypeId"].Index].Value);
-                var payType = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListPayType"].Index].Value.ToString();
-                var checkNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCheckNumber"].Index].Value.ToString();
-                var checkDate = Convert.ToDateTime(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCheckDate"].Index].Value);
-                var checkBank = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCheckBank"].Index].Value.ToString();
-                var creditCardVerificationCode = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardVerificationCode"].Index].Value.ToString();
-                var creditCardNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardNumber"].Index].Value.ToString();
-                var creditCardType = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardType"].Index].Value.ToString();
-                var creditCardBank = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardBank"].Index].Value.ToString();
-                var creditCardReferenceNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardReferenceNumber"].Index].Value.ToString();
-                var creditCardHolderName = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardHolderName"].Index].Value.ToString();
-                var creditCardExpiry = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardExpiry"].Index].Value.ToString();
-                var giftCertificateNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListGiftCertificateNumber"].Index].Value.ToString();
-                var otherInformation = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListOtherInformation"].Index].Value.ToString();
-
-                Entities.TrnCollectionLineEntity currentCollectionLineEntity = new Entities.TrnCollectionLineEntity()
+                if (id != 0)
                 {
-                    Id = id,
-                    ORId = ORId,
-                    ArticleGroupId = articleGroupId,
-                    ArticleGroup = articleGroup,
-                    SIId = SIId,
-                    SINumber = SINumber,
-                    Amount = amount,
-                    PayTypeId = payTypeId,
-                    PayType = payType,
-                    CheckNumber = checkNumber,
-                    CheckDate = checkDate,
-                    CheckBank = checkBank,
-                    CreditCardVerificationCode = creditCardVerificationCode,
-                    CreditCardNumber = creditCardNumber,
-                    CreditCardType = creditCardType,
-                    CreditCardBank = creditCardBank,
-                    CreditCardReferenceNumber = creditCardReferenceNumber,
-                    CreditCardHolderName = creditCardHolderName,
-                    CreditCardExpiry = creditCardExpiry,
-                    GiftCertificateNumber = giftCertificateNumber,
-                    OtherInformation = otherInformation
-                };
+                    var ORId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListORId"].Index].Value);
+                    var articleGroupId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListArticleGroupId"].Index].Value);
+                    var articleGroup = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListArticleGroup"].Index].Value.ToString();
+                    var SIId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListSIId"].Index].Value);
+                    var SINumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListSINumber"].Index].Value.ToString();
+                    var amount = Convert.ToDecimal(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListAmount"].Index].Value);
+                    var payTypeId = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListPayTypeId"].Index].Value);
+                    var payType = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListPayType"].Index].Value.ToString();
+                    var checkNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCheckNumber"].Index].Value.ToString();
+                    var checkDate = Convert.ToDateTime(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCheckDate"].Index].Value);
+                    var checkBank = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCheckBank"].Index].Value.ToString();
+                    var creditCardVerificationCode = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardVerificationCode"].Index].Value.ToString();
+                    var creditCardNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardNumber"].Index].Value.ToString();
+                    var creditCardType = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardType"].Index].Value.ToString();
+                    var creditCardBank = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardBank"].Index].Value.ToString();
+                    var creditCardReferenceNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardReferenceNumber"].Index].Value.ToString();
+                    var creditCardHolderName = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardHolderName"].Index].Value.ToString();
+                    var creditCardExpiry = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListCreditCardExpiry"].Index].Value.ToString();
+                    var giftCertificateNumber = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListGiftCertificateNumber"].Index].Value.ToString();
+                    var otherInformation = dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListOtherInformation"].Index].Value.ToString();
 
-                TrnCollectionDetailCollectionLineDetailForm trnCollectionDetailCollectionLineDetailForm = new TrnCollectionDetailCollectionLineDetailForm(this, Convert.ToInt32(comboBoxCustomer.SelectedValue), currentCollectionLineEntity);
-                trnCollectionDetailCollectionLineDetailForm.ShowDialog();
+                    Entities.TrnCollectionLineEntity currentCollectionLineEntity = new Entities.TrnCollectionLineEntity()
+                    {
+                        Id = id,
+                        ORId = ORId,
+                        ArticleGroupId = articleGroupId,
+                        ArticleGroup = articleGroup,
+                        SIId = SIId,
+                        SINumber = SINumber,
+                        Amount = amount,
+                        PayTypeId = payTypeId,
+                        PayType = payType,
+                        CheckNumber = checkNumber,
+                        CheckDate = checkDate,
+                        CheckBank = checkBank,
+                        CreditCardVerificationCode = creditCardVerificationCode,
+                        CreditCardNumber = creditCardNumber,
+                        CreditCardType = creditCardType,
+                        CreditCardBank = creditCardBank,
+                        CreditCardReferenceNumber = creditCardReferenceNumber,
+                        CreditCardHolderName = creditCardHolderName,
+                        CreditCardExpiry = creditCardExpiry,
+                        GiftCertificateNumber = giftCertificateNumber,
+                        OtherInformation = otherInformation
+                    };
+                    TrnCollectionDetailCollectionLineDetailForm trnCollectionDetailCollectionLineDetailForm = new TrnCollectionDetailCollectionLineDetailForm(this, Convert.ToInt32(comboBoxCustomer.SelectedValue), currentCollectionLineEntity);
+                    trnCollectionDetailCollectionLineDetailForm.ShowDialog();
+                }
             }
 
             if (e.RowIndex > -1 && dataGridViewCollectionLine.CurrentCell.ColumnIndex == dataGridViewCollectionLine.Columns["ColumnCollectionLineListButtonDelete"].Index)
@@ -356,17 +365,19 @@ namespace easyfmis.Forms.Software.TrnCollection
                 if (deleteDialogResult == DialogResult.Yes)
                 {
                     var id = Convert.ToInt32(dataGridViewCollectionLine.Rows[e.RowIndex].Cells[dataGridViewCollectionLine.Columns["ColumnCollectionLineListId"].Index].Value);
-
-                    Controllers.TrnCollectionLineController trnCollectionLineController = new Controllers.TrnCollectionLineController();
-                    String[] deleteCollectionLine = trnCollectionLineController.DeleteCollectionLine(id);
-                    if (deleteCollectionLine[1].Equals("0") == false)
+                    if (id != 0)
                     {
-                        collectionItemPageNumber = 1;
-                        UpdateCollectionLineDataSource();
-                    }
-                    else
-                    {
-                        MessageBox.Show(deleteCollectionLine[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Controllers.TrnCollectionLineController trnCollectionLineController = new Controllers.TrnCollectionLineController();
+                        String[] deleteCollectionLine = trnCollectionLineController.DeleteCollectionLine(id);
+                        if (deleteCollectionLine[1].Equals("0") == false)
+                        {
+                            collectionItemPageNumber = 1;
+                            UpdateCollectionLineDataSource();
+                        }
+                        else
+                        {
+                            MessageBox.Show(deleteCollectionLine[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -470,5 +481,7 @@ namespace easyfmis.Forms.Software.TrnCollection
             TrnCollectionDetailCollectionLineDetailForm trnCollectionDetailCollectionLineDetailForm = new TrnCollectionDetailCollectionLineDetailForm(this, Convert.ToInt32(comboBoxCustomer.SelectedValue), newCollectionLineEntity);
             trnCollectionDetailCollectionLineDetailForm.ShowDialog();
         }
+
+
     }
 }

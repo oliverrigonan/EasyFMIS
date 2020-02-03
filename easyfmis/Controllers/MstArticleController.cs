@@ -34,141 +34,182 @@ namespace easyfmis.Controllers
         // ============
         public List<Entities.MstArticleEntity> ListArticle(Int32 articleTypeId)
         {
-            if (articleTypeId == 1)
-            {
-                var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
-                if (currentUserLogin.FirstOrDefault().UserName.ToLower() == "admin")
-                {
-                    var articles = from d in db.MstArticles
-                                   where d.ArticleTypeId == articleTypeId
-                                   select new Entities.MstArticleEntity
-                                   {
-                                       Id = d.Id,
-                                       ArticleTypeId = d.ArticleTypeId,
-                                       ArticleGroupId = d.ArticleTypeId,
-                                       ArticleCode = d.ArticleCode,
-                                       ArticleBarCode = d.ArticleBarCode,
-                                       Article = d.Article,
-                                       ArticleAlias = d.ArticleAlias,
-                                       GenericArticleName = d.GenericArticleName,
-                                       Category = d.Category,
-                                       VATInTaxId = d.VATInTaxId,
-                                       VATInTax = d.MstTax.Tax,
-                                       VATOutTaxId = d.VATOutTaxId,
-                                       VATOutTax = d.MstTax1.Tax,
-                                       UnitId = d.UnitId,
-                                       Unit = d.MstUnit.Unit,
-                                       DefaultSupplierId = d.DefaultSupplierId,
-                                       DefaultCost = d.DefaultCost,
-                                       DefaultPrice = d.DefaultPrice,
-                                       ReorderQuantity = d.ReorderQuantity,
-                                       IsInventory = d.IsInventory,
-                                       Address = d.Address,
-                                       ContactPerson = d.ContactNumber,
-                                       ContactNumber = d.ContactNumber,
-                                       EmailAddress = d.EmailAddress,
-                                       TIN = d.TIN,
-                                       Remarks = d.Remarks,
-                                       IsLocked = d.IsLocked,
-                                       CreatedBy = d.CreatedBy,
-                                       CreatedByUserName = d.MstUser.UserName,
-                                       CreatedByDateTime = d.CreatedByDateTime,
-                                       UpdatedBy = d.UpdatedBy,
-                                       UpdatedByUserName = d.MstUser.UserName,
-                                       UpdatedDateTime = d.UpdatedDateTime
-                                   };
+            var articles = from d in db.MstArticles
+                           where d.ArticleTypeId == articleTypeId
+                           select new Entities.MstArticleEntity
+                           {
+                               Id = d.Id,
+                               ArticleTypeId = d.ArticleTypeId,
+                               ArticleGroupId = d.ArticleTypeId,
+                               ArticleCode = d.ArticleCode,
+                               ArticleBarCode = d.ArticleBarCode,
+                               Article = d.Article,
+                               ArticleAlias = d.ArticleAlias,
+                               GenericArticleName = d.GenericArticleName,
+                               Category = d.Category,
+                               VATInTaxId = d.VATInTaxId,
+                               VATInTax = d.MstTax.Tax,
+                               VATOutTaxId = d.VATOutTaxId,
+                               VATOutTax = d.MstTax1.Tax,
+                               UnitId = d.UnitId,
+                               Unit = d.MstUnit.Unit,
+                               DefaultSupplierId = d.DefaultSupplierId,
+                               DefaultCost = d.DefaultCost,
+                               DefaultPrice = d.DefaultPrice,
+                               ReorderQuantity = d.ReorderQuantity,
+                               IsInventory = d.IsInventory,
+                               Address = d.Address,
+                               ContactPerson = d.ContactNumber,
+                               ContactNumber = d.ContactNumber,
+                               EmailAddress = d.EmailAddress,
+                               TIN = d.TIN,
+                               Remarks = d.Remarks,
+                               IsLocked = d.IsLocked,
+                               CreatedBy = d.CreatedBy,
+                               CreatedByUserName = d.MstUser.UserName,
+                               CreatedByDateTime = d.CreatedByDateTime,
+                               UpdatedBy = d.UpdatedBy,
+                               UpdatedByUserName = d.MstUser.UserName,
+                               UpdatedDateTime = d.UpdatedDateTime
+                           };
 
-                    return articles.OrderByDescending(d => d.ArticleCode).ToList();
-                }
-                else
-                {
-                    var articles = from d in db.MstArticles
-                                   where d.ArticleTypeId == articleTypeId
-                                   && d.Article != "Default Supplier"
-                                   select new Entities.MstArticleEntity
-                                   {
-                                       Id = d.Id,
-                                       ArticleTypeId = d.ArticleTypeId,
-                                       ArticleGroupId = d.ArticleTypeId,
-                                       ArticleCode = d.ArticleCode,
-                                       ArticleBarCode = d.ArticleBarCode,
-                                       Article = d.Article,
-                                       ArticleAlias = d.ArticleAlias,
-                                       GenericArticleName = d.GenericArticleName,
-                                       Category = d.Category,
-                                       VATInTaxId = d.VATInTaxId,
-                                       VATInTax = d.MstTax.Tax,
-                                       VATOutTaxId = d.VATOutTaxId,
-                                       VATOutTax = d.MstTax1.Tax,
-                                       UnitId = d.UnitId,
-                                       Unit = d.MstUnit.Unit,
-                                       DefaultSupplierId = d.DefaultSupplierId,
-                                       DefaultCost = d.DefaultCost,
-                                       DefaultPrice = d.DefaultPrice,
-                                       ReorderQuantity = d.ReorderQuantity,
-                                       IsInventory = d.IsInventory,
-                                       Address = d.Address,
-                                       ContactPerson = d.ContactNumber,
-                                       ContactNumber = d.ContactNumber,
-                                       EmailAddress = d.EmailAddress,
-                                       TIN = d.TIN,
-                                       Remarks = d.Remarks,
-                                       IsLocked = d.IsLocked,
-                                       CreatedBy = d.CreatedBy,
-                                       CreatedByUserName = d.MstUser.UserName,
-                                       CreatedByDateTime = d.CreatedByDateTime,
-                                       UpdatedBy = d.UpdatedBy,
-                                       UpdatedByUserName = d.MstUser.UserName,
-                                       UpdatedDateTime = d.UpdatedDateTime
-                                   };
+            return articles.OrderByDescending(d => d.ArticleCode).ToList();
 
-                    return articles.OrderByDescending(d => d.ArticleCode).ToList();
-                }
-            }
-            else
-            {
-                var articles = from d in db.MstArticles
-                               where d.ArticleTypeId == articleTypeId
-                               select new Entities.MstArticleEntity
-                               {
-                                   Id = d.Id,
-                                   ArticleTypeId = d.ArticleTypeId,
-                                   ArticleGroupId = d.ArticleTypeId,
-                                   ArticleCode = d.ArticleCode,
-                                   ArticleBarCode = d.ArticleBarCode,
-                                   Article = d.Article,
-                                   ArticleAlias = d.ArticleAlias,
-                                   GenericArticleName = d.GenericArticleName,
-                                   Category = d.Category,
-                                   VATInTaxId = d.VATInTaxId,
-                                   VATInTax = d.MstTax.Tax,
-                                   VATOutTaxId = d.VATOutTaxId,
-                                   VATOutTax = d.MstTax1.Tax,
-                                   UnitId = d.UnitId,
-                                   Unit = d.MstUnit.Unit,
-                                   DefaultSupplierId = d.DefaultSupplierId,
-                                   DefaultCost = d.DefaultCost,
-                                   DefaultPrice = d.DefaultPrice,
-                                   ReorderQuantity = d.ReorderQuantity,
-                                   IsInventory = d.IsInventory,
-                                   Address = d.Address,
-                                   ContactPerson = d.ContactNumber,
-                                   ContactNumber = d.ContactNumber,
-                                   EmailAddress = d.EmailAddress,
-                                   TIN = d.TIN,
-                                   Remarks = d.Remarks,
-                                   IsLocked = d.IsLocked,
-                                   CreatedBy = d.CreatedBy,
-                                   CreatedByUserName = d.MstUser.UserName,
-                                   CreatedByDateTime = d.CreatedByDateTime,
-                                   UpdatedBy = d.UpdatedBy,
-                                   UpdatedByUserName = d.MstUser.UserName,
-                                   UpdatedDateTime = d.UpdatedDateTime
-                               };
+            //if (articleTypeId == 1)
+            //{
+            //    var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+            //    if (currentUserLogin.FirstOrDefault().UserName.ToLower() == "admin")
+            //    {
+            //        var articles = from d in db.MstArticles
+            //                       where d.ArticleTypeId == articleTypeId
+            //                       select new Entities.MstArticleEntity
+            //                       {
+            //                           Id = d.Id,
+            //                           ArticleTypeId = d.ArticleTypeId,
+            //                           ArticleGroupId = d.ArticleTypeId,
+            //                           ArticleCode = d.ArticleCode,
+            //                           ArticleBarCode = d.ArticleBarCode,
+            //                           Article = d.Article,
+            //                           ArticleAlias = d.ArticleAlias,
+            //                           GenericArticleName = d.GenericArticleName,
+            //                           Category = d.Category,
+            //                           VATInTaxId = d.VATInTaxId,
+            //                           VATInTax = d.MstTax.Tax,
+            //                           VATOutTaxId = d.VATOutTaxId,
+            //                           VATOutTax = d.MstTax1.Tax,
+            //                           UnitId = d.UnitId,
+            //                           Unit = d.MstUnit.Unit,
+            //                           DefaultSupplierId = d.DefaultSupplierId,
+            //                           DefaultCost = d.DefaultCost,
+            //                           DefaultPrice = d.DefaultPrice,
+            //                           ReorderQuantity = d.ReorderQuantity,
+            //                           IsInventory = d.IsInventory,
+            //                           Address = d.Address,
+            //                           ContactPerson = d.ContactNumber,
+            //                           ContactNumber = d.ContactNumber,
+            //                           EmailAddress = d.EmailAddress,
+            //                           TIN = d.TIN,
+            //                           Remarks = d.Remarks,
+            //                           IsLocked = d.IsLocked,
+            //                           CreatedBy = d.CreatedBy,
+            //                           CreatedByUserName = d.MstUser.UserName,
+            //                           CreatedByDateTime = d.CreatedByDateTime,
+            //                           UpdatedBy = d.UpdatedBy,
+            //                           UpdatedByUserName = d.MstUser.UserName,
+            //                           UpdatedDateTime = d.UpdatedDateTime
+            //                       };
 
-                return articles.OrderByDescending(d => d.ArticleCode).ToList();
+            //        return articles.OrderByDescending(d => d.ArticleCode).ToList();
+            //    }
+            //    else
+            //    {
+            //        var articles = from d in db.MstArticles
+            //                       where d.ArticleTypeId == articleTypeId
+            //                       && d.Article != "Default Supplier"
+            //                       select new Entities.MstArticleEntity
+            //                       {
+            //                           Id = d.Id,
+            //                           ArticleTypeId = d.ArticleTypeId,
+            //                           ArticleGroupId = d.ArticleTypeId,
+            //                           ArticleCode = d.ArticleCode,
+            //                           ArticleBarCode = d.ArticleBarCode,
+            //                           Article = d.Article,
+            //                           ArticleAlias = d.ArticleAlias,
+            //                           GenericArticleName = d.GenericArticleName,
+            //                           Category = d.Category,
+            //                           VATInTaxId = d.VATInTaxId,
+            //                           VATInTax = d.MstTax.Tax,
+            //                           VATOutTaxId = d.VATOutTaxId,
+            //                           VATOutTax = d.MstTax1.Tax,
+            //                           UnitId = d.UnitId,
+            //                           Unit = d.MstUnit.Unit,
+            //                           DefaultSupplierId = d.DefaultSupplierId,
+            //                           DefaultCost = d.DefaultCost,
+            //                           DefaultPrice = d.DefaultPrice,
+            //                           ReorderQuantity = d.ReorderQuantity,
+            //                           IsInventory = d.IsInventory,
+            //                           Address = d.Address,
+            //                           ContactPerson = d.ContactNumber,
+            //                           ContactNumber = d.ContactNumber,
+            //                           EmailAddress = d.EmailAddress,
+            //                           TIN = d.TIN,
+            //                           Remarks = d.Remarks,
+            //                           IsLocked = d.IsLocked,
+            //                           CreatedBy = d.CreatedBy,
+            //                           CreatedByUserName = d.MstUser.UserName,
+            //                           CreatedByDateTime = d.CreatedByDateTime,
+            //                           UpdatedBy = d.UpdatedBy,
+            //                           UpdatedByUserName = d.MstUser.UserName,
+            //                           UpdatedDateTime = d.UpdatedDateTime
+            //                       };
 
-            }
+            //        return articles.OrderByDescending(d => d.ArticleCode).ToList();
+            //    }
+            //}
+            //else
+            //{
+            //    var articles = from d in db.MstArticles
+            //                   where d.ArticleTypeId == articleTypeId
+            //                   select new Entities.MstArticleEntity
+            //                   {
+            //                       Id = d.Id,
+            //                       ArticleTypeId = d.ArticleTypeId,
+            //                       ArticleGroupId = d.ArticleTypeId,
+            //                       ArticleCode = d.ArticleCode,
+            //                       ArticleBarCode = d.ArticleBarCode,
+            //                       Article = d.Article,
+            //                       ArticleAlias = d.ArticleAlias,
+            //                       GenericArticleName = d.GenericArticleName,
+            //                       Category = d.Category,
+            //                       VATInTaxId = d.VATInTaxId,
+            //                       VATInTax = d.MstTax.Tax,
+            //                       VATOutTaxId = d.VATOutTaxId,
+            //                       VATOutTax = d.MstTax1.Tax,
+            //                       UnitId = d.UnitId,
+            //                       Unit = d.MstUnit.Unit,
+            //                       DefaultSupplierId = d.DefaultSupplierId,
+            //                       DefaultCost = d.DefaultCost,
+            //                       DefaultPrice = d.DefaultPrice,
+            //                       ReorderQuantity = d.ReorderQuantity,
+            //                       IsInventory = d.IsInventory,
+            //                       Address = d.Address,
+            //                       ContactPerson = d.ContactNumber,
+            //                       ContactNumber = d.ContactNumber,
+            //                       EmailAddress = d.EmailAddress,
+            //                       TIN = d.TIN,
+            //                       Remarks = d.Remarks,
+            //                       IsLocked = d.IsLocked,
+            //                       CreatedBy = d.CreatedBy,
+            //                       CreatedByUserName = d.MstUser.UserName,
+            //                       CreatedByDateTime = d.CreatedByDateTime,
+            //                       UpdatedBy = d.UpdatedBy,
+            //                       UpdatedByUserName = d.MstUser.UserName,
+            //                       UpdatedDateTime = d.UpdatedDateTime
+            //                   };
+
+            //    return articles.OrderByDescending(d => d.ArticleCode).ToList();
+
+            //}
         }
 
         // ==============
@@ -387,7 +428,7 @@ namespace easyfmis.Controllers
                     DefaultPrice = 0,
                     ReorderQuantity = 0,
                     CreditLimit = 1000000,
-                    IsInventory = false,
+                    IsInventory = true,
                     Address = "NA",
                     ContactPerson = "NA",
                     ContactNumber = "NA",

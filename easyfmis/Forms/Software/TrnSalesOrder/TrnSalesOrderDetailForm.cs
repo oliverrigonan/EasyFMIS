@@ -272,6 +272,10 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                                 ColumnTrnSalesOrderItemListBasePrice = d.BasePrice.ToString("#,##0.00")
                             };
 
+                textBoxTotalDiscountAmount.Text = listSalesOrderItem.Sum(d=> d.DiscountAmount).ToString("#,##0.00");
+                textBoxTotalAmount.Text = listSalesOrderItem.Sum(d => d.Amount).ToString("#,##0.00");
+                textBoxTotalTaxAmount.Text = listSalesOrderItem.Sum(d => d.TaxAmount).ToString("#,##0.00");
+
                 return Task.FromResult(items.ToList());
             }
             else

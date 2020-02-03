@@ -71,6 +71,7 @@
             this.dateTimePickerPODate = new System.Windows.Forms.DateTimePicker();
             this.textBoxPONumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.textBoxTotalPOAmount = new System.Windows.Forms.TextBox();
             this.buttonPurchaseOrderItemPageListFirst = new System.Windows.Forms.Button();
             this.buttonPurchaseOrderItemPageListPrevious = new System.Windows.Forms.Button();
             this.buttonPurchaseOrderItemPageListNext = new System.Windows.Forms.Button();
@@ -96,7 +97,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
-            this.textBoxTotalPOAmount = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -511,6 +512,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.textBoxTotalPOAmount);
             this.panel4.Controls.Add(this.buttonPurchaseOrderItemPageListFirst);
             this.panel4.Controls.Add(this.buttonPurchaseOrderItemPageListPrevious);
@@ -522,6 +524,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
+            // 
+            // textBoxTotalPOAmount
+            // 
+            this.textBoxTotalPOAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalPOAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalPOAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalPOAmount.Location = new System.Drawing.Point(816, 9);
+            this.textBoxTotalPOAmount.Name = "textBoxTotalPOAmount";
+            this.textBoxTotalPOAmount.Size = new System.Drawing.Size(549, 34);
+            this.textBoxTotalPOAmount.TabIndex = 18;
+            this.textBoxTotalPOAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonPurchaseOrderItemPageListFirst
             // 
@@ -829,17 +842,17 @@
             this.tabPageStockOutItems.Text = "Purchase Order Items";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
-            // textBoxTotalPOAmount
+            // label15
             // 
-            this.textBoxTotalPOAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTotalPOAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTotalPOAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalPOAmount.Location = new System.Drawing.Point(816, 9);
-            this.textBoxTotalPOAmount.Name = "textBoxTotalPOAmount";
-            this.textBoxTotalPOAmount.Size = new System.Drawing.Size(549, 34);
-            this.textBoxTotalPOAmount.TabIndex = 18;
-            this.textBoxTotalPOAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(672, 13);
+            this.label15.Margin = new System.Windows.Forms.Padding(0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(141, 28);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "Total Amount";
             // 
             // TrnPurchaseOrderDetailForm
             // 
@@ -933,5 +946,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemSpace;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxTotalPOAmount;
+        private System.Windows.Forms.Label label15;
     }
 }

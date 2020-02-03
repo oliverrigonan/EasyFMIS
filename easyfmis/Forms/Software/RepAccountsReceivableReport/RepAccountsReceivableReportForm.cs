@@ -96,14 +96,14 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                         break;
                     case "Statement of Account":
-                        labelStartDate.Visible = false;
-                        dateTimePickerStartDate.Visible = false;
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
 
-                        labelEndDate.Visible = false;
-                        dateTimePickerEndDate.Visible = false;
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
 
-                        labelDateAsOf.Visible = true;
-                        dateTimePickerDateAsOf.Visible = true;
+                        labelDateAsOf.Visible = false;
+                        dateTimePickerDateAsOf.Visible = false;
 
                         labelCompany.Visible = true;
                         comboBoxCompany.Visible = true;

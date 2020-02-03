@@ -46,6 +46,7 @@ namespace easyfmis.Controllers
             var receivingReceipt = from d in db.TrnReceivingReceipts
                                    where d.SupplierId == supplierId
                                    && d.MstBranch.Id == currentBranchId
+                                   && d.BalanceAmount > 0
                                    && d.IsLocked == true
                                    select new Entities.TrnReceivingReceiptEntity
                                    {

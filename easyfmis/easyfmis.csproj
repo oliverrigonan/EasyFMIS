@@ -402,6 +402,12 @@
     <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesPayTypeDetailForm .designer.cs">
       <DependentUpon>SysSystemTablesPayTypeDetailForm .cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesTaxDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesTaxDetailForm.designer.cs">
+      <DependentUpon>SysSystemTablesTaxDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnCollection\TrnCollectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -798,6 +804,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesPayTypeDetailForm .resx">
       <DependentUpon>SysSystemTablesPayTypeDetailForm .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesTaxDetailForm.resx">
+      <DependentUpon>SysSystemTablesTaxDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionForm.resx">
       <DependentUpon>TrnCollectionForm.cs</DependentUpon>
