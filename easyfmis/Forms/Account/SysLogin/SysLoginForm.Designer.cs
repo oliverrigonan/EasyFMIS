@@ -211,9 +211,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(111, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(190, 20);
+            this.label3.Size = new System.Drawing.Size(181, 20);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Version: 1.202001070443";
+            this.label3.Text = "Version: 1.20200204238";
             // 
             // label4
             // 
