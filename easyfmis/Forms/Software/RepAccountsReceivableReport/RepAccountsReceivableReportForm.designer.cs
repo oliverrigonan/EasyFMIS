@@ -50,6 +50,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.comboBoxSoldBy = new System.Windows.Forms.ComboBox();
+            this.labelSoldBy = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -78,6 +80,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.comboBoxSoldBy);
+            this.panel4.Controls.Add(this.labelSoldBy);
             this.panel4.Controls.Add(this.comboBoxCustomer);
             this.panel4.Controls.Add(this.labelCustomer);
             this.panel4.Controls.Add(this.dateTimePickerEndDate);
@@ -327,6 +331,28 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_OnClick);
             // 
+            // comboBoxSoldBy
+            // 
+            this.comboBoxSoldBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxSoldBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxSoldBy.FormattingEnabled = true;
+            this.comboBoxSoldBy.Location = new System.Drawing.Point(504, 269);
+            this.comboBoxSoldBy.Name = "comboBoxSoldBy";
+            this.comboBoxSoldBy.Size = new System.Drawing.Size(416, 31);
+            this.comboBoxSoldBy.TabIndex = 40;
+            this.comboBoxSoldBy.Visible = false;
+            // 
+            // labelSoldBy
+            // 
+            this.labelSoldBy.AutoSize = true;
+            this.labelSoldBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.labelSoldBy.Location = new System.Drawing.Point(428, 272);
+            this.labelSoldBy.Name = "labelSoldBy";
+            this.labelSoldBy.Size = new System.Drawing.Size(70, 23);
+            this.labelSoldBy.TabIndex = 41;
+            this.labelSoldBy.Text = "Sold By:";
+            this.labelSoldBy.Visible = false;
+            // 
             // RepAccountsReceivableReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -374,5 +400,7 @@
         private System.Windows.Forms.Label labelEndDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
         private System.Windows.Forms.Label labelStartDate;
+        private System.Windows.Forms.ComboBox comboBoxSoldBy;
+        private System.Windows.Forms.Label labelSoldBy;
     }
 }

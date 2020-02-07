@@ -68,6 +68,17 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             }
         }
 
+        public void GetSoldBy()
+        {
+            Controllers.RepAccountsReceivableReportController repAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
+            if (repAccountsReceivableReportController.DropdownListCustomer().Any())
+            {
+                comboBoxCustomer.DataSource = repAccountsReceivableReportController.DropdownListCustomer();
+                comboBoxCustomer.ValueMember = "Id";
+                comboBoxCustomer.DisplayMember = "Article";
+            }
+        }
+
         private void listBoxSalesReport_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxAccountsReceivableReport.SelectedItem != null)
@@ -154,6 +165,10 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelCustomer.Visible = false;
                         comboBoxCustomer.Visible = false;
 
+                        labelSoldBy.Visible = false;
+                        comboBoxSoldBy.Visible = false;
+                        
+
                         break;
                     case "Collection Detail Report":
                         labelStartDate.Visible = true;
@@ -207,11 +222,16 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         {
             if (listBoxAccountsReceivableReport.SelectedItem != null)
             {
+                DateTime dateStart = dateTimePickerStartDate.Value.Date;
+                DateTime dateEnd = dateTimePickerEndDate.Value.Date;
+
                 DateTime dateAsOf = dateTimePickerDateAsOf.Value.Date;
                 Int32 companyId = Convert.ToInt32(comboBoxCompany.SelectedValue);
                 String companyName = comboBoxCompany.GetItemText(comboBoxCompany.SelectedItem);
                 Int32 branchId = Convert.ToInt32(comboBoxBranch.SelectedValue);
                 String branchName = comboBoxBranch.GetItemText(comboBoxBranch.SelectedItem);
+                Int32 soldById = Convert.ToInt32(comboBoxSoldBy.SelectedValue);
+                String soldBy = comboBoxBranch.GetItemText(comboBoxSoldBy.SelectedItem);
 
                 String selectedItem = listBoxAccountsReceivableReport.SelectedItem.ToString();
                 switch (selectedItem)
@@ -220,6 +240,10 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         RepAccountsReceivableReportAccountsReceivableReportForm repAccountsReceivableReportAccountsReceivableReportForm = new RepAccountsReceivableReportAccountsReceivableReportForm(dateAsOf, companyId, companyName, branchId, branchName);
                         repAccountsReceivableReportAccountsReceivableReportForm.ShowDialog();
 
+                        break;
+                    case "Sales Invoice Detail Report":
+                        RepbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm(dateStart, dateEnd, companyId, companyName, branchId, branchName, soldById, soldBy);
+                        repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm.ShowDialog();
                         break;
                     default:
 
