@@ -33,8 +33,6 @@ namespace easyfmis.Forms.Software.SysSystemTables
         public BindingSource payTypeListDataSource = new BindingSource();
         public static Int32 payTypeListPageNumber = 1;
 
-
-
         public SysSystemTablesForm(SysSoftwareForm softwareForm)
         {
             InitializeComponent();
@@ -44,6 +42,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
             CreateBankListDataGridView();
             CreateDiscountListDataGridView();
             CreatePayTypeListDataGridView();
+            CreateCurrencyListDataGridView();
         }
 
         // =======
@@ -679,7 +678,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
             if (e.RowIndex > -1 && dataGridViewPayTypeList.CurrentCell.ColumnIndex == dataGridViewPayTypeList.Columns["ColumnPayTypeListButtonDelete"].Index)
             {
 
-                DialogResult deleteDialogResult = MessageBox.Show("Delete PayType?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult deleteDialogResult = MessageBox.Show("Delete PayType?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (deleteDialogResult == DialogResult.Yes)
                 {
                     Controllers.MstPayTypeController mstPayTypeController = new Controllers.MstPayTypeController();
@@ -694,7 +693,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     }
                     else
                     {
-                        MessageBox.Show(deletePayType[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(deletePayType[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -773,6 +772,238 @@ namespace easyfmis.Forms.Software.SysSystemTables
             textBoxPayTypeListPageNumber.Text = payTypeListPageNumber + " / " + payTypeListPageList.PageCount;
         }
 
+        // ========
+        // Currency
+        // ========
+        public static List<Entities.DgvSystemTableCurrencyEntity> currencyListData = new List<Entities.DgvSystemTableCurrencyEntity>();
+        public PagedList<Entities.DgvSystemTableCurrencyEntity> currencyListPageList = new PagedList<Entities.DgvSystemTableCurrencyEntity>(currencyListData, currencyListPageNumber, pageSize);
+        public BindingSource currencyListDataSource = new BindingSource();
+        public static Int32 currencyListPageNumber = 1;
+
+        public Task<List<Entities.DgvSystemTableCurrencyEntity>> GetCurrencyListDataTask()
+        {
+            String filter = textBoxCurrencyListFilter.Text;
+            Controllers.MstCurrencyController mstCurrencyController = new Controllers.MstCurrencyController();
+
+            List<Entities.MstCurrencyEntity> listPayType = mstCurrencyController.ListCurrency();
+            if (listPayType.Any())
+            {
+                var payTypes = from d in listPayType
+                               where d.CurrencyCode.ToLower().Contains(filter) 
+                               select new Entities.DgvSystemTableCurrencyEntity
+                               {
+                                   ColumnCurrencyListButtonEdit = "Edit",
+                                   ColumnCurrencyListButtonDelete = "Delete",
+                                   ColumnCurrencyListId = d.Id,
+                                   ColumnCurrencyListCurrencyCode = d.CurrencyCode,
+                                   ColumnCurrencyListCurrency = d.Currency,
+                               };
+
+                return Task.FromResult(payTypes.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvSystemTableCurrencyEntity>());
+            }
+        }
+
+        public void UpdateCurrencyListDataSource()
+        {
+            SetCurrencyListDataSourceAsync();
+        }
+
+        public async void SetCurrencyListDataSourceAsync()
+        {
+            List<Entities.DgvSystemTableCurrencyEntity> getCurrencyListData = await GetCurrencyListDataTask();
+            if (getCurrencyListData.Any())
+            {
+                currencyListData = getCurrencyListData;
+                currencyListPageList = new PagedList<Entities.DgvSystemTableCurrencyEntity>(currencyListData, currencyListPageNumber, pageSize);
+
+                if (currencyListPageList.PageCount == 1)
+                {
+                    buttonCurrencyListPageListFirst.Enabled = false;
+                    buttonCurrencyListPageListPrevious.Enabled = false;
+                    buttonCurrencyListPageListNext.Enabled = false;
+                    buttonCurrencyListPageListLast.Enabled = false;
+                }
+                else if (currencyListPageNumber == 1)
+                {
+                    buttonCurrencyListPageListFirst.Enabled = false;
+                    buttonCurrencyListPageListPrevious.Enabled = false;
+                    buttonCurrencyListPageListNext.Enabled = true;
+                    buttonCurrencyListPageListLast.Enabled = true;
+                }
+                else if (currencyListPageNumber == currencyListPageList.PageCount)
+                {
+                    buttonCurrencyListPageListFirst.Enabled = true;
+                    buttonCurrencyListPageListPrevious.Enabled = true;
+                    buttonCurrencyListPageListNext.Enabled = false;
+                    buttonCurrencyListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonCurrencyListPageListFirst.Enabled = true;
+                    buttonCurrencyListPageListPrevious.Enabled = true;
+                    buttonCurrencyListPageListNext.Enabled = true;
+                    buttonCurrencyListPageListLast.Enabled = true;
+                }
+
+                textBoxCurrencyListPageNumber.Text = currencyListPageNumber + " / " + currencyListPageList.PageCount;
+                currencyListDataSource.DataSource = currencyListPageList;
+            }
+            else
+            {
+                buttonCurrencyListPageListFirst.Enabled = false;
+                buttonCurrencyListPageListPrevious.Enabled = false;
+                buttonCurrencyListPageListNext.Enabled = false;
+                buttonCurrencyListPageListLast.Enabled = false;
+
+                currencyListPageNumber = 1;
+
+                currencyListData = new List<Entities.DgvSystemTableCurrencyEntity>();
+                currencyListDataSource.Clear();
+                textBoxCurrencyListPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public void CreateCurrencyListDataGridView()
+        {
+            UpdateCurrencyListDataSource();
+
+            dataGridViewCurencyList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewCurencyList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewCurencyList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewCurencyList.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewCurencyList.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewCurencyList.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewCurencyList.DataSource = currencyListDataSource;
+        }
+
+        private void textBoxCurrencyListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateCurrencyListDataSource();
+            }
+        }
+
+        private void dataGridViewCurencyList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetCurrencyListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewCurencyList.CurrentCell.ColumnIndex == dataGridViewCurencyList.Columns["ColumnCurrencyListButtonEdit"].Index)
+            {
+                Entities.MstCurrencyEntity selecteCurrency = new Entities.MstCurrencyEntity()
+                {
+                    Id = Convert.ToInt32(dataGridViewCurencyList.Rows[e.RowIndex].Cells[2].Value),
+                    CurrencyCode = dataGridViewCurencyList.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    Currency = dataGridViewCurencyList.Rows[e.RowIndex].Cells[4].Value.ToString()
+                };
+
+                SysSystemTablesCurrencyDetailForm SysSystemTablesCurrencyDetailForm = new SysSystemTablesCurrencyDetailForm(this, selecteCurrency);
+                SysSystemTablesCurrencyDetailForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewCurencyList.CurrentCell.ColumnIndex == dataGridViewCurencyList.Columns["ColumnCurrencyListButtonDelete"].Index)
+            {
+
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Currency?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstCurrencyController mstCurrencyController = new Controllers.MstCurrencyController();
+
+                    String[] deleteCurrency = mstCurrencyController.DeleteCurrency(Convert.ToInt32(dataGridViewCurencyList.Rows[e.RowIndex].Cells[2].Value));
+                    if (deleteCurrency[1].Equals("0") == false)
+                    {
+                        Int32 currentPageNumber = currencyListPageNumber;
+
+                        currencyListPageNumber = 1;
+                        UpdateCurrencyListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteCurrency[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void GetCurrencyListCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonCurrencyListPageListFirst_Click(object sender, EventArgs e)
+        {
+            currencyListPageList = new PagedList<Entities.DgvSystemTableCurrencyEntity>(currencyListData, 1, pageSize);
+            currencyListDataSource.DataSource = currencyListPageList;
+
+            buttonCurrencyListPageListFirst.Enabled = false;
+            buttonCurrencyListPageListPrevious.Enabled = false;
+            buttonCurrencyListPageListNext.Enabled = true;
+            buttonCurrencyListPageListLast.Enabled = true;
+
+            currencyListPageNumber = 1;
+            textBoxCurrencyListPageNumber.Text = currencyListPageNumber + " / " + currencyListPageList.PageCount;
+        }
+
+        private void buttonCurrencyListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (currencyListPageList.HasPreviousPage == true)
+            {
+                currencyListPageList = new PagedList<Entities.DgvSystemTableCurrencyEntity>(currencyListData, --currencyListPageNumber, pageSize);
+                currencyListDataSource.DataSource = currencyListPageList;
+            }
+
+            buttonCurrencyListPageListNext.Enabled = true;
+            buttonCurrencyListPageListLast.Enabled = true;
+
+            if (currencyListPageNumber == 1)
+            {
+                buttonCurrencyListPageListFirst.Enabled = false;
+                buttonCurrencyListPageListPrevious.Enabled = false;
+            }
+        }
+
+        private void buttonCurrencyListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (currencyListPageList.HasNextPage == true)
+            {
+                currencyListPageList = new PagedList<Entities.DgvSystemTableCurrencyEntity>(currencyListData, ++currencyListPageNumber, pageSize);
+                currencyListDataSource.DataSource = currencyListPageList;
+            }
+
+            buttonCurrencyListPageListFirst.Enabled = true;
+            buttonCurrencyListPageListPrevious.Enabled = true;
+
+            if (currencyListPageNumber == currencyListPageList.PageCount)
+            {
+                buttonCurrencyListPageListNext.Enabled = false;
+                buttonCurrencyListPageListLast.Enabled = false;
+            }
+
+            textBoxCurrencyListPageNumber.Text = currencyListPageNumber + " / " + currencyListPageList.PageCount;
+        }
+
+        private void buttonCurrencyListPageListLast_Click(object sender, EventArgs e)
+        {
+            currencyListPageList = new PagedList<Entities.DgvSystemTableCurrencyEntity>(currencyListData, currencyListPageList.PageCount, pageSize);
+            currencyListDataSource.DataSource = currencyListPageList;
+
+            buttonCurrencyListPageListFirst.Enabled = true;
+            buttonCurrencyListPageListPrevious.Enabled = true;
+            buttonCurrencyListPageListNext.Enabled = false;
+            buttonCurrencyListPageListLast.Enabled = false;
+
+            currencyListPageNumber = payTypeListPageList.PageCount;
+            textBoxCurrencyListPageNumber.Text = currencyListPageNumber + " / " + currencyListPageList.PageCount;
+        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -802,6 +1033,11 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     SysSystemTablesPayTypeDetailForm sysSystemTablesPayTypeDetailForm = new SysSystemTablesPayTypeDetailForm(this, null);
                     sysSystemTablesPayTypeDetailForm.ShowDialog();
                     break;
+                case "Currency":
+                    SysSystemTablesCurrencyDetailForm SysSystemTablesCurrencyDetailForm = new SysSystemTablesCurrencyDetailForm(this, null);
+                    SysSystemTablesCurrencyDetailForm.ShowDialog();
+                    break;
+
 
             }
         }

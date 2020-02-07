@@ -111,6 +111,23 @@ namespace easyfmis.Controllers
             return customers.ToList();
         }
 
+        //// ======================
+        //// Dropdown List Customer
+        //// ======================
+        //public List<Entities.MstArticleEntity> DropdownListCustomer()
+        //{
+        //    var customers = from d in db.MstArticles
+        //                    where d.ArticleTypeId == 2
+        //                    && d.IsLocked == true
+        //                    select new Entities.MstArticleEntity
+        //                    {
+        //                        Id = d.Id,
+        //                        Article = d.Article
+        //                    };
+
+        //    return customers.ToList();
+        //}
+
         // ===============================
         // Accounts Receivable Report List
         // ===============================
@@ -143,6 +160,48 @@ namespace easyfmis.Controllers
                                    };
 
                 return salesInvoice.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // ===============================
+        // Accounts Receivable Report List
+        // ===============================
+        public List<Entities.RepSalesInvoiceEntity> ListSalesInvoiceDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, Int32 SoldById)
+        {
+            try
+            {
+                var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                       where d.TrnSalesInvoice.SIDate >= dateStart
+                                       && d.TrnSalesInvoice.SIDate <= dateEnd
+                                       && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                       && d.TrnSalesInvoice.BranchId == branchId
+                                       && d.TrnSalesInvoice.SoldBy == SoldById
+                                       && d.TrnSalesInvoice.IsLocked == true
+                                       select new Entities.RepSalesInvoiceEntity
+                                       {
+                                           SINumber = d.TrnSalesInvoice.SINumber,
+                                           ItemDescription = d.MstArticle.Article,
+                                           ItemInventoryCode = d.MstArticle.ArticleCode,
+                                           Unit = d.MstUnit.Unit,
+                                           Price = d.Price,
+                                           Discount = d.MstDiscount.Discount,
+                                           DiscountRate = d.DiscountRate,
+                                           DiscountAmount = d.DiscountAmount,
+                                           NetPrice = d.NetPrice,
+                                           Quantity = d.Quantity,
+                                           Amount = d.Amount,
+                                           Tax = d.MstTax.Tax,
+                                           TaxRate = d.TaxRate,
+                                           TaxAmount = d.TaxAmount,
+                                           BaseQuantity = d.BaseQuantity,
+                                           BasePrice = d.BasePrice
+                                       };
+
+                return salesInvoiceItem.ToList();
             }
             catch
             {

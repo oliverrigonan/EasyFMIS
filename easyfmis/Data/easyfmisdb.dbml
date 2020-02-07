@@ -106,6 +106,7 @@
       <Association Name="MstArticle_TrnStockTransferItem" Member="TrnStockTransferItems" ThisKey="Id" OtherKey="ItemId" Type="TrnStockTransferItem" />
       <Association Name="MstArticle_MstArticleComponent" Member="MstArticleComponents" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleComponent" />
       <Association Name="MstArticle_MstArticleComponent1" Member="MstArticleComponents1" ThisKey="Id" OtherKey="ComponentArticleId" Type="MstArticleComponent" />
+      <Association Name="MstArticle_MstArticleCost" Member="MstArticleCosts" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleCost" />
       <Association Name="MstArticle_MstArticleInventory" Member="MstArticleInventories" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleInventory" />
       <Association Name="MstArticle_MstArticlePrice" Member="MstArticlePrices" ThisKey="Id" OtherKey="ArticleId" Type="MstArticlePrice" />
       <Association Name="MstArticle_MstArticleUnit" Member="MstArticleUnits" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleUnit" />
@@ -146,6 +147,17 @@
       <Association Name="MstArticle_MstArticleComponent" Member="MstArticle" ThisKey="ArticleId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="MstArticle_MstArticleComponent1" Member="MstArticle1" ThisKey="ComponentArticleId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" />
       <Association Name="MstUnit_MstArticleComponent" Member="MstUnit" ThisKey="UnitId" OtherKey="Id" Type="MstUnit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MstArticleCost" Member="MstArticleCosts">
+    <Type Name="MstArticleCost">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CostDescription" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrencyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="MstArticle_MstArticleCost" Member="MstArticle" ThisKey="ArticleId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="MstCurrency_MstArticleCost" Member="MstCurrency" ThisKey="CurrencyId" OtherKey="Id" Type="MstCurrency" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.MstArticleGroup" Member="MstArticleGroups">
@@ -250,6 +262,14 @@
       <Association Name="MstCompany_MstUser" Member="MstUsers" ThisKey="Id" OtherKey="CompanyId" Type="MstUser" />
       <Association Name="MstUser_MstCompany" Member="MstUser" ThisKey="CreatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
       <Association Name="MstUser_MstCompany1" Member="MstUser1" ThisKey="UpdatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MstCurrency" Member="MstCurrencies">
+    <Type Name="MstCurrency">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CurrencyCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Currency" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="MstCurrency_MstArticleCost" Member="MstArticleCosts" ThisKey="Id" OtherKey="CurrencyId" Type="MstArticleCost" />
     </Type>
   </Table>
   <Table Name="dbo.MstDiscount" Member="MstDiscounts">

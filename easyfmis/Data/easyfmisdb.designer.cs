@@ -48,6 +48,9 @@ namespace easyfmis.Data
     partial void InsertMstArticleComponent(MstArticleComponent instance);
     partial void UpdateMstArticleComponent(MstArticleComponent instance);
     partial void DeleteMstArticleComponent(MstArticleComponent instance);
+    partial void InsertMstArticleCost(MstArticleCost instance);
+    partial void UpdateMstArticleCost(MstArticleCost instance);
+    partial void DeleteMstArticleCost(MstArticleCost instance);
     partial void InsertMstArticleGroup(MstArticleGroup instance);
     partial void UpdateMstArticleGroup(MstArticleGroup instance);
     partial void DeleteMstArticleGroup(MstArticleGroup instance);
@@ -69,6 +72,9 @@ namespace easyfmis.Data
     partial void InsertMstCompany(MstCompany instance);
     partial void UpdateMstCompany(MstCompany instance);
     partial void DeleteMstCompany(MstCompany instance);
+    partial void InsertMstCurrency(MstCurrency instance);
+    partial void UpdateMstCurrency(MstCurrency instance);
+    partial void DeleteMstCurrency(MstCurrency instance);
     partial void InsertMstDiscount(MstDiscount instance);
     partial void UpdateMstDiscount(MstDiscount instance);
     partial void DeleteMstDiscount(MstDiscount instance);
@@ -239,6 +245,14 @@ namespace easyfmis.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<MstArticleCost> MstArticleCosts
+		{
+			get
+			{
+				return this.GetTable<MstArticleCost>();
+			}
+		}
+		
 		public System.Data.Linq.Table<MstArticleGroup> MstArticleGroups
 		{
 			get
@@ -292,6 +306,14 @@ namespace easyfmis.Data
 			get
 			{
 				return this.GetTable<MstCompany>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MstCurrency> MstCurrencies
+		{
+			get
+			{
+				return this.GetTable<MstCurrency>();
 			}
 		}
 		
@@ -2286,6 +2308,8 @@ namespace easyfmis.Data
 		
 		private EntitySet<MstArticleComponent> _MstArticleComponents1;
 		
+		private EntitySet<MstArticleCost> _MstArticleCosts;
+		
 		private EntitySet<MstArticleInventory> _MstArticleInventories;
 		
 		private EntitySet<MstArticlePrice> _MstArticlePrices;
@@ -2411,6 +2435,7 @@ namespace easyfmis.Data
 			this._TrnStockTransferItems = new EntitySet<TrnStockTransferItem>(new Action<TrnStockTransferItem>(this.attach_TrnStockTransferItems), new Action<TrnStockTransferItem>(this.detach_TrnStockTransferItems));
 			this._MstArticleComponents = new EntitySet<MstArticleComponent>(new Action<MstArticleComponent>(this.attach_MstArticleComponents), new Action<MstArticleComponent>(this.detach_MstArticleComponents));
 			this._MstArticleComponents1 = new EntitySet<MstArticleComponent>(new Action<MstArticleComponent>(this.attach_MstArticleComponents1), new Action<MstArticleComponent>(this.detach_MstArticleComponents1));
+			this._MstArticleCosts = new EntitySet<MstArticleCost>(new Action<MstArticleCost>(this.attach_MstArticleCosts), new Action<MstArticleCost>(this.detach_MstArticleCosts));
 			this._MstArticleInventories = new EntitySet<MstArticleInventory>(new Action<MstArticleInventory>(this.attach_MstArticleInventories), new Action<MstArticleInventory>(this.detach_MstArticleInventories));
 			this._MstArticlePrices = new EntitySet<MstArticlePrice>(new Action<MstArticlePrice>(this.attach_MstArticlePrices), new Action<MstArticlePrice>(this.detach_MstArticlePrices));
 			this._MstArticleUnits = new EntitySet<MstArticleUnit>(new Action<MstArticleUnit>(this.attach_MstArticleUnits), new Action<MstArticleUnit>(this.detach_MstArticleUnits));
@@ -3131,6 +3156,19 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_MstArticleCost", Storage="_MstArticleCosts", ThisKey="Id", OtherKey="ArticleId")]
+		public EntitySet<MstArticleCost> MstArticleCosts
+		{
+			get
+			{
+				return this._MstArticleCosts;
+			}
+			set
+			{
+				this._MstArticleCosts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_MstArticleInventory", Storage="_MstArticleInventories", ThisKey="Id", OtherKey="ArticleId")]
 		public EntitySet<MstArticleInventory> MstArticleInventories
 		{
@@ -3693,6 +3731,18 @@ namespace easyfmis.Data
 			entity.MstArticle1 = null;
 		}
 		
+		private void attach_MstArticleCosts(MstArticleCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = this;
+		}
+		
+		private void detach_MstArticleCosts(MstArticleCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstArticle = null;
+		}
+		
 		private void attach_MstArticleInventories(MstArticleInventory entity)
 		{
 			this.SendPropertyChanging();
@@ -4214,6 +4264,246 @@ namespace easyfmis.Data
 						this._UnitId = default(int);
 					}
 					this.SendPropertyChanged("MstUnit");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MstArticleCost")]
+	public partial class MstArticleCost : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _ArticleId;
+		
+		private string _CostDescription;
+		
+		private decimal _Cost;
+		
+		private int _CurrencyId;
+		
+		private EntityRef<MstArticle> _MstArticle;
+		
+		private EntityRef<MstCurrency> _MstCurrency;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnArticleIdChanging(int value);
+    partial void OnArticleIdChanged();
+    partial void OnCostDescriptionChanging(string value);
+    partial void OnCostDescriptionChanged();
+    partial void OnCostChanging(decimal value);
+    partial void OnCostChanged();
+    partial void OnCurrencyIdChanging(int value);
+    partial void OnCurrencyIdChanged();
+    #endregion
+		
+		public MstArticleCost()
+		{
+			this._MstArticle = default(EntityRef<MstArticle>);
+			this._MstCurrency = default(EntityRef<MstCurrency>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArticleId", DbType="Int NOT NULL")]
+		public int ArticleId
+		{
+			get
+			{
+				return this._ArticleId;
+			}
+			set
+			{
+				if ((this._ArticleId != value))
+				{
+					if (this._MstArticle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnArticleIdChanging(value);
+					this.SendPropertyChanging();
+					this._ArticleId = value;
+					this.SendPropertyChanged("ArticleId");
+					this.OnArticleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CostDescription", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string CostDescription
+		{
+			get
+			{
+				return this._CostDescription;
+			}
+			set
+			{
+				if ((this._CostDescription != value))
+				{
+					this.OnCostDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._CostDescription = value;
+					this.SendPropertyChanged("CostDescription");
+					this.OnCostDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,5) NOT NULL")]
+		public decimal Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
+					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrencyId", DbType="Int NOT NULL")]
+		public int CurrencyId
+		{
+			get
+			{
+				return this._CurrencyId;
+			}
+			set
+			{
+				if ((this._CurrencyId != value))
+				{
+					if (this._MstCurrency.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCurrencyIdChanging(value);
+					this.SendPropertyChanging();
+					this._CurrencyId = value;
+					this.SendPropertyChanged("CurrencyId");
+					this.OnCurrencyIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstArticle_MstArticleCost", Storage="_MstArticle", ThisKey="ArticleId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public MstArticle MstArticle
+		{
+			get
+			{
+				return this._MstArticle.Entity;
+			}
+			set
+			{
+				MstArticle previousValue = this._MstArticle.Entity;
+				if (((previousValue != value) 
+							|| (this._MstArticle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstArticle.Entity = null;
+						previousValue.MstArticleCosts.Remove(this);
+					}
+					this._MstArticle.Entity = value;
+					if ((value != null))
+					{
+						value.MstArticleCosts.Add(this);
+						this._ArticleId = value.Id;
+					}
+					else
+					{
+						this._ArticleId = default(int);
+					}
+					this.SendPropertyChanged("MstArticle");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstCurrency_MstArticleCost", Storage="_MstCurrency", ThisKey="CurrencyId", OtherKey="Id", IsForeignKey=true)]
+		public MstCurrency MstCurrency
+		{
+			get
+			{
+				return this._MstCurrency.Entity;
+			}
+			set
+			{
+				MstCurrency previousValue = this._MstCurrency.Entity;
+				if (((previousValue != value) 
+							|| (this._MstCurrency.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MstCurrency.Entity = null;
+						previousValue.MstArticleCosts.Remove(this);
+					}
+					this._MstCurrency.Entity = value;
+					if ((value != null))
+					{
+						value.MstArticleCosts.Add(this);
+						this._CurrencyId = value.Id;
+					}
+					else
+					{
+						this._CurrencyId = default(int);
+					}
+					this.SendPropertyChanged("MstCurrency");
 				}
 			}
 		}
@@ -6612,6 +6902,144 @@ namespace easyfmis.Data
 		{
 			this.SendPropertyChanging();
 			entity.MstCompany = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MstCurrency")]
+	public partial class MstCurrency : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _CurrencyCode;
+		
+		private string _Currency;
+		
+		private EntitySet<MstArticleCost> _MstArticleCosts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnCurrencyCodeChanging(string value);
+    partial void OnCurrencyCodeChanged();
+    partial void OnCurrencyChanging(string value);
+    partial void OnCurrencyChanged();
+    #endregion
+		
+		public MstCurrency()
+		{
+			this._MstArticleCosts = new EntitySet<MstArticleCost>(new Action<MstArticleCost>(this.attach_MstArticleCosts), new Action<MstArticleCost>(this.detach_MstArticleCosts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrencyCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CurrencyCode
+		{
+			get
+			{
+				return this._CurrencyCode;
+			}
+			set
+			{
+				if ((this._CurrencyCode != value))
+				{
+					this.OnCurrencyCodeChanging(value);
+					this.SendPropertyChanging();
+					this._CurrencyCode = value;
+					this.SendPropertyChanged("CurrencyCode");
+					this.OnCurrencyCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Currency", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Currency
+		{
+			get
+			{
+				return this._Currency;
+			}
+			set
+			{
+				if ((this._Currency != value))
+				{
+					this.OnCurrencyChanging(value);
+					this.SendPropertyChanging();
+					this._Currency = value;
+					this.SendPropertyChanged("Currency");
+					this.OnCurrencyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstCurrency_MstArticleCost", Storage="_MstArticleCosts", ThisKey="Id", OtherKey="CurrencyId")]
+		public EntitySet<MstArticleCost> MstArticleCosts
+		{
+			get
+			{
+				return this._MstArticleCosts;
+			}
+			set
+			{
+				this._MstArticleCosts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_MstArticleCosts(MstArticleCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstCurrency = this;
+		}
+		
+		private void detach_MstArticleCosts(MstArticleCost entity)
+		{
+			this.SendPropertyChanging();
+			entity.MstCurrency = null;
 		}
 	}
 	

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -55,6 +55,13 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dataGridViewPayTypeList = new System.Windows.Forms.DataGridView();
+            this.ColumnPayTypeListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnPayTypeListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnPayTypeListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPayTypeListPayType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPayTypeListAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPayTypeListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxPayTypeListFilter = new System.Windows.Forms.TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
             this.buttonPayTypeListPageListFirst = new System.Windows.Forms.Button();
@@ -127,13 +134,22 @@
             this.ColumnBankListIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnBankListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxBankListFilter = new System.Windows.Forms.TextBox();
-            this.ColumnPayTypeListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnPayTypeListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnPayTypeListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPayTypeListPayType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPayTypeListAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPayTypeListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dataGridViewCurencyList = new System.Windows.Forms.DataGridView();
+            this.ColumnCurrencyListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnCurrencyListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnCurrencyListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCurrencyListCurrencyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCurrencyListCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCurrencyListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxCurrencyListFilter = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.buttonCurrencyListPageListFirst = new System.Windows.Forms.Button();
+            this.buttonCurrencyListPageListPrevious = new System.Windows.Forms.Button();
+            this.buttonCurrencyListPageListNext = new System.Windows.Forms.Button();
+            this.buttonCurrencyListPageListLast = new System.Windows.Forms.Button();
+            this.textBoxCurrencyListPageNumber = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlSystemTable.SuspendLayout();
@@ -161,6 +177,10 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBankList)).BeginInit();
+            this.tabPage11.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCurencyList)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -239,6 +259,7 @@
             this.tabControlSystemTable.Controls.Add(this.tabPage6);
             this.tabControlSystemTable.Controls.Add(this.tabPage7);
             this.tabControlSystemTable.Controls.Add(this.tabPage10);
+            this.tabControlSystemTable.Controls.Add(this.tabPage11);
             this.tabControlSystemTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlSystemTable.Location = new System.Drawing.Point(0, 63);
             this.tabControlSystemTable.Name = "tabControlSystemTable";
@@ -333,8 +354,8 @@
             // ColumnDiscountListDiscountRate
             // 
             this.ColumnDiscountListDiscountRate.DataPropertyName = "ColumnDiscountListDiscountRate";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDiscountListDiscountRate.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnDiscountListDiscountRate.DefaultCellStyle = dataGridViewCellStyle9;
             this.ColumnDiscountListDiscountRate.HeaderText = "Discount Rate";
             this.ColumnDiscountListDiscountRate.Name = "ColumnDiscountListDiscountRate";
             this.ColumnDiscountListDiscountRate.ReadOnly = true;
@@ -493,6 +514,64 @@
             this.dataGridViewPayTypeList.Size = new System.Drawing.Size(1358, 479);
             this.dataGridViewPayTypeList.TabIndex = 26;
             this.dataGridViewPayTypeList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPayTypeList_CellClick);
+            // 
+            // ColumnPayTypeListButtonEdit
+            // 
+            this.ColumnPayTypeListButtonEdit.DataPropertyName = "ColumnPayTypeListButtonEdit";
+            this.ColumnPayTypeListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnPayTypeListButtonEdit.HeaderText = "";
+            this.ColumnPayTypeListButtonEdit.Name = "ColumnPayTypeListButtonEdit";
+            this.ColumnPayTypeListButtonEdit.ReadOnly = true;
+            this.ColumnPayTypeListButtonEdit.Width = 70;
+            // 
+            // ColumnPayTypeListButtonDelete
+            // 
+            this.ColumnPayTypeListButtonDelete.DataPropertyName = "ColumnPayTypeListButtonDelete";
+            this.ColumnPayTypeListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnPayTypeListButtonDelete.HeaderText = "";
+            this.ColumnPayTypeListButtonDelete.Name = "ColumnPayTypeListButtonDelete";
+            this.ColumnPayTypeListButtonDelete.ReadOnly = true;
+            this.ColumnPayTypeListButtonDelete.Width = 70;
+            // 
+            // ColumnPayTypeListId
+            // 
+            this.ColumnPayTypeListId.DataPropertyName = "ColumnPayTypeListId";
+            this.ColumnPayTypeListId.HeaderText = "Id";
+            this.ColumnPayTypeListId.Name = "ColumnPayTypeListId";
+            this.ColumnPayTypeListId.ReadOnly = true;
+            this.ColumnPayTypeListId.Visible = false;
+            // 
+            // ColumnPayTypeListPayType
+            // 
+            this.ColumnPayTypeListPayType.DataPropertyName = "ColumnPayTypeListPayType";
+            this.ColumnPayTypeListPayType.HeaderText = "Pay Type";
+            this.ColumnPayTypeListPayType.Name = "ColumnPayTypeListPayType";
+            this.ColumnPayTypeListPayType.ReadOnly = true;
+            this.ColumnPayTypeListPayType.Width = 250;
+            // 
+            // ColumnAccountId
+            // 
+            this.ColumnAccountId.DataPropertyName = "ColumnAccountId";
+            this.ColumnAccountId.HeaderText = "AccountId";
+            this.ColumnAccountId.Name = "ColumnAccountId";
+            this.ColumnAccountId.ReadOnly = true;
+            this.ColumnAccountId.Visible = false;
+            // 
+            // ColumnPayTypeListAccount
+            // 
+            this.ColumnPayTypeListAccount.DataPropertyName = "ColumnPayTypeListAccount";
+            this.ColumnPayTypeListAccount.HeaderText = "Account";
+            this.ColumnPayTypeListAccount.Name = "ColumnPayTypeListAccount";
+            this.ColumnPayTypeListAccount.ReadOnly = true;
+            this.ColumnPayTypeListAccount.Width = 200;
+            // 
+            // ColumnPayTypeListSpace
+            // 
+            this.ColumnPayTypeListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnPayTypeListSpace.DataPropertyName = "ColumnPayTypeListSpace";
+            this.ColumnPayTypeListSpace.HeaderText = "";
+            this.ColumnPayTypeListSpace.Name = "ColumnPayTypeListSpace";
+            this.ColumnPayTypeListSpace.ReadOnly = true;
             // 
             // textBoxPayTypeListFilter
             // 
@@ -684,8 +763,8 @@
             // ColumnTaxListRate
             // 
             this.ColumnTaxListRate.DataPropertyName = "ColumnTaxListRate";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnTaxListRate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnTaxListRate.DefaultCellStyle = dataGridViewCellStyle10;
             this.ColumnTaxListRate.HeaderText = "Rate";
             this.ColumnTaxListRate.Name = "ColumnTaxListRate";
             this.ColumnTaxListRate.ReadOnly = true;
@@ -1355,63 +1434,199 @@
             this.textBoxBankListFilter.Size = new System.Drawing.Size(1344, 30);
             this.textBoxBankListFilter.TabIndex = 0;
             // 
-            // ColumnPayTypeListButtonEdit
+            // tabPage11
             // 
-            this.ColumnPayTypeListButtonEdit.DataPropertyName = "ColumnPayTypeListButtonEdit";
-            this.ColumnPayTypeListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnPayTypeListButtonEdit.HeaderText = "";
-            this.ColumnPayTypeListButtonEdit.Name = "ColumnPayTypeListButtonEdit";
-            this.ColumnPayTypeListButtonEdit.ReadOnly = true;
-            this.ColumnPayTypeListButtonEdit.Width = 70;
+            this.tabPage11.Controls.Add(this.panel4);
+            this.tabPage11.Location = new System.Drawing.Point(4, 32);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(1374, 583);
+            this.tabPage11.TabIndex = 8;
+            this.tabPage11.Text = "Currency";
+            this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // ColumnPayTypeListButtonDelete
+            // panel4
             // 
-            this.ColumnPayTypeListButtonDelete.DataPropertyName = "ColumnPayTypeListButtonDelete";
-            this.ColumnPayTypeListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnPayTypeListButtonDelete.HeaderText = "";
-            this.ColumnPayTypeListButtonDelete.Name = "ColumnPayTypeListButtonDelete";
-            this.ColumnPayTypeListButtonDelete.ReadOnly = true;
-            this.ColumnPayTypeListButtonDelete.Width = 70;
+            this.panel4.Controls.Add(this.dataGridViewCurencyList);
+            this.panel4.Controls.Add(this.textBoxCurrencyListFilter);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1374, 583);
+            this.panel4.TabIndex = 3;
             // 
-            // ColumnPayTypeListId
+            // dataGridViewCurencyList
             // 
-            this.ColumnPayTypeListId.DataPropertyName = "ColumnPayTypeListId";
-            this.ColumnPayTypeListId.HeaderText = "Id";
-            this.ColumnPayTypeListId.Name = "ColumnPayTypeListId";
-            this.ColumnPayTypeListId.ReadOnly = true;
-            this.ColumnPayTypeListId.Visible = false;
+            this.dataGridViewCurencyList.AllowUserToAddRows = false;
+            this.dataGridViewCurencyList.AllowUserToDeleteRows = false;
+            this.dataGridViewCurencyList.AllowUserToResizeRows = false;
+            this.dataGridViewCurencyList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCurencyList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewCurencyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCurencyList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnCurrencyListButtonEdit,
+            this.ColumnCurrencyListButtonDelete,
+            this.ColumnCurrencyListId,
+            this.ColumnCurrencyListCurrencyCode,
+            this.ColumnCurrencyListCurrency,
+            this.ColumnCurrencyListSpace});
+            this.dataGridViewCurencyList.Location = new System.Drawing.Point(5, 39);
+            this.dataGridViewCurencyList.MultiSelect = false;
+            this.dataGridViewCurencyList.Name = "dataGridViewCurencyList";
+            this.dataGridViewCurencyList.ReadOnly = true;
+            this.dataGridViewCurencyList.RowHeadersVisible = false;
+            this.dataGridViewCurencyList.RowTemplate.Height = 24;
+            this.dataGridViewCurencyList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCurencyList.Size = new System.Drawing.Size(1364, 485);
+            this.dataGridViewCurencyList.TabIndex = 26;
+            this.dataGridViewCurencyList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCurencyList_CellClick);
             // 
-            // ColumnPayTypeListPayType
+            // ColumnCurrencyListButtonEdit
             // 
-            this.ColumnPayTypeListPayType.DataPropertyName = "ColumnPayTypeListPayType";
-            this.ColumnPayTypeListPayType.HeaderText = "Pay Type";
-            this.ColumnPayTypeListPayType.Name = "ColumnPayTypeListPayType";
-            this.ColumnPayTypeListPayType.ReadOnly = true;
-            this.ColumnPayTypeListPayType.Width = 250;
+            this.ColumnCurrencyListButtonEdit.DataPropertyName = "ColumnCurrencyListButtonEdit";
+            this.ColumnCurrencyListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnCurrencyListButtonEdit.HeaderText = "";
+            this.ColumnCurrencyListButtonEdit.Name = "ColumnCurrencyListButtonEdit";
+            this.ColumnCurrencyListButtonEdit.ReadOnly = true;
+            this.ColumnCurrencyListButtonEdit.Width = 70;
             // 
-            // ColumnAccountId
+            // ColumnCurrencyListButtonDelete
             // 
-            this.ColumnAccountId.DataPropertyName = "ColumnAccountId";
-            this.ColumnAccountId.HeaderText = "AccountId";
-            this.ColumnAccountId.Name = "ColumnAccountId";
-            this.ColumnAccountId.ReadOnly = true;
-            this.ColumnAccountId.Visible = false;
+            this.ColumnCurrencyListButtonDelete.DataPropertyName = "ColumnCurrencyListButtonDelete";
+            this.ColumnCurrencyListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnCurrencyListButtonDelete.HeaderText = "";
+            this.ColumnCurrencyListButtonDelete.Name = "ColumnCurrencyListButtonDelete";
+            this.ColumnCurrencyListButtonDelete.ReadOnly = true;
+            this.ColumnCurrencyListButtonDelete.Width = 70;
             // 
-            // ColumnPayTypeListAccount
+            // ColumnCurrencyListId
             // 
-            this.ColumnPayTypeListAccount.DataPropertyName = "ColumnPayTypeListAccount";
-            this.ColumnPayTypeListAccount.HeaderText = "Account";
-            this.ColumnPayTypeListAccount.Name = "ColumnPayTypeListAccount";
-            this.ColumnPayTypeListAccount.ReadOnly = true;
-            this.ColumnPayTypeListAccount.Width = 200;
+            this.ColumnCurrencyListId.DataPropertyName = "ColumnCurrencyListId";
+            this.ColumnCurrencyListId.HeaderText = "Id";
+            this.ColumnCurrencyListId.Name = "ColumnCurrencyListId";
+            this.ColumnCurrencyListId.ReadOnly = true;
+            this.ColumnCurrencyListId.Visible = false;
             // 
-            // ColumnPayTypeListSpace
+            // ColumnCurrencyListCurrencyCode
             // 
-            this.ColumnPayTypeListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnPayTypeListSpace.DataPropertyName = "ColumnPayTypeListSpace";
-            this.ColumnPayTypeListSpace.HeaderText = "";
-            this.ColumnPayTypeListSpace.Name = "ColumnPayTypeListSpace";
-            this.ColumnPayTypeListSpace.ReadOnly = true;
+            this.ColumnCurrencyListCurrencyCode.DataPropertyName = "ColumnCurrencyListCurrencyCode";
+            this.ColumnCurrencyListCurrencyCode.HeaderText = "Code";
+            this.ColumnCurrencyListCurrencyCode.Name = "ColumnCurrencyListCurrencyCode";
+            this.ColumnCurrencyListCurrencyCode.ReadOnly = true;
+            this.ColumnCurrencyListCurrencyCode.Width = 250;
+            // 
+            // ColumnCurrencyListCurrency
+            // 
+            this.ColumnCurrencyListCurrency.DataPropertyName = "ColumnCurrencyListCurrency";
+            this.ColumnCurrencyListCurrency.HeaderText = "Currency";
+            this.ColumnCurrencyListCurrency.Name = "ColumnCurrencyListCurrency";
+            this.ColumnCurrencyListCurrency.ReadOnly = true;
+            this.ColumnCurrencyListCurrency.Width = 250;
+            // 
+            // ColumnCurrencyListSpace
+            // 
+            this.ColumnCurrencyListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCurrencyListSpace.DataPropertyName = "ColumnCurrencyListSpace";
+            this.ColumnCurrencyListSpace.HeaderText = "";
+            this.ColumnCurrencyListSpace.Name = "ColumnCurrencyListSpace";
+            this.ColumnCurrencyListSpace.ReadOnly = true;
+            // 
+            // textBoxCurrencyListFilter
+            // 
+            this.textBoxCurrencyListFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxCurrencyListFilter.Location = new System.Drawing.Point(5, 3);
+            this.textBoxCurrencyListFilter.Name = "textBoxCurrencyListFilter";
+            this.textBoxCurrencyListFilter.Size = new System.Drawing.Size(1364, 30);
+            this.textBoxCurrencyListFilter.TabIndex = 25;
+            this.textBoxCurrencyListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCurrencyListFilter_KeyDown);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.buttonCurrencyListPageListFirst);
+            this.panel5.Controls.Add(this.buttonCurrencyListPageListPrevious);
+            this.panel5.Controls.Add(this.buttonCurrencyListPageListNext);
+            this.panel5.Controls.Add(this.buttonCurrencyListPageListLast);
+            this.panel5.Controls.Add(this.textBoxCurrencyListPageNumber);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 530);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1374, 53);
+            this.panel5.TabIndex = 23;
+            // 
+            // buttonCurrencyListPageListFirst
+            // 
+            this.buttonCurrencyListPageListFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCurrencyListPageListFirst.Enabled = false;
+            this.buttonCurrencyListPageListFirst.FlatAppearance.BorderSize = 0;
+            this.buttonCurrencyListPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurrencyListPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonCurrencyListPageListFirst.Location = new System.Drawing.Point(12, 9);
+            this.buttonCurrencyListPageListFirst.Name = "buttonCurrencyListPageListFirst";
+            this.buttonCurrencyListPageListFirst.Size = new System.Drawing.Size(82, 32);
+            this.buttonCurrencyListPageListFirst.TabIndex = 13;
+            this.buttonCurrencyListPageListFirst.Text = "First";
+            this.buttonCurrencyListPageListFirst.UseVisualStyleBackColor = false;
+            this.buttonCurrencyListPageListFirst.Click += new System.EventHandler(this.buttonCurrencyListPageListFirst_Click);
+            // 
+            // buttonCurrencyListPageListPrevious
+            // 
+            this.buttonCurrencyListPageListPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCurrencyListPageListPrevious.Enabled = false;
+            this.buttonCurrencyListPageListPrevious.FlatAppearance.BorderSize = 0;
+            this.buttonCurrencyListPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurrencyListPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonCurrencyListPageListPrevious.Location = new System.Drawing.Point(100, 9);
+            this.buttonCurrencyListPageListPrevious.Name = "buttonCurrencyListPageListPrevious";
+            this.buttonCurrencyListPageListPrevious.Size = new System.Drawing.Size(82, 32);
+            this.buttonCurrencyListPageListPrevious.TabIndex = 14;
+            this.buttonCurrencyListPageListPrevious.Text = "Previous";
+            this.buttonCurrencyListPageListPrevious.UseVisualStyleBackColor = false;
+            this.buttonCurrencyListPageListPrevious.Click += new System.EventHandler(this.buttonCurrencyListPageListPrevious_Click);
+            // 
+            // buttonCurrencyListPageListNext
+            // 
+            this.buttonCurrencyListPageListNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCurrencyListPageListNext.FlatAppearance.BorderSize = 0;
+            this.buttonCurrencyListPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurrencyListPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonCurrencyListPageListNext.Location = new System.Drawing.Point(263, 9);
+            this.buttonCurrencyListPageListNext.Name = "buttonCurrencyListPageListNext";
+            this.buttonCurrencyListPageListNext.Size = new System.Drawing.Size(82, 32);
+            this.buttonCurrencyListPageListNext.TabIndex = 15;
+            this.buttonCurrencyListPageListNext.Text = "Next";
+            this.buttonCurrencyListPageListNext.UseVisualStyleBackColor = false;
+            this.buttonCurrencyListPageListNext.Click += new System.EventHandler(this.buttonCurrencyListPageListNext_Click);
+            // 
+            // buttonCurrencyListPageListLast
+            // 
+            this.buttonCurrencyListPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCurrencyListPageListLast.FlatAppearance.BorderSize = 0;
+            this.buttonCurrencyListPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCurrencyListPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonCurrencyListPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonCurrencyListPageListLast.Name = "buttonCurrencyListPageListLast";
+            this.buttonCurrencyListPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonCurrencyListPageListLast.TabIndex = 16;
+            this.buttonCurrencyListPageListLast.Text = "Last";
+            this.buttonCurrencyListPageListLast.UseVisualStyleBackColor = false;
+            this.buttonCurrencyListPageListLast.Click += new System.EventHandler(this.buttonCurrencyListPageListLast_Click);
+            // 
+            // textBoxCurrencyListPageNumber
+            // 
+            this.textBoxCurrencyListPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxCurrencyListPageNumber.BackColor = System.Drawing.Color.White;
+            this.textBoxCurrencyListPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCurrencyListPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBoxCurrencyListPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxCurrencyListPageNumber.Name = "textBoxCurrencyListPageNumber";
+            this.textBoxCurrencyListPageNumber.ReadOnly = true;
+            this.textBoxCurrencyListPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxCurrencyListPageNumber.TabIndex = 17;
+            this.textBoxCurrencyListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SysSystemTablesForm
             // 
@@ -1466,6 +1681,12 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBankList)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCurencyList)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1575,5 +1796,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAccountId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPayTypeListAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPayTypeListSpace;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dataGridViewCurencyList;
+        private System.Windows.Forms.TextBox textBoxCurrencyListFilter;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button buttonCurrencyListPageListFirst;
+        private System.Windows.Forms.Button buttonCurrencyListPageListPrevious;
+        private System.Windows.Forms.Button buttonCurrencyListPageListNext;
+        private System.Windows.Forms.Button buttonCurrencyListPageListLast;
+        private System.Windows.Forms.TextBox textBoxCurrencyListPageNumber;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnCurrencyListButtonEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnCurrencyListButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrencyListId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrencyListCurrencyCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrencyListCurrency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrencyListSpace;
     }
 }

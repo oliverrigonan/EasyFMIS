@@ -83,6 +83,7 @@
     <Compile Include="Controllers\MstArtricleGroupController.cs" />
     <Compile Include="Controllers\MstBranchController.cs" />
     <Compile Include="Controllers\MstCompanyController.cs" />
+    <Compile Include="Controllers\MstCurrencyController.cs" />
     <Compile Include="Controllers\MstDiscountController.cs" />
     <Compile Include="Controllers\MstPayTypeController.cs" />
     <Compile Include="Controllers\MstTaxController.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Entities\DgvReceivingReceiptItemEntity.cs" />
     <Compile Include="Entities\DgvRepAccountsReceivableReportEntity.cs" />
     <Compile Include="Entities\DgvRepAccountsPayableReportEntity.cs" />
+    <Compile Include="Entities\DgvRepSalesInvoiceEntity.cs" />
     <Compile Include="Entities\DgvRepStockCardReportEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceEntity.cs" />
     <Compile Include="Entities\DgvSalesInvoiceItemEntity.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="Entities\DgvSearchPurchaseOrderItemEntity.cs" />
     <Compile Include="Entities\DgvSearchNonInventoryItemEntity.cs" />
     <Compile Include="Entities\DgvDisbursementEntity.cs" />
+    <Compile Include="Entities\DgvSystemTableCurrencyEntity.cs" />
     <Compile Include="Entities\DgvSystemTablesAccountListEntity.cs" />
     <Compile Include="Entities\DgvSystemTablesPayTypeListEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="Entities\MstArticleUnitEntity.cs" />
     <Compile Include="Entities\MstBranchEntity.cs" />
     <Compile Include="Entities\MstCompanyEntity.cs" />
+    <Compile Include="Entities\MstCurrencyEntity.cs" />
     <Compile Include="Entities\MstDiscountEntity.cs" />
     <Compile Include="Entities\MstPayTypeEntity.cs" />
     <Compile Include="Entities\MstTaxEntity.cs" />
@@ -191,6 +195,7 @@
     <Compile Include="Entities\RepAccountsReceivableEntity.cs" />
     <Compile Include="Entities\RepInventoryReportStockCardEntity.cs" />
     <Compile Include="Entities\RepInventoryReportEntity.cs" />
+    <Compile Include="Entities\RepSalesInvoiceEntity.cs" />
     <Compile Include="Entities\SysConnectionStringEntity.cs" />
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
@@ -330,6 +335,12 @@
     <Compile Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.designer.cs">
       <DependentUpon>RepAccountsPayableReportAccountsPayableReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountReceivableReportSalesReportBySalesPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountReceivableReportSalesReportBySalesPersonForm.designer.cs">
+      <DependentUpon>RepAccountReceivableReportSalesReportBySalesPersonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +388,12 @@
     </Compile>
     <Compile Include="Forms\Software\SysSoftwareForm.designer.cs">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesCurrencyDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesCurrencyDetailForm.designer.cs">
+      <DependentUpon>SysSystemTablesCurrencyDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesBankDetailForm.cs">
       <SubType>Form</SubType>
@@ -769,6 +786,9 @@
     <EmbeddedResource Include="Forms\Software\RepAccountsPayableReport\RepAccountsPayableReportAccountsPayableReportForm.resx">
       <DependentUpon>RepAccountsPayableReportAccountsPayableReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepAccountsReceivableReport\RepAccountReceivableReportSalesReportBySalesPersonForm.resx">
+      <DependentUpon>RepAccountReceivableReportSalesReportBySalesPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportAccountsReceivableReportForm.resx">
       <DependentUpon>RepAccountsReceivableReportAccountsReceivableReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -792,6 +812,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareForm.resx">
       <DependentUpon>SysSoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesCurrencyDetailForm.resx">
+      <DependentUpon>SysSystemTablesCurrencyDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesBankDetailForm.resx">
       <DependentUpon>SysSystemTablesBankDetailForm.cs</DependentUpon>
