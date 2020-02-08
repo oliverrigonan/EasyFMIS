@@ -38,15 +38,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonUnlock = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dataGridViewArticleCost = new System.Windows.Forms.DataGridView();
+            this.ColumnAticleCostButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnAticleCostButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnAticleCostId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAticleCostArticleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAticleCostCostDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAticleCostCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAticleCostCurrencyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAticleCostCurrency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAticleCostSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxCategory = new System.Windows.Forms.TextBox();
@@ -58,7 +70,6 @@
             this.textBoxBarcode = new System.Windows.Forms.TextBox();
             this.textBoxGenericName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxDefaultSupplier = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxRemarks = new System.Windows.Forms.TextBox();
@@ -69,7 +80,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBoxIsInventory = new System.Windows.Forms.CheckBox();
             this.textBoxReorderQuantity = new System.Windows.Forms.TextBox();
@@ -155,11 +165,15 @@
             this.buttonItemInventoryListPageListNext = new System.Windows.Forms.Button();
             this.buttonItemInventoryListPageListLast = new System.Windows.Forms.Button();
             this.textBoxItemInventoryListPageNumber = new System.Windows.Forms.TextBox();
+            this.buttonAddCost = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticleCost)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUnitConversion)).BeginInit();
             this.panel5.SuspendLayout();
@@ -172,6 +186,7 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemInventoryList)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -204,16 +219,6 @@
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
             this.buttonLock.Click += new System.EventHandler(this.buttonLock_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Item;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -292,6 +297,7 @@
             // 
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel3.Controls.Add(this.tabControl);
             this.panel3.Controls.Add(this.comboBoxArticleGroup);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.textBoxCategory);
@@ -303,7 +309,6 @@
             this.panel3.Controls.Add(this.textBoxBarcode);
             this.panel3.Controls.Add(this.textBoxGenericName);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.comboBoxDefaultSupplier);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.textBoxRemarks);
@@ -314,7 +319,6 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.checkBoxIsInventory);
             this.panel3.Controls.Add(this.textBoxReorderQuantity);
@@ -332,13 +336,144 @@
             this.panel3.Size = new System.Drawing.Size(1386, 595);
             this.panel3.TabIndex = 38;
             // 
+            // tabControl
+            // 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl.Controls.Add(this.tabPage6);
+            this.tabControl.Location = new System.Drawing.Point(4, 368);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1377, 222);
+            this.tabControl.TabIndex = 45;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.buttonAddCost);
+            this.tabPage6.Controls.Add(this.dataGridViewArticleCost);
+            this.tabPage6.Location = new System.Drawing.Point(4, 32);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1369, 186);
+            this.tabPage6.TabIndex = 0;
+            this.tabPage6.Text = "Cost";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewArticleCost
+            // 
+            this.dataGridViewArticleCost.AllowUserToAddRows = false;
+            this.dataGridViewArticleCost.AllowUserToDeleteRows = false;
+            this.dataGridViewArticleCost.AllowUserToResizeRows = false;
+            this.dataGridViewArticleCost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewArticleCost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewArticleCost.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArticleCost.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnAticleCostButtonEdit,
+            this.ColumnAticleCostButtonDelete,
+            this.ColumnAticleCostId,
+            this.ColumnAticleCostArticleId,
+            this.ColumnAticleCostCostDescription,
+            this.ColumnAticleCostCost,
+            this.ColumnAticleCostCurrencyId,
+            this.ColumnAticleCostCurrency,
+            this.ColumnAticleCostSpace});
+            this.dataGridViewArticleCost.Location = new System.Drawing.Point(0, 52);
+            this.dataGridViewArticleCost.MultiSelect = false;
+            this.dataGridViewArticleCost.Name = "dataGridViewArticleCost";
+            this.dataGridViewArticleCost.ReadOnly = true;
+            this.dataGridViewArticleCost.RowHeadersVisible = false;
+            this.dataGridViewArticleCost.RowTemplate.Height = 24;
+            this.dataGridViewArticleCost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewArticleCost.Size = new System.Drawing.Size(1363, 127);
+            this.dataGridViewArticleCost.TabIndex = 44;
+            this.dataGridViewArticleCost.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArticleCost_CellClick);
+            // 
+            // ColumnAticleCostButtonEdit
+            // 
+            this.ColumnAticleCostButtonEdit.DataPropertyName = "ColumnAticleCostButtonEdit";
+            this.ColumnAticleCostButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnAticleCostButtonEdit.HeaderText = "";
+            this.ColumnAticleCostButtonEdit.Name = "ColumnAticleCostButtonEdit";
+            this.ColumnAticleCostButtonEdit.ReadOnly = true;
+            this.ColumnAticleCostButtonEdit.Width = 70;
+            // 
+            // ColumnAticleCostButtonDelete
+            // 
+            this.ColumnAticleCostButtonDelete.DataPropertyName = "ColumnAticleCostButtonDelete";
+            this.ColumnAticleCostButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnAticleCostButtonDelete.HeaderText = "";
+            this.ColumnAticleCostButtonDelete.Name = "ColumnAticleCostButtonDelete";
+            this.ColumnAticleCostButtonDelete.ReadOnly = true;
+            this.ColumnAticleCostButtonDelete.Width = 70;
+            // 
+            // ColumnAticleCostId
+            // 
+            this.ColumnAticleCostId.DataPropertyName = "ColumnAticleCostId";
+            this.ColumnAticleCostId.HeaderText = "Id";
+            this.ColumnAticleCostId.Name = "ColumnAticleCostId";
+            this.ColumnAticleCostId.ReadOnly = true;
+            this.ColumnAticleCostId.Visible = false;
+            // 
+            // ColumnAticleCostArticleId
+            // 
+            this.ColumnAticleCostArticleId.DataPropertyName = "ColumnAticleCostArticleId";
+            this.ColumnAticleCostArticleId.HeaderText = "ArticleId";
+            this.ColumnAticleCostArticleId.Name = "ColumnAticleCostArticleId";
+            this.ColumnAticleCostArticleId.ReadOnly = true;
+            this.ColumnAticleCostArticleId.Visible = false;
+            // 
+            // ColumnAticleCostCostDescription
+            // 
+            this.ColumnAticleCostCostDescription.DataPropertyName = "ColumnAticleCostCostDescription";
+            this.ColumnAticleCostCostDescription.HeaderText = "Cost Description";
+            this.ColumnAticleCostCostDescription.Name = "ColumnAticleCostCostDescription";
+            this.ColumnAticleCostCostDescription.ReadOnly = true;
+            this.ColumnAticleCostCostDescription.Width = 350;
+            // 
+            // ColumnAticleCostCost
+            // 
+            this.ColumnAticleCostCost.DataPropertyName = "ColumnAticleCostCost";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnAticleCostCost.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnAticleCostCost.HeaderText = "Cost";
+            this.ColumnAticleCostCost.Name = "ColumnAticleCostCost";
+            this.ColumnAticleCostCost.ReadOnly = true;
+            this.ColumnAticleCostCost.Width = 250;
+            // 
+            // ColumnAticleCostCurrencyId
+            // 
+            this.ColumnAticleCostCurrencyId.DataPropertyName = "ColumnAticleCostCurrencyId";
+            this.ColumnAticleCostCurrencyId.HeaderText = "CurrencyId";
+            this.ColumnAticleCostCurrencyId.Name = "ColumnAticleCostCurrencyId";
+            this.ColumnAticleCostCurrencyId.ReadOnly = true;
+            this.ColumnAticleCostCurrencyId.Visible = false;
+            // 
+            // ColumnAticleCostCurrency
+            // 
+            this.ColumnAticleCostCurrency.DataPropertyName = "ColumnAticleCostCurrency";
+            this.ColumnAticleCostCurrency.HeaderText = "Currency";
+            this.ColumnAticleCostCurrency.Name = "ColumnAticleCostCurrency";
+            this.ColumnAticleCostCurrency.ReadOnly = true;
+            this.ColumnAticleCostCurrency.Width = 150;
+            // 
+            // ColumnAticleCostSpace
+            // 
+            this.ColumnAticleCostSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnAticleCostSpace.DataPropertyName = "ColumnAticleCostSpace";
+            this.ColumnAticleCostSpace.HeaderText = "";
+            this.ColumnAticleCostSpace.Name = "ColumnAticleCostSpace";
+            this.ColumnAticleCostSpace.ReadOnly = true;
+            // 
             // comboBoxArticleGroup
             // 
             this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxArticleGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxArticleGroup.FormattingEnabled = true;
-            this.comboBoxArticleGroup.Location = new System.Drawing.Point(647, 13);
+            this.comboBoxArticleGroup.Location = new System.Drawing.Point(681, 13);
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(353, 31);
             this.comboBoxArticleGroup.TabIndex = 14;
@@ -347,7 +482,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label15.Location = new System.Drawing.Point(526, 17);
+            this.label15.Location = new System.Drawing.Point(560, 17);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(115, 23);
             this.label15.TabIndex = 43;
@@ -368,7 +503,7 @@
             this.comboBoxVATOutTax.Enabled = false;
             this.comboBoxVATOutTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxVATOutTax.FormattingEnabled = true;
-            this.comboBoxVATOutTax.Location = new System.Drawing.Point(185, 339);
+            this.comboBoxVATOutTax.Location = new System.Drawing.Point(680, 195);
             this.comboBoxVATOutTax.Name = "comboBoxVATOutTax";
             this.comboBoxVATOutTax.Size = new System.Drawing.Size(119, 31);
             this.comboBoxVATOutTax.TabIndex = 7;
@@ -378,7 +513,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(47, 343);
+            this.label12.Location = new System.Drawing.Point(542, 199);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(132, 23);
             this.label12.TabIndex = 40;
@@ -391,7 +526,7 @@
             this.comboBoxVATInTax.Enabled = false;
             this.comboBoxVATInTax.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxVATInTax.FormattingEnabled = true;
-            this.comboBoxVATInTax.Location = new System.Drawing.Point(186, 301);
+            this.comboBoxVATInTax.Location = new System.Drawing.Point(681, 157);
             this.comboBoxVATInTax.Name = "comboBoxVATInTax";
             this.comboBoxVATInTax.Size = new System.Drawing.Size(119, 31);
             this.comboBoxVATInTax.TabIndex = 6;
@@ -401,7 +536,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label10.Location = new System.Drawing.Point(60, 306);
+            this.label10.Location = new System.Drawing.Point(555, 162);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(118, 23);
             this.label10.TabIndex = 38;
@@ -444,17 +579,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Item Desciption:";
             // 
-            // comboBoxDefaultSupplier
-            // 
-            this.comboBoxDefaultSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxDefaultSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxDefaultSupplier.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxDefaultSupplier.FormattingEnabled = true;
-            this.comboBoxDefaultSupplier.Location = new System.Drawing.Point(185, 413);
-            this.comboBoxDefaultSupplier.Name = "comboBoxDefaultSupplier";
-            this.comboBoxDefaultSupplier.Size = new System.Drawing.Size(312, 31);
-            this.comboBoxDefaultSupplier.TabIndex = 9;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -478,7 +602,7 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(647, 50);
+            this.textBoxRemarks.Location = new System.Drawing.Point(681, 50);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(353, 101);
@@ -497,7 +621,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label18.Location = new System.Drawing.Point(563, 53);
+            this.label18.Location = new System.Drawing.Point(597, 53);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 23);
             this.label18.TabIndex = 20;
@@ -519,7 +643,7 @@
             this.comboBoxUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxUnit.FormattingEnabled = true;
-            this.comboBoxUnit.Location = new System.Drawing.Point(185, 376);
+            this.comboBoxUnit.Location = new System.Drawing.Point(185, 301);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(119, 31);
             this.comboBoxUnit.TabIndex = 8;
@@ -549,27 +673,17 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(133, 380);
+            this.label7.Location = new System.Drawing.Point(133, 305);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 23);
             this.label7.TabIndex = 8;
             this.label7.Text = "Unit:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(44, 416);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(136, 23);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Default Supplier:";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(132, 453);
+            this.label9.Location = new System.Drawing.Point(627, 235);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 23);
             this.label9.TabIndex = 10;
@@ -579,7 +693,7 @@
             // 
             this.checkBoxIsInventory.AutoSize = true;
             this.checkBoxIsInventory.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.checkBoxIsInventory.Location = new System.Drawing.Point(186, 557);
+            this.checkBoxIsInventory.Location = new System.Drawing.Point(681, 339);
             this.checkBoxIsInventory.Name = "checkBoxIsInventory";
             this.checkBoxIsInventory.Size = new System.Drawing.Size(37, 27);
             this.checkBoxIsInventory.TabIndex = 13;
@@ -590,7 +704,7 @@
             // 
             this.textBoxReorderQuantity.Enabled = false;
             this.textBoxReorderQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxReorderQuantity.Location = new System.Drawing.Point(185, 522);
+            this.textBoxReorderQuantity.Location = new System.Drawing.Point(680, 304);
             this.textBoxReorderQuantity.Name = "textBoxReorderQuantity";
             this.textBoxReorderQuantity.Size = new System.Drawing.Size(214, 30);
             this.textBoxReorderQuantity.TabIndex = 12;
@@ -602,7 +716,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(129, 490);
+            this.label11.Location = new System.Drawing.Point(624, 272);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 23);
             this.label11.TabIndex = 12;
@@ -619,7 +733,7 @@
             // textBoxPrice
             // 
             this.textBoxPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPrice.Location = new System.Drawing.Point(185, 487);
+            this.textBoxPrice.Location = new System.Drawing.Point(680, 269);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(214, 30);
             this.textBoxPrice.TabIndex = 11;
@@ -631,7 +745,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(31, 524);
+            this.label13.Location = new System.Drawing.Point(526, 306);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(145, 23);
             this.label13.TabIndex = 15;
@@ -640,7 +754,7 @@
             // textBoxCost
             // 
             this.textBoxCost.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCost.Location = new System.Drawing.Point(185, 450);
+            this.textBoxCost.Location = new System.Drawing.Point(680, 232);
             this.textBoxCost.Name = "textBoxCost";
             this.textBoxCost.Size = new System.Drawing.Size(214, 30);
             this.textBoxCost.TabIndex = 10;
@@ -652,7 +766,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label14.Location = new System.Drawing.Point(94, 558);
+            this.label14.Location = new System.Drawing.Point(589, 340);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(86, 23);
             this.label14.TabIndex = 16;
@@ -757,8 +871,8 @@
             // ColumnArtilceUnitListBaseUnitMultiplier
             // 
             this.ColumnArtilceUnitListBaseUnitMultiplier.DataPropertyName = "ColumnArtilceUnitListBaseUnitMultiplier";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnArtilceUnitListBaseUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnArtilceUnitListBaseUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnArtilceUnitListBaseUnitMultiplier.HeaderText = "Qty.";
             this.ColumnArtilceUnitListBaseUnitMultiplier.Name = "ColumnArtilceUnitListBaseUnitMultiplier";
             this.ColumnArtilceUnitListBaseUnitMultiplier.ReadOnly = true;
@@ -775,8 +889,8 @@
             // ColumnArtilceUnitListEquals
             // 
             this.ColumnArtilceUnitListEquals.DataPropertyName = "ColumnArtilceUnitListEquals";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.ColumnArtilceUnitListEquals.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.ColumnArtilceUnitListEquals.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnArtilceUnitListEquals.HeaderText = "=";
             this.ColumnArtilceUnitListEquals.Name = "ColumnArtilceUnitListEquals";
             this.ColumnArtilceUnitListEquals.ReadOnly = true;
@@ -785,8 +899,8 @@
             // ColumnArtilceUnitListUnitMultiplier
             // 
             this.ColumnArtilceUnitListUnitMultiplier.DataPropertyName = "ColumnArtilceUnitListUnitMultiplier";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnArtilceUnitListUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnArtilceUnitListUnitMultiplier.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnArtilceUnitListUnitMultiplier.HeaderText = "Qty.";
             this.ColumnArtilceUnitListUnitMultiplier.Name = "ColumnArtilceUnitListUnitMultiplier";
             this.ColumnArtilceUnitListUnitMultiplier.ReadOnly = true;
@@ -995,8 +1109,8 @@
             // ColumnItemPriceListPrice
             // 
             this.ColumnItemPriceListPrice.DataPropertyName = "ColumnItemPriceListPrice";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemPriceListPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemPriceListPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColumnItemPriceListPrice.HeaderText = "Price";
             this.ColumnItemPriceListPrice.Name = "ColumnItemPriceListPrice";
             this.ColumnItemPriceListPrice.ReadOnly = true;
@@ -1228,8 +1342,8 @@
             // ColumnItemComponenQuantity
             // 
             this.ColumnItemComponenQuantity.DataPropertyName = "ColumnItemComponenQuantity";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenQuantity.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenQuantity.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColumnItemComponenQuantity.HeaderText = "Quantity";
             this.ColumnItemComponenQuantity.Name = "ColumnItemComponenQuantity";
             this.ColumnItemComponenQuantity.ReadOnly = true;
@@ -1238,8 +1352,8 @@
             // ColumnItemComponenCost
             // 
             this.ColumnItemComponenCost.DataPropertyName = "ColumnItemComponenCost";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenCost.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenCost.DefaultCellStyle = dataGridViewCellStyle7;
             this.ColumnItemComponenCost.HeaderText = "Cost";
             this.ColumnItemComponenCost.Name = "ColumnItemComponenCost";
             this.ColumnItemComponenCost.ReadOnly = true;
@@ -1248,8 +1362,8 @@
             // ColumnItemComponenAmount
             // 
             this.ColumnItemComponenAmount.DataPropertyName = "ColumnItemComponenAmount";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemComponenAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemComponenAmount.DefaultCellStyle = dataGridViewCellStyle8;
             this.ColumnItemComponenAmount.HeaderText = "Amount";
             this.ColumnItemComponenAmount.Name = "ColumnItemComponenAmount";
             this.ColumnItemComponenAmount.ReadOnly = true;
@@ -1469,8 +1583,8 @@
             // ColumnItemInventoryCost3
             // 
             this.ColumnItemInventoryCost3.DataPropertyName = "ColumnItemInventoryCost3";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemInventoryCost3.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemInventoryCost3.DefaultCellStyle = dataGridViewCellStyle9;
             this.ColumnItemInventoryCost3.HeaderText = "Cost3";
             this.ColumnItemInventoryCost3.Name = "ColumnItemInventoryCost3";
             this.ColumnItemInventoryCost3.ReadOnly = true;
@@ -1479,8 +1593,8 @@
             // ColumnItemInventoryCost4
             // 
             this.ColumnItemInventoryCost4.DataPropertyName = "ColumnItemInventoryCost4";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemInventoryCost4.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemInventoryCost4.DefaultCellStyle = dataGridViewCellStyle10;
             this.ColumnItemInventoryCost4.HeaderText = "Cost4";
             this.ColumnItemInventoryCost4.Name = "ColumnItemInventoryCost4";
             this.ColumnItemInventoryCost4.ReadOnly = true;
@@ -1489,8 +1603,8 @@
             // ColumnItemInventoryCost5
             // 
             this.ColumnItemInventoryCost5.DataPropertyName = "ColumnItemInventoryCost5";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemInventoryCost5.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemInventoryCost5.DefaultCellStyle = dataGridViewCellStyle11;
             this.ColumnItemInventoryCost5.HeaderText = "Cost5";
             this.ColumnItemInventoryCost5.Name = "ColumnItemInventoryCost5";
             this.ColumnItemInventoryCost5.ReadOnly = true;
@@ -1581,6 +1695,33 @@
             this.textBoxItemInventoryListPageNumber.TabIndex = 17;
             this.textBoxItemInventoryListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // buttonAddCost
+            // 
+            this.buttonAddCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddCost.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddCost.FlatAppearance.BorderSize = 0;
+            this.buttonAddCost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddCost.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddCost.ForeColor = System.Drawing.Color.White;
+            this.buttonAddCost.Location = new System.Drawing.Point(1275, 6);
+            this.buttonAddCost.Name = "buttonAddCost";
+            this.buttonAddCost.Size = new System.Drawing.Size(88, 40);
+            this.buttonAddCost.TabIndex = 23;
+            this.buttonAddCost.Text = "Add";
+            this.buttonAddCost.UseVisualStyleBackColor = false;
+            this.buttonAddCost.Click += new System.EventHandler(this.buttonAddCost_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Item;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // MstItemDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1594,11 +1735,13 @@
             this.Text = "MstItemDetailForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticleCost)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUnitConversion)).EndInit();
             this.panel5.ResumeLayout(false);
@@ -1615,6 +1758,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemInventoryList)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1634,7 +1778,6 @@
         private System.Windows.Forms.TextBox textBoxBarcode;
         private System.Windows.Forms.TextBox textBoxGenericName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBoxDefaultSupplier;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxRemarks;
@@ -1645,7 +1788,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkBoxIsInventory;
         private System.Windows.Forms.TextBox textBoxReorderQuantity;
@@ -1738,5 +1880,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnArtilceUnitListUnitMultiplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemUnitConversionListUnitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnArtilceUnitListUnit;
+        private System.Windows.Forms.DataGridView dataGridViewArticleCost;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnAticleCostButtonEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnAticleCostButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAticleCostId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAticleCostArticleId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAticleCostCostDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAticleCostCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAticleCostCurrencyId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAticleCostCurrency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAticleCostSpace;
+        private System.Windows.Forms.Button buttonAddCost;
     }
 }

@@ -71,21 +71,23 @@ namespace easyfmis.Forms.Software.MstItem
                 comboBoxUnit.ValueMember = "Id";
                 comboBoxUnit.DisplayMember = "Unit";
 
-                GetSupplierList();
+                //GetSupplierList();
+                GetItemDetail();
+
             }
         }
 
-        public void GetSupplierList()
-        {
-            Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
-            if (mstItemController.ListArticle(3).Any())
-            {
-                comboBoxDefaultSupplier.DataSource = mstItemController.ListArticle(3);
-                comboBoxDefaultSupplier.ValueMember = "Id";
-                comboBoxDefaultSupplier.DisplayMember = "Article";
-            }
-            GetItemDetail();
-        }
+        //public void GetSupplierList()
+        //{
+        //    Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
+        //    if (mstItemController.ListArticle(3).Any())
+        //    {
+        //        comboBoxDefaultSupplier.DataSource = mstItemController.ListArticle(3);
+        //        comboBoxDefaultSupplier.ValueMember = "Id";
+        //        comboBoxDefaultSupplier.DisplayMember = "Article";
+        //    }
+        //    GetItemDetail();
+        //}
 
         public void GetItemDetail()
         {
@@ -101,13 +103,13 @@ namespace easyfmis.Forms.Software.MstItem
             comboBoxVATOutTax.SelectedValue = mstItemEntity.VATOutTaxId;
             comboBoxUnit.SelectedValue = mstItemEntity.UnitId;
 
-            Int32 supplierId = 0;
-            comboBoxDefaultSupplier.SelectedValue = supplierId;
-            if (mstItemEntity.DefaultSupplierId != null)
-            {
-                comboBoxDefaultSupplier.SelectedValue = mstItemEntity.DefaultSupplierId;
+            //Int32 supplierId = 0;
+            //comboBoxDefaultSupplier.SelectedValue = supplierId;
+            //if (mstItemEntity.DefaultSupplierId != null)
+            //{
+            //    comboBoxDefaultSupplier.SelectedValue = mstItemEntity.DefaultSupplierId;
 
-            }
+            //}
 
             textBoxCost.Text = mstItemEntity.DefaultCost.ToString("#,##0.00");
             textBoxPrice.Text = mstItemEntity.DefaultPrice.ToString("#,##0.00"); ;
@@ -120,6 +122,7 @@ namespace easyfmis.Forms.Software.MstItem
             CreateItemPriceListDataGridView();
             CreateItemComponentListDataGridView();
             CreateItemInventoryListDataGridView();
+            CreateCostListDataGridView();
         }
 
         public void UpdateComponents(Boolean isLocked)
@@ -135,7 +138,7 @@ namespace easyfmis.Forms.Software.MstItem
             textBoxAlias.Enabled = !isLocked;
             textBoxCategory.Enabled = !isLocked;
             comboBoxUnit.Enabled = !isLocked;
-            comboBoxDefaultSupplier.Enabled = !isLocked;
+            //comboBoxDefaultSupplier.Enabled = !isLocked;
             textBoxCost.Enabled = !isLocked;
             textBoxPrice.Enabled = !isLocked;
             textBoxReorderQuantity.Enabled = !isLocked;
@@ -171,7 +174,7 @@ namespace easyfmis.Forms.Software.MstItem
                 mstItemEntity.VATInTaxId = Convert.ToInt32(comboBoxVATInTax.SelectedValue);
                 mstItemEntity.VATOutTaxId = Convert.ToInt32(comboBoxVATOutTax.SelectedValue);
                 mstItemEntity.UnitId = Convert.ToInt32(comboBoxUnit.SelectedValue);
-                mstItemEntity.DefaultSupplierId = Convert.ToInt32(comboBoxDefaultSupplier.SelectedValue);
+                //mstItemEntity.DefaultSupplierId = Convert.ToInt32(comboBoxDefaultSupplier.SelectedValue);
                 mstItemEntity.DefaultCost = Convert.ToDecimal(textBoxCost.Text);
                 mstItemEntity.DefaultPrice = Convert.ToDecimal(textBoxPrice.Text);
                 mstItemEntity.ReorderQuantity = Convert.ToDecimal(textBoxReorderQuantity.Text);
@@ -1243,5 +1246,128 @@ namespace easyfmis.Forms.Software.MstItem
             }
         }
 
+        // ====
+        // Cost
+        // ====
+        public static List<Entities.DgvMstArticleCostEntity> costListData = new List<Entities.DgvMstArticleCostEntity>();
+        public PagedList<Entities.DgvMstArticleCostEntity> costListPageList = new PagedList<Entities.DgvMstArticleCostEntity>(costListData, costListPageNumber, pageSize);
+        public BindingSource costListDataSource = new BindingSource();
+        public static Int32 costListPageNumber = 1;
+
+        public Task<List<Entities.DgvMstArticleCostEntity>> GetCurrencyListDataTask()
+        {
+            Controllers.MstArticleCostController mstArticleCostController = new Controllers.MstArticleCostController();
+
+            List<Entities.MstArticleCostEntity> listCost = mstArticleCostController.ListItemCost(mstItemEntity.Id);
+            if (listCost.Any())
+            {
+                var costs = from d in listCost
+                               select new Entities.DgvMstArticleCostEntity
+                               {
+                                   ColumnAticleCostButtonEdit = "Edit",
+                                   ColumnAticleCostButtonDelete = "Delete",
+                                   ColumnAticleCostId = d.Id,
+                                   ColumnAticleCostArticleId = d.ArticleId,
+                                   ColumnAticleCostCostDescription = d.CostDescription,
+                                   ColumnAticleCostCost = d.Cost.ToString("#,##0.00"),
+                                   ColumnAticleCostCurrencyId = d.CurrencyId,
+                                   ColumnAticleCostCurrency = d.Currency
+                               };
+
+                return Task.FromResult(costs.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvMstArticleCostEntity>());
+            }
+        }
+
+        public void UpdateCostListDataSource()
+        {
+            SetCostListDataSourceAsync();
+        }
+
+        public async void SetCostListDataSourceAsync()
+        {
+            List<Entities.DgvMstArticleCostEntity> getCostListData = await GetCurrencyListDataTask();
+            if (getCostListData.Any())
+            {
+                costListData = getCostListData;
+                costListPageList = new PagedList<Entities.DgvMstArticleCostEntity>(costListData, costListPageNumber, pageSize);
+                costListDataSource.DataSource = costListPageList;
+            }
+        }
+
+        public void CreateCostListDataGridView()
+        {
+            UpdateCostListDataSource();
+
+            dataGridViewArticleCost.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewArticleCost.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewArticleCost.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewArticleCost.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewArticleCost.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewArticleCost.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewArticleCost.DataSource = costListDataSource;
+        }
+
+        private void dataGridViewArticleCost_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetCurrencyListCostSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewArticleCost.CurrentCell.ColumnIndex == dataGridViewArticleCost.Columns["ColumnAticleCostButtonEdit"].Index)
+            {
+                Entities.MstArticleCostEntity selecteCost = new Entities.MstArticleCostEntity()
+                {
+                    Id = Convert.ToInt32(dataGridViewArticleCost.Rows[e.RowIndex].Cells[2].Value),
+                    ArticleId = Convert.ToInt32(dataGridViewArticleCost.Rows[e.RowIndex].Cells[3].Value),
+                    CostDescription = dataGridViewArticleCost.Rows[e.RowIndex].Cells[4].Value.ToString(),
+                    Cost = Convert.ToDecimal(dataGridViewArticleCost.Rows[e.RowIndex].Cells[5].Value),
+                    CurrencyId = Convert.ToInt32(dataGridViewArticleCost.Rows[e.RowIndex].Cells[6].Value)
+                };
+
+                MstItemDetailItemCostForm mstItemDetailItemCostForm = new MstItemDetailItemCostForm(this, selecteCost, mstItemEntity.Id);
+                mstItemDetailItemCostForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewArticleCost.CurrentCell.ColumnIndex == dataGridViewArticleCost.Columns["ColumnAticleCostButtonDelete"].Index)
+            {
+
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Cost?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstArticleCostController mstArticleCostController = new Controllers.MstArticleCostController();
+
+
+                    String[] deleteCost = mstArticleCostController.DeleteCost(Convert.ToInt32(dataGridViewArticleCost.Rows[e.RowIndex].Cells[2].Value));
+                    if (deleteCost[1].Equals("0") == false)
+                    {
+                        Int32 costPageNumber = costListPageNumber;
+
+                        UpdateCostListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteCost[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void GetCurrencyListCostSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonAddCost_Click(object sender, EventArgs e)
+        {
+            MstItemDetailItemCostForm mstItemDetailItemCostForm = new MstItemDetailItemCostForm(this, null, mstItemEntity.Id);
+            mstItemDetailItemCostForm.ShowDialog();
+        }
     }
 }
