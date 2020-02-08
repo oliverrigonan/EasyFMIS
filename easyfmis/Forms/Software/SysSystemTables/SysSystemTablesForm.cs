@@ -785,11 +785,11 @@ namespace easyfmis.Forms.Software.SysSystemTables
             String filter = textBoxCurrencyListFilter.Text;
             Controllers.MstCurrencyController mstCurrencyController = new Controllers.MstCurrencyController();
 
-            List<Entities.MstCurrencyEntity> listPayType = mstCurrencyController.ListCurrency();
-            if (listPayType.Any())
+            List<Entities.MstCurrencyEntity> listCurrency = mstCurrencyController.ListCurrency();
+            if (listCurrency.Any())
             {
-                var payTypes = from d in listPayType
-                               where d.CurrencyCode.ToLower().Contains(filter) 
+                var payTypes = from d in listCurrency
+                               where d.CurrencyCode.ToLower().Contains(filter)
                                select new Entities.DgvSystemTableCurrencyEntity
                                {
                                    ColumnCurrencyListButtonEdit = "Edit",
@@ -1037,8 +1037,6 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     SysSystemTablesCurrencyDetailForm SysSystemTablesCurrencyDetailForm = new SysSystemTablesCurrencyDetailForm(this, null);
                     SysSystemTablesCurrencyDetailForm.ShowDialog();
                     break;
-
-
             }
         }
     }
