@@ -226,6 +226,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
                                 ColumnStockInItemButtonDelete = "Delete",
                                 ColumnStockInItemId = d.Id,
                                 ColumnStockInItemINId = d.INId,
+                                ColumnStockInItemItemBarCode = d.ItemBarCode,
                                 ColumnStockInItemItemId = d.ItemId,
                                 ColumnStockInItemItemDescription = d.ItemDescription,
                                 ColumnStockInItemUnitId = d.UnitId,
@@ -238,10 +239,13 @@ namespace easyfmis.Forms.Software.TrnStockIn
                                 ColumnStockInItemSpace = ""
                             };
 
+                textBoxTotalAmount.Text = listStockInItem.Sum(d => d.Amount).ToString("#,##0.00");
                 return Task.FromResult(items.ToList());
             }
             else
             {
+                textBoxTotalAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
+
                 return Task.FromResult(new List<Entities.DgvStockInItemEntity>());
             }
         }

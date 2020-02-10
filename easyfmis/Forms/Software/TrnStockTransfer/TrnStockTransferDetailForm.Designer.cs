@@ -30,15 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnStockTransferDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -65,6 +65,8 @@
             this.dateTimePickerSTDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxSTNumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.buttonStockTransferItemPageListFirst = new System.Windows.Forms.Button();
             this.buttonStockTransferItemPageListPrevious = new System.Windows.Forms.Button();
             this.buttonStockTransferItemPageListNext = new System.Windows.Forms.Button();
@@ -72,22 +74,6 @@
             this.textBoxStockTransferItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewStockTransferItem = new System.Windows.Forms.DataGridView();
-            this.ColumnStockTransferItemButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockTransferItemButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockTransferItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemSTId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockTransferItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -107,6 +93,23 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnStockTransferItemButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnStockTransferItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemSTId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockTransferItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -418,6 +421,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.textBoxTotalAmount);
             this.panel4.Controls.Add(this.buttonStockTransferItemPageListFirst);
             this.panel4.Controls.Add(this.buttonStockTransferItemPageListPrevious);
             this.panel4.Controls.Add(this.buttonStockTransferItemPageListNext);
@@ -428,6 +433,32 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(680, 9);
+            this.label15.Margin = new System.Windows.Forms.Padding(0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(141, 28);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Total Amount";
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.BackColor = System.Drawing.Color.White;
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(824, 9);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.ReadOnly = true;
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(549, 34);
+            this.textBoxTotalAmount.TabIndex = 22;
+            this.textBoxTotalAmount.TabStop = false;
+            this.textBoxTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonStockTransferItemPageListFirst
             // 
@@ -542,6 +573,7 @@
             this.ColumnStockTransferItemId,
             this.ColumnStockTransferItemSTId,
             this.ColumnStockTransferItemItemId,
+            this.ColumnStockTransferItemItemBarCode,
             this.ColumnStockTransferItemItemDescription,
             this.ColumnStockTransferItemUnitId,
             this.ColumnStockTransferItemUnit,
@@ -567,146 +599,6 @@
             this.dataGridViewStockTransferItem.TabIndex = 1;
             this.dataGridViewStockTransferItem.TabStop = false;
             this.dataGridViewStockTransferItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockTransferItem_CellClick);
-            // 
-            // ColumnStockTransferItemButtonEdit
-            // 
-            this.ColumnStockTransferItemButtonEdit.DataPropertyName = "ColumnStockTransferItemButtonEdit";
-            this.ColumnStockTransferItemButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnStockTransferItemButtonEdit.HeaderText = "";
-            this.ColumnStockTransferItemButtonEdit.Name = "ColumnStockTransferItemButtonEdit";
-            this.ColumnStockTransferItemButtonEdit.ReadOnly = true;
-            this.ColumnStockTransferItemButtonEdit.Width = 70;
-            // 
-            // ColumnStockTransferItemButtonDelete
-            // 
-            this.ColumnStockTransferItemButtonDelete.DataPropertyName = "ColumnStockTransferItemButtonDelete";
-            this.ColumnStockTransferItemButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnStockTransferItemButtonDelete.HeaderText = "";
-            this.ColumnStockTransferItemButtonDelete.Name = "ColumnStockTransferItemButtonDelete";
-            this.ColumnStockTransferItemButtonDelete.ReadOnly = true;
-            this.ColumnStockTransferItemButtonDelete.Width = 70;
-            // 
-            // ColumnStockTransferItemId
-            // 
-            this.ColumnStockTransferItemId.DataPropertyName = "ColumnStockTransferItemId";
-            this.ColumnStockTransferItemId.HeaderText = "Id";
-            this.ColumnStockTransferItemId.Name = "ColumnStockTransferItemId";
-            this.ColumnStockTransferItemId.ReadOnly = true;
-            this.ColumnStockTransferItemId.Visible = false;
-            // 
-            // ColumnStockTransferItemSTId
-            // 
-            this.ColumnStockTransferItemSTId.DataPropertyName = "ColumnStockTransferItemSTId";
-            this.ColumnStockTransferItemSTId.HeaderText = "STId";
-            this.ColumnStockTransferItemSTId.Name = "ColumnStockTransferItemSTId";
-            this.ColumnStockTransferItemSTId.ReadOnly = true;
-            this.ColumnStockTransferItemSTId.Visible = false;
-            // 
-            // ColumnStockTransferItemItemId
-            // 
-            this.ColumnStockTransferItemItemId.DataPropertyName = "ColumnStockTransferItemItemId";
-            this.ColumnStockTransferItemItemId.HeaderText = "Item Id";
-            this.ColumnStockTransferItemItemId.Name = "ColumnStockTransferItemItemId";
-            this.ColumnStockTransferItemItemId.ReadOnly = true;
-            this.ColumnStockTransferItemItemId.Visible = false;
-            // 
-            // ColumnStockTransferItemItemDescription
-            // 
-            this.ColumnStockTransferItemItemDescription.DataPropertyName = "ColumnStockTransferItemItemDescription";
-            this.ColumnStockTransferItemItemDescription.HeaderText = "Item Description";
-            this.ColumnStockTransferItemItemDescription.Name = "ColumnStockTransferItemItemDescription";
-            this.ColumnStockTransferItemItemDescription.ReadOnly = true;
-            this.ColumnStockTransferItemItemDescription.Width = 300;
-            // 
-            // ColumnStockTransferItemUnitId
-            // 
-            this.ColumnStockTransferItemUnitId.DataPropertyName = "ColumnStockTransferItemUnitId";
-            this.ColumnStockTransferItemUnitId.HeaderText = "Unit Id";
-            this.ColumnStockTransferItemUnitId.Name = "ColumnStockTransferItemUnitId";
-            this.ColumnStockTransferItemUnitId.ReadOnly = true;
-            this.ColumnStockTransferItemUnitId.Visible = false;
-            // 
-            // ColumnStockTransferItemUnit
-            // 
-            this.ColumnStockTransferItemUnit.DataPropertyName = "ColumnStockTransferItemUnit";
-            this.ColumnStockTransferItemUnit.HeaderText = "Unit";
-            this.ColumnStockTransferItemUnit.Name = "ColumnStockTransferItemUnit";
-            this.ColumnStockTransferItemUnit.ReadOnly = true;
-            this.ColumnStockTransferItemUnit.Width = 150;
-            // 
-            // ColumnStockTransferItemInventoryId
-            // 
-            this.ColumnStockTransferItemInventoryId.DataPropertyName = "ColumnStockTransferItemInventoryId";
-            this.ColumnStockTransferItemInventoryId.HeaderText = "Item Inventory Id";
-            this.ColumnStockTransferItemInventoryId.Name = "ColumnStockTransferItemInventoryId";
-            this.ColumnStockTransferItemInventoryId.ReadOnly = true;
-            this.ColumnStockTransferItemInventoryId.Visible = false;
-            // 
-            // ColumnStockTransferItemInventoryCode
-            // 
-            this.ColumnStockTransferItemInventoryCode.DataPropertyName = "ColumnStockTransferItemInventoryCode";
-            this.ColumnStockTransferItemInventoryCode.HeaderText = "Inventory Code";
-            this.ColumnStockTransferItemInventoryCode.Name = "ColumnStockTransferItemInventoryCode";
-            this.ColumnStockTransferItemInventoryCode.ReadOnly = true;
-            this.ColumnStockTransferItemInventoryCode.Width = 200;
-            // 
-            // ColumnStockTransferItemQuantity
-            // 
-            this.ColumnStockTransferItemQuantity.DataPropertyName = "ColumnStockTransferItemQuantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockTransferItemQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnStockTransferItemQuantity.HeaderText = "Quantity";
-            this.ColumnStockTransferItemQuantity.Name = "ColumnStockTransferItemQuantity";
-            this.ColumnStockTransferItemQuantity.ReadOnly = true;
-            this.ColumnStockTransferItemQuantity.Width = 150;
-            // 
-            // ColumnStockTransferItemCost
-            // 
-            this.ColumnStockTransferItemCost.DataPropertyName = "ColumnStockTransferItemCost";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockTransferItemCost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnStockTransferItemCost.HeaderText = "Cost";
-            this.ColumnStockTransferItemCost.Name = "ColumnStockTransferItemCost";
-            this.ColumnStockTransferItemCost.ReadOnly = true;
-            this.ColumnStockTransferItemCost.Width = 150;
-            // 
-            // ColumnStockTransferItemAmount
-            // 
-            this.ColumnStockTransferItemAmount.DataPropertyName = "ColumnStockTransferItemAmount";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockTransferItemAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnStockTransferItemAmount.HeaderText = "Amount";
-            this.ColumnStockTransferItemAmount.Name = "ColumnStockTransferItemAmount";
-            this.ColumnStockTransferItemAmount.ReadOnly = true;
-            this.ColumnStockTransferItemAmount.Width = 150;
-            // 
-            // ColumnStockTransferItemBaseQuantity
-            // 
-            this.ColumnStockTransferItemBaseQuantity.DataPropertyName = "ColumnStockTransferItemBaseQuantity";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockTransferItemBaseQuantity.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnStockTransferItemBaseQuantity.HeaderText = "Base Quantity";
-            this.ColumnStockTransferItemBaseQuantity.Name = "ColumnStockTransferItemBaseQuantity";
-            this.ColumnStockTransferItemBaseQuantity.ReadOnly = true;
-            this.ColumnStockTransferItemBaseQuantity.Width = 150;
-            // 
-            // ColumnStockTransferItemBaseCost
-            // 
-            this.ColumnStockTransferItemBaseCost.DataPropertyName = "ColumnStockTransferItemBaseCost";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockTransferItemBaseCost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnStockTransferItemBaseCost.HeaderText = "Base Cost";
-            this.ColumnStockTransferItemBaseCost.Name = "ColumnStockTransferItemBaseCost";
-            this.ColumnStockTransferItemBaseCost.ReadOnly = true;
-            this.ColumnStockTransferItemBaseCost.Width = 150;
-            // 
-            // ColumnStockTransferItemSpace
-            // 
-            this.ColumnStockTransferItemSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnStockTransferItemSpace.DataPropertyName = "ColumnStockTransferItemSpace";
-            this.ColumnStockTransferItemSpace.HeaderText = "";
-            this.ColumnStockTransferItemSpace.Name = "ColumnStockTransferItemSpace";
-            this.ColumnStockTransferItemSpace.ReadOnly = true;
             // 
             // panel2
             // 
@@ -950,6 +842,154 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
+            // ColumnStockTransferItemButtonEdit
+            // 
+            this.ColumnStockTransferItemButtonEdit.DataPropertyName = "ColumnStockTransferItemButtonEdit";
+            this.ColumnStockTransferItemButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnStockTransferItemButtonEdit.HeaderText = "";
+            this.ColumnStockTransferItemButtonEdit.Name = "ColumnStockTransferItemButtonEdit";
+            this.ColumnStockTransferItemButtonEdit.ReadOnly = true;
+            this.ColumnStockTransferItemButtonEdit.Width = 70;
+            // 
+            // ColumnStockTransferItemButtonDelete
+            // 
+            this.ColumnStockTransferItemButtonDelete.DataPropertyName = "ColumnStockTransferItemButtonDelete";
+            this.ColumnStockTransferItemButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnStockTransferItemButtonDelete.HeaderText = "";
+            this.ColumnStockTransferItemButtonDelete.Name = "ColumnStockTransferItemButtonDelete";
+            this.ColumnStockTransferItemButtonDelete.ReadOnly = true;
+            this.ColumnStockTransferItemButtonDelete.Width = 70;
+            // 
+            // ColumnStockTransferItemId
+            // 
+            this.ColumnStockTransferItemId.DataPropertyName = "ColumnStockTransferItemId";
+            this.ColumnStockTransferItemId.HeaderText = "Id";
+            this.ColumnStockTransferItemId.Name = "ColumnStockTransferItemId";
+            this.ColumnStockTransferItemId.ReadOnly = true;
+            this.ColumnStockTransferItemId.Visible = false;
+            // 
+            // ColumnStockTransferItemSTId
+            // 
+            this.ColumnStockTransferItemSTId.DataPropertyName = "ColumnStockTransferItemSTId";
+            this.ColumnStockTransferItemSTId.HeaderText = "STId";
+            this.ColumnStockTransferItemSTId.Name = "ColumnStockTransferItemSTId";
+            this.ColumnStockTransferItemSTId.ReadOnly = true;
+            this.ColumnStockTransferItemSTId.Visible = false;
+            // 
+            // ColumnStockTransferItemItemId
+            // 
+            this.ColumnStockTransferItemItemId.DataPropertyName = "ColumnStockTransferItemItemId";
+            this.ColumnStockTransferItemItemId.HeaderText = "Item Id";
+            this.ColumnStockTransferItemItemId.Name = "ColumnStockTransferItemItemId";
+            this.ColumnStockTransferItemItemId.ReadOnly = true;
+            this.ColumnStockTransferItemItemId.Visible = false;
+            // 
+            // ColumnStockTransferItemItemBarCode
+            // 
+            this.ColumnStockTransferItemItemBarCode.DataPropertyName = "ColumnStockTransferItemItemBarCode";
+            this.ColumnStockTransferItemItemBarCode.HeaderText = "BarCode";
+            this.ColumnStockTransferItemItemBarCode.Name = "ColumnStockTransferItemItemBarCode";
+            this.ColumnStockTransferItemItemBarCode.ReadOnly = true;
+            this.ColumnStockTransferItemItemBarCode.Width = 150;
+            // 
+            // ColumnStockTransferItemItemDescription
+            // 
+            this.ColumnStockTransferItemItemDescription.DataPropertyName = "ColumnStockTransferItemItemDescription";
+            this.ColumnStockTransferItemItemDescription.HeaderText = "Item Description";
+            this.ColumnStockTransferItemItemDescription.Name = "ColumnStockTransferItemItemDescription";
+            this.ColumnStockTransferItemItemDescription.ReadOnly = true;
+            this.ColumnStockTransferItemItemDescription.Width = 300;
+            // 
+            // ColumnStockTransferItemUnitId
+            // 
+            this.ColumnStockTransferItemUnitId.DataPropertyName = "ColumnStockTransferItemUnitId";
+            this.ColumnStockTransferItemUnitId.HeaderText = "Unit Id";
+            this.ColumnStockTransferItemUnitId.Name = "ColumnStockTransferItemUnitId";
+            this.ColumnStockTransferItemUnitId.ReadOnly = true;
+            this.ColumnStockTransferItemUnitId.Visible = false;
+            // 
+            // ColumnStockTransferItemUnit
+            // 
+            this.ColumnStockTransferItemUnit.DataPropertyName = "ColumnStockTransferItemUnit";
+            this.ColumnStockTransferItemUnit.HeaderText = "Unit";
+            this.ColumnStockTransferItemUnit.Name = "ColumnStockTransferItemUnit";
+            this.ColumnStockTransferItemUnit.ReadOnly = true;
+            this.ColumnStockTransferItemUnit.Width = 150;
+            // 
+            // ColumnStockTransferItemInventoryId
+            // 
+            this.ColumnStockTransferItemInventoryId.DataPropertyName = "ColumnStockTransferItemInventoryId";
+            this.ColumnStockTransferItemInventoryId.HeaderText = "Item Inventory Id";
+            this.ColumnStockTransferItemInventoryId.Name = "ColumnStockTransferItemInventoryId";
+            this.ColumnStockTransferItemInventoryId.ReadOnly = true;
+            this.ColumnStockTransferItemInventoryId.Visible = false;
+            // 
+            // ColumnStockTransferItemInventoryCode
+            // 
+            this.ColumnStockTransferItemInventoryCode.DataPropertyName = "ColumnStockTransferItemInventoryCode";
+            this.ColumnStockTransferItemInventoryCode.HeaderText = "Inventory Code";
+            this.ColumnStockTransferItemInventoryCode.Name = "ColumnStockTransferItemInventoryCode";
+            this.ColumnStockTransferItemInventoryCode.ReadOnly = true;
+            this.ColumnStockTransferItemInventoryCode.Width = 200;
+            // 
+            // ColumnStockTransferItemQuantity
+            // 
+            this.ColumnStockTransferItemQuantity.DataPropertyName = "ColumnStockTransferItemQuantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockTransferItemQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnStockTransferItemQuantity.HeaderText = "Quantity";
+            this.ColumnStockTransferItemQuantity.Name = "ColumnStockTransferItemQuantity";
+            this.ColumnStockTransferItemQuantity.ReadOnly = true;
+            this.ColumnStockTransferItemQuantity.Width = 150;
+            // 
+            // ColumnStockTransferItemCost
+            // 
+            this.ColumnStockTransferItemCost.DataPropertyName = "ColumnStockTransferItemCost";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockTransferItemCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnStockTransferItemCost.HeaderText = "Cost";
+            this.ColumnStockTransferItemCost.Name = "ColumnStockTransferItemCost";
+            this.ColumnStockTransferItemCost.ReadOnly = true;
+            this.ColumnStockTransferItemCost.Width = 150;
+            // 
+            // ColumnStockTransferItemAmount
+            // 
+            this.ColumnStockTransferItemAmount.DataPropertyName = "ColumnStockTransferItemAmount";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockTransferItemAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnStockTransferItemAmount.HeaderText = "Amount";
+            this.ColumnStockTransferItemAmount.Name = "ColumnStockTransferItemAmount";
+            this.ColumnStockTransferItemAmount.ReadOnly = true;
+            this.ColumnStockTransferItemAmount.Width = 150;
+            // 
+            // ColumnStockTransferItemBaseQuantity
+            // 
+            this.ColumnStockTransferItemBaseQuantity.DataPropertyName = "ColumnStockTransferItemBaseQuantity";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockTransferItemBaseQuantity.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnStockTransferItemBaseQuantity.HeaderText = "Base Quantity";
+            this.ColumnStockTransferItemBaseQuantity.Name = "ColumnStockTransferItemBaseQuantity";
+            this.ColumnStockTransferItemBaseQuantity.ReadOnly = true;
+            this.ColumnStockTransferItemBaseQuantity.Width = 150;
+            // 
+            // ColumnStockTransferItemBaseCost
+            // 
+            this.ColumnStockTransferItemBaseCost.DataPropertyName = "ColumnStockTransferItemBaseCost";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockTransferItemBaseCost.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumnStockTransferItemBaseCost.HeaderText = "Base Cost";
+            this.ColumnStockTransferItemBaseCost.Name = "ColumnStockTransferItemBaseCost";
+            this.ColumnStockTransferItemBaseCost.ReadOnly = true;
+            this.ColumnStockTransferItemBaseCost.Width = 150;
+            // 
+            // ColumnStockTransferItemSpace
+            // 
+            this.ColumnStockTransferItemSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnStockTransferItemSpace.DataPropertyName = "ColumnStockTransferItemSpace";
+            this.ColumnStockTransferItemSpace.HeaderText = "";
+            this.ColumnStockTransferItemSpace.Name = "ColumnStockTransferItemSpace";
+            this.ColumnStockTransferItemSpace.ReadOnly = true;
+            // 
             // TrnStockTransferDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1034,11 +1074,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryEntriesQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryEntriesAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryEntriesSpace;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxToBranch;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockTransferItemButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockTransferItemButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemSTId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemItemBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemUnitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemUnit;
@@ -1050,7 +1095,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockTransferItemSpace;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxToBranch;
     }
 }

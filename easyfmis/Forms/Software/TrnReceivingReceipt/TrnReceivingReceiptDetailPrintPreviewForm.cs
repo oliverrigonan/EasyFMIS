@@ -33,7 +33,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
         {
             try
             {
-                var fileName = "D:/ReceivingReceipt_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf";
+                var fileName = "C:/EasyERPPDF/ReceivingReceipt_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf";
                 var currentUser = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
 
                 Document document = new Document();

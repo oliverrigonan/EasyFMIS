@@ -251,6 +251,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                                 ColumnTrnSalesOrderItemListId = d.Id,
                                 ColumnTrnSalesOrderItemListSOId = d.SOId,
                                 ColumnTrnSalesOrderItemListItemId = d.ItemId,
+                                ColumnTrnSalesOrderItemListItemBarCode = d.BarCode,
                                 ColumnTrnSalesOrderItemListItemDescription = d.ItemDescription,
                                 ColumnTrnSalesOrderItemListItemInventoryId = d.ItemInventoryId,
                                 ColumnTrnSalesOrderItemListItemInventoryCode = d.ItemInventoryCode,
@@ -280,6 +281,9 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             }
             else
             {
+                textBoxTotalDiscountAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
+                textBoxTotalAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
+                textBoxTotalTaxAmount.Text = listSalesOrderItem.Sum(d => d.TaxAmount).ToString("#,##0.00");
                 return Task.FromResult(new List<Entities.DgvTrnSalesOrderItemEntity>());
             }
         }

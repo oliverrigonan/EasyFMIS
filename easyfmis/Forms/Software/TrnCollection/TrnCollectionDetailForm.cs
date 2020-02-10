@@ -270,6 +270,8 @@ namespace easyfmis.Forms.Software.TrnCollection
             }
             else
             {
+                textBoxTotalAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
+
                 return Task.FromResult(new List<Entities.DgvCollectionLineEntity>());
             }
         }

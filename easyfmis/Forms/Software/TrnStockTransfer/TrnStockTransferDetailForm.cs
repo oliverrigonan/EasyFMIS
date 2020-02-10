@@ -243,6 +243,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
                                 ColumnStockTransferItemId = d.Id,
                                 ColumnStockTransferItemSTId = d.STId,
                                 ColumnStockTransferItemItemId = d.ItemId,
+                                ColumnStockTransferItemItemBarCode = d.BarCode,
                                 ColumnStockTransferItemItemDescription = d.ItemDescription,
                                 ColumnStockTransferItemUnitId = d.UnitId,
                                 ColumnStockTransferItemUnit = d.Unit,
@@ -256,10 +257,14 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
                                 ColumnStockTransferItemSpace = ""
                             };
 
+                textBoxTotalAmount.Text = listStockTransferItem.Sum(d => d.Amount).ToString("#,##0.00");
+
                 return Task.FromResult(items.ToList());
             }
             else
             {
+                textBoxTotalAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
+
                 return Task.FromResult(new List<Entities.DgvStockTransferItemEntity>());
             }
         }

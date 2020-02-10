@@ -269,6 +269,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSalesInvoiceItemListId = d.Id,
                                 ColumnSalesInvoiceItemListSIId = d.SIId,
                                 ColumnSalesInvoiceItemListItemId = d.ItemId,
+                                ColumnSalesInvoiceItemListItemBaCode = d.ItemBarCode,
                                 ColumnSalesInvoiceItemListItemDescription = d.ItemDescription,
                                 ColumnSalesInvoiceItemListItemInventoryId = d.ItemInventoryId,
                                 ColumnSalesInvoiceItemListItemInventoryCode = d.ItemInventoryCode,
@@ -298,6 +299,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             }
             else
             {
+                textBoxTotalDiscountAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
+                textBoxTotalAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
                 return Task.FromResult(new List<Entities.DgvSalesInvoiceItemEntity>());
             }
         }

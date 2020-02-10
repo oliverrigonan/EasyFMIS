@@ -25,6 +25,7 @@ namespace easyfmis.Controllers
                                         Id = d.Id,
                                         SIId = d.SIId,
                                         ItemId = d.ItemId,
+                                        ItemBarCode = d.MstArticle.ArticleBarCode,
                                         ItemDescription = d.MstArticle.Article,
                                         ItemInventoryId = d.ItemInventoryId,
                                         ItemInventoryCode = d.MstArticleInventory.InventoryCode,

@@ -75,6 +75,8 @@
             this.dateTimePickerCVDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxCVNumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.buttonDisbursementLinePageListFirst = new System.Windows.Forms.Button();
             this.buttonDisbursementLinePageListPrevious = new System.Windows.Forms.Button();
             this.buttonDisbursementLinePageListNext = new System.Windows.Forms.Button();
@@ -597,6 +599,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.textBoxTotalAmount);
             this.panel4.Controls.Add(this.buttonDisbursementLinePageListFirst);
             this.panel4.Controls.Add(this.buttonDisbursementLinePageListPrevious);
             this.panel4.Controls.Add(this.buttonDisbursementLinePageListNext);
@@ -607,6 +611,31 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(682, 9);
+            this.label19.Margin = new System.Windows.Forms.Padding(0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(141, 28);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Total Amount";
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.BackColor = System.Drawing.Color.White;
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(826, 9);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.ReadOnly = true;
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(549, 34);
+            this.textBoxTotalAmount.TabIndex = 26;
+            this.textBoxTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonDisbursementLinePageListFirst
             // 
@@ -973,5 +1002,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListOtherInformation;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDisbursementLineListSpace;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
     }
 }

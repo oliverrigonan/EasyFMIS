@@ -71,6 +71,7 @@
             this.dateTimePickerPODate = new System.Windows.Forms.DateTimePicker();
             this.textBoxPONumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.textBoxTotalPOAmount = new System.Windows.Forms.TextBox();
             this.buttonPurchaseOrderItemPageListFirst = new System.Windows.Forms.Button();
             this.buttonPurchaseOrderItemPageListPrevious = new System.Windows.Forms.Button();
@@ -79,11 +80,16 @@
             this.textBoxPurchaseOrderItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewPurchaseOrderItem = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.ColumnPurchaseOrderItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnPurchaseOrderItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnPurchaseOrderItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListPOId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPurchaseOrderItemListItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListItemDescritpion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,11 +99,6 @@
             this.ColumnPurchaseOrderItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemListBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -525,15 +526,30 @@
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
             // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(672, 11);
+            this.label15.Margin = new System.Windows.Forms.Padding(0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(141, 28);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "Total Amount";
+            // 
             // textBoxTotalPOAmount
             // 
             this.textBoxTotalPOAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalPOAmount.BackColor = System.Drawing.Color.White;
             this.textBoxTotalPOAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotalPOAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalPOAmount.Location = new System.Drawing.Point(816, 9);
             this.textBoxTotalPOAmount.Name = "textBoxTotalPOAmount";
+            this.textBoxTotalPOAmount.ReadOnly = true;
             this.textBoxTotalPOAmount.Size = new System.Drawing.Size(549, 34);
             this.textBoxTotalPOAmount.TabIndex = 18;
+            this.textBoxTotalPOAmount.TabStop = false;
             this.textBoxTotalPOAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonPurchaseOrderItemPageListFirst
@@ -649,6 +665,7 @@
             this.ColumnPurchaseOrderItemListId,
             this.ColumnPurchaseOrderItemListPOId,
             this.ColumnPurchaseOrderItemListItemId,
+            this.ColumnPurchaseOrderItemListItemBarCode,
             this.ColumnPurchaseOrderItemListItemDescritpion,
             this.ColumnPurchaseOrderItemListUnitId,
             this.ColumnPurchaseOrderItemListUnit,
@@ -658,7 +675,7 @@
             this.ColumnPurchaseOrderItemListBaseQuantity,
             this.ColumnPurchaseOrderItemListBaseCost,
             this.ColumnPurchaseOrderItemSpace});
-            this.dataGridViewPurchaseOrderItem.Location = new System.Drawing.Point(17, 52);
+            this.dataGridViewPurchaseOrderItem.Location = new System.Drawing.Point(8, 52);
             this.dataGridViewPurchaseOrderItem.MultiSelect = false;
             this.dataGridViewPurchaseOrderItem.Name = "dataGridViewPurchaseOrderItem";
             this.dataGridViewPurchaseOrderItem.ReadOnly = true;
@@ -672,6 +689,50 @@
             this.dataGridViewPurchaseOrderItem.TabIndex = 1;
             this.dataGridViewPurchaseOrderItem.TabStop = false;
             this.dataGridViewPurchaseOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPurchaseOrderItem_CellClick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.TabIndex = 9;
+            this.tabControl1.TabStop = false;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewPurchaseOrderItem);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Purchase Order Items";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // ColumnPurchaseOrderItemListButtonEdit
             // 
@@ -714,6 +775,14 @@
             this.ColumnPurchaseOrderItemListItemId.Name = "ColumnPurchaseOrderItemListItemId";
             this.ColumnPurchaseOrderItemListItemId.ReadOnly = true;
             this.ColumnPurchaseOrderItemListItemId.Visible = false;
+            // 
+            // ColumnPurchaseOrderItemListItemBarCode
+            // 
+            this.ColumnPurchaseOrderItemListItemBarCode.DataPropertyName = "ColumnPurchaseOrderItemListItemBarCode";
+            this.ColumnPurchaseOrderItemListItemBarCode.HeaderText = "BarCode";
+            this.ColumnPurchaseOrderItemListItemBarCode.Name = "ColumnPurchaseOrderItemListItemBarCode";
+            this.ColumnPurchaseOrderItemListItemBarCode.ReadOnly = true;
+            this.ColumnPurchaseOrderItemListItemBarCode.Width = 150;
             // 
             // ColumnPurchaseOrderItemListItemDescritpion
             // 
@@ -798,62 +867,6 @@
             this.ColumnPurchaseOrderItemSpace.Name = "ColumnPurchaseOrderItemSpace";
             this.ColumnPurchaseOrderItemSpace.ReadOnly = true;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
-            this.tabControl1.TabIndex = 9;
-            this.tabControl1.TabStop = false;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewPurchaseOrderItem);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Purchase Order Items";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(672, 13);
-            this.label15.Margin = new System.Windows.Forms.Padding(0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(141, 28);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "Total Amount";
-            // 
             // TrnPurchaseOrderDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -930,11 +943,15 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBoxRequestedBy;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxTotalPOAmount;
+        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnPurchaseOrderItemListButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnPurchaseOrderItemListButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListPOId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListItemBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListItemDescritpion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListUnitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListUnit;
@@ -944,8 +961,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemListBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderItemSpace;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxTotalPOAmount;
-        private System.Windows.Forms.Label label15;
     }
 }

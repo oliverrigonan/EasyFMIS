@@ -27,6 +27,7 @@ namespace easyfmis.Controllers
                                             POId = d.POId,
                                             PONumber = d.TrnPurchaseOrder.PONumber,
                                             ItemId = d.ItemId,
+                                            ItemBarCode = d.MstArticle.ArticleBarCode,
                                             ItemDescription = d.MstArticle.Article,
                                             UnitId = d.UnitId,
                                             Unit = d.MstUnit.Unit,

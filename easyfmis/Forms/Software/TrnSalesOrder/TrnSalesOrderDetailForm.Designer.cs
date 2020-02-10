@@ -65,6 +65,12 @@
             this.dateTimePickerSODate = new System.Windows.Forms.DateTimePicker();
             this.textBoxSONumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxTotalDiscountAmount = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxTotalTaxAmount = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.buttonSalesOrderItemPageListFirst = new System.Windows.Forms.Button();
             this.buttonSalesOrderItemPageListPrevious = new System.Windows.Forms.Button();
             this.buttonSalesOrderItemPageListNext = new System.Windows.Forms.Button();
@@ -72,11 +78,16 @@
             this.textBoxSalesOrderItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewSalesOrderItem = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
             this.ColumnTrnSalesOrderItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTrnSalesOrderItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTrnSalesOrderItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListSOId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTrnSalesOrderItemListItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListItemInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListItemInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,16 +108,6 @@
             this.ColumnTrnSalesOrderItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTrnSalesOrderItemListBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalesOrderItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxTotalTaxAmount = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBoxTotalDiscountAmount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -472,6 +473,81 @@
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
             // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(433, 14);
+            this.label14.Margin = new System.Windows.Forms.Padding(0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(199, 23);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Total Discount Amount:";
+            // 
+            // textBoxTotalDiscountAmount
+            // 
+            this.textBoxTotalDiscountAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalDiscountAmount.BackColor = System.Drawing.Color.White;
+            this.textBoxTotalDiscountAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalDiscountAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalDiscountAmount.Location = new System.Drawing.Point(638, 12);
+            this.textBoxTotalDiscountAmount.Name = "textBoxTotalDiscountAmount";
+            this.textBoxTotalDiscountAmount.ReadOnly = true;
+            this.textBoxTotalDiscountAmount.Size = new System.Drawing.Size(143, 27);
+            this.textBoxTotalDiscountAmount.TabIndex = 27;
+            this.textBoxTotalDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1071, 14);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(156, 23);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Total Tax Amount:";
+            // 
+            // textBoxTotalTaxAmount
+            // 
+            this.textBoxTotalTaxAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalTaxAmount.BackColor = System.Drawing.Color.White;
+            this.textBoxTotalTaxAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalTaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalTaxAmount.Location = new System.Drawing.Point(1230, 12);
+            this.textBoxTotalTaxAmount.Name = "textBoxTotalTaxAmount";
+            this.textBoxTotalTaxAmount.ReadOnly = true;
+            this.textBoxTotalTaxAmount.Size = new System.Drawing.Size(143, 27);
+            this.textBoxTotalTaxAmount.TabIndex = 25;
+            this.textBoxTotalTaxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(784, 14);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 23);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Total Amount:";
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.BackColor = System.Drawing.Color.White;
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(911, 12);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.ReadOnly = true;
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(143, 27);
+            this.textBoxTotalAmount.TabIndex = 23;
+            this.textBoxTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // buttonSalesOrderItemPageListFirst
             // 
             this.buttonSalesOrderItemPageListFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -586,6 +662,7 @@
             this.ColumnTrnSalesOrderItemListId,
             this.ColumnTrnSalesOrderItemListSOId,
             this.ColumnTrnSalesOrderItemListItemId,
+            this.ColumnTrnSalesOrderItemListItemBarCode,
             this.ColumnTrnSalesOrderItemListItemDescription,
             this.ColumnTrnSalesOrderItemListItemInventoryId,
             this.ColumnTrnSalesOrderItemListItemInventoryCode,
@@ -620,6 +697,50 @@
             this.dataGridViewSalesOrderItem.TabIndex = 1;
             this.dataGridViewSalesOrderItem.TabStop = false;
             this.dataGridViewSalesOrderItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalesOrderItem_CellClick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.TabIndex = 9;
+            this.tabControl1.TabStop = false;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewSalesOrderItem);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Sales Order Items";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
             // 
             // ColumnTrnSalesOrderItemListButtonEdit
             // 
@@ -662,6 +783,14 @@
             this.ColumnTrnSalesOrderItemListItemId.Name = "ColumnTrnSalesOrderItemListItemId";
             this.ColumnTrnSalesOrderItemListItemId.ReadOnly = true;
             this.ColumnTrnSalesOrderItemListItemId.Visible = false;
+            // 
+            // ColumnTrnSalesOrderItemListItemBarCode
+            // 
+            this.ColumnTrnSalesOrderItemListItemBarCode.DataPropertyName = "ColumnTrnSalesOrderItemListItemBarCode";
+            this.ColumnTrnSalesOrderItemListItemBarCode.HeaderText = "BarCode";
+            this.ColumnTrnSalesOrderItemListItemBarCode.Name = "ColumnTrnSalesOrderItemListItemBarCode";
+            this.ColumnTrnSalesOrderItemListItemBarCode.ReadOnly = true;
+            this.ColumnTrnSalesOrderItemListItemBarCode.Width = 150;
             // 
             // ColumnTrnSalesOrderItemListItemDescription
             // 
@@ -829,116 +958,6 @@
             this.ColumnSalesOrderItemSpace.Name = "ColumnSalesOrderItemSpace";
             this.ColumnSalesOrderItemSpace.ReadOnly = true;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
-            this.tabControl1.TabIndex = 9;
-            this.tabControl1.TabStop = false;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewSalesOrderItem);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Sales Order Items";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1081, 14);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(146, 23);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Total Tax Amount:";
-            // 
-            // textBoxTotalTaxAmount
-            // 
-            this.textBoxTotalTaxAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTotalTaxAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTotalTaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalTaxAmount.Location = new System.Drawing.Point(1230, 14);
-            this.textBoxTotalTaxAmount.Name = "textBoxTotalTaxAmount";
-            this.textBoxTotalTaxAmount.Size = new System.Drawing.Size(143, 27);
-            this.textBoxTotalTaxAmount.TabIndex = 25;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(815, 14);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 23);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Total Amount:";
-            // 
-            // textBoxTotalAmount
-            // 
-            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalAmount.Location = new System.Drawing.Point(935, 14);
-            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
-            this.textBoxTotalAmount.Size = new System.Drawing.Size(143, 27);
-            this.textBoxTotalAmount.TabIndex = 23;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(477, 14);
-            this.label14.Margin = new System.Windows.Forms.Padding(0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(189, 23);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Total Discount Amount:";
-            // 
-            // textBoxTotalDiscountAmount
-            // 
-            this.textBoxTotalDiscountAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTotalDiscountAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTotalDiscountAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalDiscountAmount.Location = new System.Drawing.Point(669, 14);
-            this.textBoxTotalDiscountAmount.Name = "textBoxTotalDiscountAmount";
-            this.textBoxTotalDiscountAmount.Size = new System.Drawing.Size(143, 27);
-            this.textBoxTotalDiscountAmount.TabIndex = 27;
-            // 
             // TrnSalesOrderDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1010,11 +1029,18 @@
         private System.Windows.Forms.ComboBox comboBoxCustomer;
         private System.Windows.Forms.TextBox textBoxManualSONumber;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBoxTotalDiscountAmount;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxTotalTaxAmount;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnTrnSalesOrderItemListButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnTrnSalesOrderItemListButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListSOId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListItemBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListItemInventoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListItemInventoryCode;
@@ -1035,11 +1061,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTrnSalesOrderItemListBasePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesOrderItemSpace;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBoxTotalDiscountAmount;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxTotalTaxAmount;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxTotalAmount;
     }
 }

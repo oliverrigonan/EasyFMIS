@@ -12,6 +12,7 @@ namespace easyfmis.Entities
         public Int32 ColumnStockTransferItemId { get; set; }
         public Int32 ColumnStockTransferItemSTId { get; set; }
         public Int32 ColumnStockTransferItemItemId { get; set; }
+        public String ColumnStockTransferItemItemBarCode { get; set; }
         public String ColumnStockTransferItemItemDescription { get; set; }
         public Int32 ColumnStockTransferItemUnitId { get; set; }
         public String ColumnStockTransferItemUnit { get; set; }

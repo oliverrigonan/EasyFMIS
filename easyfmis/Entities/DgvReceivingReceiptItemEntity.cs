@@ -15,6 +15,7 @@ namespace easyfmis.Entities
         public Int32? ColumnReceivingReceiptItemListPOId { get; set; }
         public String ColumnReceivingReceiptItemListPONumber{ get; set; }
         public Int32 ColumnReceivingReceiptItemListItemId { get; set; }
+        public String ColumnReceivingReceiptItemListItemBarCode { get; set; }
         public String ColumnReceivingReceiptItemListItemDescription { get; set; }
         public Int32 ColumnReceivingReceiptItemListUnitId { get; set; }
         public String ColumnReceivingReceiptItemListUnit { get; set; }

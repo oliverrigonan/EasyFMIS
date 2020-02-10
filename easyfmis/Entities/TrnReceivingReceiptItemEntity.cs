@@ -13,6 +13,7 @@ namespace easyfmis.Entities
         public Int32 POId { get; set; }
         public String PONumber { get; set; }
         public Int32 ItemId { get; set; }
+        public String ItemBarCode { get; set; }
         public String ItemDescription { get; set; }
         public Int32 UnitId { get; set; }
         public String Unit { get; set; }

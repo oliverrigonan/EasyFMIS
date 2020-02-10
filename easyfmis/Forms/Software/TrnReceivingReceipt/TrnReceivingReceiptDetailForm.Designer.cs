@@ -30,6 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,10 +41,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnReceivingReceiptDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -83,28 +83,6 @@
             this.textBoxReceivingReceiptItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchPurchaseOrderItem = new System.Windows.Forms.Button();
             this.dataGridViewReceivingReceiptItem = new System.Windows.Forms.DataGridView();
-            this.ColumnReceivingReceiptItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnReceivingReceiptItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnReceivingReceiptItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListRRId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListPOId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListPONumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListBranchId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListTaxId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReceivingReceiptItemListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -124,6 +102,29 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnReceivingReceiptItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnReceivingReceiptItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListRRId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListPOId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListPONumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListBranchId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListTaxId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListTaxRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReceivingReceiptItemListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -505,45 +506,51 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1001, 14);
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(932, 14);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(146, 23);
+            this.label10.Size = new System.Drawing.Size(156, 23);
             this.label10.TabIndex = 22;
             this.label10.Text = "Total Tax Amount:";
             // 
             // textBoxTotalTaxAmount
             // 
             this.textBoxTotalTaxAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalTaxAmount.BackColor = System.Drawing.Color.White;
             this.textBoxTotalTaxAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTotalTaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalTaxAmount.Location = new System.Drawing.Point(1150, 13);
+            this.textBoxTotalTaxAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalTaxAmount.Location = new System.Drawing.Point(1091, 13);
             this.textBoxTotalTaxAmount.Name = "textBoxTotalTaxAmount";
-            this.textBoxTotalTaxAmount.Size = new System.Drawing.Size(220, 27);
+            this.textBoxTotalTaxAmount.ReadOnly = true;
+            this.textBoxTotalTaxAmount.Size = new System.Drawing.Size(282, 27);
             this.textBoxTotalTaxAmount.TabIndex = 21;
+            this.textBoxTotalTaxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(658, 14);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(485, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 23);
+            this.label1.Size = new System.Drawing.Size(124, 23);
             this.label1.TabIndex = 20;
             this.label1.Text = "Total Amount:";
             // 
             // textBoxTotalAmount
             // 
             this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.BackColor = System.Drawing.Color.White;
             this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalAmount.Location = new System.Drawing.Point(778, 13);
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(612, 13);
             this.textBoxTotalAmount.Name = "textBoxTotalAmount";
-            this.textBoxTotalAmount.Size = new System.Drawing.Size(220, 27);
+            this.textBoxTotalAmount.ReadOnly = true;
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(282, 27);
             this.textBoxTotalAmount.TabIndex = 19;
+            this.textBoxTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonReceivingReceiptItemPageListFirst
             // 
@@ -661,6 +668,7 @@
             this.ColumnReceivingReceiptItemListPOId,
             this.ColumnReceivingReceiptItemListPONumber,
             this.ColumnReceivingReceiptItemListItemId,
+            this.ColumnReceivingReceiptItemListItemBarCode,
             this.ColumnReceivingReceiptItemListItemDescription,
             this.ColumnReceivingReceiptItemListUnitId,
             this.ColumnReceivingReceiptItemListUnit,
@@ -690,198 +698,6 @@
             this.dataGridViewReceivingReceiptItem.TabIndex = 1;
             this.dataGridViewReceivingReceiptItem.TabStop = false;
             this.dataGridViewReceivingReceiptItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReceivingReceiptItem_CellClick);
-            // 
-            // ColumnReceivingReceiptItemListButtonEdit
-            // 
-            this.ColumnReceivingReceiptItemListButtonEdit.DataPropertyName = "ColumnReceivingReceiptItemListButtonEdit";
-            this.ColumnReceivingReceiptItemListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnReceivingReceiptItemListButtonEdit.HeaderText = "";
-            this.ColumnReceivingReceiptItemListButtonEdit.Name = "ColumnReceivingReceiptItemListButtonEdit";
-            this.ColumnReceivingReceiptItemListButtonEdit.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListButtonEdit.Width = 70;
-            // 
-            // ColumnReceivingReceiptItemListButtonDelete
-            // 
-            this.ColumnReceivingReceiptItemListButtonDelete.DataPropertyName = "ColumnReceivingReceiptItemListButtonDelete";
-            this.ColumnReceivingReceiptItemListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnReceivingReceiptItemListButtonDelete.HeaderText = "";
-            this.ColumnReceivingReceiptItemListButtonDelete.Name = "ColumnReceivingReceiptItemListButtonDelete";
-            this.ColumnReceivingReceiptItemListButtonDelete.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListButtonDelete.Width = 70;
-            // 
-            // ColumnReceivingReceiptItemListId
-            // 
-            this.ColumnReceivingReceiptItemListId.DataPropertyName = "ColumnReceivingReceiptItemListId";
-            this.ColumnReceivingReceiptItemListId.HeaderText = "Id";
-            this.ColumnReceivingReceiptItemListId.Name = "ColumnReceivingReceiptItemListId";
-            this.ColumnReceivingReceiptItemListId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListRRId
-            // 
-            this.ColumnReceivingReceiptItemListRRId.DataPropertyName = "ColumnReceivingReceiptItemListRRId";
-            this.ColumnReceivingReceiptItemListRRId.HeaderText = "RRId";
-            this.ColumnReceivingReceiptItemListRRId.Name = "ColumnReceivingReceiptItemListRRId";
-            this.ColumnReceivingReceiptItemListRRId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListRRId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListPOId
-            // 
-            this.ColumnReceivingReceiptItemListPOId.DataPropertyName = "ColumnReceivingReceiptItemListPOId";
-            this.ColumnReceivingReceiptItemListPOId.HeaderText = "PO Id";
-            this.ColumnReceivingReceiptItemListPOId.Name = "ColumnReceivingReceiptItemListPOId";
-            this.ColumnReceivingReceiptItemListPOId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListPOId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListPONumber
-            // 
-            this.ColumnReceivingReceiptItemListPONumber.DataPropertyName = "ColumnReceivingReceiptItemListPONumber";
-            this.ColumnReceivingReceiptItemListPONumber.HeaderText = "PO Number";
-            this.ColumnReceivingReceiptItemListPONumber.Name = "ColumnReceivingReceiptItemListPONumber";
-            this.ColumnReceivingReceiptItemListPONumber.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListPONumber.Width = 200;
-            // 
-            // ColumnReceivingReceiptItemListItemId
-            // 
-            this.ColumnReceivingReceiptItemListItemId.DataPropertyName = "ColumnReceivingReceiptItemListItemId";
-            this.ColumnReceivingReceiptItemListItemId.HeaderText = "Item Id";
-            this.ColumnReceivingReceiptItemListItemId.Name = "ColumnReceivingReceiptItemListItemId";
-            this.ColumnReceivingReceiptItemListItemId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListItemId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListItemDescription
-            // 
-            this.ColumnReceivingReceiptItemListItemDescription.DataPropertyName = "ColumnReceivingReceiptItemListItemDescription";
-            this.ColumnReceivingReceiptItemListItemDescription.HeaderText = "Item Description";
-            this.ColumnReceivingReceiptItemListItemDescription.Name = "ColumnReceivingReceiptItemListItemDescription";
-            this.ColumnReceivingReceiptItemListItemDescription.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListItemDescription.Width = 300;
-            // 
-            // ColumnReceivingReceiptItemListUnitId
-            // 
-            this.ColumnReceivingReceiptItemListUnitId.DataPropertyName = "ColumnReceivingReceiptItemListUnitId";
-            this.ColumnReceivingReceiptItemListUnitId.HeaderText = "Unit Id";
-            this.ColumnReceivingReceiptItemListUnitId.Name = "ColumnReceivingReceiptItemListUnitId";
-            this.ColumnReceivingReceiptItemListUnitId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListUnitId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListUnit
-            // 
-            this.ColumnReceivingReceiptItemListUnit.DataPropertyName = "ColumnReceivingReceiptItemListUnit";
-            this.ColumnReceivingReceiptItemListUnit.HeaderText = "Unit";
-            this.ColumnReceivingReceiptItemListUnit.Name = "ColumnReceivingReceiptItemListUnit";
-            this.ColumnReceivingReceiptItemListUnit.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListUnit.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListQuantity
-            // 
-            this.ColumnReceivingReceiptItemListQuantity.DataPropertyName = "ColumnReceivingReceiptItemListQuantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnReceivingReceiptItemListQuantity.HeaderText = "Quantity";
-            this.ColumnReceivingReceiptItemListQuantity.Name = "ColumnReceivingReceiptItemListQuantity";
-            this.ColumnReceivingReceiptItemListQuantity.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListQuantity.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListCost
-            // 
-            this.ColumnReceivingReceiptItemListCost.DataPropertyName = "ColumnReceivingReceiptItemListCost";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListCost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnReceivingReceiptItemListCost.HeaderText = "Cost";
-            this.ColumnReceivingReceiptItemListCost.Name = "ColumnReceivingReceiptItemListCost";
-            this.ColumnReceivingReceiptItemListCost.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListCost.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListAmount
-            // 
-            this.ColumnReceivingReceiptItemListAmount.DataPropertyName = "ColumnReceivingReceiptItemListAmount";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnReceivingReceiptItemListAmount.HeaderText = "Amount";
-            this.ColumnReceivingReceiptItemListAmount.Name = "ColumnReceivingReceiptItemListAmount";
-            this.ColumnReceivingReceiptItemListAmount.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListAmount.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListBranchId
-            // 
-            this.ColumnReceivingReceiptItemListBranchId.DataPropertyName = "ColumnReceivingReceiptItemListBranchId";
-            this.ColumnReceivingReceiptItemListBranchId.HeaderText = "Branch Id";
-            this.ColumnReceivingReceiptItemListBranchId.Name = "ColumnReceivingReceiptItemListBranchId";
-            this.ColumnReceivingReceiptItemListBranchId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBranchId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListBranch
-            // 
-            this.ColumnReceivingReceiptItemListBranch.DataPropertyName = "ColumnReceivingReceiptItemListBranch";
-            this.ColumnReceivingReceiptItemListBranch.HeaderText = "Branch";
-            this.ColumnReceivingReceiptItemListBranch.Name = "ColumnReceivingReceiptItemListBranch";
-            this.ColumnReceivingReceiptItemListBranch.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBranch.Width = 200;
-            // 
-            // ColumnReceivingReceiptItemListTaxId
-            // 
-            this.ColumnReceivingReceiptItemListTaxId.DataPropertyName = "ColumnReceivingReceiptItemListTaxId";
-            this.ColumnReceivingReceiptItemListTaxId.HeaderText = "Tax Id";
-            this.ColumnReceivingReceiptItemListTaxId.Name = "ColumnReceivingReceiptItemListTaxId";
-            this.ColumnReceivingReceiptItemListTaxId.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTaxId.Visible = false;
-            // 
-            // ColumnReceivingReceiptItemListTax
-            // 
-            this.ColumnReceivingReceiptItemListTax.DataPropertyName = "ColumnReceivingReceiptItemListTax";
-            this.ColumnReceivingReceiptItemListTax.HeaderText = "Tax";
-            this.ColumnReceivingReceiptItemListTax.Name = "ColumnReceivingReceiptItemListTax";
-            this.ColumnReceivingReceiptItemListTax.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTax.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListTaxRate
-            // 
-            this.ColumnReceivingReceiptItemListTaxRate.DataPropertyName = "ColumnReceivingReceiptItemListTaxRate";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListTaxRate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnReceivingReceiptItemListTaxRate.HeaderText = "Tax Rate";
-            this.ColumnReceivingReceiptItemListTaxRate.Name = "ColumnReceivingReceiptItemListTaxRate";
-            this.ColumnReceivingReceiptItemListTaxRate.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTaxRate.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListTaxAmount
-            // 
-            this.ColumnReceivingReceiptItemListTaxAmount.DataPropertyName = "ColumnReceivingReceiptItemListTaxAmount";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListTaxAmount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnReceivingReceiptItemListTaxAmount.HeaderText = "Tax Amount";
-            this.ColumnReceivingReceiptItemListTaxAmount.Name = "ColumnReceivingReceiptItemListTaxAmount";
-            this.ColumnReceivingReceiptItemListTaxAmount.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListTaxAmount.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListBaseQuantity
-            // 
-            this.ColumnReceivingReceiptItemListBaseQuantity.DataPropertyName = "ColumnReceivingReceiptItemListBaseQuantity";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ColumnReceivingReceiptItemListBaseQuantity.HeaderText = "Base Quantity";
-            this.ColumnReceivingReceiptItemListBaseQuantity.Name = "ColumnReceivingReceiptItemListBaseQuantity";
-            this.ColumnReceivingReceiptItemListBaseQuantity.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBaseQuantity.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListBaseCost
-            // 
-            this.ColumnReceivingReceiptItemListBaseCost.DataPropertyName = "ColumnReceivingReceiptItemListBaseCost";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnReceivingReceiptItemListBaseCost.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ColumnReceivingReceiptItemListBaseCost.HeaderText = "Base Cost";
-            this.ColumnReceivingReceiptItemListBaseCost.Name = "ColumnReceivingReceiptItemListBaseCost";
-            this.ColumnReceivingReceiptItemListBaseCost.ReadOnly = true;
-            this.ColumnReceivingReceiptItemListBaseCost.Width = 150;
-            // 
-            // ColumnReceivingReceiptItemListSpace
-            // 
-            this.ColumnReceivingReceiptItemListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnReceivingReceiptItemListSpace.DataPropertyName = "ColumnReceivingReceiptItemListSpace";
-            this.ColumnReceivingReceiptItemListSpace.HeaderText = "";
-            this.ColumnReceivingReceiptItemListSpace.Name = "ColumnReceivingReceiptItemListSpace";
-            this.ColumnReceivingReceiptItemListSpace.ReadOnly = true;
             // 
             // panel2
             // 
@@ -1125,6 +941,206 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
+            // ColumnReceivingReceiptItemListButtonEdit
+            // 
+            this.ColumnReceivingReceiptItemListButtonEdit.DataPropertyName = "ColumnReceivingReceiptItemListButtonEdit";
+            this.ColumnReceivingReceiptItemListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnReceivingReceiptItemListButtonEdit.HeaderText = "";
+            this.ColumnReceivingReceiptItemListButtonEdit.Name = "ColumnReceivingReceiptItemListButtonEdit";
+            this.ColumnReceivingReceiptItemListButtonEdit.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListButtonEdit.Width = 70;
+            // 
+            // ColumnReceivingReceiptItemListButtonDelete
+            // 
+            this.ColumnReceivingReceiptItemListButtonDelete.DataPropertyName = "ColumnReceivingReceiptItemListButtonDelete";
+            this.ColumnReceivingReceiptItemListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnReceivingReceiptItemListButtonDelete.HeaderText = "";
+            this.ColumnReceivingReceiptItemListButtonDelete.Name = "ColumnReceivingReceiptItemListButtonDelete";
+            this.ColumnReceivingReceiptItemListButtonDelete.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListButtonDelete.Width = 70;
+            // 
+            // ColumnReceivingReceiptItemListId
+            // 
+            this.ColumnReceivingReceiptItemListId.DataPropertyName = "ColumnReceivingReceiptItemListId";
+            this.ColumnReceivingReceiptItemListId.HeaderText = "Id";
+            this.ColumnReceivingReceiptItemListId.Name = "ColumnReceivingReceiptItemListId";
+            this.ColumnReceivingReceiptItemListId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListRRId
+            // 
+            this.ColumnReceivingReceiptItemListRRId.DataPropertyName = "ColumnReceivingReceiptItemListRRId";
+            this.ColumnReceivingReceiptItemListRRId.HeaderText = "RRId";
+            this.ColumnReceivingReceiptItemListRRId.Name = "ColumnReceivingReceiptItemListRRId";
+            this.ColumnReceivingReceiptItemListRRId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListRRId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListPOId
+            // 
+            this.ColumnReceivingReceiptItemListPOId.DataPropertyName = "ColumnReceivingReceiptItemListPOId";
+            this.ColumnReceivingReceiptItemListPOId.HeaderText = "PO Id";
+            this.ColumnReceivingReceiptItemListPOId.Name = "ColumnReceivingReceiptItemListPOId";
+            this.ColumnReceivingReceiptItemListPOId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListPOId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListPONumber
+            // 
+            this.ColumnReceivingReceiptItemListPONumber.DataPropertyName = "ColumnReceivingReceiptItemListPONumber";
+            this.ColumnReceivingReceiptItemListPONumber.HeaderText = "PO Number";
+            this.ColumnReceivingReceiptItemListPONumber.Name = "ColumnReceivingReceiptItemListPONumber";
+            this.ColumnReceivingReceiptItemListPONumber.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListPONumber.Width = 200;
+            // 
+            // ColumnReceivingReceiptItemListItemId
+            // 
+            this.ColumnReceivingReceiptItemListItemId.DataPropertyName = "ColumnReceivingReceiptItemListItemId";
+            this.ColumnReceivingReceiptItemListItemId.HeaderText = "Item Id";
+            this.ColumnReceivingReceiptItemListItemId.Name = "ColumnReceivingReceiptItemListItemId";
+            this.ColumnReceivingReceiptItemListItemId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListItemId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListItemBarCode
+            // 
+            this.ColumnReceivingReceiptItemListItemBarCode.DataPropertyName = "ColumnReceivingReceiptItemListItemBarCode";
+            this.ColumnReceivingReceiptItemListItemBarCode.HeaderText = "BarCode";
+            this.ColumnReceivingReceiptItemListItemBarCode.Name = "ColumnReceivingReceiptItemListItemBarCode";
+            this.ColumnReceivingReceiptItemListItemBarCode.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListItemBarCode.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListItemDescription
+            // 
+            this.ColumnReceivingReceiptItemListItemDescription.DataPropertyName = "ColumnReceivingReceiptItemListItemDescription";
+            this.ColumnReceivingReceiptItemListItemDescription.HeaderText = "Item Description";
+            this.ColumnReceivingReceiptItemListItemDescription.Name = "ColumnReceivingReceiptItemListItemDescription";
+            this.ColumnReceivingReceiptItemListItemDescription.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListItemDescription.Width = 300;
+            // 
+            // ColumnReceivingReceiptItemListUnitId
+            // 
+            this.ColumnReceivingReceiptItemListUnitId.DataPropertyName = "ColumnReceivingReceiptItemListUnitId";
+            this.ColumnReceivingReceiptItemListUnitId.HeaderText = "Unit Id";
+            this.ColumnReceivingReceiptItemListUnitId.Name = "ColumnReceivingReceiptItemListUnitId";
+            this.ColumnReceivingReceiptItemListUnitId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListUnitId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListUnit
+            // 
+            this.ColumnReceivingReceiptItemListUnit.DataPropertyName = "ColumnReceivingReceiptItemListUnit";
+            this.ColumnReceivingReceiptItemListUnit.HeaderText = "Unit";
+            this.ColumnReceivingReceiptItemListUnit.Name = "ColumnReceivingReceiptItemListUnit";
+            this.ColumnReceivingReceiptItemListUnit.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListUnit.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListQuantity
+            // 
+            this.ColumnReceivingReceiptItemListQuantity.DataPropertyName = "ColumnReceivingReceiptItemListQuantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnReceivingReceiptItemListQuantity.HeaderText = "Quantity";
+            this.ColumnReceivingReceiptItemListQuantity.Name = "ColumnReceivingReceiptItemListQuantity";
+            this.ColumnReceivingReceiptItemListQuantity.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListQuantity.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListCost
+            // 
+            this.ColumnReceivingReceiptItemListCost.DataPropertyName = "ColumnReceivingReceiptItemListCost";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnReceivingReceiptItemListCost.HeaderText = "Cost";
+            this.ColumnReceivingReceiptItemListCost.Name = "ColumnReceivingReceiptItemListCost";
+            this.ColumnReceivingReceiptItemListCost.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListCost.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListAmount
+            // 
+            this.ColumnReceivingReceiptItemListAmount.DataPropertyName = "ColumnReceivingReceiptItemListAmount";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnReceivingReceiptItemListAmount.HeaderText = "Amount";
+            this.ColumnReceivingReceiptItemListAmount.Name = "ColumnReceivingReceiptItemListAmount";
+            this.ColumnReceivingReceiptItemListAmount.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListAmount.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListBranchId
+            // 
+            this.ColumnReceivingReceiptItemListBranchId.DataPropertyName = "ColumnReceivingReceiptItemListBranchId";
+            this.ColumnReceivingReceiptItemListBranchId.HeaderText = "Branch Id";
+            this.ColumnReceivingReceiptItemListBranchId.Name = "ColumnReceivingReceiptItemListBranchId";
+            this.ColumnReceivingReceiptItemListBranchId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBranchId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListBranch
+            // 
+            this.ColumnReceivingReceiptItemListBranch.DataPropertyName = "ColumnReceivingReceiptItemListBranch";
+            this.ColumnReceivingReceiptItemListBranch.HeaderText = "Branch";
+            this.ColumnReceivingReceiptItemListBranch.Name = "ColumnReceivingReceiptItemListBranch";
+            this.ColumnReceivingReceiptItemListBranch.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBranch.Width = 200;
+            // 
+            // ColumnReceivingReceiptItemListTaxId
+            // 
+            this.ColumnReceivingReceiptItemListTaxId.DataPropertyName = "ColumnReceivingReceiptItemListTaxId";
+            this.ColumnReceivingReceiptItemListTaxId.HeaderText = "Tax Id";
+            this.ColumnReceivingReceiptItemListTaxId.Name = "ColumnReceivingReceiptItemListTaxId";
+            this.ColumnReceivingReceiptItemListTaxId.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTaxId.Visible = false;
+            // 
+            // ColumnReceivingReceiptItemListTax
+            // 
+            this.ColumnReceivingReceiptItemListTax.DataPropertyName = "ColumnReceivingReceiptItemListTax";
+            this.ColumnReceivingReceiptItemListTax.HeaderText = "Tax";
+            this.ColumnReceivingReceiptItemListTax.Name = "ColumnReceivingReceiptItemListTax";
+            this.ColumnReceivingReceiptItemListTax.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTax.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListTaxRate
+            // 
+            this.ColumnReceivingReceiptItemListTaxRate.DataPropertyName = "ColumnReceivingReceiptItemListTaxRate";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListTaxRate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnReceivingReceiptItemListTaxRate.HeaderText = "Tax Rate";
+            this.ColumnReceivingReceiptItemListTaxRate.Name = "ColumnReceivingReceiptItemListTaxRate";
+            this.ColumnReceivingReceiptItemListTaxRate.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTaxRate.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListTaxAmount
+            // 
+            this.ColumnReceivingReceiptItemListTaxAmount.DataPropertyName = "ColumnReceivingReceiptItemListTaxAmount";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListTaxAmount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumnReceivingReceiptItemListTaxAmount.HeaderText = "Tax Amount";
+            this.ColumnReceivingReceiptItemListTaxAmount.Name = "ColumnReceivingReceiptItemListTaxAmount";
+            this.ColumnReceivingReceiptItemListTaxAmount.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListTaxAmount.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListBaseQuantity
+            // 
+            this.ColumnReceivingReceiptItemListBaseQuantity.DataPropertyName = "ColumnReceivingReceiptItemListBaseQuantity";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ColumnReceivingReceiptItemListBaseQuantity.HeaderText = "Base Quantity";
+            this.ColumnReceivingReceiptItemListBaseQuantity.Name = "ColumnReceivingReceiptItemListBaseQuantity";
+            this.ColumnReceivingReceiptItemListBaseQuantity.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBaseQuantity.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListBaseCost
+            // 
+            this.ColumnReceivingReceiptItemListBaseCost.DataPropertyName = "ColumnReceivingReceiptItemListBaseCost";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnReceivingReceiptItemListBaseCost.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ColumnReceivingReceiptItemListBaseCost.HeaderText = "Base Cost";
+            this.ColumnReceivingReceiptItemListBaseCost.Name = "ColumnReceivingReceiptItemListBaseCost";
+            this.ColumnReceivingReceiptItemListBaseCost.ReadOnly = true;
+            this.ColumnReceivingReceiptItemListBaseCost.Width = 150;
+            // 
+            // ColumnReceivingReceiptItemListSpace
+            // 
+            this.ColumnReceivingReceiptItemListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnReceivingReceiptItemListSpace.DataPropertyName = "ColumnReceivingReceiptItemListSpace";
+            this.ColumnReceivingReceiptItemListSpace.HeaderText = "";
+            this.ColumnReceivingReceiptItemListSpace.Name = "ColumnReceivingReceiptItemListSpace";
+            this.ColumnReceivingReceiptItemListSpace.ReadOnly = true;
+            // 
             // TrnReceivingReceiptDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1215,6 +1231,10 @@
         private System.Windows.Forms.TextBox textBoxManualRRNumber;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxReceivedBy;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxTotalTaxAmount;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnReceivingReceiptItemListButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnReceivingReceiptItemListButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListId;
@@ -1222,6 +1242,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListPOId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListPONumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListItemBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListUnitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListUnit;
@@ -1237,9 +1258,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListBaseCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivingReceiptItemListSpace;
-        private System.Windows.Forms.TextBox textBoxTotalAmount;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxTotalTaxAmount;
-        private System.Windows.Forms.Label label1;
     }
 }

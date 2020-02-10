@@ -302,14 +302,12 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                                 ColumnDisbursementLineListOtherInformation = d.OtherInformation
                             };
 
-                textBoxAmount.Text = listDisbursementLine.Sum(d => d.Amount).ToString("#,##0.00");
-
+                textBoxTotalAmount.Text = listDisbursementLine.Sum(d => d.Amount).ToString("#,##0.00");
                 return Task.FromResult(items.ToList());
             }
             else
             {
-                textBoxAmount.Text = Convert.ToDecimal("0.00").ToString("#,##0.00");
-
+                textBoxTotalAmount.Text = Convert.ToDecimal("0.00").ToString("#,##0.00");
                 return Task.FromResult(new List<Entities.DgvDisbursementLineEntity>());
             }
         }

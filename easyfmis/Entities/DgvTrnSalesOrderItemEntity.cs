@@ -13,6 +13,7 @@ namespace easyfmis.Entities
         public Int32 ColumnTrnSalesOrderItemListId { get; set; }
         public Int32 ColumnTrnSalesOrderItemListSOId { get; set; }
         public Int32 ColumnTrnSalesOrderItemListItemId { get; set; }
+        public String ColumnTrnSalesOrderItemListItemBarCode { get; set; }
         public String ColumnTrnSalesOrderItemListItemDescription { get; set; }
         public Int32? ColumnTrnSalesOrderItemListItemInventoryId { get; set; }
         public String ColumnTrnSalesOrderItemListItemInventoryCode { get; set; }

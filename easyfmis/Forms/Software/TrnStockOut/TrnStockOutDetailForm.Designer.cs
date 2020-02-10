@@ -30,15 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnStockOutDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -63,6 +63,8 @@
             this.dateTimePickerOTDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxOTNumber = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.buttonStockOutItemPageListFirst = new System.Windows.Forms.Button();
             this.buttonStockOutItemPageListPrevious = new System.Windows.Forms.Button();
             this.buttonStockOutItemPageListNext = new System.Windows.Forms.Button();
@@ -70,22 +72,6 @@
             this.textBoxStockOutItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewStockOutItem = new System.Windows.Forms.DataGridView();
-            this.ColumnStockOutItemButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockOutItemButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnStockOutItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemOTId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStockOutItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -105,6 +91,23 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnStockOutItemButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnStockOutItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemOTId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemUnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemInventoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemBaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStockOutItemSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -392,6 +395,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.textBoxTotalAmount);
             this.panel4.Controls.Add(this.buttonStockOutItemPageListFirst);
             this.panel4.Controls.Add(this.buttonStockOutItemPageListPrevious);
             this.panel4.Controls.Add(this.buttonStockOutItemPageListNext);
@@ -402,6 +407,32 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(680, 9);
+            this.label15.Margin = new System.Windows.Forms.Padding(0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(141, 28);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Total Amount";
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalAmount.BackColor = System.Drawing.Color.White;
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(824, 9);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.ReadOnly = true;
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(549, 34);
+            this.textBoxTotalAmount.TabIndex = 20;
+            this.textBoxTotalAmount.TabStop = false;
+            this.textBoxTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonStockOutItemPageListFirst
             // 
@@ -516,6 +547,7 @@
             this.ColumnStockOutItemId,
             this.ColumnStockOutItemOTId,
             this.ColumnStockOutItemItemId,
+            this.ColumnStockOutItemItemBarCode,
             this.ColumnStockOutItemItemDescription,
             this.ColumnStockOutItemUnitId,
             this.ColumnStockOutItemUnit,
@@ -541,146 +573,6 @@
             this.dataGridViewStockOutItem.TabIndex = 1;
             this.dataGridViewStockOutItem.TabStop = false;
             this.dataGridViewStockOutItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockOutItem_CellClick);
-            // 
-            // ColumnStockOutItemButtonEdit
-            // 
-            this.ColumnStockOutItemButtonEdit.DataPropertyName = "ColumnStockOutItemButtonEdit";
-            this.ColumnStockOutItemButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnStockOutItemButtonEdit.HeaderText = "";
-            this.ColumnStockOutItemButtonEdit.Name = "ColumnStockOutItemButtonEdit";
-            this.ColumnStockOutItemButtonEdit.ReadOnly = true;
-            this.ColumnStockOutItemButtonEdit.Width = 70;
-            // 
-            // ColumnStockOutItemButtonDelete
-            // 
-            this.ColumnStockOutItemButtonDelete.DataPropertyName = "ColumnStockOutItemButtonDelete";
-            this.ColumnStockOutItemButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnStockOutItemButtonDelete.HeaderText = "";
-            this.ColumnStockOutItemButtonDelete.Name = "ColumnStockOutItemButtonDelete";
-            this.ColumnStockOutItemButtonDelete.ReadOnly = true;
-            this.ColumnStockOutItemButtonDelete.Width = 70;
-            // 
-            // ColumnStockOutItemId
-            // 
-            this.ColumnStockOutItemId.DataPropertyName = "ColumnStockOutItemId";
-            this.ColumnStockOutItemId.HeaderText = "Id";
-            this.ColumnStockOutItemId.Name = "ColumnStockOutItemId";
-            this.ColumnStockOutItemId.ReadOnly = true;
-            this.ColumnStockOutItemId.Visible = false;
-            // 
-            // ColumnStockOutItemOTId
-            // 
-            this.ColumnStockOutItemOTId.DataPropertyName = "ColumnStockOutItemOTId";
-            this.ColumnStockOutItemOTId.HeaderText = "OTId";
-            this.ColumnStockOutItemOTId.Name = "ColumnStockOutItemOTId";
-            this.ColumnStockOutItemOTId.ReadOnly = true;
-            this.ColumnStockOutItemOTId.Visible = false;
-            // 
-            // ColumnStockOutItemItemId
-            // 
-            this.ColumnStockOutItemItemId.DataPropertyName = "ColumnStockOutItemItemId";
-            this.ColumnStockOutItemItemId.HeaderText = "Item Id";
-            this.ColumnStockOutItemItemId.Name = "ColumnStockOutItemItemId";
-            this.ColumnStockOutItemItemId.ReadOnly = true;
-            this.ColumnStockOutItemItemId.Visible = false;
-            // 
-            // ColumnStockOutItemItemDescription
-            // 
-            this.ColumnStockOutItemItemDescription.DataPropertyName = "ColumnStockOutItemItemDescription";
-            this.ColumnStockOutItemItemDescription.HeaderText = "Item Description";
-            this.ColumnStockOutItemItemDescription.Name = "ColumnStockOutItemItemDescription";
-            this.ColumnStockOutItemItemDescription.ReadOnly = true;
-            this.ColumnStockOutItemItemDescription.Width = 300;
-            // 
-            // ColumnStockOutItemUnitId
-            // 
-            this.ColumnStockOutItemUnitId.DataPropertyName = "ColumnStockOutItemUnitId";
-            this.ColumnStockOutItemUnitId.HeaderText = "Unit Id";
-            this.ColumnStockOutItemUnitId.Name = "ColumnStockOutItemUnitId";
-            this.ColumnStockOutItemUnitId.ReadOnly = true;
-            this.ColumnStockOutItemUnitId.Visible = false;
-            // 
-            // ColumnStockOutItemUnit
-            // 
-            this.ColumnStockOutItemUnit.DataPropertyName = "ColumnStockOutItemUnit";
-            this.ColumnStockOutItemUnit.HeaderText = "Unit";
-            this.ColumnStockOutItemUnit.Name = "ColumnStockOutItemUnit";
-            this.ColumnStockOutItemUnit.ReadOnly = true;
-            this.ColumnStockOutItemUnit.Width = 150;
-            // 
-            // ColumnStockOutItemInventoryId
-            // 
-            this.ColumnStockOutItemInventoryId.DataPropertyName = "ColumnStockOutItemInventoryId";
-            this.ColumnStockOutItemInventoryId.HeaderText = "Item Inventory Id";
-            this.ColumnStockOutItemInventoryId.Name = "ColumnStockOutItemInventoryId";
-            this.ColumnStockOutItemInventoryId.ReadOnly = true;
-            this.ColumnStockOutItemInventoryId.Visible = false;
-            // 
-            // ColumnStockOutItemInventoryCode
-            // 
-            this.ColumnStockOutItemInventoryCode.DataPropertyName = "ColumnStockOutItemInventoryCode";
-            this.ColumnStockOutItemInventoryCode.HeaderText = "Inventory Code";
-            this.ColumnStockOutItemInventoryCode.Name = "ColumnStockOutItemInventoryCode";
-            this.ColumnStockOutItemInventoryCode.ReadOnly = true;
-            this.ColumnStockOutItemInventoryCode.Width = 200;
-            // 
-            // ColumnStockOutItemQuantity
-            // 
-            this.ColumnStockOutItemQuantity.DataPropertyName = "ColumnStockOutItemQuantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockOutItemQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnStockOutItemQuantity.HeaderText = "Quantity";
-            this.ColumnStockOutItemQuantity.Name = "ColumnStockOutItemQuantity";
-            this.ColumnStockOutItemQuantity.ReadOnly = true;
-            this.ColumnStockOutItemQuantity.Width = 150;
-            // 
-            // ColumnStockOutItemCost
-            // 
-            this.ColumnStockOutItemCost.DataPropertyName = "ColumnStockOutItemCost";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockOutItemCost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnStockOutItemCost.HeaderText = "Cost";
-            this.ColumnStockOutItemCost.Name = "ColumnStockOutItemCost";
-            this.ColumnStockOutItemCost.ReadOnly = true;
-            this.ColumnStockOutItemCost.Width = 150;
-            // 
-            // ColumnStockOutItemAmount
-            // 
-            this.ColumnStockOutItemAmount.DataPropertyName = "ColumnStockOutItemAmount";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockOutItemAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnStockOutItemAmount.HeaderText = "Amount";
-            this.ColumnStockOutItemAmount.Name = "ColumnStockOutItemAmount";
-            this.ColumnStockOutItemAmount.ReadOnly = true;
-            this.ColumnStockOutItemAmount.Width = 150;
-            // 
-            // ColumnStockOutItemBaseQuantity
-            // 
-            this.ColumnStockOutItemBaseQuantity.DataPropertyName = "ColumnStockOutItemBaseQuantity";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockOutItemBaseQuantity.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnStockOutItemBaseQuantity.HeaderText = "Base Quantity";
-            this.ColumnStockOutItemBaseQuantity.Name = "ColumnStockOutItemBaseQuantity";
-            this.ColumnStockOutItemBaseQuantity.ReadOnly = true;
-            this.ColumnStockOutItemBaseQuantity.Width = 150;
-            // 
-            // ColumnStockOutItemBaseCost
-            // 
-            this.ColumnStockOutItemBaseCost.DataPropertyName = "ColumnStockOutItemBaseCost";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockOutItemBaseCost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnStockOutItemBaseCost.HeaderText = "Base Cost";
-            this.ColumnStockOutItemBaseCost.Name = "ColumnStockOutItemBaseCost";
-            this.ColumnStockOutItemBaseCost.ReadOnly = true;
-            this.ColumnStockOutItemBaseCost.Width = 150;
-            // 
-            // ColumnStockOutItemSpace
-            // 
-            this.ColumnStockOutItemSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnStockOutItemSpace.DataPropertyName = "ColumnStockOutItemSpace";
-            this.ColumnStockOutItemSpace.HeaderText = "";
-            this.ColumnStockOutItemSpace.Name = "ColumnStockOutItemSpace";
-            this.ColumnStockOutItemSpace.ReadOnly = true;
             // 
             // panel2
             // 
@@ -924,6 +816,154 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
+            // ColumnStockOutItemButtonEdit
+            // 
+            this.ColumnStockOutItemButtonEdit.DataPropertyName = "ColumnStockOutItemButtonEdit";
+            this.ColumnStockOutItemButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnStockOutItemButtonEdit.HeaderText = "";
+            this.ColumnStockOutItemButtonEdit.Name = "ColumnStockOutItemButtonEdit";
+            this.ColumnStockOutItemButtonEdit.ReadOnly = true;
+            this.ColumnStockOutItemButtonEdit.Width = 70;
+            // 
+            // ColumnStockOutItemButtonDelete
+            // 
+            this.ColumnStockOutItemButtonDelete.DataPropertyName = "ColumnStockOutItemButtonDelete";
+            this.ColumnStockOutItemButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnStockOutItemButtonDelete.HeaderText = "";
+            this.ColumnStockOutItemButtonDelete.Name = "ColumnStockOutItemButtonDelete";
+            this.ColumnStockOutItemButtonDelete.ReadOnly = true;
+            this.ColumnStockOutItemButtonDelete.Width = 70;
+            // 
+            // ColumnStockOutItemId
+            // 
+            this.ColumnStockOutItemId.DataPropertyName = "ColumnStockOutItemId";
+            this.ColumnStockOutItemId.HeaderText = "Id";
+            this.ColumnStockOutItemId.Name = "ColumnStockOutItemId";
+            this.ColumnStockOutItemId.ReadOnly = true;
+            this.ColumnStockOutItemId.Visible = false;
+            // 
+            // ColumnStockOutItemOTId
+            // 
+            this.ColumnStockOutItemOTId.DataPropertyName = "ColumnStockOutItemOTId";
+            this.ColumnStockOutItemOTId.HeaderText = "OTId";
+            this.ColumnStockOutItemOTId.Name = "ColumnStockOutItemOTId";
+            this.ColumnStockOutItemOTId.ReadOnly = true;
+            this.ColumnStockOutItemOTId.Visible = false;
+            // 
+            // ColumnStockOutItemItemId
+            // 
+            this.ColumnStockOutItemItemId.DataPropertyName = "ColumnStockOutItemItemId";
+            this.ColumnStockOutItemItemId.HeaderText = "Item Id";
+            this.ColumnStockOutItemItemId.Name = "ColumnStockOutItemItemId";
+            this.ColumnStockOutItemItemId.ReadOnly = true;
+            this.ColumnStockOutItemItemId.Visible = false;
+            // 
+            // ColumnStockOutItemItemBarCode
+            // 
+            this.ColumnStockOutItemItemBarCode.DataPropertyName = "ColumnStockOutItemItemBarCode";
+            this.ColumnStockOutItemItemBarCode.HeaderText = "BarCode";
+            this.ColumnStockOutItemItemBarCode.Name = "ColumnStockOutItemItemBarCode";
+            this.ColumnStockOutItemItemBarCode.ReadOnly = true;
+            this.ColumnStockOutItemItemBarCode.Width = 150;
+            // 
+            // ColumnStockOutItemItemDescription
+            // 
+            this.ColumnStockOutItemItemDescription.DataPropertyName = "ColumnStockOutItemItemDescription";
+            this.ColumnStockOutItemItemDescription.HeaderText = "Item Description";
+            this.ColumnStockOutItemItemDescription.Name = "ColumnStockOutItemItemDescription";
+            this.ColumnStockOutItemItemDescription.ReadOnly = true;
+            this.ColumnStockOutItemItemDescription.Width = 300;
+            // 
+            // ColumnStockOutItemUnitId
+            // 
+            this.ColumnStockOutItemUnitId.DataPropertyName = "ColumnStockOutItemUnitId";
+            this.ColumnStockOutItemUnitId.HeaderText = "Unit Id";
+            this.ColumnStockOutItemUnitId.Name = "ColumnStockOutItemUnitId";
+            this.ColumnStockOutItemUnitId.ReadOnly = true;
+            this.ColumnStockOutItemUnitId.Visible = false;
+            // 
+            // ColumnStockOutItemUnit
+            // 
+            this.ColumnStockOutItemUnit.DataPropertyName = "ColumnStockOutItemUnit";
+            this.ColumnStockOutItemUnit.HeaderText = "Unit";
+            this.ColumnStockOutItemUnit.Name = "ColumnStockOutItemUnit";
+            this.ColumnStockOutItemUnit.ReadOnly = true;
+            this.ColumnStockOutItemUnit.Width = 150;
+            // 
+            // ColumnStockOutItemInventoryId
+            // 
+            this.ColumnStockOutItemInventoryId.DataPropertyName = "ColumnStockOutItemInventoryId";
+            this.ColumnStockOutItemInventoryId.HeaderText = "Item Inventory Id";
+            this.ColumnStockOutItemInventoryId.Name = "ColumnStockOutItemInventoryId";
+            this.ColumnStockOutItemInventoryId.ReadOnly = true;
+            this.ColumnStockOutItemInventoryId.Visible = false;
+            // 
+            // ColumnStockOutItemInventoryCode
+            // 
+            this.ColumnStockOutItemInventoryCode.DataPropertyName = "ColumnStockOutItemInventoryCode";
+            this.ColumnStockOutItemInventoryCode.HeaderText = "Inventory Code";
+            this.ColumnStockOutItemInventoryCode.Name = "ColumnStockOutItemInventoryCode";
+            this.ColumnStockOutItemInventoryCode.ReadOnly = true;
+            this.ColumnStockOutItemInventoryCode.Width = 200;
+            // 
+            // ColumnStockOutItemQuantity
+            // 
+            this.ColumnStockOutItemQuantity.DataPropertyName = "ColumnStockOutItemQuantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockOutItemQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnStockOutItemQuantity.HeaderText = "Quantity";
+            this.ColumnStockOutItemQuantity.Name = "ColumnStockOutItemQuantity";
+            this.ColumnStockOutItemQuantity.ReadOnly = true;
+            this.ColumnStockOutItemQuantity.Width = 150;
+            // 
+            // ColumnStockOutItemCost
+            // 
+            this.ColumnStockOutItemCost.DataPropertyName = "ColumnStockOutItemCost";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockOutItemCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnStockOutItemCost.HeaderText = "Cost";
+            this.ColumnStockOutItemCost.Name = "ColumnStockOutItemCost";
+            this.ColumnStockOutItemCost.ReadOnly = true;
+            this.ColumnStockOutItemCost.Width = 150;
+            // 
+            // ColumnStockOutItemAmount
+            // 
+            this.ColumnStockOutItemAmount.DataPropertyName = "ColumnStockOutItemAmount";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockOutItemAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnStockOutItemAmount.HeaderText = "Amount";
+            this.ColumnStockOutItemAmount.Name = "ColumnStockOutItemAmount";
+            this.ColumnStockOutItemAmount.ReadOnly = true;
+            this.ColumnStockOutItemAmount.Width = 150;
+            // 
+            // ColumnStockOutItemBaseQuantity
+            // 
+            this.ColumnStockOutItemBaseQuantity.DataPropertyName = "ColumnStockOutItemBaseQuantity";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockOutItemBaseQuantity.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnStockOutItemBaseQuantity.HeaderText = "Base Quantity";
+            this.ColumnStockOutItemBaseQuantity.Name = "ColumnStockOutItemBaseQuantity";
+            this.ColumnStockOutItemBaseQuantity.ReadOnly = true;
+            this.ColumnStockOutItemBaseQuantity.Width = 150;
+            // 
+            // ColumnStockOutItemBaseCost
+            // 
+            this.ColumnStockOutItemBaseCost.DataPropertyName = "ColumnStockOutItemBaseCost";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockOutItemBaseCost.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumnStockOutItemBaseCost.HeaderText = "Base Cost";
+            this.ColumnStockOutItemBaseCost.Name = "ColumnStockOutItemBaseCost";
+            this.ColumnStockOutItemBaseCost.ReadOnly = true;
+            this.ColumnStockOutItemBaseCost.Width = 150;
+            // 
+            // ColumnStockOutItemSpace
+            // 
+            this.ColumnStockOutItemSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnStockOutItemSpace.DataPropertyName = "ColumnStockOutItemSpace";
+            this.ColumnStockOutItemSpace.HeaderText = "";
+            this.ColumnStockOutItemSpace.Name = "ColumnStockOutItemSpace";
+            this.ColumnStockOutItemSpace.ReadOnly = true;
+            // 
             // TrnStockOutDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1008,11 +1048,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryEntriesQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryEntriesAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInventoryEntriesSpace;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBoxTotalAmount;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockOutItemButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnStockOutItemButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutItemId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutItemOTId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutItemItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutItemItemBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutItemItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutItemUnitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStockOutItemUnit;

@@ -271,6 +271,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
                                 ColumnPurchaseOrderItemListButtonDelete = "Delete",
                                 ColumnPurchaseOrderItemListId = d.Id,
                                 ColumnPurchaseOrderItemListPOId = d.POId,
+                                ColumnPurchaseOrderItemListItemBarCode = d.ItemBarCode,
                                 ColumnPurchaseOrderItemListItemId = d.ItemId,
                                 ColumnPurchaseOrderItemListItemDescritpion = d.ItemDescription,
                                 ColumnPurchaseOrderItemListUnitId = d.UnitId,
@@ -288,6 +289,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             }
             else
             {
+                textBoxTotalPOAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
                 return Task.FromResult(new List<Entities.DgvPurchaseOrderItemEntity>());
             }
         }

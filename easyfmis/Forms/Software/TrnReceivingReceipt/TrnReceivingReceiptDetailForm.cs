@@ -271,6 +271,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                                 ColumnReceivingReceiptItemListPOId = d.POId,
                                 ColumnReceivingReceiptItemListPONumber = d.PONumber,
                                 ColumnReceivingReceiptItemListItemId = d.ItemId,
+                                ColumnReceivingReceiptItemListItemBarCode = d.ItemBarCode,
                                 ColumnReceivingReceiptItemListItemDescription = d.ItemDescription,
                                 ColumnReceivingReceiptItemListUnitId = d.UnitId,
                                 ColumnReceivingReceiptItemListUnit = d.Unit,
@@ -294,6 +295,8 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             }
             else
             {
+                textBoxTotalAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
+                textBoxTotalTaxAmount.Text = Convert.ToDecimal("0").ToString("#,##0.00");
                 return Task.FromResult(new List<Entities.DgvReceivingReceiptItemEntity>());
             }
         }

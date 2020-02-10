@@ -33,7 +33,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
         {
             try
             {
-                var fileName = "D:/Disbursement_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf";
+                var fileName = "C:/EasyERPPDF/Disbursement_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf";
                 var currentUser = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
 
                 Document document = new Document();
