@@ -137,6 +137,8 @@
             // checkBoxCanEdit
             // 
             this.checkBoxCanEdit.AutoSize = true;
+            this.checkBoxCanEdit.Checked = true;
+            this.checkBoxCanEdit.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCanEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.checkBoxCanEdit.Location = new System.Drawing.Point(71, 241);
             this.checkBoxCanEdit.Name = "checkBoxCanEdit";
@@ -148,6 +150,8 @@
             // checkBoxCanPreview
             // 
             this.checkBoxCanPreview.AutoSize = true;
+            this.checkBoxCanPreview.Checked = true;
+            this.checkBoxCanPreview.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCanPreview.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.checkBoxCanPreview.Location = new System.Drawing.Point(71, 208);
             this.checkBoxCanPreview.Name = "checkBoxCanPreview";
@@ -159,6 +163,8 @@
             // checkBoxCanPrint
             // 
             this.checkBoxCanPrint.AutoSize = true;
+            this.checkBoxCanPrint.Checked = true;
+            this.checkBoxCanPrint.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCanPrint.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.checkBoxCanPrint.Location = new System.Drawing.Point(71, 175);
             this.checkBoxCanPrint.Name = "checkBoxCanPrint";
@@ -170,6 +176,8 @@
             // checkBoxCanUnlock
             // 
             this.checkBoxCanUnlock.AutoSize = true;
+            this.checkBoxCanUnlock.Checked = true;
+            this.checkBoxCanUnlock.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCanUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.checkBoxCanUnlock.Location = new System.Drawing.Point(71, 142);
             this.checkBoxCanUnlock.Name = "checkBoxCanUnlock";
@@ -181,6 +189,8 @@
             // checkBoxCanLock
             // 
             this.checkBoxCanLock.AutoSize = true;
+            this.checkBoxCanLock.Checked = true;
+            this.checkBoxCanLock.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCanLock.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.checkBoxCanLock.Location = new System.Drawing.Point(71, 109);
             this.checkBoxCanLock.Name = "checkBoxCanLock";
@@ -192,6 +202,8 @@
             // checkBoxCanAdd
             // 
             this.checkBoxCanAdd.AutoSize = true;
+            this.checkBoxCanAdd.Checked = true;
+            this.checkBoxCanAdd.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCanAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.checkBoxCanAdd.Location = new System.Drawing.Point(71, 76);
             this.checkBoxCanAdd.Name = "checkBoxCanAdd";
@@ -203,6 +215,8 @@
             // checkBoxCanDelete
             // 
             this.checkBoxCanDelete.AutoSize = true;
+            this.checkBoxCanDelete.Checked = true;
+            this.checkBoxCanDelete.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCanDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.checkBoxCanDelete.Location = new System.Drawing.Point(71, 43);
             this.checkBoxCanDelete.Name = "checkBoxCanDelete";

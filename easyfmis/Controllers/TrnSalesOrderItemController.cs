@@ -91,6 +91,7 @@ namespace easyfmis.Controllers
                         || d.MstArticle.Article.Contains(filter)
                         || d.MstArticle.MstUnit.Unit.Contains(filter))
                         && d.MstArticle.IsLocked == true
+                        && d.Quantity > 0
                         && d.BranchId == currentBranchId
                         select new Entities.MstArticleInventory
                         {

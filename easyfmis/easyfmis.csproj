@@ -149,6 +149,8 @@
     <Compile Include="Entities\DgvSystemTableCurrencyEntity.cs" />
     <Compile Include="Entities\DgvSystemTablesAccountListEntity.cs" />
     <Compile Include="Entities\DgvSystemTablesPayTypeListEntity.cs" />
+    <Compile Include="Entities\DgvSystemTablesTaxListEntity.cs" />
+    <Compile Include="Entities\DgvSystemTablesUnitListEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
@@ -433,6 +435,12 @@
     </Compile>
     <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesTaxDetailForm.designer.cs">
       <DependentUpon>SysSystemTablesTaxDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesUnitDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesUnitDetailForm.designer.cs">
+      <DependentUpon>SysSystemTablesUnitDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnCollection\TrnCollectionForm.cs">
       <SubType>Form</SubType>
@@ -842,6 +850,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesTaxDetailForm.resx">
       <DependentUpon>SysSystemTablesTaxDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesUnitDetailForm.resx">
+      <DependentUpon>SysSystemTablesUnitDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionForm.resx">
       <DependentUpon>TrnCollectionForm.cs</DependentUpon>

@@ -58,6 +58,7 @@ namespace easyfmis.Controllers
             var purchaseOrders = from d in db.TrnPurchaseOrders
                                  where d.SupplierId == supplierId
                                  && d.BranchId == currentBranchId
+                                 && d.IsLocked == true
                                  select new Entities.TrnPurchaseOrderEntity
                                  {
                                      Id = d.Id,
