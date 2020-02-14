@@ -16,10 +16,9 @@ namespace easyfmis.Controllers
         // =========
         // List Unit
         // =========
-        public List<Entities.MstUnitEntity> ListUnit(String filter)
+        public List<Entities.MstUnitEntity> ListUnit()
         {
             var units = from d in db.MstUnits
-                        where d.Unit.Contains(filter)
                         select new Entities.MstUnitEntity
                         {
                             Id = d.Id,
@@ -36,9 +35,27 @@ namespace easyfmis.Controllers
         {
             try
             {
+                var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+                if (currentUserLogin.Any() == false)
+                {
+                    return new String[] { "Current login user not found.", "0" };
+                }
+
+                var unit = from d in db.MstUnits
+                           where d.Unit == objUnit.Unit
+                           select d;
+                if (unit.Any())
+                {
+                    return new String[] { "Unit already Exist.", "0" };
+                }
+
                 Data.MstUnit addUnit = new Data.MstUnit()
                 {
-                    Unit = objUnit.Unit
+                    Unit = objUnit.Unit,
+                    CreatedBy = currentUserLogin.FirstOrDefault().Id,
+                    CreatedDateTime = DateTime.Today,
+                    UpdatedBy = currentUserLogin.FirstOrDefault().Id,
+                    UpdatedDateTime = DateTime.Today
                 };
 
                 db.MstUnits.InsertOnSubmit(addUnit);
@@ -59,6 +76,21 @@ namespace easyfmis.Controllers
         {
             try
             {
+                var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+                if (currentUserLogin.Any() == false)
+                {
+                    return new String[] { "Current login user not found.", "0" };
+                }
+
+                var unitCheck = from d in db.MstUnits
+                           where d.Unit == objUnit.Unit
+                           && d.Id != objUnit.Id
+                           select d;
+                if (unitCheck.Any())
+                {
+                    return new String[] { "Unit already Exist.", "0" };
+                }
+
                 var unit = from d in db.MstUnits
                            where d.Id == objUnit.Id
                            select d;
@@ -67,6 +99,9 @@ namespace easyfmis.Controllers
                 {
                     var updateUnit = unit.FirstOrDefault();
                     updateUnit.Unit = objUnit.Unit;
+                    updateUnit.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
+                    updateUnit.UpdatedDateTime = DateTime.Today;
+
                     db.SubmitChanges();
 
                     return new String[] { "", "" };
