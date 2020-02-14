@@ -16,12 +16,9 @@ namespace easyfmis.Controllers
         // ========
         // List Tax
         // ========
-        public List<Entities.MstTaxEntity> ListTax(String filter)
+        public List<Entities.MstTaxEntity> ListTax()
         {
             var taxes = from d in db.MstTaxes
-                        where d.TaxCode.Contains(filter)
-                        || d.Tax.Contains(filter)
-                        || d.MstAccount.Account.Contains(filter)
                         select new Entities.MstTaxEntity
                         {
                             Id = d.Id,
@@ -49,6 +46,7 @@ namespace easyfmis.Controllers
         public List<Entities.MstAccountEntity> DropDownListAccount()
         {
             var accounts = from d in db.MstAccounts
+                           where d.Account.Contains("VAT")
                            select new Entities.MstAccountEntity
                            {
                                Id = d.Id,
@@ -65,12 +63,23 @@ namespace easyfmis.Controllers
         {
             try
             {
+                var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+                if (currentUserLogin.Any() == false)
+                {
+                    return new String[] { "Current login user not found.", "0" };
+                }
+
                 Data.MstTax addTax = new Data.MstTax()
                 {
                     TaxCode = objTax.TaxCode,
                     Tax = objTax.Tax,
                     Rate = objTax.Rate,
-                    AccountId = objTax.AccountId
+                    AccountId = objTax.AccountId,
+                    IsLocked = true,
+                    CreatedBy = currentUserLogin.FirstOrDefault().Id,
+                    CreatedDateTime = DateTime.Today,
+                    UpdatedBy = currentUserLogin.FirstOrDefault().Id,
+                    UpdatedDateTime = DateTime.Today
                 };
 
                 db.MstTaxes.InsertOnSubmit(addTax);
@@ -91,6 +100,12 @@ namespace easyfmis.Controllers
         {
             try
             {
+                var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+                if (currentUserLogin.Any() == false)
+                {
+                    return new String[] { "Current login user not found.", "0" };
+                }
+
                 var tax = from d in db.MstTaxes
                           where d.Id == objTax.Id
                           select d;
@@ -102,6 +117,9 @@ namespace easyfmis.Controllers
                     updateTax.Tax = objTax.Tax;
                     updateTax.Rate = objTax.Rate;
                     updateTax.AccountId = objTax.AccountId;
+                    updateTax.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
+                    updateTax.UpdatedDateTime = DateTime.Today;
+
                     db.SubmitChanges();
 
                     return new string[] { "", "" };

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    class MstUnitEntity
+    public class MstUnitEntity
     {
         public Int32 Id { get; set; }
         public String Unit { get; set; }

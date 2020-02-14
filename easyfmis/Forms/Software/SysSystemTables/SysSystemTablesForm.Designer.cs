@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -75,11 +75,12 @@
             this.ColumnTaxListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTaxListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnTaxListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTaxListCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTaxListTaxCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTaxListTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTaxListRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTaxListAccountId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTaxListAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTaxListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxTaxListFilter = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.buttonTaxListPageListFirst = new System.Windows.Forms.Button();
@@ -94,6 +95,7 @@
             this.ColumnUnitListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnUnitListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUnitListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUnitListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxUnitListFilter = new System.Windows.Forms.TextBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.buttonUnitListPageListFirst = new System.Windows.Forms.Button();
@@ -101,20 +103,6 @@
             this.buttonUnitListPageListNext = new System.Windows.Forms.Button();
             this.buttonUnitListPageListLast = new System.Windows.Forms.Button();
             this.textBoxUnitListPageNumber = new System.Windows.Forms.TextBox();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.dataGridViewPeriodList = new System.Windows.Forms.DataGridView();
-            this.ColumnPeriodListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnPeriodListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColumnPeriodListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPeriodListPeriod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxPeriodListFilter = new System.Windows.Forms.TextBox();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.buttonPeriodListPageListFirst = new System.Windows.Forms.Button();
-            this.buttonPeriodListPageListPrevious = new System.Windows.Forms.Button();
-            this.buttonPeriodListPageListNext = new System.Windows.Forms.Button();
-            this.buttonPeriodListPageListLast = new System.Windows.Forms.Button();
-            this.textBoxPeriodListPageNumber = new System.Windows.Forms.TextBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -169,10 +157,6 @@
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUnitList)).BeginInit();
             this.panel18.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPeriodList)).BeginInit();
-            this.panel19.SuspendLayout();
             this.tabPage10.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -257,7 +241,6 @@
             this.tabControlSystemTable.Controls.Add(this.tabPage4);
             this.tabControlSystemTable.Controls.Add(this.tabPage5);
             this.tabControlSystemTable.Controls.Add(this.tabPage6);
-            this.tabControlSystemTable.Controls.Add(this.tabPage7);
             this.tabControlSystemTable.Controls.Add(this.tabPage10);
             this.tabControlSystemTable.Controls.Add(this.tabPage11);
             this.tabControlSystemTable.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -354,8 +337,8 @@
             // ColumnDiscountListDiscountRate
             // 
             this.ColumnDiscountListDiscountRate.DataPropertyName = "ColumnDiscountListDiscountRate";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnDiscountListDiscountRate.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnDiscountListDiscountRate.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnDiscountListDiscountRate.HeaderText = "Discount Rate";
             this.ColumnDiscountListDiscountRate.Name = "ColumnDiscountListDiscountRate";
             this.ColumnDiscountListDiscountRate.ReadOnly = true;
@@ -703,11 +686,12 @@
             this.ColumnTaxListButtonEdit,
             this.ColumnTaxListButtonDelete,
             this.ColumnTaxListId,
-            this.ColumnTaxListCode,
+            this.ColumnTaxListTaxCode,
             this.ColumnTaxListTax,
             this.ColumnTaxListRate,
             this.ColumnTaxListAccountId,
-            this.ColumnTaxListAccount});
+            this.ColumnTaxListAccount,
+            this.ColumnTaxListSpace});
             this.dataGridViewTaxList.Location = new System.Drawing.Point(5, 39);
             this.dataGridViewTaxList.MultiSelect = false;
             this.dataGridViewTaxList.Name = "dataGridViewTaxList";
@@ -717,6 +701,7 @@
             this.dataGridViewTaxList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTaxList.Size = new System.Drawing.Size(1358, 479);
             this.dataGridViewTaxList.TabIndex = 28;
+            this.dataGridViewTaxList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTaxList_CellClick);
             // 
             // ColumnTaxListButtonEdit
             // 
@@ -744,13 +729,13 @@
             this.ColumnTaxListId.ReadOnly = true;
             this.ColumnTaxListId.Visible = false;
             // 
-            // ColumnTaxListCode
+            // ColumnTaxListTaxCode
             // 
-            this.ColumnTaxListCode.DataPropertyName = "ColumnTaxListCode";
-            this.ColumnTaxListCode.HeaderText = "Code";
-            this.ColumnTaxListCode.Name = "ColumnTaxListCode";
-            this.ColumnTaxListCode.ReadOnly = true;
-            this.ColumnTaxListCode.Width = 150;
+            this.ColumnTaxListTaxCode.DataPropertyName = "ColumnTaxListTaxCode";
+            this.ColumnTaxListTaxCode.HeaderText = "Code";
+            this.ColumnTaxListTaxCode.Name = "ColumnTaxListTaxCode";
+            this.ColumnTaxListTaxCode.ReadOnly = true;
+            this.ColumnTaxListTaxCode.Width = 150;
             // 
             // ColumnTaxListTax
             // 
@@ -763,8 +748,8 @@
             // ColumnTaxListRate
             // 
             this.ColumnTaxListRate.DataPropertyName = "ColumnTaxListRate";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnTaxListRate.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnTaxListRate.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnTaxListRate.HeaderText = "Rate";
             this.ColumnTaxListRate.Name = "ColumnTaxListRate";
             this.ColumnTaxListRate.ReadOnly = true;
@@ -785,6 +770,14 @@
             this.ColumnTaxListAccount.ReadOnly = true;
             this.ColumnTaxListAccount.Width = 200;
             // 
+            // ColumnTaxListSpace
+            // 
+            this.ColumnTaxListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnTaxListSpace.DataPropertyName = "ColumnTaxListSpace";
+            this.ColumnTaxListSpace.HeaderText = "";
+            this.ColumnTaxListSpace.Name = "ColumnTaxListSpace";
+            this.ColumnTaxListSpace.ReadOnly = true;
+            // 
             // textBoxTaxListFilter
             // 
             this.textBoxTaxListFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -793,6 +786,7 @@
             this.textBoxTaxListFilter.Name = "textBoxTaxListFilter";
             this.textBoxTaxListFilter.Size = new System.Drawing.Size(1358, 30);
             this.textBoxTaxListFilter.TabIndex = 27;
+            this.textBoxTaxListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTaxListFilter_KeyDown);
             // 
             // panel17
             // 
@@ -821,6 +815,7 @@
             this.buttonTaxListPageListFirst.TabIndex = 13;
             this.buttonTaxListPageListFirst.Text = "First";
             this.buttonTaxListPageListFirst.UseVisualStyleBackColor = false;
+            this.buttonTaxListPageListFirst.Click += new System.EventHandler(this.buttonTaxListPageListFirst_Click);
             // 
             // buttonTaxListPageListPrevious
             // 
@@ -835,6 +830,7 @@
             this.buttonTaxListPageListPrevious.TabIndex = 14;
             this.buttonTaxListPageListPrevious.Text = "Previous";
             this.buttonTaxListPageListPrevious.UseVisualStyleBackColor = false;
+            this.buttonTaxListPageListPrevious.Click += new System.EventHandler(this.buttonTaxListPageListPrevious_Click);
             // 
             // buttonTaxListPageListNext
             // 
@@ -848,6 +844,7 @@
             this.buttonTaxListPageListNext.TabIndex = 15;
             this.buttonTaxListPageListNext.Text = "Next";
             this.buttonTaxListPageListNext.UseVisualStyleBackColor = false;
+            this.buttonTaxListPageListNext.Click += new System.EventHandler(this.buttonTaxListPageListNext_Click);
             // 
             // buttonTaxListPageListLast
             // 
@@ -861,6 +858,7 @@
             this.buttonTaxListPageListLast.TabIndex = 16;
             this.buttonTaxListPageListLast.Text = "Last";
             this.buttonTaxListPageListLast.UseVisualStyleBackColor = false;
+            this.buttonTaxListPageListLast.Click += new System.EventHandler(this.buttonTaxListPageListLast_Click);
             // 
             // textBoxTaxListPageNumber
             // 
@@ -911,7 +909,8 @@
             this.ColumnUnitListButtonEdit,
             this.ColumnUnitListButtonDelete,
             this.ColumnUnitListId,
-            this.ColumnUnitListUnit});
+            this.ColumnUnitListUnit,
+            this.ColumnUnitListSpace});
             this.dataGridViewUnitList.Location = new System.Drawing.Point(5, 39);
             this.dataGridViewUnitList.MultiSelect = false;
             this.dataGridViewUnitList.Name = "dataGridViewUnitList";
@@ -921,6 +920,7 @@
             this.dataGridViewUnitList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewUnitList.Size = new System.Drawing.Size(1358, 479);
             this.dataGridViewUnitList.TabIndex = 30;
+            this.dataGridViewUnitList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUnitList_CellClick);
             // 
             // ColumnUnitListButtonEdit
             // 
@@ -956,6 +956,14 @@
             this.ColumnUnitListUnit.ReadOnly = true;
             this.ColumnUnitListUnit.Width = 150;
             // 
+            // ColumnUnitListSpace
+            // 
+            this.ColumnUnitListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnUnitListSpace.DataPropertyName = "ColumnUnitListSpace";
+            this.ColumnUnitListSpace.HeaderText = "";
+            this.ColumnUnitListSpace.Name = "ColumnUnitListSpace";
+            this.ColumnUnitListSpace.ReadOnly = true;
+            // 
             // textBoxUnitListFilter
             // 
             this.textBoxUnitListFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -964,6 +972,7 @@
             this.textBoxUnitListFilter.Name = "textBoxUnitListFilter";
             this.textBoxUnitListFilter.Size = new System.Drawing.Size(1358, 30);
             this.textBoxUnitListFilter.TabIndex = 29;
+            this.textBoxUnitListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUnitListFilter_KeyDown);
             // 
             // panel18
             // 
@@ -992,6 +1001,7 @@
             this.buttonUnitListPageListFirst.TabIndex = 13;
             this.buttonUnitListPageListFirst.Text = "First";
             this.buttonUnitListPageListFirst.UseVisualStyleBackColor = false;
+            this.buttonUnitListPageListFirst.Click += new System.EventHandler(this.buttonUnitListPageListFirst_Click);
             // 
             // buttonUnitListPageListPrevious
             // 
@@ -1006,6 +1016,7 @@
             this.buttonUnitListPageListPrevious.TabIndex = 14;
             this.buttonUnitListPageListPrevious.Text = "Previous";
             this.buttonUnitListPageListPrevious.UseVisualStyleBackColor = false;
+            this.buttonUnitListPageListPrevious.Click += new System.EventHandler(this.buttonUnitListPageListPrevious_Click);
             // 
             // buttonUnitListPageListNext
             // 
@@ -1019,6 +1030,7 @@
             this.buttonUnitListPageListNext.TabIndex = 15;
             this.buttonUnitListPageListNext.Text = "Next";
             this.buttonUnitListPageListNext.UseVisualStyleBackColor = false;
+            this.buttonUnitListPageListNext.Click += new System.EventHandler(this.buttonUnitListPageListNext_Click);
             // 
             // buttonUnitListPageListLast
             // 
@@ -1032,6 +1044,7 @@
             this.buttonUnitListPageListLast.TabIndex = 16;
             this.buttonUnitListPageListLast.Text = "Last";
             this.buttonUnitListPageListLast.UseVisualStyleBackColor = false;
+            this.buttonUnitListPageListLast.Click += new System.EventHandler(this.buttonUnitListPageListLast_Click);
             // 
             // textBoxUnitListPageNumber
             // 
@@ -1045,177 +1058,6 @@
             this.textBoxUnitListPageNumber.Size = new System.Drawing.Size(69, 20);
             this.textBoxUnitListPageNumber.TabIndex = 17;
             this.textBoxUnitListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.panel13);
-            this.tabPage7.Location = new System.Drawing.Point(4, 32);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1374, 583);
-            this.tabPage7.TabIndex = 4;
-            this.tabPage7.Text = "Period";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.dataGridViewPeriodList);
-            this.panel13.Controls.Add(this.textBoxPeriodListFilter);
-            this.panel13.Controls.Add(this.panel19);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(3, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1368, 577);
-            this.panel13.TabIndex = 2;
-            // 
-            // dataGridViewPeriodList
-            // 
-            this.dataGridViewPeriodList.AllowUserToAddRows = false;
-            this.dataGridViewPeriodList.AllowUserToDeleteRows = false;
-            this.dataGridViewPeriodList.AllowUserToResizeRows = false;
-            this.dataGridViewPeriodList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewPeriodList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewPeriodList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPeriodList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnPeriodListButtonEdit,
-            this.ColumnPeriodListButtonDelete,
-            this.ColumnPeriodListId,
-            this.ColumnPeriodListPeriod});
-            this.dataGridViewPeriodList.Location = new System.Drawing.Point(5, 39);
-            this.dataGridViewPeriodList.MultiSelect = false;
-            this.dataGridViewPeriodList.Name = "dataGridViewPeriodList";
-            this.dataGridViewPeriodList.ReadOnly = true;
-            this.dataGridViewPeriodList.RowHeadersVisible = false;
-            this.dataGridViewPeriodList.RowTemplate.Height = 24;
-            this.dataGridViewPeriodList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPeriodList.Size = new System.Drawing.Size(1358, 479);
-            this.dataGridViewPeriodList.TabIndex = 32;
-            // 
-            // ColumnPeriodListButtonEdit
-            // 
-            this.ColumnPeriodListButtonEdit.DataPropertyName = "ColumnPeriodListButtonEdit";
-            this.ColumnPeriodListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnPeriodListButtonEdit.HeaderText = "";
-            this.ColumnPeriodListButtonEdit.Name = "ColumnPeriodListButtonEdit";
-            this.ColumnPeriodListButtonEdit.ReadOnly = true;
-            this.ColumnPeriodListButtonEdit.Width = 70;
-            // 
-            // ColumnPeriodListButtonDelete
-            // 
-            this.ColumnPeriodListButtonDelete.DataPropertyName = "ColumnPeriodListButtonDelete";
-            this.ColumnPeriodListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnPeriodListButtonDelete.HeaderText = "";
-            this.ColumnPeriodListButtonDelete.Name = "ColumnPeriodListButtonDelete";
-            this.ColumnPeriodListButtonDelete.ReadOnly = true;
-            this.ColumnPeriodListButtonDelete.Width = 70;
-            // 
-            // ColumnPeriodListId
-            // 
-            this.ColumnPeriodListId.DataPropertyName = "ColumnPeriodListId";
-            this.ColumnPeriodListId.HeaderText = "Id";
-            this.ColumnPeriodListId.Name = "ColumnPeriodListId";
-            this.ColumnPeriodListId.ReadOnly = true;
-            this.ColumnPeriodListId.Visible = false;
-            // 
-            // ColumnPeriodListPeriod
-            // 
-            this.ColumnPeriodListPeriod.DataPropertyName = "ColumnPeriodListPeriod";
-            this.ColumnPeriodListPeriod.HeaderText = "Period";
-            this.ColumnPeriodListPeriod.Name = "ColumnPeriodListPeriod";
-            this.ColumnPeriodListPeriod.ReadOnly = true;
-            this.ColumnPeriodListPeriod.Width = 150;
-            // 
-            // textBoxPeriodListFilter
-            // 
-            this.textBoxPeriodListFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPeriodListFilter.Location = new System.Drawing.Point(5, 3);
-            this.textBoxPeriodListFilter.Name = "textBoxPeriodListFilter";
-            this.textBoxPeriodListFilter.Size = new System.Drawing.Size(1358, 30);
-            this.textBoxPeriodListFilter.TabIndex = 31;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.White;
-            this.panel19.Controls.Add(this.buttonPeriodListPageListFirst);
-            this.panel19.Controls.Add(this.buttonPeriodListPageListPrevious);
-            this.panel19.Controls.Add(this.buttonPeriodListPageListNext);
-            this.panel19.Controls.Add(this.buttonPeriodListPageListLast);
-            this.panel19.Controls.Add(this.textBoxPeriodListPageNumber);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel19.Location = new System.Drawing.Point(0, 524);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(1368, 53);
-            this.panel19.TabIndex = 23;
-            // 
-            // buttonPeriodListPageListFirst
-            // 
-            this.buttonPeriodListPageListFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonPeriodListPageListFirst.Enabled = false;
-            this.buttonPeriodListPageListFirst.FlatAppearance.BorderSize = 0;
-            this.buttonPeriodListPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPeriodListPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonPeriodListPageListFirst.Location = new System.Drawing.Point(12, 9);
-            this.buttonPeriodListPageListFirst.Name = "buttonPeriodListPageListFirst";
-            this.buttonPeriodListPageListFirst.Size = new System.Drawing.Size(82, 32);
-            this.buttonPeriodListPageListFirst.TabIndex = 13;
-            this.buttonPeriodListPageListFirst.Text = "First";
-            this.buttonPeriodListPageListFirst.UseVisualStyleBackColor = false;
-            // 
-            // buttonPeriodListPageListPrevious
-            // 
-            this.buttonPeriodListPageListPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonPeriodListPageListPrevious.Enabled = false;
-            this.buttonPeriodListPageListPrevious.FlatAppearance.BorderSize = 0;
-            this.buttonPeriodListPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPeriodListPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonPeriodListPageListPrevious.Location = new System.Drawing.Point(100, 9);
-            this.buttonPeriodListPageListPrevious.Name = "buttonPeriodListPageListPrevious";
-            this.buttonPeriodListPageListPrevious.Size = new System.Drawing.Size(82, 32);
-            this.buttonPeriodListPageListPrevious.TabIndex = 14;
-            this.buttonPeriodListPageListPrevious.Text = "Previous";
-            this.buttonPeriodListPageListPrevious.UseVisualStyleBackColor = false;
-            // 
-            // buttonPeriodListPageListNext
-            // 
-            this.buttonPeriodListPageListNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonPeriodListPageListNext.FlatAppearance.BorderSize = 0;
-            this.buttonPeriodListPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPeriodListPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonPeriodListPageListNext.Location = new System.Drawing.Point(263, 9);
-            this.buttonPeriodListPageListNext.Name = "buttonPeriodListPageListNext";
-            this.buttonPeriodListPageListNext.Size = new System.Drawing.Size(82, 32);
-            this.buttonPeriodListPageListNext.TabIndex = 15;
-            this.buttonPeriodListPageListNext.Text = "Next";
-            this.buttonPeriodListPageListNext.UseVisualStyleBackColor = false;
-            // 
-            // buttonPeriodListPageListLast
-            // 
-            this.buttonPeriodListPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonPeriodListPageListLast.FlatAppearance.BorderSize = 0;
-            this.buttonPeriodListPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPeriodListPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonPeriodListPageListLast.Location = new System.Drawing.Point(348, 9);
-            this.buttonPeriodListPageListLast.Name = "buttonPeriodListPageListLast";
-            this.buttonPeriodListPageListLast.Size = new System.Drawing.Size(82, 32);
-            this.buttonPeriodListPageListLast.TabIndex = 16;
-            this.buttonPeriodListPageListLast.Text = "Last";
-            this.buttonPeriodListPageListLast.UseVisualStyleBackColor = false;
-            // 
-            // textBoxPeriodListPageNumber
-            // 
-            this.textBoxPeriodListPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxPeriodListPageNumber.BackColor = System.Drawing.Color.White;
-            this.textBoxPeriodListPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPeriodListPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxPeriodListPageNumber.Location = new System.Drawing.Point(188, 14);
-            this.textBoxPeriodListPageNumber.Name = "textBoxPeriodListPageNumber";
-            this.textBoxPeriodListPageNumber.ReadOnly = true;
-            this.textBoxPeriodListPageNumber.Size = new System.Drawing.Size(69, 20);
-            this.textBoxPeriodListPageNumber.TabIndex = 17;
-            this.textBoxPeriodListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabPage10
             // 
@@ -1347,7 +1189,7 @@
             this.dataGridViewBankList.RowHeadersVisible = false;
             this.dataGridViewBankList.RowTemplate.Height = 24;
             this.dataGridViewBankList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBankList.Size = new System.Drawing.Size(1344, 479);
+            this.dataGridViewBankList.Size = new System.Drawing.Size(1358, 479);
             this.dataGridViewBankList.TabIndex = 20;
             this.dataGridViewBankList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBankList_CellClick);
             // 
@@ -1431,7 +1273,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxBankListFilter.Location = new System.Drawing.Point(5, 3);
             this.textBoxBankListFilter.Name = "textBoxBankListFilter";
-            this.textBoxBankListFilter.Size = new System.Drawing.Size(1344, 30);
+            this.textBoxBankListFilter.Size = new System.Drawing.Size(1358, 30);
             this.textBoxBankListFilter.TabIndex = 0;
             // 
             // tabPage11
@@ -1439,6 +1281,7 @@
             this.tabPage11.Controls.Add(this.panel4);
             this.tabPage11.Location = new System.Drawing.Point(4, 32);
             this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage11.Size = new System.Drawing.Size(1374, 583);
             this.tabPage11.TabIndex = 8;
             this.tabPage11.Text = "Currency";
@@ -1450,9 +1293,9 @@
             this.panel4.Controls.Add(this.textBoxCurrencyListFilter);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1374, 583);
+            this.panel4.Size = new System.Drawing.Size(1368, 577);
             this.panel4.TabIndex = 3;
             // 
             // dataGridViewCurencyList
@@ -1479,7 +1322,7 @@
             this.dataGridViewCurencyList.RowHeadersVisible = false;
             this.dataGridViewCurencyList.RowTemplate.Height = 24;
             this.dataGridViewCurencyList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCurencyList.Size = new System.Drawing.Size(1364, 485);
+            this.dataGridViewCurencyList.Size = new System.Drawing.Size(1358, 479);
             this.dataGridViewCurencyList.TabIndex = 26;
             this.dataGridViewCurencyList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCurencyList_CellClick);
             // 
@@ -1539,7 +1382,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCurrencyListFilter.Location = new System.Drawing.Point(5, 3);
             this.textBoxCurrencyListFilter.Name = "textBoxCurrencyListFilter";
-            this.textBoxCurrencyListFilter.Size = new System.Drawing.Size(1364, 30);
+            this.textBoxCurrencyListFilter.Size = new System.Drawing.Size(1358, 30);
             this.textBoxCurrencyListFilter.TabIndex = 25;
             this.textBoxCurrencyListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCurrencyListFilter_KeyDown);
             // 
@@ -1552,9 +1395,9 @@
             this.panel5.Controls.Add(this.buttonCurrencyListPageListLast);
             this.panel5.Controls.Add(this.textBoxCurrencyListPageNumber);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 530);
+            this.panel5.Location = new System.Drawing.Point(0, 524);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1374, 53);
+            this.panel5.Size = new System.Drawing.Size(1368, 53);
             this.panel5.TabIndex = 23;
             // 
             // buttonCurrencyListPageListFirst
@@ -1669,12 +1512,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUnitList)).EndInit();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPeriodList)).EndInit();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
             this.tabPage10.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1721,14 +1558,6 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.DataGridView dataGridViewTaxList;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnTaxListButtonEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnTaxListButtonDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListAccountId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListAccount;
         private System.Windows.Forms.TextBox textBoxTaxListFilter;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button buttonTaxListPageListFirst;
@@ -1739,10 +1568,6 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataGridView dataGridViewUnitList;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnUnitListButtonEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnUnitListButtonDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnitListId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnitListUnit;
         private System.Windows.Forms.TextBox textBoxUnitListFilter;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Button buttonUnitListPageListFirst;
@@ -1750,20 +1575,6 @@
         private System.Windows.Forms.Button buttonUnitListPageListNext;
         private System.Windows.Forms.Button buttonUnitListPageListLast;
         private System.Windows.Forms.TextBox textBoxUnitListPageNumber;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.DataGridView dataGridViewPeriodList;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnPeriodListButtonEdit;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnPeriodListButtonDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPeriodListId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPeriodListPeriod;
-        private System.Windows.Forms.TextBox textBoxPeriodListFilter;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Button buttonPeriodListPageListFirst;
-        private System.Windows.Forms.Button buttonPeriodListPageListPrevious;
-        private System.Windows.Forms.Button buttonPeriodListPageListNext;
-        private System.Windows.Forms.Button buttonPeriodListPageListLast;
-        private System.Windows.Forms.TextBox textBoxPeriodListPageNumber;
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -1812,5 +1623,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrencyListCurrencyCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrencyListCurrency;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrencyListSpace;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnTaxListButtonEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnTaxListButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListTaxCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListAccountId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListAccount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTaxListSpace;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnUnitListButtonEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnUnitListButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnitListId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnitListUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUnitListSpace;
     }
 }

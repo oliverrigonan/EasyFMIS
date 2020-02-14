@@ -43,6 +43,8 @@ namespace easyfmis.Forms.Software.SysSystemTables
             CreateDiscountListDataGridView();
             CreatePayTypeListDataGridView();
             CreateCurrencyListDataGridView();
+            CreateTaxListDataGridView();
+            CreateUnitListDataGridView();
         }
 
         // =======
@@ -1005,6 +1007,475 @@ namespace easyfmis.Forms.Software.SysSystemTables
             textBoxCurrencyListPageNumber.Text = currencyListPageNumber + " / " + currencyListPageList.PageCount;
         }
 
+        // ===
+        // Tax
+        // ===
+        public static List<Entities.DgvSystemTablesTaxListEntity> taxListData = new List<Entities.DgvSystemTablesTaxListEntity>();
+        public PagedList<Entities.DgvSystemTablesTaxListEntity> taxListPageList = new PagedList<Entities.DgvSystemTablesTaxListEntity>(taxListData, taxListPageNumber, pageSize);
+        public BindingSource taxListDataSource = new BindingSource();
+        public static Int32 taxListPageNumber = 1;
+
+        public Task<List<Entities.DgvSystemTablesTaxListEntity>> GetTaxListDataTask()
+        {
+            String filter = textBoxTaxListFilter.Text;
+            Controllers.MstTaxController mstTaxController = new Controllers.MstTaxController();
+
+            List<Entities.MstTaxEntity> listTax = mstTaxController.ListTax();
+            if (listTax.Any())
+            {
+                var payTax = from d in listTax
+                             where d.TaxCode.ToLower().Contains(filter)
+                             select new Entities.DgvSystemTablesTaxListEntity
+                             {
+                                 ColumnTaxListButtonEdit = "Edit",
+                                 ColumnTaxListButtonDelete = "Delete",
+                                 ColumnTaxListId = d.Id,
+                                 ColumnTaxListTaxCode = d.TaxCode,
+                                 ColumnTaxListTax = d.Tax,
+                                 ColumnTaxListRate = d.Rate.ToString("#,##0.00"),
+                                 ColumnTaxListAccountId = d.AccountId,
+                                 ColumnTaxListAccount = d.Account
+                             };
+
+                return Task.FromResult(payTax.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvSystemTablesTaxListEntity>());
+            }
+        }
+
+        public void UpdateTaxListDataSource()
+        {
+            SetTaxListDataSourceAsync();
+        }
+
+        public async void SetTaxListDataSourceAsync()
+        {
+            List<Entities.DgvSystemTablesTaxListEntity> getTaxListData = await GetTaxListDataTask();
+            if (getTaxListData.Any())
+            {
+                taxListData = getTaxListData;
+                taxListPageList = new PagedList<Entities.DgvSystemTablesTaxListEntity>(taxListData, taxListPageNumber, pageSize);
+
+                if (taxListPageList.PageCount == 1)
+                {
+                    buttonTaxListPageListFirst.Enabled = false;
+                    buttonTaxListPageListPrevious.Enabled = false;
+                    buttonTaxListPageListNext.Enabled = false;
+                    buttonTaxListPageListLast.Enabled = false;
+                }
+                else if (taxListPageNumber == 1)
+                {
+                    buttonTaxListPageListFirst.Enabled = false;
+                    buttonTaxListPageListPrevious.Enabled = false;
+                    buttonTaxListPageListNext.Enabled = true;
+                    buttonTaxListPageListLast.Enabled = true;
+                }
+                else if (taxListPageNumber == taxListPageList.PageCount)
+                {
+                    buttonTaxListPageListFirst.Enabled = true;
+                    buttonTaxListPageListPrevious.Enabled = true;
+                    buttonTaxListPageListNext.Enabled = false;
+                    buttonTaxListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonTaxListPageListFirst.Enabled = true;
+                    buttonTaxListPageListPrevious.Enabled = true;
+                    buttonTaxListPageListNext.Enabled = true;
+                    buttonTaxListPageListLast.Enabled = true;
+                }
+
+                textBoxTaxListPageNumber.Text = taxListPageNumber + " / " + taxListPageList.PageCount;
+                taxListDataSource.DataSource = taxListPageList;
+            }
+            else
+            {
+                buttonTaxListPageListFirst.Enabled = false;
+                buttonTaxListPageListPrevious.Enabled = false;
+                buttonTaxListPageListNext.Enabled = false;
+                buttonTaxListPageListLast.Enabled = false;
+
+                taxListPageNumber = 1;
+
+                taxListData = new List<Entities.DgvSystemTablesTaxListEntity>();
+                taxListDataSource.Clear();
+                textBoxTaxListPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public void CreateTaxListDataGridView()
+        {
+            UpdateTaxListDataSource();
+
+            dataGridViewTaxList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewTaxList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewTaxList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewTaxList.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewTaxList.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewTaxList.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewTaxList.DataSource = taxListDataSource;
+        }
+
+        private void textBoxTaxListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateTaxListDataSource();
+            }
+        }
+
+        private void dataGridViewTaxList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetTaxListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewTaxList.CurrentCell.ColumnIndex == dataGridViewTaxList.Columns["ColumnTaxListButtonEdit"].Index)
+            {
+                Entities.MstTaxEntity selecteTax = new Entities.MstTaxEntity()
+                {
+
+                    Id = Convert.ToInt32(dataGridViewTaxList.Rows[e.RowIndex].Cells[2].Value),
+                    TaxCode = dataGridViewTaxList.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    Tax = dataGridViewTaxList.Rows[e.RowIndex].Cells[4].Value.ToString(),
+                    Rate = Convert.ToDecimal(dataGridViewTaxList.Rows[e.RowIndex].Cells[5].Value),
+                    AccountId = Convert.ToInt32(dataGridViewTaxList.Rows[e.RowIndex].Cells[6].Value)
+                };
+
+                SysSystemTablesTaxDetailForm SysSystemTablesTaxDetailForm = new SysSystemTablesTaxDetailForm(this, selecteTax);
+                SysSystemTablesTaxDetailForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewTaxList.CurrentCell.ColumnIndex == dataGridViewTaxList.Columns["ColumnTaxListButtonDelete"].Index)
+            {
+
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Tax?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstTaxController mstTaxController = new Controllers.MstTaxController();
+
+                    String[] deleteTax = mstTaxController.DeleteTax(Convert.ToInt32(dataGridViewTaxList.Rows[e.RowIndex].Cells[2].Value));
+                    if (deleteTax[1].Equals("0") == false)
+                    {
+                        Int32 taxPageNumber = taxListPageNumber;
+
+                        taxListPageNumber = 1;
+                        UpdateTaxListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteTax[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void GetTaxListCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonTaxListPageListFirst_Click(object sender, EventArgs e)
+        {
+            taxListPageList = new PagedList<Entities.DgvSystemTablesTaxListEntity>(taxListData, 1, pageSize);
+            taxListDataSource.DataSource = taxListPageList;
+
+            buttonTaxListPageListFirst.Enabled = false;
+            buttonTaxListPageListPrevious.Enabled = false;
+            buttonTaxListPageListNext.Enabled = true;
+            buttonTaxListPageListLast.Enabled = true;
+
+            taxListPageNumber = 1;
+            textBoxTaxListPageNumber.Text = taxListPageNumber + " / " + taxListPageList.PageCount;
+        }
+
+        private void buttonTaxListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (taxListPageList.HasPreviousPage == true)
+            {
+                taxListPageList = new PagedList<Entities.DgvSystemTablesTaxListEntity>(taxListData, --taxListPageNumber, pageSize);
+                taxListDataSource.DataSource = taxListPageList;
+            }
+
+            buttonTaxListPageListNext.Enabled = true;
+            buttonTaxListPageListLast.Enabled = true;
+
+            if (taxListPageNumber == 1)
+            {
+                buttonTaxListPageListFirst.Enabled = false;
+                buttonTaxListPageListPrevious.Enabled = false;
+            }
+        }
+
+        private void buttonTaxListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (taxListPageList.HasNextPage == true)
+            {
+                taxListPageList = new PagedList<Entities.DgvSystemTablesTaxListEntity>(taxListData, ++taxListPageNumber, pageSize);
+                taxListDataSource.DataSource = taxListPageList;
+            }
+
+            buttonTaxListPageListFirst.Enabled = true;
+            buttonTaxListPageListPrevious.Enabled = true;
+
+            if (taxListPageNumber == taxListPageList.PageCount)
+            {
+                buttonTaxListPageListNext.Enabled = false;
+                buttonTaxListPageListLast.Enabled = false;
+            }
+
+            textBoxTaxListPageNumber.Text = taxListPageNumber + " / " + taxListPageList.PageCount;
+        }
+
+        private void buttonTaxListPageListLast_Click(object sender, EventArgs e)
+        {
+            taxListPageList = new PagedList<Entities.DgvSystemTablesTaxListEntity>(taxListData, taxListPageList.PageCount, pageSize);
+            taxListDataSource.DataSource = taxListPageList;
+
+            buttonTaxListPageListFirst.Enabled = true;
+            buttonTaxListPageListPrevious.Enabled = true;
+            buttonTaxListPageListNext.Enabled = false;
+            buttonTaxListPageListLast.Enabled = false;
+
+            taxListPageNumber = payTypeListPageList.PageCount;
+            textBoxTaxListPageNumber.Text = taxListPageNumber + " / " + taxListPageList.PageCount;
+        }
+
+        // ====
+        // Unit
+        // ====
+
+        public static List<Entities.DgvSystemTablesUnitListEntity> unitListData = new List<Entities.DgvSystemTablesUnitListEntity>();
+        public PagedList<Entities.DgvSystemTablesUnitListEntity> unitListPageList = new PagedList<Entities.DgvSystemTablesUnitListEntity>(unitListData, unitListPageNumber, pageSize);
+        public BindingSource unitListDataSource = new BindingSource();
+        public static Int32 unitListPageNumber = 1;
+        public void UpdateUnitListDataSource()
+        {
+            SetUnitListDataSourceAsync();
+        }
+
+        public async void SetUnitListDataSourceAsync()
+        {
+            List<Entities.DgvSystemTablesUnitListEntity> getUnitListData = await GetUnitListDataTask();
+            if (getUnitListData.Any())
+            {
+                unitListData = getUnitListData;
+                unitListPageList = new PagedList<Entities.DgvSystemTablesUnitListEntity>(unitListData, unitListPageNumber, pageSize);
+
+                if (unitListPageList.PageCount == 1)
+                {
+                    buttonUnitListPageListFirst.Enabled = false;
+                    buttonUnitListPageListPrevious.Enabled = false;
+                    buttonUnitListPageListNext.Enabled = false;
+                    buttonUnitListPageListLast.Enabled = false;
+                }
+                else if (unitListPageNumber == 1)
+                {
+                    buttonUnitListPageListFirst.Enabled = false;
+                    buttonUnitListPageListPrevious.Enabled = false;
+                    buttonUnitListPageListNext.Enabled = true;
+                    buttonUnitListPageListLast.Enabled = true;
+                }
+                else if (unitListPageNumber == unitListPageList.PageCount)
+                {
+                    buttonUnitListPageListFirst.Enabled = true;
+                    buttonUnitListPageListPrevious.Enabled = true;
+                    buttonUnitListPageListNext.Enabled = false;
+                    buttonUnitListPageListLast.Enabled = false;
+                }
+                else
+                {
+                    buttonUnitListPageListFirst.Enabled = true;
+                    buttonUnitListPageListPrevious.Enabled = true;
+                    buttonUnitListPageListNext.Enabled = true;
+                    buttonUnitListPageListLast.Enabled = true;
+                }
+
+                textBoxUnitListPageNumber.Text = unitListPageNumber + " / " + unitListPageList.PageCount;
+                unitListDataSource.DataSource = unitListPageList;
+            }
+            else
+            {
+                buttonUnitListPageListFirst.Enabled = false;
+                buttonUnitListPageListPrevious.Enabled = false;
+                buttonUnitListPageListNext.Enabled = false;
+                buttonUnitListPageListLast.Enabled = false;
+
+                unitListPageNumber = 1;
+
+                unitListData = new List<Entities.DgvSystemTablesUnitListEntity>();
+                unitListDataSource.Clear();
+                textBoxUnitListPageNumber.Text = "1 / 1";
+            }
+        }
+
+        public Task<List<Entities.DgvSystemTablesUnitListEntity>> GetUnitListDataTask()
+        {
+            String filter = textBoxUnitListFilter.Text;
+            Controllers.MstUnitController mstUnitController = new Controllers.MstUnitController();
+
+            List<Entities.MstUnitEntity> listUnit = mstUnitController.ListUnit();
+            if (listUnit.Any())
+            {
+                var units = from d in listUnit
+                            where d.Unit.ToLower().Contains(filter)
+                            select new Entities.DgvSystemTablesUnitListEntity
+                            {
+                                ColumnUnitListButtonEdit = "Edit",
+                                ColumnUnitListButtonDelete = "Delete",
+                                ColumnUnitListId = d.Id,
+                                ColumnUnitListUnit = d.Unit
+                            };
+
+                return Task.FromResult(units.ToList());
+            }
+            else
+            {
+                return Task.FromResult(new List<Entities.DgvSystemTablesUnitListEntity>());
+            }
+        }
+
+        public void CreateUnitListDataGridView()
+        {
+            UpdateUnitListDataSource();
+
+            dataGridViewUnitList.Columns[0].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewUnitList.Columns[0].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#01A6F0");
+            dataGridViewUnitList.Columns[0].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewUnitList.Columns[1].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewUnitList.Columns[1].DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#F34F1C");
+            dataGridViewUnitList.Columns[1].DefaultCellStyle.ForeColor = Color.White;
+
+            dataGridViewUnitList.DataSource = unitListDataSource;
+        }
+
+        private void textBoxUnitListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateUnitListDataSource();
+            }
+        }
+
+        private void dataGridViewUnitList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                GetUnitListCurrentSelectedCell(e.RowIndex);
+            }
+
+            if (e.RowIndex > -1 && dataGridViewUnitList.CurrentCell.ColumnIndex == dataGridViewUnitList.Columns["ColumnUnitListButtonEdit"].Index)
+            {
+                Entities.MstUnitEntity selectedUnit = new Entities.MstUnitEntity()
+                {
+                    Id = Convert.ToInt32(dataGridViewUnitList.Rows[e.RowIndex].Cells[2].Value),
+                    Unit = dataGridViewUnitList.Rows[e.RowIndex].Cells[3].Value.ToString()
+                };
+                SysSystemTablesUnitDetailForm sysSystemTablesUnitDetailForm = new SysSystemTablesUnitDetailForm(this, selectedUnit);
+                sysSystemTablesUnitDetailForm.ShowDialog();
+            }
+
+            if (e.RowIndex > -1 && dataGridViewUnitList.CurrentCell.ColumnIndex == dataGridViewUnitList.Columns["ColumnUnitListButtonDelete"].Index)
+            {
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Unit?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (deleteDialogResult == DialogResult.Yes)
+                {
+                    Controllers.MstUnitController mstUnitController = new Controllers.MstUnitController();
+
+                    String[] deleteUnit = mstUnitController.DeleteUnit(Convert.ToInt32(dataGridViewUnitList.Rows[e.RowIndex].Cells[2].Value));
+                    if (deleteUnit[1].Equals("0") == false)
+                    {
+                        Int32 currentPageNumber = unitListPageNumber;
+
+                        unitListPageNumber = 1;
+                        UpdateUnitListDataSource();
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteUnit[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void GetUnitListCurrentSelectedCell(Int32 rowIndex)
+        {
+
+        }
+
+        private void buttonUnitListPageListFirst_Click(object sender, EventArgs e)
+        {
+            unitListPageList = new PagedList<Entities.DgvSystemTablesUnitListEntity>(unitListData, 1, pageSize);
+            unitListDataSource.DataSource = unitListPageList;
+
+            buttonUnitListPageListFirst.Enabled = false;
+            buttonUnitListPageListPrevious.Enabled = false;
+            buttonUnitListPageListNext.Enabled = true;
+            buttonUnitListPageListLast.Enabled = true;
+
+            unitListPageNumber = 1;
+            textBoxUnitListPageNumber.Text = unitListPageNumber + " / " + unitListPageList.PageCount;
+        }
+
+        private void buttonUnitListPageListPrevious_Click(object sender, EventArgs e)
+        {
+            if (unitListPageList.HasPreviousPage == true)
+            {
+                unitListPageList = new PagedList<Entities.DgvSystemTablesUnitListEntity>(unitListData, --unitListPageNumber, pageSize);
+                unitListDataSource.DataSource = unitListPageList;
+            }
+
+            buttonUnitListPageListNext.Enabled = true;
+            buttonUnitListPageListLast.Enabled = true;
+
+            if (unitListPageNumber == 1)
+            {
+                buttonUnitListPageListFirst.Enabled = false;
+                buttonUnitListPageListPrevious.Enabled = false;
+            }
+
+            textBoxUnitListPageNumber.Text = unitListPageNumber + " / " + unitListPageList.PageCount;
+        }
+
+        private void buttonUnitListPageListNext_Click(object sender, EventArgs e)
+        {
+            if (unitListPageList.HasNextPage == true)
+            {
+                unitListPageList = new PagedList<Entities.DgvSystemTablesUnitListEntity>(unitListData, ++unitListPageNumber, pageSize);
+                unitListDataSource.DataSource = unitListPageList;
+            }
+
+            buttonUnitListPageListFirst.Enabled = true;
+            buttonUnitListPageListPrevious.Enabled = true;
+
+            if (unitListPageNumber == unitListPageList.PageCount)
+            {
+                buttonUnitListPageListNext.Enabled = false;
+                buttonUnitListPageListLast.Enabled = false;
+            }
+
+            textBoxUnitListPageNumber.Text = unitListPageNumber + " / " + unitListPageList.PageCount;
+        }
+
+        private void buttonUnitListPageListLast_Click(object sender, EventArgs e)
+        {
+            unitListPageList = new PagedList<Entities.DgvSystemTablesUnitListEntity>(unitListData, unitListPageList.PageCount, pageSize);
+            unitListDataSource.DataSource = unitListPageList;
+
+            buttonUnitListPageListFirst.Enabled = true;
+            buttonUnitListPageListPrevious.Enabled = true;
+            buttonUnitListPageListNext.Enabled = false;
+            buttonUnitListPageListLast.Enabled = false;
+
+            unitListPageNumber = unitListPageList.PageCount;
+            textBoxUnitListPageNumber.Text = unitListPageNumber + " / " + unitListPageList.PageCount;
+        }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             String selectedTab = tabControlSystemTable.SelectedTab.Text.ToString();
@@ -1037,6 +1508,16 @@ namespace easyfmis.Forms.Software.SysSystemTables
                     SysSystemTablesCurrencyDetailForm SysSystemTablesCurrencyDetailForm = new SysSystemTablesCurrencyDetailForm(this, null);
                     SysSystemTablesCurrencyDetailForm.ShowDialog();
                     break;
+                case "Tax":
+                    SysSystemTablesTaxDetailForm SysSystemTablesTaxDetailForm = new SysSystemTablesTaxDetailForm(this, null);
+                    SysSystemTablesTaxDetailForm.ShowDialog();
+                    break;
+                case "Unit":
+                    SysSystemTablesUnitDetailForm SysSystemTablesUnitDetailForm = new SysSystemTablesUnitDetailForm(this, null);
+                    SysSystemTablesUnitDetailForm.ShowDialog();
+                    break;
+
+
             }
         }
     }

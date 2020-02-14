@@ -74,7 +74,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
                 }
                 else
                 {
-                    //sysSystemTablesForm.UpdateTaxListDataSource();
+                    sysSystemTablesForm.UpdateTaxListDataSource();
                     Close();
                 }
             }
@@ -93,7 +93,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
                 }
                 else
                 {
-                    //sysSystemTablesForm.UpdateTaxListDataSource();
+                    sysSystemTablesForm.UpdateTaxListDataSource();
                     Close();
                 }
 
