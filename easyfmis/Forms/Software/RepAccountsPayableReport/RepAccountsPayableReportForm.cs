@@ -160,6 +160,9 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             if (listBoxAccountsPayableReport.SelectedItem != null)
             {
                 DateTime dateAsOf = dateTimePickerDateAsOf.Value.Date;
+                DateTime dateStart = dateTimePickerStartDate.Value.Date;
+                DateTime dateEnd = dateTimePickerEndDate.Value.Date;
+
                 Int32 companyId = Convert.ToInt32(comboBoxCompany.SelectedValue);
                 String companyName = comboBoxCompany.GetItemText(comboBoxCompany.SelectedItem);
                 Int32 branchId = Convert.ToInt32(comboBoxBranch.SelectedValue);
@@ -172,6 +175,18 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
                         RepAccountsPayableReportAccountsPayableReportForm repAccountsPayableReportAccountsPayableReportForm = new RepAccountsPayableReportAccountsPayableReportForm(dateAsOf, companyId, companyName, branchId, branchName);
                         repAccountsPayableReportAccountsPayableReportForm.ShowDialog();
 
+                        break;
+                    case "Purchase Order Detail Report":
+                        RepAccountPayableReportPurchaseOrderDetailReportForm repAccountReceivableReportSalesReportBySalesPersonForm = new RepAccountPayableReportPurchaseOrderDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                        repAccountReceivableReportSalesReportBySalesPersonForm.ShowDialog();
+                        break;
+                    case "Receiving Receipt Detail Report":
+                        RepAccountsPayableReportRRDetailReportForm repAccountsPayableReportRRDetailReportForm = new RepAccountsPayableReportRRDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                        repAccountsPayableReportRRDetailReportForm.ShowDialog();
+                        break;
+                    case "Disbursement Detail Report":
+                        RepAccountsPayableReportDisbursementDetailReportForm RepAccountsPayableReportDisbursementDetailReportForm = new RepAccountsPayableReportDisbursementDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                        RepAccountsPayableReportDisbursementDetailReportForm.ShowDialog();
                         break;
                     default:
                         break;
