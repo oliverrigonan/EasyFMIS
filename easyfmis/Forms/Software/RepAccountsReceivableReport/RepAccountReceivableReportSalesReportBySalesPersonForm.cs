@@ -140,7 +140,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         public void CreateSalesReportReportDataGridView()
         {
             GetAccountsPayableReportDataSource();
-            dataGridViewAccountsPayableReport.DataSource = dataSalesDetailReportListSource;
+            dataGridViewSalesDetailReportBySalesPersonReport.DataSource = dataSalesDetailReportListSource;
         }
 
         private void buttonSalesReportBySalesPersonReportPageListFirst_Click(object sender, EventArgs e)
