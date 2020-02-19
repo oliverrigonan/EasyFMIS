@@ -221,10 +221,21 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
             if (e.RowIndex > -1 && dataGridViewItemPriceList.CurrentCell.ColumnIndex == dataGridViewItemPriceList.Columns["ColumnItemPriceListButtonPick"].Index)
             {
-                Decimal price = Convert.ToDecimal(dataGridViewItemPriceList.Rows[dataGridViewItemPriceList.CurrentCell.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListPrice"].Index].Value);
+                if (dataGridViewItemPriceList.Rows[dataGridViewItemPriceList.CurrentCell.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListPriceDescription"].Index].Value.ToString().ToLower() == "variable")
+                {
+                    Decimal price = Convert.ToDecimal(dataGridViewItemPriceList.Rows[dataGridViewItemPriceList.CurrentCell.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListPrice"].Index].Value);
 
-                trnSalesInvoiceDetailSalesInvoiceItemDetailForm.UpdatePrice(price);
-                Close();
+                    TrnSalesInvoiceVariablePriceForm trnSalesInvoiceVariablePriceForm = new TrnSalesInvoiceVariablePriceForm(this, trnSalesInvoiceDetailSalesInvoiceItemDetailForm, price);
+                    trnSalesInvoiceVariablePriceForm.ShowDialog();
+                }
+                else
+                {
+                    Decimal price = Convert.ToDecimal(dataGridViewItemPriceList.Rows[dataGridViewItemPriceList.CurrentCell.RowIndex].Cells[dataGridViewItemPriceList.Columns["ColumnItemPriceListPrice"].Index].Value);
+
+                    trnSalesInvoiceDetailSalesInvoiceItemDetailForm.UpdatePrice(price);
+                    Close();
+                }
+
             }
         }
     }
