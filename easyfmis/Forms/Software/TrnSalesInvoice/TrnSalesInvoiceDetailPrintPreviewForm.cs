@@ -19,14 +19,20 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
     {
         public Data.easyfmisdbDataContext db = new Data.easyfmisdbDataContext(Modules.SysConnectionStringModule.GetConnectionString());
         public Int32 SIId;
+        String PrintPreference;
 
-        public TrnSalesInvoiceDetailPrintPreviewForm(Int32 filterSIId)
+        public TrnSalesInvoiceDetailPrintPreviewForm(Int32 filterSIId, String printPreferenceFilter)
         {
             InitializeComponent();
             SIId = filterSIId;
+            PrintPreference = printPreferenceFilter;
 
-            //GeneratePDFSalesInvoiceDetail();
-            GeneratePDFSalesInvoiceDetailFitToLayout();
+            Print();
+        }
+
+        private void Print() {
+            if (PrintPreference == "Sales Invoice") { GeneratePDFSalesInvoiceDetailFitToLayout(); }
+            if (PrintPreference == "Packing List") { GeneratePDFSalesInvoiceDetail(); }
         }
 
         private void GeneratePDFSalesInvoiceDetail()

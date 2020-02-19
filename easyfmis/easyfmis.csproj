@@ -592,6 +592,18 @@
     <Compile Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.Designer.cs">
       <DependentUpon>TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoicePrintPreference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoicePrintPreference.Designer.cs">
+      <DependentUpon>TrnSalesInvoicePrintPreference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceVariablePriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceVariablePriceForm.Designer.cs">
+      <DependentUpon>TrnSalesInvoiceVariablePriceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -949,6 +961,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnReceivingReceipt\TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.resx">
       <DependentUpon>TrnReceivingReceiptDetailReceivingReceiptItemDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoicePrintPreference.resx">
+      <DependentUpon>TrnSalesInvoicePrintPreference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceVariablePriceForm.resx">
+      <DependentUpon>TrnSalesInvoiceVariablePriceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnSalesInvoice\TrnSalesInvoiceForm.resx">
       <DependentUpon>TrnSalesInvoiceForm.cs</DependentUpon>

@@ -30,10 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,6 +40,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnSalesInvoiceDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -87,25 +87,6 @@
             this.textBoxSalesInvoiceItemPageNumber = new System.Windows.Forms.TextBox();
             this.buttonSearchItem = new System.Windows.Forms.Button();
             this.dataGridViewSalesInvoiceItem = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageSalesInvoiceItems = new System.Windows.Forms.TabPage();
-            this.tabPageInventoryEntries = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.buttonInventoryEntriesPageListFirst = new System.Windows.Forms.Button();
-            this.buttonInventoryEntriesPageListPrevious = new System.Windows.Forms.Button();
-            this.buttonInventoryEntriesPageListNext = new System.Windows.Forms.Button();
-            this.buttonInventoryEntriesPageListLast = new System.Windows.Forms.Button();
-            this.textBoxInventoryEntriesPageNumber = new System.Windows.Forms.TextBox();
-            this.dataGridViewInventoryEntries = new System.Windows.Forms.DataGridView();
-            this.ColumnInventoryEntriesBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesInventoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalesInvoiceItemListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnSalesInvoiceItemListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnSalesInvoiceItemListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,6 +113,25 @@
             this.ColumnSalesInvoiceItemListBaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalesInvoiceItemListBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSalesInvoiceItemListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageSalesInvoiceItems = new System.Windows.Forms.TabPage();
+            this.tabPageInventoryEntries = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.buttonInventoryEntriesPageListFirst = new System.Windows.Forms.Button();
+            this.buttonInventoryEntriesPageListPrevious = new System.Windows.Forms.Button();
+            this.buttonInventoryEntriesPageListNext = new System.Windows.Forms.Button();
+            this.buttonInventoryEntriesPageListLast = new System.Windows.Forms.Button();
+            this.textBoxInventoryEntriesPageNumber = new System.Windows.Forms.TextBox();
+            this.dataGridViewInventoryEntries = new System.Windows.Forms.DataGridView();
+            this.ColumnInventoryEntriesBranch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesInventoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesInventoryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -726,6 +726,239 @@
             this.dataGridViewSalesInvoiceItem.TabStop = false;
             this.dataGridViewSalesInvoiceItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalesInvoiceItem_CellClick);
             // 
+            // ColumnSalesInvoiceItemListButtonEdit
+            // 
+            this.ColumnSalesInvoiceItemListButtonEdit.DataPropertyName = "ColumnSalesInvoiceItemListButtonEdit";
+            this.ColumnSalesInvoiceItemListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSalesInvoiceItemListButtonEdit.HeaderText = "";
+            this.ColumnSalesInvoiceItemListButtonEdit.Name = "ColumnSalesInvoiceItemListButtonEdit";
+            this.ColumnSalesInvoiceItemListButtonEdit.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListButtonEdit.Width = 70;
+            // 
+            // ColumnSalesInvoiceItemListButtonDelete
+            // 
+            this.ColumnSalesInvoiceItemListButtonDelete.DataPropertyName = "ColumnSalesInvoiceItemListButtonDelete";
+            this.ColumnSalesInvoiceItemListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnSalesInvoiceItemListButtonDelete.HeaderText = "";
+            this.ColumnSalesInvoiceItemListButtonDelete.Name = "ColumnSalesInvoiceItemListButtonDelete";
+            this.ColumnSalesInvoiceItemListButtonDelete.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListButtonDelete.Width = 70;
+            // 
+            // ColumnSalesInvoiceItemListId
+            // 
+            this.ColumnSalesInvoiceItemListId.DataPropertyName = "ColumnSalesInvoiceItemListId";
+            this.ColumnSalesInvoiceItemListId.HeaderText = "Id";
+            this.ColumnSalesInvoiceItemListId.Name = "ColumnSalesInvoiceItemListId";
+            this.ColumnSalesInvoiceItemListId.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListId.Visible = false;
+            // 
+            // ColumnSalesInvoiceItemListSIId
+            // 
+            this.ColumnSalesInvoiceItemListSIId.DataPropertyName = "ColumnSalesInvoiceItemListSIId";
+            this.ColumnSalesInvoiceItemListSIId.HeaderText = "SIId";
+            this.ColumnSalesInvoiceItemListSIId.Name = "ColumnSalesInvoiceItemListSIId";
+            this.ColumnSalesInvoiceItemListSIId.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListSIId.Visible = false;
+            // 
+            // ColumnSalesInvoiceItemListItemId
+            // 
+            this.ColumnSalesInvoiceItemListItemId.DataPropertyName = "ColumnSalesInvoiceItemListItemId";
+            this.ColumnSalesInvoiceItemListItemId.HeaderText = "Item Id";
+            this.ColumnSalesInvoiceItemListItemId.Name = "ColumnSalesInvoiceItemListItemId";
+            this.ColumnSalesInvoiceItemListItemId.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListItemId.Visible = false;
+            // 
+            // ColumnSalesInvoiceItemListItemBaCode
+            // 
+            this.ColumnSalesInvoiceItemListItemBaCode.DataPropertyName = "ColumnSalesInvoiceItemListItemBaCode";
+            this.ColumnSalesInvoiceItemListItemBaCode.HeaderText = "BaCode";
+            this.ColumnSalesInvoiceItemListItemBaCode.Name = "ColumnSalesInvoiceItemListItemBaCode";
+            this.ColumnSalesInvoiceItemListItemBaCode.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListItemBaCode.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListItemDescription
+            // 
+            this.ColumnSalesInvoiceItemListItemDescription.DataPropertyName = "ColumnSalesInvoiceItemListItemDescription";
+            this.ColumnSalesInvoiceItemListItemDescription.HeaderText = "Item Description";
+            this.ColumnSalesInvoiceItemListItemDescription.Name = "ColumnSalesInvoiceItemListItemDescription";
+            this.ColumnSalesInvoiceItemListItemDescription.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListItemDescription.Width = 300;
+            // 
+            // ColumnSalesInvoiceItemListItemInventoryId
+            // 
+            this.ColumnSalesInvoiceItemListItemInventoryId.DataPropertyName = "ColumnSalesInvoiceItemListItemInventoryId";
+            this.ColumnSalesInvoiceItemListItemInventoryId.HeaderText = "Item Inventory Id";
+            this.ColumnSalesInvoiceItemListItemInventoryId.Name = "ColumnSalesInvoiceItemListItemInventoryId";
+            this.ColumnSalesInvoiceItemListItemInventoryId.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListItemInventoryId.Visible = false;
+            // 
+            // ColumnSalesInvoiceItemListItemInventoryCode
+            // 
+            this.ColumnSalesInvoiceItemListItemInventoryCode.DataPropertyName = "ColumnSalesInvoiceItemListItemInventoryCode";
+            this.ColumnSalesInvoiceItemListItemInventoryCode.HeaderText = "Inventory Code";
+            this.ColumnSalesInvoiceItemListItemInventoryCode.Name = "ColumnSalesInvoiceItemListItemInventoryCode";
+            this.ColumnSalesInvoiceItemListItemInventoryCode.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListItemInventoryCode.Width = 200;
+            // 
+            // ColumnSalesInvoiceItemListUnitId
+            // 
+            this.ColumnSalesInvoiceItemListUnitId.DataPropertyName = "ColumnSalesInvoiceItemListUnitId";
+            this.ColumnSalesInvoiceItemListUnitId.HeaderText = "Unit Id";
+            this.ColumnSalesInvoiceItemListUnitId.Name = "ColumnSalesInvoiceItemListUnitId";
+            this.ColumnSalesInvoiceItemListUnitId.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListUnitId.Visible = false;
+            // 
+            // ColumnSalesInvoiceItemListUnit
+            // 
+            this.ColumnSalesInvoiceItemListUnit.DataPropertyName = "ColumnSalesInvoiceItemListUnit";
+            this.ColumnSalesInvoiceItemListUnit.HeaderText = "Unit";
+            this.ColumnSalesInvoiceItemListUnit.Name = "ColumnSalesInvoiceItemListUnit";
+            this.ColumnSalesInvoiceItemListUnit.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListUnit.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListPrice
+            // 
+            this.ColumnSalesInvoiceItemListPrice.DataPropertyName = "ColumnSalesInvoiceItemListPrice";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnSalesInvoiceItemListPrice.HeaderText = "Price";
+            this.ColumnSalesInvoiceItemListPrice.Name = "ColumnSalesInvoiceItemListPrice";
+            this.ColumnSalesInvoiceItemListPrice.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListPrice.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListDiscountId
+            // 
+            this.ColumnSalesInvoiceItemListDiscountId.DataPropertyName = "ColumnSalesInvoiceItemListDiscountId";
+            this.ColumnSalesInvoiceItemListDiscountId.HeaderText = "Discount Id";
+            this.ColumnSalesInvoiceItemListDiscountId.Name = "ColumnSalesInvoiceItemListDiscountId";
+            this.ColumnSalesInvoiceItemListDiscountId.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListDiscountId.Visible = false;
+            // 
+            // ColumnSalesInvoiceItemListDiscount
+            // 
+            this.ColumnSalesInvoiceItemListDiscount.DataPropertyName = "ColumnSalesInvoiceItemListDiscount";
+            this.ColumnSalesInvoiceItemListDiscount.HeaderText = "Discount";
+            this.ColumnSalesInvoiceItemListDiscount.Name = "ColumnSalesInvoiceItemListDiscount";
+            this.ColumnSalesInvoiceItemListDiscount.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListDiscount.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListDiscountRate
+            // 
+            this.ColumnSalesInvoiceItemListDiscountRate.DataPropertyName = "ColumnSalesInvoiceItemListDiscountRate";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListDiscountRate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnSalesInvoiceItemListDiscountRate.HeaderText = "Discount Rate";
+            this.ColumnSalesInvoiceItemListDiscountRate.Name = "ColumnSalesInvoiceItemListDiscountRate";
+            this.ColumnSalesInvoiceItemListDiscountRate.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListDiscountRate.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListDiscountAmount
+            // 
+            this.ColumnSalesInvoiceItemListDiscountAmount.DataPropertyName = "ColumnSalesInvoiceItemListDiscountAmount";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListDiscountAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnSalesInvoiceItemListDiscountAmount.HeaderText = "Discount Amount";
+            this.ColumnSalesInvoiceItemListDiscountAmount.Name = "ColumnSalesInvoiceItemListDiscountAmount";
+            this.ColumnSalesInvoiceItemListDiscountAmount.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListDiscountAmount.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListNetPrice
+            // 
+            this.ColumnSalesInvoiceItemListNetPrice.DataPropertyName = "ColumnSalesInvoiceItemListNetPrice";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListNetPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnSalesInvoiceItemListNetPrice.HeaderText = "Net Price";
+            this.ColumnSalesInvoiceItemListNetPrice.Name = "ColumnSalesInvoiceItemListNetPrice";
+            this.ColumnSalesInvoiceItemListNetPrice.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListNetPrice.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListQuantity
+            // 
+            this.ColumnSalesInvoiceItemListQuantity.DataPropertyName = "ColumnSalesInvoiceItemListQuantity";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListQuantity.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumnSalesInvoiceItemListQuantity.HeaderText = "Quantity";
+            this.ColumnSalesInvoiceItemListQuantity.Name = "ColumnSalesInvoiceItemListQuantity";
+            this.ColumnSalesInvoiceItemListQuantity.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListQuantity.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListAmount
+            // 
+            this.ColumnSalesInvoiceItemListAmount.DataPropertyName = "ColumnSalesInvoiceItemListAmount";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ColumnSalesInvoiceItemListAmount.HeaderText = "Amount";
+            this.ColumnSalesInvoiceItemListAmount.Name = "ColumnSalesInvoiceItemListAmount";
+            this.ColumnSalesInvoiceItemListAmount.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListAmount.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListTaxId
+            // 
+            this.ColumnSalesInvoiceItemListTaxId.DataPropertyName = "ColumnSalesInvoiceItemListTaxId";
+            this.ColumnSalesInvoiceItemListTaxId.HeaderText = "Tax Id";
+            this.ColumnSalesInvoiceItemListTaxId.Name = "ColumnSalesInvoiceItemListTaxId";
+            this.ColumnSalesInvoiceItemListTaxId.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListTaxId.Visible = false;
+            // 
+            // ColumnSalesInvoiceItemListTax
+            // 
+            this.ColumnSalesInvoiceItemListTax.DataPropertyName = "ColumnSalesInvoiceItemListTax";
+            this.ColumnSalesInvoiceItemListTax.HeaderText = "Tax";
+            this.ColumnSalesInvoiceItemListTax.Name = "ColumnSalesInvoiceItemListTax";
+            this.ColumnSalesInvoiceItemListTax.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListTax.Visible = false;
+            this.ColumnSalesInvoiceItemListTax.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListTaxRate
+            // 
+            this.ColumnSalesInvoiceItemListTaxRate.DataPropertyName = "ColumnSalesInvoiceItemListTaxRate";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListTaxRate.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ColumnSalesInvoiceItemListTaxRate.HeaderText = "Tax Rate";
+            this.ColumnSalesInvoiceItemListTaxRate.Name = "ColumnSalesInvoiceItemListTaxRate";
+            this.ColumnSalesInvoiceItemListTaxRate.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListTaxRate.Visible = false;
+            this.ColumnSalesInvoiceItemListTaxRate.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListTaxAmount
+            // 
+            this.ColumnSalesInvoiceItemListTaxAmount.DataPropertyName = "ColumnSalesInvoiceItemListTaxAmount";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListTaxAmount.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ColumnSalesInvoiceItemListTaxAmount.HeaderText = "Tax Amount";
+            this.ColumnSalesInvoiceItemListTaxAmount.Name = "ColumnSalesInvoiceItemListTaxAmount";
+            this.ColumnSalesInvoiceItemListTaxAmount.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListTaxAmount.Visible = false;
+            this.ColumnSalesInvoiceItemListTaxAmount.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListBaseQuantity
+            // 
+            this.ColumnSalesInvoiceItemListBaseQuantity.DataPropertyName = "ColumnSalesInvoiceItemListBaseQuantity";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle10;
+            this.ColumnSalesInvoiceItemListBaseQuantity.HeaderText = "Base Quantity";
+            this.ColumnSalesInvoiceItemListBaseQuantity.Name = "ColumnSalesInvoiceItemListBaseQuantity";
+            this.ColumnSalesInvoiceItemListBaseQuantity.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListBaseQuantity.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListBasePrice
+            // 
+            this.ColumnSalesInvoiceItemListBasePrice.DataPropertyName = "ColumnSalesInvoiceItemListBasePrice";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnSalesInvoiceItemListBasePrice.DefaultCellStyle = dataGridViewCellStyle11;
+            this.ColumnSalesInvoiceItemListBasePrice.HeaderText = "Base Price";
+            this.ColumnSalesInvoiceItemListBasePrice.Name = "ColumnSalesInvoiceItemListBasePrice";
+            this.ColumnSalesInvoiceItemListBasePrice.ReadOnly = true;
+            this.ColumnSalesInvoiceItemListBasePrice.Width = 150;
+            // 
+            // ColumnSalesInvoiceItemListSpace
+            // 
+            this.ColumnSalesInvoiceItemListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSalesInvoiceItemListSpace.DataPropertyName = "ColumnSalesInvoiceItemListSpace";
+            this.ColumnSalesInvoiceItemListSpace.HeaderText = "";
+            this.ColumnSalesInvoiceItemListSpace.Name = "ColumnSalesInvoiceItemListSpace";
+            this.ColumnSalesInvoiceItemListSpace.ReadOnly = true;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel6);
@@ -967,239 +1200,6 @@
             this.ColumnInventoryEntriesSpace.HeaderText = "";
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
-            // 
-            // ColumnSalesInvoiceItemListButtonEdit
-            // 
-            this.ColumnSalesInvoiceItemListButtonEdit.DataPropertyName = "ColumnSalesInvoiceItemListButtonEdit";
-            this.ColumnSalesInvoiceItemListButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSalesInvoiceItemListButtonEdit.HeaderText = "";
-            this.ColumnSalesInvoiceItemListButtonEdit.Name = "ColumnSalesInvoiceItemListButtonEdit";
-            this.ColumnSalesInvoiceItemListButtonEdit.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListButtonEdit.Width = 70;
-            // 
-            // ColumnSalesInvoiceItemListButtonDelete
-            // 
-            this.ColumnSalesInvoiceItemListButtonDelete.DataPropertyName = "ColumnSalesInvoiceItemListButtonDelete";
-            this.ColumnSalesInvoiceItemListButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ColumnSalesInvoiceItemListButtonDelete.HeaderText = "";
-            this.ColumnSalesInvoiceItemListButtonDelete.Name = "ColumnSalesInvoiceItemListButtonDelete";
-            this.ColumnSalesInvoiceItemListButtonDelete.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListButtonDelete.Width = 70;
-            // 
-            // ColumnSalesInvoiceItemListId
-            // 
-            this.ColumnSalesInvoiceItemListId.DataPropertyName = "ColumnSalesInvoiceItemListId";
-            this.ColumnSalesInvoiceItemListId.HeaderText = "Id";
-            this.ColumnSalesInvoiceItemListId.Name = "ColumnSalesInvoiceItemListId";
-            this.ColumnSalesInvoiceItemListId.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListId.Visible = false;
-            // 
-            // ColumnSalesInvoiceItemListSIId
-            // 
-            this.ColumnSalesInvoiceItemListSIId.DataPropertyName = "ColumnSalesInvoiceItemListSIId";
-            this.ColumnSalesInvoiceItemListSIId.HeaderText = "SIId";
-            this.ColumnSalesInvoiceItemListSIId.Name = "ColumnSalesInvoiceItemListSIId";
-            this.ColumnSalesInvoiceItemListSIId.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListSIId.Visible = false;
-            // 
-            // ColumnSalesInvoiceItemListItemId
-            // 
-            this.ColumnSalesInvoiceItemListItemId.DataPropertyName = "ColumnSalesInvoiceItemListItemId";
-            this.ColumnSalesInvoiceItemListItemId.HeaderText = "Item Id";
-            this.ColumnSalesInvoiceItemListItemId.Name = "ColumnSalesInvoiceItemListItemId";
-            this.ColumnSalesInvoiceItemListItemId.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListItemId.Visible = false;
-            // 
-            // ColumnSalesInvoiceItemListItemBaCode
-            // 
-            this.ColumnSalesInvoiceItemListItemBaCode.DataPropertyName = "ColumnSalesInvoiceItemListItemBaCode";
-            this.ColumnSalesInvoiceItemListItemBaCode.HeaderText = "BaCode";
-            this.ColumnSalesInvoiceItemListItemBaCode.Name = "ColumnSalesInvoiceItemListItemBaCode";
-            this.ColumnSalesInvoiceItemListItemBaCode.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListItemBaCode.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListItemDescription
-            // 
-            this.ColumnSalesInvoiceItemListItemDescription.DataPropertyName = "ColumnSalesInvoiceItemListItemDescription";
-            this.ColumnSalesInvoiceItemListItemDescription.HeaderText = "Item Description";
-            this.ColumnSalesInvoiceItemListItemDescription.Name = "ColumnSalesInvoiceItemListItemDescription";
-            this.ColumnSalesInvoiceItemListItemDescription.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListItemDescription.Width = 300;
-            // 
-            // ColumnSalesInvoiceItemListItemInventoryId
-            // 
-            this.ColumnSalesInvoiceItemListItemInventoryId.DataPropertyName = "ColumnSalesInvoiceItemListItemInventoryId";
-            this.ColumnSalesInvoiceItemListItemInventoryId.HeaderText = "Item Inventory Id";
-            this.ColumnSalesInvoiceItemListItemInventoryId.Name = "ColumnSalesInvoiceItemListItemInventoryId";
-            this.ColumnSalesInvoiceItemListItemInventoryId.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListItemInventoryId.Visible = false;
-            // 
-            // ColumnSalesInvoiceItemListItemInventoryCode
-            // 
-            this.ColumnSalesInvoiceItemListItemInventoryCode.DataPropertyName = "ColumnSalesInvoiceItemListItemInventoryCode";
-            this.ColumnSalesInvoiceItemListItemInventoryCode.HeaderText = "Inventory Code";
-            this.ColumnSalesInvoiceItemListItemInventoryCode.Name = "ColumnSalesInvoiceItemListItemInventoryCode";
-            this.ColumnSalesInvoiceItemListItemInventoryCode.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListItemInventoryCode.Width = 200;
-            // 
-            // ColumnSalesInvoiceItemListUnitId
-            // 
-            this.ColumnSalesInvoiceItemListUnitId.DataPropertyName = "ColumnSalesInvoiceItemListUnitId";
-            this.ColumnSalesInvoiceItemListUnitId.HeaderText = "Unit Id";
-            this.ColumnSalesInvoiceItemListUnitId.Name = "ColumnSalesInvoiceItemListUnitId";
-            this.ColumnSalesInvoiceItemListUnitId.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListUnitId.Visible = false;
-            // 
-            // ColumnSalesInvoiceItemListUnit
-            // 
-            this.ColumnSalesInvoiceItemListUnit.DataPropertyName = "ColumnSalesInvoiceItemListUnit";
-            this.ColumnSalesInvoiceItemListUnit.HeaderText = "Unit";
-            this.ColumnSalesInvoiceItemListUnit.Name = "ColumnSalesInvoiceItemListUnit";
-            this.ColumnSalesInvoiceItemListUnit.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListUnit.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListPrice
-            // 
-            this.ColumnSalesInvoiceItemListPrice.DataPropertyName = "ColumnSalesInvoiceItemListPrice";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnSalesInvoiceItemListPrice.HeaderText = "Price";
-            this.ColumnSalesInvoiceItemListPrice.Name = "ColumnSalesInvoiceItemListPrice";
-            this.ColumnSalesInvoiceItemListPrice.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListPrice.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListDiscountId
-            // 
-            this.ColumnSalesInvoiceItemListDiscountId.DataPropertyName = "ColumnSalesInvoiceItemListDiscountId";
-            this.ColumnSalesInvoiceItemListDiscountId.HeaderText = "Discount Id";
-            this.ColumnSalesInvoiceItemListDiscountId.Name = "ColumnSalesInvoiceItemListDiscountId";
-            this.ColumnSalesInvoiceItemListDiscountId.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListDiscountId.Visible = false;
-            // 
-            // ColumnSalesInvoiceItemListDiscount
-            // 
-            this.ColumnSalesInvoiceItemListDiscount.DataPropertyName = "ColumnSalesInvoiceItemListDiscount";
-            this.ColumnSalesInvoiceItemListDiscount.HeaderText = "Discount";
-            this.ColumnSalesInvoiceItemListDiscount.Name = "ColumnSalesInvoiceItemListDiscount";
-            this.ColumnSalesInvoiceItemListDiscount.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListDiscount.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListDiscountRate
-            // 
-            this.ColumnSalesInvoiceItemListDiscountRate.DataPropertyName = "ColumnSalesInvoiceItemListDiscountRate";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListDiscountRate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnSalesInvoiceItemListDiscountRate.HeaderText = "Discount Rate";
-            this.ColumnSalesInvoiceItemListDiscountRate.Name = "ColumnSalesInvoiceItemListDiscountRate";
-            this.ColumnSalesInvoiceItemListDiscountRate.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListDiscountRate.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListDiscountAmount
-            // 
-            this.ColumnSalesInvoiceItemListDiscountAmount.DataPropertyName = "ColumnSalesInvoiceItemListDiscountAmount";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListDiscountAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnSalesInvoiceItemListDiscountAmount.HeaderText = "Discount Amount";
-            this.ColumnSalesInvoiceItemListDiscountAmount.Name = "ColumnSalesInvoiceItemListDiscountAmount";
-            this.ColumnSalesInvoiceItemListDiscountAmount.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListDiscountAmount.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListNetPrice
-            // 
-            this.ColumnSalesInvoiceItemListNetPrice.DataPropertyName = "ColumnSalesInvoiceItemListNetPrice";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListNetPrice.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnSalesInvoiceItemListNetPrice.HeaderText = "Net Price";
-            this.ColumnSalesInvoiceItemListNetPrice.Name = "ColumnSalesInvoiceItemListNetPrice";
-            this.ColumnSalesInvoiceItemListNetPrice.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListNetPrice.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListQuantity
-            // 
-            this.ColumnSalesInvoiceItemListQuantity.DataPropertyName = "ColumnSalesInvoiceItemListQuantity";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListQuantity.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnSalesInvoiceItemListQuantity.HeaderText = "Quantity";
-            this.ColumnSalesInvoiceItemListQuantity.Name = "ColumnSalesInvoiceItemListQuantity";
-            this.ColumnSalesInvoiceItemListQuantity.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListQuantity.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListAmount
-            // 
-            this.ColumnSalesInvoiceItemListAmount.DataPropertyName = "ColumnSalesInvoiceItemListAmount";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListAmount.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ColumnSalesInvoiceItemListAmount.HeaderText = "Amount";
-            this.ColumnSalesInvoiceItemListAmount.Name = "ColumnSalesInvoiceItemListAmount";
-            this.ColumnSalesInvoiceItemListAmount.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListAmount.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListTaxId
-            // 
-            this.ColumnSalesInvoiceItemListTaxId.DataPropertyName = "ColumnSalesInvoiceItemListTaxId";
-            this.ColumnSalesInvoiceItemListTaxId.HeaderText = "Tax Id";
-            this.ColumnSalesInvoiceItemListTaxId.Name = "ColumnSalesInvoiceItemListTaxId";
-            this.ColumnSalesInvoiceItemListTaxId.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListTaxId.Visible = false;
-            // 
-            // ColumnSalesInvoiceItemListTax
-            // 
-            this.ColumnSalesInvoiceItemListTax.DataPropertyName = "ColumnSalesInvoiceItemListTax";
-            this.ColumnSalesInvoiceItemListTax.HeaderText = "Tax";
-            this.ColumnSalesInvoiceItemListTax.Name = "ColumnSalesInvoiceItemListTax";
-            this.ColumnSalesInvoiceItemListTax.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListTax.Visible = false;
-            this.ColumnSalesInvoiceItemListTax.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListTaxRate
-            // 
-            this.ColumnSalesInvoiceItemListTaxRate.DataPropertyName = "ColumnSalesInvoiceItemListTaxRate";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListTaxRate.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ColumnSalesInvoiceItemListTaxRate.HeaderText = "Tax Rate";
-            this.ColumnSalesInvoiceItemListTaxRate.Name = "ColumnSalesInvoiceItemListTaxRate";
-            this.ColumnSalesInvoiceItemListTaxRate.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListTaxRate.Visible = false;
-            this.ColumnSalesInvoiceItemListTaxRate.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListTaxAmount
-            // 
-            this.ColumnSalesInvoiceItemListTaxAmount.DataPropertyName = "ColumnSalesInvoiceItemListTaxAmount";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListTaxAmount.DefaultCellStyle = dataGridViewCellStyle9;
-            this.ColumnSalesInvoiceItemListTaxAmount.HeaderText = "Tax Amount";
-            this.ColumnSalesInvoiceItemListTaxAmount.Name = "ColumnSalesInvoiceItemListTaxAmount";
-            this.ColumnSalesInvoiceItemListTaxAmount.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListTaxAmount.Visible = false;
-            this.ColumnSalesInvoiceItemListTaxAmount.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListBaseQuantity
-            // 
-            this.ColumnSalesInvoiceItemListBaseQuantity.DataPropertyName = "ColumnSalesInvoiceItemListBaseQuantity";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle10;
-            this.ColumnSalesInvoiceItemListBaseQuantity.HeaderText = "Base Quantity";
-            this.ColumnSalesInvoiceItemListBaseQuantity.Name = "ColumnSalesInvoiceItemListBaseQuantity";
-            this.ColumnSalesInvoiceItemListBaseQuantity.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListBaseQuantity.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListBasePrice
-            // 
-            this.ColumnSalesInvoiceItemListBasePrice.DataPropertyName = "ColumnSalesInvoiceItemListBasePrice";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnSalesInvoiceItemListBasePrice.DefaultCellStyle = dataGridViewCellStyle11;
-            this.ColumnSalesInvoiceItemListBasePrice.HeaderText = "Base Price";
-            this.ColumnSalesInvoiceItemListBasePrice.Name = "ColumnSalesInvoiceItemListBasePrice";
-            this.ColumnSalesInvoiceItemListBasePrice.ReadOnly = true;
-            this.ColumnSalesInvoiceItemListBasePrice.Width = 150;
-            // 
-            // ColumnSalesInvoiceItemListSpace
-            // 
-            this.ColumnSalesInvoiceItemListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSalesInvoiceItemListSpace.DataPropertyName = "ColumnSalesInvoiceItemListSpace";
-            this.ColumnSalesInvoiceItemListSpace.HeaderText = "";
-            this.ColumnSalesInvoiceItemListSpace.Name = "ColumnSalesInvoiceItemListSpace";
-            this.ColumnSalesInvoiceItemListSpace.ReadOnly = true;
             // 
             // TrnSalesInvoiceDetailForm
             // 
