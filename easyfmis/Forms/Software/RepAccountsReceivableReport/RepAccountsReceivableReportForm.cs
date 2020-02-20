@@ -30,9 +30,8 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                 comboBoxCompany.DataSource = repAccountsReceivableReportController.DropdownListCompany();
                 comboBoxCompany.ValueMember = "Id";
                 comboBoxCompany.DisplayMember = "Company";
-
-                GetBranches();
             }
+            GetBranches();
         }
 
         public void GetBranches()
@@ -48,13 +47,13 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                     comboBoxBranch.ValueMember = "Id";
                     comboBoxBranch.DisplayMember = "Branch";
 
-                    GetCustomers();
                 }
             }
             else
             {
 
             }
+            GetCustomers();
         }
 
         public void GetCustomers()
@@ -65,17 +64,19 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                 comboBoxCustomer.DataSource = repAccountsReceivableReportController.DropdownListCustomer();
                 comboBoxCustomer.ValueMember = "Id";
                 comboBoxCustomer.DisplayMember = "Article";
+
             }
+            GetSoldBy();
         }
 
         public void GetSoldBy()
         {
             Controllers.RepAccountsReceivableReportController repAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
-            if (repAccountsReceivableReportController.DropdownListCustomer().Any())
+            if (repAccountsReceivableReportController.DropdownListSoldBy().Any())
             {
-                comboBoxCustomer.DataSource = repAccountsReceivableReportController.DropdownListCustomer();
-                comboBoxCustomer.ValueMember = "Id";
-                comboBoxCustomer.DisplayMember = "Article";
+                comboBoxSoldBy.DataSource = repAccountsReceivableReportController.DropdownListSoldBy();
+                comboBoxSoldBy.ValueMember = "Id";
+                comboBoxSoldBy.DisplayMember = "UserName";
             }
         }
 
@@ -105,16 +106,19 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelCustomer.Visible = false;
                         comboBoxCustomer.Visible = false;
 
+                        labelSoldBy.Visible = false;
+                        comboBoxSoldBy.Visible = false;
+
                         break;
                     case "Statement of Account":
-                        labelStartDate.Visible = true;
-                        dateTimePickerStartDate.Visible = true;
+                        labelStartDate.Visible = false;
+                        dateTimePickerStartDate.Visible = false;
 
-                        labelEndDate.Visible = true;
-                        dateTimePickerEndDate.Visible = true;
+                        labelEndDate.Visible = false;
+                        dateTimePickerEndDate.Visible = false;
 
-                        labelDateAsOf.Visible = false;
-                        dateTimePickerDateAsOf.Visible = false;
+                        labelDateAsOf.Visible = true;
+                        dateTimePickerDateAsOf.Visible = true;
 
                         labelCompany.Visible = true;
                         comboBoxCompany.Visible = true;
@@ -124,6 +128,9 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                         labelCustomer.Visible = true;
                         comboBoxCustomer.Visible = true;
+
+                        labelSoldBy.Visible = false;
+                        comboBoxSoldBy.Visible = false;
 
                         break;
                     case "Sales Order Detail Report":
@@ -145,6 +152,9 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelCustomer.Visible = false;
                         comboBoxCustomer.Visible = false;
 
+                        labelSoldBy.Visible = false;
+                        comboBoxSoldBy.Visible = false;
+
                         break;
                     case "Sales Invoice Detail Report":
                         labelStartDate.Visible = true;
@@ -165,9 +175,9 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelCustomer.Visible = false;
                         comboBoxCustomer.Visible = false;
 
-                        labelSoldBy.Visible = false;
-                        comboBoxSoldBy.Visible = false;
-                        
+                        labelSoldBy.Visible = true;
+                        comboBoxSoldBy.Visible = true;
+
 
                         break;
                     case "Collection Detail Report":
@@ -189,6 +199,9 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelCustomer.Visible = false;
                         comboBoxCustomer.Visible = false;
 
+                        labelSoldBy.Visible = false;
+                        comboBoxSoldBy.Visible = false;
+
                         break;
                     default:
                         labelStartDate.Visible = false;
@@ -209,6 +222,9 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelCustomer.Visible = false;
                         comboBoxCustomer.Visible = false;
 
+                        labelSoldBy.Visible = false;
+                        comboBoxSoldBy.Visible = false;
+
                         break;
                 }
             }
@@ -227,11 +243,14 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                 DateTime dateAsOf = dateTimePickerDateAsOf.Value.Date;
                 Int32 companyId = Convert.ToInt32(comboBoxCompany.SelectedValue);
-                String companyName = comboBoxCompany.GetItemText(comboBoxCompany.SelectedItem);
+                String companyName = comboBoxCompany.GetItemText(comboBoxCompany.Text);
                 Int32 branchId = Convert.ToInt32(comboBoxBranch.SelectedValue);
-                String branchName = comboBoxBranch.GetItemText(comboBoxBranch.SelectedItem);
+                String branchName = comboBoxBranch.GetItemText(comboBoxBranch.Text);
                 Int32 soldById = Convert.ToInt32(comboBoxSoldBy.SelectedValue);
-                String soldBy = comboBoxBranch.GetItemText(comboBoxSoldBy.SelectedItem);
+                String soldBy = comboBoxBranch.GetItemText(comboBoxSoldBy.Text);
+                Int32 customerId = Convert.ToInt32(comboBoxCustomer.SelectedValue);
+                String customer = comboBoxBranch.GetItemText(comboBoxCustomer.Text);
+                
 
                 String selectedItem = listBoxAccountsReceivableReport.SelectedItem.ToString();
                 switch (selectedItem)
@@ -242,11 +261,22 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                         break;
                     case "Sales Invoice Detail Report":
-                        RepbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm(dateStart, dateEnd, companyId, companyName, branchId, branchName, soldById, soldBy);
+                        RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName, soldById, soldBy);
                         repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm.ShowDialog();
                         break;
+                    case "Sales Order Detail Report":
+                        RepAccountReceivableSalesOrderDetailReportReportForm repAccountReceivableSalesOrderDetailReportReportForm = new RepAccountReceivableSalesOrderDetailReportReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                        repAccountReceivableSalesOrderDetailReportReportForm.ShowDialog();
+                        break;
+                    case "Collection Detail Report":
+                        RepAccountsReceivableReportCollectionDetailReportForm repAccountsReceivableReportCollectionDetailReportForm = new RepAccountsReceivableReportCollectionDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                        repAccountsReceivableReportCollectionDetailReportForm.ShowDialog();
+                        break;
+                    case "Statement of Account":
+                        RepAccountsReceivableStatementOfAccountsReportForm repAccountsReceivableStatementOfAccountsReportForm = new RepAccountsReceivableStatementOfAccountsReportForm(dateAsOf, companyId, companyName, branchId, branchName, customerId, customer);
+                        repAccountsReceivableStatementOfAccountsReportForm.ShowDialog();
+                        break;
                     default:
-
                         break;
                 }
             }
