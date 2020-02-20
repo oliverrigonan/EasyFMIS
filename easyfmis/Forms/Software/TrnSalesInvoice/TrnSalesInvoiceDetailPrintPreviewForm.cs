@@ -66,7 +66,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 tableHeader.SetWidths(new float[] { 70f, 30f });
                 tableHeader.WidthPercentage = 100;
                 tableHeader.AddCell(new PdfPCell(new Phrase(companyName, fontArial13Bold)) { Border = 0 });
-                tableHeader.AddCell(new PdfPCell(new Phrase("Sales Invoice", fontArial13Bold)) { Border = 0, HorizontalAlignment = Element.ALIGN_RIGHT });
+                tableHeader.AddCell(new PdfPCell(new Phrase("Packing List", fontArial13Bold)) { Border = 0, HorizontalAlignment = Element.ALIGN_RIGHT });
                 tableHeader.AddCell(new PdfPCell(new Phrase(companyAddress, fontArial09)) { Border = 0 });
                 tableHeader.AddCell(new PdfPCell(new Phrase(branch, fontArial09)) { Border = 0, HorizontalAlignment = Element.ALIGN_RIGHT, Rowspan = 3 });
                 tableHeader.AddCell(new PdfPCell(new Phrase(companyContactNumber, fontArial09)) { Border = 0 });
@@ -77,7 +77,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 var salesInvoice = from d in db.TrnSalesInvoices where d.Id == Convert.ToInt32(SIId) && d.IsLocked == true select d;
                 if (salesInvoice.Any())
                 {
-                    var currentSIPrefix = "SI";
+                    var currentSIPrefix = "DR";
 
                     String soldTo = salesInvoice.FirstOrDefault().MstArticle.Article;
 
