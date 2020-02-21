@@ -230,8 +230,24 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         repInventoryReportStockCardReportForm.Show();
 
                         break;
+                    case "Stock-In Detail Report":
+                        RepInventoryReportStockInDetailReportForm repInventoryReportStockInDetailReportForm = new RepInventoryReportStockInDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                        repInventoryReportStockInDetailReportForm.Show();
+                        break;
+                    case "Stock-Out Detail Report":
+                        RepInventoryReportStockOutDetailReportForm repInventoryReportStockOutDetailReportForm = new RepInventoryReportStockOutDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                        repInventoryReportStockOutDetailReportForm.Show();
+                        break;
+                    case "Stock Transfer Detail Report":
+                        RepInventoryReportStockTransferDetailReportForm repInventoryReportStockTransferDetailReportForm = new RepInventoryReportStockTransferDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                        repInventoryReportStockTransferDetailReportForm.Show();
+                        break;
+                    case "Item List":
+                        RepRepInventoryReportItemListReportForm repRepInventoryReportItemListReportForm = new RepRepInventoryReportItemListReportForm();
+                        repRepInventoryReportItemListReportForm.Show();
+                        break;
                     default:
-
+                        
                         break;
                 }
             }

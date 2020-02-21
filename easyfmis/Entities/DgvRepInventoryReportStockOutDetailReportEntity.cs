@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    class DgvRepInventoryReportStockOutDetailReportEntity
+    public class DgvRepInventoryReportStockOutDetailReportEntity
     {
         public String ColumnStockOutDetailReportListBranch { get; set; }
         public String ColumnStockOutDetailReportListOTNumber { get; set; }

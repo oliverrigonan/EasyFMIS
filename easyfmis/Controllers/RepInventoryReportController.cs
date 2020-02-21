@@ -254,5 +254,129 @@ namespace easyfmis.Controllers
 
             return stockCard.ToList();
         }
+
+        // ========================
+        // Stock Transfer In Report
+        // ========================
+        public List<Entities.RepInventoryReportStockInDetailReportEntity> ListStockInDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        {
+            var stockInDetails = from d in db.TrnStockInItems
+                                 where d.TrnStockIn.INDate >= startDate
+                                 && d.TrnStockIn.INDate <= endDate
+                                 && d.TrnStockIn.MstBranch.CompanyId == companyId
+                                 && d.TrnStockIn.BranchId == branchId
+                                 select new Entities.RepInventoryReportStockInDetailReportEntity
+                                 {
+                                     Id = d.Id,
+                                     Branch = d.TrnStockIn.MstBranch.Branch,
+                                     INNumber = d.TrnStockIn.INNumber,
+                                     INDate = d.TrnStockIn.INDate,
+                                     Remarks = d.TrnStockIn.Remarks,
+                                     PreparedBy = d.TrnStockIn.MstUser.FullName,
+                                     CheckedBy = d.TrnStockIn.MstUser1.FullName,
+                                     ApprovedBy = d.TrnStockIn.MstUser2.FullName,
+                                     ItemCode = d.MstArticle.ArticleBarCode,
+                                     ItemDescription = d.MstArticle.Article,
+                                     Unit = d.MstUnit.Unit,
+                                     Quantity = d.Quantity,
+                                     Cost = d.Cost,
+                                     Amount = d.Amount,
+                                     BaseQuantity = d.BaseQuantity,
+                                     BaseCost = d.BaseCost,
+                                 };
+
+            return stockInDetails.ToList();
+        }
+
+        // =========================
+        // Stock Transfer Out Report
+        // =========================
+        public List<Entities.RepInventoryReportStockOutDetailReportEntity> ListStockOutDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        {
+            var stockOutDetails = from d in db.TrnStockOutItems
+                                  where d.TrnStockOut.OTDate >= startDate
+                                  && d.TrnStockOut.OTDate <= endDate
+                                  && d.TrnStockOut.MstBranch.CompanyId == companyId
+                                  && d.TrnStockOut.BranchId == branchId
+                                  select new Entities.RepInventoryReportStockOutDetailReportEntity
+                                  {
+                                      Id = d.Id,
+                                      Branch = d.TrnStockOut.MstBranch.Branch,
+                                      OTNumber = d.TrnStockOut.OTNumber,
+                                      OTDate = d.TrnStockOut.OTDate,
+                                      Remarks = d.TrnStockOut.Remarks,
+                                      PreparedBy = d.TrnStockOut.MstUser.FullName,
+                                      CheckedBy = d.TrnStockOut.MstUser1.FullName,
+                                      ApprovedBy = d.TrnStockOut.MstUser2.FullName,
+                                      ItemCode = d.MstArticle.ArticleBarCode,
+                                      ItemDescription = d.MstArticle.Article,
+                                      ItemInventoryCode = d.MstArticleInventory.InventoryCode,
+                                      Unit = d.MstUnit.Unit,
+                                      Quantity = d.Quantity,
+                                      Cost = d.Cost,
+                                      Amount = d.Amount,
+                                      BaseQuantity = d.BaseQuantity,
+                                      BaseCost = d.BaseCost
+                                  };
+
+            return stockOutDetails.ToList();
+        }
+
+        // ============================
+        // Stock Transfer Detail Report
+        // ============================
+        public List<Entities.RepInventoryReportStockTransferDetailReportEntity> ListStockTransferDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        {
+            var stockTransferDetails = from d in db.TrnStockTransferItems
+                                       where d.TrnStockTransfer.STDate >= startDate
+                                       && d.TrnStockTransfer.STDate <= endDate
+                                       && d.TrnStockTransfer.MstBranch.CompanyId == companyId
+                                       && d.TrnStockTransfer.BranchId == branchId
+                                       select new Entities.RepInventoryReportStockTransferDetailReportEntity
+                                       {
+                                           Id = d.Id,
+                                           Branch = d.TrnStockTransfer.MstBranch.Branch,
+                                           STNumber = d.TrnStockTransfer.STNumber,
+                                           STDate = d.TrnStockTransfer.STDate,
+                                           ToBranch = d.TrnStockTransfer.MstBranch1.Branch,
+                                           Remarks = d.TrnStockTransfer.Remarks,
+                                           PreparedBy = d.TrnStockTransfer.MstUser.FullName,
+                                           CheckedBy = d.TrnStockTransfer.MstUser1.FullName,
+                                           ApprovedBy = d.TrnStockTransfer.MstUser2.FullName,
+                                           ItemCode = d.MstArticle.ArticleBarCode,
+                                           ItemDescription = d.MstArticle.Article,
+                                           ItemInventoryCode = d.MstArticleInventory.InventoryCode,
+                                           Unit = d.MstUnit.Unit,
+                                           Quantity = d.Quantity,
+                                           Cost = d.Cost,
+                                           Amount = d.Amount,
+                                           BaseQuantity = d.BaseQuantity,
+                                           BaseCost = d.BaseCost
+                                       };
+
+            return stockTransferDetails.ToList();
+        }
+
+        // =========
+        // Item List
+        // =========
+        public List<Entities.RepInventoryReportItemListReportEntity> ListItem()
+        {
+            var itemList = from d in db.MstArticles
+                           where d.ArticleTypeId == 1
+                           && d.IsLocked == true
+                           select new Entities.RepInventoryReportItemListReportEntity
+                           {
+                               Id = d.Id,
+                               Code = d.ArticleCode,
+                               ItemDescription = d.Article,
+                               BarCode = d.ArticleBarCode,
+                               Category = d.Category,
+                               Unit = d.MstUnit.Unit,
+                               Price = d.DefaultPrice
+                           };
+
+            return itemList.ToList();
+        }
     }
 }
