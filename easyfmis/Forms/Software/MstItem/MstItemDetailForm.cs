@@ -241,10 +241,7 @@ namespace easyfmis.Forms.Software.MstItem
             }
         }
 
-        private void textBoxCost_Leave(object sender, EventArgs e)
-        {
-            textBoxCost.Text = Convert.ToDecimal(textBoxCost.Text).ToString("#,##0.00");
-        }
+        
 
         private void textBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -262,11 +259,6 @@ namespace easyfmis.Forms.Software.MstItem
             {
                 e.Handled = true;
             }
-        }
-
-        private void textBoxPrice_Leave(object sender, EventArgs e)
-        {
-            textBoxPrice.Text = Convert.ToDecimal(textBoxPrice.Text).ToString("#,##0.00");
         }
 
         private void textBoxReorderQuantity_KeyPress(object sender, KeyPressEventArgs e)
@@ -287,12 +279,33 @@ namespace easyfmis.Forms.Software.MstItem
             }
         }
 
-        private void textBoxReorderQuantity_Leave(object sender, EventArgs e)
+        private void textBoxCost_Leave(object sender, EventArgs e)
         {
-            textBoxReorderQuantity.Text = Convert.ToDecimal(textBoxReorderQuantity.Text).ToString("#,##0.00");
+            textBoxCost.Text = Convert.ToDecimal(textBoxCost.Text).ToString("#,##0.00");
         }
 
+        private void textBoxPrice_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
 
+        private void textBoxReorderQuantity_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
+
+        public void DefaultZeroEmptyString()
+        {
+            if (String.IsNullOrEmpty(textBoxReorderQuantity.Text))
+            {
+                textBoxReorderQuantity.Text = Convert.ToDecimal(textBoxReorderQuantity.Text).ToString("#,##0.00");
+            }
+
+            if (String.IsNullOrEmpty(textBoxPrice.Text))
+            {
+                textBoxPrice.Text = Convert.ToDecimal(textBoxPrice.Text).ToString("#,##0.00");
+            }
+        }
 
         //====================
         // Unit Convertion Tab

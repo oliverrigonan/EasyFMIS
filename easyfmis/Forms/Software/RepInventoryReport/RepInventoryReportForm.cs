@@ -39,6 +39,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             if (comboBoxCompany.SelectedValue != null)
             {
+
                 Int32 companyId = Convert.ToInt32(comboBoxCompany.SelectedValue);
 
                 Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();

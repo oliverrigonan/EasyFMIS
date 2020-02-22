@@ -323,6 +323,7 @@ namespace easyfmis.Controllers
                                        where d.SIDate <= dateAsOf
                                        && d.MstBranch.CompanyId == companyId
                                        && d.BranchId == branchId
+                                       && d.CustomerId == customerID
                                        && d.IsLocked == true
                                        && d.BalanceAmount > 0
                                        select new Entities.RepAccountsReceivableStatementOfAccountReportEntity

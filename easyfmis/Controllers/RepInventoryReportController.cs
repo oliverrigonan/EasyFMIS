@@ -194,6 +194,7 @@ namespace easyfmis.Controllers
                                      select new Entities.RepInventoryReportStockCardEntity
                                      {
                                          Document = d.SIId != null ? "SI-" + d.TrnSalesInvoice.MstBranch.BranchCode + "-" + d.TrnSalesInvoice.SINumber :
+                                                    d.RRId != null ? "RR-" + d.TrnReceivingReceipt.MstBranch.BranchCode + "-" + d.TrnReceivingReceipt.RRNumber :
                                                     d.INId != null ? "IN-" + d.TrnStockIn.MstBranch.BranchCode + "-" + d.TrnStockIn.INNumber :
                                                     d.OTId != null ? "OT-" + d.TrnStockOut.MstBranch.BranchCode + "-" + d.TrnStockOut.OTNumber :
                                                     d.STId != null ? "ST-" + d.TrnStockTransfer.MstBranch.BranchCode + "-" + d.TrnStockTransfer.STNumber : " ",

@@ -62,6 +62,8 @@
             this.textBoxCost2.Size = new System.Drawing.Size(195, 30);
             this.textBoxCost2.TabIndex = 4;
             this.textBoxCost2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCost2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCost2_KeyPress);
+            this.textBoxCost2.Leave += new System.EventHandler(this.textBoxCost2_Leave);
             // 
             // label7
             // 
@@ -76,6 +78,7 @@
             // textBoxCost1
             // 
             this.textBoxCost1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxCost1.Enabled = false;
             this.textBoxCost1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxCost1.Location = new System.Drawing.Point(142, 174);
             this.textBoxCost1.Name = "textBoxCost1";
@@ -83,6 +86,8 @@
             this.textBoxCost1.Size = new System.Drawing.Size(195, 30);
             this.textBoxCost1.TabIndex = 3;
             this.textBoxCost1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCost1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCost1_KeyPress);
+            this.textBoxCost1.Leave += new System.EventHandler(this.textBoxCost1_Leave);
             // 
             // label4
             // 
@@ -102,6 +107,8 @@
             this.textBoxQuantity.Size = new System.Drawing.Size(195, 30);
             this.textBoxQuantity.TabIndex = 2;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQuantity_KeyPress);
+            this.textBoxQuantity.Leave += new System.EventHandler(this.textBoxQuantity_Leave);
             // 
             // label3
             // 
@@ -190,6 +197,8 @@
             this.textBoxCost4.Size = new System.Drawing.Size(195, 30);
             this.textBoxCost4.TabIndex = 6;
             this.textBoxCost4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCost4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCost4_KeyPress);
+            this.textBoxCost4.Leave += new System.EventHandler(this.textBoxCost4_Leave);
             // 
             // label5
             // 
@@ -210,6 +219,8 @@
             this.textBoxCost3.Size = new System.Drawing.Size(195, 30);
             this.textBoxCost3.TabIndex = 5;
             this.textBoxCost3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCost3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCost3_KeyPress);
+            this.textBoxCost3.Leave += new System.EventHandler(this.textBoxCost3_Leave);
             // 
             // label8
             // 
@@ -230,6 +241,8 @@
             this.textBoxCost5.Size = new System.Drawing.Size(195, 30);
             this.textBoxCost5.TabIndex = 7;
             this.textBoxCost5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCost5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCost5_KeyPress);
+            this.textBoxCost5.Leave += new System.EventHandler(this.textBoxCost5_Leave);
             // 
             // label9
             // 

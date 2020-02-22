@@ -61,5 +61,184 @@ namespace easyfmis.Forms.Software.MstItem
         {
             Close();
         }
+
+        public void DefaultZeroEmptyString()
+        {
+            if (String.IsNullOrEmpty(textBoxQuantity.Text))
+            {
+                textBoxQuantity.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
+            }
+
+            if (String.IsNullOrEmpty(textBoxCost1.Text))
+            {
+                textBoxCost1.Text = Convert.ToDecimal(textBoxCost1.Text).ToString("#,##0.00");
+            }
+
+            if (String.IsNullOrEmpty(textBoxCost2.Text))
+            {
+                textBoxCost2.Text = Convert.ToDecimal(textBoxCost2.Text).ToString("#,##0.00");
+            }
+
+            if (String.IsNullOrEmpty(textBoxCost3.Text))
+            {
+                textBoxCost3.Text = Convert.ToDecimal(textBoxCost3.Text).ToString("#,##0.00");
+            }
+
+            if (String.IsNullOrEmpty(textBoxCost4.Text))
+            {
+                textBoxCost4.Text = Convert.ToDecimal(textBoxCost4.Text).ToString("#,##0.00");
+            }
+
+            if (String.IsNullOrEmpty(textBoxCost5.Text))
+            {
+                textBoxCost5.Text = Convert.ToDecimal(textBoxCost5.Text).ToString("#,##0.00");
+            }
+
+            if (String.IsNullOrEmpty(textBoxCost5.Text))
+            {
+                textBoxQuantity.Text = Convert.ToDecimal(textBoxQuantity.Text).ToString("#,##0.00");
+            }
+        }
+
+
+
+        private void textBoxCost1_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
+
+
+        private void textBoxCost2_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
+
+        private void textBoxCost3_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
+
+        private void textBoxCost4_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
+
+        private void textBoxCost5_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
+
+        private void textBoxQuantity_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
+
+        private void textBoxCost1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCost2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCost3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCost4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCost5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

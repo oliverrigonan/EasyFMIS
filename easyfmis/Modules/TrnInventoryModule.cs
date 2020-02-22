@@ -16,7 +16,7 @@ namespace easyfmis.Modules
         // ========================
         // Update Article Inventory
         // ========================
-        public void UpdateArticleInventory(Int32 id)
+        public void UpdateArticleInventory(Int32 id, Decimal cost)
         {
             try
             {
@@ -27,7 +27,6 @@ namespace easyfmis.Modules
                 if (articleInventory.Any())
                 {
                     Decimal quantity = 0;
-                    Decimal cost = 0;
 
                     var inventories = from d in db.TrnInventories
                                       where d.ItemInventoryId == id
@@ -36,12 +35,17 @@ namespace easyfmis.Modules
                     if (inventories.Any())
                     {
                         quantity = inventories.Sum(d => d.Quantity);
-                        cost = inventories.OrderByDescending(d => d.Id).FirstOrDefault().MstArticleInventory.Cost1;
                     }
+
 
                     var updateArticleInventory = articleInventory.FirstOrDefault();
                     updateArticleInventory.Quantity = quantity;
-                    updateArticleInventory.Cost1 = cost;
+
+                    if (cost > 0)
+                    {
+                        updateArticleInventory.Cost1 = cost;
+                    }
+
                     db.SubmitChanges();
                 }
             }
@@ -119,7 +123,7 @@ namespace easyfmis.Modules
                             db.TrnInventories.InsertOnSubmit(newInventory);
                             db.SubmitChanges();
 
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -159,7 +163,7 @@ namespace easyfmis.Modules
                     {
                         foreach (var articleInventoryId in articleInventoryIds)
                         {
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -219,7 +223,7 @@ namespace easyfmis.Modules
                             db.TrnInventories.InsertOnSubmit(newInventory);
                             db.SubmitChanges();
 
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -259,7 +263,7 @@ namespace easyfmis.Modules
                     {
                         foreach (var articleInventoryId in articleInventoryIds)
                         {
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -339,7 +343,7 @@ namespace easyfmis.Modules
                             db.TrnInventories.InsertOnSubmit(newInInventory);
                             db.SubmitChanges();
 
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -379,7 +383,7 @@ namespace easyfmis.Modules
                     {
                         foreach (var articleInventoryId in articleInventoryIds)
                         {
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -439,7 +443,7 @@ namespace easyfmis.Modules
                             db.TrnInventories.InsertOnSubmit(newInventory);
                             db.SubmitChanges();
 
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -479,7 +483,7 @@ namespace easyfmis.Modules
                     {
                         foreach (var articleInventoryId in articleInventoryIds)
                         {
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
@@ -558,7 +562,7 @@ namespace easyfmis.Modules
                             db.TrnInventories.InsertOnSubmit(newInventory);
                             db.SubmitChanges();
 
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, receivingReceiptItem.BaseCost);
                         }
                     }
                 }
@@ -598,7 +602,7 @@ namespace easyfmis.Modules
                     {
                         foreach (var articleInventoryId in articleInventoryIds)
                         {
-                            UpdateArticleInventory(articleInventoryId);
+                            UpdateArticleInventory(articleInventoryId, 0);
                         }
                     }
                 }
