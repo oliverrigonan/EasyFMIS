@@ -183,7 +183,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                     DiscountRate = 0,
                     DiscountAmount = 0,
                     NetPrice = price,
-                    Quantity = 0,
+                    Quantity = 1,
                     Amount = 0,
                     TaxId = taxId,
                     TaxRate = taxRate,

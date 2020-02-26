@@ -64,6 +64,26 @@ namespace easyfmis.Controllers
             return articleGroups.ToList();
         }
 
+        // ==================
+        // List Sales Invoice
+        // ==================
+        public List<Entities.TrnCollectionSalesInvoiceListEntity> ListSalesInvoice(Int32 customerId)
+        {
+            var salesInvoices = from d in db.TrnSalesInvoices
+                                where d.CustomerId == customerId
+                                select new Entities.TrnCollectionSalesInvoiceListEntity
+                                {
+                                    Id = d.Id,
+                                    SINumber = d.SINumber,
+                                    SIDate = d.SIDate,
+                                    ManualSINumber = d.ManualSINumber,
+                                    Remarks = d.Remarks,
+                                    BalanceAmount = d.Amount - d.PaidAmount,
+                                };
+
+            return salesInvoices.OrderByDescending(d => d.Id).ToList();
+        }
+
         // =======================
         // Dropdown List SI Number
         // =======================

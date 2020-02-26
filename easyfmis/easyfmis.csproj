@@ -162,6 +162,7 @@
     <Compile Include="Entities\DgvSystemTablesPayTypeListEntity.cs" />
     <Compile Include="Entities\DgvSystemTablesTaxListEntity.cs" />
     <Compile Include="Entities\DgvSystemTablesUnitListEntity.cs" />
+    <Compile Include="Entities\DgvTrnCollectionSalesInvoiceListEntity.cs" />
     <Compile Include="Entities\DgvTrnInventoryEntriesEntity.cs" />
     <Compile Include="Entities\DgvRepInventoryReportEntity.cs" />
     <Compile Include="Entities\DgvItemListItemEntity.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
     <Compile Include="Entities\TrnCollectionLineEntity.cs" />
+    <Compile Include="Entities\TrnCollectionSalesInvoiceListEntity.cs" />
     <Compile Include="Entities\TrnDisbursementEntity.cs" />
     <Compile Include="Entities\TrnDisbursementLineEntity.cs" />
     <Compile Include="Entities\TrnInventoryEntity.cs" />
@@ -547,6 +549,12 @@
     </Compile>
     <Compile Include="Forms\Software\TrnCollection\TrnCollectionDetailPrintPreviewForm.Designer.cs">
       <DependentUpon>TrnCollectionDetailPrintPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\TrnCollection\TrnCollectionSalesInvoiceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\TrnCollection\TrnCollectionSalesInvoiceListForm.Designer.cs">
+      <DependentUpon>TrnCollectionSalesInvoiceListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\TrnDisbursement\TrnDisbursementListForm.cs">
       <SubType>Form</SubType>
@@ -989,6 +997,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionDetailPrintPreviewForm.resx">
       <DependentUpon>TrnCollectionDetailPrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionSalesInvoiceListForm.resx">
+      <DependentUpon>TrnCollectionSalesInvoiceListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnDisbursement\TrnDisbursementListForm.resx">
       <DependentUpon>TrnDisbursementListForm.cs</DependentUpon>

@@ -17,13 +17,12 @@ namespace easyfmis.Forms.Software.TrnCollection
         public Entities.TrnCollectionLineEntity trnCollectionLineEntity;
         public Int32 customerId;
 
-        public TrnCollectionDetailCollectionLineDetailForm(TrnCollectionDetailForm collectionDetailForm, Int32 filterCustomerId, Entities.TrnCollectionLineEntity collectionLineEntity)
+        public TrnCollectionDetailCollectionLineDetailForm(TrnCollectionDetailForm collectionDetailForm, Entities.TrnCollectionLineEntity collectionLineEntity)
         {
             InitializeComponent();
             trnCollectionDetailForm = collectionDetailForm;
 
             trnCollectionLineEntity = collectionLineEntity;
-            customerId = filterCustomerId;
 
             GetArticleGroupList();
         }
@@ -37,23 +36,6 @@ namespace easyfmis.Forms.Software.TrnCollection
                 comboBoxArticleGroup.ValueMember = "Id";
                 comboBoxArticleGroup.DisplayMember = "ArticleGroup";
 
-                GetSINumberList();
-            }
-        }
-
-        public void GetSINumberList()
-        {
-            Controllers.TrnCollectionLineController trnCollectionLineController = new Controllers.TrnCollectionLineController();
-            if (trnCollectionLineController.DropdownListSINumber(customerId).Any())
-            {
-                comboBoxSINumber.DataSource = trnCollectionLineController.DropdownListSINumber(customerId);
-                comboBoxSINumber.ValueMember = "Id";
-                comboBoxSINumber.DisplayMember = "SINumber";
-
-                GetPayTypeList();
-            }
-            else
-            {
                 GetPayTypeList();
             }
         }
@@ -73,19 +55,16 @@ namespace easyfmis.Forms.Software.TrnCollection
 
         public void GetCollectionLineItemDetail()
         {
-            comboBoxArticleGroup.SelectedValue = trnCollectionLineEntity.ArticleGroupId;
-
-            if (trnCollectionLineEntity.SIId != null)
+            if (trnCollectionLineEntity.ArticleGroupId != 0)
             {
-                comboBoxSINumber.SelectedValue = trnCollectionLineEntity.SIId;
+                comboBoxArticleGroup.SelectedValue = trnCollectionLineEntity.ArticleGroupId;
             }
-            else
+            if (trnCollectionLineEntity.PayTypeId != 0)
             {
-                comboBoxSINumber.SelectedValue = "";
+                comboBoxPayType.SelectedValue = trnCollectionLineEntity.PayTypeId;
             }
-
+            textBoxSINumber.Text = trnCollectionLineEntity.SINumber;
             textBoxAmount.Text = trnCollectionLineEntity.Amount.ToString("#,##0.00");
-            comboBoxPayType.SelectedValue = trnCollectionLineEntity.PayTypeId;
             textBoxCheckNumber.Text = trnCollectionLineEntity.CheckNumber;
 
             DateTime checkDate = DateTime.Today;
@@ -117,7 +96,7 @@ namespace easyfmis.Forms.Software.TrnCollection
             var id = trnCollectionLineEntity.Id;
             var ORId = trnCollectionLineEntity.ORId;
             var articleGroupId = Convert.ToInt32(comboBoxArticleGroup.SelectedValue);
-            var SIId = Convert.ToInt32(comboBoxSINumber.SelectedValue);
+            var SIId = trnCollectionLineEntity.SIId;
             var amount = Convert.ToDecimal(textBoxAmount.Text);
             var payTypeId = Convert.ToInt32(comboBoxPayType.SelectedValue);
             var checkNumber = textBoxCheckNumber.Text;
@@ -210,20 +189,6 @@ namespace easyfmis.Forms.Software.TrnCollection
         private void textBoxCollectionLineCost_Leave(object sender, EventArgs e)
         {
             textBoxAmount.Text = Convert.ToDecimal(textBoxAmount.Text).ToString("#,##0.00");
-        }
-
-        private void comboBoxSINumber_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxSINumber.SelectedItem == null)
-            {
-                return;
-            }
-
-            var selectedItemSINumber = (Entities.TrnSalesInvoiceEntity)comboBoxSINumber.SelectedItem;
-            if (selectedItemSINumber != null)
-            {
-                textBoxAmount.Text = selectedItemSINumber.Amount.ToString("#,##0.00");
-            }
         }
     }
 }

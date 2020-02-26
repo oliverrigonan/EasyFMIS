@@ -356,7 +356,7 @@ namespace easyfmis.Forms.Software.TrnCollection
                         GiftCertificateNumber = giftCertificateNumber,
                         OtherInformation = otherInformation
                     };
-                    TrnCollectionDetailCollectionLineDetailForm trnCollectionDetailCollectionLineDetailForm = new TrnCollectionDetailCollectionLineDetailForm(this, Convert.ToInt32(comboBoxCustomer.SelectedValue), currentCollectionLineEntity);
+                    TrnCollectionDetailCollectionLineDetailForm trnCollectionDetailCollectionLineDetailForm = new TrnCollectionDetailCollectionLineDetailForm(this, currentCollectionLineEntity);
                     trnCollectionDetailCollectionLineDetailForm.ShowDialog();
                 }
             }
@@ -480,8 +480,8 @@ namespace easyfmis.Forms.Software.TrnCollection
                 OtherInformation = ""
             };
 
-            TrnCollectionDetailCollectionLineDetailForm trnCollectionDetailCollectionLineDetailForm = new TrnCollectionDetailCollectionLineDetailForm(this, Convert.ToInt32(comboBoxCustomer.SelectedValue), newCollectionLineEntity);
-            trnCollectionDetailCollectionLineDetailForm.ShowDialog();
+            TrnCollectionSalesInvoiceListForm trnCollectionSalesInvoiceListForm = new TrnCollectionSalesInvoiceListForm(this, Convert.ToInt32(comboBoxCustomer.SelectedValue), newCollectionLineEntity);
+            trnCollectionSalesInvoiceListForm.ShowDialog();
         }
 
 

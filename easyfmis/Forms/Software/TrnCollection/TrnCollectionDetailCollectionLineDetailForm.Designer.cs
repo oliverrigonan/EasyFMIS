@@ -61,12 +61,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxPayType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxSINumber = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxSINumber = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -142,6 +142,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBoxSINumber);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.textBoxOtherInformation);
             this.panel2.Controls.Add(this.textBoxGiftCertificateNumber);
@@ -168,7 +169,6 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.comboBoxPayType);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBoxSINumber);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBoxAmount);
             this.panel2.Controls.Add(this.label2);
@@ -419,18 +419,6 @@
             this.label5.TabIndex = 34;
             this.label5.Text = "Pay Type:";
             // 
-            // comboBoxSINumber
-            // 
-            this.comboBoxSINumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxSINumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxSINumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxSINumber.FormattingEnabled = true;
-            this.comboBoxSINumber.Location = new System.Drawing.Point(267, 43);
-            this.comboBoxSINumber.Name = "comboBoxSINumber";
-            this.comboBoxSINumber.Size = new System.Drawing.Size(344, 31);
-            this.comboBoxSINumber.TabIndex = 1;
-            this.comboBoxSINumber.SelectedIndexChanged += new System.EventHandler(this.comboBoxSINumber_SelectedIndexChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -483,6 +471,14 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Article Group:";
             // 
+            // textBoxSINumber
+            // 
+            this.textBoxSINumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxSINumber.Location = new System.Drawing.Point(267, 43);
+            this.textBoxSINumber.Name = "textBoxSINumber";
+            this.textBoxSINumber.Size = new System.Drawing.Size(344, 30);
+            this.textBoxSINumber.TabIndex = 60;
+            // 
             // TrnCollectionDetailCollectionLineDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -519,7 +515,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxPayType;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBoxSINumber;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxAmount;
         private System.Windows.Forms.Label label2;
@@ -545,5 +540,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerCheckDate;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBoxOtherInformation;
+        private System.Windows.Forms.TextBox textBoxSINumber;
     }
 }

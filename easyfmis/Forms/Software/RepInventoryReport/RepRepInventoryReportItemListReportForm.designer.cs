@@ -38,12 +38,6 @@
             this.textBoxListReportReportPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewItemListReport = new System.Windows.Forms.DataGridView();
-            this.buttonGenerateCSV = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
             this.ColumnItemListReportListCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemListReportListItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemListReportListBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +45,12 @@
             this.ColumnItemListReportListUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemListReportListPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemListReportListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonGenerateCSV = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemListReport)).BeginInit();
@@ -158,6 +158,9 @@
             this.dataGridViewItemListReport.AllowUserToAddRows = false;
             this.dataGridViewItemListReport.AllowUserToDeleteRows = false;
             this.dataGridViewItemListReport.AllowUserToResizeRows = false;
+            this.dataGridViewItemListReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewItemListReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewItemListReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewItemListReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -177,6 +180,61 @@
             this.dataGridViewItemListReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewItemListReport.Size = new System.Drawing.Size(1357, 524);
             this.dataGridViewItemListReport.TabIndex = 21;
+            // 
+            // ColumnItemListReportListCode
+            // 
+            this.ColumnItemListReportListCode.DataPropertyName = "ColumnItemListReportListCode";
+            this.ColumnItemListReportListCode.HeaderText = "Code";
+            this.ColumnItemListReportListCode.Name = "ColumnItemListReportListCode";
+            this.ColumnItemListReportListCode.ReadOnly = true;
+            // 
+            // ColumnItemListReportListItemDescription
+            // 
+            this.ColumnItemListReportListItemDescription.DataPropertyName = "ColumnItemListReportListItemDescription";
+            this.ColumnItemListReportListItemDescription.HeaderText = "Item Description ";
+            this.ColumnItemListReportListItemDescription.Name = "ColumnItemListReportListItemDescription";
+            this.ColumnItemListReportListItemDescription.ReadOnly = true;
+            this.ColumnItemListReportListItemDescription.Width = 250;
+            // 
+            // ColumnItemListReportListBarCode
+            // 
+            this.ColumnItemListReportListBarCode.DataPropertyName = "ColumnItemListReportListBarCode";
+            this.ColumnItemListReportListBarCode.HeaderText = "BarCode";
+            this.ColumnItemListReportListBarCode.Name = "ColumnItemListReportListBarCode";
+            this.ColumnItemListReportListBarCode.ReadOnly = true;
+            this.ColumnItemListReportListBarCode.Width = 180;
+            // 
+            // ColumnItemListReportListCategory
+            // 
+            this.ColumnItemListReportListCategory.DataPropertyName = "ColumnItemListReportListCategory";
+            this.ColumnItemListReportListCategory.HeaderText = "Category";
+            this.ColumnItemListReportListCategory.Name = "ColumnItemListReportListCategory";
+            this.ColumnItemListReportListCategory.ReadOnly = true;
+            // 
+            // ColumnItemListReportListUnit
+            // 
+            this.ColumnItemListReportListUnit.DataPropertyName = "ColumnItemListReportListUnit";
+            this.ColumnItemListReportListUnit.HeaderText = "Unit";
+            this.ColumnItemListReportListUnit.Name = "ColumnItemListReportListUnit";
+            this.ColumnItemListReportListUnit.ReadOnly = true;
+            // 
+            // ColumnItemListReportListPrice
+            // 
+            this.ColumnItemListReportListPrice.DataPropertyName = "ColumnItemListReportListPrice";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnItemListReportListPrice.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnItemListReportListPrice.HeaderText = "Price";
+            this.ColumnItemListReportListPrice.Name = "ColumnItemListReportListPrice";
+            this.ColumnItemListReportListPrice.ReadOnly = true;
+            this.ColumnItemListReportListPrice.Width = 150;
+            // 
+            // ColumnItemListReportListSpace
+            // 
+            this.ColumnItemListReportListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnItemListReportListSpace.DataPropertyName = "ColumnItemListReportListSpace";
+            this.ColumnItemListReportListSpace.HeaderText = "";
+            this.ColumnItemListReportListSpace.Name = "ColumnItemListReportListSpace";
+            this.ColumnItemListReportListSpace.ReadOnly = true;
             // 
             // buttonGenerateCSV
             // 
@@ -250,61 +308,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1382, 63);
             this.panel1.TabIndex = 16;
-            // 
-            // ColumnItemListReportListCode
-            // 
-            this.ColumnItemListReportListCode.DataPropertyName = "ColumnItemListReportListCode";
-            this.ColumnItemListReportListCode.HeaderText = "Code";
-            this.ColumnItemListReportListCode.Name = "ColumnItemListReportListCode";
-            this.ColumnItemListReportListCode.ReadOnly = true;
-            // 
-            // ColumnItemListReportListItemDescription
-            // 
-            this.ColumnItemListReportListItemDescription.DataPropertyName = "ColumnItemListReportListItemDescription";
-            this.ColumnItemListReportListItemDescription.HeaderText = "Item Description ";
-            this.ColumnItemListReportListItemDescription.Name = "ColumnItemListReportListItemDescription";
-            this.ColumnItemListReportListItemDescription.ReadOnly = true;
-            this.ColumnItemListReportListItemDescription.Width = 250;
-            // 
-            // ColumnItemListReportListBarCode
-            // 
-            this.ColumnItemListReportListBarCode.DataPropertyName = "ColumnItemListReportListBarCode";
-            this.ColumnItemListReportListBarCode.HeaderText = "BarCode";
-            this.ColumnItemListReportListBarCode.Name = "ColumnItemListReportListBarCode";
-            this.ColumnItemListReportListBarCode.ReadOnly = true;
-            this.ColumnItemListReportListBarCode.Width = 180;
-            // 
-            // ColumnItemListReportListCategory
-            // 
-            this.ColumnItemListReportListCategory.DataPropertyName = "ColumnItemListReportListCategory";
-            this.ColumnItemListReportListCategory.HeaderText = "Category";
-            this.ColumnItemListReportListCategory.Name = "ColumnItemListReportListCategory";
-            this.ColumnItemListReportListCategory.ReadOnly = true;
-            // 
-            // ColumnItemListReportListUnit
-            // 
-            this.ColumnItemListReportListUnit.DataPropertyName = "ColumnItemListReportListUnit";
-            this.ColumnItemListReportListUnit.HeaderText = "Unit";
-            this.ColumnItemListReportListUnit.Name = "ColumnItemListReportListUnit";
-            this.ColumnItemListReportListUnit.ReadOnly = true;
-            // 
-            // ColumnItemListReportListPrice
-            // 
-            this.ColumnItemListReportListPrice.DataPropertyName = "ColumnItemListReportListPrice";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnItemListReportListPrice.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnItemListReportListPrice.HeaderText = "Price";
-            this.ColumnItemListReportListPrice.Name = "ColumnItemListReportListPrice";
-            this.ColumnItemListReportListPrice.ReadOnly = true;
-            this.ColumnItemListReportListPrice.Width = 150;
-            // 
-            // ColumnItemListReportListSpace
-            // 
-            this.ColumnItemListReportListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnItemListReportListSpace.DataPropertyName = "ColumnItemListReportListSpace";
-            this.ColumnItemListReportListSpace.HeaderText = "";
-            this.ColumnItemListReportListSpace.Name = "ColumnItemListReportListSpace";
-            this.ColumnItemListReportListSpace.ReadOnly = true;
             // 
             // RepRepInventoryReportItemListReportForm
             // 
