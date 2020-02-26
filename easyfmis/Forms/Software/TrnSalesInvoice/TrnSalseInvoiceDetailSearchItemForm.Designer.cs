@@ -1062,6 +1062,7 @@
             this.Name = "TrnSalesInvoiceDetailSearchItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Item";
+            this.Load += new System.EventHandler(this.TrnSalesInvoiceDetailSearchItemForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

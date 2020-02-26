@@ -769,5 +769,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         {
             UpdateSalesOrderItemDataSource();
         }
+
+        private void TrnSalesInvoiceDetailSearchItemForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
