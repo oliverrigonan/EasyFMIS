@@ -394,13 +394,13 @@ namespace easyfmis.Forms.Software.MstUser
                 FormId = 0,
                 Form = "",
                 UserId = mstUserEntity.Id,
-                CanDelete = false,
-                CanAdd = false,
-                CanLock = false,
-                CanUnlock = false,
-                CanPrint = false,
-                CanPreview = false,
-                CanEdit = false,
+                CanDelete = true,
+                CanAdd = true,
+                CanLock = true,
+                CanUnlock = true,
+                CanPrint = true,
+                CanPreview = true,
+                CanEdit = true,
             };
 
             MstUserDetailUserFormDetailForm mstUserDetailUserFormDetailForm = new MstUserDetailUserFormDetailForm(this, mstUserFormEntity);

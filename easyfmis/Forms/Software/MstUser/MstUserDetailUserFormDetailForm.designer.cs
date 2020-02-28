@@ -214,6 +214,7 @@
             // 
             // checkBoxCanDelete
             // 
+            this.checkBoxCanDelete.AutoEllipsis = true;
             this.checkBoxCanDelete.AutoSize = true;
             this.checkBoxCanDelete.Checked = true;
             this.checkBoxCanDelete.CheckState = System.Windows.Forms.CheckState.Checked;
