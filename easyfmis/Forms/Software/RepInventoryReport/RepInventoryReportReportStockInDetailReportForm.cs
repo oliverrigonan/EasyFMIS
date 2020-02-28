@@ -75,6 +75,28 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
                 rowList = row.ToList();
 
+                Decimal totalAmount = stockInDetailReportList.Sum(d=>d.Amount);
+
+                Entities.DgvRepInventoryReportStockInDetailReportEntity totalAmountStockInDetailReport = new Entities.DgvRepInventoryReportStockInDetailReportEntity()
+                {
+                    ColumnStockInDetailReportListBranch = "Total",
+                    ColumnStockInDetailReportListINNumber = "",
+                    ColumnStockInDetailReportListINDate = "",
+                    ColumnStockInDetailReportListRemarks = "",
+                    ColumnStockInDetailReportListPreparedBy = "",
+                    ColumnStockInDetailReportListCheckedBy = "",
+                    ColumnStockInDetailReportListApprovedBy = "",
+                    ColumnStockInDetailReportListItemCode = "",
+                    ColumnStockInDetailReportListItemDescription = "",
+                    ColumnStockInDetailReportListUnit = "",
+                    ColumnStockInDetailReportListQuantity = "",
+                    ColumnStockInDetailReportListCost = "",
+                    ColumnStockInDetailReportListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnStockInDetailReportListBaseQuantity = "",
+                    ColumnStockInDetailReportListBaseCost = "",
+                };
+
+                rowList.Add(totalAmountStockInDetailReport);
             }
             return rowList;
         }

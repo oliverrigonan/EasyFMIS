@@ -22,12 +22,6 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         public Int32 pageNumber = 1;
         public Int32 pageSize = 50;
 
-        DateTime DateStart;
-        DateTime DateEnd;
-        Int32 CompanyId;
-        Int32 BranchId;
-        Int32 SoldById;
-
         public RepRepInventoryReportItemListReportForm()
         {
             InitializeComponent();

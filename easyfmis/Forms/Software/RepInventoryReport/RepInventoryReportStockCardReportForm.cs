@@ -73,6 +73,23 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
                 rowList = row.ToList();
 
+                Decimal totalAmount = inventoryReportList.Sum(d => d.Amount);
+
+                Entities.DgvRepStockCardReportEntity totalAmountStockCardReprot = new Entities.DgvRepStockCardReportEntity()
+                {
+                    ColumnStockCardReportDocument = "Total",
+                    ColumnStockCardReportInventoryDate = "",
+                    ColumnStockCardReportUnit = "",
+                    ColumnStockCardReportBeginningQuantity = "",
+                    ColumnStockCardReportInQuantity = "",
+                    ColumnStockCardReportOutQuantity = "",
+                    ColumnStockCardReportRunninguantity = "",
+                    ColumnStockCardReportCost = "",
+                    ColumnStockCardReportAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnStockCardReportSpace = ""
+                };
+
+                rowList.Add(totalAmountStockCardReprot);
             }
             return rowList;
         }
