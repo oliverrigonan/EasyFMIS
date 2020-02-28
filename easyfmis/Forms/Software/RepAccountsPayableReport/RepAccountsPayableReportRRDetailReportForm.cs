@@ -88,6 +88,46 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
                 rowList = row.ToList();
 
+                Decimal totalPaidAmount = receivingReceiptDetailReportList.Sum(d=> d.PaidAmount);
+                Decimal totalMemoAmount = receivingReceiptDetailReportList.Sum(d => d.MemoAmount);
+                Decimal totalCost = receivingReceiptDetailReportList.Sum(d => d.Cost);
+                Decimal totalAmount = receivingReceiptDetailReportList.Sum(d => d.Amount);
+                Decimal totalTaxAmount = receivingReceiptDetailReportList.Sum(d => d.TaxAmount);
+                Decimal totalBaseCost = receivingReceiptDetailReportList.Sum(d => d.BaseCost);
+
+
+                Entities.DgvRepAccountsPayableReceivingReceiptDetailReportEntity totalReceivingReceiptDetailReport = new Entities.DgvRepAccountsPayableReceivingReceiptDetailReportEntity()
+                {
+                    ColumnRepAccountsPayableReceivingReceiptDetailListId = 0,
+                    ColumnRepAccountsPayableReceivingReceiptDetailListBranch = "Total",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListRRNumber = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListRRDate = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListManualRRNumber = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListSupplier = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListTerm = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListRemarks = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListReceivedBy = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListPreparedBy = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListCheckedBy = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListApprovedBy = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListPaidAmount = totalPaidAmount.ToString("#,##0.00"),
+                    ColumnRepAccountsPayableReceivingReceiptDetailListMemoAmount = totalMemoAmount.ToString("#,##0.00"),
+                    ColumnRepAccountsPayableReceivingReceiptDetailListPONumber = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListItemCode = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListItemDescription = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListUnit = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListQuantity = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListCost = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnRepAccountsPayableReceivingReceiptDetailListTax = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListTaxRate = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListTaxAmount = totalTaxAmount.ToString("#,##0.00"),
+                    ColumnRepAccountsPayableReceivingReceiptDetailListBaseQuantity = "",
+                    ColumnRepAccountsPayableReceivingReceiptDetailListBaseCost = ""
+                };
+
+                rowList.Add(totalReceivingReceiptDetailReport);
+
             }
             return rowList;
         }

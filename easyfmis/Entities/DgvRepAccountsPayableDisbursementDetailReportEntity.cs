@@ -20,8 +20,8 @@ namespace easyfmis.Entities
         public String ColumnRepAccountsPayableDisbursementDetailReportListRemarks { get; set; }
         public String ColumnRepAccountsPayableDisbursementDetailReportListCheckNumber { get; set; }
         public String ColumnRepAccountsPayableDisbursementDetailReportListCheckDate { get; set; }
-        public Boolean ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck { get; set; }
-        public Boolean ColumnRepAccountsPayableDisbursementDetailReportListIsClear { get; set; }
+        public String ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck { get; set; }
+        public String ColumnRepAccountsPayableDisbursementDetailReportListIsClear { get; set; }
         public String ColumnRepAccountsPayableDisbursementDetailReportListPreparedBy { get; set; }
         public String ColumnRepAccountsPayableDisbursementDetailReportListCheckedBy { get; set; }
         public String ColumnRepAccountsPayableDisbursementDetailReportListApprovedBy { get; set; }

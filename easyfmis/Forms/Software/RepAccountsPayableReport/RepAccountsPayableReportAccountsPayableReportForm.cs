@@ -72,6 +72,34 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
                 rowList = row.ToList();
 
+                Decimal totalBalanceAmount = accountsPayableReportList.Sum(d => d.BalanceAmount);
+                Decimal totalCurrentAmount = accountsPayableReportList.Sum(d => d.CurrentAmount);
+                Decimal totalAge30Amount = accountsPayableReportList.Sum(d => d.Age30Amount);
+                Decimal totalAge60Amount = accountsPayableReportList.Sum(d => d.Age60Amount);
+                Decimal totalAge90Amount = accountsPayableReportList.Sum(d => d.Age90Amount);
+                Decimal totalAge120Amount = accountsPayableReportList.Sum(d => d.Age120Amount);
+
+                Entities.DgvRepAccountsPayableReportEntity totalAmount = new Entities.DgvRepAccountsPayableReportEntity()
+                {
+                    ColumnAccountsPayableReportRRId = 0,
+                    ColumnAccountsPayableReportBranch = "Total",
+                    ColumnAccountsPayableReportRRNumber = "",
+                    ColumnAccountsPayableReportRRDate = "",
+                    ColumnAccountsPayableReportManualRRNumber = "",
+                    ColumnAccountsPayableReportSupplierCode = "",
+                    ColumnAccountsPayableReportSupplier = "",
+                    ColumnAccountsPayableReportDueDate = "",
+                    ColumnAccountsPayableReportBalanceAmount = totalBalanceAmount.ToString("#,##0.00"),
+                    ColumnAccountsPayableReportCurrentAmount = totalCurrentAmount.ToString("#,##0.00"),
+                    ColumnAccountsPayableReportAge30Amount = totalAge30Amount.ToString("#,##0.00"),
+                    ColumnAccountsPayableReportAge60Amount = totalAge60Amount.ToString("#,##0.00"),
+                    ColumnAccountsPayableReportAge90Amount = totalAge90Amount.ToString("#,##0.00"),
+                    ColumnAccountsPayableReportAge120Amount = totalAge120Amount.ToString("#,##0.00"),
+                    ColumnAccountsPayableReportSpace = ""
+                };
+
+                rowList.Add(totalAmount);
+
             }
             return rowList;
         }

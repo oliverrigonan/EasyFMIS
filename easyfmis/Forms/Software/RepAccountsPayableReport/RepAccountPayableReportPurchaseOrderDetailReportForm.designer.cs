@@ -33,6 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RepAccountPayableReportPurchaseOrderDetailReportForm));
             this.buttonPurchaseOrderReportPageListNext = new System.Windows.Forms.Button();
             this.buttonPurchaseOrderReportPageListPrevious = new System.Windows.Forms.Button();
@@ -65,7 +70,7 @@
             this.ColumnPurchaseOrderDetailReportListTerm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderDetailReportListDateNeeded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderDetailReportListRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPurchaseOrderDetailReportListIsClose = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnPurchaseOrderDetailReportListIsClose = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderDetailReportListRequestedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderDetailReportListPreparedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPurchaseOrderDetailReportListCheckedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -311,6 +316,7 @@
             this.dataGridViewAccountsPayablePurchaseOrderDetailReport.MultiSelect = false;
             this.dataGridViewAccountsPayablePurchaseOrderDetailReport.Name = "dataGridViewAccountsPayablePurchaseOrderDetailReport";
             this.dataGridViewAccountsPayablePurchaseOrderDetailReport.ReadOnly = true;
+            this.dataGridViewAccountsPayablePurchaseOrderDetailReport.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridViewAccountsPayablePurchaseOrderDetailReport.RowHeadersVisible = false;
             this.dataGridViewAccountsPayablePurchaseOrderDetailReport.RowTemplate.Height = 24;
             this.dataGridViewAccountsPayablePurchaseOrderDetailReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -459,8 +465,6 @@
             this.ColumnPurchaseOrderDetailReportListIsClose.Name = "ColumnPurchaseOrderDetailReportListIsClose";
             this.ColumnPurchaseOrderDetailReportListIsClose.ReadOnly = true;
             this.ColumnPurchaseOrderDetailReportListIsClose.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnPurchaseOrderDetailReportListIsClose.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnPurchaseOrderDetailReportListIsClose.Width = 30;
             // 
             // ColumnPurchaseOrderDetailReportListRequestedBy
             // 
@@ -529,6 +533,8 @@
             // ColumnPurchaseOrderDetailReportListQuantity
             // 
             this.ColumnPurchaseOrderDetailReportListQuantity.DataPropertyName = "ColumnPurchaseOrderDetailReportListQuantity";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnPurchaseOrderDetailReportListQuantity.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColumnPurchaseOrderDetailReportListQuantity.HeaderText = "Quantity";
             this.ColumnPurchaseOrderDetailReportListQuantity.Name = "ColumnPurchaseOrderDetailReportListQuantity";
             this.ColumnPurchaseOrderDetailReportListQuantity.ReadOnly = true;
@@ -536,6 +542,8 @@
             // ColumnPurchaseOrderDetailReportListCost
             // 
             this.ColumnPurchaseOrderDetailReportListCost.DataPropertyName = "ColumnPurchaseOrderDetailReportListCost";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnPurchaseOrderDetailReportListCost.DefaultCellStyle = dataGridViewCellStyle7;
             this.ColumnPurchaseOrderDetailReportListCost.HeaderText = "Cost";
             this.ColumnPurchaseOrderDetailReportListCost.Name = "ColumnPurchaseOrderDetailReportListCost";
             this.ColumnPurchaseOrderDetailReportListCost.ReadOnly = true;
@@ -543,6 +551,8 @@
             // ColumnPurchaseOrderDetailReportListAmount
             // 
             this.ColumnPurchaseOrderDetailReportListAmount.DataPropertyName = "ColumnPurchaseOrderDetailReportListAmount";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnPurchaseOrderDetailReportListAmount.DefaultCellStyle = dataGridViewCellStyle8;
             this.ColumnPurchaseOrderDetailReportListAmount.HeaderText = "Amount";
             this.ColumnPurchaseOrderDetailReportListAmount.Name = "ColumnPurchaseOrderDetailReportListAmount";
             this.ColumnPurchaseOrderDetailReportListAmount.ReadOnly = true;
@@ -550,6 +560,8 @@
             // ColumnPurchaseOrderDetailReportListBaseQuantity
             // 
             this.ColumnPurchaseOrderDetailReportListBaseQuantity.DataPropertyName = "ColumnPurchaseOrderDetailReportListBaseQuantity";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnPurchaseOrderDetailReportListBaseQuantity.DefaultCellStyle = dataGridViewCellStyle9;
             this.ColumnPurchaseOrderDetailReportListBaseQuantity.HeaderText = "Base Quantity";
             this.ColumnPurchaseOrderDetailReportListBaseQuantity.Name = "ColumnPurchaseOrderDetailReportListBaseQuantity";
             this.ColumnPurchaseOrderDetailReportListBaseQuantity.ReadOnly = true;
@@ -558,12 +570,14 @@
             // ColumnPurchaseOrderDetailReportListBaseCost
             // 
             this.ColumnPurchaseOrderDetailReportListBaseCost.DataPropertyName = "ColumnPurchaseOrderDetailReportListBaseCost";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnPurchaseOrderDetailReportListBaseCost.DefaultCellStyle = dataGridViewCellStyle10;
             this.ColumnPurchaseOrderDetailReportListBaseCost.HeaderText = "Base Cost";
             this.ColumnPurchaseOrderDetailReportListBaseCost.Name = "ColumnPurchaseOrderDetailReportListBaseCost";
             this.ColumnPurchaseOrderDetailReportListBaseCost.ReadOnly = true;
             this.ColumnPurchaseOrderDetailReportListBaseCost.Width = 200;
             // 
-            // RepAccountPayablePurchaseOrderDetailReportForm
+            // RepAccountPayableReportPurchaseOrderDetailReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -574,7 +588,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "RepAccountPayablePurchaseOrderDetailReportForm";
+            this.Name = "RepAccountPayableReportPurchaseOrderDetailReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchase Order Detail Report";
             this.panel4.ResumeLayout(false);
@@ -623,7 +637,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderDetailReportListTerm;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderDetailReportListDateNeeded;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderDetailReportListRemarks;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnPurchaseOrderDetailReportListIsClose;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderDetailReportListIsClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderDetailReportListRequestedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderDetailReportListPreparedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPurchaseOrderDetailReportListCheckedBy;

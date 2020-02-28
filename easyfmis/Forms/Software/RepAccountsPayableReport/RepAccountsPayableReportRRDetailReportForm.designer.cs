@@ -415,6 +415,7 @@
             this.ColumnRepAccountsPayableReceivingReceiptDetailListId.HeaderText = "Id";
             this.ColumnRepAccountsPayableReceivingReceiptDetailListId.Name = "ColumnRepAccountsPayableReceivingReceiptDetailListId";
             this.ColumnRepAccountsPayableReceivingReceiptDetailListId.ReadOnly = true;
+            this.ColumnRepAccountsPayableReceivingReceiptDetailListId.Visible = false;
             // 
             // ColumnRepAccountsPayableReceivingReceiptDetailListBranch
             // 
@@ -422,7 +423,6 @@
             this.ColumnRepAccountsPayableReceivingReceiptDetailListBranch.HeaderText = "Branch";
             this.ColumnRepAccountsPayableReceivingReceiptDetailListBranch.Name = "ColumnRepAccountsPayableReceivingReceiptDetailListBranch";
             this.ColumnRepAccountsPayableReceivingReceiptDetailListBranch.ReadOnly = true;
-            this.ColumnRepAccountsPayableReceivingReceiptDetailListBranch.Visible = false;
             // 
             // ColumnRepAccountsPayableReceivingReceiptDetailListRRNumber
             // 

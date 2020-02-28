@@ -67,8 +67,8 @@
             this.ColumnRepAccountsPayableDisbursementDetailReportListRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRepAccountsPayableDisbursementDetailReportListCheckNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRepAccountsPayableDisbursementDetailReportListCheckDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRepAccountsPayableDisbursementDetailReportListPreparedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRepAccountsPayableDisbursementDetailReportListCheckedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRepAccountsPayableDisbursementDetailReportListApprovedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -511,18 +511,15 @@
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck.Name = "ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck";
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck.ReadOnly = true;
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ColumnRepAccountsPayableDisbursementDetailReportListIsClear
             // 
-            this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.DataPropertyName = "ColumnRepAccountsPayableDisbursementDetailReportListIsClear";
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.HeaderText = "IsClear";
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.MinimumWidth = 100;
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.Name = "ColumnRepAccountsPayableDisbursementDetailReportListIsClear";
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.ReadOnly = true;
             this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnRepAccountsPayableDisbursementDetailReportListIsClear.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ColumnRepAccountsPayableDisbursementDetailReportListPreparedBy
             // 
@@ -647,8 +644,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListRemarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListCheckNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListCheckDate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListIsClear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListIsClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListPreparedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListCheckedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRepAccountsPayableDisbursementDetailReportListApprovedBy;

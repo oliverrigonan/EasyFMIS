@@ -69,8 +69,8 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
                               ColumnRepAccountsPayableDisbursementDetailReportListRemarks = d.Remarks,
                               ColumnRepAccountsPayableDisbursementDetailReportListCheckNumber = d.CheckNumber,
                               ColumnRepAccountsPayableDisbursementDetailReportListCheckDate = d.CheckDate,
-                              ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck = d.IsCrossCheck,
-                              ColumnRepAccountsPayableDisbursementDetailReportListIsClear = d.IsClear,
+                              ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck = d.IsCrossCheck == true ? "Yes" : "",
+                              ColumnRepAccountsPayableDisbursementDetailReportListIsClear = d.IsClear == true ? "Yes" : "",
                               ColumnRepAccountsPayableDisbursementDetailReportListPreparedBy = d.PreparedBy,
                               ColumnRepAccountsPayableDisbursementDetailReportListCheckedBy = d.CheckedBy,
                               ColumnRepAccountsPayableDisbursementDetailReportListApprovedBy = d.ApprovedBy,
@@ -81,6 +81,34 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
                           };
 
                 rowList = row.ToList();
+
+                Decimal totalAmount = disbursementDetailReportList.Sum(d => d.Amount);
+
+                Entities.DgvRepAccountsPayableDisbursementDetailReportEntity disbursementTotals = new Entities.DgvRepAccountsPayableDisbursementDetailReportEntity() {
+                    ColumnRepAccountsPayableDisbursementDetailReportListId = 0 ,
+                    ColumnRepAccountsPayableDisbursementDetailReportListBranch = "Total",
+                    ColumnRepAccountsPayableDisbursementDetailReportListCVNumber = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListCVDate = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListManualCVNumber = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListSupplier = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListPayee = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListPayType = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListBank = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListRemarks = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListCheckNumber = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListCheckDate = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListIsCrossCheck = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListIsClear = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListPreparedBy = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListCheckedBy = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListApprovedBy = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListArticleGroup = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListRRNumber = "",
+                    ColumnRepAccountsPayableDisbursementDetailReportListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnRepAccountsPayableDisbursementDetailReportListParticulars = ""
+                };
+
+                rowList.Add(disbursementTotals);
 
             }
             return rowList;

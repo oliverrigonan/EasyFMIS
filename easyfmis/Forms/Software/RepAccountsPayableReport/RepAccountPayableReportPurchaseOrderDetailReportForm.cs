@@ -67,7 +67,7 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
                               ColumnPurchaseOrderDetailReportListTerm = d.Term,
                               ColumnPurchaseOrderDetailReportListDateNeeded = d.DateNeeded.ToShortDateString(),
                               ColumnPurchaseOrderDetailReportListRemarks = d.Remarks,
-                              ColumnPurchaseOrderDetailReportListIsClose = d.IsClose,
+                              ColumnPurchaseOrderDetailReportListIsClose = d.IsClose == true ? "Yes" : "",
                               ColumnPurchaseOrderDetailReportListRequestedBy = d.RequestedBy,
                               ColumnPurchaseOrderDetailReportListPreparedBy = d.PreparedBy,
                               ColumnPurchaseOrderDetailReportListCheckedBy = d.CheckedBy,
@@ -83,6 +83,35 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
                           };
 
                 rowList = row.ToList();
+
+                Decimal totalAmount = purchaseOrderDetailReportList.Sum(d => d.Amount);
+
+                Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity totalAmounts = new Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity()
+                {
+                    ColumnPurchaseOrderDetailReportListBranch = "Total",
+                    ColumnPurchaseOrderDetailReportListPONumber = "",
+                    ColumnPurchaseOrderDetailReportListPODate = "",
+                    ColumnPurchaseOrderDetailReportListManualPONumber = "",
+                    ColumnPurchaseOrderDetailReportListSupplier = "",
+                    ColumnPurchaseOrderDetailReportListTerm = "",
+                    ColumnPurchaseOrderDetailReportListDateNeeded = "",
+                    ColumnPurchaseOrderDetailReportListRemarks = "",
+                    ColumnPurchaseOrderDetailReportListIsClose = "",
+                    ColumnPurchaseOrderDetailReportListRequestedBy = "",
+                    ColumnPurchaseOrderDetailReportListPreparedBy = "",
+                    ColumnPurchaseOrderDetailReportListCheckedBy = "",
+                    ColumnPurchaseOrderDetailReportListApprovedBy = "",
+                    ColumnPurchaseOrderDetailReportListItemCode = "",
+                    ColumnPurchaseOrderDetailReportListItemDescription = "",
+                    ColumnPurchaseOrderDetailReportListUnit = "",
+                    ColumnPurchaseOrderDetailReportListQuantity = "",
+                    ColumnPurchaseOrderDetailReportListCost = "",
+                    ColumnPurchaseOrderDetailReportListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnPurchaseOrderDetailReportListBaseQuantity = "",
+                    ColumnPurchaseOrderDetailReportListBaseCost = ""
+                };
+
+                rowList.Add(totalAmounts);
 
             }
             return rowList;

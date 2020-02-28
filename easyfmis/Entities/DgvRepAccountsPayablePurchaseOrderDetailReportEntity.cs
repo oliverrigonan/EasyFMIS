@@ -16,7 +16,7 @@ namespace easyfmis.Entities
         public String ColumnPurchaseOrderDetailReportListTerm { get; set; }
         public String ColumnPurchaseOrderDetailReportListDateNeeded { get; set; }
         public String ColumnPurchaseOrderDetailReportListRemarks { get; set; }
-        public Boolean ColumnPurchaseOrderDetailReportListIsClose { get; set; }
+        public String ColumnPurchaseOrderDetailReportListIsClose { get; set; }
         public String ColumnPurchaseOrderDetailReportListRequestedBy { get; set; }
         public String ColumnPurchaseOrderDetailReportListPreparedBy { get; set; }
         public String ColumnPurchaseOrderDetailReportListCheckedBy { get; set; }
