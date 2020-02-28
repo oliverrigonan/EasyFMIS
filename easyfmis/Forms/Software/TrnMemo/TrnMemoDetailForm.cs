@@ -16,6 +16,7 @@ namespace easyfmis.Forms.Software.TrnMemo
         public SysSoftwareForm sysSoftwareForm;
         TrnMemoListForm trnMemoForm;
         public Entities.TrnMemoEntity trnMemoEntity;
+        public String ArticleType;
 
         public static List<Entities.DgvTrnMemoLineEntity> memoLineData = new List<Entities.DgvTrnMemoLineEntity>();
         public static Int32 pageNumber = 1;
@@ -31,22 +32,43 @@ namespace easyfmis.Forms.Software.TrnMemo
             trnMemoForm = purchaseOrderForm;
             trnMemoEntity = memoEntity;
 
+            GetArticleTypeList();
+        }
+
+        public void GetArticleTypeList()
+        {
+            Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
+            List<Entities.MstArticleTypeEntity> artileTypeList = new List<Entities.MstArticleTypeEntity>();
+            var articlesType = trnMemoController.DropdownListMemoArticleType();
+            if (articlesType.Any())
+            {
+                comboBoxArticleType.DataSource = articlesType;
+                comboBoxArticleType.ValueMember = "Id";
+                comboBoxArticleType.DisplayMember = "ArticleType";
+            }
+
+            comboBoxArticleType.SelectedValue = trnMemoController.GetArticleTypeId(trnMemoEntity.ArticleId);
+
             GetArticleList();
         }
 
         public void GetArticleList()
         {
             Controllers.TrnMemoController trnMemoController = new Controllers.TrnMemoController();
-            var articles = trnMemoController.DropdownListMemoArticle();
+            var articles = trnMemoController.DropdownListMemoArticle(Convert.ToInt32(comboBoxArticleType.SelectedValue));
             if (articles.Any())
             {
                 comboBoxArticle.DataSource = articles;
                 comboBoxArticle.ValueMember = "Id";
                 comboBoxArticle.DisplayMember = "Article";
-
             }
-                GetUserList();
 
+            GetUserList();
+        }
+
+        private void comboBoxArticleType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            GetArticleList();
         }
 
         public void GetUserList()
@@ -83,6 +105,8 @@ namespace easyfmis.Forms.Software.TrnMemo
             comboBoxCheckedBy.SelectedValue = trnMemoEntity.CheckedBy;
             comboBoxApprovedBy.SelectedValue = trnMemoEntity.ApprovedBy;
 
+            
+
             CreateMemoLineDataGridView();
         }
 
@@ -99,6 +123,8 @@ namespace easyfmis.Forms.Software.TrnMemo
             comboBoxPreparedBy.Enabled = !isLocked;
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
+
+
 
             dataGridViewMemoLine.Columns[0].Visible = !isLocked;
             dataGridViewMemoLine.Columns[1].Visible = !isLocked;
@@ -277,7 +303,7 @@ namespace easyfmis.Forms.Software.TrnMemo
             {
                 var id = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListId"].Index].Value);
                 var mOId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListMOId"].Index].Value);
-                var sIId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListSIId "].Index].Value);
+                var sIId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListSIId"].Index].Value);
                 var rRId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListRRId"].Index].Value);
                 var amount = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListAmount"].Index].Value);
                 var particulars = dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListParticulars"].Index].Value.ToString();
@@ -292,7 +318,7 @@ namespace easyfmis.Forms.Software.TrnMemo
                     Particulars = particulars
                 };
 
-                TrnMemoDetailMemoLineDetailForm trnMemoDetailMemoLineDetailForm = new TrnMemoDetailMemoLineDetailForm(this, trnMemoEntity, objMemoLineEntity);
+                TrnMemoDetailMemoLineDetailForm trnMemoDetailMemoLineDetailForm = new TrnMemoDetailMemoLineDetailForm(this, trnMemoEntity, objMemoLineEntity, comboBoxArticleType.Text);
                 trnMemoDetailMemoLineDetailForm.ShowDialog();
             }
 
@@ -388,13 +414,11 @@ namespace easyfmis.Forms.Software.TrnMemo
 
         private void buttonAddMemoLine_Click(object sender, EventArgs e)
         {
-            TrnMemoDetailMemoLineDetailForm trnMemoDetailMemoLineDetailForm = new TrnMemoDetailMemoLineDetailForm(this, trnMemoEntity ,null);
+            trnMemoEntity.ArticleId = Convert.ToInt32(comboBoxArticle.SelectedValue);
+            TrnMemoDetailMemoLineDetailForm trnMemoDetailMemoLineDetailForm = new TrnMemoDetailMemoLineDetailForm(this, trnMemoEntity ,null, comboBoxArticleType.Text);
             trnMemoDetailMemoLineDetailForm.ShowDialog();
         }
 
-        private void comboBoxArticle_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            trnMemoEntity.ArticleId = Convert.ToInt32(comboBoxArticle.SelectedValue);
-        }
+     
     }
 }

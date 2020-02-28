@@ -16,7 +16,7 @@ namespace easyfmis.Forms.Software.TrnMemo
         public Entities.TrnMemoLineEntity trnMemoLineEntity;
         public Entities.TrnMemoEntity trnMemoEntity;
 
-        public TrnMemoDetailMemoLineDetailForm(TrnMemoDetailForm memoDetailForm, Entities.TrnMemoEntity memoEntity, Entities.TrnMemoLineEntity memoLineEntity)
+        public TrnMemoDetailMemoLineDetailForm(TrnMemoDetailForm memoDetailForm, Entities.TrnMemoEntity memoEntity, Entities.TrnMemoLineEntity memoLineEntity, String articleType)
         {
             InitializeComponent();
 
@@ -24,7 +24,18 @@ namespace easyfmis.Forms.Software.TrnMemo
             trnMemoEntity = memoEntity;
             trnMemoLineEntity = memoLineEntity;
 
-            GetSINumberList();
+            if (articleType == "CUSTOMER")
+            {
+                comboBoxRRNumber.Enabled = false;
+                GetSINumberList();
+            }
+
+            if (articleType == "SUPPLIER")
+            {
+                comboBoxSINumber.Enabled = false;
+                GetRRNumberList();
+            }
+
         }
 
         public void GetSINumberList()
@@ -44,12 +55,12 @@ namespace easyfmis.Forms.Software.TrnMemo
         public void GetRRNumberList()
         {
             Controllers.TrnMemoLineController trnMemoLineController = new Controllers.TrnMemoLineController();
-            var SIList = trnMemoLineController.DropDownListSalesInvoice(trnMemoEntity.ArticleId);
+            var SIList = trnMemoLineController.DropDownListListReceivingReceipt(trnMemoEntity.ArticleId);
             if (SIList.Any())
             {
-                comboBoxSINumber.DataSource = SIList;
-                comboBoxSINumber.ValueMember = "Id";
-                comboBoxSINumber.DisplayMember = "SINumber";
+                comboBoxRRNumber.DataSource = SIList;
+                comboBoxRRNumber.ValueMember = "Id";
+                comboBoxRRNumber.DisplayMember = "RRNumber";
 
             }
 

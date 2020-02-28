@@ -97,13 +97,45 @@ namespace easyfmis.Controllers
         }
 
         // =======================
+        // Dropdown List - ArticleTyp
+        // =======================
+        public Int32 GetArticleTypeId(Int32 articleId)
+        {
+            var articleType = from d in db.MstArticles
+                            where d.Id == articleId
+                            select new Entities.MstArticleTypeEntity
+                            {
+                                Id = d.MstArticleType.Id,
+                                ArticleType = d.MstArticleType.ArticleType
+                            };
+
+            return articleType.FirstOrDefault().Id;
+        }
+
+        // =======================
         // Dropdown List - Article
         // =======================
-        public List<Entities.MstArticleEntity> DropdownListMemoArticle()
+        public List<Entities.MstArticleTypeEntity> DropdownListMemoArticleType()
+        {
+            var suppliers = from d in db.MstArticleTypes
+                            where d.ArticleType == "SUPPLIER"
+                              || d.ArticleType == "CUSTOMER"
+                            select new Entities.MstArticleTypeEntity
+                            {
+                                Id = d.Id,
+                                ArticleType = d.ArticleType
+                            };
+
+            return suppliers.ToList();
+        }
+
+        // =======================
+        // Dropdown List - Article
+        // =======================
+        public List<Entities.MstArticleEntity> DropdownListMemoArticle(Int32 ArticleTypeId)
         {
             var suppliers = from d in db.MstArticles
-                            where d.MstArticleType.ArticleType == "SUPPLIER"
-                              || d.MstArticleType.ArticleType == "CUSTOMER"
+                            where d.ArticleTypeId == ArticleTypeId
                             select new Entities.MstArticleEntity
                             {
                                 Id = d.Id,
@@ -156,9 +188,9 @@ namespace easyfmis.Controllers
 
                 var article = from d in db.MstArticles
                               where d.MstArticleType.ArticleType != "ITEM"
-                              || d.MstArticleType.ArticleType != "BANK"
-                              || d.MstArticleType.ArticleType != "EMPLOYEE"
-                              || d.MstArticleType.ArticleType != "OTHERS"
+                              && d.MstArticleType.ArticleType != "BANK"
+                              && d.MstArticleType.ArticleType != "EMPLOYEE"
+                              && d.MstArticleType.ArticleType != "OTHERS"
                               select d;
 
                 if (article.Any() == false)

@@ -82,7 +82,7 @@ namespace easyfmis.Controllers
                            select d;
                 if (memo.Any() == false)
                 {
-                    return new String[] { "Memo not found.", "0" };
+                    return new String[] { "Memo line not found.", "0" };
                 }
 
                 Int32? sIId;
@@ -90,23 +90,28 @@ namespace easyfmis.Controllers
                 var salesInvoice = from d in db.TrnSalesInvoices
                                    where d.Id == objMemoLine.SIId
                                    select d;
-                if (salesInvoice.Any() == false)
+
+                var receivingReceipt = from d in db.TrnReceivingReceipts
+                                       where d.Id == objMemoLine.RRId
+                                       select d;
+
+                if (objMemoLine.SIId == 0)
                 {
                     sIId = null;
                 }
-                else {
+                else
+                {
                     sIId = objMemoLine.SIId;
                 }
 
                 Int32? rRId;
-                var receivingReceipt = from d in db.TrnReceivingReceipts
-                                       where d.Id == objMemoLine.RRId
-                                       select d;
-                if (salesInvoice.Any() == false)
+
+                if (objMemoLine.RRId == 0)
                 {
                     rRId = null;
                 }
-                else {
+                else
+                {
                     rRId = objMemoLine.RRId;
                 }
 
@@ -140,26 +145,35 @@ namespace easyfmis.Controllers
 
                 if (memoLine.Any())
                 {
-                    var memo = from d in db.TrnMemoLines
+                    var memo = from d in db.TrnMemos
                                where d.Id == objMemoLine.MOId
                                select d;
 
                     if (memo.Any())
                     {
-                        var salesInvoice = from d in db.TrnSalesInvoices
-                                           where d.Id == objMemoLine.SIId
-                                           select d;
-                        if (salesInvoice.Any() == false)
+                        if (objMemoLine.SIId == 0)
                         {
-                            return new String[] { "Sales Invoice not found.", "0" };
+                            var receivingReceipt = from d in db.TrnReceivingReceipts
+                                                   where d.Id == objMemoLine.RRId
+                                                   select d;
+                            if (receivingReceipt.Any() == false)
+                            {
+                                return new String[] { "Receiving Receipt not found.", "0" };
+                            }
+                            objMemoLine.SIId = null;
+                            
                         }
 
-                        var receivingReceipt = from d in db.TrnReceivingReceipts
-                                               where d.Id == objMemoLine.RRId
-                                               select d;
-                        if (salesInvoice.Any() == false)
+                        if (objMemoLine.RRId == 0)
                         {
-                            return new String[] { "Receiving Receipt not found.", "0" };
+                            var salesInvoice = from d in db.TrnSalesInvoices
+                                               where d.Id == objMemoLine.SIId
+                                               select d;
+                            if (salesInvoice.Any() == false)
+                            {
+                                return new String[] { "Sales Invoice not found.", "0" };
+                            }
+                            objMemoLine.RRId = null;
                         }
 
                         var updateMemoLine = memoLine.FirstOrDefault();

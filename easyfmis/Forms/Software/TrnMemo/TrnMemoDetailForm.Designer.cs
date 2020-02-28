@@ -40,6 +40,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxArticleType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxArticle = new System.Windows.Forms.ComboBox();
             this.textBoxBranch = new System.Windows.Forms.TextBox();
@@ -74,7 +76,7 @@
             this.ColumnMemoLineListRRNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMemoLineListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMemoLineListParticulars = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMemoLineSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMemoLineListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -180,6 +182,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.comboBoxArticleType);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.comboBoxArticle);
             this.panel3.Controls.Add(this.textBoxBranch);
@@ -200,29 +204,49 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1400, 234);
+            this.panel3.Size = new System.Drawing.Size(1400, 201);
             this.panel3.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label3.Location = new System.Drawing.Point(46, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 23);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Article Type:";
+            // 
+            // comboBoxArticleType
+            // 
+            this.comboBoxArticleType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxArticleType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxArticleType.FormattingEnabled = true;
+            this.comboBoxArticleType.Location = new System.Drawing.Point(154, 114);
+            this.comboBoxArticleType.Name = "comboBoxArticleType";
+            this.comboBoxArticleType.Size = new System.Drawing.Size(298, 31);
+            this.comboBoxArticleType.TabIndex = 32;
+            this.comboBoxArticleType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxArticleType_SelectionChangeCommitted);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(57, 117);
+            this.label6.Location = new System.Drawing.Point(88, 154);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 23);
+            this.label6.Size = new System.Drawing.Size(60, 23);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Full Name:";
+            this.label6.Text = "Name:";
             // 
             // comboBoxArticle
             // 
             this.comboBoxArticle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxArticle.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticle.FormattingEnabled = true;
-            this.comboBoxArticle.Location = new System.Drawing.Point(154, 114);
+            this.comboBoxArticle.Location = new System.Drawing.Point(154, 151);
             this.comboBoxArticle.Name = "comboBoxArticle";
             this.comboBoxArticle.Size = new System.Drawing.Size(298, 31);
             this.comboBoxArticle.TabIndex = 5;
-            this.comboBoxArticle.SelectedIndexChanged += new System.EventHandler(this.comboBoxArticle_SelectedIndexChanged);
             // 
             // textBoxBranch
             // 
@@ -247,7 +271,7 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(154, 151);
+            this.textBoxRemarks.Location = new System.Drawing.Point(597, 117);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(298, 77);
@@ -321,7 +345,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(70, 154);
+            this.label7.Location = new System.Drawing.Point(513, 120);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 23);
             this.label7.TabIndex = 11;
@@ -376,7 +400,7 @@
             this.panel4.Controls.Add(this.buttonMemoLinePageListLast);
             this.panel4.Controls.Add(this.textBoxMemoLinePageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 311);
+            this.panel4.Location = new System.Drawing.Point(3, 344);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1386, 53);
             this.panel4.TabIndex = 25;
@@ -494,7 +518,7 @@
             this.ColumnMemoLineListRRNumber,
             this.ColumnMemoLineListAmount,
             this.ColumnMemoLineListParticulars,
-            this.ColumnMemoLineSpace});
+            this.ColumnMemoLineListSpace});
             this.dataGridViewMemoLine.Location = new System.Drawing.Point(8, 52);
             this.dataGridViewMemoLine.MultiSelect = false;
             this.dataGridViewMemoLine.Name = "dataGridViewMemoLine";
@@ -505,7 +529,7 @@
             this.dataGridViewMemoLine.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewMemoLine.RowTemplate.Height = 24;
             this.dataGridViewMemoLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMemoLine.Size = new System.Drawing.Size(1376, 246);
+            this.dataGridViewMemoLine.Size = new System.Drawing.Size(1376, 286);
             this.dataGridViewMemoLine.TabIndex = 1;
             this.dataGridViewMemoLine.TabStop = false;
             this.dataGridViewMemoLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMemoLine_CellClick);
@@ -596,13 +620,13 @@
             this.ColumnMemoLineListParticulars.ReadOnly = true;
             this.ColumnMemoLineListParticulars.Width = 200;
             // 
-            // ColumnMemoLineSpace
+            // ColumnMemoLineListSpace
             // 
-            this.ColumnMemoLineSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnMemoLineSpace.DataPropertyName = "ColumnMemoLineSpace";
-            this.ColumnMemoLineSpace.HeaderText = "";
-            this.ColumnMemoLineSpace.Name = "ColumnMemoLineSpace";
-            this.ColumnMemoLineSpace.ReadOnly = true;
+            this.ColumnMemoLineListSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnMemoLineListSpace.DataPropertyName = "ColumnMemoLineListSpace";
+            this.ColumnMemoLineListSpace.HeaderText = "";
+            this.ColumnMemoLineListSpace.Name = "ColumnMemoLineListSpace";
+            this.ColumnMemoLineListSpace.ReadOnly = true;
             // 
             // panel2
             // 
@@ -619,9 +643,9 @@
             this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Location = new System.Drawing.Point(0, 201);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.Size = new System.Drawing.Size(1400, 436);
             this.panel6.TabIndex = 27;
             // 
             // tabControl1
@@ -631,7 +655,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.Size = new System.Drawing.Size(1400, 436);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.TabStop = false;
             // 
@@ -643,7 +667,7 @@
             this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
             this.tabPageStockOutItems.Name = "tabPageStockOutItems";
             this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 400);
             this.tabPageStockOutItems.TabIndex = 0;
             this.tabPageStockOutItems.Text = "Memo Lines";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
@@ -732,6 +756,8 @@
         private System.Windows.Forms.TextBox textBoxTotalPOAmount;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonAddMemoLine;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxArticleType;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnMemoLineListButtonEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnMemoLineListButtonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListId;
@@ -742,6 +768,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListRRNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListParticulars;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineSpace;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListSpace;
     }
 }
