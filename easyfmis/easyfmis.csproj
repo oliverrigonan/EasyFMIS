@@ -227,6 +227,7 @@
     <Compile Include="Entities\SysConnectionStringEntity.cs" />
     <Compile Include="Entities\SysCurrentEntity.cs" />
     <Compile Include="Entities\SysFormEntity.cs" />
+    <Compile Include="Entities\SysUserRightsEntity.cs" />
     <Compile Include="Entities\TrnCollectionLineEntity.cs" />
     <Compile Include="Entities\TrnCollectionSalesInvoiceListEntity.cs" />
     <Compile Include="Entities\TrnDisbursementEntity.cs" />
@@ -471,6 +472,12 @@
     </Compile>
     <Compile Include="Forms\Software\SysMenu\SysMenuForm.Designer.cs">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Software\SysSettings\SysSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysSettings\SysSettingsForm.designer.cs">
+      <DependentUpon>SysSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\SysSoftwareChangeBranchForm.cs">
       <SubType>Form</SubType>
@@ -840,6 +847,7 @@
     </Compile>
     <Compile Include="Modules\SysConnectionStringModule.cs" />
     <Compile Include="Modules\SysCurrentModule.cs" />
+    <Compile Include="Modules\SysUserRightsModule.cs" />
     <Compile Include="Modules\TrnAccountsPayableModule.cs" />
     <Compile Include="Modules\TrnAccountsReceivableModule.cs" />
     <Compile Include="Modules\TrnInventoryModule.cs" />
@@ -958,6 +966,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysMenu\SysMenuForm.resx">
       <DependentUpon>SysMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysSettings\SysSettingsForm.resx">
+      <DependentUpon>SysSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\SysSoftwareChangeBranchForm.resx">
       <DependentUpon>SysSoftwareChangeBranchForm.cs</DependentUpon>

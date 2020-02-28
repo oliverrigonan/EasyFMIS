@@ -1,6 +1,6 @@
 ﻿{
   "DataSource": "localhost",
-  "InitialCatalog": "bnkrsmanila",
+  "InitialCatalog": "easyerp",
   "UserId": "sa",
   "Password": "innosoft"
 }
