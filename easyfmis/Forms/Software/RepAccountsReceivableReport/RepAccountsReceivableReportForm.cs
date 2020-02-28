@@ -175,8 +175,8 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelCustomer.Visible = false;
                         comboBoxCustomer.Visible = false;
 
-                        labelSoldBy.Visible = true;
-                        comboBoxSoldBy.Visible = true;
+                        labelSoldBy.Visible = false;
+                        comboBoxSoldBy.Visible = false;
 
 
                         break;
@@ -261,7 +261,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                         break;
                     case "Sales Invoice Detail Report":
-                        RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName, soldById, soldBy);
+                        RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
                         repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm.ShowDialog();
                         break;
                     case "Sales Order Detail Report":

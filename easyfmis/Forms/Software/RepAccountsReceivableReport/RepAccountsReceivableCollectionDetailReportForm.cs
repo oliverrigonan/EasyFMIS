@@ -86,6 +86,38 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                 rowList = row.ToList();
 
+                Decimal totalAmount = collectionDetailReportList.Sum(d => d.Amount);
+
+                Entities.DgvRepAccountsReceivableCollectionDetailReportEntity totalCollectionDetailReport = new Entities.DgvRepAccountsReceivableCollectionDetailReportEntity()
+                {
+                    ColumnCollectionDetailReportListBranch = "Total",
+                    ColumnCollectionDetailReportListORNumber = "",
+                    ColumnCollectionDetailReportListORDate = "",
+                    ColumnCollectionDetailReportListManualORNumber = "",
+                    ColumnCollectionDetailReportListCustomer = "",
+                    ColumnCollectionDetailReportListRemarks = "",
+                    ColumnCollectionDetailReportListPreparedBy = "",
+                    ColumnCollectionDetailReportListCheckedBy = "",
+                    ColumnCollectionDetailReportListApprovedBy = "",
+                    ColumnCollectionDetailReportListArticleGroup = "",
+                    ColumnCollectionDetailReportListSINumber = "",
+                    ColumnCollectionDetailReportListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnCollectionDetailReportListPayType = "",
+                    ColumnCollectionDetailReportListCheckNumber = "",
+                    ColumnCollectionDetailReportListCheckDate = "",
+                    ColumnCollectionDetailReportListCheckBank = "",
+                    ColumnCollectionDetailReportListCreditCardVerificationCode = "",
+                    ColumnCollectionDetailReportListCreditCardNumber = "",
+                    ColumnCollectionDetailReportListCreditCardType = "",
+                    ColumnCollectionDetailReportListCreditCardBank = "",
+                    ColumnCollectionDetailReportListCreditCardReferenceNumber = "",
+                    ColumnCollectionDetailReportListCreditCardHolderName = "",
+                    ColumnCollectionDetailReportListCreditCardExpiry = "",
+                    ColumnCollectionDetailReportListGiftCertificateNumber = "",
+                    ColumnCollectionDetailReportListOtherInformation = ""
+                };
+
+                rowList.Add(totalCollectionDetailReport);
             }
             return rowList;
         }

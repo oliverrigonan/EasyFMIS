@@ -72,6 +72,34 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                 rowList = row.ToList();
 
+                Decimal totalBalanceAmount = accountsReceivableReportList.Sum(d => d.BalanceAmount);
+                Decimal totalCurrentAmount = accountsReceivableReportList.Sum(d => d.CurrentAmount);
+                Decimal totalAge30Amount = accountsReceivableReportList.Sum(d => d.Age30Amount);
+                Decimal totalAge60Amount = accountsReceivableReportList.Sum(d => d.Age60Amount);
+                Decimal totalAge90Amount = accountsReceivableReportList.Sum(d => d.Age90Amount);
+                Decimal totalAge120Amount = accountsReceivableReportList.Sum(d => d.Age120Amount);
+
+
+                Entities.DgvRepAccountsReceivableReportEntity totalAccountsReceivableReport = new Entities.DgvRepAccountsReceivableReportEntity()
+                {
+                    ColumnAccountsReceivableReportSIId = 0,
+                    ColumnAccountsReceivableReportBranch = "Total",
+                    ColumnAccountsReceivableReportSINumber = "",
+                    ColumnAccountsReceivableReportSIDate = "",
+                    ColumnAccountsReceivableReportManualSINumber = "",
+                    ColumnAccountsReceivableReportCustomerCode = "",
+                    ColumnAccountsReceivableReportCustomer = "",
+                    ColumnAccountsReceivableReportDueDate = "",
+                    ColumnAccountsReceivableReportBalanceAmount = totalBalanceAmount.ToString("#,##0.00"),
+                    ColumnAccountsReceivableReportCurrentAmount = totalCurrentAmount.ToString("#,##0.00"),
+                    ColumnAccountsReceivableReportAge30Amount = totalAge30Amount.ToString("#,##0.00"),
+                    ColumnAccountsReceivableReportAge60Amount = totalAge60Amount.ToString("#,##0.00"),
+                    ColumnAccountsReceivableReportAge90Amount = totalAge90Amount.ToString("#,##0.00"),
+                    ColumnAccountsReceivableReportAge120Amount = totalAge120Amount.ToString("#,##0.00"),
+                    ColumnAccountsReceivableReportSpace = ""
+                };
+
+                rowList.Add(totalAccountsReceivableReport);
             }
             return rowList;
         }

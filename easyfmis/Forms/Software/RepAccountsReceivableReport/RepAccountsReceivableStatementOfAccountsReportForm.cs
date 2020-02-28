@@ -70,6 +70,27 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                 rowList = row.ToList();
 
+                Decimal totalAmount = statementOfAccountReportList.Sum(d=> d.Amount);
+                Decimal totalPaidAmount = statementOfAccountReportList.Sum(d=> d.PaidAmount);
+                Decimal totalMemoAmount = statementOfAccountReportList.Sum(d=> d.MemoAmount);
+                Decimal totalBalanceAmount = statementOfAccountReportList.Sum(d=> d.BalanceAmount);
+
+                Entities.DgvRepAccountsReceivableStatementOfAccountReportEntity totalStatementOfAccountReport = new Entities.DgvRepAccountsReceivableStatementOfAccountReportEntity()
+                {
+                    ColumnReceivableStatementOfAccountReportListBranch = "Total",
+                    ColumnReceivableStatementOfAccountReportListSINumber = "",
+                    ColumnReceivableStatementOfAccountReportListSIDate = "",
+                    ColumnReceivableStatementOfAccountReportListCustomer = "",
+                    ColumnReceivableStatementOfAccountReportListManualSINumber = "",
+                    ColumnReceivableStatementOfAccountReportListTerm = "",
+                    ColumnReceivableStatementOfAccountReportListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnReceivableStatementOfAccountReportListPaidAmount = totalPaidAmount.ToString("#,##0.00"),
+                    ColumnReceivableStatementOfAccountReportListMemoAmount = totalMemoAmount.ToString("#,##0.00"),
+                    ColumnReceivableStatementOfAccountReportListBalanceAmount = totalBalanceAmount.ToString("#,##0.00")
+                };
+
+                rowList.Add(totalStatementOfAccountReport);
+
             }
             return rowList;
         }

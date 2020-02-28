@@ -88,6 +88,42 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                 rowList = row.ToList();
 
+                Decimal totalDiscountAmount = salesOrderDetailReportList.Sum(d => d.DiscountAmount);
+                Decimal totalAmount = salesOrderDetailReportList.Sum(d => d.Amount);
+                Decimal totalTaxAmount = salesOrderDetailReportList.Sum(d => d.TaxAmount);
+
+                Entities.DgvRepAccountsReceivableSalesOrderDetailReportEntity totalSalesOrderDetailReport = new Entities.DgvRepAccountsReceivableSalesOrderDetailReportEntity()
+                {
+                    ColumnSalesOrderDetailReportListBranch = "Total",
+                    ColumnSalesOrderDetailReportListSONumber = "",
+                    ColumnSalesOrderDetailReportListSODate = "",
+                    ColumnSalesOrderDetailReportListManualSONumber = "",
+                    ColumnSalesOrderDetailReportListCustomer = "",
+                    ColumnSalesOrderDetailReportListTerm = "",
+                    ColumnSalesOrderDetailReportListRemarks = "",
+                    ColumnSalesOrderDetailReportListSoldBy = "",
+                    ColumnSalesOrderDetailReportListPreparedBy = "",
+                    ColumnSalesOrderDetailReportListCheckedBy = "",
+                    ColumnSalesOrderDetailReportListApprovedBy = "",
+                    ColumnSalesOrderDetailReportListItemCode = "",
+                    ColumnSalesOrderDetailReportListItemDescription = "",
+                    ColumnSalesOrderDetailReportListItemInventoryCode = "",
+                    ColumnSalesOrderDetailReportListUnit = "",
+                    ColumnSalesOrderDetailReportListPrice = "",
+                    ColumnSalesOrderDetailReportListDiscount = "",
+                    ColumnSalesOrderDetailReportListDiscountRate = "",
+                    ColumnSalesOrderDetailReportListDiscountAmount = totalDiscountAmount.ToString("#,##0.00"),
+                    ColumnSalesOrderDetailReportListNetPrice = "",
+                    ColumnSalesOrderDetailReportListQuantity = "",
+                    ColumnSalesOrderDetailReportListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnSalesOrderDetailReportListTax = "",
+                    ColumnSalesOrderDetailReportListTaxRate = "",
+                    ColumnSalesOrderDetailReportListTaxAmount = totalTaxAmount.ToString("#,##0.00"),
+                    ColumnSalesOrderDetailReportListBaseQuantity = "",
+                    ColumnSalesOrderDetailReportListBasePrice = ""
+                };
+
+                rowList.Add(totalSalesOrderDetailReport);
             }
             return rowList;
         }

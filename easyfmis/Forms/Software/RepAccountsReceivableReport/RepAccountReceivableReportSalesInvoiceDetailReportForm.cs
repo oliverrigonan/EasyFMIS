@@ -26,9 +26,8 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         DateTime DateEnd;
         Int32 CompanyId;
         Int32 BranchId;
-        Int32 SoldById;
 
-        public RepAccountReceivableReportSalesInvoiceDetailReportForm(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, String filterCompanyName, Int32 filterBranchId, String filterBranchName, Int32 filterSoldById, String filterSoldBy)
+        public RepAccountReceivableReportSalesInvoiceDetailReportForm(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, String filterCompanyName, Int32 filterBranchId, String filterBranchName)
         {
             InitializeComponent();
 
@@ -36,24 +35,22 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             DateEnd = filterDateEnd;
             CompanyId = filterCompanyId;
             BranchId = filterBranchId;
-            SoldById = filterSoldById;
 
             textBoxStartDate.Text = filterDateStart.Date.ToShortDateString();
             textBoxEndDate.Text = filterDateEnd.Date.ToShortDateString();
             textBoxCompany.Text = filterCompanyName;
             textBoxBranch.Text = filterBranchName;
-            textBoxSoldBy.Text = filterSoldBy;
 
             CreateSalesInvoiceDetailDataGridView();
         }
 
-        public List<Entities.DgvRepSalesInvoiceEntity> GetSalesInvoiceDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId, Int32 filterSoldById)
+        public List<Entities.DgvRepSalesInvoiceEntity> GetSalesInvoiceDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
             List<Entities.DgvRepSalesInvoiceEntity> rowList = new List<Entities.DgvRepSalesInvoiceEntity>();
 
             Controllers.RepAccountsReceivableReportController repInvetoryReportController = new Controllers.RepAccountsReceivableReportController();
 
-            var salesInvoiceDetailReportList = repInvetoryReportController.ListSalesInvoiceDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filterSoldById);
+            var salesInvoiceDetailReportList = repInvetoryReportController.ListSalesInvoiceDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
             if (salesInvoiceDetailReportList.Any())
             {
                 var row = from d in salesInvoiceDetailReportList
@@ -79,13 +76,37 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                 rowList = row.ToList();
 
+                Decimal totalDiscountAmount = salesInvoiceDetailReportList.Sum(d=> d.DiscountAmount);
+                Decimal totalAmount = salesInvoiceDetailReportList.Sum(d=> d.Amount);
+                Decimal totalTaxAmount = salesInvoiceDetailReportList.Sum(d=> d.TaxAmount);
+
+                Entities.DgvRepSalesInvoiceEntity totalSalesInvoice = new Entities.DgvRepSalesInvoiceEntity() {
+                    ColumnSalesInvoiceListSINumber = "Total",
+                    ColumnSalesInvoiceListItemDescription = "",
+                    ColumnSalesInvoiceListItemInventoryCode = "",
+                    ColumnSalesInvoiceListUnit = "",
+                    ColumnSalesInvoiceListPrice = "",
+                    ColumnSalesInvoiceListDiscount = "",
+                    ColumnSalesInvoiceListDiscountRate = "",
+                    ColumnSalesInvoiceListDiscountAmount = totalDiscountAmount.ToString("#,##0.00"),
+                    ColumnSalesInvoiceListNetPrice = "",
+                    ColumnSalesInvoiceListQuantity = "",
+                    ColumnSalesInvoiceListAmount = totalAmount.ToString("#,##0.00"),
+                    ColumnSalesInvoiceListTax = "",
+                    ColumnSalesInvoiceListTaxRate = "",
+                    ColumnSalesInvoiceListTaxAmount = totalTaxAmount.ToString("#,##0.00"),
+                    ColumnSalesInvoiceListBaseQuantity = "",
+                    ColumnSalesInvoiceListBasePrice = ""
+                };
+
+                rowList.Add(totalSalesInvoice);
             }
             return rowList;
         }
 
         public void GetSalesInvoiceDetailReportDataSource()
         {
-            salesInvoiceDetailReportList = GetSalesInvoiceDetailReportListData(DateStart, DateEnd, CompanyId, BranchId, SoldById);
+            salesInvoiceDetailReportList = GetSalesInvoiceDetailReportListData(DateStart, DateEnd, CompanyId, BranchId);
             if (salesInvoiceDetailReportList.Any())
             {
                 pageNumber = 1;
