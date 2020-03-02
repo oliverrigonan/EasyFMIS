@@ -54,6 +54,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxBranch = new System.Windows.Forms.TextBox();
             this.dataGridViewStockCardReport = new System.Windows.Forms.DataGridView();
+            this.buttonGenerateCSV = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
             this.ColumnStockCardReportDocument = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStockCardReportInventoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStockCardReportUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,12 +70,6 @@
             this.ColumnStockCardReportCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStockCardReportAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStockCardReportSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonGenerateCSV = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -319,97 +319,6 @@
             this.dataGridViewStockCardReport.Size = new System.Drawing.Size(1357, 441);
             this.dataGridViewStockCardReport.TabIndex = 21;
             // 
-            // ColumnStockCardReportDocument
-            // 
-            this.ColumnStockCardReportDocument.DataPropertyName = "ColumnStockCardReportDocument";
-            this.ColumnStockCardReportDocument.HeaderText = "Document";
-            this.ColumnStockCardReportDocument.Name = "ColumnStockCardReportDocument";
-            this.ColumnStockCardReportDocument.ReadOnly = true;
-            this.ColumnStockCardReportDocument.Width = 200;
-            // 
-            // ColumnStockCardReportInventoryDate
-            // 
-            this.ColumnStockCardReportInventoryDate.DataPropertyName = "ColumnStockCardReportInventoryDate";
-            this.ColumnStockCardReportInventoryDate.HeaderText = "Inventory Date";
-            this.ColumnStockCardReportInventoryDate.Name = "ColumnStockCardReportInventoryDate";
-            this.ColumnStockCardReportInventoryDate.ReadOnly = true;
-            this.ColumnStockCardReportInventoryDate.Width = 150;
-            // 
-            // ColumnStockCardReportUnit
-            // 
-            this.ColumnStockCardReportUnit.DataPropertyName = "ColumnStockCardReportUnit";
-            this.ColumnStockCardReportUnit.HeaderText = "Unit";
-            this.ColumnStockCardReportUnit.Name = "ColumnStockCardReportUnit";
-            this.ColumnStockCardReportUnit.ReadOnly = true;
-            // 
-            // ColumnStockCardReportBeginningQuantity
-            // 
-            this.ColumnStockCardReportBeginningQuantity.DataPropertyName = "ColumnStockCardReportBeginningQuantity";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockCardReportBeginningQuantity.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnStockCardReportBeginningQuantity.HeaderText = "Beg";
-            this.ColumnStockCardReportBeginningQuantity.Name = "ColumnStockCardReportBeginningQuantity";
-            this.ColumnStockCardReportBeginningQuantity.ReadOnly = true;
-            this.ColumnStockCardReportBeginningQuantity.Width = 150;
-            // 
-            // ColumnStockCardReportInQuantity
-            // 
-            this.ColumnStockCardReportInQuantity.DataPropertyName = "ColumnStockCardReportInQuantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockCardReportInQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnStockCardReportInQuantity.HeaderText = "In";
-            this.ColumnStockCardReportInQuantity.Name = "ColumnStockCardReportInQuantity";
-            this.ColumnStockCardReportInQuantity.ReadOnly = true;
-            this.ColumnStockCardReportInQuantity.Width = 150;
-            // 
-            // ColumnStockCardReportOutQuantity
-            // 
-            this.ColumnStockCardReportOutQuantity.DataPropertyName = "ColumnStockCardReportOutQuantity";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockCardReportOutQuantity.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnStockCardReportOutQuantity.HeaderText = "Out";
-            this.ColumnStockCardReportOutQuantity.Name = "ColumnStockCardReportOutQuantity";
-            this.ColumnStockCardReportOutQuantity.ReadOnly = true;
-            this.ColumnStockCardReportOutQuantity.Width = 150;
-            // 
-            // ColumnStockCardReportRunninguantity
-            // 
-            this.ColumnStockCardReportRunninguantity.DataPropertyName = "ColumnStockCardReportRunninguantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockCardReportRunninguantity.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnStockCardReportRunninguantity.HeaderText = "Running";
-            this.ColumnStockCardReportRunninguantity.Name = "ColumnStockCardReportRunninguantity";
-            this.ColumnStockCardReportRunninguantity.ReadOnly = true;
-            this.ColumnStockCardReportRunninguantity.Width = 150;
-            // 
-            // ColumnStockCardReportCost
-            // 
-            this.ColumnStockCardReportCost.DataPropertyName = "ColumnStockCardReportCost";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockCardReportCost.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnStockCardReportCost.HeaderText = "Cost";
-            this.ColumnStockCardReportCost.Name = "ColumnStockCardReportCost";
-            this.ColumnStockCardReportCost.ReadOnly = true;
-            this.ColumnStockCardReportCost.Width = 150;
-            // 
-            // ColumnStockCardReportAmount
-            // 
-            this.ColumnStockCardReportAmount.DataPropertyName = "ColumnStockCardReportAmount";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnStockCardReportAmount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColumnStockCardReportAmount.HeaderText = "Amount";
-            this.ColumnStockCardReportAmount.Name = "ColumnStockCardReportAmount";
-            this.ColumnStockCardReportAmount.ReadOnly = true;
-            this.ColumnStockCardReportAmount.Width = 150;
-            // 
-            // ColumnStockCardReportSpace
-            // 
-            this.ColumnStockCardReportSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnStockCardReportSpace.DataPropertyName = "ColumnStockCardReportSpace";
-            this.ColumnStockCardReportSpace.HeaderText = "";
-            this.ColumnStockCardReportSpace.Name = "ColumnStockCardReportSpace";
-            this.ColumnStockCardReportSpace.ReadOnly = true;
-            // 
             // buttonGenerateCSV
             // 
             this.buttonGenerateCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -482,6 +391,97 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1382, 63);
             this.panel1.TabIndex = 16;
+            // 
+            // ColumnStockCardReportDocument
+            // 
+            this.ColumnStockCardReportDocument.DataPropertyName = "ColumnStockCardReportDocument";
+            this.ColumnStockCardReportDocument.HeaderText = "Document";
+            this.ColumnStockCardReportDocument.Name = "ColumnStockCardReportDocument";
+            this.ColumnStockCardReportDocument.ReadOnly = true;
+            this.ColumnStockCardReportDocument.Width = 200;
+            // 
+            // ColumnStockCardReportInventoryDate
+            // 
+            this.ColumnStockCardReportInventoryDate.DataPropertyName = "ColumnStockCardReportInventoryDate";
+            this.ColumnStockCardReportInventoryDate.HeaderText = "Inventory Date";
+            this.ColumnStockCardReportInventoryDate.Name = "ColumnStockCardReportInventoryDate";
+            this.ColumnStockCardReportInventoryDate.ReadOnly = true;
+            this.ColumnStockCardReportInventoryDate.Width = 150;
+            // 
+            // ColumnStockCardReportUnit
+            // 
+            this.ColumnStockCardReportUnit.DataPropertyName = "ColumnStockCardReportUnit";
+            this.ColumnStockCardReportUnit.HeaderText = "Unit";
+            this.ColumnStockCardReportUnit.Name = "ColumnStockCardReportUnit";
+            this.ColumnStockCardReportUnit.ReadOnly = true;
+            // 
+            // ColumnStockCardReportBeginningQuantity
+            // 
+            this.ColumnStockCardReportBeginningQuantity.DataPropertyName = "ColumnStockCardReportBeginningQuantity";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockCardReportBeginningQuantity.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ColumnStockCardReportBeginningQuantity.HeaderText = "Beg";
+            this.ColumnStockCardReportBeginningQuantity.Name = "ColumnStockCardReportBeginningQuantity";
+            this.ColumnStockCardReportBeginningQuantity.ReadOnly = true;
+            this.ColumnStockCardReportBeginningQuantity.Width = 150;
+            // 
+            // ColumnStockCardReportInQuantity
+            // 
+            this.ColumnStockCardReportInQuantity.DataPropertyName = "ColumnStockCardReportInQuantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockCardReportInQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnStockCardReportInQuantity.HeaderText = "In";
+            this.ColumnStockCardReportInQuantity.Name = "ColumnStockCardReportInQuantity";
+            this.ColumnStockCardReportInQuantity.ReadOnly = true;
+            this.ColumnStockCardReportInQuantity.Width = 150;
+            // 
+            // ColumnStockCardReportOutQuantity
+            // 
+            this.ColumnStockCardReportOutQuantity.DataPropertyName = "ColumnStockCardReportOutQuantity";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockCardReportOutQuantity.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnStockCardReportOutQuantity.HeaderText = "Out";
+            this.ColumnStockCardReportOutQuantity.Name = "ColumnStockCardReportOutQuantity";
+            this.ColumnStockCardReportOutQuantity.ReadOnly = true;
+            this.ColumnStockCardReportOutQuantity.Width = 150;
+            // 
+            // ColumnStockCardReportRunninguantity
+            // 
+            this.ColumnStockCardReportRunninguantity.DataPropertyName = "ColumnStockCardReportRunninguantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockCardReportRunninguantity.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnStockCardReportRunninguantity.HeaderText = "Balance";
+            this.ColumnStockCardReportRunninguantity.Name = "ColumnStockCardReportRunninguantity";
+            this.ColumnStockCardReportRunninguantity.ReadOnly = true;
+            this.ColumnStockCardReportRunninguantity.Width = 150;
+            // 
+            // ColumnStockCardReportCost
+            // 
+            this.ColumnStockCardReportCost.DataPropertyName = "ColumnStockCardReportCost";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockCardReportCost.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnStockCardReportCost.HeaderText = "Cost";
+            this.ColumnStockCardReportCost.Name = "ColumnStockCardReportCost";
+            this.ColumnStockCardReportCost.ReadOnly = true;
+            this.ColumnStockCardReportCost.Width = 150;
+            // 
+            // ColumnStockCardReportAmount
+            // 
+            this.ColumnStockCardReportAmount.DataPropertyName = "ColumnStockCardReportAmount";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnStockCardReportAmount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColumnStockCardReportAmount.HeaderText = "Amount";
+            this.ColumnStockCardReportAmount.Name = "ColumnStockCardReportAmount";
+            this.ColumnStockCardReportAmount.ReadOnly = true;
+            this.ColumnStockCardReportAmount.Width = 150;
+            // 
+            // ColumnStockCardReportSpace
+            // 
+            this.ColumnStockCardReportSpace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnStockCardReportSpace.DataPropertyName = "ColumnStockCardReportSpace";
+            this.ColumnStockCardReportSpace.HeaderText = "";
+            this.ColumnStockCardReportSpace.Name = "ColumnStockCardReportSpace";
+            this.ColumnStockCardReportSpace.ReadOnly = true;
             // 
             // RepInventoryReportStockCardReportForm
             // 

@@ -101,6 +101,7 @@
             // 
             // textBoxQuantity
             // 
+            this.textBoxQuantity.Enabled = false;
             this.textBoxQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxQuantity.Location = new System.Drawing.Point(142, 140);
             this.textBoxQuantity.Name = "textBoxQuantity";

@@ -126,7 +126,7 @@
             this.buttonItemPriceListPageListLast = new System.Windows.Forms.Button();
             this.textBoxItemPriceListPageNumber = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.buttonItemComponentAdd = new System.Windows.Forms.Button();
+            this.buttonAddItemComponent = new System.Windows.Forms.Button();
             this.dataGridViewItemComponentList = new System.Windows.Forms.DataGridView();
             this.ColumnItemComponentButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnItemComponentButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -148,12 +148,6 @@
             this.textBoxItemComponentListPageNumber = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridViewItemInventoryList = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonItemInventoryListPageListFirst = new System.Windows.Forms.Button();
-            this.buttonItemInventoryListPageListPrevious = new System.Windows.Forms.Button();
-            this.buttonItemInventoryListPageListNext = new System.Windows.Forms.Button();
-            this.buttonItemInventoryListPageListLast = new System.Windows.Forms.Button();
-            this.textBoxItemInventoryListPageNumber = new System.Windows.Forms.TextBox();
             this.ColumnItemInventoryButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnItemInventorytId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemInventoryBranchId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -167,6 +161,12 @@
             this.ColumnItemInventoryCost3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemInventoryCost4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItemInventoryCost5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonItemInventoryListPageListFirst = new System.Windows.Forms.Button();
+            this.buttonItemInventoryListPageListPrevious = new System.Windows.Forms.Button();
+            this.buttonItemInventoryListPageListNext = new System.Windows.Forms.Button();
+            this.buttonItemInventoryListPageListLast = new System.Windows.Forms.Button();
+            this.textBoxItemInventoryListPageNumber = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -1230,7 +1230,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.buttonItemComponentAdd);
+            this.tabPage3.Controls.Add(this.buttonAddItemComponent);
             this.tabPage3.Controls.Add(this.dataGridViewItemComponentList);
             this.tabPage3.Controls.Add(this.panel4);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
@@ -1240,22 +1240,22 @@
             this.tabPage3.Text = "Component";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // buttonItemComponentAdd
+            // buttonAddItemComponent
             // 
-            this.buttonItemComponentAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonItemComponentAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonItemComponentAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonItemComponentAdd.FlatAppearance.BorderSize = 0;
-            this.buttonItemComponentAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonItemComponentAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonItemComponentAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonItemComponentAdd.Location = new System.Drawing.Point(1295, 5);
-            this.buttonItemComponentAdd.Name = "buttonItemComponentAdd";
-            this.buttonItemComponentAdd.Size = new System.Drawing.Size(88, 40);
-            this.buttonItemComponentAdd.TabIndex = 39;
-            this.buttonItemComponentAdd.Text = "Add";
-            this.buttonItemComponentAdd.UseVisualStyleBackColor = false;
-            this.buttonItemComponentAdd.Click += new System.EventHandler(this.buttonItemComponentAdd_Click);
+            this.buttonAddItemComponent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddItemComponent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddItemComponent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddItemComponent.FlatAppearance.BorderSize = 0;
+            this.buttonAddItemComponent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddItemComponent.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddItemComponent.ForeColor = System.Drawing.Color.White;
+            this.buttonAddItemComponent.Location = new System.Drawing.Point(1295, 5);
+            this.buttonAddItemComponent.Name = "buttonAddItemComponent";
+            this.buttonAddItemComponent.Size = new System.Drawing.Size(88, 40);
+            this.buttonAddItemComponent.TabIndex = 39;
+            this.buttonAddItemComponent.Text = "Add";
+            this.buttonAddItemComponent.UseVisualStyleBackColor = false;
+            this.buttonAddItemComponent.Click += new System.EventHandler(this.buttonItemComponentAdd_Click);
             // 
             // dataGridViewItemComponentList
             // 
@@ -1527,91 +1527,6 @@
             this.dataGridViewItemInventoryList.TabIndex = 41;
             this.dataGridViewItemInventoryList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItemInventoryList_CellClick);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.buttonItemInventoryListPageListFirst);
-            this.panel2.Controls.Add(this.buttonItemInventoryListPageListPrevious);
-            this.panel2.Controls.Add(this.buttonItemInventoryListPageListNext);
-            this.panel2.Controls.Add(this.buttonItemInventoryListPageListLast);
-            this.panel2.Controls.Add(this.textBoxItemInventoryListPageNumber);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 548);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1392, 53);
-            this.panel2.TabIndex = 40;
-            // 
-            // buttonItemInventoryListPageListFirst
-            // 
-            this.buttonItemInventoryListPageListFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonItemInventoryListPageListFirst.Enabled = false;
-            this.buttonItemInventoryListPageListFirst.FlatAppearance.BorderSize = 0;
-            this.buttonItemInventoryListPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonItemInventoryListPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonItemInventoryListPageListFirst.Location = new System.Drawing.Point(12, 9);
-            this.buttonItemInventoryListPageListFirst.Name = "buttonItemInventoryListPageListFirst";
-            this.buttonItemInventoryListPageListFirst.Size = new System.Drawing.Size(82, 32);
-            this.buttonItemInventoryListPageListFirst.TabIndex = 13;
-            this.buttonItemInventoryListPageListFirst.Text = "First";
-            this.buttonItemInventoryListPageListFirst.UseVisualStyleBackColor = false;
-            this.buttonItemInventoryListPageListFirst.Click += new System.EventHandler(this.buttonItemInventoryListPageListFirst_Click);
-            // 
-            // buttonItemInventoryListPageListPrevious
-            // 
-            this.buttonItemInventoryListPageListPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonItemInventoryListPageListPrevious.Enabled = false;
-            this.buttonItemInventoryListPageListPrevious.FlatAppearance.BorderSize = 0;
-            this.buttonItemInventoryListPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonItemInventoryListPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonItemInventoryListPageListPrevious.Location = new System.Drawing.Point(100, 9);
-            this.buttonItemInventoryListPageListPrevious.Name = "buttonItemInventoryListPageListPrevious";
-            this.buttonItemInventoryListPageListPrevious.Size = new System.Drawing.Size(82, 32);
-            this.buttonItemInventoryListPageListPrevious.TabIndex = 14;
-            this.buttonItemInventoryListPageListPrevious.Text = "Previous";
-            this.buttonItemInventoryListPageListPrevious.UseVisualStyleBackColor = false;
-            this.buttonItemInventoryListPageListPrevious.Click += new System.EventHandler(this.buttonItemInventoryListPageListPrevious_Click);
-            // 
-            // buttonItemInventoryListPageListNext
-            // 
-            this.buttonItemInventoryListPageListNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonItemInventoryListPageListNext.FlatAppearance.BorderSize = 0;
-            this.buttonItemInventoryListPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonItemInventoryListPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonItemInventoryListPageListNext.Location = new System.Drawing.Point(263, 9);
-            this.buttonItemInventoryListPageListNext.Name = "buttonItemInventoryListPageListNext";
-            this.buttonItemInventoryListPageListNext.Size = new System.Drawing.Size(82, 32);
-            this.buttonItemInventoryListPageListNext.TabIndex = 15;
-            this.buttonItemInventoryListPageListNext.Text = "Next";
-            this.buttonItemInventoryListPageListNext.UseVisualStyleBackColor = false;
-            this.buttonItemInventoryListPageListNext.Click += new System.EventHandler(this.buttonItemInventoryListPageListNext_Click);
-            // 
-            // buttonItemInventoryListPageListLast
-            // 
-            this.buttonItemInventoryListPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonItemInventoryListPageListLast.FlatAppearance.BorderSize = 0;
-            this.buttonItemInventoryListPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonItemInventoryListPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonItemInventoryListPageListLast.Location = new System.Drawing.Point(348, 9);
-            this.buttonItemInventoryListPageListLast.Name = "buttonItemInventoryListPageListLast";
-            this.buttonItemInventoryListPageListLast.Size = new System.Drawing.Size(82, 32);
-            this.buttonItemInventoryListPageListLast.TabIndex = 16;
-            this.buttonItemInventoryListPageListLast.Text = "Last";
-            this.buttonItemInventoryListPageListLast.UseVisualStyleBackColor = false;
-            this.buttonItemInventoryListPageListLast.Click += new System.EventHandler(this.buttonItemInventoryListPageListLast_Click);
-            // 
-            // textBoxItemInventoryListPageNumber
-            // 
-            this.textBoxItemInventoryListPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxItemInventoryListPageNumber.BackColor = System.Drawing.Color.White;
-            this.textBoxItemInventoryListPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxItemInventoryListPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxItemInventoryListPageNumber.Location = new System.Drawing.Point(188, 14);
-            this.textBoxItemInventoryListPageNumber.Name = "textBoxItemInventoryListPageNumber";
-            this.textBoxItemInventoryListPageNumber.ReadOnly = true;
-            this.textBoxItemInventoryListPageNumber.Size = new System.Drawing.Size(69, 20);
-            this.textBoxItemInventoryListPageNumber.TabIndex = 17;
-            this.textBoxItemInventoryListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // ColumnItemInventoryButtonEdit
             // 
             this.ColumnItemInventoryButtonEdit.DataPropertyName = "ColumnItemInventoryButtonEdit";
@@ -1726,6 +1641,91 @@
             this.ColumnItemInventoryCost5.Visible = false;
             this.ColumnItemInventoryCost5.Width = 150;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.buttonItemInventoryListPageListFirst);
+            this.panel2.Controls.Add(this.buttonItemInventoryListPageListPrevious);
+            this.panel2.Controls.Add(this.buttonItemInventoryListPageListNext);
+            this.panel2.Controls.Add(this.buttonItemInventoryListPageListLast);
+            this.panel2.Controls.Add(this.textBoxItemInventoryListPageNumber);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 548);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1392, 53);
+            this.panel2.TabIndex = 40;
+            // 
+            // buttonItemInventoryListPageListFirst
+            // 
+            this.buttonItemInventoryListPageListFirst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonItemInventoryListPageListFirst.Enabled = false;
+            this.buttonItemInventoryListPageListFirst.FlatAppearance.BorderSize = 0;
+            this.buttonItemInventoryListPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonItemInventoryListPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonItemInventoryListPageListFirst.Location = new System.Drawing.Point(12, 9);
+            this.buttonItemInventoryListPageListFirst.Name = "buttonItemInventoryListPageListFirst";
+            this.buttonItemInventoryListPageListFirst.Size = new System.Drawing.Size(82, 32);
+            this.buttonItemInventoryListPageListFirst.TabIndex = 13;
+            this.buttonItemInventoryListPageListFirst.Text = "First";
+            this.buttonItemInventoryListPageListFirst.UseVisualStyleBackColor = false;
+            this.buttonItemInventoryListPageListFirst.Click += new System.EventHandler(this.buttonItemInventoryListPageListFirst_Click);
+            // 
+            // buttonItemInventoryListPageListPrevious
+            // 
+            this.buttonItemInventoryListPageListPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonItemInventoryListPageListPrevious.Enabled = false;
+            this.buttonItemInventoryListPageListPrevious.FlatAppearance.BorderSize = 0;
+            this.buttonItemInventoryListPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonItemInventoryListPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonItemInventoryListPageListPrevious.Location = new System.Drawing.Point(100, 9);
+            this.buttonItemInventoryListPageListPrevious.Name = "buttonItemInventoryListPageListPrevious";
+            this.buttonItemInventoryListPageListPrevious.Size = new System.Drawing.Size(82, 32);
+            this.buttonItemInventoryListPageListPrevious.TabIndex = 14;
+            this.buttonItemInventoryListPageListPrevious.Text = "Previous";
+            this.buttonItemInventoryListPageListPrevious.UseVisualStyleBackColor = false;
+            this.buttonItemInventoryListPageListPrevious.Click += new System.EventHandler(this.buttonItemInventoryListPageListPrevious_Click);
+            // 
+            // buttonItemInventoryListPageListNext
+            // 
+            this.buttonItemInventoryListPageListNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonItemInventoryListPageListNext.FlatAppearance.BorderSize = 0;
+            this.buttonItemInventoryListPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonItemInventoryListPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonItemInventoryListPageListNext.Location = new System.Drawing.Point(263, 9);
+            this.buttonItemInventoryListPageListNext.Name = "buttonItemInventoryListPageListNext";
+            this.buttonItemInventoryListPageListNext.Size = new System.Drawing.Size(82, 32);
+            this.buttonItemInventoryListPageListNext.TabIndex = 15;
+            this.buttonItemInventoryListPageListNext.Text = "Next";
+            this.buttonItemInventoryListPageListNext.UseVisualStyleBackColor = false;
+            this.buttonItemInventoryListPageListNext.Click += new System.EventHandler(this.buttonItemInventoryListPageListNext_Click);
+            // 
+            // buttonItemInventoryListPageListLast
+            // 
+            this.buttonItemInventoryListPageListLast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonItemInventoryListPageListLast.FlatAppearance.BorderSize = 0;
+            this.buttonItemInventoryListPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonItemInventoryListPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonItemInventoryListPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonItemInventoryListPageListLast.Name = "buttonItemInventoryListPageListLast";
+            this.buttonItemInventoryListPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonItemInventoryListPageListLast.TabIndex = 16;
+            this.buttonItemInventoryListPageListLast.Text = "Last";
+            this.buttonItemInventoryListPageListLast.UseVisualStyleBackColor = false;
+            this.buttonItemInventoryListPageListLast.Click += new System.EventHandler(this.buttonItemInventoryListPageListLast_Click);
+            // 
+            // textBoxItemInventoryListPageNumber
+            // 
+            this.textBoxItemInventoryListPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxItemInventoryListPageNumber.BackColor = System.Drawing.Color.White;
+            this.textBoxItemInventoryListPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxItemInventoryListPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBoxItemInventoryListPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxItemInventoryListPageNumber.Name = "textBoxItemInventoryListPageNumber";
+            this.textBoxItemInventoryListPageNumber.ReadOnly = true;
+            this.textBoxItemInventoryListPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxItemInventoryListPageNumber.TabIndex = 17;
+            this.textBoxItemInventoryListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MstItemDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1811,7 +1811,7 @@
         private System.Windows.Forms.Button buttonItemPriceListPageListLast;
         private System.Windows.Forms.TextBox textBoxItemPriceListPageNumber;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button buttonItemComponentAdd;
+        private System.Windows.Forms.Button buttonAddItemComponent;
         private System.Windows.Forms.DataGridView dataGridViewItemComponentList;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button buttonItemComponentListPageListFirst;

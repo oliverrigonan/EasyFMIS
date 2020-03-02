@@ -85,7 +85,6 @@ namespace easyfmis.Forms.Software.MstUser
                 if (addUserForm[1].Equals("0") == false)
                 {
                     mstUserDetailForm.UpdateUserFormListDataSource();
-                    Close();
                 }
                 else
                 {

@@ -13,6 +13,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
     public partial class RepInventoryReportForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public RepInventoryReportForm(SysSoftwareForm softwareForm)
         {
@@ -220,35 +221,80 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                 switch (selectedItem)
                 {
                     case "Inventory Report":
-
-                        RepInventoryReportInventoryReportForm repInventoryReportInventoryReport = new RepInventoryReportInventoryReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
-                        repInventoryReportInventoryReport.Show();
-
+                        sysUserRights = new Modules.SysUserRightsModule("RepInventory");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepInventoryReportInventoryReportForm repInventoryReportInventoryReport = new RepInventoryReportInventoryReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                            repInventoryReportInventoryReport.Show();
+                        }
                         break;
                     case "Stock Card":
-
-                        RepInventoryReportStockCardReportForm repInventoryReportStockCardReportForm = new RepInventoryReportStockCardReportForm(startDate, endDate, companyId, companyName, branchId, branchName, itemId, itemName);
-                        repInventoryReportStockCardReportForm.Show();
-
+                        sysUserRights = new Modules.SysUserRightsModule("RepStockCard");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepInventoryReportStockCardReportForm repInventoryReportStockCardReportForm = new RepInventoryReportStockCardReportForm(startDate, endDate, companyId, companyName, branchId, branchName, itemId, itemName);
+                            repInventoryReportStockCardReportForm.Show();
+                        }
                         break;
                     case "Stock-In Detail Report":
-                        RepInventoryReportStockInDetailReportForm repInventoryReportStockInDetailReportForm = new RepInventoryReportStockInDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
-                        repInventoryReportStockInDetailReportForm.Show();
+                        sysUserRights = new Modules.SysUserRightsModule("RepStockInDetail");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepInventoryReportStockInDetailReportForm repInventoryReportStockInDetailReportForm = new RepInventoryReportStockInDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                            repInventoryReportStockInDetailReportForm.Show();
+                        }
                         break;
                     case "Stock-Out Detail Report":
-                        RepInventoryReportStockOutDetailReportForm repInventoryReportStockOutDetailReportForm = new RepInventoryReportStockOutDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
-                        repInventoryReportStockOutDetailReportForm.Show();
+                        sysUserRights = new Modules.SysUserRightsModule("RepStockOutDetail");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepInventoryReportStockOutDetailReportForm repInventoryReportStockOutDetailReportForm = new RepInventoryReportStockOutDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                            repInventoryReportStockOutDetailReportForm.Show();
+                        }
                         break;
                     case "Stock Transfer Detail Report":
-                        RepInventoryReportStockTransferDetailReportForm repInventoryReportStockTransferDetailReportForm = new RepInventoryReportStockTransferDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
-                        repInventoryReportStockTransferDetailReportForm.Show();
+                        sysUserRights = new Modules.SysUserRightsModule("TrnStockTransfer");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepInventoryReportStockTransferDetailReportForm repInventoryReportStockTransferDetailReportForm = new RepInventoryReportStockTransferDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                            repInventoryReportStockTransferDetailReportForm.Show();
+                        }
+
                         break;
                     case "Item List":
-                        RepRepInventoryReportItemListReportForm repRepInventoryReportItemListReportForm = new RepRepInventoryReportItemListReportForm();
-                        repRepInventoryReportItemListReportForm.Show();
+                        sysUserRights = new Modules.SysUserRightsModule("RepItemList");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepRepInventoryReportItemListReportForm repRepInventoryReportItemListReportForm = new RepRepInventoryReportItemListReportForm();
+                            repRepInventoryReportItemListReportForm.Show();
+                        }
                         break;
                     default:
-                        
+
                         break;
                 }
             }

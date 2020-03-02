@@ -13,6 +13,7 @@ namespace easyfmis.Forms.Software.MstSupplier
     public partial class MstSupplierDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public MstSupplierListForm mstSupplierListForm;
         public Entities.MstArticleEntity mstSupplierEntity;
@@ -22,10 +23,18 @@ namespace easyfmis.Forms.Software.MstSupplier
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            mstSupplierListForm = itemListForm;
-            mstSupplierEntity = supplierEntity;
+            sysUserRights = new Modules.SysUserRightsModule("MstItemDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                mstSupplierListForm = itemListForm;
+                mstSupplierEntity = supplierEntity;
 
-            DropdownArticleGroup();
+                DropdownArticleGroup();
+            }
         }
 
         public void DropdownArticleGroup()
@@ -74,8 +83,24 @@ namespace easyfmis.Forms.Software.MstSupplier
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
-            buttonUnlock.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
             comboBoxArticleGroup.Enabled = !isLocked;
             textBoxSupplierCode.Enabled = !isLocked;
             textBoxSupplier.Enabled = !isLocked;

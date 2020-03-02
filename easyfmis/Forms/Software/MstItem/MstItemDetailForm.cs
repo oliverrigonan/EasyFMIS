@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.MstItem
     public partial class MstItemDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public MstItemListForm mstItemListForm;
         public Entities.MstArticleEntity mstItemEntity;
@@ -26,10 +27,18 @@ namespace easyfmis.Forms.Software.MstItem
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            mstItemListForm = itemListForm;
-            mstItemEntity = itemEntity;
+            sysUserRights = new Modules.SysUserRightsModule("MstItemDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                mstItemListForm = itemListForm;
+                mstItemEntity = itemEntity;
 
-            DropdownArticleGroup();
+                DropdownArticleGroup();
+            }
         }
 
         public void DropdownArticleGroup()
@@ -71,23 +80,10 @@ namespace easyfmis.Forms.Software.MstItem
                 comboBoxUnit.ValueMember = "Id";
                 comboBoxUnit.DisplayMember = "Unit";
 
-                //GetSupplierList();
                 GetItemDetail();
 
             }
         }
-
-        //public void GetSupplierList()
-        //{
-        //    Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
-        //    if (mstItemController.ListArticle(3).Any())
-        //    {
-        //        comboBoxDefaultSupplier.DataSource = mstItemController.ListArticle(3);
-        //        comboBoxDefaultSupplier.ValueMember = "Id";
-        //        comboBoxDefaultSupplier.DisplayMember = "Article";
-        //    }
-        //    GetItemDetail();
-        //}
 
         public void GetItemDetail()
         {
@@ -102,14 +98,6 @@ namespace easyfmis.Forms.Software.MstItem
             comboBoxVATInTax.SelectedValue = mstItemEntity.VATInTaxId;
             comboBoxVATOutTax.SelectedValue = mstItemEntity.VATOutTaxId;
             comboBoxUnit.SelectedValue = mstItemEntity.UnitId;
-
-            //Int32 supplierId = 0;
-            //comboBoxDefaultSupplier.SelectedValue = supplierId;
-            //if (mstItemEntity.DefaultSupplierId != null)
-            //{
-            //    comboBoxDefaultSupplier.SelectedValue = mstItemEntity.DefaultSupplierId;
-
-            //}
 
             textBoxCost.Text = mstItemEntity.DefaultCost.ToString("#,##0.00");
             textBoxPrice.Text = mstItemEntity.DefaultPrice.ToString("#,##0.00"); ;
@@ -127,6 +115,65 @@ namespace easyfmis.Forms.Software.MstItem
 
         public void UpdateComponents(Boolean isLocked)
         {
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanAdd == false)
+            {
+                buttonAddUnitConvertion.Enabled = false;
+                buttonAddItemPrice.Enabled = false;
+                buttonAddItemComponent.Enabled = false;
+            }
+            else
+            {
+                buttonAddUnitConvertion.Enabled = !isLocked;
+                buttonAddItemPrice.Enabled = !isLocked;
+                buttonAddItemComponent.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewItemComponentList.Columns[0].Visible = false;
+                dataGridViewItemPriceList.Columns[0].Visible = false;
+                dataGridViewUnitConversion.Columns[0].Visible = false;
+                dataGridViewItemInventoryList.Columns["ColumnItemInventoryButtonEdit"].Visible = false;
+            }
+            else
+            {
+                dataGridViewItemComponentList.Columns[0].Visible = !isLocked;
+                dataGridViewItemPriceList.Columns[0].Visible = !isLocked;
+                dataGridViewUnitConversion.Columns[0].Visible = !isLocked;
+                dataGridViewItemInventoryList.Columns["ColumnItemInventoryButtonEdit"].Visible = !isLocked;
+
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewItemComponentList.Columns[1].Visible = false;
+                dataGridViewItemPriceList.Columns[1].Visible = false;
+                dataGridViewUnitConversion.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewItemComponentList.Columns[1].Visible = !isLocked;
+                dataGridViewItemPriceList.Columns[1].Visible = !isLocked;
+                dataGridViewUnitConversion.Columns[1].Visible = !isLocked;
+            }
 
             buttonLock.Enabled = !isLocked;
             buttonUnlock.Enabled = isLocked;
@@ -138,26 +185,12 @@ namespace easyfmis.Forms.Software.MstItem
             textBoxAlias.Enabled = !isLocked;
             textBoxCategory.Enabled = !isLocked;
             comboBoxUnit.Enabled = !isLocked;
-            //comboBoxDefaultSupplier.Enabled = !isLocked;
             textBoxCost.Enabled = !isLocked;
             textBoxPrice.Enabled = !isLocked;
             textBoxReorderQuantity.Enabled = !isLocked;
             checkBoxIsInventory.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;
             textBoxGenericName.Enabled = !isLocked;
-
-            buttonAddUnitConvertion.Enabled = !isLocked;
-            buttonAddItemPrice.Enabled = !isLocked;
-            buttonItemComponentAdd.Enabled = !isLocked;
-
-            dataGridViewItemComponentList.Columns[0].Visible = !isLocked;
-            dataGridViewItemComponentList.Columns[1].Visible = !isLocked;
-            dataGridViewItemPriceList.Columns[0].Visible = !isLocked;
-            dataGridViewItemPriceList.Columns[1].Visible = !isLocked;
-            dataGridViewUnitConversion.Columns[0].Visible = !isLocked;
-            dataGridViewUnitConversion.Columns[1].Visible = !isLocked;
-
-            dataGridViewItemInventoryList.Columns["ColumnItemInventoryButtonEdit"].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)

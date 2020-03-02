@@ -13,6 +13,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
     public partial class RepAccountsReceivableReportForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public RepAccountsReceivableReportForm(SysSoftwareForm softwareForm)
         {
@@ -250,31 +251,70 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                 String soldBy = comboBoxBranch.GetItemText(comboBoxSoldBy.Text);
                 Int32 customerId = Convert.ToInt32(comboBoxCustomer.SelectedValue);
                 String customer = comboBoxBranch.GetItemText(comboBoxCustomer.Text);
-                
+
 
                 String selectedItem = listBoxAccountsReceivableReport.SelectedItem.ToString();
                 switch (selectedItem)
                 {
                     case "Accounts Receivable Report":
-                        RepAccountsReceivableReportAccountsReceivableReportForm repAccountsReceivableReportAccountsReceivableReportForm = new RepAccountsReceivableReportAccountsReceivableReportForm(dateAsOf, companyId, companyName, branchId, branchName);
-                        repAccountsReceivableReportAccountsReceivableReportForm.ShowDialog();
-
+                        sysUserRights = new Modules.SysUserRightsModule("RepAccountsReceivable");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepAccountsReceivableReportAccountsReceivableReportForm repAccountsReceivableReportAccountsReceivableReportForm = new RepAccountsReceivableReportAccountsReceivableReportForm(dateAsOf, companyId, companyName, branchId, branchName);
+                            repAccountsReceivableReportAccountsReceivableReportForm.ShowDialog();
+                        }
                         break;
                     case "Sales Invoice Detail Report":
-                        RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
-                        repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm.ShowDialog();
+                        sysUserRights = new Modules.SysUserRightsModule("RepSalesInvoiceDetailReport");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                            repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm.ShowDialog();
+                        }
                         break;
                     case "Sales Order Detail Report":
-                        RepAccountReceivableSalesOrderDetailReportReportForm repAccountReceivableSalesOrderDetailReportReportForm = new RepAccountReceivableSalesOrderDetailReportReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
-                        repAccountReceivableSalesOrderDetailReportReportForm.ShowDialog();
+                        sysUserRights = new Modules.SysUserRightsModule("RepSalesOrderDetailReport");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepAccountReceivableSalesOrderDetailReportReportForm repAccountReceivableSalesOrderDetailReportReportForm = new RepAccountReceivableSalesOrderDetailReportReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                            repAccountReceivableSalesOrderDetailReportReportForm.ShowDialog();
+                        }
                         break;
                     case "Collection Detail Report":
-                        RepAccountsReceivableReportCollectionDetailReportForm repAccountsReceivableReportCollectionDetailReportForm = new RepAccountsReceivableReportCollectionDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
-                        repAccountsReceivableReportCollectionDetailReportForm.ShowDialog();
+                        sysUserRights = new Modules.SysUserRightsModule("RepCollectionDetailReport");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepAccountsReceivableReportCollectionDetailReportForm repAccountsReceivableReportCollectionDetailReportForm = new RepAccountsReceivableReportCollectionDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                            repAccountsReceivableReportCollectionDetailReportForm.ShowDialog();
+                        }
                         break;
                     case "Statement of Account":
-                        RepAccountsReceivableStatementOfAccountsReportForm repAccountsReceivableStatementOfAccountsReportForm = new RepAccountsReceivableStatementOfAccountsReportForm(dateAsOf, companyId, companyName, branchId, branchName, customerId, customer);
-                        repAccountsReceivableStatementOfAccountsReportForm.ShowDialog();
+                        sysUserRights = new Modules.SysUserRightsModule("RepStatementOfAccount");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepAccountsReceivableStatementOfAccountsReportForm repAccountsReceivableStatementOfAccountsReportForm = new RepAccountsReceivableStatementOfAccountsReportForm(dateAsOf, companyId, companyName, branchId, branchName, customerId, customer);
+                            repAccountsReceivableStatementOfAccountsReportForm.ShowDialog();
+                        }
                         break;
                     default:
                         break;

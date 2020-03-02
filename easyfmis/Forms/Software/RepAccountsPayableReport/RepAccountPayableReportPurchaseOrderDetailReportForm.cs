@@ -49,6 +49,7 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
         public List<Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity> GetPurchaserOrderDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId, Int32 filterSoldById)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity> rowList = new List<Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity>();
 
             Controllers.RepAccountsPayableReportController repAccountsPayableReportController = new Controllers.RepAccountsPayableReportController();
@@ -57,6 +58,10 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             if (purchaseOrderDetailReportList.Any())
             {
                 var row = from d in purchaseOrderDetailReportList
+                          where d.PONumber.Contains(filter)
+                          || d.ManualPONumber.Contains(filter)
+                          || d.Supplier.ToLower().Contains(filter)
+                          || d.Term.ToLower().Contains(filter)
                           select new Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity
                           {
                               ColumnPurchaseOrderDetailReportListBranch = d.Branch,
@@ -175,6 +180,14 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             dataGridViewAccountsPayablePurchaseOrderDetailReport.DataSource = dataPurchaseOrderReportListSource;
         }
 
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CreatePurchaseOrderDetailReportDataGridView();
+            }
+        }
+
         private void buttonPurchaseOrderDetailReportPageListFirst_Click(object sender, EventArgs e)
         {
             pageList = new PagedList<Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity>(purchaseOrderDetailReportList, 1, pageSize);
@@ -208,6 +221,8 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
             buttonPurchaseOrderReportPageNumber.Text = pageNumber + " / " + pageList.PageCount;
         }
+
+       
 
         private void buttonPurchaseOrderDetailReportPageListNext_Click(object sender, EventArgs e)
         {

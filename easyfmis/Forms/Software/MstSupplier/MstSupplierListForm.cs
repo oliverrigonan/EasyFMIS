@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.MstSupplier
     public partial class MstSupplierListForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static Int32 pageNumber = 1;
         public static Int32 pageSize = 50;
@@ -28,7 +29,30 @@ namespace easyfmis.Forms.Software.MstSupplier
 
             sysSoftwareForm = softwareForm;
 
-            CreateSupplierListDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("MstItem");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewSupplierList.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewSupplierList.Columns[1].Visible = false;
+                }
+
+                CreateSupplierListDataGridView();
+            }
         }
 
         public void UpdateSupplierListDataSource()
