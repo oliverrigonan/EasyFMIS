@@ -15,6 +15,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
     {
 
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static Int32 pageSize = 50;
 
@@ -45,6 +46,46 @@ namespace easyfmis.Forms.Software.SysSystemTables
             CreateCurrencyListDataGridView();
             CreateTaxListDataGridView();
             CreateUnitListDataGridView();
+
+            sysUserRights = new Modules.SysUserRightsModule("SysTables");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewDiscountList.Columns[0].Visible = false;
+                    dataGridViewPayTypeList.Columns[0].Visible = false;
+                    dataGridViewTaxList.Columns[0].Visible = false;
+                    dataGridViewUnitList.Columns[0].Visible = false;
+                    dataGridViewBankList.Columns[0].Visible = false;
+                    dataGridViewCurencyList.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewDiscountList.Columns[1].Visible = false;
+                    dataGridViewPayTypeList.Columns[1].Visible = false;
+                    dataGridViewTaxList.Columns[1].Visible = false;
+                    dataGridViewUnitList.Columns[1].Visible = false;
+                    dataGridViewBankList.Columns[1].Visible = false;
+                    dataGridViewCurencyList.Columns[1].Visible = false;
+                }
+
+                CreateBankListDataGridView();
+                CreateDiscountListDataGridView();
+                CreatePayTypeListDataGridView();
+                CreateCurrencyListDataGridView();
+                CreateTaxListDataGridView();
+                CreateUnitListDataGridView();
+            }
         }
 
         // =======

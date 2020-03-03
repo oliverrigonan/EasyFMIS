@@ -14,6 +14,8 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
     public partial class TrnReceivingReceiptDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
+
         public TrnReceivingReceiptForm trnReceivingReceiptForm;
         public Entities.TrnReceivingReceiptEntity trnReceivingReceiptEntity;
 
@@ -34,10 +36,18 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            trnReceivingReceiptForm = receivingReceiptListForm;
-            trnReceivingReceiptEntity = receivingReceiptEntity;
+            sysUserRights = new Modules.SysUserRightsModule("TrnReceivingReceiptDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                trnReceivingReceiptForm = receivingReceiptListForm;
+                trnReceivingReceiptEntity = receivingReceiptEntity;
 
-            GetSupplierList();
+                GetSupplierList();
+            }
         }
 
         public void GetSupplierList()
@@ -113,11 +123,59 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
-            buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
 
-            buttonSearchPurchaseOrderItem.Enabled = !isLocked;
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanPrint == false)
+            {
+                buttonPrint.Enabled = false;
+            }
+            else
+            {
+                buttonPrint.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanAdd == false)
+            {
+                buttonSearchPurchaseOrderItem.Enabled = false;
+            }
+            else
+            {
+                buttonSearchPurchaseOrderItem.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewReceivingReceiptItem.Columns[0].Visible = false;
+            }
+            else
+            {
+                dataGridViewReceivingReceiptItem.Columns[0].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewReceivingReceiptItem.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewReceivingReceiptItem.Columns[1].Visible = !isLocked;
+            }
 
             textBoxBranch.Enabled = !isLocked;
             textBoxRRNumber.Enabled = !isLocked;
@@ -130,8 +188,6 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
 
-            dataGridViewReceivingReceiptItem.Columns[0].Visible = !isLocked;
-            dataGridViewReceivingReceiptItem.Columns[1].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)

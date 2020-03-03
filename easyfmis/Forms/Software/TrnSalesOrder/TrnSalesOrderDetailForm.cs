@@ -14,6 +14,8 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
     public partial class TrnSalesOrderDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
+
         TrnSalesOrderForm trnSalesOrderForm;
         public Entities.TrnSalesOrderEntity trnSalesOrderEntity;
 
@@ -27,11 +29,19 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
         {
             InitializeComponent();
             sysSoftwareForm = softwareForm;
+            
+            sysUserRights = new Modules.SysUserRightsModule("TrnSalesOrderDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                trnSalesOrderForm = salesOrderForm;
+                trnSalesOrderEntity = salesOrderEntity;
 
-            trnSalesOrderForm = salesOrderForm;
-            trnSalesOrderEntity = salesOrderEntity;
-
-            GetCustomerList();
+                GetCustomerList();
+            }
         }
 
         public void GetCustomerList()
@@ -104,11 +114,60 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
-            buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
 
-            buttonSearchItem.Enabled = !isLocked;
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonPrint.Enabled = false;
+            }
+            else
+            {
+                buttonPrint.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanAdd == false)
+            {
+                buttonSearchItem.Enabled = false;
+            }
+            else
+            {
+                buttonSearchItem.Enabled = !isLocked;
+
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewSalesOrderItem.Columns[0].Visible = false;
+            }
+            else
+            {
+                dataGridViewSalesOrderItem.Columns[0].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewSalesOrderItem.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewSalesOrderItem.Columns[1].Visible = !isLocked;
+            }
 
             textBoxBranch.Enabled = !isLocked;
             textBoxSONumber.Enabled = !isLocked;
@@ -119,9 +178,6 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             textBoxRemarks.Enabled = !isLocked;
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
-
-            dataGridViewSalesOrderItem.Columns[0].Visible = !isLocked;
-            dataGridViewSalesOrderItem.Columns[1].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)

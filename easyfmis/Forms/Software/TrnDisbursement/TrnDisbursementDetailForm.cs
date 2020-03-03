@@ -14,6 +14,8 @@ namespace easyfmis.Forms.Software.TrnDisbursement
     public partial class TrnDisbursementDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
+
         public TrnDisbursementListForm trnDisbursementListForm;
         public Entities.TrnDisbursementEntity trnDisbursementEntity;
 
@@ -32,6 +34,19 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             trnDisbursementEntity = disbursementEntity;
 
             GetSupplierList();
+
+            sysUserRights = new Modules.SysUserRightsModule("TrnDisbursementDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                trnDisbursementListForm = disbursementListForm;
+                trnDisbursementEntity = disbursementEntity;
+
+                GetSupplierList();
+            }
         }
 
         public void GetSupplierList()
@@ -126,11 +141,59 @@ namespace easyfmis.Forms.Software.TrnDisbursement
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
-            buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
 
-            buttonDisbursementLine.Enabled = !isLocked;
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonPrint.Enabled = false;
+            }
+            else
+            {
+                buttonPrint.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanAdd == false)
+            {
+                buttonAddDisbursementLine.Enabled = false;
+            }
+            else
+            {
+                buttonAddDisbursementLine.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewDisbursementLine.Columns[0].Visible = false;
+            }
+            else
+            {
+                dataGridViewDisbursementLine.Columns[0].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewDisbursementLine.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewDisbursementLine.Columns[1].Visible = !isLocked;
+            }
 
             textBoxBranch.Enabled = !isLocked;
             textBoxCVNumber.Enabled = !isLocked;
@@ -149,9 +212,6 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             comboBoxPreparedBy.Enabled = !isLocked;
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
-
-            dataGridViewDisbursementLine.Columns[0].Visible = !isLocked;
-            dataGridViewDisbursementLine.Columns[1].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)

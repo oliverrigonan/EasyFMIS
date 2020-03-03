@@ -16,6 +16,8 @@ namespace easyfmis.Forms.Software.MstUser
         public SysSoftwareForm sysSoftwareForm;
 
         public MstUserListForm mstUserListForm;
+        private Modules.SysUserRightsModule sysUserRights;
+
         public Entities.MstUserEntity mstUserEntity;
 
         public static List<Entities.DgvMstUserFormEntity> userFormData = new List<Entities.DgvMstUserFormEntity>();
@@ -29,10 +31,19 @@ namespace easyfmis.Forms.Software.MstUser
             InitializeComponent();
 
             sysSoftwareForm = softwareForm;
-            mstUserListForm = userListForm;
-            mstUserEntity = userEntity;
 
-            GetCompanyList();
+            sysUserRights = new Modules.SysUserRightsModule("MstUserDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                mstUserListForm = userListForm;
+                mstUserEntity = userEntity;
+
+                GetCompanyList();
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -83,20 +94,56 @@ namespace easyfmis.Forms.Software.MstUser
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
 
-            buttonUnlock.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewUserFormList.Columns[0].Visible = false;
+            }
+            else
+            {
+                dataGridViewUserFormList.Columns[0].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewUserFormList.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewUserFormList.Columns[1].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanAdd == false)
+            {
+                buttonAddUserForm.Enabled = false;
+            }
+            else
+            {
+                buttonAddUserForm.Enabled = !isLocked;
+            }
 
             textBoxFullName.Enabled = !isLocked;
             textBoxUserName.Enabled = !isLocked;
             textBoxPassword.Enabled = !isLocked;
             comboBoxBranch.Enabled = !isLocked;
             comboBoxCompany.Enabled = !isLocked;
-
-            buttonAddUserForm.Enabled = !isLocked;
-
-            dataGridViewUserFormList.Columns[0].Visible = !isLocked;
-            dataGridViewUserFormList.Columns[1].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)

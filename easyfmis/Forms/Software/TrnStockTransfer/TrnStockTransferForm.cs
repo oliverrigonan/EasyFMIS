@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
     public partial class TrnStockTransferForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvStockTransferEntity> itemListData = new List<Entities.DgvStockTransferEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,30 @@ namespace easyfmis.Forms.Software.TrnStockTransfer
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateStockTransferDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("TrnStockTransfer");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewStockTransfer.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewStockTransfer.Columns[1].Visible = false;
+                }
+
+                CreateStockTransferDataGridView();
+            }
         }
 
         public void UpdateStockTransferDataSource()

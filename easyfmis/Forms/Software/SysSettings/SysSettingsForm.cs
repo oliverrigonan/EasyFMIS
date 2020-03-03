@@ -16,6 +16,7 @@ namespace easyfmis.Forms.Software.SysSettings
     public partial class SysSettingsForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public Boolean isIntegrationStarted = false;
         public Int32 logMessageCount = 0;
@@ -26,7 +27,11 @@ namespace easyfmis.Forms.Software.SysSettings
         {
             InitializeComponent();
             sysSoftwareForm = softwareForm;
-
+            sysUserRights = new Modules.SysUserRightsModule("SysSettings");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             //GetComboBoxDropDownList();
         }
 

@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnStockOut
     public partial class TrnStockOutForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvStockOutEntity> itemListData = new List<Entities.DgvStockOutEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,30 @@ namespace easyfmis.Forms.Software.TrnStockOut
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateStockOutDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("TrnStockOut");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewStockOut.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewStockOut.Columns[1].Visible = false;
+                }
+
+                CreateStockOutDataGridView();
+            }
         }
 
         public void UpdateStockOutDataSource()

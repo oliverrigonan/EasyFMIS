@@ -14,6 +14,8 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
     public partial class TrnPurchaseOrderDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
+
         TrnPurchaseOrderForm trnPurchaseOrderForm;
         public Entities.TrnPurchaseOrderEntity trnPurchaseOrderEntity;
 
@@ -28,10 +30,18 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            trnPurchaseOrderForm = purchaseOrderForm;
-            trnPurchaseOrderEntity = purchaseOrderEntity;
+            sysUserRights = new Modules.SysUserRightsModule("TrnPurchaseOrderDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                trnPurchaseOrderForm = purchaseOrderForm;
+                trnPurchaseOrderEntity = purchaseOrderEntity;
+                GetSupplierList();
+            }
 
-            GetSupplierList();
         }
 
         public void GetSupplierList()
@@ -111,11 +121,59 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
-            buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
 
-            buttonSearchItem.Enabled = !isLocked;
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonPrint.Enabled = false;
+            }
+            else
+            {
+                buttonPrint.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanAdd == false)
+            {
+                buttonSearchItem.Enabled = false;
+            }
+            else
+            {
+                buttonSearchItem.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewPurchaseOrderItem.Columns[0].Visible = false;
+            }
+            else
+            {
+                dataGridViewPurchaseOrderItem.Columns[0].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewPurchaseOrderItem.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewPurchaseOrderItem.Columns[1].Visible = !isLocked;
+            }
 
             textBoxBranch.Enabled = !isLocked;
             textBoxPONumber.Enabled = !isLocked;
@@ -130,9 +188,6 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
             checkBoxIsClosed.Enabled = !isLocked;
-
-            dataGridViewPurchaseOrderItem.Columns[0].Visible = !isLocked;
-            dataGridViewPurchaseOrderItem.Columns[1].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
@@ -331,7 +386,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
                 var quantity = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListQuantity"].Index].Value);
                 var Cost = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListCost"].Index].Value);
                 var amount = Convert.ToDecimal(dataGridViewPurchaseOrderItem.Rows[e.RowIndex].Cells[dataGridViewPurchaseOrderItem.Columns["ColumnPurchaseOrderItemListAmount"].Index].Value);
-          
+
 
                 Entities.TrnPurchaseOrderItemEntity trnPurchaseOrderItemEntity = new Entities.TrnPurchaseOrderItemEntity()
                 {

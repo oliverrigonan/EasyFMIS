@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
     public partial class TrnStockInForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvStockInEntity> itemListData = new List<Entities.DgvStockInEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,32 @@ namespace easyfmis.Forms.Software.TrnStockIn
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateStockInDataGridView();
+
+            sysUserRights = new Modules.SysUserRightsModule("TrnStockIn");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewStockIn.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewStockIn.Columns[1].Visible = false;
+                }
+
+                CreateStockInDataGridView();
+
+            }
         }
 
         public void UpdateStockInDataSource()

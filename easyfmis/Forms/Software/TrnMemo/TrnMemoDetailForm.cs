@@ -14,6 +14,8 @@ namespace easyfmis.Forms.Software.TrnMemo
     public partial class TrnMemoDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
+
         TrnMemoListForm trnMemoForm;
         public Entities.TrnMemoEntity trnMemoEntity;
         public String ArticleType;
@@ -29,10 +31,18 @@ namespace easyfmis.Forms.Software.TrnMemo
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            trnMemoForm = purchaseOrderForm;
-            trnMemoEntity = memoEntity;
+            sysUserRights = new Modules.SysUserRightsModule("TrnMemoDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                trnMemoForm = purchaseOrderForm;
+                trnMemoEntity = memoEntity;
 
-            GetArticleTypeList();
+                GetArticleTypeList();
+            }
         }
 
         public void GetArticleTypeList()
@@ -105,15 +115,46 @@ namespace easyfmis.Forms.Software.TrnMemo
             comboBoxCheckedBy.SelectedValue = trnMemoEntity.CheckedBy;
             comboBoxApprovedBy.SelectedValue = trnMemoEntity.ApprovedBy;
 
-            
-
             CreateMemoLineDataGridView();
         }
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
-            buttonUnlock.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewMemoLine.Columns[0].Visible = false;
+            }
+            else
+            {
+                dataGridViewMemoLine.Columns[0].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewMemoLine.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewMemoLine.Columns[1].Visible = !isLocked;
+            }
 
             textBoxBranch.Enabled = !isLocked;
             textBoxMONumber.Enabled = !isLocked;
@@ -123,11 +164,6 @@ namespace easyfmis.Forms.Software.TrnMemo
             comboBoxPreparedBy.Enabled = !isLocked;
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
-
-
-
-            dataGridViewMemoLine.Columns[0].Visible = !isLocked;
-            dataGridViewMemoLine.Columns[1].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)

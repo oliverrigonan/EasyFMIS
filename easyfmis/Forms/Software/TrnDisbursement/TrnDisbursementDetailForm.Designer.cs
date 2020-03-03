@@ -82,7 +82,7 @@
             this.buttonDisbursementLinePageListNext = new System.Windows.Forms.Button();
             this.buttonDisbursementLinePageListLast = new System.Windows.Forms.Button();
             this.textBoxDisbursementLinePageNumber = new System.Windows.Forms.TextBox();
-            this.buttonDisbursementLine = new System.Windows.Forms.Button();
+            this.buttonAddDisbursementLine = new System.Windows.Forms.Button();
             this.dataGridViewDisbursementLine = new System.Windows.Forms.DataGridView();
             this.ColumnDisbursementLineListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDisbursementLineListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -709,22 +709,22 @@
             this.textBoxDisbursementLinePageNumber.TabStop = false;
             this.textBoxDisbursementLinePageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonDisbursementLine
+            // buttonAddDisbursementLine
             // 
-            this.buttonDisbursementLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDisbursementLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDisbursementLine.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDisbursementLine.FlatAppearance.BorderSize = 0;
-            this.buttonDisbursementLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDisbursementLine.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buttonDisbursementLine.ForeColor = System.Drawing.Color.White;
-            this.buttonDisbursementLine.Location = new System.Drawing.Point(1296, 6);
-            this.buttonDisbursementLine.Name = "buttonDisbursementLine";
-            this.buttonDisbursementLine.Size = new System.Drawing.Size(88, 40);
-            this.buttonDisbursementLine.TabIndex = 17;
-            this.buttonDisbursementLine.Text = "Add";
-            this.buttonDisbursementLine.UseVisualStyleBackColor = false;
-            this.buttonDisbursementLine.Click += new System.EventHandler(this.buttonAddDisbursementLine_Click);
+            this.buttonAddDisbursementLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddDisbursementLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddDisbursementLine.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddDisbursementLine.FlatAppearance.BorderSize = 0;
+            this.buttonAddDisbursementLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddDisbursementLine.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonAddDisbursementLine.ForeColor = System.Drawing.Color.White;
+            this.buttonAddDisbursementLine.Location = new System.Drawing.Point(1296, 6);
+            this.buttonAddDisbursementLine.Name = "buttonAddDisbursementLine";
+            this.buttonAddDisbursementLine.Size = new System.Drawing.Size(88, 40);
+            this.buttonAddDisbursementLine.TabIndex = 17;
+            this.buttonAddDisbursementLine.Text = "Add";
+            this.buttonAddDisbursementLine.UseVisualStyleBackColor = false;
+            this.buttonAddDisbursementLine.Click += new System.EventHandler(this.buttonAddDisbursementLine_Click);
             // 
             // dataGridViewDisbursementLine
             // 
@@ -895,7 +895,7 @@
             // 
             // tabPageStockOutItems
             // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonDisbursementLine);
+            this.tabPageStockOutItems.Controls.Add(this.buttonAddDisbursementLine);
             this.tabPageStockOutItems.Controls.Add(this.panel4);
             this.tabPageStockOutItems.Controls.Add(this.dataGridViewDisbursementLine);
             this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
@@ -963,7 +963,7 @@
         private System.Windows.Forms.Button buttonDisbursementLinePageListNext;
         private System.Windows.Forms.Button buttonDisbursementLinePageListLast;
         private System.Windows.Forms.TextBox textBoxDisbursementLinePageNumber;
-        private System.Windows.Forms.Button buttonDisbursementLine;
+        private System.Windows.Forms.Button buttonAddDisbursementLine;
         private System.Windows.Forms.DataGridView dataGridViewDisbursementLine;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;

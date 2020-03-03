@@ -14,6 +14,8 @@ namespace easyfmis.Forms.Software.TrnStockIn
     public partial class TrnStockInDetailForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
+
         public TrnStockInForm trnStockInForm;
         public Entities.TrnStockInEntity trnStockInEntity;
 
@@ -34,10 +36,19 @@ namespace easyfmis.Forms.Software.TrnStockIn
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            trnStockInForm = stockInListForm;
-            trnStockInEntity = stockInEntity;
+            
+            sysUserRights = new Modules.SysUserRightsModule("TrnStockInDetail");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                trnStockInForm = stockInListForm;
+                trnStockInEntity = stockInEntity;
 
-            GetUserList();
+                GetUserList();
+            }
         }
 
         public void GetUserList()
@@ -79,11 +90,59 @@ namespace easyfmis.Forms.Software.TrnStockIn
 
         public void UpdateComponents(Boolean isLocked)
         {
-            buttonLock.Enabled = !isLocked;
-            buttonUnlock.Enabled = isLocked;
-            buttonPrint.Enabled = isLocked;
+            if (sysUserRights.GetUserRights().CanLock == false)
+            {
+                buttonLock.Enabled = false;
+            }
+            else
+            {
+                buttonLock.Enabled = !isLocked;
+            }
 
-            buttonSearchItem.Enabled = !isLocked;
+            if (sysUserRights.GetUserRights().CanUnlock == false)
+            {
+                buttonUnlock.Enabled = false;
+            }
+            else
+            {
+                buttonUnlock.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanPrint == false)
+            {
+                buttonPrint.Enabled = false;
+            }
+            else
+            {
+                buttonPrint.Enabled = isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanAdd == false)
+            {
+                buttonSearchItem.Enabled = false;
+            }
+            else
+            {
+                buttonSearchItem.Enabled = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanEdit == false)
+            {
+                dataGridViewStockInItem.Columns[0].Visible = false;
+            }
+            else
+            {
+                dataGridViewStockInItem.Columns[0].Visible = !isLocked;
+            }
+
+            if (sysUserRights.GetUserRights().CanDelete == false)
+            {
+                dataGridViewStockInItem.Columns[1].Visible = false;
+            }
+            else
+            {
+                dataGridViewStockInItem.Columns[1].Visible = !isLocked;
+            }
 
             textBoxBranch.Enabled = !isLocked;
             textBoxINNumber.Enabled = !isLocked;
@@ -91,9 +150,6 @@ namespace easyfmis.Forms.Software.TrnStockIn
             textBoxRemarks.Enabled = !isLocked;
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
-
-            dataGridViewStockInItem.Columns[0].Visible = !isLocked;
-            dataGridViewStockInItem.Columns[1].Visible = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)

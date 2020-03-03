@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
     public partial class TrnReceivingReceiptForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvReceivingReceiptEntity> itemListData = new List<Entities.DgvReceivingReceiptEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,31 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateReceivingReceiptDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("TrnReceivingReceipt");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewReceivingReceipt.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewReceivingReceipt.Columns[1].Visible = false;
+                }
+
+                CreateReceivingReceiptDataGridView();
+            }
+
         }
 
         public void UpdateReceivingReceiptDataSource()

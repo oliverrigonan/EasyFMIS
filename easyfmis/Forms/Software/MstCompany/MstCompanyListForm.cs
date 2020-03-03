@@ -29,7 +29,7 @@ namespace easyfmis.Forms.Software.MstCompany
 
             sysSoftwareForm = softwareForm;
 
-            sysUserRights = new Modules.SysUserRightsModule("MstItem");
+            sysUserRights = new Modules.SysUserRightsModule("MstCompany");
             if (sysUserRights.GetUserRights() == null)
             {
                 MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);

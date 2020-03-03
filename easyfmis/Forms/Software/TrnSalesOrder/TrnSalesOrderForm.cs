@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
     public partial class TrnSalesOrderForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvTrnSalesOrderEntity> salesOrderListData = new List<Entities.DgvTrnSalesOrderEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,30 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateSalesOrderDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("TrnSalesOrder");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewSalesOrder.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewSalesOrder.Columns[1].Visible = false;
+                }
+
+                CreateSalesOrderDataGridView();
+            }
         }
 
         public void UpdateSalesOrderDataSource()

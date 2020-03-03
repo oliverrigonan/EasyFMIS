@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
     public partial class TrnDisbursementListForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvDisbursementEntity> disbursementListData = new List<Entities.DgvDisbursementEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,31 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateDisbursementDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("TrnDisbursement");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewDisbursement.Columns[0].Visible = false;
+
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewDisbursement.Columns[1].Visible = false;
+
+                }
+                CreateDisbursementDataGridView();
+            }
         }
 
         public void UpdateDisbursementDataSource()

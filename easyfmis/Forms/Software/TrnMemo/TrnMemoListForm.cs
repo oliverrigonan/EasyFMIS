@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnMemo
     public partial class TrnMemoListForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvTrnMemoEntity> memoListData = new List<Entities.DgvTrnMemoEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,30 @@ namespace easyfmis.Forms.Software.TrnMemo
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateMemoDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("TrnMemo");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewMemo.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewMemo.Columns[1].Visible = false;
+                }
+
+                CreateMemoDataGridView();
+            }
         }
 
         public void UpdateMemoDataSource()

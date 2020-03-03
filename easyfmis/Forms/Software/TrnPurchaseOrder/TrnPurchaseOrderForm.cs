@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
     public partial class TrnPurchaseOrderForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvPurchaseOrderEntity> purchaseOrderListData = new List<Entities.DgvPurchaseOrderEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,30 @@ namespace easyfmis.Forms.Software.TrnPurchaseOrder
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreatePurchaseOrderDataGridView();
+
+            sysUserRights = new Modules.SysUserRightsModule("TrnPurchaseOrder");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewPurchaseOrder.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewPurchaseOrder.Columns[1].Visible = false;
+                }
+                CreatePurchaseOrderDataGridView();
+            }
         }
 
         public void UpdatePurchaseOrderDataSource()

@@ -14,6 +14,7 @@ namespace easyfmis.Forms.Software.TrnCollection
     public partial class TrnCollectionForm : Form
     {
         public SysSoftwareForm sysSoftwareForm;
+        private Modules.SysUserRightsModule sysUserRights;
 
         public static List<Entities.DgvCollectionEntity> itemListData = new List<Entities.DgvCollectionEntity>();
         public static Int32 pageNumber = 1;
@@ -26,7 +27,30 @@ namespace easyfmis.Forms.Software.TrnCollection
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            CreateCollectionDataGridView();
+            sysUserRights = new Modules.SysUserRightsModule("TrnCollection");
+            if (sysUserRights.GetUserRights() == null)
+            {
+                MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (sysUserRights.GetUserRights().CanAdd == false)
+                {
+                    buttonAdd.Enabled = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanEdit == false)
+                {
+                    dataGridViewCollection.Columns[0].Visible = false;
+                }
+
+                if (sysUserRights.GetUserRights().CanDelete == false)
+                {
+                    dataGridViewCollection.Columns[1].Visible = false;
+                }
+
+                CreateCollectionDataGridView();
+            }
         }
 
         public void UpdateCollectionDataSource()
