@@ -46,11 +46,13 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         public List<Entities.DgvRepInventoryReportStockOutDetailReportEntity> GetSalesInvoiceDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
+
             List<Entities.DgvRepInventoryReportStockOutDetailReportEntity> rowList = new List<Entities.DgvRepInventoryReportStockOutDetailReportEntity>();
 
             Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();
 
-            var stockOutDetailReportList = repInventoryReportController.ListStockOutDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var stockOutDetailReportList = repInventoryReportController.ListStockOutDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (stockOutDetailReportList.Any())
             {
                 var row = from d in stockOutDetailReportList
@@ -160,6 +162,11 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             GetStockOutDetailReportDataSource();
             dataGridViewStockOutDetailReport.DataSource = dataStockOutDetailReportListSource;
+        }
+
+        public void UpdateStockOutDetailDataGridView()
+        {
+            CreateStockOutDetailDataGridView();
         }
 
         private void buttonSalesInvoiceDetailReportPageListFirst_Click(object sender, EventArgs e)
@@ -311,6 +318,14 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateStockOutDetailDataGridView();
             }
         }
     }

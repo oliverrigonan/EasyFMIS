@@ -46,11 +46,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
         public List<Entities.DgvRepAccountsReceivableStatementOfAccountReportEntity> GetStatementOfAccountReportListData(DateTime filterDateAsOf, Int32 filterCompanyId, Int32 filterBranchId, Int32 filterCustomerId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsReceivableStatementOfAccountReportEntity> rowList = new List<Entities.DgvRepAccountsReceivableStatementOfAccountReportEntity>();
 
             Controllers.RepAccountsReceivableReportController repAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
 
-            var statementOfAccountReportList = repAccountsReceivableReportController.ListStatementOfAccountReport(filterDateAsOf, filterCompanyId, filterBranchId, filterCustomerId);
+            var statementOfAccountReportList = repAccountsReceivableReportController.ListStatementOfAccountReport(filterDateAsOf, filterCompanyId, filterBranchId, filterCustomerId, filter);
             if (statementOfAccountReportList.Any())
             {
                 var row = from d in statementOfAccountReportList
@@ -151,6 +152,11 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         {
             GetStatementOfAccountReportDataSource();
             dataGridViewStatementOfAccountReport.DataSource = dataStatementOfAccountReportListSource;
+        }
+
+        public void UpdateStatementOfAccountReportDataGridView()
+        {
+            CreateStatementOfAccountReportDataGridView();
         }
 
         private void buttonStatementOfAccountReportPageListFirst_Click(object sender, EventArgs e)
@@ -289,6 +295,14 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateStatementOfAccountReportDataGridView();
             }
         }
     }

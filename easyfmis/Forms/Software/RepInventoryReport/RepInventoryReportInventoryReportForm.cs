@@ -46,11 +46,12 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         public List<Entities.DgvRepInventoryReportEntity> GetInventoryReportListData(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepInventoryReportEntity> rowList = new List<Entities.DgvRepInventoryReportEntity>();
 
             Controllers.RepInventoryReportController repInvetoryReportController = new Controllers.RepInventoryReportController();
 
-            var inventoryReportList = repInvetoryReportController.ListInventoryReport(filterStartDate, filterEndDate, filterCompanyId, filterBranchId);
+            var inventoryReportList = repInvetoryReportController.ListInventoryReport(filterStartDate, filterEndDate, filterCompanyId, filterBranchId, filter);
             if (inventoryReportList.Any())
             {
                 var row = from d in inventoryReportList
@@ -149,6 +150,11 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             GetInventoryReportDataSource();
             dataGridViewInventoryReport.DataSource = dataInventoryReportListSource;
+        }
+
+        public void UpdateInventoryReportDataGridView()
+        {
+            CreateInventoryReportDataGridView();
         }
 
         private void buttonInventoryReportPageListFirst_Click(object sender, EventArgs e)
@@ -288,6 +294,14 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateInventoryReportDataGridView();
             }
         }
     }

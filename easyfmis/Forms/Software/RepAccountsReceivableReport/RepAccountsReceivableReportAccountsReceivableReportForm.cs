@@ -43,11 +43,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
         public List<Entities.DgvRepAccountsReceivableReportEntity> GetAccountsReceivableReportListData(DateTime filterDateAsOf, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsReceivableReportEntity> rowList = new List<Entities.DgvRepAccountsReceivableReportEntity>();
 
             Controllers.RepAccountsReceivableReportController repInvetoryReportController = new Controllers.RepAccountsReceivableReportController();
 
-            var accountsReceivableReportList = repInvetoryReportController.ListAccountsReceivableReport(filterDateAsOf, filterCompanyId, filterBranchId);
+            var accountsReceivableReportList = repInvetoryReportController.ListAccountsReceivableReport(filterDateAsOf, filterCompanyId, filterBranchId, filter);
             if (accountsReceivableReportList.Any())
             {
                 var row = from d in accountsReceivableReportList
@@ -160,6 +161,11 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         {
             GetAccountsReceivableReportDataSource();
             dataGridViewAccountsReceivableReport.DataSource = dataAccountsReceivableReportListSource;
+        }
+
+        public void UpdateAccountsReceivableReportDataGridView()
+        {
+            CreateAccountsReceivableReportDataGridView();
         }
 
         private void buttonAccountsReceivableReportPageListFirst_Click(object sender, EventArgs e)
@@ -305,6 +311,14 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateAccountsReceivableReportDataGridView();
             }
         }
     }

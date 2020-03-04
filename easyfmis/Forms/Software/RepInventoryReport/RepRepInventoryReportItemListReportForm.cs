@@ -31,11 +31,12 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         public List<Entities.DgvRepInventoryReportItemListReportEntity> GetItemListReportListData()
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepInventoryReportItemListReportEntity> rowList = new List<Entities.DgvRepInventoryReportItemListReportEntity>();
 
             Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();
 
-            var itemListReportList = repInventoryReportController.ListItem();
+            var itemListReportList = repInventoryReportController.ListItem(filter);
             if (itemListReportList.Any())
             {
                 var row = from d in itemListReportList
@@ -108,6 +109,12 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         }
 
         public void CreateItemListDataGridView()
+        {
+            GetItemListReportDataSource();
+            dataGridViewItemListReport.DataSource = dataItemListReportListSource;
+        }
+
+        public void UpdateItemListDataGridView()
         {
             GetItemListReportDataSource();
             dataGridViewItemListReport.DataSource = dataItemListReportListSource;
@@ -243,6 +250,14 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateItemListDataGridView();
             }
         }
     }

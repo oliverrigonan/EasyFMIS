@@ -78,6 +78,7 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
+            this.textBoxItemListFilter = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -173,6 +174,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.textBoxItemListFilter);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.dataGridViewSalesInvoiceDetailReport);
             this.panel2.Controls.Add(this.panel4);
@@ -302,14 +304,14 @@
             this.ColumnSalesInvoiceListTaxAmount,
             this.ColumnSalesInvoiceListBaseQuantity,
             this.ColumnSalesInvoiceListBasePrice});
-            this.dataGridViewSalesInvoiceDetailReport.Location = new System.Drawing.Point(12, 53);
+            this.dataGridViewSalesInvoiceDetailReport.Location = new System.Drawing.Point(12, 89);
             this.dataGridViewSalesInvoiceDetailReport.MultiSelect = false;
             this.dataGridViewSalesInvoiceDetailReport.Name = "dataGridViewSalesInvoiceDetailReport";
             this.dataGridViewSalesInvoiceDetailReport.ReadOnly = true;
             this.dataGridViewSalesInvoiceDetailReport.RowHeadersVisible = false;
             this.dataGridViewSalesInvoiceDetailReport.RowTemplate.Height = 24;
             this.dataGridViewSalesInvoiceDetailReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSalesInvoiceDetailReport.Size = new System.Drawing.Size(1357, 478);
+            this.dataGridViewSalesInvoiceDetailReport.Size = new System.Drawing.Size(1357, 442);
             this.dataGridViewSalesInvoiceDetailReport.TabIndex = 21;
             // 
             // ColumnSalesInvoiceListSINumber
@@ -527,6 +529,14 @@
             this.panel1.Size = new System.Drawing.Size(1382, 63);
             this.panel1.TabIndex = 16;
             // 
+            // textBoxItemListFilter
+            // 
+            this.textBoxItemListFilter.Location = new System.Drawing.Point(17, 53);
+            this.textBoxItemListFilter.Name = "textBoxItemListFilter";
+            this.textBoxItemListFilter.Size = new System.Drawing.Size(1353, 30);
+            this.textBoxItemListFilter.TabIndex = 38;
+            this.textBoxItemListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItemListFilter_KeyDown);
+            // 
             // RepAccountReceivableReportSalesInvoiceDetailReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -544,6 +554,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesInvoiceDetailReport)).EndInit();
@@ -595,5 +606,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceListTaxAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceListBasePrice;
+        private System.Windows.Forms.TextBox textBoxItemListFilter;
     }
 }

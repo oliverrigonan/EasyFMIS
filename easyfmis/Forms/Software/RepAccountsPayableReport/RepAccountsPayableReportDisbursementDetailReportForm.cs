@@ -47,11 +47,12 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
         public List<Entities.DgvRepAccountsPayableDisbursementDetailReportEntity> GetDisbursementDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsPayableDisbursementDetailReportEntity> rowList = new List<Entities.DgvRepAccountsPayableDisbursementDetailReportEntity>();
 
             Controllers.RepAccountsPayableReportController repAccountsPayableReportController = new Controllers.RepAccountsPayableReportController();
 
-            var disbursementDetailReportList = repAccountsPayableReportController.ListDisbursementDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var disbursementDetailReportList = repAccountsPayableReportController.ListDisbursementDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (disbursementDetailReportList.Any())
             {
                 var row = from d in disbursementDetailReportList
@@ -84,8 +85,9 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
                 Decimal totalAmount = disbursementDetailReportList.Sum(d => d.Amount);
 
-                Entities.DgvRepAccountsPayableDisbursementDetailReportEntity disbursementTotals = new Entities.DgvRepAccountsPayableDisbursementDetailReportEntity() {
-                    ColumnRepAccountsPayableDisbursementDetailReportListId = 0 ,
+                Entities.DgvRepAccountsPayableDisbursementDetailReportEntity disbursementTotals = new Entities.DgvRepAccountsPayableDisbursementDetailReportEntity()
+                {
+                    ColumnRepAccountsPayableDisbursementDetailReportListId = 0,
                     ColumnRepAccountsPayableDisbursementDetailReportListBranch = "Total",
                     ColumnRepAccountsPayableDisbursementDetailReportListCVNumber = "",
                     ColumnRepAccountsPayableDisbursementDetailReportListCVDate = "",
@@ -170,6 +172,11 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
         {
             GetDisbursementDetailReportDataSource();
             dataGridViewDisbursementDetailReport.DataSource = dataDisbursementDetailReportListSource;
+        }
+
+        public void UpdateDisbursementDetailReportDataGridView()
+        {
+            CreateDisbursementDetailReportDataGridView();
         }
 
         private void buttonDisbursementDetailReportPageListFirst_Click(object sender, EventArgs e)
@@ -329,6 +336,14 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateDisbursementDetailReportDataGridView();
             }
         }
     }

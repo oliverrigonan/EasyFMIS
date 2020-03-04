@@ -130,7 +130,7 @@ namespace easyfmis.Controllers
         // ===============================
         // Accounts Receivable Report List
         // ===============================
-        public List<Entities.RepAccountsReceivableEntity> ListAccountsReceivableReport(DateTime dateAsOf, Int32 companyId, Int32 branchId)
+        public List<Entities.RepAccountsReceivableEntity> ListAccountsReceivableReport(DateTime dateAsOf, Int32 companyId, Int32 branchId, String filter)
         {
             try
             {
@@ -140,6 +140,19 @@ namespace easyfmis.Controllers
                                    && d.BranchId == branchId
                                    && d.BalanceAmount > 0
                                    && d.IsLocked == true
+                                   && (d.MstBranch.Branch.Contains(filter)
+                                   || d.SINumber.Contains(filter)
+                                   || d.SIDate.ToShortDateString().Contains(filter)
+                                   || d.ManualSINumber.Contains(filter)
+                                   || d.MstArticle.ArticleCode.Contains(filter)
+                                   || d.MstArticle.Article.Contains(filter)
+                                   || d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays)).ToShortDateString().Contains(filter)
+                                   || d.BalanceAmount.ToString().Contains(filter)
+                                   || ComputeAge(0, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
+                                   || ComputeAge(1, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
+                                   || ComputeAge(2, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
+                                   || ComputeAge(3, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
+                                   || ComputeAge(4, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter))
                                    select new Entities.RepAccountsReceivableEntity
                                    {
                                        SIId = d.Id,
@@ -169,7 +182,7 @@ namespace easyfmis.Controllers
         // ================================
         // Sales Invoice Detail Report List
         // ================================
-        public List<Entities.RepSalesInvoiceEntity> ListSalesInvoiceDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId)
+        public List<Entities.RepSalesInvoiceEntity> ListSalesInvoiceDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, String filter)
         {
             try
             {
@@ -179,6 +192,22 @@ namespace easyfmis.Controllers
                                        && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
                                        && d.TrnSalesInvoice.BranchId == branchId
                                        && d.TrnSalesInvoice.IsLocked == true
+                                       && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                       || d.MstArticle.Article.Contains(filter)
+                                       || d.MstArticle.ArticleCode.Contains(filter)
+                                       || d.MstUnit.Unit.Contains(filter)
+                                       || d.Price.ToString().Contains(filter)
+                                       || d.MstDiscount.Discount.Contains(filter)
+                                       || d.DiscountRate.ToString().Contains(filter)
+                                       || d.DiscountAmount.ToString().Contains(filter)
+                                       || d.NetPrice.ToString().Contains(filter)
+                                       || d.Quantity.ToString().Contains(filter)
+                                       || d.Amount.ToString().Contains(filter)
+                                       || d.MstTax.Tax.Contains(filter)
+                                       || d.TaxRate.ToString().Contains(filter)
+                                       || d.TaxAmount.ToString().Contains(filter)
+                                       || d.BaseQuantity.ToString().Contains(filter)
+                                       || d.BasePrice.ToString().Contains(filter))
                                        select new Entities.RepSalesInvoiceEntity
                                        {
                                            SINumber = d.TrnSalesInvoice.SINumber,
@@ -210,7 +239,7 @@ namespace easyfmis.Controllers
         // ==============================
         // Sales Order Detail Report List
         // ==============================
-        public List<Entities.RepAccountsReceivableSalesOrderDetailReportEntity> ListSalesOrederDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId)
+        public List<Entities.RepAccountsReceivableSalesOrderDetailReportEntity> ListSalesOrederDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, String filter)
         {
             try
             {
@@ -220,6 +249,33 @@ namespace easyfmis.Controllers
                                      && d.TrnSalesOrder.MstBranch.CompanyId == companyId
                                      && d.TrnSalesOrder.BranchId == branchId
                                      && d.TrnSalesOrder.IsLocked == true
+                                     && (d.TrnSalesOrder.MstBranch.Branch.Contains(filter)
+                                     || d.TrnSalesOrder.SONumber.Contains(filter)
+                                     || d.TrnSalesOrder.SODate.ToShortDateString().Contains(filter)
+                                     || d.TrnSalesOrder.ManualSONumber.Contains(filter)
+                                     || d.TrnSalesOrder.MstArticle.Article.Contains(filter)
+                                     || d.TrnSalesOrder.MstTerm.Term.Contains(filter)
+                                     || d.TrnSalesOrder.Remarks.Contains(filter)
+                                     || d.TrnSalesOrder.MstUser.UserName.Contains(filter)
+                                     || d.TrnSalesOrder.MstUser1.UserName.Contains(filter)
+                                     || d.TrnSalesOrder.MstUser2.UserName.Contains(filter)
+                                     || d.TrnSalesOrder.MstUser3.UserName.Contains(filter)
+                                     || d.MstArticle.ArticleBarCode.Contains(filter)
+                                     || d.MstArticle.Article.Contains(filter)
+                                     || d.MstArticleInventory.InventoryCode.Contains(filter)
+                                     || d.MstUnit.Unit.Contains(filter)
+                                     || d.Price.ToString().Contains(filter)
+                                     || d.MstDiscount.Discount.Contains(filter)
+                                     || d.DiscountRate.ToString().Contains(filter)
+                                     || d.DiscountAmount.ToString().Contains(filter)
+                                     || d.NetPrice.ToString().Contains(filter)
+                                     || d.Quantity.ToString().Contains(filter)
+                                     || d.Amount.ToString().Contains(filter)
+                                     || d.MstTax.Tax.Contains(filter)
+                                     || d.TaxRate.ToString().Contains(filter)
+                                     || d.TaxAmount.ToString().Contains(filter)
+                                     || d.BaseQuantity.ToString().Contains(filter)
+                                     || d.BasePrice.ToString().Contains(filter))
                                      select new Entities.RepAccountsReceivableSalesOrderDetailReportEntity
                                      {
                                          Id = d.Id,
@@ -263,7 +319,7 @@ namespace easyfmis.Controllers
         // ==============================
         // Sales Order Detail Report List
         // ==============================
-        public List<Entities.RepAccountsReceivableCollectionDetailReportEntity> ListCollectionDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId)
+        public List<Entities.RepAccountsReceivableCollectionDetailReportEntity> ListCollectionDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, String filter)
         {
             try
             {
@@ -273,6 +329,31 @@ namespace easyfmis.Controllers
                                        && d.TrnCollection.MstBranch.CompanyId == companyId
                                        && d.TrnCollection.BranchId == branchId
                                        && d.TrnCollection.IsLocked == true
+                                       && (d.TrnCollection.MstBranch.Branch.Contains(filter)
+                                       || d.TrnCollection.ORNumber.Contains(filter)
+                                       || d.TrnCollection.ORDate.ToShortDateString().Contains(filter)
+                                       || d.TrnCollection.ManualORNumber.Contains(filter)
+                                       || d.TrnCollection.MstArticle.Article.Contains(filter)
+                                       || d.TrnCollection.Remarks.Contains(filter)
+                                       || d.TrnCollection.MstUser.FullName.Contains(filter)
+                                       || d.TrnCollection.MstUser1.FullName.Contains(filter)
+                                       || d.TrnCollection.MstUser2.FullName.Contains(filter)
+                                       || d.MstArticleGroup.ArticleGroup.Contains(filter)
+                                       || d.TrnSalesInvoice.SINumber.Contains(filter)
+                                       || d.Amount.ToString().Contains(filter)
+                                       || d.MstPayType.PayType.Contains(filter)
+                                       || d.CheckNumber.Contains(filter)
+                                       || d.CheckDate.ToString().Contains(filter)
+                                       || d.CheckBank.Contains(filter)
+                                       || d.CreditCardVerificationCode.Contains(filter)
+                                       || d.CreditCardNumber.Contains(filter)
+                                       || d.CreditCardType.Contains(filter)
+                                       || d.CreditCardBank.Contains(filter)
+                                       || d.CreditCardReferenceNumber.Contains(filter)
+                                       || d.CreditCardHolderName.Contains(filter)
+                                       || d.CreditCardExpiry.Contains(filter)
+                                       || d.GiftCertificateNumber.Contains(filter)
+                                       || d.OtherInformation.Contains(filter))
                                        select new Entities.RepAccountsReceivableCollectionDetailReportEntity
                                        {
                                            Id = d.Id,
@@ -314,7 +395,7 @@ namespace easyfmis.Controllers
         // ===========================
         // Statement of Account Report
         // ===========================
-        public List<Entities.RepAccountsReceivableStatementOfAccountReportEntity> ListStatementOfAccountReport(DateTime dateAsOf, Int32 companyId, Int32 branchId, Int32 customerID)
+        public List<Entities.RepAccountsReceivableStatementOfAccountReportEntity> ListStatementOfAccountReport(DateTime dateAsOf, Int32 companyId, Int32 branchId, Int32 customerID, String filter)
         {
             try
             {
@@ -325,6 +406,16 @@ namespace easyfmis.Controllers
                                        && d.CustomerId == customerID
                                        && d.IsLocked == true
                                        && d.BalanceAmount > 0
+                                       && (d.MstBranch.Branch.Contains(filter)
+                                       || d.SINumber.Contains(filter)
+                                       || d.SIDate.ToShortTimeString().Contains(filter)
+                                       || d.ManualSINumber.Contains(filter)
+                                       || d.MstArticle.Article.Contains(filter)
+                                       || d.MstTerm.Term.Contains(filter)
+                                       || d.Amount.ToString().Contains(filter)
+                                       || d.PaidAmount.ToString().Contains(filter)
+                                       || d.MemoAmount.ToString().Contains(filter)
+                                       || d.BalanceAmount.ToString().Contains(filter))
                                        select new Entities.RepAccountsReceivableStatementOfAccountReportEntity
                                        {
                                            Id = d.Id,

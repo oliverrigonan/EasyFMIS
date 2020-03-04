@@ -47,11 +47,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
         public List<Entities.DgvRepAccountsReceivableSalesOrderDetailReportEntity> GetSalesOrderDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsReceivableSalesOrderDetailReportEntity> rowList = new List<Entities.DgvRepAccountsReceivableSalesOrderDetailReportEntity>();
 
             Controllers.RepAccountsReceivableReportController RepAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
 
-            var salesOrderDetailReportList = RepAccountsReceivableReportController.ListSalesOrederDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var salesOrderDetailReportList = RepAccountsReceivableReportController.ListSalesOrederDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (salesOrderDetailReportList.Any())
             {
                 var row = from d in salesOrderDetailReportList
@@ -184,6 +185,11 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         {
             GetSalesOrderDetailReportDataSource();
             dataGridViewAccountsReceivableSalesOrderDetailReport.DataSource = dataSalesOrderDetailReportListSource;
+        }
+
+        public void UpdateSalesOrderDetailReportDataGridView()
+        {
+            CreateSalesOrderDetailReportDataGridView();
         }
 
         private void buttonSalesOrderDetailReportPageListFirst_Click(object sender, EventArgs e)
@@ -363,6 +369,14 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         private void RepAccountReceivableSalesOrderDetailReportReportForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateSalesOrderDetailReportDataGridView();
+            }
         }
     }
 }

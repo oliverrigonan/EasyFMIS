@@ -46,11 +46,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
         public List<Entities.DgvRepSalesInvoiceEntity> GetSalesInvoiceDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepSalesInvoiceEntity> rowList = new List<Entities.DgvRepSalesInvoiceEntity>();
 
             Controllers.RepAccountsReceivableReportController repInvetoryReportController = new Controllers.RepAccountsReceivableReportController();
 
-            var salesInvoiceDetailReportList = repInvetoryReportController.ListSalesInvoiceDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var salesInvoiceDetailReportList = repInvetoryReportController.ListSalesInvoiceDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (salesInvoiceDetailReportList.Any())
             {
                 var row = from d in salesInvoiceDetailReportList
@@ -160,6 +161,11 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         {
             GetSalesInvoiceDetailReportDataSource();
             dataGridViewSalesInvoiceDetailReport.DataSource = dataSalesInvoiceDetailReportListSource;
+        }
+
+        public void UpdateSalesInvoiceDetailDataGridView()
+        {
+            CreateSalesInvoiceDetailDataGridView();
         }
 
         private void buttonSalesInvoiceDetailReportPageListFirst_Click(object sender, EventArgs e)
@@ -311,6 +317,14 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateSalesInvoiceDetailDataGridView();
             }
         }
     }

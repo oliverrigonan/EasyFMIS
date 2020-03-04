@@ -48,11 +48,12 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
         public List<Entities.DgvRepAccountsPayableReceivingReceiptDetailReportEntity> GetRecevingReceiptReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsPayableReceivingReceiptDetailReportEntity> rowList = new List<Entities.DgvRepAccountsPayableReceivingReceiptDetailReportEntity>();
 
             Controllers.RepAccountsPayableReportController repAccountsPayableReportController = new Controllers.RepAccountsPayableReportController();
 
-            var receivingReceiptDetailReportList = repAccountsPayableReportController.ListReceivingReceiptDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var receivingReceiptDetailReportList = repAccountsPayableReportController.ListReceivingReceiptDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (receivingReceiptDetailReportList.Any())
             {
                 var row = from d in receivingReceiptDetailReportList
@@ -188,6 +189,11 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
         {
             GetReceivingReceiptReportDataSource();
             dataGridViewRRDetailReportReport.DataSource = dataReceivingReceiptDetailReportListSource;
+        }
+
+        public void UpdateReceivingReceiptReportDataGridView()
+        {
+            CreateReceivingReceiptReportDataGridView();
         }
 
         private void buttonReceivingReceiptReportPageListFirst_Click(object sender, EventArgs e)
@@ -357,6 +363,14 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateReceivingReceiptReportDataGridView();
             }
         }
     }

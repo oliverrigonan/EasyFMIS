@@ -63,12 +63,16 @@ namespace easyfmis.Controllers
         // =====================
         // List Inventory Report
         // =====================
-        public List<Entities.RepInventoryReportEntity> ListInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        public List<Entities.RepInventoryReportEntity> ListInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, String filter)
         {
             var beginningInventories = from d in db.TrnInventories
                                        where d.InventoryDate < startDate
                                        && d.MstBranch.CompanyId == companyId
                                        && d.BranchId == branchId
+                                       && (d.MstArticle.ArticleBarCode.Contains(filter)
+                                       || d.MstArticle.Article.Contains(filter)
+                                       || d.MstArticleInventory.InventoryCode.Contains(filter)
+                                       || d.MstArticle.MstUnit.Unit.Contains(filter))
                                        select new Entities.RepInventoryReportEntity
                                        {
                                            BarCode = d.MstArticle.ArticleBarCode,
@@ -88,6 +92,10 @@ namespace easyfmis.Controllers
                                      && d.InventoryDate <= endDate
                                      && d.MstBranch.CompanyId == companyId
                                      && d.BranchId == branchId
+                                     && (d.MstArticle.ArticleBarCode.Contains(filter)
+                                       || d.MstArticle.Article.Contains(filter)
+                                       || d.MstArticleInventory.InventoryCode.Contains(filter)
+                                       || d.MstArticle.MstUnit.Unit.Contains(filter))
                                      select new Entities.RepInventoryReportEntity
                                      {
                                          BarCode = d.MstArticle.ArticleBarCode,
@@ -147,13 +155,16 @@ namespace easyfmis.Controllers
         // ================================
         // List Stock Card Inventory Report
         // ================================
-        public List<Entities.RepInventoryReportStockCardEntity> ListStockCardInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, Int32 itemId)
+        public List<Entities.RepInventoryReportStockCardEntity> ListStockCardInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, Int32 itemId, String filter)
         {
             var beginningInventories = from d in db.TrnInventories
                                        where d.InventoryDate < startDate
                                        && d.MstBranch.CompanyId == companyId
                                        && d.BranchId == branchId
                                        && d.ItemId == itemId
+                                       && (d.MstArticle.MstUnit.Unit.Contains(filter)
+                                       || d.Quantity.ToString().Contains(filter)
+                                       || d.MstArticleInventory.Cost1.ToString().Contains(filter))
                                        select new
                                        {
                                            Document = "Beggining Balance",
@@ -191,6 +202,11 @@ namespace easyfmis.Controllers
                                      && d.MstBranch.CompanyId == companyId
                                      && d.BranchId == branchId
                                      && d.ItemId == itemId
+                                     && (d.InventoryDate.ToShortDateString().Contains(filter)
+                                     || d.MstArticle.MstUnit.Unit.Contains(filter)
+                                     || d.QuantityIn.ToString().Contains(filter)
+                                     || d.QuantityOut.ToString().Contains(filter)
+                                     || d.MstArticleInventory.Cost1.ToString().Contains(filter))
                                      select new Entities.RepInventoryReportStockCardEntity
                                      {
                                          Document = d.SIId != null ? "SI-" + d.TrnSalesInvoice.MstBranch.BranchCode + "-" + d.TrnSalesInvoice.SINumber :
@@ -259,13 +275,28 @@ namespace easyfmis.Controllers
         // ========================
         // Stock Transfer In Report
         // ========================
-        public List<Entities.RepInventoryReportStockInDetailReportEntity> ListStockInDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        public List<Entities.RepInventoryReportStockInDetailReportEntity> ListStockInDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, String filter)
         {
             var stockInDetails = from d in db.TrnStockInItems
                                  where d.TrnStockIn.INDate >= startDate
                                  && d.TrnStockIn.INDate <= endDate
                                  && d.TrnStockIn.MstBranch.CompanyId == companyId
                                  && d.TrnStockIn.BranchId == branchId
+                                 && (d.TrnStockIn.MstBranch.Branch.Contains(filter)
+                                 || d.TrnStockIn.INNumber.Contains(filter)
+                                 || d.TrnStockIn.INDate.ToShortDateString().Contains(filter)
+                                 || d.TrnStockIn.Remarks.Contains(filter)
+                                 || d.TrnStockIn.MstUser.FullName.Contains(filter)
+                                 || d.TrnStockIn.MstUser1.FullName.Contains(filter)
+                                 || d.TrnStockIn.MstUser2.FullName.Contains(filter)
+                                 || d.MstArticle.ArticleBarCode.Contains(filter)
+                                 || d.MstArticle.Article.Contains(filter)
+                                 || d.MstUnit.Unit.Contains(filter)
+                                 || d.Quantity.ToString().Contains(filter)
+                                 || d.Cost.ToString().Contains(filter)
+                                 || d.Amount.ToString().Contains(filter)
+                                 || d.BaseQuantity.ToString().Contains(filter)
+                                 || d.BaseCost.ToString().Contains(filter))
                                  select new Entities.RepInventoryReportStockInDetailReportEntity
                                  {
                                      Id = d.Id,
@@ -292,13 +323,29 @@ namespace easyfmis.Controllers
         // =========================
         // Stock Transfer Out Report
         // =========================
-        public List<Entities.RepInventoryReportStockOutDetailReportEntity> ListStockOutDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        public List<Entities.RepInventoryReportStockOutDetailReportEntity> ListStockOutDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, String filter)
         {
             var stockOutDetails = from d in db.TrnStockOutItems
                                   where d.TrnStockOut.OTDate >= startDate
                                   && d.TrnStockOut.OTDate <= endDate
                                   && d.TrnStockOut.MstBranch.CompanyId == companyId
                                   && d.TrnStockOut.BranchId == branchId
+                                  && (d.TrnStockOut.MstBranch.Branch.Contains(filter)
+                                  || d.TrnStockOut.OTNumber.Contains(filter)
+                                  || d.TrnStockOut.OTDate.ToShortDateString().Contains(filter)
+                                  || d.TrnStockOut.Remarks.ToString().Contains(filter)
+                                  || d.TrnStockOut.MstUser.FullName.Contains(filter)
+                                  || d.TrnStockOut.MstUser1.FullName.Contains(filter)
+                                  || d.TrnStockOut.MstUser2.FullName.Contains(filter)
+                                  || d.MstArticle.ArticleBarCode.Contains(filter)
+                                  || d.MstArticle.Article.Contains(filter)
+                                  || d.MstArticleInventory.InventoryCode.Contains(filter)
+                                  || d.MstUnit.Unit.Contains(filter)
+                                  || d.Quantity.ToString().Contains(filter)
+                                  || d.Cost.ToString().Contains(filter)
+                                  || d.Amount.ToString().Contains(filter)
+                                  || d.BaseQuantity.ToString().Contains(filter)
+                                  || d.BaseCost.ToString().Contains(filter))
                                   select new Entities.RepInventoryReportStockOutDetailReportEntity
                                   {
                                       Id = d.Id,
@@ -326,13 +373,30 @@ namespace easyfmis.Controllers
         // ============================
         // Stock Transfer Detail Report
         // ============================
-        public List<Entities.RepInventoryReportStockTransferDetailReportEntity> ListStockTransferDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId)
+        public List<Entities.RepInventoryReportStockTransferDetailReportEntity> ListStockTransferDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, String filter)
         {
             var stockTransferDetails = from d in db.TrnStockTransferItems
                                        where d.TrnStockTransfer.STDate >= startDate
                                        && d.TrnStockTransfer.STDate <= endDate
                                        && d.TrnStockTransfer.MstBranch.CompanyId == companyId
                                        && d.TrnStockTransfer.BranchId == branchId
+                                       && (d.TrnStockTransfer.MstBranch.Branch.Contains(filter)
+                                       || d.TrnStockTransfer.STNumber.Contains(filter)
+                                       || d.TrnStockTransfer.STDate.ToShortDateString().Contains(filter)
+                                       || d.TrnStockTransfer.MstBranch1.Branch.Contains(filter)
+                                       || d.TrnStockTransfer.Remarks.Contains(filter)
+                                       || d.TrnStockTransfer.MstUser.FullName.Contains(filter)
+                                       || d.TrnStockTransfer.MstUser1.FullName.Contains(filter)
+                                       || d.TrnStockTransfer.MstUser2.FullName.Contains(filter)
+                                       || d.MstArticle.ArticleBarCode.Contains(filter)
+                                       || d.MstArticle.Article.Contains(filter)
+                                       || d.MstArticleInventory.InventoryCode.Contains(filter)
+                                       || d.MstUnit.Unit.Contains(filter)
+                                       || d.Quantity.ToString().Contains(filter)
+                                       || d.Cost.ToString().Contains(filter)
+                                       || d.Amount.ToString().Contains(filter)
+                                       || d.BaseQuantity.ToString().Contains(filter)
+                                       || d.BaseCost.ToString().Contains(filter))
                                        select new Entities.RepInventoryReportStockTransferDetailReportEntity
                                        {
                                            Id = d.Id,
@@ -361,11 +425,17 @@ namespace easyfmis.Controllers
         // =========
         // Item List
         // =========
-        public List<Entities.RepInventoryReportItemListReportEntity> ListItem()
+        public List<Entities.RepInventoryReportItemListReportEntity> ListItem(String filter)
         {
             var itemList = from d in db.MstArticles
                            where d.ArticleTypeId == 1
                            && d.IsLocked == true
+                           && (d.ArticleCode.Contains(filter)
+                           || d.Article.Contains(filter)
+                           || d.ArticleBarCode.Contains(filter)
+                           || d.Category.Contains(filter)
+                           || d.MstUnit.Unit.Contains(filter)
+                           || d.DefaultPrice.ToString().Contains(filter))
                            select new Entities.RepInventoryReportItemListReportEntity
                            {
                                Id = d.Id,

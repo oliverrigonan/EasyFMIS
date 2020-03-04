@@ -47,11 +47,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
         public List<Entities.DgvRepAccountsReceivableCollectionDetailReportEntity> GetCollectionDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsReceivableCollectionDetailReportEntity> rowList = new List<Entities.DgvRepAccountsReceivableCollectionDetailReportEntity>();
 
             Controllers.RepAccountsReceivableReportController repAccountsPayableReportController = new Controllers.RepAccountsReceivableReportController();
 
-            var collectionDetailReportList = repAccountsPayableReportController.ListCollectionDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var collectionDetailReportList = repAccountsPayableReportController.ListCollectionDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (collectionDetailReportList.Any())
             {
                 var row = from d in collectionDetailReportList
@@ -178,6 +179,11 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         {
             GetCollectionDetailReportDataSource();
             dataGridViewCollectionDetailReport.DataSource = dataCollectionDetailReportListSource;
+        }
+
+        public void UpdateCollectionDetailReportDataGridView()
+        {
+            CreateCollectionDetailReportDataGridView();
         }
 
         private void buttonCollectionDetailReportPageListFirst_Click(object sender, EventArgs e)
@@ -347,6 +353,14 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateCollectionDetailReportDataGridView();
             }
         }
     }

@@ -28,8 +28,6 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
         Int32 BranchId;
         Int32 SoldById;
 
-
-
         public RepAccountPayableReportPurchaseOrderDetailReportForm(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, String filterCompanyName, Int32 filterBranchId, String filterBranchName)
         {
             InitializeComponent();
@@ -54,14 +52,10 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
             Controllers.RepAccountsPayableReportController repAccountsPayableReportController = new Controllers.RepAccountsPayableReportController();
 
-            var purchaseOrderDetailReportList = repAccountsPayableReportController.ListPurchaseOrderDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var purchaseOrderDetailReportList = repAccountsPayableReportController.ListPurchaseOrderDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (purchaseOrderDetailReportList.Any())
             {
                 var row = from d in purchaseOrderDetailReportList
-                          where d.PONumber.Contains(filter)
-                          || d.ManualPONumber.Contains(filter)
-                          || d.Supplier.ToLower().Contains(filter)
-                          || d.Term.ToLower().Contains(filter)
                           select new Entities.DgvRepAccountsPayablePurchaseOrderDetailReportEntity
                           {
                               ColumnPurchaseOrderDetailReportListBranch = d.Branch,
@@ -174,6 +168,11 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             }
         }
 
+        public void UpdatePurchaseOrderDetailReportDataGridView()
+        {
+            CreatePurchaseOrderDetailReportDataGridView();
+        }
+
         public void CreatePurchaseOrderDetailReportDataGridView()
         {
             GetPurchaseOrderDetailReportDataSource();
@@ -184,7 +183,7 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
         {
             if (e.KeyCode == Keys.Enter)
             {
-                CreatePurchaseOrderDetailReportDataGridView();
+                UpdatePurchaseOrderDetailReportDataGridView();
             }
         }
 
@@ -222,7 +221,7 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             buttonPurchaseOrderReportPageNumber.Text = pageNumber + " / " + pageList.PageCount;
         }
 
-       
+
 
         private void buttonPurchaseOrderDetailReportPageListNext_Click(object sender, EventArgs e)
         {

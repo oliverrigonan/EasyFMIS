@@ -46,11 +46,13 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         public List<Entities.DgvRepInventoryReportStockTransferDetailReportEntity> GetStockTransferDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
+
             List<Entities.DgvRepInventoryReportStockTransferDetailReportEntity> rowList = new List<Entities.DgvRepInventoryReportStockTransferDetailReportEntity>();
 
             Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();
 
-            var stockTransferDetailReportList = repInventoryReportController.ListStockTransferDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId);
+            var stockTransferDetailReportList = repInventoryReportController.ListStockTransferDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
             if (stockTransferDetailReportList.Any())
             {
                 var row = from d in stockTransferDetailReportList
@@ -160,6 +162,11 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             GetStockTransferDetailReportDataSource();
             dataGridViewStockTransferDetailReport.DataSource = dataStockTransferDetailReportListSource;
+        }
+
+        public void UpdateStockTransferDetailDataGridView()
+        {
+            CreateStockTransferDetailDataGridView();
         }
 
         private void buttonStockTransferDetailReportPageListFirst_Click(object sender, EventArgs e)
@@ -313,6 +320,14 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateStockTransferDetailDataGridView();
             }
         }
     }

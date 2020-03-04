@@ -43,11 +43,12 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
 
         public List<Entities.DgvRepAccountsPayableReportEntity> GetAccountsPayableReportListData(DateTime filterDateAsOf, Int32 filterCompanyId, Int32 filterBranchId)
         {
+            String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepAccountsPayableReportEntity> rowList = new List<Entities.DgvRepAccountsPayableReportEntity>();
 
             Controllers.RepAccountsPayableReportController repInvetoryReportController = new Controllers.RepAccountsPayableReportController();
 
-            var accountsPayableReportList = repInvetoryReportController.ListAccountsPayableReport(filterDateAsOf, filterCompanyId, filterBranchId);
+            var accountsPayableReportList = repInvetoryReportController.ListAccountsPayableReport(filterDateAsOf, filterCompanyId, filterBranchId, filter);
             if (accountsPayableReportList.Any())
             {
                 var row = from d in accountsPayableReportList
@@ -160,6 +161,11 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
         {
             GetAccountsPayableReportDataSource();
             dataGridViewAccountsPayableReport.DataSource = dataAccountsPayableReportListSource;
+        }
+
+        public void UpdateAccountsPayableReportDataGridView()
+        {
+            CreateAccountsPayableReportDataGridView();
         }
 
         private void buttonAccountsPayableReportPageListFirst_Click(object sender, EventArgs e)
@@ -305,6 +311,13 @@ namespace easyfmis.Forms.Software.RepAccountsPayableReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
             }
         }
     }

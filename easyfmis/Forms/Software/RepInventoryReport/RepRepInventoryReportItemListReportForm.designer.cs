@@ -51,6 +51,7 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
+            this.textBoxItemListFilter = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemListReport)).BeginInit();
@@ -145,6 +146,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.textBoxItemListFilter);
             this.panel2.Controls.Add(this.dataGridViewItemListReport);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -171,14 +173,14 @@
             this.ColumnItemListReportListUnit,
             this.ColumnItemListReportListPrice,
             this.ColumnItemListReportListSpace});
-            this.dataGridViewItemListReport.Location = new System.Drawing.Point(12, 7);
+            this.dataGridViewItemListReport.Location = new System.Drawing.Point(12, 43);
             this.dataGridViewItemListReport.MultiSelect = false;
             this.dataGridViewItemListReport.Name = "dataGridViewItemListReport";
             this.dataGridViewItemListReport.ReadOnly = true;
             this.dataGridViewItemListReport.RowHeadersVisible = false;
             this.dataGridViewItemListReport.RowTemplate.Height = 24;
             this.dataGridViewItemListReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewItemListReport.Size = new System.Drawing.Size(1357, 524);
+            this.dataGridViewItemListReport.Size = new System.Drawing.Size(1357, 488);
             this.dataGridViewItemListReport.TabIndex = 21;
             // 
             // ColumnItemListReportListCode
@@ -309,6 +311,14 @@
             this.panel1.Size = new System.Drawing.Size(1382, 63);
             this.panel1.TabIndex = 16;
             // 
+            // textBoxItemListFilter
+            // 
+            this.textBoxItemListFilter.Location = new System.Drawing.Point(14, 7);
+            this.textBoxItemListFilter.Name = "textBoxItemListFilter";
+            this.textBoxItemListFilter.Size = new System.Drawing.Size(1353, 30);
+            this.textBoxItemListFilter.TabIndex = 43;
+            this.textBoxItemListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItemListFilter_KeyDown);
+            // 
             // RepRepInventoryReportItemListReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -326,6 +336,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItemListReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -357,5 +368,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemListReportListUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemListReportListPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemListReportListSpace;
+        private System.Windows.Forms.TextBox textBoxItemListFilter;
     }
 }

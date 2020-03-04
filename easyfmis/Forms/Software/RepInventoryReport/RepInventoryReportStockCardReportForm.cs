@@ -49,11 +49,13 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         public List<Entities.DgvRepStockCardReportEntity> GetStockCardReportListData(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, Int32 filterBranchId, Int32 filterItemId)
         {
+            String filter = textBoxItemListFilter.Text;
+
             List<Entities.DgvRepStockCardReportEntity> rowList = new List<Entities.DgvRepStockCardReportEntity>();
 
             Controllers.RepInventoryReportController repInvetoryReportController = new Controllers.RepInventoryReportController();
 
-            var inventoryReportList = repInvetoryReportController.ListStockCardInventoryReport(filterStartDate, filterEndDate, filterCompanyId, filterBranchId, filterItemId);
+            var inventoryReportList = repInvetoryReportController.ListStockCardInventoryReport(filterStartDate, filterEndDate, filterCompanyId, filterBranchId, filterItemId, filter);
             if (inventoryReportList.Any())
             {
                 var row = from d in inventoryReportList
@@ -153,6 +155,11 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         {
             GetStockCardReportDataSource();
             dataGridViewStockCardReport.DataSource = dataStockCardReportListSource;
+        }
+
+        public void UpdateStockCardReportDataGridView()
+        {
+            CreateStockCardReportDataGridView();
         }
 
         private void buttonStockCardReportPageListFirst_Click(object sender, EventArgs e)
@@ -290,6 +297,14 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxItemListFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateStockCardReportDataGridView();
             }
         }
     }
