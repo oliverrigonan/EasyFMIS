@@ -28,7 +28,8 @@ namespace easyfmis.Controllers
                                 SINumber = d.TrnSalesInvoice.SINumber,
                                 RRId = d.RRId,
                                 RRNumber = d.TrnReceivingReceipt.RRNumber,
-                                Amount = d.Amount,
+                                DebitAmount = d.DebitAmount,
+                                CreditAmount = d.CreditAmount,
                                 Particulars = d.Particulars
                             };
 
@@ -120,7 +121,8 @@ namespace easyfmis.Controllers
                     MOId = objMemoLine.MOId,
                     SIId = sIId,
                     RRId = rRId,
-                    Amount = objMemoLine.Amount,
+                    DebitAmount = objMemoLine.DebitAmount,
+                    CreditAmount = objMemoLine.CreditAmount,
                     Particulars = objMemoLine.Particulars
                 };
 
@@ -161,7 +163,7 @@ namespace easyfmis.Controllers
                                 return new String[] { "Receiving Receipt not found.", "0" };
                             }
                             objMemoLine.SIId = null;
-                            
+
                         }
 
                         if (objMemoLine.RRId == 0)
@@ -179,7 +181,8 @@ namespace easyfmis.Controllers
                         var updateMemoLine = memoLine.FirstOrDefault();
                         updateMemoLine.SIId = objMemoLine.SIId;
                         updateMemoLine.RRId = objMemoLine.RRId;
-                        updateMemoLine.Amount = objMemoLine.Amount;
+                        updateMemoLine.DebitAmount = objMemoLine.DebitAmount;
+                        updateMemoLine.CreditAmount = objMemoLine.CreditAmount;
                         updateMemoLine.Particulars = objMemoLine.Particulars;
 
                         db.SubmitChanges();

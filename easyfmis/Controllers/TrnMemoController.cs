@@ -102,12 +102,12 @@ namespace easyfmis.Controllers
         public Int32 GetArticleTypeId(Int32 articleId)
         {
             var articleType = from d in db.MstArticles
-                            where d.Id == articleId
-                            select new Entities.MstArticleTypeEntity
-                            {
-                                Id = d.MstArticleType.Id,
-                                ArticleType = d.MstArticleType.ArticleType
-                            };
+                              where d.Id == articleId
+                              select new Entities.MstArticleTypeEntity
+                              {
+                                  Id = d.MstArticleType.Id,
+                                  ArticleType = d.MstArticleType.ArticleType
+                              };
 
             return articleType.FirstOrDefault().Id;
         }
@@ -303,6 +303,24 @@ namespace easyfmis.Controllers
                     lockMemo.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     lockMemo.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
+
+                    if (memo.FirstOrDefault().TrnMemoLines.Any())
+                    {
+                        foreach (var memoLine in memo.FirstOrDefault().TrnMemoLines)
+                        {
+                            if (memoLine.RRId != null)
+                            {
+                                Modules.TrnAccountsPayableModule trnAccountsPayableModule = new Modules.TrnAccountsPayableModule();
+                                trnAccountsPayableModule.UpdateAccountsPayable(Convert.ToInt32(memoLine.RRId));
+                            }
+
+                            if (memoLine.SIId != null)
+                            {
+                                Modules.TrnAccountsReceivableModule trnAccountsReceivableModule = new Modules.TrnAccountsReceivableModule();
+                                trnAccountsReceivableModule.UpdateAccountsReceivable(Convert.ToInt32(memoLine.SIId));
+                            }
+                        }
+                    }
 
                     return new String[] { "", "1" };
                 }
