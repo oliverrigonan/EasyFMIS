@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace easyfmis.Controllers
 {
@@ -142,17 +143,10 @@ namespace easyfmis.Controllers
                                    && d.IsLocked == true
                                    && (d.MstBranch.Branch.Contains(filter)
                                    || d.SINumber.Contains(filter)
-                                   || d.SIDate.ToShortDateString().Contains(filter)
                                    || d.ManualSINumber.Contains(filter)
                                    || d.MstArticle.ArticleCode.Contains(filter)
                                    || d.MstArticle.Article.Contains(filter)
-                                   || d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays)).ToShortDateString().Contains(filter)
-                                   || d.BalanceAmount.ToString().Contains(filter)
-                                   || ComputeAge(0, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                   || ComputeAge(1, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                   || ComputeAge(2, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                   || ComputeAge(3, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                   || ComputeAge(4, Convert.ToDateTime(dateAsOf).Subtract(d.SIDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter))
+                                   || d.BalanceAmount.ToString().Contains(filter))
                                    select new Entities.RepAccountsReceivableEntity
                                    {
                                        SIId = d.Id,
@@ -251,7 +245,6 @@ namespace easyfmis.Controllers
                                      && d.TrnSalesOrder.IsLocked == true
                                      && (d.TrnSalesOrder.MstBranch.Branch.Contains(filter)
                                      || d.TrnSalesOrder.SONumber.Contains(filter)
-                                     || d.TrnSalesOrder.SODate.ToShortDateString().Contains(filter)
                                      || d.TrnSalesOrder.ManualSONumber.Contains(filter)
                                      || d.TrnSalesOrder.MstArticle.Article.Contains(filter)
                                      || d.TrnSalesOrder.MstTerm.Term.Contains(filter)
@@ -331,7 +324,6 @@ namespace easyfmis.Controllers
                                        && d.TrnCollection.IsLocked == true
                                        && (d.TrnCollection.MstBranch.Branch.Contains(filter)
                                        || d.TrnCollection.ORNumber.Contains(filter)
-                                       || d.TrnCollection.ORDate.ToShortDateString().Contains(filter)
                                        || d.TrnCollection.ManualORNumber.Contains(filter)
                                        || d.TrnCollection.MstArticle.Article.Contains(filter)
                                        || d.TrnCollection.Remarks.Contains(filter)
@@ -408,7 +400,6 @@ namespace easyfmis.Controllers
                                        && d.BalanceAmount > 0
                                        && (d.MstBranch.Branch.Contains(filter)
                                        || d.SINumber.Contains(filter)
-                                       || d.SIDate.ToShortTimeString().Contains(filter)
                                        || d.ManualSINumber.Contains(filter)
                                        || d.MstArticle.Article.Contains(filter)
                                        || d.MstTerm.Term.Contains(filter)

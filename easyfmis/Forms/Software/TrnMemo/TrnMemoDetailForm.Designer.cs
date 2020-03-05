@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnMemoDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLock = new System.Windows.Forms.Button();
@@ -66,6 +67,11 @@
             this.buttonMemoLinePageListLast = new System.Windows.Forms.Button();
             this.textBoxMemoLinePageNumber = new System.Windows.Forms.TextBox();
             this.dataGridViewMemoLine = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
+            this.buttonAddMemoLine = new System.Windows.Forms.Button();
             this.ColumnMemoLineListButtonEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnMemoLineListButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnMemoLineListId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,14 +80,10 @@
             this.ColumnMemoLineListSINumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMemoLineListRRId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMemoLineListRRNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMemoLineListAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMemoLineListDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMemoLineListCredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMemoLineListParticulars = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMemoLineListSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageStockOutItems = new System.Windows.Forms.TabPage();
-            this.buttonAddMemoLine = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -516,7 +518,8 @@
             this.ColumnMemoLineListSINumber,
             this.ColumnMemoLineListRRId,
             this.ColumnMemoLineListRRNumber,
-            this.ColumnMemoLineListAmount,
+            this.ColumnMemoLineListDebit,
+            this.ColumnMemoLineListCredit,
             this.ColumnMemoLineListParticulars,
             this.ColumnMemoLineListSpace});
             this.dataGridViewMemoLine.Location = new System.Drawing.Point(8, 52);
@@ -524,8 +527,8 @@
             this.dataGridViewMemoLine.Name = "dataGridViewMemoLine";
             this.dataGridViewMemoLine.ReadOnly = true;
             this.dataGridViewMemoLine.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.dataGridViewMemoLine.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.dataGridViewMemoLine.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewMemoLine.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewMemoLine.RowTemplate.Height = 24;
             this.dataGridViewMemoLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -533,6 +536,67 @@
             this.dataGridViewMemoLine.TabIndex = 1;
             this.dataGridViewMemoLine.TabStop = false;
             this.dataGridViewMemoLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMemoLine_CellClick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 201);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1400, 436);
+            this.panel6.TabIndex = 27;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1400, 436);
+            this.tabControl1.TabIndex = 9;
+            this.tabControl1.TabStop = false;
+            // 
+            // tabPageStockOutItems
+            // 
+            this.tabPageStockOutItems.Controls.Add(this.buttonAddMemoLine);
+            this.tabPageStockOutItems.Controls.Add(this.panel4);
+            this.tabPageStockOutItems.Controls.Add(this.dataGridViewMemoLine);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 400);
+            this.tabPageStockOutItems.TabIndex = 0;
+            this.tabPageStockOutItems.Text = "Memo Lines";
+            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddMemoLine
+            // 
+            this.buttonAddMemoLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddMemoLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddMemoLine.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonAddMemoLine.FlatAppearance.BorderSize = 0;
+            this.buttonAddMemoLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddMemoLine.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddMemoLine.ForeColor = System.Drawing.Color.White;
+            this.buttonAddMemoLine.Location = new System.Drawing.Point(1296, 6);
+            this.buttonAddMemoLine.Name = "buttonAddMemoLine";
+            this.buttonAddMemoLine.Size = new System.Drawing.Size(88, 40);
+            this.buttonAddMemoLine.TabIndex = 24;
+            this.buttonAddMemoLine.Text = "Add";
+            this.buttonAddMemoLine.UseVisualStyleBackColor = false;
+            this.buttonAddMemoLine.Click += new System.EventHandler(this.buttonAddMemoLine_Click);
             // 
             // ColumnMemoLineListButtonEdit
             // 
@@ -600,21 +664,31 @@
             this.ColumnMemoLineListRRNumber.ReadOnly = true;
             this.ColumnMemoLineListRRNumber.Width = 150;
             // 
-            // ColumnMemoLineListAmount
+            // ColumnMemoLineListDebit
             // 
-            this.ColumnMemoLineListAmount.DataPropertyName = "ColumnMemoLineListAmount";
+            this.ColumnMemoLineListDebit.DataPropertyName = "ColumnMemoLineListDebit";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnMemoLineListAmount.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnMemoLineListAmount.HeaderText = "Amount";
-            this.ColumnMemoLineListAmount.Name = "ColumnMemoLineListAmount";
-            this.ColumnMemoLineListAmount.ReadOnly = true;
-            this.ColumnMemoLineListAmount.Width = 150;
+            this.ColumnMemoLineListDebit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnMemoLineListDebit.HeaderText = "Debit";
+            this.ColumnMemoLineListDebit.Name = "ColumnMemoLineListDebit";
+            this.ColumnMemoLineListDebit.ReadOnly = true;
+            this.ColumnMemoLineListDebit.Width = 150;
+            // 
+            // ColumnMemoLineListCredit
+            // 
+            this.ColumnMemoLineListCredit.DataPropertyName = "ColumnMemoLineListCredit";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnMemoLineListCredit.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnMemoLineListCredit.HeaderText = "Credit";
+            this.ColumnMemoLineListCredit.Name = "ColumnMemoLineListCredit";
+            this.ColumnMemoLineListCredit.ReadOnly = true;
+            this.ColumnMemoLineListCredit.Width = 150;
             // 
             // ColumnMemoLineListParticulars
             // 
             this.ColumnMemoLineListParticulars.DataPropertyName = "ColumnMemoLineListParticulars";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColumnMemoLineListParticulars.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColumnMemoLineListParticulars.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnMemoLineListParticulars.HeaderText = "Particulars";
             this.ColumnMemoLineListParticulars.Name = "ColumnMemoLineListParticulars";
             this.ColumnMemoLineListParticulars.ReadOnly = true;
@@ -627,67 +701,6 @@
             this.ColumnMemoLineListSpace.HeaderText = "";
             this.ColumnMemoLineListSpace.Name = "ColumnMemoLineListSpace";
             this.ColumnMemoLineListSpace.ReadOnly = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 201);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 436);
-            this.panel6.TabIndex = 27;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageStockOutItems);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 436);
-            this.tabControl1.TabIndex = 9;
-            this.tabControl1.TabStop = false;
-            // 
-            // tabPageStockOutItems
-            // 
-            this.tabPageStockOutItems.Controls.Add(this.buttonAddMemoLine);
-            this.tabPageStockOutItems.Controls.Add(this.panel4);
-            this.tabPageStockOutItems.Controls.Add(this.dataGridViewMemoLine);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
-            this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 400);
-            this.tabPageStockOutItems.TabIndex = 0;
-            this.tabPageStockOutItems.Text = "Memo Lines";
-            this.tabPageStockOutItems.UseVisualStyleBackColor = true;
-            // 
-            // buttonAddMemoLine
-            // 
-            this.buttonAddMemoLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddMemoLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonAddMemoLine.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonAddMemoLine.FlatAppearance.BorderSize = 0;
-            this.buttonAddMemoLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddMemoLine.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddMemoLine.ForeColor = System.Drawing.Color.White;
-            this.buttonAddMemoLine.Location = new System.Drawing.Point(1296, 6);
-            this.buttonAddMemoLine.Name = "buttonAddMemoLine";
-            this.buttonAddMemoLine.Size = new System.Drawing.Size(88, 40);
-            this.buttonAddMemoLine.TabIndex = 24;
-            this.buttonAddMemoLine.Text = "Add";
-            this.buttonAddMemoLine.UseVisualStyleBackColor = false;
-            this.buttonAddMemoLine.Click += new System.EventHandler(this.buttonAddMemoLine_Click);
             // 
             // TrnMemoDetailForm
             // 
@@ -766,7 +779,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListSINumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListRRId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListRRNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListDebit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListCredit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListParticulars;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMemoLineListSpace;
     }

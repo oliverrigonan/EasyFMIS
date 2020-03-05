@@ -22,6 +22,8 @@ namespace easyfmis.Modules
             if (receivingReceipt.Any())
             {
                 Decimal paidAmount = 0;
+                Decimal memoDebit = 0;
+                Decimal memoCredit = 0;
                 Decimal memoAmount = 0;
 
                 var disbursementLines = from d in db.TrnDisbursementLines where d.RRId == RRId && d.TrnDisbursement.IsLocked == true select d;
@@ -33,7 +35,9 @@ namespace easyfmis.Modules
                 var memoLines = from d in db.TrnMemoLines where d.RRId == RRId && d.TrnMemo.IsLocked == true select d;
                 if (memoLines.Any())
                 {
-                    memoAmount = memoLines.Sum(d => d.Amount);
+                    memoDebit = memoLines.Sum(d => d.DebitAmount);
+                    memoCredit = memoLines.Sum(d => d.CreditAmount);
+                    memoAmount = memoDebit - memoCredit;
                 }
 
                 Decimal receivingReceiptAmount = receivingReceipt.FirstOrDefault().Amount;

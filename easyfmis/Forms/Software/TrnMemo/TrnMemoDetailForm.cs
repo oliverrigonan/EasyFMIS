@@ -296,7 +296,8 @@ namespace easyfmis.Forms.Software.TrnMemo
                                 ColumnMemoLineListSINumber = d.SINumber,
                                 ColumnMemoLineListRRId = d.RRId,
                                 ColumnMemoLineListRRNumber = d.RRNumber,
-                                ColumnMemoLineListAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnMemoLineListDebit = d.DebitAmount.ToString("#,##0.00"),
+                                ColumnMemoLineListCredit = d.CreditAmount.ToString("#,##0.00"),
                                 ColumnMemoLineListParticulars = d.Particulars
                             };
 
@@ -341,7 +342,8 @@ namespace easyfmis.Forms.Software.TrnMemo
                 var mOId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListMOId"].Index].Value);
                 var sIId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListSIId"].Index].Value);
                 var rRId = Convert.ToInt32(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListRRId"].Index].Value);
-                var amount = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListAmount"].Index].Value);
+                var debitAmount = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListDebit"].Index].Value);
+                var creditAmount = Convert.ToDecimal(dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListCredit"].Index].Value);
                 var particulars = dataGridViewMemoLine.Rows[e.RowIndex].Cells[dataGridViewMemoLine.Columns["ColumnMemoLineListParticulars"].Index].Value.ToString();
 
                 Entities.TrnMemoLineEntity objMemoLineEntity = new Entities.TrnMemoLineEntity()
@@ -350,7 +352,8 @@ namespace easyfmis.Forms.Software.TrnMemo
                     MOId = mOId,
                     SIId = sIId,
                     RRId = rRId,
-                    Amount = amount,
+                    DebitAmount = debitAmount,
+                    CreditAmount = creditAmount,
                     Particulars = particulars
                 };
 

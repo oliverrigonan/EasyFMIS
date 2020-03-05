@@ -16,7 +16,8 @@ namespace easyfmis.Entities
         public String ColumnMemoLineListSINumber { get; set; }
         public Int32? ColumnMemoLineListRRId { get; set; }
         public String ColumnMemoLineListRRNumber { get; set; }
-        public String ColumnMemoLineListAmount { get; set; }
+        public String ColumnMemoLineListDebit { get; set; }
+        public String ColumnMemoLineListCredit { get; set; }
         public String ColumnMemoLineListParticulars { get; set; }
         public String ColumnMemoLineListSpace { get; set; }
     }

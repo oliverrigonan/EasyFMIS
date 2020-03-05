@@ -39,32 +39,21 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                 comboBoxArticleGroup.ValueMember = "Id";
                 comboBoxArticleGroup.DisplayMember = "ArticleGroup";
 
-                GetReceivingReceiptList();
+                GetDisbursementLineDetail();
             }
-        }
-
-        public void GetReceivingReceiptList()
-        {
-            Controllers.TrnDisbursementLineController trnDisbursementLineController = new Controllers.TrnDisbursementLineController();
-            var receinvingReceipt = trnDisbursementLineController.DropDownReceivingReceipt(trnDisbursementEntity.SupplierId);
-            if (receinvingReceipt.Any())
-            {
-                comboBoxRR.DataSource = receinvingReceipt;
-                comboBoxRR.ValueMember = "Id";
-                comboBoxRR.DisplayMember = "RRNumber";
-            }
-
-            GetDisbursementLineDetail();
         }
 
         public void GetDisbursementLineDetail()
         {
             if (trnDisbursementLineEntity != null)
             {
-                comboBoxArticleGroup.SelectedValue = trnDisbursementLineEntity.ArticleGroupId;
-                comboBoxRR.SelectedValue = trnDisbursementLineEntity.RRId;
+                textBoxRRNumber.Text = trnDisbursementLineEntity.RRNumber;
                 textBoxAmount.Text = trnDisbursementLineEntity.Amount.ToString("#,##0.00");
                 textBoxOtherInformation.Text = trnDisbursementLineEntity.OtherInformation;
+            }
+            if (trnDisbursementLineEntity.ArticleGroupId != 0)
+            {
+                comboBoxArticleGroup.SelectedValue = trnDisbursementLineEntity.ArticleGroupId;
             }
         }
 
@@ -77,13 +66,13 @@ namespace easyfmis.Forms.Software.TrnDisbursement
         public void SavePurchaseOrderItem()
         {
             Controllers.TrnDisbursementLineController trnDisbursementLineController = new Controllers.TrnDisbursementLineController();
-            if (trnDisbursementLineEntity == null)
+            if (trnDisbursementLineEntity.Id == 0)
             {
                 Entities.TrnDisbursementLineEntity newDisbursementLineEntity = new Entities.TrnDisbursementLineEntity()
                 {
                     CVId = trnDisbursementEntity.Id,
                     ArticleGroupId = Convert.ToInt32(comboBoxArticleGroup.SelectedValue),
-                    RRId = Convert.ToInt32(comboBoxRR.SelectedValue),
+                    RRId = trnDisbursementLineEntity.RRId,
                     Amount = Convert.ToDecimal(textBoxAmount.Text),
                     OtherInformation = textBoxOtherInformation.Text
                 };
@@ -106,7 +95,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                     Id = trnDisbursementLineEntity.Id,
                     CVId = trnDisbursementEntity.Id,
                     ArticleGroupId = Convert.ToInt32(comboBoxArticleGroup.SelectedValue),
-                    RRId = Convert.ToInt32(comboBoxRR.SelectedValue),
+                    RRId = trnDisbursementLineEntity.RRId,
                     Amount = Convert.ToDecimal(textBoxAmount.Text),
                     OtherInformation = textBoxOtherInformation.Text
                 };
@@ -159,20 +148,6 @@ namespace easyfmis.Forms.Software.TrnDisbursement
         private void textBoxAmount_Leave(object sender, EventArgs e)
         {
             textBoxAmount.Text = Convert.ToDecimal(textBoxAmount.Text).ToString("#,##0.00");
-        }
-
-        private void comboBoxRR_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxRR.SelectedItem == null)
-            {
-                textBoxAmount.Text = (0).ToString("#,##0.00");
-            }
-
-            var selectedItemRR = (Entities.TrnReceivingReceiptEntity)comboBoxRR.SelectedItem;
-            if (selectedItemRR != null)
-            {
-                textBoxAmount.Text = selectedItemRR.Amount.ToString("#,##0.00");
-            }
         }
     }
 }

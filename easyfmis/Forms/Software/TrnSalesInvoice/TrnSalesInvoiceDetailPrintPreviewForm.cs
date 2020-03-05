@@ -31,11 +31,11 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         }
 
         private void Print() {
-            if (PrintPreference == "Sales Invoice") { GeneratePDFSalesInvoiceDetailFitToLayout(); }
-            if (PrintPreference == "Packing List") { GeneratePDFSalesInvoiceDetail(); }
+            if (PrintPreference == "Sales Invoice") { GeneratePDFSalesInvoice(); }
+            if (PrintPreference == "Packing List") { GeneratePDFSalesInvoiceDRDetail(); }
         }
 
-        private void GeneratePDFSalesInvoiceDetail()
+        private void GeneratePDFSalesInvoiceDRDetail()
         {
             try
             {
@@ -327,7 +327,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             }
         }
 
-        private void GeneratePDFSalesInvoiceDetailFitToLayout()
+        private void GeneratePDFSalesInvoice()
         {
             try
             {
@@ -425,12 +425,13 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                     tableSalesInvoice.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f });
                     tableSalesInvoice.AddCell(new PdfPCell(new Phrase(address, fontArial08)) { Colspan = 3, Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 25f });
                     tableSalesInvoice.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { PaddingLeft = 3f, Border = 0, PaddingRight = 5f, FixedHeight = 12f });
-                    tableSalesInvoice.AddCell(new PdfPCell(new Phrase(currentSIPrefix + "-" + salesInvoice.FirstOrDefault().MstBranch.BranchCode + "-" + salesNo, fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, HorizontalAlignment = 0, FixedHeight = 12f });
+                    //tableSalesInvoice.AddCell(new PdfPCell(new Phrase(currentSIPrefix + "-" + salesInvoice.FirstOrDefault().MstBranch.BranchCode + "-" + salesNo, fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, HorizontalAlignment = 0, FixedHeight = 12f });
+                    tableSalesInvoice.AddCell(new PdfPCell(new Phrase(manualSINumber, fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, HorizontalAlignment = 0, FixedHeight = 12f });
 
                     tableSalesInvoice.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, HorizontalAlignment = 0, FixedHeight = 12f });
-                    tableSalesInvoice.AddCell(new PdfPCell(new Phrase(salesPerson, fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, HorizontalAlignment = 0, FixedHeight = 12f });
+                    tableSalesInvoice.AddCell(new PdfPCell(new Phrase("", fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, HorizontalAlignment = 0, FixedHeight = 12f });
                     tableSalesInvoice.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
-                    tableSalesInvoice.AddCell(new PdfPCell(new Phrase(businessStyle, fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
+                    tableSalesInvoice.AddCell(new PdfPCell(new Phrase("", fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
                     tableSalesInvoice.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
                     tableSalesInvoice.AddCell(new PdfPCell(new Phrase(term, fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
 
@@ -508,11 +509,12 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
                         tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, Colspan = 5, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
 
-                        tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, Colspan = 5, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
+                        tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase("", fontArial08)) { Border = 0, Colspan = 5, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
 
                         tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, Colspan = 5, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
 
-                        tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, Colspan = 4, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });
+                        tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(salesRemarks, fontArial08)) { Border = 0, Colspan = 3, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f, HorizontalAlignment = 2 });
+                        tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f, HorizontalAlignment = 2 });
                         tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(zeroRatedSales.ToString("#,##0.00"), fontArial08)) { Border = 0, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 24f, HorizontalAlignment = 2, PaddingTop = 8f, });
 
                         tableSalesInvoiceComputation.AddCell(new PdfPCell(new Phrase(" ", fontArial08)) { Border = 0, Colspan = 4, PaddingLeft = 3f, PaddingRight = 5f, FixedHeight = 12f });

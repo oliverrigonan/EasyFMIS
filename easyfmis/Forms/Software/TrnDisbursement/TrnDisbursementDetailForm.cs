@@ -30,11 +30,6 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             InitializeComponent();
             sysSoftwareForm = softwareForm;
 
-            trnDisbursementListForm = disbursementListForm;
-            trnDisbursementEntity = disbursementEntity;
-
-            GetSupplierList();
-
             sysUserRights = new Modules.SysUserRightsModule("TrnDisbursementDetail");
             if (sysUserRights.GetUserRights() == null)
             {
@@ -405,6 +400,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                 var cVId = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListCVId"].Index].Value);
                 var articleGroupId = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListArticleGroupId"].Index].Value);
                 var rRId = Convert.ToUInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListRRId"].Index].Value);
+                var rRNumber = dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListRR"].Index].Value.ToString();
                 var amount = Convert.ToDecimal(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListAmount"].Index].Value);
                 var otherInformation = dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListOtherInformation"].Index].Value.ToString();
 
@@ -414,6 +410,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                     CVId = cVId,
                     ArticleGroupId = articleGroupId,
                     RRId = (Int32?)rRId,
+                    RRNumber = rRNumber,
                     Amount = amount,
                     OtherInformation = otherInformation
                 };
@@ -514,8 +511,8 @@ namespace easyfmis.Forms.Software.TrnDisbursement
 
         private void buttonAddDisbursementLine_Click(object sender, EventArgs e)
         {
-            TrnDisbursementDetailDisbursementLineDetailForm trnDisbursementDetailDisbursementLineForm = new TrnDisbursementDetailDisbursementLineDetailForm(this, null, trnDisbursementEntity);
-            trnDisbursementDetailDisbursementLineForm.ShowDialog();
+            TrnDisbursementReceivingReceiptListForm trnDisbursementReceivingReceiptListForm = new TrnDisbursementReceivingReceiptListForm(this, trnDisbursementEntity, null);
+            trnDisbursementReceivingReceiptListForm.ShowDialog();
         }
 
         private void textBoxAmount_KeyPress(object sender, KeyPressEventArgs e)

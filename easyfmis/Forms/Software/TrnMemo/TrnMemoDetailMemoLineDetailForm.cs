@@ -61,7 +61,6 @@ namespace easyfmis.Forms.Software.TrnMemo
                 comboBoxRRNumber.DataSource = SIList;
                 comboBoxRRNumber.ValueMember = "Id";
                 comboBoxRRNumber.DisplayMember = "RRNumber";
-
             }
 
             GetMemoLineDetail();
@@ -73,12 +72,13 @@ namespace easyfmis.Forms.Software.TrnMemo
             {
                 comboBoxSINumber.SelectedValue = trnMemoLineEntity.SIId;
                 comboBoxRRNumber.SelectedValue = trnMemoLineEntity.RRId;
-                textBoxAmount.Text = trnMemoLineEntity.Amount.ToString("#,##0.00");
+                textBoxDebit.Text = trnMemoLineEntity.DebitAmount.ToString("#,##0.00");
+                textBoxCredit.Text = trnMemoLineEntity.CreditAmount.ToString("#,##0.00");
                 textBoxParticulars.Text = trnMemoLineEntity.Particulars;
             }
             else
             {
-                textBoxAmount.Text = (0).ToString("#,##0.00");
+                textBoxDebit.Text = (0).ToString("#,##0.00");
                 textBoxParticulars.Text = "";
             }
         }
@@ -98,7 +98,8 @@ namespace easyfmis.Forms.Software.TrnMemo
             var mOId = trnMemoEntity.Id;
             var sIId = Convert.ToInt32(comboBoxSINumber.SelectedValue);
             var rRId = Convert.ToInt32(comboBoxRRNumber.SelectedValue);
-            var amount = Convert.ToDecimal(textBoxAmount.Text);
+            var debitAmount = Convert.ToDecimal(textBoxDebit.Text);
+            var creditAmount = Convert.ToDecimal(textBoxDebit.Text);
             var particulars = textBoxParticulars.Text;
 
             Entities.TrnMemoLineEntity objMemoLineEntity = new Entities.TrnMemoLineEntity()
@@ -107,7 +108,8 @@ namespace easyfmis.Forms.Software.TrnMemo
                 MOId = mOId,
                 SIId = sIId,
                 RRId = rRId,
-                Amount = amount,
+                DebitAmount = debitAmount,
+                CreditAmount = creditAmount,
                 Particulars = particulars
             };
 
@@ -145,7 +147,7 @@ namespace easyfmis.Forms.Software.TrnMemo
             Close();
         }
 
-        private void textBoxAmount_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxDebitAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
             {
@@ -163,11 +165,37 @@ namespace easyfmis.Forms.Software.TrnMemo
             }
         }
 
-        private void textBoxAmount_TextChanged(object sender, EventArgs e)
+        private void textBoxDebitAmount_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBoxAmount.Text))
+            if (String.IsNullOrEmpty(textBoxDebit.Text))
             {
-                textBoxAmount.Text = "0.00";
+                textBoxDebit.Text = "0.00";
+            }
+        }
+
+        private void textBoxCreditAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCreditAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxDebit.Text))
+            {
+                textBoxDebit.Text = "0.00";
             }
         }
 

@@ -38,11 +38,13 @@
             this.comboBoxSINumber = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxRRNumber = new System.Windows.Forms.ComboBox();
-            this.textBoxAmount = new System.Windows.Forms.TextBox();
+            this.textBoxDebit = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxParticulars = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxCredit = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -118,10 +120,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBoxCredit);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.comboBoxSINumber);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.comboBoxRRNumber);
-            this.panel2.Controls.Add(this.textBoxAmount);
+            this.panel2.Controls.Add(this.textBoxDebit);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.textBoxParticulars);
@@ -129,7 +133,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(487, 216);
+            this.panel2.Size = new System.Drawing.Size(487, 247);
             this.panel2.TabIndex = 9;
             // 
             // comboBoxSINumber
@@ -164,33 +168,33 @@
             this.comboBoxRRNumber.Size = new System.Drawing.Size(269, 31);
             this.comboBoxRRNumber.TabIndex = 1;
             // 
-            // textBoxAmount
+            // textBoxDebit
             // 
-            this.textBoxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAmount.Location = new System.Drawing.Point(195, 79);
-            this.textBoxAmount.Name = "textBoxAmount";
-            this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
-            this.textBoxAmount.TabIndex = 3;
-            this.textBoxAmount.TabStop = false;
-            this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
-            this.textBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxAmount_KeyPress);
+            this.textBoxDebit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxDebit.Location = new System.Drawing.Point(195, 79);
+            this.textBoxDebit.Name = "textBoxDebit";
+            this.textBoxDebit.Size = new System.Drawing.Size(269, 30);
+            this.textBoxDebit.TabIndex = 3;
+            this.textBoxDebit.TabStop = false;
+            this.textBoxDebit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDebit.TextChanged += new System.EventHandler(this.textBoxDebitAmount_TextChanged);
+            this.textBoxDebit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDebitAmount_KeyPress);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(113, 82);
+            this.label9.Location = new System.Drawing.Point(65, 82);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 23);
+            this.label9.Size = new System.Drawing.Size(122, 23);
             this.label9.TabIndex = 23;
-            this.label9.Text = "Amount:";
+            this.label9.Text = "Debit Amount:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(97, 118);
+            this.label4.Location = new System.Drawing.Point(97, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 23);
             this.label4.TabIndex = 17;
@@ -199,7 +203,7 @@
             // textBoxParticulars
             // 
             this.textBoxParticulars.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxParticulars.Location = new System.Drawing.Point(195, 115);
+            this.textBoxParticulars.Location = new System.Drawing.Point(195, 150);
             this.textBoxParticulars.Multiline = true;
             this.textBoxParticulars.Name = "textBoxParticulars";
             this.textBoxParticulars.Size = new System.Drawing.Size(269, 92);
@@ -216,11 +220,33 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Receiving Receipt No.:";
             // 
+            // textBoxCredit
+            // 
+            this.textBoxCredit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxCredit.Location = new System.Drawing.Point(195, 114);
+            this.textBoxCredit.Name = "textBoxCredit";
+            this.textBoxCredit.Size = new System.Drawing.Size(269, 30);
+            this.textBoxCredit.TabIndex = 26;
+            this.textBoxCredit.TabStop = false;
+            this.textBoxCredit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxCredit.TextChanged += new System.EventHandler(this.textBoxCreditAmount_TextChanged);
+            this.textBoxCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCreditAmount_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label5.Location = new System.Drawing.Point(62, 117);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 23);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Credit Amount:";
+            // 
             // TrnMemoDetailMemoLineDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(487, 279);
+            this.ClientSize = new System.Drawing.Size(487, 310);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -249,10 +275,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxParticulars;
-        private System.Windows.Forms.TextBox textBoxAmount;
+        private System.Windows.Forms.TextBox textBoxDebit;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxRRNumber;
         private System.Windows.Forms.ComboBox comboBoxSINumber;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxCredit;
+        private System.Windows.Forms.Label label5;
     }
 }

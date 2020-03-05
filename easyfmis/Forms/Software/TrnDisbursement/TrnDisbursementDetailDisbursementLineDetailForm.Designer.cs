@@ -35,8 +35,8 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxRRNumber = new System.Windows.Forms.TextBox();
             this.comboBoxArticleGroup = new System.Windows.Forms.ComboBox();
-            this.comboBoxRR = new System.Windows.Forms.ComboBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -118,8 +118,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBoxRRNumber);
             this.panel2.Controls.Add(this.comboBoxArticleGroup);
-            this.panel2.Controls.Add(this.comboBoxRR);
             this.panel2.Controls.Add(this.textBoxAmount);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label4);
@@ -132,6 +132,15 @@
             this.panel2.Size = new System.Drawing.Size(651, 242);
             this.panel2.TabIndex = 9;
             // 
+            // textBoxRRNumber
+            // 
+            this.textBoxRRNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxRRNumber.Location = new System.Drawing.Point(171, 43);
+            this.textBoxRRNumber.Name = "textBoxRRNumber";
+            this.textBoxRRNumber.ReadOnly = true;
+            this.textBoxRRNumber.Size = new System.Drawing.Size(269, 30);
+            this.textBoxRRNumber.TabIndex = 24;
+            // 
             // comboBoxArticleGroup
             // 
             this.comboBoxArticleGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
@@ -142,18 +151,6 @@
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(374, 31);
             this.comboBoxArticleGroup.TabIndex = 0;
-            // 
-            // comboBoxRR
-            // 
-            this.comboBoxRR.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxRR.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxRR.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.comboBoxRR.FormattingEnabled = true;
-            this.comboBoxRR.Location = new System.Drawing.Point(171, 43);
-            this.comboBoxRR.Name = "comboBoxRR";
-            this.comboBoxRR.Size = new System.Drawing.Size(269, 31);
-            this.comboBoxRR.TabIndex = 1;
-            this.comboBoxRR.SelectedIndexChanged += new System.EventHandler(this.comboBoxRR_SelectedIndexChanged);
             // 
             // textBoxAmount
             // 
@@ -252,7 +249,7 @@
         private System.Windows.Forms.TextBox textBoxOtherInformation;
         private System.Windows.Forms.TextBox textBoxAmount;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBoxRR;
         private System.Windows.Forms.ComboBox comboBoxArticleGroup;
+        private System.Windows.Forms.TextBox textBoxRRNumber;
     }
 }

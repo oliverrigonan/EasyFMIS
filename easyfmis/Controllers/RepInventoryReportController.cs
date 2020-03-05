@@ -162,9 +162,6 @@ namespace easyfmis.Controllers
                                        && d.MstBranch.CompanyId == companyId
                                        && d.BranchId == branchId
                                        && d.ItemId == itemId
-                                       && (d.MstArticle.MstUnit.Unit.Contains(filter)
-                                       || d.Quantity.ToString().Contains(filter)
-                                       || d.MstArticleInventory.Cost1.ToString().Contains(filter))
                                        select new
                                        {
                                            Document = "Beggining Balance",
@@ -202,11 +199,6 @@ namespace easyfmis.Controllers
                                      && d.MstBranch.CompanyId == companyId
                                      && d.BranchId == branchId
                                      && d.ItemId == itemId
-                                     && (d.InventoryDate.ToShortDateString().Contains(filter)
-                                     || d.MstArticle.MstUnit.Unit.Contains(filter)
-                                     || d.QuantityIn.ToString().Contains(filter)
-                                     || d.QuantityOut.ToString().Contains(filter)
-                                     || d.MstArticleInventory.Cost1.ToString().Contains(filter))
                                      select new Entities.RepInventoryReportStockCardEntity
                                      {
                                          Document = d.SIId != null ? "SI-" + d.TrnSalesInvoice.MstBranch.BranchCode + "-" + d.TrnSalesInvoice.SINumber :
@@ -269,7 +261,7 @@ namespace easyfmis.Controllers
                 }
             }
 
-            return stockCard.ToList();
+            return stockCard.Where(d => d.Document.Contains(filter) == true || d.Unit.Contains(filter) == true).ToList();
         }
 
         // ========================

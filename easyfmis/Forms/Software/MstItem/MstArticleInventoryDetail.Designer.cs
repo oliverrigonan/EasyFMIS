@@ -77,14 +77,14 @@
             // 
             // textBoxCost1
             // 
-            this.textBoxCost1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxCost1.Enabled = false;
+            this.textBoxCost1.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxCost1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxCost1.Location = new System.Drawing.Point(142, 174);
             this.textBoxCost1.Name = "textBoxCost1";
             this.textBoxCost1.ReadOnly = true;
             this.textBoxCost1.Size = new System.Drawing.Size(195, 30);
             this.textBoxCost1.TabIndex = 3;
+            this.textBoxCost1.TabStop = false;
             this.textBoxCost1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxCost1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCost1_KeyPress);
             this.textBoxCost1.Leave += new System.EventHandler(this.textBoxCost1_Leave);
@@ -101,12 +101,13 @@
             // 
             // textBoxQuantity
             // 
-            this.textBoxQuantity.Enabled = false;
             this.textBoxQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxQuantity.Location = new System.Drawing.Point(142, 140);
             this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.ReadOnly = true;
             this.textBoxQuantity.Size = new System.Drawing.Size(195, 30);
             this.textBoxQuantity.TabIndex = 2;
+            this.textBoxQuantity.TabStop = false;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQuantity_KeyPress);
             this.textBoxQuantity.Leave += new System.EventHandler(this.textBoxQuantity_Leave);
@@ -147,6 +148,7 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(88, 40);
             this.buttonSave.TabIndex = 20;
+            this.buttonSave.TabStop = false;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -185,6 +187,7 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(88, 40);
             this.buttonClose.TabIndex = 21;
+            this.buttonClose.TabStop = false;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -267,21 +270,24 @@
             // 
             // textBoxInventoryCode
             // 
-            this.textBoxInventoryCode.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxInventoryCode.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxInventoryCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxInventoryCode.Location = new System.Drawing.Point(142, 105);
+            this.textBoxInventoryCode.Location = new System.Drawing.Point(142, 104);
             this.textBoxInventoryCode.Name = "textBoxInventoryCode";
             this.textBoxInventoryCode.ReadOnly = true;
             this.textBoxInventoryCode.Size = new System.Drawing.Size(350, 30);
             this.textBoxInventoryCode.TabIndex = 1;
+            this.textBoxInventoryCode.TabStop = false;
             // 
             // textBoxBranchCode
             // 
             this.textBoxBranchCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxBranchCode.Location = new System.Drawing.Point(142, 69);
             this.textBoxBranchCode.Name = "textBoxBranchCode";
+            this.textBoxBranchCode.ReadOnly = true;
             this.textBoxBranchCode.Size = new System.Drawing.Size(350, 30);
             this.textBoxBranchCode.TabIndex = 0;
+            this.textBoxBranchCode.TabStop = false;
             // 
             // label6
             // 

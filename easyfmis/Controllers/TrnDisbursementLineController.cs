@@ -38,7 +38,7 @@ namespace easyfmis.Controllers
         // ==========================
         // Dropdown Receiving Reciept
         // ==========================
-        public List<Entities.TrnReceivingReceiptEntity> DropDownReceivingReceipt(Int32 supplierId)
+        public List<Entities.TrnReceivingReceiptEntity> ReceivingReceiptList(Int32 supplierId)
         {
             var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
             var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
@@ -51,8 +51,11 @@ namespace easyfmis.Controllers
                                    select new Entities.TrnReceivingReceiptEntity
                                    {
                                        Id = d.Id,
+                                       RRDate = d.RRDate,
                                        RRNumber = d.RRNumber,
-                                       Amount = d.Amount
+                                       ManualRRNumber = d.ManualRRNumber,
+                                       Remarks = d.Remarks,
+                                       BalanceAmount = d.BalanceAmount
                                    };
 
             return receivingReceipt.OrderByDescending(d => d.Id).ToList();

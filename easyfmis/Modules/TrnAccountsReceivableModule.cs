@@ -23,6 +23,8 @@ namespace easyfmis.Modules
             {
                 Decimal paidAmount = 0;
                 Decimal memoAmount = 0;
+                Decimal memoDebit = 0;
+                Decimal memoCredit = 0;
 
                 var collectionLines = from d in db.TrnCollectionLines where d.SIId == SIId && d.TrnCollection.IsLocked == true select d;
                 if (collectionLines.Any())
@@ -33,7 +35,9 @@ namespace easyfmis.Modules
                 var memoLines = from d in db.TrnMemoLines where d.SIId == SIId && d.TrnMemo.IsLocked == true select d;
                 if (memoLines.Any())
                 {
-                    memoAmount = memoLines.Sum(d => d.Amount);
+                    memoDebit = memoLines.Sum(d => d.DebitAmount);
+                    memoCredit = memoLines.Sum(d => d.CreditAmount);
+                    memoAmount = memoDebit - memoCredit;
                 }
 
                 Decimal salesInvoiceAmount = salesInvoice.FirstOrDefault().Amount;

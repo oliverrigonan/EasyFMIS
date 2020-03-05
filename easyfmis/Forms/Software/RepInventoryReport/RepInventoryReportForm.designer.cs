@@ -98,6 +98,8 @@
             // 
             // comboBoxItem
             // 
+            this.comboBoxItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxItem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxItem.FormattingEnabled = true;
             this.comboBoxItem.Location = new System.Drawing.Point(506, 196);
             this.comboBoxItem.Name = "comboBoxItem";
