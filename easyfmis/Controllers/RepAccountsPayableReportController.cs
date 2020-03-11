@@ -109,17 +109,10 @@ namespace easyfmis.Controllers
                                        && d.IsLocked == true
                                        && (d.MstBranch.Branch.Contains(filter)
                                        || d.RRNumber.Contains(filter)
-                                       || d.RRDate.ToShortDateString().Contains(filter)
                                        || d.ManualRRNumber.Contains(filter)
                                        || d.MstArticle.ArticleCode.Contains(filter)
                                        || d.MstArticle.Article.Contains(filter)
-                                       || d.RRDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays)).ToShortDateString().Contains(filter)
-                                       || d.BalanceAmount.ToString().Contains(filter)
-                                       || ComputeAge(0, Convert.ToDateTime(dateAsOf).Subtract(d.RRDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                       || ComputeAge(1, Convert.ToDateTime(dateAsOf).Subtract(d.RRDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                       || ComputeAge(2, Convert.ToDateTime(dateAsOf).Subtract(d.RRDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                       || ComputeAge(3, Convert.ToDateTime(dateAsOf).Subtract(d.RRDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter)
-                                       || ComputeAge(4, Convert.ToDateTime(dateAsOf).Subtract(d.RRDate.AddDays(Convert.ToInt32(d.MstTerm.NumberOfDays))).Days, d.BalanceAmount).ToString().Contains(filter))
+                                       || d.BalanceAmount.ToString().Contains(filter))
                                        select new Entities.RepAccountsPayableEntity
                                        {
                                            RRId = d.Id,
@@ -160,11 +153,9 @@ namespace easyfmis.Controllers
                                                 && d.TrnPurchaseOrder.BranchId == branchId
                                                 && (d.TrnPurchaseOrder.MstBranch.Branch.Contains(filter)
                                                 || d.TrnPurchaseOrder.PONumber.Contains(filter)
-                                                || d.TrnPurchaseOrder.PODate.ToShortDateString().Contains(filter)
                                                 || d.TrnPurchaseOrder.ManualPONumber.Contains(filter)
                                                 || d.TrnPurchaseOrder.MstArticle.Article.Contains(filter)
                                                 || d.TrnPurchaseOrder.MstTerm.Term.Contains(filter)
-                                                || d.TrnPurchaseOrder.DateNeeded.ToShortDateString().Contains(filter)
                                                 || d.TrnPurchaseOrder.Remarks.Contains(filter)
                                                 || d.TrnPurchaseOrder.MstUser.FullName.Contains(filter)
                                                 || d.TrnPurchaseOrder.MstUser1.FullName.Contains(filter)
@@ -226,7 +217,6 @@ namespace easyfmis.Controllers
                                              && d.TrnReceivingReceipt.BranchId == branchId
                                              && (d.MstBranch.Branch.Contains(filter)
                                              || d.TrnReceivingReceipt.RRNumber.Contains(filter)
-                                             || d.TrnReceivingReceipt.RRDate.ToShortTimeString().Contains(filter)
                                              || d.TrnReceivingReceipt.ManualRRNumber.Contains(filter)
                                              || d.TrnReceivingReceipt.MstArticle.Article.Contains(filter)
                                              || d.TrnReceivingReceipt.MstTerm.Term.Contains(filter)
@@ -298,7 +288,6 @@ namespace easyfmis.Controllers
                                                && d.TrnDisbursement.BranchId == branchId
                                                && (d.TrnDisbursement.MstBranch.Branch.Contains(filter)
                                                || d.TrnDisbursement.CVNumber.Contains(filter)
-                                               || d.TrnDisbursement.CVDate.ToShortDateString().Contains(filter)
                                                || d.TrnDisbursement.ManualCVNumber.Contains(filter)
                                                || d.TrnDisbursement.MstArticle.Article.Contains(filter)
                                                || d.TrnDisbursement.Payee.Contains(filter)
@@ -306,7 +295,6 @@ namespace easyfmis.Controllers
                                                || d.TrnDisbursement.MstArticle1.Article.Contains(filter)
                                                || d.TrnDisbursement.Remarks.Contains(filter)
                                                || d.TrnDisbursement.CheckNumber.Contains(filter)
-                                               || d.TrnDisbursement.CheckDate.Value.ToShortDateString().Contains(filter)
                                                || d.TrnDisbursement.IsCrossCheck.ToString().Contains(filter)
                                                || d.TrnDisbursement.IsClear.ToString().Contains(filter)
                                                || d.TrnDisbursement.MstUser.FullName.Contains(filter)
