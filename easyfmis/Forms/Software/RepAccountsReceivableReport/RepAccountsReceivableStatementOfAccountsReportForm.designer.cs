@@ -40,6 +40,7 @@
             this.buttonStatementOfAccountReportPageListLast = new System.Windows.Forms.Button();
             this.textBoxStatementOfAccountReportPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxItemListFilter = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxCustomer = new System.Windows.Forms.TextBox();
@@ -66,7 +67,7 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
-            this.textBoxItemListFilter = new System.Windows.Forms.TextBox();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -171,6 +172,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1382, 590);
             this.panel2.TabIndex = 17;
+            // 
+            // textBoxItemListFilter
+            // 
+            this.textBoxItemListFilter.Location = new System.Drawing.Point(15, 53);
+            this.textBoxItemListFilter.Name = "textBoxItemListFilter";
+            this.textBoxItemListFilter.Size = new System.Drawing.Size(1353, 30);
+            this.textBoxItemListFilter.TabIndex = 41;
+            this.textBoxItemListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItemListFilter_KeyDown);
             // 
             // panel3
             // 
@@ -391,7 +400,7 @@
             this.buttonGenerateCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGenerateCSV.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGenerateCSV.ForeColor = System.Drawing.Color.White;
-            this.buttonGenerateCSV.Location = new System.Drawing.Point(1187, 11);
+            this.buttonGenerateCSV.Location = new System.Drawing.Point(1093, 11);
             this.buttonGenerateCSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGenerateCSV.Name = "buttonGenerateCSV";
             this.buttonGenerateCSV.Size = new System.Drawing.Size(88, 40);
@@ -444,6 +453,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Controls.Add(this.buttonGenerateCSV);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
@@ -455,13 +465,24 @@
             this.panel1.Size = new System.Drawing.Size(1382, 63);
             this.panel1.TabIndex = 16;
             // 
-            // textBoxItemListFilter
+            // buttonPrint
             // 
-            this.textBoxItemListFilter.Location = new System.Drawing.Point(15, 53);
-            this.textBoxItemListFilter.Name = "textBoxItemListFilter";
-            this.textBoxItemListFilter.Size = new System.Drawing.Size(1353, 30);
-            this.textBoxItemListFilter.TabIndex = 41;
-            this.textBoxItemListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItemListFilter_KeyDown);
+            this.buttonPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonPrint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonPrint.FlatAppearance.BorderSize = 0;
+            this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.Color.White;
+            this.buttonPrint.Location = new System.Drawing.Point(1187, 11);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(88, 40);
+            this.buttonPrint.TabIndex = 22;
+            this.buttonPrint.TabStop = false;
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.UseVisualStyleBackColor = false;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // RepAccountsReceivableStatementOfAccountsReportForm
             // 
@@ -527,5 +548,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivableStatementOfAccountReportListMemoAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReceivableStatementOfAccountReportListBalanceAmount;
         private System.Windows.Forms.TextBox textBoxItemListFilter;
+        private System.Windows.Forms.Button buttonPrint;
     }
 }

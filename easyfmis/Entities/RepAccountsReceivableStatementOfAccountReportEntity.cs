@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace easyfmis.Entities
 {
-    class RepAccountsReceivableStatementOfAccountReportEntity
+    public class RepAccountsReceivableStatementOfAccountReportEntity
     {
         public Int32 Id { get; set; }
         public String Branch { get; set; }
