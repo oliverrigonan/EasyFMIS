@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace easyfmis.Forms.Software.MstItem
 
         public List<Entities.MstArticlePriceEntity> mstArticlePriceEntity;
         public List<Entities.MstArticleUnitEntity> mstArticleUnitEntities;
+
+        public String imageLocation = "";
 
         public MstItemDetailForm(SysSoftwareForm softwareForm, MstItemListForm itemListForm, Entities.MstArticleEntity itemEntity)
         {
@@ -81,7 +84,6 @@ namespace easyfmis.Forms.Software.MstItem
                 comboBoxUnit.DisplayMember = "Unit";
 
                 GetItemDetail();
-
             }
         }
 
@@ -105,6 +107,7 @@ namespace easyfmis.Forms.Software.MstItem
             checkBoxIsInventory.Checked = mstItemEntity.IsInventory;
             textBoxGenericName.Text = mstItemEntity.GenericArticleName;
             textBoxRemarks.Text = mstItemEntity.Remarks;
+            pictureBoxItemImage.ImageLocation = mstItemEntity.ImagePath;
 
             CreateArticleUnittDataGridView();
             CreateItemPriceListDataGridView();
@@ -191,10 +194,49 @@ namespace easyfmis.Forms.Software.MstItem
             checkBoxIsInventory.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;
             textBoxGenericName.Enabled = !isLocked;
+            buttonUploadImage.Enabled = !isLocked;
+            buttonRemoveImage.Enabled = !isLocked;
+        }
+
+
+        private void buttonUploadImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+                    pictureBoxItemImage.Image = new Bitmap(dialog.FileName);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An Error Occred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonRemoveImage_Click(object sender, EventArgs e)
+        {
+            pictureBoxItemImage.ImageLocation = "";
+            pictureBoxItemImage.Image = null;
+            imageLocation = "";
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
         {
+            String itemImagePath = "";
+
+            if (imageLocation != "")
+            {
+                String ImageFolderPath = Modules.SysCurrentModule.GetCurrentSettings().ItemImagePath;
+
+                itemImagePath = ImageFolderPath;
+                File.Copy(imageLocation, Path.Combine(@"" + itemImagePath + "\\", Path.GetFileName(imageLocation)), true);
+                itemImagePath = ImageFolderPath + "\\" + Path.GetFileName(imageLocation);
+            }
+
             if (mstArticlePriceEntity.Count > 0 && mstArticleUnitEntities.Count > 0)
             {
                 Controllers.MstArticleController mstItemController = new Controllers.MstArticleController();
@@ -207,13 +249,13 @@ namespace easyfmis.Forms.Software.MstItem
                 mstItemEntity.VATInTaxId = Convert.ToInt32(comboBoxVATInTax.SelectedValue);
                 mstItemEntity.VATOutTaxId = Convert.ToInt32(comboBoxVATOutTax.SelectedValue);
                 mstItemEntity.UnitId = Convert.ToInt32(comboBoxUnit.SelectedValue);
-                //mstItemEntity.DefaultSupplierId = Convert.ToInt32(comboBoxDefaultSupplier.SelectedValue);
                 mstItemEntity.DefaultCost = Convert.ToDecimal(textBoxCost.Text);
                 mstItemEntity.DefaultPrice = Convert.ToDecimal(textBoxPrice.Text);
                 mstItemEntity.ReorderQuantity = Convert.ToDecimal(textBoxReorderQuantity.Text);
                 mstItemEntity.IsInventory = checkBoxIsInventory.Checked;
                 mstItemEntity.GenericArticleName = textBoxGenericName.Text;
                 mstItemEntity.Remarks = textBoxRemarks.Text;
+                mstItemEntity.ImagePath = itemImagePath;
 
                 String[] lockItem = mstItemController.LockArticle(mstItemEntity);
                 if (lockItem[1].Equals("0") == false)
@@ -274,7 +316,7 @@ namespace easyfmis.Forms.Software.MstItem
             }
         }
 
-        
+
 
         private void textBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1308,17 +1350,17 @@ namespace easyfmis.Forms.Software.MstItem
             if (listCost.Any())
             {
                 var costs = from d in listCost
-                               select new Entities.DgvMstArticleCostEntity
-                               {
-                                   ColumnAticleCostButtonEdit = "Edit",
-                                   ColumnAticleCostButtonDelete = "Delete",
-                                   ColumnAticleCostId = d.Id,
-                                   ColumnAticleCostArticleId = d.ArticleId,
-                                   ColumnAticleCostCostDescription = d.CostDescription,
-                                   ColumnAticleCostCost = d.Cost.ToString("#,##0.00"),
-                                   ColumnAticleCostCurrencyId = d.CurrencyId,
-                                   ColumnAticleCostCurrency = d.Currency
-                               };
+                            select new Entities.DgvMstArticleCostEntity
+                            {
+                                ColumnAticleCostButtonEdit = "Edit",
+                                ColumnAticleCostButtonDelete = "Delete",
+                                ColumnAticleCostId = d.Id,
+                                ColumnAticleCostArticleId = d.ArticleId,
+                                ColumnAticleCostCostDescription = d.CostDescription,
+                                ColumnAticleCostCost = d.Cost.ToString("#,##0.00"),
+                                ColumnAticleCostCurrencyId = d.CurrencyId,
+                                ColumnAticleCostCurrency = d.Currency
+                            };
 
                 return Task.FromResult(costs.ToList());
             }
@@ -1415,5 +1457,7 @@ namespace easyfmis.Forms.Software.MstItem
             MstItemDetailItemCostForm mstItemDetailItemCostForm = new MstItemDetailItemCostForm(this, null, mstItemEntity.Id);
             mstItemDetailItemCostForm.ShowDialog();
         }
+
+
     }
 }

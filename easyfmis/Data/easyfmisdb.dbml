@@ -103,6 +103,7 @@
       <Column Name="UpdatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UpdatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="ShippingInstruction" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ImagePath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="MstArticle_TrnStockTransferItem" Member="TrnStockTransferItems" ThisKey="Id" OtherKey="ItemId" Type="TrnStockTransferItem" />
       <Association Name="MstArticle_MstArticleComponent" Member="MstArticleComponents" ThisKey="Id" OtherKey="ArticleId" Type="MstArticleComponent" />
       <Association Name="MstArticle_MstArticleComponent1" Member="MstArticleComponents1" ThisKey="Id" OtherKey="ComponentArticleId" Type="MstArticleComponent" />
@@ -673,6 +674,20 @@
       <Association Name="MstUser_TrnMemo4" Member="MstUser4" ThisKey="UpdatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TrnMemoLine" Member="TrnMemoLines">
+    <Type Name="TrnMemoLine">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MOId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SIId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RRId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Particulars" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DebitAmount" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="CreditAmount" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Association Name="TrnMemo_TrnMemoLine" Member="TrnMemo" ThisKey="MOId" OtherKey="Id" Type="TrnMemo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="TrnReceivingReceipt_TrnMemoLine" Member="TrnReceivingReceipt" ThisKey="RRId" OtherKey="Id" Type="TrnReceivingReceipt" IsForeignKey="true" />
+      <Association Name="TrnSalesInvoice_TrnMemoLine" Member="TrnSalesInvoice" ThisKey="SIId" OtherKey="Id" Type="TrnSalesInvoice" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TrnPurchaseOrder" Member="TrnPurchaseOrders">
     <Type Name="TrnPurchaseOrder">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -748,8 +763,8 @@
       <Column Name="UpdatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="TrnReceivingReceipt_TrnDisbursementLine" Member="TrnDisbursementLines" ThisKey="Id" OtherKey="RRId" Type="TrnDisbursementLine" />
       <Association Name="TrnReceivingReceipt_TrnInventory" Member="TrnInventories" ThisKey="Id" OtherKey="RRId" Type="TrnInventory" />
-      <Association Name="TrnReceivingReceipt_TrnReceivingReceiptItem" Member="TrnReceivingReceiptItems" ThisKey="Id" OtherKey="RRId" Type="TrnReceivingReceiptItem" />
       <Association Name="TrnReceivingReceipt_TrnMemoLine" Member="TrnMemoLines" ThisKey="Id" OtherKey="RRId" Type="TrnMemoLine" />
+      <Association Name="TrnReceivingReceipt_TrnReceivingReceiptItem" Member="TrnReceivingReceiptItems" ThisKey="Id" OtherKey="RRId" Type="TrnReceivingReceiptItem" />
       <Association Name="MstArticle_TrnReceivingReceipt" Member="MstArticle" ThisKey="SupplierId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" />
       <Association Name="MstBranch_TrnReceivingReceipt" Member="MstBranch" ThisKey="BranchId" OtherKey="Id" Type="MstBranch" IsForeignKey="true" />
       <Association Name="MstTerm_TrnReceivingReceipt" Member="MstTerm" ThisKey="TermId" OtherKey="Id" Type="MstTerm" IsForeignKey="true" />
@@ -811,8 +826,8 @@
       <Association Name="TrnSalesInvoice_TrnCollectionLine" Member="TrnCollectionLines" ThisKey="Id" OtherKey="SIId" Type="TrnCollectionLine" />
       <Association Name="TrnSalesInvoice_TrnInventory" Member="TrnInventories" ThisKey="Id" OtherKey="SIId" Type="TrnInventory" />
       <Association Name="TrnSalesInvoice_TrnJournal" Member="TrnJournals" ThisKey="Id" OtherKey="SIId" Type="TrnJournal" />
-      <Association Name="TrnSalesInvoice_TrnSalesInvoiceItem" Member="TrnSalesInvoiceItems" ThisKey="Id" OtherKey="SIId" Type="TrnSalesInvoiceItem" />
       <Association Name="TrnSalesInvoice_TrnMemoLine" Member="TrnMemoLines" ThisKey="Id" OtherKey="SIId" Type="TrnMemoLine" />
+      <Association Name="TrnSalesInvoice_TrnSalesInvoiceItem" Member="TrnSalesInvoiceItems" ThisKey="Id" OtherKey="SIId" Type="TrnSalesInvoiceItem" />
       <Association Name="MstArticle_TrnSalesInvoice" Member="MstArticle" ThisKey="CustomerId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" />
       <Association Name="MstBranch_TrnSalesInvoice" Member="MstBranch" ThisKey="BranchId" OtherKey="Id" Type="MstBranch" IsForeignKey="true" />
       <Association Name="MstTerm_TrnSalesInvoice" Member="MstTerm" ThisKey="TermId" OtherKey="Id" Type="MstTerm" IsForeignKey="true" />
@@ -1020,20 +1035,6 @@
       <Association Name="MstUser_TrnStockTransfer3" Member="MstUser3" ThisKey="CreatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
       <Association Name="MstUser_TrnStockTransfer4" Member="MstUser4" ThisKey="UpdatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
       <Association Name="MstBranch_TrnStockTransfer1" Member="MstBranch1" ThisKey="ToBranchId" OtherKey="Id" Type="MstBranch" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TrnMemoLine" Member="TrnMemoLines">
-    <Type Name="TrnMemoLine">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MOId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SIId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RRId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Particulars" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="DebitAmount" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
-      <Column Name="CreditAmount" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
-      <Association Name="TrnMemo_TrnMemoLine" Member="TrnMemo" ThisKey="MOId" OtherKey="Id" Type="TrnMemo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="TrnReceivingReceipt_TrnMemoLine" Member="TrnReceivingReceipt" ThisKey="RRId" OtherKey="Id" Type="TrnReceivingReceipt" IsForeignKey="true" />
-      <Association Name="TrnSalesInvoice_TrnMemoLine" Member="TrnSalesInvoice" ThisKey="SIId" OtherKey="Id" Type="TrnSalesInvoice" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

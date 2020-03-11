@@ -14,5 +14,6 @@ namespace easyfmis.Entities
         public String SoftwareVersion { get; set; }
         public String SoftwareDeveloper { get; set; }
         public String SoftwareContactSupportNumber { get; set; }
+        public String ItemImagePath { get; set; }
     }
 }

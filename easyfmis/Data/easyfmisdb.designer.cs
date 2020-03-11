@@ -123,6 +123,9 @@ namespace easyfmis.Data
     partial void InsertTrnMemo(TrnMemo instance);
     partial void UpdateTrnMemo(TrnMemo instance);
     partial void DeleteTrnMemo(TrnMemo instance);
+    partial void InsertTrnMemoLine(TrnMemoLine instance);
+    partial void UpdateTrnMemoLine(TrnMemoLine instance);
+    partial void DeleteTrnMemoLine(TrnMemoLine instance);
     partial void InsertTrnPurchaseOrder(TrnPurchaseOrder instance);
     partial void UpdateTrnPurchaseOrder(TrnPurchaseOrder instance);
     partial void DeleteTrnPurchaseOrder(TrnPurchaseOrder instance);
@@ -162,9 +165,6 @@ namespace easyfmis.Data
     partial void InsertTrnStockTransfer(TrnStockTransfer instance);
     partial void UpdateTrnStockTransfer(TrnStockTransfer instance);
     partial void DeleteTrnStockTransfer(TrnStockTransfer instance);
-    partial void InsertTrnMemoLine(TrnMemoLine instance);
-    partial void UpdateTrnMemoLine(TrnMemoLine instance);
-    partial void DeleteTrnMemoLine(TrnMemoLine instance);
     #endregion
 		
 		public easyfmisdbDataContext() : 
@@ -445,6 +445,14 @@ namespace easyfmis.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<TrnMemoLine> TrnMemoLines
+		{
+			get
+			{
+				return this.GetTable<TrnMemoLine>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TrnPurchaseOrder> TrnPurchaseOrders
 		{
 			get
@@ -546,14 +554,6 @@ namespace easyfmis.Data
 			get
 			{
 				return this.GetTable<TrnStockTransfer>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TrnMemoLine> TrnMemoLines
-		{
-			get
-			{
-				return this.GetTable<TrnMemoLine>();
 			}
 		}
 	}
@@ -2302,6 +2302,8 @@ namespace easyfmis.Data
 		
 		private string _ShippingInstruction;
 		
+		private string _ImagePath;
+		
 		private EntitySet<TrnStockTransferItem> _TrnStockTransferItems;
 		
 		private EntitySet<MstArticleComponent> _MstArticleComponents;
@@ -2428,6 +2430,8 @@ namespace easyfmis.Data
     partial void OnUpdatedDateTimeChanged();
     partial void OnShippingInstructionChanging(string value);
     partial void OnShippingInstructionChanged();
+    partial void OnImagePathChanging(string value);
+    partial void OnImagePathChanged();
     #endregion
 		
 		public MstArticle()
@@ -3113,6 +3117,26 @@ namespace easyfmis.Data
 					this._ShippingInstruction = value;
 					this.SendPropertyChanged("ShippingInstruction");
 					this.OnShippingInstructionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImagePath", DbType="NVarChar(MAX)")]
+		public string ImagePath
+		{
+			get
+			{
+				return this._ImagePath;
+			}
+			set
+			{
+				if ((this._ImagePath != value))
+				{
+					this.OnImagePathChanging(value);
+					this.SendPropertyChanging();
+					this._ImagePath = value;
+					this.SendPropertyChanged("ImagePath");
+					this.OnImagePathChanged();
 				}
 			}
 		}
@@ -17213,6 +17237,335 @@ namespace easyfmis.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnMemoLine")]
+	public partial class TrnMemoLine : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _MOId;
+		
+		private System.Nullable<int> _SIId;
+		
+		private System.Nullable<int> _RRId;
+		
+		private string _Particulars;
+		
+		private decimal _DebitAmount;
+		
+		private decimal _CreditAmount;
+		
+		private EntityRef<TrnMemo> _TrnMemo;
+		
+		private EntityRef<TrnReceivingReceipt> _TrnReceivingReceipt;
+		
+		private EntityRef<TrnSalesInvoice> _TrnSalesInvoice;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnMOIdChanging(int value);
+    partial void OnMOIdChanged();
+    partial void OnSIIdChanging(System.Nullable<int> value);
+    partial void OnSIIdChanged();
+    partial void OnRRIdChanging(System.Nullable<int> value);
+    partial void OnRRIdChanged();
+    partial void OnParticularsChanging(string value);
+    partial void OnParticularsChanged();
+    partial void OnDebitAmountChanging(decimal value);
+    partial void OnDebitAmountChanged();
+    partial void OnCreditAmountChanging(decimal value);
+    partial void OnCreditAmountChanged();
+    #endregion
+		
+		public TrnMemoLine()
+		{
+			this._TrnMemo = default(EntityRef<TrnMemo>);
+			this._TrnReceivingReceipt = default(EntityRef<TrnReceivingReceipt>);
+			this._TrnSalesInvoice = default(EntityRef<TrnSalesInvoice>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOId", DbType="Int NOT NULL")]
+		public int MOId
+		{
+			get
+			{
+				return this._MOId;
+			}
+			set
+			{
+				if ((this._MOId != value))
+				{
+					if (this._TrnMemo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMOIdChanging(value);
+					this.SendPropertyChanging();
+					this._MOId = value;
+					this.SendPropertyChanged("MOId");
+					this.OnMOIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIId", DbType="Int")]
+		public System.Nullable<int> SIId
+		{
+			get
+			{
+				return this._SIId;
+			}
+			set
+			{
+				if ((this._SIId != value))
+				{
+					if (this._TrnSalesInvoice.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSIIdChanging(value);
+					this.SendPropertyChanging();
+					this._SIId = value;
+					this.SendPropertyChanged("SIId");
+					this.OnSIIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RRId", DbType="Int")]
+		public System.Nullable<int> RRId
+		{
+			get
+			{
+				return this._RRId;
+			}
+			set
+			{
+				if ((this._RRId != value))
+				{
+					if (this._TrnReceivingReceipt.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRRIdChanging(value);
+					this.SendPropertyChanging();
+					this._RRId = value;
+					this.SendPropertyChanged("RRId");
+					this.OnRRIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Particulars", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Particulars
+		{
+			get
+			{
+				return this._Particulars;
+			}
+			set
+			{
+				if ((this._Particulars != value))
+				{
+					this.OnParticularsChanging(value);
+					this.SendPropertyChanging();
+					this._Particulars = value;
+					this.SendPropertyChanged("Particulars");
+					this.OnParticularsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DebitAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal DebitAmount
+		{
+			get
+			{
+				return this._DebitAmount;
+			}
+			set
+			{
+				if ((this._DebitAmount != value))
+				{
+					this.OnDebitAmountChanging(value);
+					this.SendPropertyChanging();
+					this._DebitAmount = value;
+					this.SendPropertyChanged("DebitAmount");
+					this.OnDebitAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreditAmount", DbType="Decimal(18,5) NOT NULL")]
+		public decimal CreditAmount
+		{
+			get
+			{
+				return this._CreditAmount;
+			}
+			set
+			{
+				if ((this._CreditAmount != value))
+				{
+					this.OnCreditAmountChanging(value);
+					this.SendPropertyChanging();
+					this._CreditAmount = value;
+					this.SendPropertyChanged("CreditAmount");
+					this.OnCreditAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnMemo_TrnMemoLine", Storage="_TrnMemo", ThisKey="MOId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public TrnMemo TrnMemo
+		{
+			get
+			{
+				return this._TrnMemo.Entity;
+			}
+			set
+			{
+				TrnMemo previousValue = this._TrnMemo.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnMemo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnMemo.Entity = null;
+						previousValue.TrnMemoLines.Remove(this);
+					}
+					this._TrnMemo.Entity = value;
+					if ((value != null))
+					{
+						value.TrnMemoLines.Add(this);
+						this._MOId = value.Id;
+					}
+					else
+					{
+						this._MOId = default(int);
+					}
+					this.SendPropertyChanged("TrnMemo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnMemoLine", Storage="_TrnReceivingReceipt", ThisKey="RRId", OtherKey="Id", IsForeignKey=true)]
+		public TrnReceivingReceipt TrnReceivingReceipt
+		{
+			get
+			{
+				return this._TrnReceivingReceipt.Entity;
+			}
+			set
+			{
+				TrnReceivingReceipt previousValue = this._TrnReceivingReceipt.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnReceivingReceipt.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnReceivingReceipt.Entity = null;
+						previousValue.TrnMemoLines.Remove(this);
+					}
+					this._TrnReceivingReceipt.Entity = value;
+					if ((value != null))
+					{
+						value.TrnMemoLines.Add(this);
+						this._RRId = value.Id;
+					}
+					else
+					{
+						this._RRId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TrnReceivingReceipt");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesInvoice_TrnMemoLine", Storage="_TrnSalesInvoice", ThisKey="SIId", OtherKey="Id", IsForeignKey=true)]
+		public TrnSalesInvoice TrnSalesInvoice
+		{
+			get
+			{
+				return this._TrnSalesInvoice.Entity;
+			}
+			set
+			{
+				TrnSalesInvoice previousValue = this._TrnSalesInvoice.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnSalesInvoice.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnSalesInvoice.Entity = null;
+						previousValue.TrnMemoLines.Remove(this);
+					}
+					this._TrnSalesInvoice.Entity = value;
+					if ((value != null))
+					{
+						value.TrnMemoLines.Add(this);
+						this._SIId = value.Id;
+					}
+					else
+					{
+						this._SIId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TrnSalesInvoice");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnPurchaseOrder")]
 	public partial class TrnPurchaseOrder : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -18561,9 +18914,9 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnInventory> _TrnInventories;
 		
-		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
-		
 		private EntitySet<TrnMemoLine> _TrnMemoLines;
+		
+		private EntitySet<TrnReceivingReceiptItem> _TrnReceivingReceiptItems;
 		
 		private EntityRef<MstArticle> _MstArticle;
 		
@@ -18635,8 +18988,8 @@ namespace easyfmis.Data
 		{
 			this._TrnDisbursementLines = new EntitySet<TrnDisbursementLine>(new Action<TrnDisbursementLine>(this.attach_TrnDisbursementLines), new Action<TrnDisbursementLine>(this.detach_TrnDisbursementLines));
 			this._TrnInventories = new EntitySet<TrnInventory>(new Action<TrnInventory>(this.attach_TrnInventories), new Action<TrnInventory>(this.detach_TrnInventories));
-			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
 			this._TrnMemoLines = new EntitySet<TrnMemoLine>(new Action<TrnMemoLine>(this.attach_TrnMemoLines), new Action<TrnMemoLine>(this.detach_TrnMemoLines));
+			this._TrnReceivingReceiptItems = new EntitySet<TrnReceivingReceiptItem>(new Action<TrnReceivingReceiptItem>(this.attach_TrnReceivingReceiptItems), new Action<TrnReceivingReceiptItem>(this.detach_TrnReceivingReceiptItems));
 			this._MstArticle = default(EntityRef<MstArticle>);
 			this._MstBranch = default(EntityRef<MstBranch>);
 			this._MstTerm = default(EntityRef<MstTerm>);
@@ -19131,19 +19484,6 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="RRId")]
-		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
-		{
-			get
-			{
-				return this._TrnReceivingReceiptItems;
-			}
-			set
-			{
-				this._TrnReceivingReceiptItems.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnMemoLine", Storage="_TrnMemoLines", ThisKey="Id", OtherKey="RRId")]
 		public EntitySet<TrnMemoLine> TrnMemoLines
 		{
@@ -19154,6 +19494,19 @@ namespace easyfmis.Data
 			set
 			{
 				this._TrnMemoLines.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnReceivingReceiptItem", Storage="_TrnReceivingReceiptItems", ThisKey="Id", OtherKey="RRId")]
+		public EntitySet<TrnReceivingReceiptItem> TrnReceivingReceiptItems
+		{
+			get
+			{
+				return this._TrnReceivingReceiptItems;
+			}
+			set
+			{
+				this._TrnReceivingReceiptItems.Assign(value);
 			}
 		}
 		
@@ -19507,18 +19860,6 @@ namespace easyfmis.Data
 			entity.TrnReceivingReceipt = null;
 		}
 		
-		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
-		{
-			this.SendPropertyChanging();
-			entity.TrnReceivingReceipt = this;
-		}
-		
-		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
-		{
-			this.SendPropertyChanging();
-			entity.TrnReceivingReceipt = null;
-		}
-		
 		private void attach_TrnMemoLines(TrnMemoLine entity)
 		{
 			this.SendPropertyChanging();
@@ -19526,6 +19867,18 @@ namespace easyfmis.Data
 		}
 		
 		private void detach_TrnMemoLines(TrnMemoLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = null;
+		}
+		
+		private void attach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnReceivingReceipt = this;
+		}
+		
+		private void detach_TrnReceivingReceiptItems(TrnReceivingReceiptItem entity)
 		{
 			this.SendPropertyChanging();
 			entity.TrnReceivingReceipt = null;
@@ -20206,9 +20559,9 @@ namespace easyfmis.Data
 		
 		private EntitySet<TrnJournal> _TrnJournals;
 		
-		private EntitySet<TrnSalesInvoiceItem> _TrnSalesInvoiceItems;
-		
 		private EntitySet<TrnMemoLine> _TrnMemoLines;
+		
+		private EntitySet<TrnSalesInvoiceItem> _TrnSalesInvoiceItems;
 		
 		private EntityRef<MstArticle> _MstArticle;
 		
@@ -20281,8 +20634,8 @@ namespace easyfmis.Data
 			this._TrnCollectionLines = new EntitySet<TrnCollectionLine>(new Action<TrnCollectionLine>(this.attach_TrnCollectionLines), new Action<TrnCollectionLine>(this.detach_TrnCollectionLines));
 			this._TrnInventories = new EntitySet<TrnInventory>(new Action<TrnInventory>(this.attach_TrnInventories), new Action<TrnInventory>(this.detach_TrnInventories));
 			this._TrnJournals = new EntitySet<TrnJournal>(new Action<TrnJournal>(this.attach_TrnJournals), new Action<TrnJournal>(this.detach_TrnJournals));
-			this._TrnSalesInvoiceItems = new EntitySet<TrnSalesInvoiceItem>(new Action<TrnSalesInvoiceItem>(this.attach_TrnSalesInvoiceItems), new Action<TrnSalesInvoiceItem>(this.detach_TrnSalesInvoiceItems));
 			this._TrnMemoLines = new EntitySet<TrnMemoLine>(new Action<TrnMemoLine>(this.attach_TrnMemoLines), new Action<TrnMemoLine>(this.detach_TrnMemoLines));
+			this._TrnSalesInvoiceItems = new EntitySet<TrnSalesInvoiceItem>(new Action<TrnSalesInvoiceItem>(this.attach_TrnSalesInvoiceItems), new Action<TrnSalesInvoiceItem>(this.detach_TrnSalesInvoiceItems));
 			this._MstArticle = default(EntityRef<MstArticle>);
 			this._MstBranch = default(EntityRef<MstBranch>);
 			this._MstTerm = default(EntityRef<MstTerm>);
@@ -20790,19 +21143,6 @@ namespace easyfmis.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesInvoice_TrnSalesInvoiceItem", Storage="_TrnSalesInvoiceItems", ThisKey="Id", OtherKey="SIId")]
-		public EntitySet<TrnSalesInvoiceItem> TrnSalesInvoiceItems
-		{
-			get
-			{
-				return this._TrnSalesInvoiceItems;
-			}
-			set
-			{
-				this._TrnSalesInvoiceItems.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesInvoice_TrnMemoLine", Storage="_TrnMemoLines", ThisKey="Id", OtherKey="SIId")]
 		public EntitySet<TrnMemoLine> TrnMemoLines
 		{
@@ -20813,6 +21153,19 @@ namespace easyfmis.Data
 			set
 			{
 				this._TrnMemoLines.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesInvoice_TrnSalesInvoiceItem", Storage="_TrnSalesInvoiceItems", ThisKey="Id", OtherKey="SIId")]
+		public EntitySet<TrnSalesInvoiceItem> TrnSalesInvoiceItems
+		{
+			get
+			{
+				return this._TrnSalesInvoiceItems;
+			}
+			set
+			{
+				this._TrnSalesInvoiceItems.Assign(value);
 			}
 		}
 		
@@ -21178,18 +21531,6 @@ namespace easyfmis.Data
 			entity.TrnSalesInvoice = null;
 		}
 		
-		private void attach_TrnSalesInvoiceItems(TrnSalesInvoiceItem entity)
-		{
-			this.SendPropertyChanging();
-			entity.TrnSalesInvoice = this;
-		}
-		
-		private void detach_TrnSalesInvoiceItems(TrnSalesInvoiceItem entity)
-		{
-			this.SendPropertyChanging();
-			entity.TrnSalesInvoice = null;
-		}
-		
 		private void attach_TrnMemoLines(TrnMemoLine entity)
 		{
 			this.SendPropertyChanging();
@@ -21197,6 +21538,18 @@ namespace easyfmis.Data
 		}
 		
 		private void detach_TrnMemoLines(TrnMemoLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnSalesInvoice = null;
+		}
+		
+		private void attach_TrnSalesInvoiceItems(TrnSalesInvoiceItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnSalesInvoice = this;
+		}
+		
+		private void detach_TrnSalesInvoiceItems(TrnSalesInvoiceItem entity)
 		{
 			this.SendPropertyChanging();
 			entity.TrnSalesInvoice = null;
@@ -26323,335 +26676,6 @@ namespace easyfmis.Data
 		{
 			this.SendPropertyChanging();
 			entity.TrnStockTransfer = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrnMemoLine")]
-	public partial class TrnMemoLine : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private int _MOId;
-		
-		private System.Nullable<int> _SIId;
-		
-		private System.Nullable<int> _RRId;
-		
-		private string _Particulars;
-		
-		private decimal _DebitAmount;
-		
-		private decimal _CreditAmount;
-		
-		private EntityRef<TrnMemo> _TrnMemo;
-		
-		private EntityRef<TrnReceivingReceipt> _TrnReceivingReceipt;
-		
-		private EntityRef<TrnSalesInvoice> _TrnSalesInvoice;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnMOIdChanging(int value);
-    partial void OnMOIdChanged();
-    partial void OnSIIdChanging(System.Nullable<int> value);
-    partial void OnSIIdChanged();
-    partial void OnRRIdChanging(System.Nullable<int> value);
-    partial void OnRRIdChanged();
-    partial void OnParticularsChanging(string value);
-    partial void OnParticularsChanged();
-    partial void OnDebitAmountChanging(decimal value);
-    partial void OnDebitAmountChanged();
-    partial void OnCreditAmountChanging(decimal value);
-    partial void OnCreditAmountChanged();
-    #endregion
-		
-		public TrnMemoLine()
-		{
-			this._TrnMemo = default(EntityRef<TrnMemo>);
-			this._TrnReceivingReceipt = default(EntityRef<TrnReceivingReceipt>);
-			this._TrnSalesInvoice = default(EntityRef<TrnSalesInvoice>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOId", DbType="Int NOT NULL")]
-		public int MOId
-		{
-			get
-			{
-				return this._MOId;
-			}
-			set
-			{
-				if ((this._MOId != value))
-				{
-					if (this._TrnMemo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMOIdChanging(value);
-					this.SendPropertyChanging();
-					this._MOId = value;
-					this.SendPropertyChanged("MOId");
-					this.OnMOIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIId", DbType="Int")]
-		public System.Nullable<int> SIId
-		{
-			get
-			{
-				return this._SIId;
-			}
-			set
-			{
-				if ((this._SIId != value))
-				{
-					if (this._TrnSalesInvoice.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSIIdChanging(value);
-					this.SendPropertyChanging();
-					this._SIId = value;
-					this.SendPropertyChanged("SIId");
-					this.OnSIIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RRId", DbType="Int")]
-		public System.Nullable<int> RRId
-		{
-			get
-			{
-				return this._RRId;
-			}
-			set
-			{
-				if ((this._RRId != value))
-				{
-					if (this._TrnReceivingReceipt.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRRIdChanging(value);
-					this.SendPropertyChanging();
-					this._RRId = value;
-					this.SendPropertyChanged("RRId");
-					this.OnRRIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Particulars", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Particulars
-		{
-			get
-			{
-				return this._Particulars;
-			}
-			set
-			{
-				if ((this._Particulars != value))
-				{
-					this.OnParticularsChanging(value);
-					this.SendPropertyChanging();
-					this._Particulars = value;
-					this.SendPropertyChanged("Particulars");
-					this.OnParticularsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DebitAmount", DbType="Decimal(18,5) NOT NULL")]
-		public decimal DebitAmount
-		{
-			get
-			{
-				return this._DebitAmount;
-			}
-			set
-			{
-				if ((this._DebitAmount != value))
-				{
-					this.OnDebitAmountChanging(value);
-					this.SendPropertyChanging();
-					this._DebitAmount = value;
-					this.SendPropertyChanged("DebitAmount");
-					this.OnDebitAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreditAmount", DbType="Decimal(18,5) NOT NULL")]
-		public decimal CreditAmount
-		{
-			get
-			{
-				return this._CreditAmount;
-			}
-			set
-			{
-				if ((this._CreditAmount != value))
-				{
-					this.OnCreditAmountChanging(value);
-					this.SendPropertyChanging();
-					this._CreditAmount = value;
-					this.SendPropertyChanged("CreditAmount");
-					this.OnCreditAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnMemo_TrnMemoLine", Storage="_TrnMemo", ThisKey="MOId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public TrnMemo TrnMemo
-		{
-			get
-			{
-				return this._TrnMemo.Entity;
-			}
-			set
-			{
-				TrnMemo previousValue = this._TrnMemo.Entity;
-				if (((previousValue != value) 
-							|| (this._TrnMemo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TrnMemo.Entity = null;
-						previousValue.TrnMemoLines.Remove(this);
-					}
-					this._TrnMemo.Entity = value;
-					if ((value != null))
-					{
-						value.TrnMemoLines.Add(this);
-						this._MOId = value.Id;
-					}
-					else
-					{
-						this._MOId = default(int);
-					}
-					this.SendPropertyChanged("TrnMemo");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnReceivingReceipt_TrnMemoLine", Storage="_TrnReceivingReceipt", ThisKey="RRId", OtherKey="Id", IsForeignKey=true)]
-		public TrnReceivingReceipt TrnReceivingReceipt
-		{
-			get
-			{
-				return this._TrnReceivingReceipt.Entity;
-			}
-			set
-			{
-				TrnReceivingReceipt previousValue = this._TrnReceivingReceipt.Entity;
-				if (((previousValue != value) 
-							|| (this._TrnReceivingReceipt.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TrnReceivingReceipt.Entity = null;
-						previousValue.TrnMemoLines.Remove(this);
-					}
-					this._TrnReceivingReceipt.Entity = value;
-					if ((value != null))
-					{
-						value.TrnMemoLines.Add(this);
-						this._RRId = value.Id;
-					}
-					else
-					{
-						this._RRId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TrnReceivingReceipt");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesInvoice_TrnMemoLine", Storage="_TrnSalesInvoice", ThisKey="SIId", OtherKey="Id", IsForeignKey=true)]
-		public TrnSalesInvoice TrnSalesInvoice
-		{
-			get
-			{
-				return this._TrnSalesInvoice.Entity;
-			}
-			set
-			{
-				TrnSalesInvoice previousValue = this._TrnSalesInvoice.Entity;
-				if (((previousValue != value) 
-							|| (this._TrnSalesInvoice.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TrnSalesInvoice.Entity = null;
-						previousValue.TrnMemoLines.Remove(this);
-					}
-					this._TrnSalesInvoice.Entity = value;
-					if ((value != null))
-					{
-						value.TrnMemoLines.Add(this);
-						this._SIId = value.Id;
-					}
-					else
-					{
-						this._SIId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TrnSalesInvoice");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

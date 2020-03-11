@@ -39,6 +39,7 @@ namespace easyfmis.Entities
         public String TIN { get; set; }
         public String Remarks { get; set; }
         public String ShippingInstruction { get; set; }
+        public String ImagePath { get; set; }
         public Boolean IsLocked { get; set; }
         public Int32 CreatedBy { get; set; }
         public String CreatedByUserName { get; set; }
