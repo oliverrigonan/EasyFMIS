@@ -273,5 +273,10 @@ namespace easyfmis.Forms.Software.SysMenu
                 sysSoftwareForm.AddTabPageMemoList();
             }
         }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
