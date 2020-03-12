@@ -276,7 +276,6 @@ namespace easyfmis.Controllers
                                  && d.TrnStockIn.BranchId == branchId
                                  && (d.TrnStockIn.MstBranch.Branch.Contains(filter)
                                  || d.TrnStockIn.INNumber.Contains(filter)
-                                 || d.TrnStockIn.INDate.ToShortDateString().Contains(filter)
                                  || d.TrnStockIn.Remarks.Contains(filter)
                                  || d.TrnStockIn.MstUser.FullName.Contains(filter)
                                  || d.TrnStockIn.MstUser1.FullName.Contains(filter)
@@ -324,7 +323,6 @@ namespace easyfmis.Controllers
                                   && d.TrnStockOut.BranchId == branchId
                                   && (d.TrnStockOut.MstBranch.Branch.Contains(filter)
                                   || d.TrnStockOut.OTNumber.Contains(filter)
-                                  || d.TrnStockOut.OTDate.ToShortDateString().Contains(filter)
                                   || d.TrnStockOut.Remarks.ToString().Contains(filter)
                                   || d.TrnStockOut.MstUser.FullName.Contains(filter)
                                   || d.TrnStockOut.MstUser1.FullName.Contains(filter)
@@ -374,7 +372,6 @@ namespace easyfmis.Controllers
                                        && d.TrnStockTransfer.BranchId == branchId
                                        && (d.TrnStockTransfer.MstBranch.Branch.Contains(filter)
                                        || d.TrnStockTransfer.STNumber.Contains(filter)
-                                       || d.TrnStockTransfer.STDate.ToShortDateString().Contains(filter)
                                        || d.TrnStockTransfer.MstBranch1.Branch.Contains(filter)
                                        || d.TrnStockTransfer.Remarks.Contains(filter)
                                        || d.TrnStockTransfer.MstUser.FullName.Contains(filter)
