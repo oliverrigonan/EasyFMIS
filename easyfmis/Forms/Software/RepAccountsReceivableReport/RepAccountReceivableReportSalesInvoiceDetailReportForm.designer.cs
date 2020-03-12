@@ -46,6 +46,7 @@
             this.buttonSalesInvoiceDetailReportPageListLast = new System.Windows.Forms.Button();
             this.buttonSalesInvoiceDetailReportPageNumber = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxItemListFilter = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxCompany = new System.Windows.Forms.TextBox();
@@ -78,7 +79,10 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
-            this.textBoxItemListFilter = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxSoldBy = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxCustomer = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -184,9 +188,21 @@
             this.panel2.Size = new System.Drawing.Size(1382, 590);
             this.panel2.TabIndex = 17;
             // 
+            // textBoxItemListFilter
+            // 
+            this.textBoxItemListFilter.Location = new System.Drawing.Point(17, 53);
+            this.textBoxItemListFilter.Name = "textBoxItemListFilter";
+            this.textBoxItemListFilter.Size = new System.Drawing.Size(1353, 30);
+            this.textBoxItemListFilter.TabIndex = 38;
+            this.textBoxItemListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItemListFilter_KeyDown);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.textBoxSoldBy);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.textBoxCustomer);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.textBoxCompany);
             this.panel3.Controls.Add(this.textBoxStartDate);
@@ -205,7 +221,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(502, 11);
+            this.label4.Location = new System.Drawing.Point(440, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 23);
             this.label4.TabIndex = 34;
@@ -214,10 +230,10 @@
             // textBoxCompany
             // 
             this.textBoxCompany.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCompany.Location = new System.Drawing.Point(595, 8);
+            this.textBoxCompany.Location = new System.Drawing.Point(533, 8);
             this.textBoxCompany.Name = "textBoxCompany";
             this.textBoxCompany.ReadOnly = true;
-            this.textBoxCompany.Size = new System.Drawing.Size(149, 30);
+            this.textBoxCompany.Size = new System.Drawing.Size(180, 30);
             this.textBoxCompany.TabIndex = 33;
             // 
             // textBoxStartDate
@@ -226,14 +242,14 @@
             this.textBoxStartDate.Location = new System.Drawing.Point(98, 8);
             this.textBoxStartDate.Name = "textBoxStartDate";
             this.textBoxStartDate.ReadOnly = true;
-            this.textBoxStartDate.Size = new System.Drawing.Size(149, 30);
+            this.textBoxStartDate.Size = new System.Drawing.Size(120, 30);
             this.textBoxStartDate.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(253, 11);
+            this.label5.Location = new System.Drawing.Point(224, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 23);
             this.label5.TabIndex = 28;
@@ -242,17 +258,17 @@
             // textBoxEndDate
             // 
             this.textBoxEndDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxEndDate.Location = new System.Drawing.Point(343, 8);
+            this.textBoxEndDate.Location = new System.Drawing.Point(314, 8);
             this.textBoxEndDate.Name = "textBoxEndDate";
             this.textBoxEndDate.ReadOnly = true;
-            this.textBoxEndDate.Size = new System.Drawing.Size(149, 30);
+            this.textBoxEndDate.Size = new System.Drawing.Size(120, 30);
             this.textBoxEndDate.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(759, 11);
+            this.label2.Location = new System.Drawing.Point(719, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 23);
             this.label2.TabIndex = 30;
@@ -271,10 +287,10 @@
             // textBoxBranch
             // 
             this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxBranch.Location = new System.Drawing.Point(832, 8);
+            this.textBoxBranch.Location = new System.Drawing.Point(792, 8);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
-            this.textBoxBranch.Size = new System.Drawing.Size(208, 30);
+            this.textBoxBranch.Size = new System.Drawing.Size(120, 30);
             this.textBoxBranch.TabIndex = 3;
             // 
             // dataGridViewSalesInvoiceDetailReport
@@ -529,13 +545,43 @@
             this.panel1.Size = new System.Drawing.Size(1382, 63);
             this.panel1.TabIndex = 16;
             // 
-            // textBoxItemListFilter
+            // label6
             // 
-            this.textBoxItemListFilter.Location = new System.Drawing.Point(17, 53);
-            this.textBoxItemListFilter.Name = "textBoxItemListFilter";
-            this.textBoxItemListFilter.Size = new System.Drawing.Size(1353, 30);
-            this.textBoxItemListFilter.TabIndex = 38;
-            this.textBoxItemListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItemListFilter_KeyDown);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label6.Location = new System.Drawing.Point(918, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 23);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "SoldBy:";
+            // 
+            // textBoxSoldBy
+            // 
+            this.textBoxSoldBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxSoldBy.Location = new System.Drawing.Point(989, 8);
+            this.textBoxSoldBy.Name = "textBoxSoldBy";
+            this.textBoxSoldBy.ReadOnly = true;
+            this.textBoxSoldBy.Size = new System.Drawing.Size(140, 30);
+            this.textBoxSoldBy.TabIndex = 37;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label7.Location = new System.Drawing.Point(1140, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 23);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Customer";
+            // 
+            // textBoxCustomer
+            // 
+            this.textBoxCustomer.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxCustomer.Location = new System.Drawing.Point(1230, 8);
+            this.textBoxCustomer.Name = "textBoxCustomer";
+            this.textBoxCustomer.ReadOnly = true;
+            this.textBoxCustomer.Size = new System.Drawing.Size(140, 30);
+            this.textBoxCustomer.TabIndex = 35;
             // 
             // RepAccountReceivableReportSalesInvoiceDetailReportForm
             // 
@@ -607,5 +653,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceListBaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceListBasePrice;
         private System.Windows.Forms.TextBox textBoxItemListFilter;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxSoldBy;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxCustomer;
     }
 }

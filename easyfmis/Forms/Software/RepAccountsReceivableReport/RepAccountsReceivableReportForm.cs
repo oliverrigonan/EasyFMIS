@@ -173,11 +173,11 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelBranch.Visible = true;
                         comboBoxBranch.Visible = true;
 
-                        labelCustomer.Visible = false;
-                        comboBoxCustomer.Visible = false;
+                        labelCustomer.Visible = true;
+                        comboBoxCustomer.Visible = true;
 
-                        labelSoldBy.Visible = false;
-                        comboBoxSoldBy.Visible = false;
+                        labelSoldBy.Visible = true;
+                        comboBoxSoldBy.Visible = true;
 
 
                         break;
@@ -276,7 +276,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         }
                         else
                         {
-                            RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName);
+                            RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName, soldById, soldBy, customerId, customer);
                             repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm.ShowDialog();
                         }
                         break;

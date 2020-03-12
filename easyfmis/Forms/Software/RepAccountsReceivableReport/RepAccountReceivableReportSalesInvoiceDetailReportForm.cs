@@ -26,8 +26,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         DateTime DateEnd;
         Int32 CompanyId;
         Int32 BranchId;
+        Int32 SodlById;
+        String SoldBy;
+        Int32 CustomerId;
+        String Customer;
 
-        public RepAccountReceivableReportSalesInvoiceDetailReportForm(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, String filterCompanyName, Int32 filterBranchId, String filterBranchName)
+        public RepAccountReceivableReportSalesInvoiceDetailReportForm(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, String filterCompanyName, Int32 filterBranchId, String filterBranchName, Int32 filterSoldById, String filterSoldByName, Int32 filterCustomerId, String filterCustomerName)
         {
             InitializeComponent();
 
@@ -35,23 +39,27 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
             DateEnd = filterDateEnd;
             CompanyId = filterCompanyId;
             BranchId = filterBranchId;
+            SodlById = filterSoldById;
+            CustomerId = filterCustomerId;
 
             textBoxStartDate.Text = filterDateStart.Date.ToShortDateString();
             textBoxEndDate.Text = filterDateEnd.Date.ToShortDateString();
             textBoxCompany.Text = filterCompanyName;
             textBoxBranch.Text = filterBranchName;
+            textBoxSoldBy.Text = SoldBy;
+            textBoxCustomer.Text = Customer;
 
             CreateSalesInvoiceDetailDataGridView();
         }
 
-        public List<Entities.DgvRepSalesInvoiceEntity> GetSalesInvoiceDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId)
+        public List<Entities.DgvRepSalesInvoiceEntity> GetSalesInvoiceDetailReportListData(DateTime filterDateStart, DateTime filterDateEnd, Int32 filterCompanyId, Int32 filterBranchId, Int32 filterSoldById, Int32 filterCustomerId)
         {
             String filter = textBoxItemListFilter.Text;
             List<Entities.DgvRepSalesInvoiceEntity> rowList = new List<Entities.DgvRepSalesInvoiceEntity>();
 
             Controllers.RepAccountsReceivableReportController repInvetoryReportController = new Controllers.RepAccountsReceivableReportController();
 
-            var salesInvoiceDetailReportList = repInvetoryReportController.ListSalesInvoiceDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filter);
+            var salesInvoiceDetailReportList = repInvetoryReportController.ListSalesInvoiceDetailReport(filterDateStart, filterDateEnd, filterCompanyId, filterBranchId, filterSoldById, filterCustomerId, filter);
             if (salesInvoiceDetailReportList.Any())
             {
                 var row = from d in salesInvoiceDetailReportList
@@ -107,7 +115,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
         public void GetSalesInvoiceDetailReportDataSource()
         {
-            salesInvoiceDetailReportList = GetSalesInvoiceDetailReportListData(DateStart, DateEnd, CompanyId, BranchId);
+            salesInvoiceDetailReportList = GetSalesInvoiceDetailReportListData(DateStart, DateEnd, CompanyId, BranchId, SodlById, CustomerId);
             if (salesInvoiceDetailReportList.Any())
             {
                 pageNumber = 1;

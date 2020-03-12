@@ -176,7 +176,7 @@ namespace easyfmis.Controllers
         // ================================
         // Sales Invoice Detail Report List
         // ================================
-        public List<Entities.RepSalesInvoiceEntity> ListSalesInvoiceDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, String filter)
+        public List<Entities.RepSalesInvoiceEntity> ListSalesInvoiceDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, Int32 soldById, Int32 customerId, String filter)
         {
             try
             {
@@ -185,6 +185,8 @@ namespace easyfmis.Controllers
                                        && d.TrnSalesInvoice.SIDate <= dateEnd
                                        && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
                                        && d.TrnSalesInvoice.BranchId == branchId
+                                       && d.TrnSalesInvoice.SoldBy == soldById
+                                       && d.TrnSalesInvoice.CustomerId == customerId
                                        && d.TrnSalesInvoice.IsLocked == true
                                        && (d.TrnSalesInvoice.SINumber.Contains(filter)
                                        || d.MstArticle.Article.Contains(filter)

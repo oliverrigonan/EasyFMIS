@@ -309,8 +309,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
         private void buttonPrint_Click(object sender, EventArgs e)
         {
             String filter = textBoxItemListFilter.Text;
-            Controllers.RepAccountsReceivableReportController repAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
-            var statementOfAccountReportList = repAccountsReceivableReportController.ListStatementOfAccountReport(dateAsOf, companyId, branchId, customerId, filter);
+            new TrnSalesInvoiceDetailPrintPreviewForm(dateAsOf, companyId, branchId, customerId, filter);
         }
     }
 }
