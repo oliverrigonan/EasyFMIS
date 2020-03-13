@@ -83,6 +83,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
             comboBoxPreparedBy.SelectedValue = trnStockInEntity.PreparedBy;
             comboBoxCheckedBy.SelectedValue = trnStockInEntity.CheckedBy;
             comboBoxApprovedBy.SelectedValue = trnStockInEntity.ApprovedBy;
+            checkBoxIsReturned.Checked = trnStockInEntity.IsReturned;
 
             CreateStockInItemDataGridView();
             CreateInventoryEntriesDataGridView();
@@ -150,6 +151,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
             textBoxRemarks.Enabled = !isLocked;
             comboBoxCheckedBy.Enabled = !isLocked;
             comboBoxApprovedBy.Enabled = !isLocked;
+            checkBoxIsReturned.Enabled = !isLocked;
         }
 
         private void buttonLock_Click(object sender, EventArgs e)
@@ -161,7 +163,8 @@ namespace easyfmis.Forms.Software.TrnStockIn
                 INDate = dateTimePickerINDate.Value.Date,
                 Remarks = textBoxRemarks.Text,
                 CheckedBy = Convert.ToInt32(comboBoxCheckedBy.SelectedValue),
-                ApprovedBy = Convert.ToInt32(comboBoxApprovedBy.SelectedValue)
+                ApprovedBy = Convert.ToInt32(comboBoxApprovedBy.SelectedValue),
+                IsReturned = checkBoxIsReturned.Checked
             };
 
             String[] lockStockIn = trnStockInController.LockStockIn(trnStockInEntity.Id, newStockInEntity);

@@ -54,6 +54,7 @@ namespace easyfmis.Controllers
                                PreparedBy = d.PreparedBy,
                                CheckedBy = d.CheckedBy,
                                ApprovedBy = d.ApprovedBy,
+                               IsReturned = d.IsReturned,
                                IsLocked = d.IsLocked,
                                CreatedBy = d.CreatedBy,
                                CreatedDateTime = d.CreatedDateTime,
@@ -84,6 +85,7 @@ namespace easyfmis.Controllers
                               PreparedBy = d.PreparedBy,
                               CheckedBy = d.CheckedBy,
                               ApprovedBy = d.ApprovedBy,
+                              IsReturned = d.IsReturned,
                               IsLocked = d.IsLocked,
                               CreatedBy = d.CreatedBy,
                               CreatedDateTime = d.CreatedDateTime,
@@ -145,6 +147,7 @@ namespace easyfmis.Controllers
                     PreparedBy = currentUserLogin.FirstOrDefault().Id,
                     CheckedBy = currentUserLogin.FirstOrDefault().Id,
                     ApprovedBy = currentUserLogin.FirstOrDefault().Id,
+                    IsReturned = false,
                     IsLocked = false,
                     CreatedBy = currentUserLogin.FirstOrDefault().Id,
                     CreatedDateTime = DateTime.Now,
@@ -212,6 +215,7 @@ namespace easyfmis.Controllers
                     lockStockIn.Remarks = objStockIn.Remarks;
                     lockStockIn.CheckedBy = objStockIn.CheckedBy;
                     lockStockIn.ApprovedBy = objStockIn.ApprovedBy;
+                    lockStockIn.IsReturned = objStockIn.IsReturned;
                     lockStockIn.IsLocked = true;
                     lockStockIn.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     lockStockIn.UpdatedDateTime = DateTime.Now;

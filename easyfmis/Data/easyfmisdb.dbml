@@ -934,6 +934,7 @@
       <Column Name="PreparedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CheckedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ApprovedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsReturned" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="IsLocked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CreatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />

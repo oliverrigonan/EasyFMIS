@@ -17,6 +17,7 @@ namespace easyfmis.Entities
         public Int32 PreparedBy { get; set; }
         public Int32 CheckedBy { get; set; }
         public Int32 ApprovedBy { get; set; }
+        public Boolean IsReturned { get; set; }
         public Boolean IsLocked { get; set; }
         public Int32 CreatedBy { get; set; }
         public String CreatedByUserName { get; set; }

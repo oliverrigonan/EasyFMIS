@@ -239,13 +239,11 @@ namespace easyfmis.Controllers
                     runningQuantity += groupedBeginningInventory.Runninguantity;
                 }
             }
-
             if (currentInventories.ToList().Any())
             {
                 foreach (var currentInventory in currentInventories)
                 {
-                    runningQuantity = currentInventory.InQuantity - currentInventory.OutQuantity;
-
+                    runningQuantity += (currentInventory.InQuantity - currentInventory.OutQuantity);
                     stockCard.Add(new Entities.RepInventoryReportStockCardEntity()
                     {
                         Document = currentInventory.Document,

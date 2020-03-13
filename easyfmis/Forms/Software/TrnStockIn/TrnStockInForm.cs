@@ -136,6 +136,7 @@ namespace easyfmis.Forms.Software.TrnStockIn
                                 ColumnStockInINDate = d.INDate.ToShortDateString(),
                                 ColumnStockInINNumber = d.INNumber,
                                 ColumnStockInRemarks = d.Remarks,
+                                ColumnStockInIsReturned = d.IsReturned,
                                 ColumnStockInIsLocked = d.IsLocked,
                                 ColumnStockInSpace = ""
                             };

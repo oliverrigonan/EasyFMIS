@@ -79,6 +79,7 @@ namespace easyfmis.Forms.Software.TrnMemo
             else
             {
                 textBoxDebit.Text = (0).ToString("#,##0.00");
+                textBoxCredit.Text = (0).ToString("#,##0.00");
                 textBoxParticulars.Text = "";
             }
         }
@@ -99,7 +100,7 @@ namespace easyfmis.Forms.Software.TrnMemo
             var sIId = Convert.ToInt32(comboBoxSINumber.SelectedValue);
             var rRId = Convert.ToInt32(comboBoxRRNumber.SelectedValue);
             var debitAmount = Convert.ToDecimal(textBoxDebit.Text);
-            var creditAmount = Convert.ToDecimal(textBoxDebit.Text);
+            var creditAmount = Convert.ToDecimal(textBoxCredit.Text);
             var particulars = textBoxParticulars.Text;
 
             Entities.TrnMemoLineEntity objMemoLineEntity = new Entities.TrnMemoLineEntity()

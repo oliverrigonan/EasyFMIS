@@ -23805,6 +23805,8 @@ namespace easyfmis.Data
 		
 		private int _ApprovedBy;
 		
+		private bool _IsReturned;
+		
 		private bool _IsLocked;
 		
 		private int _CreatedBy;
@@ -23853,6 +23855,8 @@ namespace easyfmis.Data
     partial void OnCheckedByChanged();
     partial void OnApprovedByChanging(int value);
     partial void OnApprovedByChanged();
+    partial void OnIsReturnedChanging(bool value);
+    partial void OnIsReturnedChanged();
     partial void OnIsLockedChanging(bool value);
     partial void OnIsLockedChanged();
     partial void OnCreatedByChanging(int value);
@@ -24051,6 +24055,26 @@ namespace easyfmis.Data
 					this._ApprovedBy = value;
 					this.SendPropertyChanged("ApprovedBy");
 					this.OnApprovedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReturned", DbType="Bit NOT NULL")]
+		public bool IsReturned
+		{
+			get
+			{
+				return this._IsReturned;
+			}
+			set
+			{
+				if ((this._IsReturned != value))
+				{
+					this.OnIsReturnedChanging(value);
+					this.SendPropertyChanging();
+					this._IsReturned = value;
+					this.SendPropertyChanged("IsReturned");
+					this.OnIsReturnedChanged();
 				}
 			}
 		}
