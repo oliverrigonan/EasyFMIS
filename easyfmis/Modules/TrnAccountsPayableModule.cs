@@ -37,7 +37,7 @@ namespace easyfmis.Modules
                 {
                     memoDebit = memoLines.Sum(d => d.DebitAmount);
                     memoCredit = memoLines.Sum(d => d.CreditAmount);
-                    memoAmount = memoDebit - memoCredit;
+                    memoAmount = memoCredit - memoDebit;
                 }
 
                 Decimal receivingReceiptAmount = receivingReceipt.FirstOrDefault().Amount;
