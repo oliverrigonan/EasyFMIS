@@ -698,7 +698,17 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
         private void comboBoxCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            trnSalesInvoiceEntity.CustomerId = Convert.ToInt32(comboBoxCustomer.SelectedValue);
+            if (comboBoxCustomer.SelectedValue != null)
+            {
+                trnSalesInvoiceEntity.CustomerId = Convert.ToInt32(comboBoxCustomer.SelectedValue);
+            }
+
+        }
+
+        private void buttonDiscount_Click(object sender, EventArgs e)
+        {
+            TrnSalesInvoiceDetailDiscountForm trnSalesInvoiceDetailDiscountForm = new TrnSalesInvoiceDetailDiscountForm(this, trnSalesInvoiceEntity);
+            trnSalesInvoiceDetailDiscountForm.ShowDialog();
         }
     }
 }

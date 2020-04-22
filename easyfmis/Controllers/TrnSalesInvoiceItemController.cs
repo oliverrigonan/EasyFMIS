@@ -427,6 +427,95 @@ namespace easyfmis.Controllers
             }
         }
 
+        // ==============
+        // Discount Sales
+        // ==============
+        public String[] DiscountSalesInvoice(Int32 salesInvoiceId, Entities.MstDiscountEntity objDiscountEntity)
+        {
+            try
+            {
+                var salesInvoice = from d in db.TrnSalesInvoices
+                            where d.Id == salesInvoiceId
+                            select d;
+
+                if (salesInvoice.Any())
+                {
+
+                    Decimal discountRate = 0;
+
+                    var discount = from d in db.MstDiscounts
+                                   where d.Id == objDiscountEntity.Id
+                                   select d;
+
+                    if (discount.Any())
+                    {
+                        discountRate = discount.FirstOrDefault().DiscountRate;
+                    }
+
+                    var salesInvoiceLines = from d in db.TrnSalesInvoiceItems
+                                     where d.SIId == salesInvoiceId
+                                     select d;
+
+                    if (salesInvoiceLines.Any())
+                    {
+                        foreach (var salesInvoiceLine in salesInvoiceLines)
+                        {
+                            Decimal quantity = salesInvoiceLine.Quantity;
+                            Decimal price = salesInvoiceLine.Price;
+                            Decimal taxRate = salesInvoiceLine.TaxRate;
+
+                            Decimal discountAmount = 0;
+                            Decimal taxAmount = 0;
+                            Decimal netPrice = 0;
+                            Decimal amount = 0;
+
+                            if (discountRate > 0)
+                            {
+                                discountAmount = price * (discountRate / 100);
+                            }
+
+                            netPrice = price;
+
+                            if (discountAmount > 0)
+                            {
+                                netPrice = price - discountAmount;
+                            }
+
+                            amount = quantity * netPrice;
+
+                            if (taxRate > 0)
+                            {
+                                taxAmount = (amount / (1 + (taxRate / 100))) * (taxRate / 100);
+                            }
+
+                            salesInvoiceLine.DiscountId = discount.FirstOrDefault().Id;
+                            salesInvoiceLine.DiscountRate = discountRate;
+                            salesInvoiceLine.DiscountAmount = discountAmount;
+                            salesInvoiceLine.NetPrice = netPrice;
+                            salesInvoiceLine.Amount = amount;
+                            salesInvoiceLine.TaxAmount = taxAmount;
+
+                            db.SubmitChanges();
+                        }
+                    }
+
+                    var updateSalesInvoice = salesInvoice.FirstOrDefault();
+                    updateSalesInvoice.Amount = salesInvoice.FirstOrDefault().TrnSalesInvoiceItems.Any() ? salesInvoice.FirstOrDefault().TrnSalesInvoiceItems.Sum(d => d.Amount) : 0;
+                    db.SubmitChanges();
+
+                    return new String[] { "", "1" };
+                }
+                else
+                {
+                    return new String[] { "Sales not found.", "0" };
+                }
+            }
+            catch (Exception e)
+            {
+                return new String[] { e.Message, "0" };
+            }
+        }
+
         // =========================
         // Delete Sales Invoice Item
         // =========================
