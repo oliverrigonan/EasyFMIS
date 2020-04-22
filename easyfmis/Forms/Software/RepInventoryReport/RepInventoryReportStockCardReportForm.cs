@@ -27,8 +27,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         public Int32 companyId;
         public Int32 branchId;
         public Int32 itemId;
+        public String itemICode;
 
-        public RepInventoryReportStockCardReportForm(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, String filterCompanyName, Int32 filterBranchId, String filterBranchName, Int32 filterItemId, String filterItemName)
+        public RepInventoryReportStockCardReportForm(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, String filterCompanyName, Int32 filterBranchId, String filterBranchName, Int32 filterItemId, String filterItemName, String filterItemICode)
         {
             InitializeComponent();
 
@@ -37,17 +38,19 @@ namespace easyfmis.Forms.Software.RepInventoryReport
             companyId = filterCompanyId;
             branchId = filterBranchId;
             itemId = filterItemId;
+            itemICode = filterItemICode;
 
             textBoxStartDate.Text = filterStartDate.Date.ToShortDateString();
             textBoxEndDate.Text = filterEndDate.Date.ToShortDateString();
             textBoxCompany.Text = filterCompanyName;
             textBoxBranch.Text = filterBranchName;
             textBoxItem.Text = filterItemName;
+            textBoxItemCode.Text = filterItemICode;
 
             CreateStockCardReportDataGridView();
         }
 
-        public List<Entities.DgvRepStockCardReportEntity> GetStockCardReportListData(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, Int32 filterBranchId, Int32 filterItemId)
+        public List<Entities.DgvRepStockCardReportEntity> GetStockCardReportListData(DateTime filterStartDate, DateTime filterEndDate, Int32 filterCompanyId, Int32 filterBranchId, Int32 filterItemId, String filterItemICode)
         {
             String filter = textBoxItemListFilter.Text;
 
@@ -55,7 +58,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
             Controllers.RepInventoryReportController repInvetoryReportController = new Controllers.RepInventoryReportController();
 
-            var inventoryReportList = repInvetoryReportController.ListStockCardInventoryReport(filterStartDate, filterEndDate, filterCompanyId, filterBranchId, filterItemId, filter);
+            var inventoryReportList = repInvetoryReportController.ListStockCardInventoryReport(filterStartDate, filterEndDate, filterCompanyId, filterBranchId, filterItemId, filterItemICode, filter);
             if (inventoryReportList.Any())
             {
                 var row = from d in inventoryReportList
@@ -100,7 +103,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
         public void GetStockCardReportDataSource()
         {
-            inventoryReportList = GetStockCardReportListData(startDate, endDate, companyId, branchId, itemId);
+            inventoryReportList = GetStockCardReportListData(startDate, endDate, companyId, branchId, itemId, itemICode);
             if (inventoryReportList.Any())
             {
                 pageNumber = 1;

@@ -26,9 +26,10 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         public void GetCompanies()
         {
             Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();
-            if (repInventoryReportController.DropdownListCompany().Any())
+            var companies = repInventoryReportController.DropdownListCompany();
+            if (companies.Any())
             {
-                comboBoxCompany.DataSource = repInventoryReportController.DropdownListCompany();
+                comboBoxCompany.DataSource = companies;
                 comboBoxCompany.ValueMember = "Id";
                 comboBoxCompany.DisplayMember = "Company";
 
@@ -44,9 +45,10 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                 Int32 companyId = Convert.ToInt32(comboBoxCompany.SelectedValue);
 
                 Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();
-                if (repInventoryReportController.DropdownListBranch(companyId).Any())
+                var branches = repInventoryReportController.DropdownListBranch(companyId);
+                if (branches.Any())
                 {
-                    comboBoxBranch.DataSource = repInventoryReportController.DropdownListBranch(companyId);
+                    comboBoxBranch.DataSource = branches;
                     comboBoxBranch.ValueMember = "Id";
                     comboBoxBranch.DisplayMember = "Branch";
 
@@ -62,11 +64,26 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         public void GetItems()
         {
             Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();
-            if (repInventoryReportController.DropdownListItem().Any())
+            var items = repInventoryReportController.DropdownListItem();
+            if (items.Any())
             {
-                comboBoxItem.DataSource = repInventoryReportController.DropdownListItem();
+                comboBoxItem.DataSource = items;
                 comboBoxItem.ValueMember = "Id";
                 comboBoxItem.DisplayMember = "Article";
+
+                GetItemCode();
+            }
+        }
+
+        public void GetItemCode()
+        {
+            Controllers.RepInventoryReportController repInventoryReportController = new Controllers.RepInventoryReportController();
+            var itemCodes = repInventoryReportController.DropdownListItemCodes();
+            if (itemCodes.Any())
+            {
+                comboBoxItemCode.DataSource = itemCodes;
+                comboBoxItemCode.ValueMember = "Id";
+                comboBoxItemCode.DisplayMember = "ArticleBarCode";
             }
         }
 
@@ -93,6 +110,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         labelItem.Visible = false;
                         comboBoxItem.Visible = false;
 
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
+
                         break;
                     case "Stock Card":
                         labelStartDate.Visible = true;
@@ -109,6 +129,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
                         labelItem.Visible = true;
                         comboBoxItem.Visible = true;
+
+                        labelItemCode.Visible = true;
+                        comboBoxItemCode.Visible = true;
 
                         break;
                     case "Stock-In Detail Report":
@@ -127,6 +150,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         labelItem.Visible = false;
                         comboBoxItem.Visible = false;
 
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
+
                         break;
                     case "Stock-Out Detail Report":
                         labelStartDate.Visible = true;
@@ -143,6 +169,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
                         labelItem.Visible = false;
                         comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
 
                         break;
                     case "Stock Transfer Detail Report":
@@ -161,6 +190,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         labelItem.Visible = false;
                         comboBoxItem.Visible = false;
 
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
+
                         break;
                     case "Item List":
                         labelStartDate.Visible = false;
@@ -177,6 +209,9 @@ namespace easyfmis.Forms.Software.RepInventoryReport
 
                         labelItem.Visible = false;
                         comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
 
                         break;
                     default:
@@ -195,6 +230,8 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         labelItem.Visible = false;
                         comboBoxItem.Visible = false;
 
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
                         break;
                 }
             }
@@ -216,6 +253,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                 String branchName = comboBoxBranch.GetItemText(comboBoxBranch.SelectedItem);
                 Int32 itemId = Convert.ToInt32(comboBoxItem.SelectedValue);
                 String itemName = comboBoxItem.GetItemText(comboBoxItem.SelectedItem);
+                String itemCode = comboBoxItem.GetItemText(comboBoxItemCode.Text);
 
                 String selectedItem = listBoxInventoryReport.SelectedItem.ToString();
                 switch (selectedItem)
@@ -240,7 +278,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         }
                         else
                         {
-                            RepInventoryReportStockCardReportForm repInventoryReportStockCardReportForm = new RepInventoryReportStockCardReportForm(startDate, endDate, companyId, companyName, branchId, branchName, itemId, itemName);
+                            RepInventoryReportStockCardReportForm repInventoryReportStockCardReportForm = new RepInventoryReportStockCardReportForm(startDate, endDate, companyId, companyName, branchId, branchName, itemId, itemName, itemCode);
                             repInventoryReportStockCardReportForm.Show();
                         }
                         break;

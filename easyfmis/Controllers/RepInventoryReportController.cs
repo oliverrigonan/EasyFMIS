@@ -60,6 +60,22 @@ namespace easyfmis.Controllers
             return items.ToList();
         }
 
+        // ==================
+        // Dropdown List Item
+        // ==================
+        public List<Entities.MstArticleEntity> DropdownListItemCodes()
+        {
+            var itemCodes = from d in db.MstArticles
+                            where d.ArticleTypeId == 1
+                            select new Entities.MstArticleEntity
+                            {
+                                Id = d.Id,
+                                ArticleBarCode = d.ArticleBarCode
+                            };
+
+            return itemCodes.ToList();
+        }
+
         // =====================
         // List Inventory Report
         // =====================
@@ -155,13 +171,14 @@ namespace easyfmis.Controllers
         // ================================
         // List Stock Card Inventory Report
         // ================================
-        public List<Entities.RepInventoryReportStockCardEntity> ListStockCardInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, Int32 itemId, String filter)
+        public List<Entities.RepInventoryReportStockCardEntity> ListStockCardInventoryReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, Int32 itemId, String itemCode, String filter)
         {
             var beginningInventories = from d in db.TrnInventories
                                        where d.InventoryDate < startDate
                                        && d.MstBranch.CompanyId == companyId
                                        && d.BranchId == branchId
                                        && d.ItemId == itemId
+                                       && d.MstArticle.ArticleBarCode == itemCode
                                        select new
                                        {
                                            Document = "Beggining Balance",
@@ -199,6 +216,7 @@ namespace easyfmis.Controllers
                                      && d.MstBranch.CompanyId == companyId
                                      && d.BranchId == branchId
                                      && d.ItemId == itemId
+                                     && d.MstArticle.ArticleBarCode == itemCode
                                      select new Entities.RepInventoryReportStockCardEntity
                                      {
                                          Document = d.SIId != null ? "SI-" + d.TrnSalesInvoice.MstBranch.BranchCode + "-" + d.TrnSalesInvoice.SINumber :
