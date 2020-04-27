@@ -420,7 +420,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
 
             if (e.RowIndex > -1 && dataGridViewSalesOrderItem.CurrentCell.ColumnIndex == dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListButtonDelete"].Index)
             {
-                DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (deleteDialogResult == DialogResult.Yes)
                 {
                     var id = Convert.ToInt32(dataGridViewSalesOrderItem.Rows[e.RowIndex].Cells[dataGridViewSalesOrderItem.Columns["ColumnTrnSalesOrderItemListId"].Index].Value);
@@ -434,7 +434,7 @@ namespace easyfmis.Forms.Software.TrnSalesOrder
                     }
                     else
                     {
-                        MessageBox.Show(deleteSalesOrderItem[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(deleteSalesOrderItem[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

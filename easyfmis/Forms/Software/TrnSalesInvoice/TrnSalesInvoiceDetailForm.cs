@@ -710,5 +710,11 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             TrnSalesInvoiceDetailDiscountForm trnSalesInvoiceDetailDiscountForm = new TrnSalesInvoiceDetailDiscountForm(this, trnSalesInvoiceEntity);
             trnSalesInvoiceDetailDiscountForm.ShowDialog();
         }
+
+        private void buttonSalesOrder_Click(object sender, EventArgs e)
+        {
+            TrnSalesInvoiceDetailSearchSalesOrderForm trnSalesInvoiceDetailSearchSalesOrderForm = new TrnSalesInvoiceDetailSearchSalesOrderForm(this, trnSalesInvoiceEntity);
+            trnSalesInvoiceDetailSearchSalesOrderForm.ShowDialog();
+        }
     }
 }

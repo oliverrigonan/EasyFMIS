@@ -805,6 +805,7 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SINumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SOId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SIDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="ManualSINumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -837,6 +838,7 @@
       <Association Name="MstUser_TrnSalesInvoice3" Member="MstUser3" ThisKey="CreatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
       <Association Name="MstUser_TrnSalesInvoice4" Member="MstUser4" ThisKey="UpdatedBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
       <Association Name="MstUser_TrnSalesInvoice5" Member="MstUser5" ThisKey="SoldBy" OtherKey="Id" Type="MstUser" IsForeignKey="true" />
+      <Association Name="TrnSalesOrder_TrnSalesInvoice" Member="TrnSalesOrder" ThisKey="SOId" OtherKey="Id" Type="TrnSalesOrder" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TrnSalesInvoiceItem" Member="TrnSalesInvoiceItems">
@@ -885,6 +887,7 @@
       <Column Name="CreatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UpdatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="TrnSalesOrder_TrnSalesInvoice" Member="TrnSalesInvoices" ThisKey="Id" OtherKey="SOId" Type="TrnSalesInvoice" />
       <Association Name="TrnSalesOrder_TrnSalesOrderItem" Member="TrnSalesOrderItems" ThisKey="Id" OtherKey="SOId" Type="TrnSalesOrderItem" />
       <Association Name="MstArticle_TrnSalesOrder" Member="MstArticle" ThisKey="CustomerId" OtherKey="Id" Type="MstArticle" IsForeignKey="true" />
       <Association Name="MstBranch_TrnSalesOrder" Member="MstBranch" ThisKey="BranchId" OtherKey="Id" Type="MstBranch" IsForeignKey="true" />

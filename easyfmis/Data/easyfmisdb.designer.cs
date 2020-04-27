@@ -20517,6 +20517,8 @@ namespace easyfmis.Data
 		
 		private string _SINumber;
 		
+		private System.Nullable<int> _SOId;
+		
 		private System.DateTime _SIDate;
 		
 		private string _ManualSINumber;
@@ -20581,6 +20583,8 @@ namespace easyfmis.Data
 		
 		private EntityRef<MstUser> _MstUser5;
 		
+		private EntityRef<TrnSalesOrder> _TrnSalesOrder;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -20591,6 +20595,8 @@ namespace easyfmis.Data
     partial void OnBranchIdChanged();
     partial void OnSINumberChanging(string value);
     partial void OnSINumberChanged();
+    partial void OnSOIdChanging(System.Nullable<int> value);
+    partial void OnSOIdChanged();
     partial void OnSIDateChanging(System.DateTime value);
     partial void OnSIDateChanged();
     partial void OnManualSINumberChanging(string value);
@@ -20645,6 +20651,7 @@ namespace easyfmis.Data
 			this._MstUser3 = default(EntityRef<MstUser>);
 			this._MstUser4 = default(EntityRef<MstUser>);
 			this._MstUser5 = default(EntityRef<MstUser>);
+			this._TrnSalesOrder = default(EntityRef<TrnSalesOrder>);
 			OnCreated();
 		}
 		
@@ -20708,6 +20715,30 @@ namespace easyfmis.Data
 					this._SINumber = value;
 					this.SendPropertyChanged("SINumber");
 					this.OnSINumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOId", DbType="Int")]
+		public System.Nullable<int> SOId
+		{
+			get
+			{
+				return this._SOId;
+			}
+			set
+			{
+				if ((this._SOId != value))
+				{
+					if (this._TrnSalesOrder.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSOIdChanging(value);
+					this.SendPropertyChanging();
+					this._SOId = value;
+					this.SendPropertyChanged("SOId");
+					this.OnSOIdChanged();
 				}
 			}
 		}
@@ -21471,6 +21502,40 @@ namespace easyfmis.Data
 						this._SoldBy = default(int);
 					}
 					this.SendPropertyChanged("MstUser5");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesOrder_TrnSalesInvoice", Storage="_TrnSalesOrder", ThisKey="SOId", OtherKey="Id", IsForeignKey=true)]
+		public TrnSalesOrder TrnSalesOrder
+		{
+			get
+			{
+				return this._TrnSalesOrder.Entity;
+			}
+			set
+			{
+				TrnSalesOrder previousValue = this._TrnSalesOrder.Entity;
+				if (((previousValue != value) 
+							|| (this._TrnSalesOrder.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrnSalesOrder.Entity = null;
+						previousValue.TrnSalesInvoices.Remove(this);
+					}
+					this._TrnSalesOrder.Entity = value;
+					if ((value != null))
+					{
+						value.TrnSalesInvoices.Add(this);
+						this._SOId = value.Id;
+					}
+					else
+					{
+						this._SOId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TrnSalesOrder");
 				}
 			}
 		}
@@ -22288,6 +22353,8 @@ namespace easyfmis.Data
 		
 		private System.DateTime _UpdatedDateTime;
 		
+		private EntitySet<TrnSalesInvoice> _TrnSalesInvoices;
+		
 		private EntitySet<TrnSalesOrderItem> _TrnSalesOrderItems;
 		
 		private EntityRef<MstArticle> _MstArticle;
@@ -22350,6 +22417,7 @@ namespace easyfmis.Data
 		
 		public TrnSalesOrder()
 		{
+			this._TrnSalesInvoices = new EntitySet<TrnSalesInvoice>(new Action<TrnSalesInvoice>(this.attach_TrnSalesInvoices), new Action<TrnSalesInvoice>(this.detach_TrnSalesInvoices));
 			this._TrnSalesOrderItems = new EntitySet<TrnSalesOrderItem>(new Action<TrnSalesOrderItem>(this.attach_TrnSalesOrderItems), new Action<TrnSalesOrderItem>(this.detach_TrnSalesOrderItems));
 			this._MstArticle = default(EntityRef<MstArticle>);
 			this._MstBranch = default(EntityRef<MstBranch>);
@@ -22739,6 +22807,19 @@ namespace easyfmis.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesOrder_TrnSalesInvoice", Storage="_TrnSalesInvoices", ThisKey="Id", OtherKey="SOId")]
+		public EntitySet<TrnSalesInvoice> TrnSalesInvoices
+		{
+			get
+			{
+				return this._TrnSalesInvoices;
+			}
+			set
+			{
+				this._TrnSalesInvoices.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrnSalesOrder_TrnSalesOrderItem", Storage="_TrnSalesOrderItems", ThisKey="Id", OtherKey="SOId")]
 		public EntitySet<TrnSalesOrderItem> TrnSalesOrderItems
 		{
@@ -23076,6 +23157,18 @@ namespace easyfmis.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_TrnSalesInvoices(TrnSalesInvoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnSalesOrder = this;
+		}
+		
+		private void detach_TrnSalesInvoices(TrnSalesInvoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrnSalesOrder = null;
 		}
 		
 		private void attach_TrnSalesOrderItems(TrnSalesOrderItem entity)

@@ -435,8 +435,8 @@ namespace easyfmis.Controllers
             try
             {
                 var salesInvoice = from d in db.TrnSalesInvoices
-                            where d.Id == salesInvoiceId
-                            select d;
+                                   where d.Id == salesInvoiceId
+                                   select d;
 
                 if (salesInvoice.Any())
                 {
@@ -453,8 +453,8 @@ namespace easyfmis.Controllers
                     }
 
                     var salesInvoiceLines = from d in db.TrnSalesInvoiceItems
-                                     where d.SIId == salesInvoiceId
-                                     select d;
+                                            where d.SIId == salesInvoiceId
+                                            select d;
 
                     if (salesInvoiceLines.Any())
                     {
@@ -581,10 +581,13 @@ namespace easyfmis.Controllers
             var salesOrders = from d in db.TrnSalesOrders
                               where d.CustomerId == customerId
                               && d.BranchId == currentBranchId
+                              && d.IsLocked == true
                               select new Entities.TrnSalesOrderEntity
                               {
                                   Id = d.Id,
-                                  SONumber = "SO Number - " + d.SONumber,
+                                  SODate = d.SODate,
+                                  SONumber = d.SONumber,
+                                  Remarks = d.Remarks
                               };
 
             return salesOrders.OrderByDescending(d => d.Id).ToList();
@@ -602,6 +605,7 @@ namespace easyfmis.Controllers
                                  where d.SOId == sOId
                                  && d.TrnSalesOrder.MstBranch.Id == currentBranchId
                                  && d.TrnSalesOrder.CustomerId == customerId
+                                 && d.TrnSalesOrder.IsLocked == true
                                  select new Entities.TrnSalesOrderItemEntity
                                  {
                                      Id = d.Id,
@@ -628,6 +632,106 @@ namespace easyfmis.Controllers
                                  };
 
             return salesOrderItem.OrderByDescending(d => d.Id).ToList();
+        }
+
+        // ===========================
+        // List Load Sales Order Items
+        // ===========================
+        public String[] ListLoadSalesOrderItem(Int32 sIId, Int32 sOId)
+        {
+            try
+            {
+
+                var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
+                var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
+
+                var salesInvoice = from d in db.TrnSalesInvoices
+                                   where d.Id == sIId
+                                   select d;
+
+                if (salesInvoice.Any())
+                {
+                    var updateSalesInvoice = salesInvoice.FirstOrDefault();
+                    updateSalesInvoice.SOId = sOId;
+                    updateSalesInvoice.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
+                    updateSalesInvoice.UpdatedDateTime = DateTime.Now;
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    return new String[] { "Sales Invoice not found.", "0" };
+                }
+
+                var salesOrderItems = from d in db.TrnSalesOrderItems
+                                      where d.SOId == sOId
+                                      && d.TrnSalesOrder.MstBranch.Id == currentBranchId
+                                      select new Entities.TrnSalesOrderItemEntity
+                                      {
+                                          Id = d.Id,
+                                          SOId = d.SOId,
+                                          ItemId = d.ItemId,
+                                          BarCode = d.MstArticle.ArticleCode,
+                                          ItemDescription = d.MstArticle.Article,
+                                          ItemInventoryId = d.ItemInventoryId,
+                                          ItemInventoryCode = d.MstArticleInventory.InventoryCode,
+                                          UnitId = d.UnitId,
+                                          Unit = d.MstUnit.Unit,
+                                          Price = d.Price,
+                                          DiscountId = d.DiscountId,
+                                          DiscountRate = d.DiscountRate,
+                                          DiscountAmount = d.DiscountAmount,
+                                          NetPrice = d.NetPrice,
+                                          Quantity = d.Quantity,
+                                          Amount = d.Amount,
+                                          TaxId = d.TaxId,
+                                          TaxRate = d.TaxRate,
+                                          TaxAmount = d.TaxAmount,
+                                          BaseQuantity = d.BaseQuantity,
+                                          BasePrice = d.BasePrice,
+                                      };
+
+                List<Entities.TrnSalesInvoiceItemEntity> salesInvoiceItemEntities = new List<Entities.TrnSalesInvoiceItemEntity>();
+
+                foreach (var salesOrderItem in salesOrderItems)
+                {
+                    salesInvoiceItemEntities.Add(new Entities.TrnSalesInvoiceItemEntity
+                    {
+                        SIId = salesInvoice.FirstOrDefault().Id,
+                        ItemId = salesOrderItem.ItemId,
+                        ItemInventoryId = salesOrderItem.ItemInventoryId,
+                        UnitId = salesOrderItem.UnitId,
+                        Price = salesOrderItem.Price,
+                        DiscountId = salesOrderItem.DiscountId,
+                        DiscountRate = salesOrderItem.DiscountRate,
+                        DiscountAmount = salesOrderItem.DiscountAmount,
+                        NetPrice = salesOrderItem.NetPrice,
+                        Quantity = salesOrderItem.Quantity,
+                        Amount = salesOrderItem.Amount,
+                        TaxId = salesOrderItem.TaxId,
+                        TaxRate = salesOrderItem.TaxRate,
+                        TaxAmount = salesOrderItem.TaxAmount,
+                        BaseQuantity = salesOrderItem.BaseQuantity,
+                        BasePrice = salesOrderItem.BasePrice
+                    });
+                }
+
+                foreach (var salesInvoiceItem in salesInvoiceItemEntities)
+                {
+                    var loadSalesOrderItem = AddSalesInvoiceItem(salesInvoiceItem);
+
+                    if (loadSalesOrderItem[1].Equals("0") == true)
+                    {
+                        return new String[] { loadSalesOrderItem[0], "0" };
+                    }
+                }
+
+                return new String[] { "", "1" };
+            }
+            catch (Exception e)
+            {
+                return new String[] { e.Message, "0" };
+            }
+
         }
     }
 }

@@ -46,7 +46,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrnSalesInvoiceDetailForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonDiscount = new System.Windows.Forms.Button();
             this.buttonLock = new System.Windows.Forms.Button();
+            this.buttonUnlock = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
@@ -131,8 +133,7 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonUnlock = new System.Windows.Forms.Button();
-            this.buttonDiscount = new System.Windows.Forms.Button();
+            this.buttonSalesOrder = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -159,10 +160,28 @@
             this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1027, 50);
             this.panel1.TabIndex = 7;
+            // 
+            // buttonDiscount
+            // 
+            this.buttonDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonDiscount.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonDiscount.FlatAppearance.BorderSize = 0;
+            this.buttonDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDiscount.ForeColor = System.Drawing.Color.White;
+            this.buttonDiscount.Location = new System.Drawing.Point(793, 10);
+            this.buttonDiscount.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonDiscount.Name = "buttonDiscount";
+            this.buttonDiscount.Size = new System.Drawing.Size(75, 32);
+            this.buttonDiscount.TabIndex = 24;
+            this.buttonDiscount.Text = "Discount";
+            this.buttonDiscount.UseVisualStyleBackColor = false;
+            this.buttonDiscount.Click += new System.EventHandler(this.buttonDiscount_Click);
             // 
             // buttonLock
             // 
@@ -174,7 +193,7 @@
             this.buttonLock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLock.ForeColor = System.Drawing.Color.White;
             this.buttonLock.Location = new System.Drawing.Point(645, 10);
-            this.buttonLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLock.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(70, 32);
             this.buttonLock.TabIndex = 20;
@@ -182,11 +201,29 @@
             this.buttonLock.UseVisualStyleBackColor = false;
             this.buttonLock.Click += new System.EventHandler(this.buttonLock_Click);
             // 
+            // buttonUnlock
+            // 
+            this.buttonUnlock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUnlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonUnlock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonUnlock.FlatAppearance.BorderSize = 0;
+            this.buttonUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUnlock.ForeColor = System.Drawing.Color.White;
+            this.buttonUnlock.Location = new System.Drawing.Point(719, 10);
+            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonUnlock.Name = "buttonUnlock";
+            this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
+            this.buttonUnlock.TabIndex = 21;
+            this.buttonUnlock.Text = "Unlock";
+            this.buttonUnlock.UseVisualStyleBackColor = false;
+            this.buttonUnlock.Click += new System.EventHandler(this.buttonUnlock_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.POS1;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -214,7 +251,7 @@
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
             this.buttonClose.Location = new System.Drawing.Point(947, 10);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 23;
@@ -232,7 +269,7 @@
             this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.Color.White;
             this.buttonPrint.Location = new System.Drawing.Point(872, 10);
-            this.buttonPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(70, 32);
             this.buttonPrint.TabIndex = 22;
@@ -267,9 +304,9 @@
             this.panel3.Controls.Add(this.textBoxSINumber);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel3.Padding = new System.Windows.Forms.Padding(8);
             this.panel3.Size = new System.Drawing.Size(1027, 186);
             this.panel3.TabIndex = 0;
             // 
@@ -291,7 +328,7 @@
             this.comboBoxSoldBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxSoldBy.FormattingEnabled = true;
             this.comboBoxSoldBy.Location = new System.Drawing.Point(480, 62);
-            this.comboBoxSoldBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxSoldBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSoldBy.Name = "comboBoxSoldBy";
             this.comboBoxSoldBy.Size = new System.Drawing.Size(239, 27);
             this.comboBoxSoldBy.TabIndex = 7;
@@ -314,7 +351,7 @@
             this.comboBoxCustomer.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCustomer.FormattingEnabled = true;
             this.comboBoxCustomer.Location = new System.Drawing.Point(143, 120);
-            this.comboBoxCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCustomer.Name = "comboBoxCustomer";
             this.comboBoxCustomer.Size = new System.Drawing.Size(239, 27);
             this.comboBoxCustomer.TabIndex = 4;
@@ -338,7 +375,7 @@
             this.comboBoxTerm.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxTerm.FormattingEnabled = true;
             this.comboBoxTerm.Location = new System.Drawing.Point(143, 150);
-            this.comboBoxTerm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxTerm.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTerm.Name = "comboBoxTerm";
             this.comboBoxTerm.Size = new System.Drawing.Size(158, 27);
             this.comboBoxTerm.TabIndex = 5;
@@ -358,7 +395,7 @@
             // 
             this.textBoxManualSINumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxManualSINumber.Location = new System.Drawing.Point(143, 91);
-            this.textBoxManualSINumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxManualSINumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxManualSINumber.Name = "textBoxManualSINumber";
             this.textBoxManualSINumber.Size = new System.Drawing.Size(158, 26);
             this.textBoxManualSINumber.TabIndex = 3;
@@ -367,7 +404,7 @@
             // 
             this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxBranch.Location = new System.Drawing.Point(143, 5);
-            this.textBoxBranch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBranch.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(239, 26);
@@ -389,7 +426,7 @@
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxRemarks.Location = new System.Drawing.Point(480, 5);
-            this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(239, 53);
@@ -435,7 +472,7 @@
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
             this.comboBoxApprovedBy.Location = new System.Drawing.Point(480, 150);
-            this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(239, 27);
             this.comboBoxApprovedBy.TabIndex = 10;
@@ -447,7 +484,7 @@
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
             this.comboBoxCheckedBy.Location = new System.Drawing.Point(480, 120);
-            this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(239, 27);
             this.comboBoxCheckedBy.TabIndex = 9;
@@ -460,7 +497,7 @@
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
             this.comboBoxPreparedBy.Location = new System.Drawing.Point(480, 91);
-            this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(239, 27);
             this.comboBoxPreparedBy.TabIndex = 8;
@@ -503,7 +540,7 @@
             this.dateTimePickerSIDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dateTimePickerSIDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerSIDate.Location = new System.Drawing.Point(143, 62);
-            this.dateTimePickerSIDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerSIDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerSIDate.Name = "dateTimePickerSIDate";
             this.dateTimePickerSIDate.Size = new System.Drawing.Size(158, 26);
             this.dateTimePickerSIDate.TabIndex = 2;
@@ -512,7 +549,7 @@
             // 
             this.textBoxSINumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxSINumber.Location = new System.Drawing.Point(143, 34);
-            this.textBoxSINumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSINumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSINumber.Name = "textBoxSINumber";
             this.textBoxSINumber.ReadOnly = true;
             this.textBoxSINumber.Size = new System.Drawing.Size(158, 26);
@@ -533,7 +570,7 @@
             this.panel4.Controls.Add(this.textBoxSalesInvoiceItemPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(2, 248);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1015, 42);
             this.panel4.TabIndex = 25;
@@ -557,7 +594,7 @@
             this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalAmount.Location = new System.Drawing.Point(782, 10);
-            this.textBoxTotalAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTotalAmount.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTotalAmount.Name = "textBoxTotalAmount";
             this.textBoxTotalAmount.ReadOnly = true;
             this.textBoxTotalAmount.Size = new System.Drawing.Size(226, 22);
@@ -584,7 +621,7 @@
             this.textBoxTotalDiscountAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotalDiscountAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalDiscountAmount.Location = new System.Drawing.Point(448, 10);
-            this.textBoxTotalDiscountAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTotalDiscountAmount.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTotalDiscountAmount.Name = "textBoxTotalDiscountAmount";
             this.textBoxTotalDiscountAmount.ReadOnly = true;
             this.textBoxTotalDiscountAmount.Size = new System.Drawing.Size(226, 22);
@@ -600,7 +637,7 @@
             this.buttonSalesInvoiceItemPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSalesInvoiceItemPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonSalesInvoiceItemPageListFirst.Location = new System.Drawing.Point(10, 7);
-            this.buttonSalesInvoiceItemPageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSalesInvoiceItemPageListFirst.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSalesInvoiceItemPageListFirst.Name = "buttonSalesInvoiceItemPageListFirst";
             this.buttonSalesInvoiceItemPageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonSalesInvoiceItemPageListFirst.TabIndex = 13;
@@ -616,7 +653,7 @@
             this.buttonSalesInvoiceItemPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSalesInvoiceItemPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonSalesInvoiceItemPageListPrevious.Location = new System.Drawing.Point(80, 7);
-            this.buttonSalesInvoiceItemPageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSalesInvoiceItemPageListPrevious.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSalesInvoiceItemPageListPrevious.Name = "buttonSalesInvoiceItemPageListPrevious";
             this.buttonSalesInvoiceItemPageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonSalesInvoiceItemPageListPrevious.TabIndex = 14;
@@ -631,7 +668,7 @@
             this.buttonSalesInvoiceItemPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSalesInvoiceItemPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonSalesInvoiceItemPageListNext.Location = new System.Drawing.Point(210, 7);
-            this.buttonSalesInvoiceItemPageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSalesInvoiceItemPageListNext.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSalesInvoiceItemPageListNext.Name = "buttonSalesInvoiceItemPageListNext";
             this.buttonSalesInvoiceItemPageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonSalesInvoiceItemPageListNext.TabIndex = 15;
@@ -646,7 +683,7 @@
             this.buttonSalesInvoiceItemPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSalesInvoiceItemPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonSalesInvoiceItemPageListLast.Location = new System.Drawing.Point(278, 7);
-            this.buttonSalesInvoiceItemPageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSalesInvoiceItemPageListLast.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSalesInvoiceItemPageListLast.Name = "buttonSalesInvoiceItemPageListLast";
             this.buttonSalesInvoiceItemPageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonSalesInvoiceItemPageListLast.TabIndex = 16;
@@ -661,7 +698,7 @@
             this.textBoxSalesInvoiceItemPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSalesInvoiceItemPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxSalesInvoiceItemPageNumber.Location = new System.Drawing.Point(150, 11);
-            this.textBoxSalesInvoiceItemPageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSalesInvoiceItemPageNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSalesInvoiceItemPageNumber.Name = "textBoxSalesInvoiceItemPageNumber";
             this.textBoxSalesInvoiceItemPageNumber.ReadOnly = true;
             this.textBoxSalesInvoiceItemPageNumber.Size = new System.Drawing.Size(55, 16);
@@ -679,7 +716,7 @@
             this.buttonSearchItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonSearchItem.ForeColor = System.Drawing.Color.White;
             this.buttonSearchItem.Location = new System.Drawing.Point(944, 5);
-            this.buttonSearchItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSearchItem.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSearchItem.Name = "buttonSearchItem";
             this.buttonSearchItem.Size = new System.Drawing.Size(70, 32);
             this.buttonSearchItem.TabIndex = 11;
@@ -734,7 +771,7 @@
             this.ColumnSalesInvoiceItemListBasePrice,
             this.ColumnSalesInvoiceItemListSpace});
             this.dataGridViewSalesInvoiceItem.Location = new System.Drawing.Point(6, 42);
-            this.dataGridViewSalesInvoiceItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewSalesInvoiceItem.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSalesInvoiceItem.MultiSelect = false;
             this.dataGridViewSalesInvoiceItem.Name = "dataGridViewSalesInvoiceItem";
             this.dataGridViewSalesInvoiceItem.ReadOnly = true;
@@ -988,7 +1025,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 50);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1027, 510);
             this.panel2.TabIndex = 8;
@@ -999,7 +1036,7 @@
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 186);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1027, 324);
             this.panel6.TabIndex = 27;
@@ -1010,7 +1047,7 @@
             this.tabControl1.Controls.Add(this.tabPageInventoryEntries);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1027, 324);
@@ -1019,13 +1056,14 @@
             // 
             // tabPageSalesInvoiceItems
             // 
+            this.tabPageSalesInvoiceItems.Controls.Add(this.buttonSalesOrder);
             this.tabPageSalesInvoiceItems.Controls.Add(this.buttonSearchItem);
             this.tabPageSalesInvoiceItems.Controls.Add(this.panel4);
             this.tabPageSalesInvoiceItems.Controls.Add(this.dataGridViewSalesInvoiceItem);
             this.tabPageSalesInvoiceItems.Location = new System.Drawing.Point(4, 28);
-            this.tabPageSalesInvoiceItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageSalesInvoiceItems.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageSalesInvoiceItems.Name = "tabPageSalesInvoiceItems";
-            this.tabPageSalesInvoiceItems.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageSalesInvoiceItems.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageSalesInvoiceItems.Size = new System.Drawing.Size(1019, 292);
             this.tabPageSalesInvoiceItems.TabIndex = 0;
             this.tabPageSalesInvoiceItems.Text = "Sales Invoice Items";
@@ -1036,10 +1074,10 @@
             this.tabPageInventoryEntries.Controls.Add(this.panel5);
             this.tabPageInventoryEntries.Controls.Add(this.dataGridViewInventoryEntries);
             this.tabPageInventoryEntries.Location = new System.Drawing.Point(4, 28);
-            this.tabPageInventoryEntries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageInventoryEntries.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageInventoryEntries.Name = "tabPageInventoryEntries";
-            this.tabPageInventoryEntries.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1112, 291);
+            this.tabPageInventoryEntries.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1019, 292);
             this.tabPageInventoryEntries.TabIndex = 1;
             this.tabPageInventoryEntries.Text = "Inventory Entries";
             this.tabPageInventoryEntries.UseVisualStyleBackColor = true;
@@ -1053,10 +1091,10 @@
             this.panel5.Controls.Add(this.buttonInventoryEntriesPageListLast);
             this.panel5.Controls.Add(this.textBoxInventoryEntriesPageNumber);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(2, 247);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Location = new System.Drawing.Point(2, 248);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1108, 42);
+            this.panel5.Size = new System.Drawing.Size(1015, 42);
             this.panel5.TabIndex = 27;
             // 
             // buttonInventoryEntriesPageListFirst
@@ -1067,7 +1105,7 @@
             this.buttonInventoryEntriesPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonInventoryEntriesPageListFirst.Location = new System.Drawing.Point(10, 7);
-            this.buttonInventoryEntriesPageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonInventoryEntriesPageListFirst.Margin = new System.Windows.Forms.Padding(2);
             this.buttonInventoryEntriesPageListFirst.Name = "buttonInventoryEntriesPageListFirst";
             this.buttonInventoryEntriesPageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListFirst.TabIndex = 13;
@@ -1083,7 +1121,7 @@
             this.buttonInventoryEntriesPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonInventoryEntriesPageListPrevious.Location = new System.Drawing.Point(80, 7);
-            this.buttonInventoryEntriesPageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonInventoryEntriesPageListPrevious.Margin = new System.Windows.Forms.Padding(2);
             this.buttonInventoryEntriesPageListPrevious.Name = "buttonInventoryEntriesPageListPrevious";
             this.buttonInventoryEntriesPageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListPrevious.TabIndex = 14;
@@ -1098,7 +1136,7 @@
             this.buttonInventoryEntriesPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonInventoryEntriesPageListNext.Location = new System.Drawing.Point(210, 7);
-            this.buttonInventoryEntriesPageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonInventoryEntriesPageListNext.Margin = new System.Windows.Forms.Padding(2);
             this.buttonInventoryEntriesPageListNext.Name = "buttonInventoryEntriesPageListNext";
             this.buttonInventoryEntriesPageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListNext.TabIndex = 15;
@@ -1113,7 +1151,7 @@
             this.buttonInventoryEntriesPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonInventoryEntriesPageListLast.Location = new System.Drawing.Point(278, 7);
-            this.buttonInventoryEntriesPageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonInventoryEntriesPageListLast.Margin = new System.Windows.Forms.Padding(2);
             this.buttonInventoryEntriesPageListLast.Name = "buttonInventoryEntriesPageListLast";
             this.buttonInventoryEntriesPageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListLast.TabIndex = 16;
@@ -1128,7 +1166,7 @@
             this.textBoxInventoryEntriesPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxInventoryEntriesPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxInventoryEntriesPageNumber.Location = new System.Drawing.Point(150, 11);
-            this.textBoxInventoryEntriesPageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxInventoryEntriesPageNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxInventoryEntriesPageNumber.Name = "textBoxInventoryEntriesPageNumber";
             this.textBoxInventoryEntriesPageNumber.ReadOnly = true;
             this.textBoxInventoryEntriesPageNumber.Size = new System.Drawing.Size(55, 16);
@@ -1162,7 +1200,7 @@
             this.ColumnInventoryEntriesAmount,
             this.ColumnInventoryEntriesSpace});
             this.dataGridViewInventoryEntries.Location = new System.Drawing.Point(6, 5);
-            this.dataGridViewInventoryEntries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewInventoryEntries.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewInventoryEntries.MultiSelect = false;
             this.dataGridViewInventoryEntries.Name = "dataGridViewInventoryEntries";
             this.dataGridViewInventoryEntries.ReadOnly = true;
@@ -1236,41 +1274,24 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
-            // buttonUnlock
+            // buttonSalesOrder
             // 
-            this.buttonUnlock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUnlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonUnlock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonUnlock.FlatAppearance.BorderSize = 0;
-            this.buttonUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUnlock.ForeColor = System.Drawing.Color.White;
-            this.buttonUnlock.Location = new System.Drawing.Point(719, 10);
-            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonUnlock.Name = "buttonUnlock";
-            this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
-            this.buttonUnlock.TabIndex = 21;
-            this.buttonUnlock.Text = "Unlock";
-            this.buttonUnlock.UseVisualStyleBackColor = false;
-            this.buttonUnlock.Click += new System.EventHandler(this.buttonUnlock_Click);
-            // 
-            // buttonDiscount
-            // 
-            this.buttonDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDiscount.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonDiscount.FlatAppearance.BorderSize = 0;
-            this.buttonDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDiscount.ForeColor = System.Drawing.Color.White;
-            this.buttonDiscount.Location = new System.Drawing.Point(793, 10);
-            this.buttonDiscount.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonDiscount.Name = "buttonDiscount";
-            this.buttonDiscount.Size = new System.Drawing.Size(75, 32);
-            this.buttonDiscount.TabIndex = 24;
-            this.buttonDiscount.Text = "Discount";
-            this.buttonDiscount.UseVisualStyleBackColor = false;
-            this.buttonDiscount.Click += new System.EventHandler(this.buttonDiscount_Click);
+            this.buttonSalesOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSalesOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSalesOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSalesOrder.FlatAppearance.BorderSize = 0;
+            this.buttonSalesOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesOrder.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonSalesOrder.ForeColor = System.Drawing.Color.White;
+            this.buttonSalesOrder.Location = new System.Drawing.Point(870, 6);
+            this.buttonSalesOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSalesOrder.Name = "buttonSalesOrder";
+            this.buttonSalesOrder.Size = new System.Drawing.Size(70, 32);
+            this.buttonSalesOrder.TabIndex = 26;
+            this.buttonSalesOrder.TabStop = false;
+            this.buttonSalesOrder.Text = "SO";
+            this.buttonSalesOrder.UseVisualStyleBackColor = false;
+            this.buttonSalesOrder.Click += new System.EventHandler(this.buttonSalesOrder_Click);
             // 
             // TrnSalesInvoiceDetailForm
             // 
@@ -1282,7 +1303,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TrnSalesInvoiceDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrnSalesInvoiceDetail";
@@ -1396,5 +1417,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSalesInvoiceItemListSpace;
         private System.Windows.Forms.Button buttonDiscount;
         private System.Windows.Forms.Button buttonUnlock;
+        private System.Windows.Forms.Button buttonSalesOrder;
     }
 }
