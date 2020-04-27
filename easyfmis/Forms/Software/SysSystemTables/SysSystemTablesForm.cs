@@ -47,7 +47,7 @@ namespace easyfmis.Forms.Software.SysSystemTables
             CreateTaxListDataGridView();
             CreateUnitListDataGridView();
 
-            sysUserRights = new Modules.SysUserRightsModule("SysTables");
+            sysUserRights = new Modules.SysUserRightsModule("MstTables");
             if (sysUserRights.GetUserRights() == null)
             {
                 MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
