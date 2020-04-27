@@ -432,6 +432,12 @@
     <Compile Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.designer.cs">
       <DependentUpon>RepAccountsReceivableReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportStockInSalesReturnDetailReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\RepInventoryReport\RepInventoryReportStockInSalesReturnDetailReportForm.designer.cs">
+      <DependentUpon>RepInventoryReportStockInSalesReturnDetailReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\RepInventoryReport\RepRepInventoryReportItemListReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -964,6 +970,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\RepAccountsReceivableReport\RepAccountsReceivableReportForm.resx">
       <DependentUpon>RepAccountsReceivableReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepInventoryReportStockInSalesReturnDetailReportForm.resx">
+      <DependentUpon>RepInventoryReportStockInSalesReturnDetailReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\RepInventoryReport\RepRepInventoryReportItemListReportForm.resx">
       <DependentUpon>RepRepInventoryReportItemListReportForm.cs</DependentUpon>

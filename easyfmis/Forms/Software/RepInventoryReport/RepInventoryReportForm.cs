@@ -154,6 +154,26 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         comboBoxItemCode.Visible = false;
 
                         break;
+                    case "Stock-In Sales Return Detail Report":
+                        labelStartDate.Visible = true;
+                        dateTimePickerStartDate.Visible = true;
+
+                        labelEndDate.Visible = true;
+                        dateTimePickerEndDate.Visible = true;
+
+                        labelCompany.Visible = true;
+                        comboBoxCompany.Visible = true;
+
+                        labelBranch.Visible = true;
+                        comboBoxBranch.Visible = true;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
+
+                        break;
                     case "Stock-Out Detail Report":
                         labelStartDate.Visible = true;
                         dateTimePickerStartDate.Visible = true;
@@ -294,6 +314,18 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                             repInventoryReportStockInDetailReportForm.Show();
                         }
                         break;
+                    case "Stock-In Sales Return Detail Report":
+                        sysUserRights = new Modules.SysUserRightsModule("RepStockInDetail");
+                        if (sysUserRights.GetUserRights() == null)
+                        {
+                            MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            RepInventoryReportStockInSalesReturnDetailReportForm repInventoryReportStockInSalesReturnDetailReportForm = new RepInventoryReportStockInSalesReturnDetailReportForm(startDate, endDate, companyId, companyName, branchId, branchName);
+                            repInventoryReportStockInSalesReturnDetailReportForm.Show();
+                        }
+                        break;
                     case "Stock-Out Detail Report":
                         sysUserRights = new Modules.SysUserRightsModule("RepStockOutDetail");
                         if (sysUserRights.GetUserRights() == null)
@@ -307,7 +339,7 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                         }
                         break;
                     case "Stock Transfer Detail Report":
-                        sysUserRights = new Modules.SysUserRightsModule("TrnStockTransfer");
+                        sysUserRights = new Modules.SysUserRightsModule("RepStockTransferDetail");
                         if (sysUserRights.GetUserRights() == null)
                         {
                             MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -327,6 +327,54 @@ namespace easyfmis.Controllers
             return stockInDetails.ToList();
         }
 
+        // ========================
+        // Stock Transfer In Report
+        // ========================
+        public List<Entities.RepInventoryReportStockInDetailReportEntity> ListStockInSalesReturnDetailReport(DateTime startDate, DateTime endDate, Int32 companyId, Int32 branchId, String filter)
+        {
+            var stockInSalesReturnDetails = from d in db.TrnStockInItems
+                                            where d.TrnStockIn.INDate >= startDate
+                                            && d.TrnStockIn.INDate <= endDate
+                                            && d.TrnStockIn.MstBranch.CompanyId == companyId
+                                            && d.TrnStockIn.BranchId == branchId
+                                            && d.TrnStockIn.IsReturned == true
+                                            && (d.TrnStockIn.MstBranch.Branch.Contains(filter)
+                                            || d.TrnStockIn.INNumber.Contains(filter)
+                                            || d.TrnStockIn.Remarks.Contains(filter)
+                                            || d.TrnStockIn.MstUser.FullName.Contains(filter)
+                                            || d.TrnStockIn.MstUser1.FullName.Contains(filter)
+                                            || d.TrnStockIn.MstUser2.FullName.Contains(filter)
+                                            || d.MstArticle.ArticleBarCode.Contains(filter)
+                                            || d.MstArticle.Article.Contains(filter)
+                                            || d.MstUnit.Unit.Contains(filter)
+                                            || d.Quantity.ToString().Contains(filter)
+                                            || d.Cost.ToString().Contains(filter)
+                                            || d.Amount.ToString().Contains(filter)
+                                            || d.BaseQuantity.ToString().Contains(filter)
+                                            || d.BaseCost.ToString().Contains(filter))
+                                            select new Entities.RepInventoryReportStockInDetailReportEntity
+                                            {
+                                                Id = d.Id,
+                                                Branch = d.TrnStockIn.MstBranch.Branch,
+                                                INNumber = d.TrnStockIn.INNumber,
+                                                INDate = d.TrnStockIn.INDate,
+                                                Remarks = d.TrnStockIn.Remarks,
+                                                PreparedBy = d.TrnStockIn.MstUser.FullName,
+                                                CheckedBy = d.TrnStockIn.MstUser1.FullName,
+                                                ApprovedBy = d.TrnStockIn.MstUser2.FullName,
+                                                ItemCode = d.MstArticle.ArticleBarCode,
+                                                ItemDescription = d.MstArticle.Article,
+                                                Unit = d.MstUnit.Unit,
+                                                Quantity = d.Quantity,
+                                                Cost = d.Cost,
+                                                Amount = d.Amount,
+                                                BaseQuantity = d.BaseQuantity,
+                                                BaseCost = d.BaseCost,
+                                            };
+
+            return stockInSalesReturnDetails.ToList();
+        }
+
         // =========================
         // Stock Transfer Out Report
         // =========================

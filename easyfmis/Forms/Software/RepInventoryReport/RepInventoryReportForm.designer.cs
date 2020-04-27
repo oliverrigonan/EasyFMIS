@@ -30,6 +30,7 @@
         {
             this.listBoxInventoryReport = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboBoxItemCode = new System.Windows.Forms.ComboBox();
             this.labelItemCode = new System.Windows.Forms.Label();
             this.comboBoxItem = new System.Windows.Forms.ComboBox();
             this.labelItem = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.comboBoxItemCode = new System.Windows.Forms.ComboBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,9 +68,10 @@
             "Stock Card",
             "",
             "Stock-In Detail Report",
+            "Stock-In Sales Return Detail Report",
             "Stock-Out Detail Report",
             "Stock Transfer Detail Report",
-            "",
+            " ",
             "Item List"});
             this.listBoxInventoryReport.Location = new System.Drawing.Point(0, 0);
             this.listBoxInventoryReport.Margin = new System.Windows.Forms.Padding(2);
@@ -101,6 +102,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1027, 510);
             this.panel4.TabIndex = 10;
+            // 
+            // comboBoxItemCode
+            // 
+            this.comboBoxItemCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxItemCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxItemCode.FormattingEnabled = true;
+            this.comboBoxItemCode.Location = new System.Drawing.Point(405, 189);
+            this.comboBoxItemCode.Name = "comboBoxItemCode";
+            this.comboBoxItemCode.Size = new System.Drawing.Size(334, 27);
+            this.comboBoxItemCode.TabIndex = 5;
+            this.comboBoxItemCode.Visible = false;
             // 
             // labelItemCode
             // 
@@ -338,17 +350,6 @@
             this.buttonClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_OnClick);
-            // 
-            // comboBoxItemCode
-            // 
-            this.comboBoxItemCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBoxItemCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxItemCode.FormattingEnabled = true;
-            this.comboBoxItemCode.Location = new System.Drawing.Point(405, 189);
-            this.comboBoxItemCode.Name = "comboBoxItemCode";
-            this.comboBoxItemCode.Size = new System.Drawing.Size(334, 27);
-            this.comboBoxItemCode.TabIndex = 5;
-            this.comboBoxItemCode.Visible = false;
             // 
             // RepInventoryReportForm
             // 

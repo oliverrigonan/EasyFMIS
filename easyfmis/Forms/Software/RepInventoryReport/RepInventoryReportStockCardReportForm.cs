@@ -309,5 +309,10 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                 UpdateStockCardReportDataGridView();
             }
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

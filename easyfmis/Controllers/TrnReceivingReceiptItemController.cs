@@ -71,8 +71,14 @@ namespace easyfmis.Controllers
         // ========================
         // List Purchase Order Item
         // ========================
-        public List<Entities.TrnPurchaseOrderItemEntity> ListPurchaseOrderItem(Int32 POId, String filter)
+        public List<Entities.TrnPurchaseOrderItemEntity> ListPurchaseOrderItem(Int32 POId, Int32 SupplierId, String filter)
         {
+
+            var receivingReceiptPurchaseOrderItems = from d in db.TrnReceivingReceiptItems
+                                                     where d.TrnReceivingReceipt.SupplierId == SupplierId
+                                                     && d.POId == POId
+                                                     select d;
+
             var purchaseOrderItems = from d in db.TrnPurchaseOrderItems
                                      where d.POId == POId
                                      && (d.MstArticle.ArticleBarCode.Contains(filter)
@@ -92,8 +98,36 @@ namespace easyfmis.Controllers
                                          VATInTaxId = d.MstArticle.VATInTaxId,
                                          VATInTaxRate = d.MstArticle.MstTax.Rate
                                      };
+            List<Entities.TrnPurchaseOrderItemEntity> POItems = new List<Entities.TrnPurchaseOrderItemEntity>();
 
-            return purchaseOrderItems.OrderBy(d => d.ItemDescription).ToList();
+            foreach (var purchaseOrderItem in purchaseOrderItems)
+            {
+                foreach (var receivingReceiptPurchaseOrderItem in receivingReceiptPurchaseOrderItems)
+                {
+                    if (receivingReceiptPurchaseOrderItem.ItemId == purchaseOrderItem.ItemId)
+                    {
+                        purchaseOrderItem.BaseQuantity -= receivingReceiptPurchaseOrderItem.Quantity;
+
+                        //if (purchaseOrderItem.BaseQuantity < 0)
+                        //{
+                        //    purchaseOrderItem.BaseQuantity = 0;
+                        //}
+
+                        POItems.Add(purchaseOrderItem);
+                    }
+                }
+            }
+
+            if (POItems.Any())
+            {
+                var removeDuplicatePOItems = POItems.GroupBy(d => d.ItemId).Select(d => d.First());
+                return removeDuplicatePOItems.OrderBy(d => d.ItemDescription).ToList();
+            }
+            else
+            {
+                return purchaseOrderItems.OrderBy(d => d.ItemDescription).ToList();
+            }
+
         }
 
         // ==========================
