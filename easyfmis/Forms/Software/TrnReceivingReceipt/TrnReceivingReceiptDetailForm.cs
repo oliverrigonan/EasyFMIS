@@ -419,7 +419,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                     BaseQuantity = 0
                 };
 
-                TrnReceivingReceiptDetailReceivingReceiptItemDetailForm trnReceivingReceiptDetailReceivingReceiptItemDetailForm = new TrnReceivingReceiptDetailReceivingReceiptItemDetailForm(this, trnReceivingReceiptItemEntity);
+                TrnReceivingReceiptDetailReceivingReceiptItemDetailForm trnReceivingReceiptDetailReceivingReceiptItemDetailForm = new TrnReceivingReceiptDetailReceivingReceiptItemDetailForm(this, null, trnReceivingReceiptItemEntity);
                 trnReceivingReceiptDetailReceivingReceiptItemDetailForm.ShowDialog();
             }
 

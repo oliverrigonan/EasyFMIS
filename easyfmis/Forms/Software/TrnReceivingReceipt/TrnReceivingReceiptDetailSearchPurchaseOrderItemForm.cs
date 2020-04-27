@@ -53,12 +53,12 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                 POId = Convert.ToInt32(comboBoxPONumber.SelectedValue);
             }
 
-            SetSearchPurchaseOrderItemDataSourceAsync(POId);
+            SetSearchPurchaseOrderItemDataSourceAsync(POId, trnReceivingReceiptEntity.SupplierId);
         }
 
-        public async void SetSearchPurchaseOrderItemDataSourceAsync(Int32 POId)
+        public async void SetSearchPurchaseOrderItemDataSourceAsync(Int32 POId, Int32 SupplierId)
         {
-            List<Entities.DgvSearchPurchaseOrderItemEntity> getSearchPurchaseOrderItemData = await GetSearchPurchaseOrderItemDataTask(POId);
+            List<Entities.DgvSearchPurchaseOrderItemEntity> getSearchPurchaseOrderItemData = await GetSearchPurchaseOrderItemDataTask(POId, SupplierId);
             if (getSearchPurchaseOrderItemData.Any())
             {
                 pageNumber = 1;
@@ -112,12 +112,12 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             }
         }
 
-        public Task<List<Entities.DgvSearchPurchaseOrderItemEntity>> GetSearchPurchaseOrderItemDataTask(Int32 POId)
+        public Task<List<Entities.DgvSearchPurchaseOrderItemEntity>> GetSearchPurchaseOrderItemDataTask(Int32 POId, Int32 SupplierId)
         {
             String filter = textBoxSearchPurchaseOrderItemFilter.Text;
             Controllers.TrnReceivingReceiptItemController trnReceivingReceiptItemController = new Controllers.TrnReceivingReceiptItemController();
 
-            List<Entities.TrnPurchaseOrderItemEntity> listSearchPurchaseOrderItem = trnReceivingReceiptItemController.ListPurchaseOrderItem(POId, filter);
+            List<Entities.TrnPurchaseOrderItemEntity> listSearchPurchaseOrderItem = trnReceivingReceiptItemController.ListPurchaseOrderItem(POId, SupplierId, filter);
             if (listSearchPurchaseOrderItem.Any())
             {
                 var items = from d in listSearchPurchaseOrderItem
@@ -195,7 +195,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                     BaseQuantity = 0
                 };
 
-                TrnReceivingReceiptDetailReceivingReceiptItemDetailForm trnReceivingReceiptDetailReceivingReceiptItemDetailForm = new TrnReceivingReceiptDetailReceivingReceiptItemDetailForm(trnReceivingReceiptDetailForm, trnReceivingReceiptItemEntity);
+                TrnReceivingReceiptDetailReceivingReceiptItemDetailForm trnReceivingReceiptDetailReceivingReceiptItemDetailForm = new TrnReceivingReceiptDetailReceivingReceiptItemDetailForm(trnReceivingReceiptDetailForm, this, trnReceivingReceiptItemEntity);
                 trnReceivingReceiptDetailReceivingReceiptItemDetailForm.ShowDialog();
             }
         }

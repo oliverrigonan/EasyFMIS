@@ -13,13 +13,15 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
     public partial class TrnReceivingReceiptDetailReceivingReceiptItemDetailForm : Form
     {
         public TrnReceivingReceiptDetailForm trnReceivingReceiptDetailForm;
+        public TrnReceivingReceiptDetailSearchPurchaseOrderItemForm trnReceivingReceiptDetailSearchPurchaseOrderItemForm;
         public Entities.TrnReceivingReceiptItemEntity trnReceivingReceiptItemEntity;
 
-        public TrnReceivingReceiptDetailReceivingReceiptItemDetailForm(TrnReceivingReceiptDetailForm receivingReceiptDetailForm, Entities.TrnReceivingReceiptItemEntity receivingReceiptLineEntity)
+        public TrnReceivingReceiptDetailReceivingReceiptItemDetailForm(TrnReceivingReceiptDetailForm receivingReceiptDetailForm, TrnReceivingReceiptDetailSearchPurchaseOrderItemForm receivingReceiptDetailSearchPurchaseOrderItemForm, Entities.TrnReceivingReceiptItemEntity receivingReceiptLineEntity)
         {
             InitializeComponent();
 
             trnReceivingReceiptDetailForm = receivingReceiptDetailForm;
+            trnReceivingReceiptDetailSearchPurchaseOrderItemForm = receivingReceiptDetailSearchPurchaseOrderItemForm;
             trnReceivingReceiptItemEntity = receivingReceiptLineEntity;
 
             GetUnitList();
@@ -142,6 +144,10 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                 if (addReceivingReceiptItem[1].Equals("0") == false)
                 {
                     trnReceivingReceiptDetailForm.UpdateReceivingReceiptItemDataSource();
+                    if (trnReceivingReceiptDetailSearchPurchaseOrderItemForm != null)
+                    {
+                        trnReceivingReceiptDetailSearchPurchaseOrderItemForm.UpdateSearchPurchaseOrderItemDataSource();
+                    }
                     Close();
                 }
                 else
