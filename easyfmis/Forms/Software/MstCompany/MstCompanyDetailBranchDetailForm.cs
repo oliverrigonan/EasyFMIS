@@ -82,5 +82,10 @@ namespace easyfmis.Forms.Software.MstCompany
                 }
             }
         }
+
+        private void MstCompanyDetailBranchDetailForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
