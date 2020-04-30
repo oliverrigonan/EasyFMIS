@@ -110,6 +110,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             dateTimePickerSIDate.Value = trnSalesInvoiceEntity.SIDate;
             textBoxManualSINumber.Text = trnSalesInvoiceEntity.ManualSINumber;
             comboBoxCustomer.SelectedValue = trnSalesInvoiceEntity.CustomerId;
+            textBoxSONumber.Text = trnSalesInvoiceEntity.SONumber;
             comboBoxTerm.SelectedValue = trnSalesInvoiceEntity.TermId;
             textBoxRemarks.Text = trnSalesInvoiceEntity.Remarks;
             comboBoxSoldBy.SelectedValue = trnSalesInvoiceEntity.SoldBy;
@@ -182,6 +183,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             dateTimePickerSIDate.Enabled = !isLocked;
             textBoxManualSINumber.Enabled = !isLocked;
             comboBoxCustomer.Enabled = !isLocked;
+            textBoxSONumber.Enabled = !isLocked;
             comboBoxTerm.Enabled = !isLocked;
             textBoxRemarks.Enabled = !isLocked;
             comboBoxSoldBy.Enabled = !isLocked;
@@ -196,6 +198,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 SIDate = dateTimePickerSIDate.Value.Date,
                 ManualSINumber = textBoxManualSINumber.Text,
                 CustomerId = Convert.ToInt32(comboBoxCustomer.SelectedValue),
+                SOId = trnSalesInvoiceEntity.SOId,
                 TermId = Convert.ToInt32(comboBoxTerm.SelectedValue),
                 Remarks = textBoxRemarks.Text,
                 SoldBy = Convert.ToInt32(comboBoxSoldBy.SelectedValue),
@@ -532,6 +535,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         public void UpdateInventoryEntriesDataSource()
         {
             SetInventoryEntriesDataSourceAsync();
+        }
+
+        public void UpdateSONumber() {
+            textBoxSONumber.Text = trnSalesInvoiceEntity.SONumber;
         }
 
         public async void SetInventoryEntriesDataSourceAsync()

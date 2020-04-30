@@ -118,6 +118,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageSalesInvoiceItems = new System.Windows.Forms.TabPage();
+            this.buttonSalesOrder = new System.Windows.Forms.Button();
             this.tabPageInventoryEntries = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.buttonInventoryEntriesPageListFirst = new System.Windows.Forms.Button();
@@ -133,7 +134,8 @@
             this.ColumnInventoryEntriesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInventoryEntriesSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonSalesOrder = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxSONumber = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -280,6 +282,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.textBoxSONumber);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.comboBoxSoldBy);
             this.panel3.Controls.Add(this.label8);
@@ -314,7 +318,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(419, 64);
+            this.label9.Location = new System.Drawing.Point(419, 38);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 19);
@@ -327,7 +331,7 @@
             this.comboBoxSoldBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxSoldBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxSoldBy.FormattingEnabled = true;
-            this.comboBoxSoldBy.Location = new System.Drawing.Point(480, 62);
+            this.comboBoxSoldBy.Location = new System.Drawing.Point(480, 36);
             this.comboBoxSoldBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSoldBy.Name = "comboBoxSoldBy";
             this.comboBoxSoldBy.Size = new System.Drawing.Size(239, 27);
@@ -337,7 +341,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(66, 122);
+            this.label8.Location = new System.Drawing.Point(66, 152);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 19);
@@ -350,7 +354,7 @@
             this.comboBoxCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCustomer.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCustomer.FormattingEnabled = true;
-            this.comboBoxCustomer.Location = new System.Drawing.Point(143, 120);
+            this.comboBoxCustomer.Location = new System.Drawing.Point(143, 150);
             this.comboBoxCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCustomer.Name = "comboBoxCustomer";
             this.comboBoxCustomer.Size = new System.Drawing.Size(239, 27);
@@ -361,7 +365,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(96, 152);
+            this.label6.Location = new System.Drawing.Point(433, 7);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 19);
@@ -374,7 +378,7 @@
             this.comboBoxTerm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTerm.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxTerm.FormattingEnabled = true;
-            this.comboBoxTerm.Location = new System.Drawing.Point(143, 150);
+            this.comboBoxTerm.Location = new System.Drawing.Point(480, 5);
             this.comboBoxTerm.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTerm.Name = "comboBoxTerm";
             this.comboBoxTerm.Size = new System.Drawing.Size(158, 27);
@@ -425,18 +429,18 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(480, 5);
+            this.textBoxRemarks.Location = new System.Drawing.Point(799, 5);
             this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(239, 53);
+            this.textBoxRemarks.Size = new System.Drawing.Size(215, 83);
             this.textBoxRemarks.TabIndex = 6;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(386, 152);
+            this.label13.Location = new System.Drawing.Point(386, 126);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 19);
@@ -447,7 +451,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(394, 122);
+            this.label12.Location = new System.Drawing.Point(394, 96);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 19);
@@ -458,7 +462,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(390, 94);
+            this.label11.Location = new System.Drawing.Point(390, 68);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 19);
@@ -471,7 +475,7 @@
             this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
-            this.comboBoxApprovedBy.Location = new System.Drawing.Point(480, 150);
+            this.comboBoxApprovedBy.Location = new System.Drawing.Point(480, 124);
             this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(239, 27);
@@ -483,7 +487,7 @@
             this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
-            this.comboBoxCheckedBy.Location = new System.Drawing.Point(480, 120);
+            this.comboBoxCheckedBy.Location = new System.Drawing.Point(480, 94);
             this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(239, 27);
@@ -496,7 +500,7 @@
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
-            this.comboBoxPreparedBy.Location = new System.Drawing.Point(480, 91);
+            this.comboBoxPreparedBy.Location = new System.Drawing.Point(480, 65);
             this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(239, 27);
@@ -506,7 +510,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(413, 7);
+            this.label7.Location = new System.Drawing.Point(731, 7);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 19);
@@ -1069,6 +1073,25 @@
             this.tabPageSalesInvoiceItems.Text = "Sales Invoice Items";
             this.tabPageSalesInvoiceItems.UseVisualStyleBackColor = true;
             // 
+            // buttonSalesOrder
+            // 
+            this.buttonSalesOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSalesOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSalesOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
+            this.buttonSalesOrder.FlatAppearance.BorderSize = 0;
+            this.buttonSalesOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalesOrder.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buttonSalesOrder.ForeColor = System.Drawing.Color.White;
+            this.buttonSalesOrder.Location = new System.Drawing.Point(870, 6);
+            this.buttonSalesOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSalesOrder.Name = "buttonSalesOrder";
+            this.buttonSalesOrder.Size = new System.Drawing.Size(70, 32);
+            this.buttonSalesOrder.TabIndex = 26;
+            this.buttonSalesOrder.TabStop = false;
+            this.buttonSalesOrder.Text = "SO";
+            this.buttonSalesOrder.UseVisualStyleBackColor = false;
+            this.buttonSalesOrder.Click += new System.EventHandler(this.buttonSalesOrder_Click);
+            // 
             // tabPageInventoryEntries
             // 
             this.tabPageInventoryEntries.Controls.Add(this.panel5);
@@ -1274,24 +1297,27 @@
             this.ColumnInventoryEntriesSpace.Name = "ColumnInventoryEntriesSpace";
             this.ColumnInventoryEntriesSpace.ReadOnly = true;
             // 
-            // buttonSalesOrder
+            // label15
             // 
-            this.buttonSalesOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSalesOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonSalesOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(166)))), ((int)(((byte)(240)))));
-            this.buttonSalesOrder.FlatAppearance.BorderSize = 0;
-            this.buttonSalesOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalesOrder.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buttonSalesOrder.ForeColor = System.Drawing.Color.White;
-            this.buttonSalesOrder.Location = new System.Drawing.Point(870, 6);
-            this.buttonSalesOrder.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonSalesOrder.Name = "buttonSalesOrder";
-            this.buttonSalesOrder.Size = new System.Drawing.Size(70, 32);
-            this.buttonSalesOrder.TabIndex = 26;
-            this.buttonSalesOrder.TabStop = false;
-            this.buttonSalesOrder.Text = "SO";
-            this.buttonSalesOrder.UseVisualStyleBackColor = false;
-            this.buttonSalesOrder.Click += new System.EventHandler(this.buttonSalesOrder_Click);
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label15.Location = new System.Drawing.Point(53, 123);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(84, 19);
+            this.label15.TabIndex = 37;
+            this.label15.Text = "SO Number:";
+            // 
+            // textBoxSONumber
+            // 
+            this.textBoxSONumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.textBoxSONumber.Location = new System.Drawing.Point(143, 121);
+            this.textBoxSONumber.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSONumber.Name = "textBoxSONumber";
+            this.textBoxSONumber.ReadOnly = true;
+            this.textBoxSONumber.Size = new System.Drawing.Size(158, 26);
+            this.textBoxSONumber.TabIndex = 36;
+            this.textBoxSONumber.TabStop = false;
             // 
             // TrnSalesInvoiceDetailForm
             // 
@@ -1418,5 +1444,7 @@
         private System.Windows.Forms.Button buttonDiscount;
         private System.Windows.Forms.Button buttonUnlock;
         private System.Windows.Forms.Button buttonSalesOrder;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBoxSONumber;
     }
 }

@@ -649,6 +649,15 @@ namespace easyfmis.Controllers
                                    where d.Id == sIId
                                    select d;
 
+                var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
+                                        where d.SIId == sIId
+                                        select d;
+
+                if (salesInvoiceItems.Any()) {
+                    db.TrnSalesInvoiceItems.DeleteAllOnSubmit(salesInvoiceItems);
+                    db.SubmitChanges();
+                }
+
                 if (salesInvoice.Any())
                 {
                     var updateSalesInvoice = salesInvoice.FirstOrDefault();

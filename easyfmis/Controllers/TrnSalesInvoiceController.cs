@@ -92,6 +92,8 @@ namespace easyfmis.Controllers
                                    SINumber = d.SINumber,
                                    SIDate = d.SIDate,
                                    ManualSINumber = d.ManualSINumber,
+                                   SOId = d.SOId,
+                                   SONumber = d.TrnSalesOrder.SONumber,
                                    CustomerId = d.CustomerId,
                                    Customer = d.MstArticle.Article,
                                    TermId = d.TermId,
@@ -255,6 +257,16 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
+                var salesOrder = from d in db.TrnSalesOrders
+                               where d.Id == objSalesInvoice.SOId
+                               && d.IsLocked == true
+                               select d;
+
+                if (salesOrder.Any() == false)
+                {
+                    return new String[] { "Sales Order not found.", "0" };
+                }
+
                 var customer = from d in db.MstArticles
                                where d.Id == objSalesInvoice.CustomerId
                                && d.ArticleTypeId == 2
@@ -319,6 +331,7 @@ namespace easyfmis.Controllers
                     var lockSalesInvoice = salesInvoice.FirstOrDefault();
                     lockSalesInvoice.SIDate = Convert.ToDateTime(objSalesInvoice.SIDate);
                     lockSalesInvoice.ManualSINumber = objSalesInvoice.ManualSINumber;
+                    lockSalesInvoice.SOId = objSalesInvoice.SOId;
                     lockSalesInvoice.CustomerId = objSalesInvoice.CustomerId;
                     lockSalesInvoice.TermId = objSalesInvoice.TermId;
                     lockSalesInvoice.Remarks = objSalesInvoice.Remarks;

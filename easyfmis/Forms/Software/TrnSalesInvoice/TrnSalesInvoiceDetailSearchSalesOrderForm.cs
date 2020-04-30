@@ -158,11 +158,15 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 {
                     var SIId = trnSalesInvoiceEntity.Id;
                     var SOId = Convert.ToInt32(dataGridViewSalesOrder.Rows[e.RowIndex].Cells[dataGridViewSalesOrder.Columns["ColumnSalesInvoiceSearchSalesOrderListId"].Index].Value);
+                    var SONumber = dataGridViewSalesOrder.Rows[e.RowIndex].Cells[dataGridViewSalesOrder.Columns["ColumnSalesInvoiceSearchSalesOrderListSONumber"].Index].Value.ToString();
 
                     Controllers.TrnSalesInvoiceItemController trnSalesInvoiceItemController = new Controllers.TrnSalesInvoiceItemController();
                     String[] loadSalesOrderItem = trnSalesInvoiceItemController.ListLoadSalesOrderItem(SIId, SOId);
                     if (loadSalesOrderItem[1].Equals("0") == false)
                     {
+                        trnSalesInvoiceDetailForm.trnSalesInvoiceEntity.SOId = SOId;
+                        trnSalesInvoiceDetailForm.trnSalesInvoiceEntity.SONumber = SONumber;
+                        trnSalesInvoiceDetailForm.UpdateSONumber();
                         trnSalesInvoiceDetailForm.UpdateSalesInvoiceItemDataSource();
                     }
                     else
