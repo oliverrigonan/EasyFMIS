@@ -257,14 +257,17 @@ namespace easyfmis.Controllers
                     return new String[] { "Current login user not found.", "0" };
                 }
 
-                var salesOrder = from d in db.TrnSalesOrders
-                               where d.Id == objSalesInvoice.SOId
-                               && d.IsLocked == true
-                               select d;
-
-                if (salesOrder.Any() == false)
+                if (objSalesInvoice.SOId != null)
                 {
-                    return new String[] { "Sales Order not found.", "0" };
+                    var salesOrder = from d in db.TrnSalesOrders
+                                     where d.Id == objSalesInvoice.SOId
+                                     && d.IsLocked == true
+                                     select d;
+
+                    if (salesOrder.Any() == false)
+                    {
+                        return new String[] { "Sales Order not found.", "0" };
+                    }
                 }
 
                 var customer = from d in db.MstArticles

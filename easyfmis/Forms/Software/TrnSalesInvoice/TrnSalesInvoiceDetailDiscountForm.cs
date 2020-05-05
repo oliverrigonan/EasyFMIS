@@ -43,6 +43,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 return;
             }
 
+            if (comboBoxDiscount.Text.ToLower().Contains("variable")) {
+                textBoxDiscountRate.ReadOnly = false;
+            }
+
             var selectedItem = (Entities.MstDiscountEntity)comboBoxDiscount.SelectedItem;
             if (selectedItem != null)
             {
@@ -113,6 +117,36 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         {
             Close();
         }
-       
+
+        public void DefaultZeroEmptyString()
+        {
+            if (String.IsNullOrEmpty(textBoxDiscountRate.Text))
+            {
+                textBoxDiscountRate.Text = Convert.ToDecimal(0).ToString("#,##0.00###");
+            }
+        }
+
+        private void textBoxDiscountRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != '-'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '-') && ((sender as TextBox).Text.IndexOf('-') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxDiscountRate_Leave(object sender, EventArgs e)
+        {
+            DefaultZeroEmptyString();
+        }
     }
 }

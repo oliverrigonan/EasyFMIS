@@ -42,14 +42,12 @@ namespace easyfmis.Forms.Software.MstItem
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
-
             if (mstArticlePriceEntity == null)
             {
                 Entities.MstArticlePriceEntity newItemPrice = new Entities.MstArticlePriceEntity()
                 {
                     ArticleId = articleId,
-                    PriceDescription = textBoxPriceDescription.Text,
+                    PriceDescription = textBoxPriceDescription.Text.ToUpper(),
                     Price = Convert.ToDecimal(textBoxPrice.Text),
                 };
 
@@ -68,7 +66,7 @@ namespace easyfmis.Forms.Software.MstItem
             }
             else
             {
-                mstArticlePriceEntity.PriceDescription= textBoxPriceDescription.Text;
+                mstArticlePriceEntity.PriceDescription= textBoxPriceDescription.Text.ToUpper();
                 mstArticlePriceEntity.Price = Convert.ToDecimal(textBoxPrice.Text);
                 Controllers.MstArticlePriceController mstArticlePriceController = new Controllers.MstArticlePriceController();
 

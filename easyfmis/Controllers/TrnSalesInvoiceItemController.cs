@@ -449,7 +449,14 @@ namespace easyfmis.Controllers
 
                     if (discount.Any())
                     {
-                        discountRate = discount.FirstOrDefault().DiscountRate;
+                        if (discount.FirstOrDefault().Discount == "VARIABLE")
+                        {
+                            discountRate = objDiscountEntity.DiscountRate;
+                        }
+                        else
+                        {
+                            discountRate = discount.FirstOrDefault().DiscountRate;
+                        }
                     }
 
                     var salesInvoiceLines = from d in db.TrnSalesInvoiceItems
@@ -653,7 +660,12 @@ namespace easyfmis.Controllers
                                         where d.SIId == sIId
                                         select d;
 
-                if (salesInvoiceItems.Any()) {
+                if (salesInvoiceItems.Any())
+                {
+                    var updateSalesInvoice = salesInvoice.FirstOrDefault();
+                    updateSalesInvoice.SOId = null;
+                    db.SubmitChanges();
+
                     db.TrnSalesInvoiceItems.DeleteAllOnSubmit(salesInvoiceItems);
                     db.SubmitChanges();
                 }
@@ -701,30 +713,112 @@ namespace easyfmis.Controllers
 
                 List<Entities.TrnSalesInvoiceItemEntity> salesInvoiceItemEntities = new List<Entities.TrnSalesInvoiceItemEntity>();
 
+                var salesInvoiceISOItems = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SOId == sOId
+                                           select d;
+
+
                 foreach (var salesOrderItem in salesOrderItems)
                 {
-                    salesInvoiceItemEntities.Add(new Entities.TrnSalesInvoiceItemEntity
+                    if (salesInvoiceISOItems.Any())
                     {
-                        SIId = salesInvoice.FirstOrDefault().Id,
-                        ItemId = salesOrderItem.ItemId,
-                        ItemInventoryId = salesOrderItem.ItemInventoryId,
-                        UnitId = salesOrderItem.UnitId,
-                        Price = salesOrderItem.Price,
-                        DiscountId = salesOrderItem.DiscountId,
-                        DiscountRate = salesOrderItem.DiscountRate,
-                        DiscountAmount = salesOrderItem.DiscountAmount,
-                        NetPrice = salesOrderItem.NetPrice,
-                        Quantity = salesOrderItem.Quantity,
-                        Amount = salesOrderItem.Amount,
-                        TaxId = salesOrderItem.TaxId,
-                        TaxRate = salesOrderItem.TaxRate,
-                        TaxAmount = salesOrderItem.TaxAmount,
-                        BaseQuantity = salesOrderItem.BaseQuantity,
-                        BasePrice = salesOrderItem.BasePrice
-                    });
+                        foreach (var salesInvoiceISOItem in salesInvoiceISOItems)
+                        {
+                            if (salesInvoiceISOItem.ItemId == salesOrderItem.ItemId)
+                            {
+                                salesOrderItem.Quantity -= salesInvoiceISOItem.Quantity;
+                                salesOrderItem.BaseQuantity -= salesInvoiceISOItem.BaseQuantity;
+
+                                if (salesOrderItem.Quantity < 0)
+                                {
+                                    salesOrderItem.Quantity = 0;
+                                }
+
+                                if (salesOrderItem.BaseQuantity < 0)
+                                {
+                                    salesOrderItem.BaseQuantity = 0;
+                                }
+                            }
+                        }
+
+                        Decimal quantity = salesOrderItem.Quantity;
+                        Decimal price = salesOrderItem.Price;
+
+                        Decimal discountRate = salesOrderItem.DiscountRate;
+                        Decimal discountAmount = 0;
+
+                        if (discountRate > 0)
+                        {
+                            discountAmount = price * (discountRate / 100);
+                        }
+
+                        Decimal netPrice = price;
+                        if (discountAmount > 0)
+                        {
+                            netPrice = price - discountAmount;
+                        }
+
+                        Decimal amount = quantity * netPrice;
+
+                        Decimal taxRate = salesOrderItem.TaxRate;
+                        Decimal taxAmount = 0;
+
+                        if (taxRate > 0)
+                        {
+                            taxAmount = (amount / (1 + (taxRate / 100))) * (taxRate / 100);
+                        }
+
+                        salesInvoiceItemEntities.Add(new Entities.TrnSalesInvoiceItemEntity
+                        {
+                            SIId = salesInvoice.FirstOrDefault().Id,
+                            ItemId = salesOrderItem.ItemId,
+                            ItemInventoryId = salesOrderItem.ItemInventoryId,
+                            UnitId = salesOrderItem.UnitId,
+                            Price = salesOrderItem.Price,
+                            DiscountId = salesOrderItem.DiscountId,
+                            DiscountRate = salesOrderItem.DiscountRate,
+                            DiscountAmount = discountAmount,
+                            NetPrice = netPrice,
+                            Quantity = salesOrderItem.Quantity,
+                            Amount = amount,
+                            TaxId = salesOrderItem.TaxId,
+                            TaxRate = salesOrderItem.TaxRate,
+                            TaxAmount = taxAmount,
+                            BaseQuantity = 0,
+                            BasePrice = 0
+                        });
+                    }
+                    else
+                    {
+                        salesInvoiceItemEntities.Add(new Entities.TrnSalesInvoiceItemEntity
+                        {
+                            SIId = salesInvoice.FirstOrDefault().Id,
+                            ItemId = salesOrderItem.ItemId,
+                            ItemInventoryId = salesOrderItem.ItemInventoryId,
+                            UnitId = salesOrderItem.UnitId,
+                            Price = salesOrderItem.Price,
+                            DiscountId = salesOrderItem.DiscountId,
+                            DiscountRate = salesOrderItem.DiscountRate,
+                            DiscountAmount = salesOrderItem.DiscountAmount,
+                            NetPrice = salesOrderItem.NetPrice,
+                            Quantity = salesOrderItem.Quantity,
+                            Amount = salesOrderItem.Amount,
+                            TaxId = salesOrderItem.TaxId,
+                            TaxRate = salesOrderItem.TaxRate,
+                            TaxAmount = salesOrderItem.TaxAmount,
+                            BaseQuantity = salesOrderItem.BaseQuantity,
+                            BasePrice = salesOrderItem.BasePrice
+                        });
+                    }
+
+
+
+
                 }
 
-                foreach (var salesInvoiceItem in salesInvoiceItemEntities)
+                var salesInvoiceItemEntitiesGroupBy = salesInvoiceItemEntities.GroupBy(d => d.ItemId).Select(d => d.First());
+
+                foreach (var salesInvoiceItem in salesInvoiceItemEntitiesGroupBy)
                 {
                     var loadSalesOrderItem = AddSalesInvoiceItem(salesInvoiceItem);
 
