@@ -108,10 +108,10 @@ namespace easyfmis.Controllers
                     {
                         purchaseOrderItem.BaseQuantity -= receivingReceiptPurchaseOrderItem.Quantity;
 
-                        //if (purchaseOrderItem.BaseQuantity < 0)
-                        //{
-                        //    purchaseOrderItem.BaseQuantity = 0;
-                        //}
+                        if (purchaseOrderItem.BaseQuantity < 0)
+                        {
+                            purchaseOrderItem.BaseQuantity = 0;
+                        }
 
                         POItems.Add(purchaseOrderItem);
                     }
