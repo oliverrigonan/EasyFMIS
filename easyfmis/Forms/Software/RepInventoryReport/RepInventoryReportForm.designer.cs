@@ -105,7 +105,7 @@
             // 
             // comboBoxItemCode
             // 
-            this.comboBoxItemCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxItemCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxItemCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxItemCode.FormattingEnabled = true;
             this.comboBoxItemCode.Location = new System.Drawing.Point(405, 189);
@@ -128,7 +128,7 @@
             // 
             // comboBoxItem
             // 
-            this.comboBoxItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBoxItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxItem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxItem.FormattingEnabled = true;
             this.comboBoxItem.Location = new System.Drawing.Point(405, 157);

@@ -144,10 +144,10 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                 if (addReceivingReceiptItem[1].Equals("0") == false)
                 {
                     trnReceivingReceiptDetailForm.UpdateReceivingReceiptItemDataSource();
-                    if (trnReceivingReceiptDetailSearchPurchaseOrderItemForm != null)
-                    {
-                        trnReceivingReceiptDetailSearchPurchaseOrderItemForm.UpdateSearchPurchaseOrderItemDataSource();
-                    }
+                    //if (trnReceivingReceiptDetailSearchPurchaseOrderItemForm != null)
+                    //{
+                    //    trnReceivingReceiptDetailSearchPurchaseOrderItemForm.UpdateSearchPurchaseOrderItemDataSource();
+                    //}
                     Close();
                 }
                 else
