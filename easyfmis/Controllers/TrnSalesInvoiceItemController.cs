@@ -597,7 +597,39 @@ namespace easyfmis.Controllers
                                   Remarks = d.Remarks
                               };
 
-            return salesOrders.OrderByDescending(d => d.Id).ToList();
+            List<Entities.TrnSalesOrderEntity> objSalesOrder = new List<Entities.TrnSalesOrderEntity>();
+
+            foreach (var salesOrder in salesOrders) {
+
+                var salesOrderItems = from d in db.TrnSalesOrderItems
+                                        where d.TrnSalesOrder.Id == salesOrder.Id
+                                        select d;
+
+                Boolean notEqualToZero = false;
+
+                foreach (var salesOrderItem in salesOrderItems) {
+                    var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
+                                            where d.TrnSalesInvoice.CustomerId == customerId
+                                            && d.TrnSalesInvoice.BranchId == currentBranchId
+                                            && d.TrnSalesInvoice.SOId == salesOrder.Id
+                                            && d.TrnSalesInvoice.IsLocked == true
+                                            select d;
+
+                    foreach (var salesInvoiceItem in salesInvoiceItems) {
+                        if (salesOrderItem.ItemId == salesInvoiceItem.ItemId) {
+                            salesOrderItem.Quantity -= salesInvoiceItem.Quantity;
+                        }
+                    }
+
+                    if (salesOrderItem.Quantity > 0) {
+                        notEqualToZero = true;
+                        objSalesOrder.Add(salesOrder);
+                        break;
+                    }
+                }
+            }
+
+            return objSalesOrder.OrderByDescending(d => d.Id).ToList();
         }
 
         // =============
@@ -733,11 +765,6 @@ namespace easyfmis.Controllers
                                 {
                                     salesOrderItem.Quantity = 0;
                                 }
-
-                                if (salesOrderItem.BaseQuantity < 0)
-                                {
-                                    salesOrderItem.BaseQuantity = 0;
-                                }
                             }
                         }
 
@@ -768,25 +795,27 @@ namespace easyfmis.Controllers
                             taxAmount = (amount / (1 + (taxRate / 100))) * (taxRate / 100);
                         }
 
-                        salesInvoiceItemEntities.Add(new Entities.TrnSalesInvoiceItemEntity
-                        {
-                            SIId = salesInvoice.FirstOrDefault().Id,
-                            ItemId = salesOrderItem.ItemId,
-                            ItemInventoryId = salesOrderItem.ItemInventoryId,
-                            UnitId = salesOrderItem.UnitId,
-                            Price = salesOrderItem.Price,
-                            DiscountId = salesOrderItem.DiscountId,
-                            DiscountRate = salesOrderItem.DiscountRate,
-                            DiscountAmount = discountAmount,
-                            NetPrice = netPrice,
-                            Quantity = salesOrderItem.Quantity,
-                            Amount = amount,
-                            TaxId = salesOrderItem.TaxId,
-                            TaxRate = salesOrderItem.TaxRate,
-                            TaxAmount = taxAmount,
-                            BaseQuantity = 0,
-                            BasePrice = 0
-                        });
+                        if (salesOrderItem.Quantity > 0) {
+                            salesInvoiceItemEntities.Add(new Entities.TrnSalesInvoiceItemEntity
+                            {
+                                SIId = salesInvoice.FirstOrDefault().Id,
+                                ItemId = salesOrderItem.ItemId,
+                                ItemInventoryId = salesOrderItem.ItemInventoryId,
+                                UnitId = salesOrderItem.UnitId,
+                                Price = salesOrderItem.Price,
+                                DiscountId = salesOrderItem.DiscountId,
+                                DiscountRate = salesOrderItem.DiscountRate,
+                                DiscountAmount = discountAmount,
+                                NetPrice = netPrice,
+                                Quantity = salesOrderItem.Quantity,
+                                Amount = amount,
+                                TaxId = salesOrderItem.TaxId,
+                                TaxRate = salesOrderItem.TaxRate,
+                                TaxAmount = taxAmount,
+                                BaseQuantity = 0,
+                                BasePrice = 0
+                            });
+                        }
                     }
                     else
                     {
@@ -810,15 +839,11 @@ namespace easyfmis.Controllers
                             BasePrice = salesOrderItem.BasePrice
                         });
                     }
-
-
-
-
                 }
 
-                var salesInvoiceItemEntitiesGroupBy = salesInvoiceItemEntities.GroupBy(d => d.ItemId).Select(d => d.First());
+                //var salesInvoiceItemEntitiesGroupBy = salesInvoiceItemEntities.GroupBy(d => d.ItemId).Select(d => d.First());
 
-                foreach (var salesInvoiceItem in salesInvoiceItemEntitiesGroupBy)
+                foreach (var salesInvoiceItem in salesInvoiceItemEntities)
                 {
                     var loadSalesOrderItem = AddSalesInvoiceItem(salesInvoiceItem);
 

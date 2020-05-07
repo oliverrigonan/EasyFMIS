@@ -388,5 +388,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             textBoxPrice.Text = price.ToString("#,##0.00");
             ComputeAmount();
         }
+
+        private void salesInvoiceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ComputeAmount();
+        }
     }
 }

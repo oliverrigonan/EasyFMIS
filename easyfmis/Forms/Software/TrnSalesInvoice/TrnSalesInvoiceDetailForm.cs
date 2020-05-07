@@ -31,6 +31,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         public PagedList<Entities.DgvTrnInventoryEntriesEntity> inventoryEntriesPageList = new PagedList<Entities.DgvTrnInventoryEntriesEntity>(inventoryEntriesData, inventoryEntriesPageNumber, inventoryEntriesPageSize);
         public BindingSource inventoryEntriesDataSource = new BindingSource();
 
+        public Decimal SITotalItemPrice = 0;
+
         public TrnSalesInvoiceDetailForm(SysSoftwareForm softwareForm, TrnSalesInvoiceForm salesInvoiceListForm, Entities.TrnSalesInvoiceEntity salesInvoiceEntity)
         {
             InitializeComponent();
@@ -352,6 +354,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                             };
 
                 textBoxTotalDiscountAmount.Text = listSalesInvoiceItem.Sum(d => d.DiscountAmount).ToString("#,##0.00");
+                SITotalItemPrice = listSalesInvoiceItem.Sum(d => d.Price);
                 textBoxTotalAmount.Text = listSalesInvoiceItem.Sum(d => d.Amount).ToString("#,##0.00");
 
                 return Task.FromResult(items.ToList());
