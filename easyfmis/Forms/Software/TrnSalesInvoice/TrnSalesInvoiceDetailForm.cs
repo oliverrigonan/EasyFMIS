@@ -319,10 +319,10 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         {
             Controllers.TrnSalesInvoiceItemController trnSalesInvoiceItemController = new Controllers.TrnSalesInvoiceItemController();
 
-            List<Entities.TrnSalesInvoiceItemEntity> listSalesInvoiceItem = trnSalesInvoiceItemController.ListSalesInvoiceItem(trnSalesInvoiceEntity.Id);
-            if (listSalesInvoiceItem.Any())
+            List<Entities.TrnSalesInvoiceItemEntity> listSalesInvoiceItems = trnSalesInvoiceItemController.ListSalesInvoiceItem(trnSalesInvoiceEntity.Id);
+            if (listSalesInvoiceItems.Any())
             {
-                var items = from d in listSalesInvoiceItem
+                var items = from d in listSalesInvoiceItems
                             select new Entities.DgvSalesInvoiceItemEntity
                             {
                                 ColumnSalesInvoiceItemListButtonEdit = "Edit",
@@ -353,9 +353,16 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSalesInvoiceItemListSpace = ""
                             };
 
-                textBoxTotalDiscountAmount.Text = listSalesInvoiceItem.Sum(d => d.DiscountAmount).ToString("#,##0.00");
-                SITotalItemPrice = listSalesInvoiceItem.Sum(d => d.Price);
-                textBoxTotalAmount.Text = listSalesInvoiceItem.Sum(d => d.Amount).ToString("#,##0.00");
+                Decimal TotalDiscountAmount = 0;
+
+                foreach (var listSalesInvoiceItem in listSalesInvoiceItems) {
+                    SITotalItemPrice += (listSalesInvoiceItem.BaseQuantity * listSalesInvoiceItem.BasePrice);
+                    TotalDiscountAmount += (listSalesInvoiceItem.DiscountAmount * listSalesInvoiceItem.BaseQuantity);
+                }
+
+                textBoxTotalDiscountAmount.Text = TotalDiscountAmount.ToString("#,##0.00");
+                textBoxTotalAmount.Text = listSalesInvoiceItems.Sum(d => d.Amount).ToString("#,##0.00");
+
 
                 return Task.FromResult(items.ToList());
             }

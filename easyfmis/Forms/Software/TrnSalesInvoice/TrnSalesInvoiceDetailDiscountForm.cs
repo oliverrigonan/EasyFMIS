@@ -14,7 +14,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
     {
         public TrnSalesInvoiceDetailForm trnSalesInvoiceDetailForm;
         public Entities.TrnSalesInvoiceEntity trnSalesInvoiceEntity;
-        public Decimal totalSIPrice = 0;
+        public static Decimal totalSIPrice = 0;
 
         public TrnSalesInvoiceDetailDiscountForm(TrnSalesInvoiceDetailForm salesInvoiceDetailForm, Entities.TrnSalesInvoiceEntity salesInvoiceEntity)
         {
@@ -217,7 +217,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
                 if (discountRate > 0)
                 {
-                    discountAmount = (totalSIPrice * discountRate) / 100;
+                    discountAmount = totalSIPrice * (discountRate / 100);
                 }
                 else
                 {
@@ -225,7 +225,6 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 }
 
                 textBoxDiscountAmount.Text = discountAmount.ToString("#,##0.00");
-                //textBoxDiscountAmount.Text = discountAmount.ToString("#,##0.00###");
             }
             catch (Exception e)
             {
