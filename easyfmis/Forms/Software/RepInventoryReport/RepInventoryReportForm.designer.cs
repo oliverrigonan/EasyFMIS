@@ -105,10 +105,10 @@
             // 
             // comboBoxItemCode
             // 
-            this.comboBoxItemCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxItemCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxItemCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxItemCode.FormattingEnabled = true;
-            this.comboBoxItemCode.Location = new System.Drawing.Point(405, 189);
+            this.comboBoxItemCode.Location = new System.Drawing.Point(405, 194);
             this.comboBoxItemCode.Name = "comboBoxItemCode";
             this.comboBoxItemCode.Size = new System.Drawing.Size(334, 27);
             this.comboBoxItemCode.TabIndex = 5;
@@ -118,7 +118,7 @@
             // 
             this.labelItemCode.AutoSize = true;
             this.labelItemCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelItemCode.Location = new System.Drawing.Point(325, 190);
+            this.labelItemCode.Location = new System.Drawing.Point(325, 197);
             this.labelItemCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelItemCode.Name = "labelItemCode";
             this.labelItemCode.Size = new System.Drawing.Size(76, 19);
@@ -128,10 +128,10 @@
             // 
             // comboBoxItem
             // 
-            this.comboBoxItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxItem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxItem.FormattingEnabled = true;
-            this.comboBoxItem.Location = new System.Drawing.Point(405, 157);
+            this.comboBoxItem.Location = new System.Drawing.Point(405, 162);
             this.comboBoxItem.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxItem.Name = "comboBoxItem";
             this.comboBoxItem.Size = new System.Drawing.Size(334, 27);
@@ -142,7 +142,7 @@
             // 
             this.labelItem.AutoSize = true;
             this.labelItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelItem.Location = new System.Drawing.Point(360, 159);
+            this.labelItem.Location = new System.Drawing.Point(360, 165);
             this.labelItem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelItem.Name = "labelItem";
             this.labelItem.Size = new System.Drawing.Size(40, 19);
@@ -152,8 +152,9 @@
             // 
             // comboBoxBranch
             // 
+            this.comboBoxBranch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(405, 127);
+            this.comboBoxBranch.Location = new System.Drawing.Point(405, 131);
             this.comboBoxBranch.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxBranch.Name = "comboBoxBranch";
             this.comboBoxBranch.Size = new System.Drawing.Size(334, 27);
@@ -164,7 +165,7 @@
             // 
             this.labelBranch.AutoSize = true;
             this.labelBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelBranch.Location = new System.Drawing.Point(347, 130);
+            this.labelBranch.Location = new System.Drawing.Point(347, 134);
             this.labelBranch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBranch.Name = "labelBranch";
             this.labelBranch.Size = new System.Drawing.Size(54, 19);
@@ -177,7 +178,7 @@
             this.comboBoxCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCompany.FormattingEnabled = true;
-            this.comboBoxCompany.Location = new System.Drawing.Point(405, 98);
+            this.comboBoxCompany.Location = new System.Drawing.Point(405, 100);
             this.comboBoxCompany.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCompany.Name = "comboBoxCompany";
             this.comboBoxCompany.Size = new System.Drawing.Size(334, 27);
@@ -189,7 +190,7 @@
             // 
             this.labelCompany.AutoSize = true;
             this.labelCompany.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelCompany.Location = new System.Drawing.Point(330, 100);
+            this.labelCompany.Location = new System.Drawing.Point(330, 103);
             this.labelCompany.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompany.Name = "labelCompany";
             this.labelCompany.Size = new System.Drawing.Size(71, 19);
@@ -211,7 +212,7 @@
             // 
             this.labelStartDate.AutoSize = true;
             this.labelStartDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelStartDate.Location = new System.Drawing.Point(326, 42);
+            this.labelStartDate.Location = new System.Drawing.Point(326, 46);
             this.labelStartDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStartDate.Name = "labelStartDate";
             this.labelStartDate.Size = new System.Drawing.Size(74, 19);
@@ -234,7 +235,7 @@
             // dateTimePickerEndDate
             // 
             this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerEndDate.Location = new System.Drawing.Point(405, 69);
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(405, 70);
             this.dateTimePickerEndDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             this.dateTimePickerEndDate.Size = new System.Drawing.Size(177, 26);
@@ -269,7 +270,7 @@
             // 
             this.labelEndDate.AutoSize = true;
             this.labelEndDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelEndDate.Location = new System.Drawing.Point(332, 71);
+            this.labelEndDate.Location = new System.Drawing.Point(332, 76);
             this.labelEndDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEndDate.Name = "labelEndDate";
             this.labelEndDate.Size = new System.Drawing.Size(68, 19);

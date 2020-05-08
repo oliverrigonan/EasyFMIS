@@ -30,6 +30,8 @@
         {
             this.listBoxAccountsReceivableReport = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboBoxSoldBy = new System.Windows.Forms.ComboBox();
+            this.labelSoldBy = new System.Windows.Forms.Label();
             this.comboBoxCustomer = new System.Windows.Forms.ComboBox();
             this.labelCustomer = new System.Windows.Forms.Label();
             this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
@@ -50,8 +52,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.comboBoxSoldBy = new System.Windows.Forms.ComboBox();
-            this.labelSoldBy = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -64,7 +64,7 @@
             this.listBoxAccountsReceivableReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxAccountsReceivableReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxAccountsReceivableReport.FormattingEnabled = true;
-            this.listBoxAccountsReceivableReport.ItemHeight = 23;
+            this.listBoxAccountsReceivableReport.ItemHeight = 19;
             this.listBoxAccountsReceivableReport.Items.AddRange(new object[] {
             "Accounts Receivable Report",
             "Statement of Account",
@@ -73,8 +73,9 @@
             "Sales Invoice Detail Report",
             "Collection Detail Report"});
             this.listBoxAccountsReceivableReport.Location = new System.Drawing.Point(0, 0);
+            this.listBoxAccountsReceivableReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxAccountsReceivableReport.Name = "listBoxAccountsReceivableReport";
-            this.listBoxAccountsReceivableReport.Size = new System.Drawing.Size(380, 619);
+            this.listBoxAccountsReceivableReport.Size = new System.Drawing.Size(304, 495);
             this.listBoxAccountsReceivableReport.TabIndex = 4;
             this.listBoxAccountsReceivableReport.SelectedIndexChanged += new System.EventHandler(this.listBoxSalesReport_SelectedIndexChanged);
             // 
@@ -97,19 +98,45 @@
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.panel3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 63);
+            this.panel4.Location = new System.Drawing.Point(0, 50);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1400, 637);
+            this.panel4.Size = new System.Drawing.Size(1027, 510);
             this.panel4.TabIndex = 10;
+            // 
+            // comboBoxSoldBy
+            // 
+            this.comboBoxSoldBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBoxSoldBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxSoldBy.FormattingEnabled = true;
+            this.comboBoxSoldBy.Location = new System.Drawing.Point(403, 223);
+            this.comboBoxSoldBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxSoldBy.Name = "comboBoxSoldBy";
+            this.comboBoxSoldBy.Size = new System.Drawing.Size(334, 27);
+            this.comboBoxSoldBy.TabIndex = 40;
+            this.comboBoxSoldBy.Visible = false;
+            // 
+            // labelSoldBy
+            // 
+            this.labelSoldBy.AutoSize = true;
+            this.labelSoldBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.labelSoldBy.Location = new System.Drawing.Point(342, 226);
+            this.labelSoldBy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSoldBy.Name = "labelSoldBy";
+            this.labelSoldBy.Size = new System.Drawing.Size(57, 19);
+            this.labelSoldBy.TabIndex = 41;
+            this.labelSoldBy.Text = "Sold By:";
+            this.labelSoldBy.Visible = false;
             // 
             // comboBoxCustomer
             // 
             this.comboBoxCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCustomer.FormattingEnabled = true;
-            this.comboBoxCustomer.Location = new System.Drawing.Point(504, 232);
+            this.comboBoxCustomer.Location = new System.Drawing.Point(403, 192);
+            this.comboBoxCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCustomer.Name = "comboBoxCustomer";
-            this.comboBoxCustomer.Size = new System.Drawing.Size(416, 31);
+            this.comboBoxCustomer.Size = new System.Drawing.Size(334, 27);
             this.comboBoxCustomer.TabIndex = 38;
             this.comboBoxCustomer.Visible = false;
             // 
@@ -117,9 +144,10 @@
             // 
             this.labelCustomer.AutoSize = true;
             this.labelCustomer.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelCustomer.Location = new System.Drawing.Point(410, 235);
+            this.labelCustomer.Location = new System.Drawing.Point(328, 195);
+            this.labelCustomer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCustomer.Name = "labelCustomer";
-            this.labelCustomer.Size = new System.Drawing.Size(88, 23);
+            this.labelCustomer.Size = new System.Drawing.Size(72, 19);
             this.labelCustomer.TabIndex = 39;
             this.labelCustomer.Text = "Customer:";
             this.labelCustomer.Visible = false;
@@ -127,9 +155,10 @@
             // dateTimePickerEndDate
             // 
             this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerEndDate.Location = new System.Drawing.Point(504, 86);
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(403, 70);
+            this.dateTimePickerEndDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
-            this.dateTimePickerEndDate.Size = new System.Drawing.Size(220, 30);
+            this.dateTimePickerEndDate.Size = new System.Drawing.Size(177, 26);
             this.dateTimePickerEndDate.TabIndex = 36;
             this.dateTimePickerEndDate.Visible = false;
             // 
@@ -137,9 +166,10 @@
             // 
             this.labelEndDate.AutoSize = true;
             this.labelEndDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelEndDate.Location = new System.Drawing.Point(414, 89);
+            this.labelEndDate.Location = new System.Drawing.Point(331, 74);
+            this.labelEndDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEndDate.Name = "labelEndDate";
-            this.labelEndDate.Size = new System.Drawing.Size(84, 23);
+            this.labelEndDate.Size = new System.Drawing.Size(68, 19);
             this.labelEndDate.TabIndex = 37;
             this.labelEndDate.Text = "End Date:";
             this.labelEndDate.Visible = false;
@@ -147,9 +177,10 @@
             // dateTimePickerStartDate
             // 
             this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerStartDate.Location = new System.Drawing.Point(504, 50);
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(403, 40);
+            this.dateTimePickerStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
-            this.dateTimePickerStartDate.Size = new System.Drawing.Size(220, 30);
+            this.dateTimePickerStartDate.Size = new System.Drawing.Size(177, 26);
             this.dateTimePickerStartDate.TabIndex = 34;
             this.dateTimePickerStartDate.Visible = false;
             // 
@@ -157,9 +188,10 @@
             // 
             this.labelStartDate.AutoSize = true;
             this.labelStartDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelStartDate.Location = new System.Drawing.Point(408, 53);
+            this.labelStartDate.Location = new System.Drawing.Point(326, 44);
+            this.labelStartDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStartDate.Name = "labelStartDate";
-            this.labelStartDate.Size = new System.Drawing.Size(90, 23);
+            this.labelStartDate.Size = new System.Drawing.Size(74, 19);
             this.labelStartDate.TabIndex = 35;
             this.labelStartDate.Text = "Start Date:";
             this.labelStartDate.Visible = false;
@@ -169,9 +201,10 @@
             this.comboBoxBranch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxBranch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(504, 195);
+            this.comboBoxBranch.Location = new System.Drawing.Point(403, 161);
+            this.comboBoxBranch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(416, 31);
+            this.comboBoxBranch.Size = new System.Drawing.Size(334, 27);
             this.comboBoxBranch.TabIndex = 30;
             this.comboBoxBranch.Visible = false;
             // 
@@ -179,9 +212,10 @@
             // 
             this.labelBranch.AutoSize = true;
             this.labelBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelBranch.Location = new System.Drawing.Point(431, 198);
+            this.labelBranch.Location = new System.Drawing.Point(345, 164);
+            this.labelBranch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBranch.Name = "labelBranch";
-            this.labelBranch.Size = new System.Drawing.Size(67, 23);
+            this.labelBranch.Size = new System.Drawing.Size(54, 19);
             this.labelBranch.TabIndex = 33;
             this.labelBranch.Text = "Branch:";
             this.labelBranch.Visible = false;
@@ -191,9 +225,10 @@
             this.comboBoxCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCompany.FormattingEnabled = true;
-            this.comboBoxCompany.Location = new System.Drawing.Point(504, 158);
+            this.comboBoxCompany.Location = new System.Drawing.Point(403, 130);
+            this.comboBoxCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCompany.Name = "comboBoxCompany";
-            this.comboBoxCompany.Size = new System.Drawing.Size(416, 31);
+            this.comboBoxCompany.Size = new System.Drawing.Size(334, 27);
             this.comboBoxCompany.TabIndex = 29;
             this.comboBoxCompany.Visible = false;
             // 
@@ -201,9 +236,10 @@
             // 
             this.labelCompany.AutoSize = true;
             this.labelCompany.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelCompany.Location = new System.Drawing.Point(411, 161);
+            this.labelCompany.Location = new System.Drawing.Point(329, 133);
+            this.labelCompany.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompany.Name = "labelCompany";
-            this.labelCompany.Size = new System.Drawing.Size(87, 23);
+            this.labelCompany.Size = new System.Drawing.Size(71, 19);
             this.labelCompany.TabIndex = 32;
             this.labelCompany.Text = "Company:";
             this.labelCompany.Visible = false;
@@ -211,9 +247,10 @@
             // dateTimePickerDateAsOf
             // 
             this.dateTimePickerDateAsOf.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDateAsOf.Location = new System.Drawing.Point(504, 122);
+            this.dateTimePickerDateAsOf.Location = new System.Drawing.Point(403, 100);
+            this.dateTimePickerDateAsOf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerDateAsOf.Name = "dateTimePickerDateAsOf";
-            this.dateTimePickerDateAsOf.Size = new System.Drawing.Size(220, 30);
+            this.dateTimePickerDateAsOf.Size = new System.Drawing.Size(177, 26);
             this.dateTimePickerDateAsOf.TabIndex = 28;
             this.dateTimePickerDateAsOf.Visible = false;
             // 
@@ -221,9 +258,10 @@
             // 
             this.labelDateAsOf.AutoSize = true;
             this.labelDateAsOf.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelDateAsOf.Location = new System.Drawing.Point(407, 125);
+            this.labelDateAsOf.Location = new System.Drawing.Point(326, 104);
+            this.labelDateAsOf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDateAsOf.Name = "labelDateAsOf";
-            this.labelDateAsOf.Size = new System.Drawing.Size(91, 23);
+            this.labelDateAsOf.Size = new System.Drawing.Size(74, 19);
             this.labelDateAsOf.TabIndex = 31;
             this.labelDateAsOf.Text = "Date as of:";
             this.labelDateAsOf.Visible = false;
@@ -234,9 +272,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.listBoxAccountsReceivableReport);
-            this.panel2.Location = new System.Drawing.Point(12, 6);
+            this.panel2.Location = new System.Drawing.Point(10, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(380, 619);
+            this.panel2.Size = new System.Drawing.Size(304, 495);
             this.panel2.TabIndex = 22;
             // 
             // panel3
@@ -245,9 +284,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(188)))), ((int)(((byte)(0)))));
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(398, 6);
+            this.panel3.Location = new System.Drawing.Point(318, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(990, 38);
+            this.panel3.Size = new System.Drawing.Size(699, 30);
             this.panel3.TabIndex = 0;
             // 
             // label2
@@ -255,9 +295,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(9, 7);
+            this.label2.Location = new System.Drawing.Point(7, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 23);
+            this.label2.Size = new System.Drawing.Size(49, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "Filters";
             // 
@@ -270,8 +311,9 @@
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1400, 63);
+            this.panel1.Size = new System.Drawing.Size(1027, 50);
             this.panel1.TabIndex = 9;
             // 
             // buttonView
@@ -283,9 +325,10 @@
             this.buttonView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonView.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonView.ForeColor = System.Drawing.Color.White;
-            this.buttonView.Location = new System.Drawing.Point(1206, 12);
+            this.buttonView.Location = new System.Drawing.Point(872, 10);
+            this.buttonView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonView.Name = "buttonView";
-            this.buttonView.Size = new System.Drawing.Size(88, 40);
+            this.buttonView.Size = new System.Drawing.Size(70, 32);
             this.buttonView.TabIndex = 20;
             this.buttonView.TabStop = false;
             this.buttonView.Text = "View";
@@ -295,9 +338,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.Reports;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -306,10 +350,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Location = new System.Drawing.Point(50, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 35);
+            this.label1.Size = new System.Drawing.Size(278, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Accounts Receivable Report";
             // 
@@ -322,46 +366,26 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
+            this.buttonClose.Location = new System.Drawing.Point(947, 10);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(88, 40);
+            this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_OnClick);
             // 
-            // comboBoxSoldBy
-            // 
-            this.comboBoxSoldBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBoxSoldBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxSoldBy.FormattingEnabled = true;
-            this.comboBoxSoldBy.Location = new System.Drawing.Point(504, 269);
-            this.comboBoxSoldBy.Name = "comboBoxSoldBy";
-            this.comboBoxSoldBy.Size = new System.Drawing.Size(416, 31);
-            this.comboBoxSoldBy.TabIndex = 40;
-            this.comboBoxSoldBy.Visible = false;
-            // 
-            // labelSoldBy
-            // 
-            this.labelSoldBy.AutoSize = true;
-            this.labelSoldBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.labelSoldBy.Location = new System.Drawing.Point(428, 272);
-            this.labelSoldBy.Name = "labelSoldBy";
-            this.labelSoldBy.Size = new System.Drawing.Size(70, 23);
-            this.labelSoldBy.TabIndex = 41;
-            this.labelSoldBy.Text = "Sold By:";
-            this.labelSoldBy.Visible = false;
-            // 
             // RepAccountsReceivableReportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1400, 700);
+            this.ClientSize = new System.Drawing.Size(1027, 560);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RepAccountsReceivableReportForm";
             this.Text = "RepAccountsReceivableReportForm";
             this.panel4.ResumeLayout(false);
