@@ -96,6 +96,7 @@ namespace easyfmis.Controllers
                 var articleGroup = from d in db.MstArticleGroups
                                    where d.Id == objDisbursementLine.ArticleGroupId
                                    select d;
+
                 if (articleGroup.Any() == false)
                 {
                     return new String[] { "Article group not found.", "0" };
@@ -211,7 +212,6 @@ namespace easyfmis.Controllers
                 else
                 {
                     return new String[] { "Disbursement line transaction not found.", "0" };
-
                 }
             }
             catch (Exception e)
@@ -265,7 +265,6 @@ namespace easyfmis.Controllers
                 else
                 {
                     return new String[] { "Disbursement line transaction not found.", "0" };
-
                 }
             }
             catch (Exception e)

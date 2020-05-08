@@ -682,7 +682,6 @@ namespace easyfmis.Controllers
         {
             try
             {
-
                 var currentUserLogin = from d in db.MstUsers where d.Id == Convert.ToInt32(Modules.SysCurrentModule.GetCurrentSettings().CurrentUserId) select d;
                 var currentBranchId = currentUserLogin.FirstOrDefault().BranchId;
 
@@ -750,7 +749,6 @@ namespace easyfmis.Controllers
                 var salesInvoiceISOItems = from d in db.TrnSalesInvoiceItems
                                            where d.TrnSalesInvoice.SOId == sOId
                                            select d;
-
 
                 foreach (var salesOrderItem in salesOrderItems)
                 {
@@ -844,8 +842,6 @@ namespace easyfmis.Controllers
                     }
                 }
 
-                //var salesInvoiceItemEntitiesGroupBy = salesInvoiceItemEntities.GroupBy(d => d.ItemId).Select(d => d.First());
-
                 foreach (var salesInvoiceItem in salesInvoiceItemEntities)
                 {
                     var loadSalesOrderItem = AddSalesInvoiceItem(salesInvoiceItem);
@@ -862,7 +858,6 @@ namespace easyfmis.Controllers
             {
                 return new String[] { e.Message, "0" };
             }
-
         }
     }
 }

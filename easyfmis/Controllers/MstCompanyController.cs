@@ -26,6 +26,7 @@ namespace easyfmis.Controllers
                                 Company = d.Company,
                                 IsLocked = d.IsLocked
                             };
+
             return companies.OrderByDescending(d => d.Id).ToList();
         }
 
@@ -43,6 +44,7 @@ namespace easyfmis.Controllers
                               Company = d.Company,
                               IsLocked = d.IsLocked
                           };
+
             return company.FirstOrDefault();
         }
 
@@ -190,7 +192,6 @@ namespace easyfmis.Controllers
                     else
                     {
                         return new string[] { "Company is lock.", "0" };
-
                     }
                 }
                 else
@@ -203,7 +204,5 @@ namespace easyfmis.Controllers
                 return new string[] { e.Message, "0" };
             }
         }
-
-
     }
 }

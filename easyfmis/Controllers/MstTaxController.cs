@@ -119,7 +119,6 @@ namespace easyfmis.Controllers
                     updateTax.AccountId = objTax.AccountId;
                     updateTax.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     updateTax.UpdatedDateTime = DateTime.Today;
-
                     db.SubmitChanges();
 
                     return new string[] { "", "" };

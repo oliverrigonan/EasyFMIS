@@ -217,7 +217,6 @@ namespace easyfmis.Controllers
                     return new String[] { "Sales order transaction not found.", "0" };
                 }
 
-
                 var item = from d in db.MstArticles
                            where d.Id == objSalesOrderItem.ItemId
                            && d.IsLocked == true
@@ -282,7 +281,6 @@ namespace easyfmis.Controllers
                     TaxAmount = objSalesOrderItem.TaxAmount,
                     BaseQuantity = baseQuantity,
                     BasePrice = item.FirstOrDefault().DefaultPrice
-
                 };
 
                 db.TrnSalesOrderItems.InsertOnSubmit(newSalesOrderItem);
@@ -377,7 +375,6 @@ namespace easyfmis.Controllers
                     updateSalesOrderItem.TaxAmount = objSalesOrderItem.TaxAmount;
                     updateSalesOrderItem.BaseQuantity = baseQuantity;
                     updateSalesOrderItem.BasePrice = item.FirstOrDefault().DefaultPrice;
-
                     db.SubmitChanges();
 
                     return new String[] { "", "1" };
@@ -392,8 +389,6 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
-
 
         // =======================
         // Delete Sales Order Item
@@ -424,7 +419,5 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
-
     }
 }

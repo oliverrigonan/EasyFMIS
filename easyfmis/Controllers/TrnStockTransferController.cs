@@ -150,6 +150,7 @@ namespace easyfmis.Controllers
                 var lastStockTransfer = from d in db.TrnStockTransfers.OrderByDescending(d => d.Id)
                                         where d.BranchId == currentBranchId
                                         select d;
+
                 if (lastStockTransfer.Any())
                 {
                     Int32 newSTNumber = Convert.ToInt32(lastStockTransfer.FirstOrDefault().STNumber) + 1;

@@ -29,6 +29,7 @@ namespace easyfmis.Controllers
                             CurrencyId = d.CurrencyId,
                             Currency = d.MstCurrency.CurrencyCode
                         };
+
             return costs.ToList();
         }
 
@@ -43,6 +44,7 @@ namespace easyfmis.Controllers
                                  Id = d.Id,
                                  CurrencyCode = d.CurrencyCode
                              };
+
             return currencies.ToList();
         }
 

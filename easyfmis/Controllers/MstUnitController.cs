@@ -101,7 +101,6 @@ namespace easyfmis.Controllers
                     updateUnit.Unit = objUnit.Unit;
                     updateUnit.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     updateUnit.UpdatedDateTime = DateTime.Today;
-
                     db.SubmitChanges();
 
                     return new String[] { "", "" };
@@ -146,6 +145,5 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
     }
 }

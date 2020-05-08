@@ -134,7 +134,6 @@ namespace easyfmis.Controllers
                     updateUserForm.CanPrint = objUserForm.CanPrint;
                     updateUserForm.CanPreview = objUserForm.CanPreview;
                     updateUserForm.CanEdit = objUserForm.CanEdit;
-
                     db.SubmitChanges();
 
                     return new String[] { "", "1" };

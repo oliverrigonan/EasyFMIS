@@ -128,6 +128,7 @@ namespace easyfmis.Controllers
                                          VATInTaxId = d.MstArticle.VATInTaxId,
                                          VATInTaxRate = d.MstArticle.MstTax.Rate
                                      };
+
             List<Entities.TrnPurchaseOrderItemEntity> POItems = new List<Entities.TrnPurchaseOrderItemEntity>();
 
             foreach (var purchaseOrderItem in purchaseOrderItems)

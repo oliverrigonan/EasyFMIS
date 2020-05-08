@@ -68,7 +68,6 @@ namespace easyfmis.Controllers
                     CreatedDateTime = DateTime.Today,
                     UpdatedBy = currentUserLogin.FirstOrDefault().Id,
                     UpdatedDateTime = DateTime.Today,
-
                 };
 
                 db.MstPayTypes.InsertOnSubmit(addPayType);

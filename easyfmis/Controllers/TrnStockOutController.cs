@@ -130,6 +130,7 @@ namespace easyfmis.Controllers
                 var lastStockOut = from d in db.TrnStockOuts.OrderByDescending(d => d.Id)
                                    where d.BranchId == currentBranchId
                                    select d;
+
                 if (lastStockOut.Any())
                 {
                     Int32 newOTNumber = Convert.ToInt32(lastStockOut.FirstOrDefault().OTNumber) + 1;

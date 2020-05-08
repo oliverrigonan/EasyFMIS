@@ -55,6 +55,7 @@ namespace easyfmis.Controllers
                                 Cost4 = d.Cost4,
                                 Cost5 = d.Cost5
                             };
+
             return inventory.FirstOrDefault();
         }
 
@@ -77,7 +78,11 @@ namespace easyfmis.Controllers
             return items.ToList();
         }
 
-        public String[] UpdateItemInventory(Entities.MstArticleInventoryEntity objItemInventory) {
+        // =======================
+        // Update - Item Inventory
+        // =======================
+        public String[] UpdateItemInventory(Entities.MstArticleInventoryEntity objItemInventory)
+        {
             try
             {
                 var inventory = from d in db.MstArticleInventories
@@ -96,15 +101,15 @@ namespace easyfmis.Controllers
 
                     return new string[] { "", "" };
                 }
-                else {
+                else
+                {
                     return new String[] { "Item inventory not found!", "0" };
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return new String[] { e.Message, "0" };
             }
-
         }
-
     }
 }

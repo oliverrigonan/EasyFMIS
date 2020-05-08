@@ -25,6 +25,7 @@ namespace easyfmis.Controllers
                                 CurrencyCode = d.CurrencyCode,
                                 Currency = d.Currency
                             };
+
             return currencies.OrderByDescending(d => d.Id).ToList();
         }
 
@@ -130,7 +131,5 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
-
     }
 }

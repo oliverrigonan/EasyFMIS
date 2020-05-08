@@ -13,7 +13,6 @@ namespace easyfmis.Controllers
         // ============
         public Data.easyfmisdbDataContext db = new Data.easyfmisdbDataContext(Modules.SysConnectionStringModule.GetConnectionString());
 
-
         // =================
         // List Article Unit
         // =================
@@ -31,6 +30,7 @@ namespace easyfmis.Controllers
                                    UnitId = d.UnitId,
                                    Unit = d.MstUnit.Unit
                                };
+
             return articleUnits.OrderByDescending(d => d.Id).ToList();
         }
 
@@ -64,6 +64,7 @@ namespace easyfmis.Controllers
                                    UnitId = d.UnitId,
                                    Unit = d.MstUnit.Unit
                                };
+
             return articleUnits.FirstOrDefault();
         }
 

@@ -71,6 +71,7 @@ namespace easyfmis.Controllers
                               Id = d.Id,
                               Company = d.Company
                           };
+
             return company.OrderByDescending(d => d.Id).ToList();
         }
 
@@ -87,8 +88,8 @@ namespace easyfmis.Controllers
                                BranchCode = d.BranchCode,
                                Branch = d.Branch,
                            };
-            return branches.OrderByDescending(d=> d.Id).ToList();
 
+            return branches.OrderByDescending(d=> d.Id).ToList();
         }
 
         // ========
@@ -107,6 +108,7 @@ namespace easyfmis.Controllers
                 var company = from d in db.MstCompanies
                               where d.IsLocked == true
                               select d;
+
                 if (company.Any() == false)
                 {
                     return new String[] { "Company not found", "0" };
@@ -114,11 +116,11 @@ namespace easyfmis.Controllers
 
                 var branch = from d in db.MstBranches
                              select d;
+
                 if (branch.Any() == false)
                 {
                     return new String[] { "Branch not found", "0" };
                 }
-
 
                 Data.MstUser newUser = new Data.MstUser()
                 {

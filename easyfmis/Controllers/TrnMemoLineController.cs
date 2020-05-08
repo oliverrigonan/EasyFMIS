@@ -184,7 +184,6 @@ namespace easyfmis.Controllers
                         updateMemoLine.DebitAmount = objMemoLine.DebitAmount;
                         updateMemoLine.CreditAmount = objMemoLine.CreditAmount;
                         updateMemoLine.Particulars = objMemoLine.Particulars;
-
                         db.SubmitChanges();
 
                         return new String[] { "", "1" };
@@ -230,6 +229,5 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
     }
 }

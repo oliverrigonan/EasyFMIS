@@ -312,8 +312,6 @@ namespace easyfmis.Controllers
                 db.SubmitChanges();
 
                 return new String[] { "", newArticle.Id.ToString() };
-
-
             }
             catch (Exception e)
             {
@@ -463,7 +461,6 @@ namespace easyfmis.Controllers
                     lockArticle.UpdatedBy = objArticle.UpdatedBy;
                     lockArticle.UpdatedDateTime = DateTime.Today;
                     lockArticle.ImagePath = objArticle.ImagePath;
-
                     db.SubmitChanges();
 
                     return new String[] { "", "" };
@@ -552,7 +549,5 @@ namespace easyfmis.Controllers
                 return new String[] { e.Message, "0" };
             }
         }
-
-
     }
 }
