@@ -599,15 +599,15 @@ namespace easyfmis.Controllers
 
             List<Entities.TrnSalesOrderEntity> objSalesOrder = new List<Entities.TrnSalesOrderEntity>();
 
-            foreach (var salesOrder in salesOrders) {
+            foreach (var salesOrder in salesOrders)
+            {
 
                 var salesOrderItems = from d in db.TrnSalesOrderItems
-                                        where d.TrnSalesOrder.Id == salesOrder.Id
-                                        select d;
+                                      where d.TrnSalesOrder.Id == salesOrder.Id
+                                      select d;
 
-                Boolean notEqualToZero = false;
-
-                foreach (var salesOrderItem in salesOrderItems) {
+                foreach (var salesOrderItem in salesOrderItems)
+                {
                     var salesInvoiceItems = from d in db.TrnSalesInvoiceItems
                                             where d.TrnSalesInvoice.CustomerId == customerId
                                             && d.TrnSalesInvoice.BranchId == currentBranchId
@@ -615,14 +615,16 @@ namespace easyfmis.Controllers
                                             && d.TrnSalesInvoice.IsLocked == true
                                             select d;
 
-                    foreach (var salesInvoiceItem in salesInvoiceItems) {
-                        if (salesOrderItem.ItemId == salesInvoiceItem.ItemId) {
+                    foreach (var salesInvoiceItem in salesInvoiceItems)
+                    {
+                        if (salesOrderItem.ItemId == salesInvoiceItem.ItemId)
+                        {
                             salesOrderItem.Quantity -= salesInvoiceItem.Quantity;
                         }
                     }
 
-                    if (salesOrderItem.Quantity > 0) {
-                        notEqualToZero = true;
+                    if (salesOrderItem.Quantity > 0)
+                    {
                         objSalesOrder.Add(salesOrder);
                         break;
                     }
@@ -795,7 +797,8 @@ namespace easyfmis.Controllers
                             taxAmount = (amount / (1 + (taxRate / 100))) * (taxRate / 100);
                         }
 
-                        if (salesOrderItem.Quantity > 0) {
+                        if (salesOrderItem.Quantity > 0)
+                        {
                             salesInvoiceItemEntities.Add(new Entities.TrnSalesInvoiceItemEntity
                             {
                                 SIId = salesInvoice.FirstOrDefault().Id,

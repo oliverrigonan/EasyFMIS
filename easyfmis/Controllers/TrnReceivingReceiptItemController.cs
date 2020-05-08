@@ -65,7 +65,37 @@ namespace easyfmis.Controllers
                                      PONumber = "PO Number: " + d.PONumber,
                                  };
 
-            return purchaseOrders.OrderBy(d => d.PONumber).ToList();
+            List<Entities.TrnPurchaseOrderEntity> objPurchaseOrderEntities = new List<Entities.TrnPurchaseOrderEntity>();
+
+            foreach (var purchaseOrder in purchaseOrders)
+            {
+                var purchaserOrderItems = from d in db.TrnPurchaseOrderItems
+                                          where d.POId == purchaseOrder.Id
+                                          select d;
+
+                var receivingReceiptItems = from d in db.TrnReceivingReceiptItems
+                                            where d.POId == purchaseOrder.Id
+                                            select d;
+
+                foreach (var purchaseOrderItem in purchaserOrderItems)
+                {
+                    foreach (var receivingReceiptItem in receivingReceiptItems)
+                    {
+                        if (purchaseOrderItem.ItemId == receivingReceiptItem.ItemId)
+                        {
+                            purchaseOrderItem.BaseQuantity -= receivingReceiptItem.Quantity;
+                        }
+                    }
+
+                    if (purchaseOrderItem.BaseQuantity > 0)
+                    {
+                        objPurchaseOrderEntities.Add(purchaseOrder);
+                        break;
+                    }
+                }
+            }
+
+            return objPurchaseOrderEntities.OrderBy(d => d.PONumber).ToList();
         }
 
         // ========================
