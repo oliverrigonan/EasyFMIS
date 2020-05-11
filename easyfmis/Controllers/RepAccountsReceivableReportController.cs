@@ -100,6 +100,8 @@ namespace easyfmis.Controllers
         // ======================
         public List<Entities.MstArticleEntity> DropdownListCustomer()
         {
+            List<Entities.MstArticleEntity> objCustomers = new List<Entities.MstArticleEntity>();
+
             var customers = from d in db.MstArticles
                             where d.ArticleTypeId == 2
                             && d.IsLocked == true
@@ -109,7 +111,11 @@ namespace easyfmis.Controllers
                                 Article = d.Article
                             };
 
-            return customers.ToList();
+            objCustomers.Add(new Entities.MstArticleEntity { Id = 0, Article = "" });
+
+            objCustomers.AddRange(customers);
+
+            return objCustomers.ToList();
         }
 
         // ======================
@@ -117,6 +123,8 @@ namespace easyfmis.Controllers
         // ======================
         public List<Entities.MstUserEntity> DropdownListSoldBy()
         {
+            List<Entities.MstUserEntity> objUser = new List<Entities.MstUserEntity>();
+
             var users = from d in db.MstUsers
                         where d.IsLocked == true
                         select new Entities.MstUserEntity
@@ -125,7 +133,55 @@ namespace easyfmis.Controllers
                             UserName = d.UserName
                         };
 
-            return users.ToList();
+            objUser.Add(new Entities.MstUserEntity { Id = 0, UserName = "" });
+
+            objUser.AddRange(users);
+
+            return objUser.ToList();
+        }
+
+        // ==================
+        // Dropdown List Item
+        // ==================
+        public List<Entities.MstArticleEntity> DropdownListItem()
+        {
+            List<Entities.MstArticleEntity> objItem = new List<Entities.MstArticleEntity>();
+            var items = from d in db.MstArticles
+                        where d.ArticleTypeId == 1
+                        select new Entities.MstArticleEntity
+                        {
+                            Id = d.Id,
+                            Article = d.Article
+                        };
+
+            objItem.Add(new Entities.MstArticleEntity { Id = 0, Article = ""});
+
+            objItem.AddRange(items);
+
+
+            return objItem.ToList();
+        }
+
+        // ==================
+        // Dropdown List Item
+        // ==================
+        public List<Entities.MstArticleEntity> DropdownListItemCodes()
+        {
+            List<Entities.MstArticleEntity> objItemCode = new List<Entities.MstArticleEntity>();
+
+            var itemCodes = from d in db.MstArticles
+                            where d.ArticleTypeId == 1
+                            select new Entities.MstArticleEntity
+                            {
+                                Id = d.Id,
+                                ArticleBarCode = d.ArticleBarCode
+                            };
+
+            objItemCode.Add(new Entities.MstArticleEntity { Id = 0, ArticleBarCode = "" });
+
+            objItemCode.AddRange(itemCodes);
+
+            return objItemCode.ToList();
         }
 
         // ===============================
@@ -176,55 +232,748 @@ namespace easyfmis.Controllers
         // ================================
         // Sales Invoice Detail Report List
         // ================================
-        public List<Entities.RepSalesInvoiceEntity> ListSalesInvoiceDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, Int32 soldById, Int32 customerId, String filter)
+        public List<Entities.RepSalesInvoiceEntity> ListSalesInvoiceDetailReport(DateTime dateStart, DateTime dateEnd, Int32 companyId, Int32 branchId, Int32 soldById, Int32 customerId, String item, String itemCode, String filter)
         {
             try
             {
-                var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
-                                       where d.TrnSalesInvoice.SIDate >= dateStart
-                                       && d.TrnSalesInvoice.SIDate <= dateEnd
-                                       && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
-                                       && d.TrnSalesInvoice.BranchId == branchId
-                                       && d.TrnSalesInvoice.SoldBy == soldById
-                                       && d.TrnSalesInvoice.CustomerId == customerId
-                                       && d.TrnSalesInvoice.IsLocked == true
-                                       && (d.TrnSalesInvoice.SINumber.Contains(filter)
-                                       || d.MstArticle.Article.Contains(filter)
-                                       || d.MstArticle.ArticleCode.Contains(filter)
-                                       || d.MstUnit.Unit.Contains(filter)
-                                       || d.Price.ToString().Contains(filter)
-                                       || d.MstDiscount.Discount.Contains(filter)
-                                       || d.DiscountRate.ToString().Contains(filter)
-                                       || d.DiscountAmount.ToString().Contains(filter)
-                                       || d.NetPrice.ToString().Contains(filter)
-                                       || d.Quantity.ToString().Contains(filter)
-                                       || d.Amount.ToString().Contains(filter)
-                                       || d.MstTax.Tax.Contains(filter)
-                                       || d.TaxRate.ToString().Contains(filter)
-                                       || d.TaxAmount.ToString().Contains(filter)
-                                       || d.BaseQuantity.ToString().Contains(filter)
-                                       || d.BasePrice.ToString().Contains(filter))
-                                       select new Entities.RepSalesInvoiceEntity
-                                       {
-                                           SINumber = d.TrnSalesInvoice.SINumber,
-                                           ItemDescription = d.MstArticle.Article,
-                                           ItemInventoryCode = d.MstArticle.ArticleCode,
-                                           Unit = d.MstUnit.Unit,
-                                           Price = d.Price,
-                                           Discount = d.MstDiscount.Discount,
-                                           DiscountRate = d.DiscountRate,
-                                           DiscountAmount = d.DiscountAmount,
-                                           NetPrice = d.NetPrice,
-                                           Quantity = d.Quantity,
-                                           Amount = d.Amount,
-                                           Tax = d.MstTax.Tax,
-                                           TaxRate = d.TaxRate,
-                                           TaxAmount = d.TaxAmount,
-                                           BaseQuantity = d.BaseQuantity,
-                                           BasePrice = d.BasePrice
-                                       };
+                // ----
+                if (customerId == 0 && soldById == 0 && item == "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
 
-                return salesInvoiceItem.ToList();
+                    return salesInvoiceItem.ToList();
+                }
+                // a
+                else if (customerId != 0 && soldById == 0 && item == "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.CustomerId == customerId
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // ab
+                else if (customerId != 0 && soldById != 0 && item == "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.TrnSalesInvoice.CustomerId == customerId
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // ac
+                else if (customerId != 0 && soldById == 0 && item != "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.CustomerId == customerId
+                                           && d.MstArticle.Article == item
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // ad
+                else if (customerId != 0 && soldById == 0 && item == "" && itemCode != "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.CustomerId == customerId
+                                           && d.MstArticle.ArticleBarCode == itemCode
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // abc
+                else if (customerId != 0 && soldById != 0 && item != "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.TrnSalesInvoice.CustomerId == customerId
+                                           && d.MstArticle.Article == item
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // abcd
+                else if (customerId != 0 && soldById != 0 && item != "" && itemCode != "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.TrnSalesInvoice.CustomerId == customerId
+                                           && d.MstArticle.Article == item
+                                           && d.MstArticle.ArticleBarCode == itemCode
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // abd
+                else if (customerId != 0 && soldById != 0 && item == "" && itemCode != "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.TrnSalesInvoice.CustomerId == customerId
+                                           && d.MstArticle.ArticleBarCode == itemCode
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // b
+                else if (customerId == 0 && soldById != 0 && item == "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // bc
+                else if (customerId == 0 && soldById != 0 && item != "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.MstArticle.Article == item
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // bcd
+                else if (customerId == 0 && soldById != 0 && item != "" && itemCode != "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.MstArticle.Article == item
+                                           && d.MstArticle.ArticleBarCode == itemCode
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // bd
+                else if (customerId == 0 && soldById != 0 && item == "" && itemCode != "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.TrnSalesInvoice.SoldBy == soldById
+                                           && d.MstArticle.ArticleBarCode == itemCode
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // c
+                else if (customerId == 0 && soldById == 0 && item != "" && itemCode == "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.MstArticle.Article == item
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // cd
+                else if (customerId == 0 && soldById == 0 && item != "" && itemCode != "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.MstArticle.Article == item
+                                           && d.MstArticle.ArticleBarCode == itemCode
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                // d
+                else if (customerId == 0 && soldById == 0 && item == "" && itemCode != "")
+                {
+                    var salesInvoiceItem = from d in db.TrnSalesInvoiceItems
+                                           where d.TrnSalesInvoice.SIDate >= dateStart
+                                           && d.TrnSalesInvoice.SIDate <= dateEnd
+                                           && d.TrnSalesInvoice.MstBranch.CompanyId == companyId
+                                           && d.TrnSalesInvoice.BranchId == branchId
+                                           && d.MstArticle.ArticleBarCode == itemCode
+                                           && d.TrnSalesInvoice.IsLocked == true
+                                           && (d.TrnSalesInvoice.SINumber.Contains(filter)
+                                           || d.MstArticle.Article.Contains(filter)
+                                           || d.MstArticle.ArticleCode.Contains(filter)
+                                           || d.MstUnit.Unit.Contains(filter)
+                                           || d.Price.ToString().Contains(filter)
+                                           || d.MstDiscount.Discount.Contains(filter)
+                                           || d.DiscountRate.ToString().Contains(filter)
+                                           || d.DiscountAmount.ToString().Contains(filter)
+                                           || d.NetPrice.ToString().Contains(filter)
+                                           || d.Quantity.ToString().Contains(filter)
+                                           || d.Amount.ToString().Contains(filter)
+                                           || d.MstTax.Tax.Contains(filter)
+                                           || d.TaxRate.ToString().Contains(filter)
+                                           || d.TaxAmount.ToString().Contains(filter)
+                                           || d.BaseQuantity.ToString().Contains(filter)
+                                           || d.BasePrice.ToString().Contains(filter))
+                                           select new Entities.RepSalesInvoiceEntity
+                                           {
+                                               SINumber = d.TrnSalesInvoice.SINumber,
+                                               ItemDescription = d.MstArticle.Article,
+                                               ItemInventoryCode = d.MstArticle.ArticleCode,
+                                               Unit = d.MstUnit.Unit,
+                                               Price = d.Price,
+                                               Discount = d.MstDiscount.Discount,
+                                               DiscountRate = d.DiscountRate,
+                                               DiscountAmount = d.DiscountAmount,
+                                               NetPrice = d.NetPrice,
+                                               Quantity = d.Quantity,
+                                               Amount = d.Amount,
+                                               Tax = d.MstTax.Tax,
+                                               TaxRate = d.TaxRate,
+                                               TaxAmount = d.TaxAmount,
+                                               BaseQuantity = d.BaseQuantity,
+                                               BasePrice = d.BasePrice
+                                           };
+
+                    return salesInvoiceItem.ToList();
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch
             {

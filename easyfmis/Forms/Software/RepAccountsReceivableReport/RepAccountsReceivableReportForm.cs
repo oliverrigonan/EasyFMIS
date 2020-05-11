@@ -65,7 +65,6 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                 comboBoxCustomer.DataSource = repAccountsReceivableReportController.DropdownListCustomer();
                 comboBoxCustomer.ValueMember = "Id";
                 comboBoxCustomer.DisplayMember = "Article";
-
             }
             GetSoldBy();
         }
@@ -78,6 +77,32 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                 comboBoxSoldBy.DataSource = repAccountsReceivableReportController.DropdownListSoldBy();
                 comboBoxSoldBy.ValueMember = "Id";
                 comboBoxSoldBy.DisplayMember = "UserName";
+            }
+            GetItems();
+        }
+
+        public void GetItems()
+        {
+            Controllers.RepAccountsReceivableReportController repAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
+            var items = repAccountsReceivableReportController.DropdownListItem();
+            if (items.Any())
+            {
+                comboBoxItem.DataSource = items;
+                comboBoxItem.ValueMember = "Id";
+                comboBoxItem.DisplayMember = "Article";
+            }
+            GetItemCode();
+        }
+
+        public void GetItemCode()
+        {
+            Controllers.RepAccountsReceivableReportController repAccountsReceivableReportController = new Controllers.RepAccountsReceivableReportController();
+            var itemCodes = repAccountsReceivableReportController.DropdownListItemCodes();
+            if (itemCodes.Any())
+            {
+                comboBoxItemCode.DataSource = itemCodes;
+                comboBoxItemCode.ValueMember = "Id";
+                comboBoxItemCode.DisplayMember = "ArticleBarCode";
             }
         }
 
@@ -110,6 +135,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelSoldBy.Visible = false;
                         comboBoxSoldBy.Visible = false;
 
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
+
                         break;
                     case "Statement of Account":
                         labelStartDate.Visible = false;
@@ -132,6 +163,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                         labelSoldBy.Visible = false;
                         comboBoxSoldBy.Visible = false;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
 
                         break;
                     case "Sales Order Detail Report":
@@ -156,6 +193,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelSoldBy.Visible = false;
                         comboBoxSoldBy.Visible = false;
 
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
+
                         break;
                     case "Sales Invoice Detail Report":
                         labelStartDate.Visible = true;
@@ -179,6 +222,11 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelSoldBy.Visible = true;
                         comboBoxSoldBy.Visible = true;
 
+                        labelItem.Visible = true;
+                        comboBoxItem.Visible = true;
+
+                        labelItemCode.Visible = true;
+                        comboBoxItemCode.Visible = true;
 
                         break;
                     case "Collection Detail Report":
@@ -203,6 +251,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         labelSoldBy.Visible = false;
                         comboBoxSoldBy.Visible = false;
 
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
+
                         break;
                     default:
                         labelStartDate.Visible = false;
@@ -225,6 +279,12 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
 
                         labelSoldBy.Visible = false;
                         comboBoxSoldBy.Visible = false;
+
+                        labelItem.Visible = false;
+                        comboBoxItem.Visible = false;
+
+                        labelItemCode.Visible = false;
+                        comboBoxItemCode.Visible = false;
 
                         break;
                 }
@@ -251,7 +311,8 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                 String soldBy = comboBoxBranch.GetItemText(comboBoxSoldBy.Text);
                 Int32 customerId = Convert.ToInt32(comboBoxCustomer.SelectedValue);
                 String customer = comboBoxBranch.GetItemText(comboBoxCustomer.Text);
-
+                String item = comboBoxBranch.GetItemText(comboBoxItem.Text);
+                String itemCode = comboBoxBranch.GetItemText(comboBoxItemCode.Text);
 
                 String selectedItem = listBoxAccountsReceivableReport.SelectedItem.ToString();
                 switch (selectedItem)
@@ -276,7 +337,7 @@ namespace easyfmis.Forms.Software.RepAccountsReceivableReport
                         }
                         else
                         {
-                            RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName, soldById, soldBy, customerId, customer);
+                            RepAccountReceivableReportSalesInvoiceDetailReportForm repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm = new RepAccountReceivableReportSalesInvoiceDetailReportForm(dateStart, dateEnd, companyId, companyName, branchId, branchName, soldById, soldBy, customerId, customer, item, itemCode);
                             repbuttonSalesReportBySalesPersonReportSalesReportBySalesPersonForm.ShowDialog();
                         }
                         break;
