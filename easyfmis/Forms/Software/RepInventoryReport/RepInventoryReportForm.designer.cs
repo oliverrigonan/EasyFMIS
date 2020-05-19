@@ -113,6 +113,7 @@
             this.comboBoxItemCode.Size = new System.Drawing.Size(334, 27);
             this.comboBoxItemCode.TabIndex = 5;
             this.comboBoxItemCode.Visible = false;
+            this.comboBoxItemCode.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemCode_SelectedIndexChanged);
             // 
             // labelItemCode
             // 
@@ -137,6 +138,7 @@
             this.comboBoxItem.Size = new System.Drawing.Size(334, 27);
             this.comboBoxItem.TabIndex = 4;
             this.comboBoxItem.Visible = false;
+            this.comboBoxItem.SelectedIndexChanged += new System.EventHandler(this.comboBoxItem_SelectedIndexChanged);
             // 
             // labelItem
             // 

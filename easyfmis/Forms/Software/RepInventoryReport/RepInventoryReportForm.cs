@@ -70,7 +70,6 @@ namespace easyfmis.Forms.Software.RepInventoryReport
                 comboBoxItem.DataSource = items;
                 comboBoxItem.ValueMember = "Id";
                 comboBoxItem.DisplayMember = "Article";
-
                 GetItemCode();
             }
         }
@@ -382,6 +381,20 @@ namespace easyfmis.Forms.Software.RepInventoryReport
         private void comboBoxCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetBranches();
+        }
+
+        private void comboBoxItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxItem.ContainsFocus == true) {
+                comboBoxItemCode.SelectedValue = comboBoxItem.SelectedValue;
+            }
+        }
+
+        private void comboBoxItemCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxItemCode.ContainsFocus == true) {
+                comboBoxItem.SelectedValue = comboBoxItemCode.SelectedValue;
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ namespace easyfmis.Controllers
         public List<Entities.MstCompanyEntity> DropdownListCompany()
         {
             var companies = from d in db.MstCompanies
+                            where d.IsLocked == true
                             select new Entities.MstCompanyEntity
                             {
                                 Id = d.Id,
@@ -35,6 +36,7 @@ namespace easyfmis.Controllers
         {
             var branches = from d in db.MstBranches
                            where d.CompanyId == companyId
+                            && d.MstCompany.IsLocked == true
                            select new Entities.MstBranchEntity
                            {
                                Id = d.Id,
@@ -51,6 +53,7 @@ namespace easyfmis.Controllers
         {
             var items = from d in db.MstArticles
                         where d.ArticleTypeId == 1
+                        && d.IsLocked == true
                         select new Entities.MstArticleEntity
                         {
                             Id = d.Id,
@@ -67,6 +70,7 @@ namespace easyfmis.Controllers
         {
             var itemCodes = from d in db.MstArticles
                             where d.ArticleTypeId == 1
+                            && d.IsLocked == true
                             select new Entities.MstArticleEntity
                             {
                                 Id = d.Id,
