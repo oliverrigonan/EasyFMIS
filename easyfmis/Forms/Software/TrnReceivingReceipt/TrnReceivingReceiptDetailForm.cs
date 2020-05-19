@@ -408,13 +408,13 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
                     ItemId = itemId,
                     ItemDescription = itemDescription,
                     UnitId = unitId,
-                    Quantity = 1,
-                    Cost = 0,
+                    Quantity = quantity,
+                    Cost = cost,
                     TaxId = taxId,
                     TaxRate = taxRate,
                     TaxAmount = 0,
                     BranchId = branchId,
-                    Amount = 0,
+                    Amount = amount,
                     BaseCost = 0,
                     BaseQuantity = 0
                 };

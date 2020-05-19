@@ -171,18 +171,25 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
         private void textBoxDiscountRate_TextChanged(object sender, EventArgs e)
         {
-            ComputeDiscountAmount();
+            if (textBoxDiscountRate.ContainsFocus == true)
+            {
+                ComputeDiscountAmount();
+            }
         }
 
         private void textBoxDiscountAmount_TextChanged(object sender, EventArgs e)
         {
-            ComputeDiscountRate();
+            if (textBoxDiscountAmount.ContainsFocus == true)
+            {
+                ComputeDiscountRate();
+            }
         }
 
         public void ComputeDiscountRate()
         {
             try
             {
+
                 Decimal price = totalSIPrice;
 
                 Decimal discountAmount = Convert.ToDecimal(textBoxDiscountAmount.Text);
@@ -198,7 +205,6 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                 }
 
                 textBoxDiscountRate.Text = discountRate.ToString("#,##0.00");
-                //textBoxDiscountRate.Text = discountRate.ToString("#,##0.00###");
             }
             catch (Exception e)
             {
@@ -210,21 +216,21 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
         {
             try
             {
-                Decimal price = totalSIPrice;
+                    Decimal price = totalSIPrice;
 
-                Decimal discountAmount = 0;
-                Decimal discountRate = Convert.ToDecimal(textBoxDiscountRate.Text);
+                    Decimal discountAmount = 0;
+                    Decimal discountRate = Convert.ToDecimal(textBoxDiscountRate.Text);
 
-                if (discountRate > 0)
-                {
-                    discountAmount = totalSIPrice * (discountRate / 100);
-                }
-                else
-                {
-                    discountAmount = 0;
-                }
+                    if (discountRate > 0)
+                    {
+                        discountAmount = totalSIPrice * (discountRate / 100);
+                    }
+                    else
+                    {
+                        discountAmount = 0;
+                    }
 
-                textBoxDiscountAmount.Text = discountAmount.ToString("#,##0.00");
+                    textBoxDiscountAmount.Text = discountAmount.ToString("#,##0.00");
             }
             catch (Exception e)
             {

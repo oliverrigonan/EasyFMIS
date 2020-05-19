@@ -97,6 +97,7 @@ namespace easyfmis.Forms.Software.TrnReceivingReceipt
             comboBoxTax.SelectedValue = trnReceivingReceiptItemEntity.TaxId;
             textBoxTaxRate.Text = trnReceivingReceiptItemEntity.TaxRate.ToString("#,##0.00");
             textBoxTaxAmount.Text = trnReceivingReceiptItemEntity.TaxAmount.ToString("#,##0.00");
+            ComputeAmount();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
