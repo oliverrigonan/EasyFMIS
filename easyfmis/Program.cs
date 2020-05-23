@@ -16,9 +16,16 @@ namespace easyfmis
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Index());
-            Application.Run(new Forms.Account.SysLogin.SysLoginForm());
-            //Application.Run(new Forms.Software.SysSoftwareForm());
+
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.getSerialNumber())
+            {
+                Application.Run(new Forms.Account.SysLogin.SysLoginForm());
+                //Application.Run(new Forms.Software.SysSoftwareForm());
+            }
+            else
+            {
+                Application.Run(new Forms.License.SysLicenseForm());
+            }
         }
     }
 }

@@ -61,6 +61,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -258,6 +260,12 @@
     </Compile>
     <Compile Include="Forms\Account\SysLogin\SysLoginForm.Designer.cs">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\License\SysLicenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\License\SysLicenseForm.Designer.cs">
+      <DependentUpon>SysLicenseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Software\MstCompany\MstCompanyListForm.cs">
       <SubType>Form</SubType>
@@ -879,6 +887,7 @@
     </Compile>
     <Compile Include="Modules\SysConnectionStringModule.cs" />
     <Compile Include="Modules\SysCurrentModule.cs" />
+    <Compile Include="Modules\SysLicenseModule.cs" />
     <Compile Include="Modules\SysUserRightsModule.cs" />
     <Compile Include="Modules\TrnAccountsPayableModule.cs" />
     <Compile Include="Modules\TrnAccountsReceivableModule.cs" />
@@ -890,6 +899,9 @@
     </None>
     <EmbeddedResource Include="Forms\Account\SysLogin\SysLoginForm.resx">
       <DependentUpon>SysLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\License\SysLicenseForm.resx">
+      <DependentUpon>SysLicenseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\MstCompany\MstCompanyListForm.resx">
       <DependentUpon>MstCompanyListForm.cs</DependentUpon>
@@ -1196,6 +1208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnStockIn\TrnStockInForm.resx">
       <DependentUpon>TrnStockInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Index.resx">
+      <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
