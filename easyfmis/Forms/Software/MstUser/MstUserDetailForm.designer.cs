@@ -90,8 +90,9 @@
             this.panel1.Controls.Add(this.buttonUnlock);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1400, 63);
+            this.panel1.Size = new System.Drawing.Size(1091, 50);
             this.panel1.TabIndex = 5;
             // 
             // buttonLock
@@ -103,9 +104,10 @@
             this.buttonLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLock.ForeColor = System.Drawing.Color.White;
-            this.buttonLock.Location = new System.Drawing.Point(1112, 12);
+            this.buttonLock.Location = new System.Drawing.Point(861, 10);
+            this.buttonLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonLock.Name = "buttonLock";
-            this.buttonLock.Size = new System.Drawing.Size(88, 40);
+            this.buttonLock.Size = new System.Drawing.Size(70, 32);
             this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
@@ -114,9 +116,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.User;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -125,10 +128,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Location = new System.Drawing.Point(50, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 35);
+            this.label1.Size = new System.Drawing.Size(117, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "User Detail";
             // 
@@ -141,9 +144,10 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
+            this.buttonClose.Location = new System.Drawing.Point(1011, 10);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(88, 40);
+            this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 22;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
@@ -158,9 +162,10 @@
             this.buttonUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUnlock.ForeColor = System.Drawing.Color.White;
-            this.buttonUnlock.Location = new System.Drawing.Point(1206, 12);
+            this.buttonUnlock.Location = new System.Drawing.Point(936, 10);
+            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUnlock.Name = "buttonUnlock";
-            this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
+            this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
             this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
@@ -172,9 +177,10 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.Size = new System.Drawing.Size(1091, 510);
             this.panel2.TabIndex = 6;
             // 
             // panel6
@@ -183,9 +189,10 @@
             this.panel6.Controls.Add(this.buttonAddUserForm);
             this.panel6.Controls.Add(this.dataGridViewUserFormList);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 119);
+            this.panel6.Location = new System.Drawing.Point(0, 95);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 465);
+            this.panel6.Size = new System.Drawing.Size(1091, 373);
             this.panel6.TabIndex = 29;
             // 
             // buttonAddUserForm
@@ -197,9 +204,10 @@
             this.buttonAddUserForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddUserForm.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonAddUserForm.ForeColor = System.Drawing.Color.White;
-            this.buttonAddUserForm.Location = new System.Drawing.Point(1300, 6);
+            this.buttonAddUserForm.Location = new System.Drawing.Point(1011, 5);
+            this.buttonAddUserForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddUserForm.Name = "buttonAddUserForm";
-            this.buttonAddUserForm.Size = new System.Drawing.Size(88, 40);
+            this.buttonAddUserForm.Size = new System.Drawing.Size(70, 32);
             this.buttonAddUserForm.TabIndex = 5;
             this.buttonAddUserForm.Text = "Add";
             this.buttonAddUserForm.UseVisualStyleBackColor = false;
@@ -237,7 +245,8 @@
             this.ColumnUserFormListCanPrint,
             this.ColumnUserFormListCanPreview,
             this.ColumnUserFormListCanEdit});
-            this.dataGridViewUserFormList.Location = new System.Drawing.Point(12, 52);
+            this.dataGridViewUserFormList.Location = new System.Drawing.Point(10, 42);
+            this.dataGridViewUserFormList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewUserFormList.MultiSelect = false;
             this.dataGridViewUserFormList.Name = "dataGridViewUserFormList";
             this.dataGridViewUserFormList.ReadOnly = true;
@@ -247,7 +256,7 @@
             this.dataGridViewUserFormList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewUserFormList.RowTemplate.Height = 24;
             this.dataGridViewUserFormList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUserFormList.Size = new System.Drawing.Size(1376, 407);
+            this.dataGridViewUserFormList.Size = new System.Drawing.Size(1072, 327);
             this.dataGridViewUserFormList.TabIndex = 1;
             this.dataGridViewUserFormList.TabStop = false;
             this.dataGridViewUserFormList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUserFormList_CellClick);
@@ -381,9 +390,10 @@
             this.panel4.Controls.Add(this.buttonUserFormListPageListLast);
             this.panel4.Controls.Add(this.textBoxUserFormListPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 584);
+            this.panel4.Location = new System.Drawing.Point(0, 468);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1400, 53);
+            this.panel4.Size = new System.Drawing.Size(1091, 42);
             this.panel4.TabIndex = 27;
             // 
             // buttonUserFormListPageListFirst
@@ -393,9 +403,10 @@
             this.buttonUserFormListPageListFirst.FlatAppearance.BorderSize = 0;
             this.buttonUserFormListPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUserFormListPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUserFormListPageListFirst.Location = new System.Drawing.Point(12, 9);
+            this.buttonUserFormListPageListFirst.Location = new System.Drawing.Point(10, 7);
+            this.buttonUserFormListPageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUserFormListPageListFirst.Name = "buttonUserFormListPageListFirst";
-            this.buttonUserFormListPageListFirst.Size = new System.Drawing.Size(82, 32);
+            this.buttonUserFormListPageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonUserFormListPageListFirst.TabIndex = 13;
             this.buttonUserFormListPageListFirst.Text = "First";
             this.buttonUserFormListPageListFirst.UseVisualStyleBackColor = false;
@@ -408,9 +419,10 @@
             this.buttonUserFormListPageListPrevious.FlatAppearance.BorderSize = 0;
             this.buttonUserFormListPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUserFormListPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUserFormListPageListPrevious.Location = new System.Drawing.Point(100, 9);
+            this.buttonUserFormListPageListPrevious.Location = new System.Drawing.Point(80, 7);
+            this.buttonUserFormListPageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUserFormListPageListPrevious.Name = "buttonUserFormListPageListPrevious";
-            this.buttonUserFormListPageListPrevious.Size = new System.Drawing.Size(82, 32);
+            this.buttonUserFormListPageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonUserFormListPageListPrevious.TabIndex = 14;
             this.buttonUserFormListPageListPrevious.Text = "Previous";
             this.buttonUserFormListPageListPrevious.UseVisualStyleBackColor = false;
@@ -422,9 +434,10 @@
             this.buttonUserFormListPageListNext.FlatAppearance.BorderSize = 0;
             this.buttonUserFormListPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUserFormListPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUserFormListPageListNext.Location = new System.Drawing.Point(263, 9);
+            this.buttonUserFormListPageListNext.Location = new System.Drawing.Point(210, 7);
+            this.buttonUserFormListPageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUserFormListPageListNext.Name = "buttonUserFormListPageListNext";
-            this.buttonUserFormListPageListNext.Size = new System.Drawing.Size(82, 32);
+            this.buttonUserFormListPageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonUserFormListPageListNext.TabIndex = 15;
             this.buttonUserFormListPageListNext.Text = "Next";
             this.buttonUserFormListPageListNext.UseVisualStyleBackColor = false;
@@ -436,9 +449,10 @@
             this.buttonUserFormListPageListLast.FlatAppearance.BorderSize = 0;
             this.buttonUserFormListPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUserFormListPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonUserFormListPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonUserFormListPageListLast.Location = new System.Drawing.Point(278, 7);
+            this.buttonUserFormListPageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUserFormListPageListLast.Name = "buttonUserFormListPageListLast";
-            this.buttonUserFormListPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonUserFormListPageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonUserFormListPageListLast.TabIndex = 16;
             this.buttonUserFormListPageListLast.Text = "Last";
             this.buttonUserFormListPageListLast.UseVisualStyleBackColor = false;
@@ -450,10 +464,11 @@
             this.textBoxUserFormListPageNumber.BackColor = System.Drawing.Color.White;
             this.textBoxUserFormListPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUserFormListPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxUserFormListPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxUserFormListPageNumber.Location = new System.Drawing.Point(150, 11);
+            this.textBoxUserFormListPageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxUserFormListPageNumber.Name = "textBoxUserFormListPageNumber";
             this.textBoxUserFormListPageNumber.ReadOnly = true;
-            this.textBoxUserFormListPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxUserFormListPageNumber.Size = new System.Drawing.Size(55, 16);
             this.textBoxUserFormListPageNumber.TabIndex = 17;
             this.textBoxUserFormListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -472,18 +487,20 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1400, 119);
+            this.panel3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel3.Size = new System.Drawing.Size(1091, 95);
             this.panel3.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(505, 46);
+            this.label2.Location = new System.Drawing.Point(404, 40);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 23);
+            this.label2.Size = new System.Drawing.Size(54, 19);
             this.label2.TabIndex = 9;
             this.label2.Text = "Branch:";
             // 
@@ -491,9 +508,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(485, 10);
+            this.label6.Location = new System.Drawing.Point(388, 8);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 23);
+            this.label6.Size = new System.Drawing.Size(71, 19);
             this.label6.TabIndex = 8;
             this.label6.Text = "Company:";
             // 
@@ -502,9 +520,10 @@
             this.comboBoxCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxCompany.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCompany.FormattingEnabled = true;
-            this.comboBoxCompany.Location = new System.Drawing.Point(582, 7);
+            this.comboBoxCompany.Location = new System.Drawing.Point(466, 6);
+            this.comboBoxCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCompany.Name = "comboBoxCompany";
-            this.comboBoxCompany.Size = new System.Drawing.Size(298, 31);
+            this.comboBoxCompany.Size = new System.Drawing.Size(239, 27);
             this.comboBoxCompany.TabIndex = 3;
             // 
             // comboBoxBranch
@@ -512,77 +531,84 @@
             this.comboBoxBranch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxBranch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(582, 43);
+            this.comboBoxBranch.Location = new System.Drawing.Point(466, 37);
+            this.comboBoxBranch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(298, 31);
+            this.comboBoxBranch.Size = new System.Drawing.Size(239, 27);
             this.comboBoxBranch.TabIndex = 4;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPassword.Location = new System.Drawing.Point(110, 79);
+            this.textBoxPassword.Location = new System.Drawing.Point(88, 66);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '•';
-            this.textBoxPassword.Size = new System.Drawing.Size(319, 30);
+            this.textBoxPassword.Size = new System.Drawing.Size(256, 26);
             this.textBoxPassword.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(20, 82);
+            this.label5.Location = new System.Drawing.Point(16, 69);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 23);
+            this.label5.Size = new System.Drawing.Size(70, 19);
             this.label5.TabIndex = 4;
             this.label5.Text = "Password:";
             // 
             // textBoxFullName
             // 
             this.textBoxFullName.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxFullName.Location = new System.Drawing.Point(110, 7);
+            this.textBoxFullName.Location = new System.Drawing.Point(88, 6);
+            this.textBoxFullName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxFullName.Name = "textBoxFullName";
-            this.textBoxFullName.Size = new System.Drawing.Size(319, 30);
+            this.textBoxFullName.Size = new System.Drawing.Size(256, 26);
             this.textBoxFullName.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(21, 10);
+            this.label4.Location = new System.Drawing.Point(17, 8);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 23);
+            this.label4.Size = new System.Drawing.Size(67, 19);
             this.label4.TabIndex = 2;
             this.label4.Text = "Fullname:";
             // 
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxUserName.Location = new System.Drawing.Point(110, 43);
+            this.textBoxUserName.Location = new System.Drawing.Point(88, 36);
+            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(319, 30);
+            this.textBoxUserName.Size = new System.Drawing.Size(256, 26);
             this.textBoxUserName.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(13, 46);
+            this.label3.Location = new System.Drawing.Point(10, 39);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 23);
+            this.label3.Size = new System.Drawing.Size(74, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Username:";
             // 
             // MstUserDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1400, 700);
+            this.ClientSize = new System.Drawing.Size(1091, 560);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "MstUserDetailForm";
             this.Text = "MstUserDetailForm";
             this.panel1.ResumeLayout(false);

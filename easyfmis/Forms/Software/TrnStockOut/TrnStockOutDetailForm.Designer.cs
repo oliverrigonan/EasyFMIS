@@ -133,8 +133,9 @@
             this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1400, 63);
+            this.panel1.Size = new System.Drawing.Size(1091, 50);
             this.panel1.TabIndex = 7;
             // 
             // buttonLock
@@ -146,9 +147,10 @@
             this.buttonLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLock.ForeColor = System.Drawing.Color.White;
-            this.buttonLock.Location = new System.Drawing.Point(1018, 12);
+            this.buttonLock.Location = new System.Drawing.Point(785, 10);
+            this.buttonLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonLock.Name = "buttonLock";
-            this.buttonLock.Size = new System.Drawing.Size(88, 40);
+            this.buttonLock.Size = new System.Drawing.Size(70, 32);
             this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
@@ -163,9 +165,10 @@
             this.buttonUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUnlock.ForeColor = System.Drawing.Color.White;
-            this.buttonUnlock.Location = new System.Drawing.Point(1112, 12);
+            this.buttonUnlock.Location = new System.Drawing.Point(861, 10);
+            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUnlock.Name = "buttonUnlock";
-            this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
+            this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
             this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
@@ -174,9 +177,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.Stock_Out;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -185,10 +189,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Location = new System.Drawing.Point(50, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 35);
+            this.label1.Size = new System.Drawing.Size(169, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Stock-Out Detail";
             // 
@@ -201,9 +205,10 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
+            this.buttonClose.Location = new System.Drawing.Point(1011, 10);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(88, 40);
+            this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 23;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
@@ -218,9 +223,10 @@
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.Color.White;
-            this.buttonPrint.Location = new System.Drawing.Point(1206, 12);
+            this.buttonPrint.Location = new System.Drawing.Point(936, 10);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(88, 40);
+            this.buttonPrint.Size = new System.Drawing.Size(70, 32);
             this.buttonPrint.TabIndex = 22;
             this.buttonPrint.Text = "Print";
             this.buttonPrint.UseVisualStyleBackColor = false;
@@ -245,18 +251,20 @@
             this.panel3.Controls.Add(this.textBoxOTNumber);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1400, 234);
+            this.panel3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel3.Size = new System.Drawing.Size(1091, 187);
             this.panel3.TabIndex = 0;
             // 
             // textBoxBranch
             // 
             this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxBranch.Location = new System.Drawing.Point(119, 6);
+            this.textBoxBranch.Location = new System.Drawing.Point(95, 5);
+            this.textBoxBranch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
-            this.textBoxBranch.Size = new System.Drawing.Size(298, 30);
+            this.textBoxBranch.Size = new System.Drawing.Size(239, 26);
             this.textBoxBranch.TabIndex = 0;
             this.textBoxBranch.TabStop = false;
             // 
@@ -264,28 +272,31 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(46, 9);
+            this.label5.Location = new System.Drawing.Point(37, 7);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 23);
+            this.label5.Size = new System.Drawing.Size(54, 19);
             this.label5.TabIndex = 26;
             this.label5.Text = "Branch:";
             // 
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(119, 114);
+            this.textBoxRemarks.Location = new System.Drawing.Point(95, 91);
+            this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(298, 107);
+            this.textBoxRemarks.Size = new System.Drawing.Size(239, 86);
             this.textBoxRemarks.TabIndex = 3;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(423, 81);
+            this.label13.Location = new System.Drawing.Point(338, 65);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(111, 23);
+            this.label13.Size = new System.Drawing.Size(91, 19);
             this.label13.TabIndex = 23;
             this.label13.Text = "Approved by:";
             // 
@@ -293,9 +304,10 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(432, 44);
+            this.label12.Location = new System.Drawing.Point(346, 35);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 23);
+            this.label12.Size = new System.Drawing.Size(83, 19);
             this.label12.TabIndex = 22;
             this.label12.Text = "Checked by:";
             // 
@@ -303,9 +315,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(428, 9);
+            this.label11.Location = new System.Drawing.Point(342, 7);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(106, 23);
+            this.label11.Size = new System.Drawing.Size(86, 19);
             this.label11.TabIndex = 21;
             this.label11.Text = "Prepared by:";
             // 
@@ -315,9 +328,10 @@
             this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
-            this.comboBoxApprovedBy.Location = new System.Drawing.Point(540, 80);
+            this.comboBoxApprovedBy.Location = new System.Drawing.Point(432, 64);
+            this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
-            this.comboBoxApprovedBy.Size = new System.Drawing.Size(288, 31);
+            this.comboBoxApprovedBy.Size = new System.Drawing.Size(231, 27);
             this.comboBoxApprovedBy.TabIndex = 6;
             // 
             // comboBoxCheckedBy
@@ -326,9 +340,10 @@
             this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
-            this.comboBoxCheckedBy.Location = new System.Drawing.Point(540, 43);
+            this.comboBoxCheckedBy.Location = new System.Drawing.Point(432, 34);
+            this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
-            this.comboBoxCheckedBy.Size = new System.Drawing.Size(288, 31);
+            this.comboBoxCheckedBy.Size = new System.Drawing.Size(231, 27);
             this.comboBoxCheckedBy.TabIndex = 5;
             // 
             // comboBoxPreparedBy
@@ -338,18 +353,20 @@
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
-            this.comboBoxPreparedBy.Location = new System.Drawing.Point(540, 6);
+            this.comboBoxPreparedBy.Location = new System.Drawing.Point(432, 5);
+            this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
-            this.comboBoxPreparedBy.Size = new System.Drawing.Size(288, 31);
+            this.comboBoxPreparedBy.Size = new System.Drawing.Size(231, 27);
             this.comboBoxPreparedBy.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(35, 117);
+            this.label7.Location = new System.Drawing.Point(28, 94);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 23);
+            this.label7.Size = new System.Drawing.Size(64, 19);
             this.label7.TabIndex = 11;
             this.label7.Text = "Remarks:";
             // 
@@ -357,9 +374,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(37, 84);
+            this.label4.Location = new System.Drawing.Point(30, 67);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 23);
+            this.label4.Size = new System.Drawing.Size(62, 19);
             this.label4.TabIndex = 8;
             this.label4.Text = "OT Date:";
             // 
@@ -367,9 +385,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(10, 45);
+            this.label2.Location = new System.Drawing.Point(8, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 23);
+            this.label2.Size = new System.Drawing.Size(83, 19);
             this.label2.TabIndex = 6;
             this.label2.Text = "OT Number:";
             // 
@@ -377,18 +396,20 @@
             // 
             this.dateTimePickerOTDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dateTimePickerOTDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerOTDate.Location = new System.Drawing.Point(119, 78);
+            this.dateTimePickerOTDate.Location = new System.Drawing.Point(95, 62);
+            this.dateTimePickerOTDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerOTDate.Name = "dateTimePickerOTDate";
-            this.dateTimePickerOTDate.Size = new System.Drawing.Size(196, 30);
+            this.dateTimePickerOTDate.Size = new System.Drawing.Size(158, 26);
             this.dateTimePickerOTDate.TabIndex = 2;
             // 
             // textBoxOTNumber
             // 
             this.textBoxOTNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxOTNumber.Location = new System.Drawing.Point(119, 42);
+            this.textBoxOTNumber.Location = new System.Drawing.Point(95, 34);
+            this.textBoxOTNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxOTNumber.Name = "textBoxOTNumber";
             this.textBoxOTNumber.ReadOnly = true;
-            this.textBoxOTNumber.Size = new System.Drawing.Size(196, 30);
+            this.textBoxOTNumber.Size = new System.Drawing.Size(158, 26);
             this.textBoxOTNumber.TabIndex = 1;
             this.textBoxOTNumber.TabStop = false;
             // 
@@ -403,9 +424,10 @@
             this.panel4.Controls.Add(this.buttonStockOutItemPageListLast);
             this.panel4.Controls.Add(this.textBoxStockOutItemPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 311);
+            this.panel4.Location = new System.Drawing.Point(2, 247);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1386, 53);
+            this.panel4.Size = new System.Drawing.Size(1079, 42);
             this.panel4.TabIndex = 25;
             // 
             // label15
@@ -413,10 +435,10 @@
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(680, 9);
+            this.label15.Location = new System.Drawing.Point(514, 7);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(141, 28);
+            this.label15.Size = new System.Drawing.Size(114, 21);
             this.label15.TabIndex = 21;
             this.label15.Text = "Total Amount";
             // 
@@ -426,10 +448,11 @@
             this.textBoxTotalAmount.BackColor = System.Drawing.Color.White;
             this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotalAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalAmount.Location = new System.Drawing.Point(824, 9);
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(629, 7);
+            this.textBoxTotalAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxTotalAmount.Name = "textBoxTotalAmount";
             this.textBoxTotalAmount.ReadOnly = true;
-            this.textBoxTotalAmount.Size = new System.Drawing.Size(549, 34);
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(439, 27);
             this.textBoxTotalAmount.TabIndex = 20;
             this.textBoxTotalAmount.TabStop = false;
             this.textBoxTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -441,9 +464,10 @@
             this.buttonStockOutItemPageListFirst.FlatAppearance.BorderSize = 0;
             this.buttonStockOutItemPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockOutItemPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonStockOutItemPageListFirst.Location = new System.Drawing.Point(12, 9);
+            this.buttonStockOutItemPageListFirst.Location = new System.Drawing.Point(10, 7);
+            this.buttonStockOutItemPageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStockOutItemPageListFirst.Name = "buttonStockOutItemPageListFirst";
-            this.buttonStockOutItemPageListFirst.Size = new System.Drawing.Size(82, 32);
+            this.buttonStockOutItemPageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonStockOutItemPageListFirst.TabIndex = 13;
             this.buttonStockOutItemPageListFirst.Text = "First";
             this.buttonStockOutItemPageListFirst.UseVisualStyleBackColor = false;
@@ -456,9 +480,10 @@
             this.buttonStockOutItemPageListPrevious.FlatAppearance.BorderSize = 0;
             this.buttonStockOutItemPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockOutItemPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonStockOutItemPageListPrevious.Location = new System.Drawing.Point(100, 9);
+            this.buttonStockOutItemPageListPrevious.Location = new System.Drawing.Point(80, 7);
+            this.buttonStockOutItemPageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStockOutItemPageListPrevious.Name = "buttonStockOutItemPageListPrevious";
-            this.buttonStockOutItemPageListPrevious.Size = new System.Drawing.Size(82, 32);
+            this.buttonStockOutItemPageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonStockOutItemPageListPrevious.TabIndex = 14;
             this.buttonStockOutItemPageListPrevious.Text = "Previous";
             this.buttonStockOutItemPageListPrevious.UseVisualStyleBackColor = false;
@@ -470,9 +495,10 @@
             this.buttonStockOutItemPageListNext.FlatAppearance.BorderSize = 0;
             this.buttonStockOutItemPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockOutItemPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonStockOutItemPageListNext.Location = new System.Drawing.Point(263, 9);
+            this.buttonStockOutItemPageListNext.Location = new System.Drawing.Point(210, 7);
+            this.buttonStockOutItemPageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStockOutItemPageListNext.Name = "buttonStockOutItemPageListNext";
-            this.buttonStockOutItemPageListNext.Size = new System.Drawing.Size(82, 32);
+            this.buttonStockOutItemPageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonStockOutItemPageListNext.TabIndex = 15;
             this.buttonStockOutItemPageListNext.Text = "Next";
             this.buttonStockOutItemPageListNext.UseVisualStyleBackColor = false;
@@ -484,9 +510,10 @@
             this.buttonStockOutItemPageListLast.FlatAppearance.BorderSize = 0;
             this.buttonStockOutItemPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockOutItemPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonStockOutItemPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonStockOutItemPageListLast.Location = new System.Drawing.Point(278, 7);
+            this.buttonStockOutItemPageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonStockOutItemPageListLast.Name = "buttonStockOutItemPageListLast";
-            this.buttonStockOutItemPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonStockOutItemPageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonStockOutItemPageListLast.TabIndex = 16;
             this.buttonStockOutItemPageListLast.Text = "Last";
             this.buttonStockOutItemPageListLast.UseVisualStyleBackColor = false;
@@ -498,10 +525,11 @@
             this.textBoxStockOutItemPageNumber.BackColor = System.Drawing.Color.White;
             this.textBoxStockOutItemPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxStockOutItemPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxStockOutItemPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxStockOutItemPageNumber.Location = new System.Drawing.Point(150, 11);
+            this.textBoxStockOutItemPageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxStockOutItemPageNumber.Name = "textBoxStockOutItemPageNumber";
             this.textBoxStockOutItemPageNumber.ReadOnly = true;
-            this.textBoxStockOutItemPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxStockOutItemPageNumber.Size = new System.Drawing.Size(55, 16);
             this.textBoxStockOutItemPageNumber.TabIndex = 17;
             this.textBoxStockOutItemPageNumber.TabStop = false;
             this.textBoxStockOutItemPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -515,9 +543,10 @@
             this.buttonSearchItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonSearchItem.ForeColor = System.Drawing.Color.White;
-            this.buttonSearchItem.Location = new System.Drawing.Point(1296, 6);
+            this.buttonSearchItem.Location = new System.Drawing.Point(1008, 5);
+            this.buttonSearchItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSearchItem.Name = "buttonSearchItem";
-            this.buttonSearchItem.Size = new System.Drawing.Size(88, 40);
+            this.buttonSearchItem.Size = new System.Drawing.Size(70, 32);
             this.buttonSearchItem.TabIndex = 7;
             this.buttonSearchItem.Text = "Add";
             this.buttonSearchItem.UseVisualStyleBackColor = false;
@@ -559,7 +588,8 @@
             this.ColumnStockOutItemBaseQuantity,
             this.ColumnStockOutItemBaseCost,
             this.ColumnStockOutItemSpace});
-            this.dataGridViewStockOutItem.Location = new System.Drawing.Point(8, 52);
+            this.dataGridViewStockOutItem.Location = new System.Drawing.Point(6, 42);
+            this.dataGridViewStockOutItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewStockOutItem.MultiSelect = false;
             this.dataGridViewStockOutItem.Name = "dataGridViewStockOutItem";
             this.dataGridViewStockOutItem.ReadOnly = true;
@@ -569,7 +599,7 @@
             this.dataGridViewStockOutItem.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewStockOutItem.RowTemplate.Height = 24;
             this.dataGridViewStockOutItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockOutItem.Size = new System.Drawing.Size(1376, 253);
+            this.dataGridViewStockOutItem.Size = new System.Drawing.Size(1072, 203);
             this.dataGridViewStockOutItem.TabIndex = 1;
             this.dataGridViewStockOutItem.TabStop = false;
             this.dataGridViewStockOutItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStockOutItem_CellClick);
@@ -579,9 +609,10 @@
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.Size = new System.Drawing.Size(1091, 510);
             this.panel2.TabIndex = 8;
             // 
             // panel6
@@ -589,9 +620,10 @@
             this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 234);
+            this.panel6.Location = new System.Drawing.Point(0, 187);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 403);
+            this.panel6.Size = new System.Drawing.Size(1091, 323);
             this.panel6.TabIndex = 27;
             // 
             // tabControl1
@@ -600,9 +632,10 @@
             this.tabControl1.Controls.Add(this.tabPageInventoryEntries);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1400, 403);
+            this.tabControl1.Size = new System.Drawing.Size(1091, 323);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.TabStop = false;
             // 
@@ -611,10 +644,11 @@
             this.tabPageStockOutItems.Controls.Add(this.buttonSearchItem);
             this.tabPageStockOutItems.Controls.Add(this.panel4);
             this.tabPageStockOutItems.Controls.Add(this.dataGridViewStockOutItem);
-            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 32);
+            this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 28);
+            this.tabPageStockOutItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1083, 291);
             this.tabPageStockOutItems.TabIndex = 0;
             this.tabPageStockOutItems.Text = "Stock-Out Items";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
@@ -623,10 +657,11 @@
             // 
             this.tabPageInventoryEntries.Controls.Add(this.panel5);
             this.tabPageInventoryEntries.Controls.Add(this.dataGridViewInventoryEntries);
-            this.tabPageInventoryEntries.Location = new System.Drawing.Point(4, 32);
+            this.tabPageInventoryEntries.Location = new System.Drawing.Point(4, 28);
+            this.tabPageInventoryEntries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPageInventoryEntries.Name = "tabPageInventoryEntries";
-            this.tabPageInventoryEntries.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1392, 367);
+            this.tabPageInventoryEntries.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageInventoryEntries.Size = new System.Drawing.Size(1112, 290);
             this.tabPageInventoryEntries.TabIndex = 1;
             this.tabPageInventoryEntries.Text = "Inventory Entries";
             this.tabPageInventoryEntries.UseVisualStyleBackColor = true;
@@ -640,9 +675,10 @@
             this.panel5.Controls.Add(this.buttonInventoryEntriesPageListLast);
             this.panel5.Controls.Add(this.textBoxInventoryEntriesPageNumber);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(3, 311);
+            this.panel5.Location = new System.Drawing.Point(2, 246);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1386, 53);
+            this.panel5.Size = new System.Drawing.Size(1108, 42);
             this.panel5.TabIndex = 27;
             // 
             // buttonInventoryEntriesPageListFirst
@@ -652,9 +688,10 @@
             this.buttonInventoryEntriesPageListFirst.FlatAppearance.BorderSize = 0;
             this.buttonInventoryEntriesPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListFirst.Location = new System.Drawing.Point(12, 9);
+            this.buttonInventoryEntriesPageListFirst.Location = new System.Drawing.Point(10, 7);
+            this.buttonInventoryEntriesPageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonInventoryEntriesPageListFirst.Name = "buttonInventoryEntriesPageListFirst";
-            this.buttonInventoryEntriesPageListFirst.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListFirst.TabIndex = 13;
             this.buttonInventoryEntriesPageListFirst.Text = "First";
             this.buttonInventoryEntriesPageListFirst.UseVisualStyleBackColor = false;
@@ -667,9 +704,10 @@
             this.buttonInventoryEntriesPageListPrevious.FlatAppearance.BorderSize = 0;
             this.buttonInventoryEntriesPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListPrevious.Location = new System.Drawing.Point(100, 9);
+            this.buttonInventoryEntriesPageListPrevious.Location = new System.Drawing.Point(80, 7);
+            this.buttonInventoryEntriesPageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonInventoryEntriesPageListPrevious.Name = "buttonInventoryEntriesPageListPrevious";
-            this.buttonInventoryEntriesPageListPrevious.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListPrevious.TabIndex = 14;
             this.buttonInventoryEntriesPageListPrevious.Text = "Previous";
             this.buttonInventoryEntriesPageListPrevious.UseVisualStyleBackColor = false;
@@ -681,9 +719,10 @@
             this.buttonInventoryEntriesPageListNext.FlatAppearance.BorderSize = 0;
             this.buttonInventoryEntriesPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListNext.Location = new System.Drawing.Point(263, 9);
+            this.buttonInventoryEntriesPageListNext.Location = new System.Drawing.Point(210, 7);
+            this.buttonInventoryEntriesPageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonInventoryEntriesPageListNext.Name = "buttonInventoryEntriesPageListNext";
-            this.buttonInventoryEntriesPageListNext.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListNext.TabIndex = 15;
             this.buttonInventoryEntriesPageListNext.Text = "Next";
             this.buttonInventoryEntriesPageListNext.UseVisualStyleBackColor = false;
@@ -695,9 +734,10 @@
             this.buttonInventoryEntriesPageListLast.FlatAppearance.BorderSize = 0;
             this.buttonInventoryEntriesPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInventoryEntriesPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonInventoryEntriesPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonInventoryEntriesPageListLast.Location = new System.Drawing.Point(278, 7);
+            this.buttonInventoryEntriesPageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonInventoryEntriesPageListLast.Name = "buttonInventoryEntriesPageListLast";
-            this.buttonInventoryEntriesPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonInventoryEntriesPageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonInventoryEntriesPageListLast.TabIndex = 16;
             this.buttonInventoryEntriesPageListLast.Text = "Last";
             this.buttonInventoryEntriesPageListLast.UseVisualStyleBackColor = false;
@@ -709,10 +749,11 @@
             this.textBoxInventoryEntriesPageNumber.BackColor = System.Drawing.Color.White;
             this.textBoxInventoryEntriesPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxInventoryEntriesPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxInventoryEntriesPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxInventoryEntriesPageNumber.Location = new System.Drawing.Point(150, 11);
+            this.textBoxInventoryEntriesPageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxInventoryEntriesPageNumber.Name = "textBoxInventoryEntriesPageNumber";
             this.textBoxInventoryEntriesPageNumber.ReadOnly = true;
-            this.textBoxInventoryEntriesPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxInventoryEntriesPageNumber.Size = new System.Drawing.Size(55, 16);
             this.textBoxInventoryEntriesPageNumber.TabIndex = 17;
             this.textBoxInventoryEntriesPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -742,7 +783,8 @@
             this.ColumnInventoryEntriesQuantity,
             this.ColumnInventoryEntriesAmount,
             this.ColumnInventoryEntriesSpace});
-            this.dataGridViewInventoryEntries.Location = new System.Drawing.Point(8, 6);
+            this.dataGridViewInventoryEntries.Location = new System.Drawing.Point(6, 5);
+            this.dataGridViewInventoryEntries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewInventoryEntries.MultiSelect = false;
             this.dataGridViewInventoryEntries.Name = "dataGridViewInventoryEntries";
             this.dataGridViewInventoryEntries.ReadOnly = true;
@@ -752,7 +794,7 @@
             this.dataGridViewInventoryEntries.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewInventoryEntries.RowTemplate.Height = 24;
             this.dataGridViewInventoryEntries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInventoryEntries.Size = new System.Drawing.Size(1376, 299);
+            this.dataGridViewInventoryEntries.Size = new System.Drawing.Size(1101, 239);
             this.dataGridViewInventoryEntries.TabIndex = 26;
             this.dataGridViewInventoryEntries.TabStop = false;
             // 
@@ -820,6 +862,7 @@
             // 
             this.ColumnStockOutItemButtonEdit.DataPropertyName = "ColumnStockOutItemButtonEdit";
             this.ColumnStockOutItemButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnStockOutItemButtonEdit.Frozen = true;
             this.ColumnStockOutItemButtonEdit.HeaderText = "";
             this.ColumnStockOutItemButtonEdit.Name = "ColumnStockOutItemButtonEdit";
             this.ColumnStockOutItemButtonEdit.ReadOnly = true;
@@ -829,6 +872,7 @@
             // 
             this.ColumnStockOutItemButtonDelete.DataPropertyName = "ColumnStockOutItemButtonDelete";
             this.ColumnStockOutItemButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ColumnStockOutItemButtonDelete.Frozen = true;
             this.ColumnStockOutItemButtonDelete.HeaderText = "";
             this.ColumnStockOutItemButtonDelete.Name = "ColumnStockOutItemButtonDelete";
             this.ColumnStockOutItemButtonDelete.ReadOnly = true;
@@ -966,14 +1010,15 @@
             // 
             // TrnStockOutDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1400, 700);
+            this.ClientSize = new System.Drawing.Size(1091, 560);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TrnStockOutDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrnStockOutDetail";

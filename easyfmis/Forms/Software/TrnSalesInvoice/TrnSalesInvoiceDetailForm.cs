@@ -41,7 +41,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             sysUserRights = new Modules.SysUserRightsModule("TrnSalesInvoiceDetail");
             if (sysUserRights.GetUserRights() == null)
             {
-                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

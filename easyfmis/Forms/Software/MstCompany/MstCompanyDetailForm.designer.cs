@@ -77,8 +77,9 @@
             this.panel1.Controls.Add(this.buttonUnlock);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1400, 63);
+            this.panel1.Size = new System.Drawing.Size(1091, 50);
             this.panel1.TabIndex = 5;
             // 
             // buttonLock
@@ -90,9 +91,10 @@
             this.buttonLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLock.ForeColor = System.Drawing.Color.White;
-            this.buttonLock.Location = new System.Drawing.Point(1112, 12);
+            this.buttonLock.Location = new System.Drawing.Point(861, 10);
+            this.buttonLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonLock.Name = "buttonLock";
-            this.buttonLock.Size = new System.Drawing.Size(88, 40);
+            this.buttonLock.Size = new System.Drawing.Size(70, 32);
             this.buttonLock.TabIndex = 20;
             this.buttonLock.Text = "Lock";
             this.buttonLock.UseVisualStyleBackColor = false;
@@ -101,9 +103,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.building;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -112,10 +115,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Location = new System.Drawing.Point(50, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 35);
+            this.label1.Size = new System.Drawing.Size(163, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Company Detail";
             // 
@@ -128,9 +131,10 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(1300, 12);
+            this.buttonClose.Location = new System.Drawing.Point(1011, 10);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(88, 40);
+            this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 22;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
@@ -145,9 +149,10 @@
             this.buttonUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUnlock.ForeColor = System.Drawing.Color.White;
-            this.buttonUnlock.Location = new System.Drawing.Point(1206, 12);
+            this.buttonUnlock.Location = new System.Drawing.Point(936, 10);
+            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonUnlock.Name = "buttonUnlock";
-            this.buttonUnlock.Size = new System.Drawing.Size(88, 40);
+            this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
             this.buttonUnlock.TabIndex = 21;
             this.buttonUnlock.Text = "Unlock";
             this.buttonUnlock.UseVisualStyleBackColor = false;
@@ -159,9 +164,10 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1400, 637);
+            this.panel2.Size = new System.Drawing.Size(1091, 510);
             this.panel2.TabIndex = 6;
             // 
             // panel6
@@ -170,9 +176,10 @@
             this.panel6.Controls.Add(this.buttonAddBranch);
             this.panel6.Controls.Add(this.dataGridViewBranchFormList);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 80);
+            this.panel6.Location = new System.Drawing.Point(0, 64);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1400, 504);
+            this.panel6.Size = new System.Drawing.Size(1091, 404);
             this.panel6.TabIndex = 29;
             // 
             // buttonAddBranch
@@ -184,9 +191,10 @@
             this.buttonAddBranch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonAddBranch.ForeColor = System.Drawing.Color.White;
-            this.buttonAddBranch.Location = new System.Drawing.Point(1300, 6);
+            this.buttonAddBranch.Location = new System.Drawing.Point(1011, 4);
+            this.buttonAddBranch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddBranch.Name = "buttonAddBranch";
-            this.buttonAddBranch.Size = new System.Drawing.Size(88, 40);
+            this.buttonAddBranch.Size = new System.Drawing.Size(70, 32);
             this.buttonAddBranch.TabIndex = 8;
             this.buttonAddBranch.TabStop = false;
             this.buttonAddBranch.Text = "Add";
@@ -218,7 +226,8 @@
             this.ColumnBranchListBranchCode,
             this.ColumnBranchListBranch,
             this.ColumnBranchListCompanyId});
-            this.dataGridViewBranchFormList.Location = new System.Drawing.Point(12, 52);
+            this.dataGridViewBranchFormList.Location = new System.Drawing.Point(10, 40);
+            this.dataGridViewBranchFormList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewBranchFormList.MultiSelect = false;
             this.dataGridViewBranchFormList.Name = "dataGridViewBranchFormList";
             this.dataGridViewBranchFormList.ReadOnly = true;
@@ -228,7 +237,7 @@
             this.dataGridViewBranchFormList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewBranchFormList.RowTemplate.Height = 24;
             this.dataGridViewBranchFormList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBranchFormList.Size = new System.Drawing.Size(1376, 446);
+            this.dataGridViewBranchFormList.Size = new System.Drawing.Size(1072, 358);
             this.dataGridViewBranchFormList.TabIndex = 1;
             this.dataGridViewBranchFormList.TabStop = false;
             this.dataGridViewBranchFormList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBranchList_CellClick);
@@ -292,9 +301,10 @@
             this.panel4.Controls.Add(this.buttonBranchListPageListLast);
             this.panel4.Controls.Add(this.textBoxBranchListPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 584);
+            this.panel4.Location = new System.Drawing.Point(0, 468);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1400, 53);
+            this.panel4.Size = new System.Drawing.Size(1091, 42);
             this.panel4.TabIndex = 27;
             // 
             // buttonBranchListPageListFirst
@@ -304,9 +314,10 @@
             this.buttonBranchListPageListFirst.FlatAppearance.BorderSize = 0;
             this.buttonBranchListPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonBranchListPageListFirst.Location = new System.Drawing.Point(12, 9);
+            this.buttonBranchListPageListFirst.Location = new System.Drawing.Point(10, 7);
+            this.buttonBranchListPageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBranchListPageListFirst.Name = "buttonBranchListPageListFirst";
-            this.buttonBranchListPageListFirst.Size = new System.Drawing.Size(82, 32);
+            this.buttonBranchListPageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListFirst.TabIndex = 13;
             this.buttonBranchListPageListFirst.Text = "First";
             this.buttonBranchListPageListFirst.UseVisualStyleBackColor = false;
@@ -319,9 +330,10 @@
             this.buttonBranchListPageListPrevious.FlatAppearance.BorderSize = 0;
             this.buttonBranchListPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonBranchListPageListPrevious.Location = new System.Drawing.Point(100, 9);
+            this.buttonBranchListPageListPrevious.Location = new System.Drawing.Point(80, 7);
+            this.buttonBranchListPageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBranchListPageListPrevious.Name = "buttonBranchListPageListPrevious";
-            this.buttonBranchListPageListPrevious.Size = new System.Drawing.Size(82, 32);
+            this.buttonBranchListPageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListPrevious.TabIndex = 14;
             this.buttonBranchListPageListPrevious.Text = "Previous";
             this.buttonBranchListPageListPrevious.UseVisualStyleBackColor = false;
@@ -333,9 +345,10 @@
             this.buttonBranchListPageListNext.FlatAppearance.BorderSize = 0;
             this.buttonBranchListPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonBranchListPageListNext.Location = new System.Drawing.Point(263, 9);
+            this.buttonBranchListPageListNext.Location = new System.Drawing.Point(210, 7);
+            this.buttonBranchListPageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBranchListPageListNext.Name = "buttonBranchListPageListNext";
-            this.buttonBranchListPageListNext.Size = new System.Drawing.Size(82, 32);
+            this.buttonBranchListPageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListNext.TabIndex = 15;
             this.buttonBranchListPageListNext.Text = "Next";
             this.buttonBranchListPageListNext.UseVisualStyleBackColor = false;
@@ -347,9 +360,10 @@
             this.buttonBranchListPageListLast.FlatAppearance.BorderSize = 0;
             this.buttonBranchListPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.buttonBranchListPageListLast.Location = new System.Drawing.Point(348, 9);
+            this.buttonBranchListPageListLast.Location = new System.Drawing.Point(278, 7);
+            this.buttonBranchListPageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBranchListPageListLast.Name = "buttonBranchListPageListLast";
-            this.buttonBranchListPageListLast.Size = new System.Drawing.Size(82, 32);
+            this.buttonBranchListPageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListLast.TabIndex = 16;
             this.buttonBranchListPageListLast.Text = "Last";
             this.buttonBranchListPageListLast.UseVisualStyleBackColor = false;
@@ -361,10 +375,11 @@
             this.textBoxBranchListPageNumber.BackColor = System.Drawing.Color.White;
             this.textBoxBranchListPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxBranchListPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBoxBranchListPageNumber.Location = new System.Drawing.Point(188, 14);
+            this.textBoxBranchListPageNumber.Location = new System.Drawing.Point(150, 11);
+            this.textBoxBranchListPageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxBranchListPageNumber.Name = "textBoxBranchListPageNumber";
             this.textBoxBranchListPageNumber.ReadOnly = true;
-            this.textBoxBranchListPageNumber.Size = new System.Drawing.Size(69, 20);
+            this.textBoxBranchListPageNumber.Size = new System.Drawing.Size(55, 16);
             this.textBoxBranchListPageNumber.TabIndex = 17;
             this.textBoxBranchListPageNumber.TabStop = false;
             this.textBoxBranchListPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -378,58 +393,63 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1400, 80);
+            this.panel3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel3.Size = new System.Drawing.Size(1091, 64);
             this.panel3.TabIndex = 0;
             // 
             // textBoxCompanyCode
             // 
             this.textBoxCompanyCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCompanyCode.Location = new System.Drawing.Point(106, 6);
+            this.textBoxCompanyCode.Location = new System.Drawing.Point(85, 4);
+            this.textBoxCompanyCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxCompanyCode.Name = "textBoxCompanyCode";
-            this.textBoxCompanyCode.Size = new System.Drawing.Size(319, 30);
+            this.textBoxCompanyCode.Size = new System.Drawing.Size(256, 26);
             this.textBoxCompanyCode.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(46, 9);
+            this.label4.Location = new System.Drawing.Point(37, 6);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 23);
+            this.label4.Size = new System.Drawing.Size(44, 19);
             this.label4.TabIndex = 2;
             this.label4.Text = "Code:";
             // 
             // textBoxCompany
             // 
             this.textBoxCompany.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCompany.Location = new System.Drawing.Point(106, 42);
+            this.textBoxCompany.Location = new System.Drawing.Point(85, 34);
+            this.textBoxCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxCompany.Name = "textBoxCompany";
-            this.textBoxCompany.Size = new System.Drawing.Size(319, 30);
+            this.textBoxCompany.Size = new System.Drawing.Size(256, 26);
             this.textBoxCompany.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(13, 45);
+            this.label3.Location = new System.Drawing.Point(10, 36);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 23);
+            this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Company:";
             // 
             // MstCompanyDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1400, 700);
+            this.ClientSize = new System.Drawing.Size(1091, 560);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "MstCompanyDetailForm";
             this.Text = "MstUserDetailForm";
             this.panel1.ResumeLayout(false);
