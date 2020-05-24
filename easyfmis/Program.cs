@@ -17,7 +17,7 @@ namespace easyfmis
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.getSerialNumber())
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
                 Application.Run(new Forms.Account.SysLogin.SysLoginForm());
                 //Application.Run(new Forms.Software.SysSoftwareForm());

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,6 +42,28 @@ namespace easyfmis.Modules
                 CurrentUserFullName = currentSettings.CurrentUserFullName,
                 SoftwareVersion = currentSettings.SoftwareVersion,
                 SoftwareDeveloper = currentSettings.SoftwareDeveloper,
+                SoftwareContactSupportNumber = currentSettings.SoftwareContactSupportNumber
+            };
+
+            String newJson = new JavaScriptSerializer().Serialize(newEntities);
+            File.WriteAllText(path, newJson);
+        }
+
+        // ======================================
+        // Update Current Settings - License Code
+        // ======================================
+        public static void UpdateCurrentSettingsLicenseCode(String licenseCode)
+        {
+            var currentSettings = GetCurrentSettings();
+
+            Entities.SysCurrentEntity newEntities = new Entities.SysCurrentEntity()
+            {
+                CurrentUserId = currentSettings.CurrentUserId,
+                CurrentUserName = currentSettings.CurrentUserName,
+                CurrentUserFullName = currentSettings.CurrentUserFullName,
+                SoftwareVersion = currentSettings.SoftwareVersion,
+                SoftwareDeveloper = currentSettings.SoftwareDeveloper,
+                LicenseCode = licenseCode,
                 SoftwareContactSupportNumber = currentSettings.SoftwareContactSupportNumber
             };
 
