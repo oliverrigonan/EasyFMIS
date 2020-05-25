@@ -138,7 +138,7 @@
             // textBoxDiscountAmount
             // 
             this.textBoxDiscountAmount.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxDiscountAmount.Location = new System.Drawing.Point(146, 70);
+            this.textBoxDiscountAmount.Location = new System.Drawing.Point(146, 71);
             this.textBoxDiscountAmount.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDiscountAmount.Name = "textBoxDiscountAmount";
             this.textBoxDiscountAmount.ReadOnly = true;
@@ -153,7 +153,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.Location = new System.Drawing.Point(8, 73);
+            this.label4.Location = new System.Drawing.Point(8, 74);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 21);
@@ -164,7 +164,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label3.Location = new System.Drawing.Point(68, 7);
+            this.label3.Location = new System.Drawing.Point(68, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 21);

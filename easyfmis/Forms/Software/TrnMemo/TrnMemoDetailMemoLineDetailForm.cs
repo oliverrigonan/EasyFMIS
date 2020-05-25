@@ -200,5 +200,19 @@ namespace easyfmis.Forms.Software.TrnMemo
             }
         }
 
+        private void textBoxParticulars_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxSINumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxRRNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

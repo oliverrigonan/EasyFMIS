@@ -58,16 +58,18 @@
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 63);
+            this.panel1.Size = new System.Drawing.Size(494, 50);
             this.panel1.TabIndex = 8;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.Stock_In;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -76,10 +78,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Location = new System.Drawing.Point(50, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 35);
+            this.label1.Size = new System.Drawing.Size(206, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Purchase Order Item";
             // 
@@ -92,9 +94,10 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(518, 12);
+            this.buttonClose.Location = new System.Drawing.Point(414, 10);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(88, 40);
+            this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
@@ -109,9 +112,10 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(424, 12);
+            this.buttonSave.Location = new System.Drawing.Point(339, 10);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(88, 40);
+            this.buttonSave.Size = new System.Drawing.Size(70, 32);
             this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -129,9 +133,10 @@
             this.panel2.Controls.Add(this.textBoxQuantity);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 63);
+            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(618, 193);
+            this.panel2.Size = new System.Drawing.Size(494, 158);
             this.panel2.TabIndex = 9;
             // 
             // comboBoxUnit
@@ -140,18 +145,20 @@
             this.comboBoxUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxUnit.FormattingEnabled = true;
-            this.comboBoxUnit.Location = new System.Drawing.Point(98, 80);
+            this.comboBoxUnit.Location = new System.Drawing.Point(78, 65);
+            this.comboBoxUnit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxUnit.Name = "comboBoxUnit";
-            this.comboBoxUnit.Size = new System.Drawing.Size(138, 31);
+            this.comboBoxUnit.Size = new System.Drawing.Size(111, 27);
             this.comboBoxUnit.TabIndex = 1;
             // 
             // textBoxAmount
             // 
             this.textBoxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAmount.Location = new System.Drawing.Point(98, 153);
+            this.textBoxAmount.Location = new System.Drawing.Point(78, 126);
+            this.textBoxAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.ReadOnly = true;
-            this.textBoxAmount.Size = new System.Drawing.Size(269, 30);
+            this.textBoxAmount.Size = new System.Drawing.Size(216, 26);
             this.textBoxAmount.TabIndex = 3;
             this.textBoxAmount.TabStop = false;
             this.textBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -160,9 +167,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(16, 156);
+            this.label9.Location = new System.Drawing.Point(12, 129);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 23);
+            this.label9.Size = new System.Drawing.Size(62, 19);
             this.label9.TabIndex = 23;
             this.label9.Text = "Amount:";
             // 
@@ -170,18 +178,20 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(44, 120);
+            this.label4.Location = new System.Drawing.Point(34, 99);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 23);
+            this.label4.Size = new System.Drawing.Size(40, 19);
             this.label4.TabIndex = 17;
             this.label4.Text = "Cost:";
             // 
             // textBoxCost
             // 
             this.textBoxCost.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCost.Location = new System.Drawing.Point(98, 117);
+            this.textBoxCost.Location = new System.Drawing.Point(78, 96);
+            this.textBoxCost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxCost.Name = "textBoxCost";
-            this.textBoxCost.Size = new System.Drawing.Size(269, 30);
+            this.textBoxCost.Size = new System.Drawing.Size(216, 26);
             this.textBoxCost.TabIndex = 2;
             this.textBoxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxCost.TextChanged += new System.EventHandler(this.textBoxPurchaseOrderItemCost_TextChanged);
@@ -192,9 +202,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Location = new System.Drawing.Point(8, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 23);
+            this.label2.Size = new System.Drawing.Size(66, 19);
             this.label2.TabIndex = 13;
             this.label2.Text = "Quantity:";
             // 
@@ -205,10 +216,11 @@
             this.textBoxPurchaseOrderItemItemDescription.BackColor = System.Drawing.Color.White;
             this.textBoxPurchaseOrderItemItemDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPurchaseOrderItemItemDescription.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.textBoxPurchaseOrderItemItemDescription.Location = new System.Drawing.Point(12, 6);
+            this.textBoxPurchaseOrderItemItemDescription.Location = new System.Drawing.Point(10, 5);
+            this.textBoxPurchaseOrderItemItemDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPurchaseOrderItemItemDescription.Name = "textBoxPurchaseOrderItemItemDescription";
             this.textBoxPurchaseOrderItemItemDescription.ReadOnly = true;
-            this.textBoxPurchaseOrderItemItemDescription.Size = new System.Drawing.Size(594, 32);
+            this.textBoxPurchaseOrderItemItemDescription.Size = new System.Drawing.Size(475, 25);
             this.textBoxPurchaseOrderItemItemDescription.TabIndex = 12;
             this.textBoxPurchaseOrderItemItemDescription.TabStop = false;
             this.textBoxPurchaseOrderItemItemDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -216,9 +228,10 @@
             // textBoxQuantity
             // 
             this.textBoxQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxQuantity.Location = new System.Drawing.Point(98, 44);
+            this.textBoxQuantity.Location = new System.Drawing.Point(78, 35);
+            this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.Size = new System.Drawing.Size(269, 30);
+            this.textBoxQuantity.Size = new System.Drawing.Size(216, 26);
             this.textBoxQuantity.TabIndex = 0;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxPurchaseOrderItemQuantity_TextChanged);
@@ -229,21 +242,23 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(46, 83);
+            this.label3.Location = new System.Drawing.Point(36, 68);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 23);
+            this.label3.Size = new System.Drawing.Size(38, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "Unit:";
             // 
             // TrnPurchaseOrderDetailPurchaseOrderItemDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(618, 256);
+            this.ClientSize = new System.Drawing.Size(494, 208);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "TrnPurchaseOrderDetailPurchaseOrderItemDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
