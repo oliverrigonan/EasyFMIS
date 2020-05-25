@@ -1271,6 +1271,7 @@
     <Content Include="Resources\Images\Icons\Inventory.png" />
     <Content Include="Resources\Images\Icons\Item.png" />
     <Content Include="Resources\Images\Icons\jigsaw.png" />
+    <Content Include="Resources\Images\Icons\licenseerp.png" />
     <Content Include="Resources\Images\Icons\POS Touch.png" />
     <Content Include="Resources\Images\Icons\POS.png" />
     <Content Include="Resources\Images\Icons\Purchase Order.png" />

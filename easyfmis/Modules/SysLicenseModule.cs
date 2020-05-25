@@ -31,7 +31,8 @@ namespace easyfmis.Modules
 
         public static String DecriptionKey()
         {
-            try{
+            try
+            {
                 String EncryptionKey = "EasyERP 2020";
                 string lisenceCode = Modules.SysCurrentModule.GetCurrentSettings().LicenseCode;
 
@@ -52,7 +53,8 @@ namespace easyfmis.Modules
                     }
                 }
             }
-            catch{
+            catch
+            {
                 return "Invalid license.";
             }
         }
