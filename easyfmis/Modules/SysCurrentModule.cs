@@ -42,7 +42,9 @@ namespace easyfmis.Modules
                 CurrentUserFullName = currentSettings.CurrentUserFullName,
                 SoftwareVersion = currentSettings.SoftwareVersion,
                 SoftwareDeveloper = currentSettings.SoftwareDeveloper,
-                SoftwareContactSupportNumber = currentSettings.SoftwareContactSupportNumber
+                SoftwareContactSupportNumber = currentSettings.SoftwareContactSupportNumber,
+                LicenseCode = currentSettings.LicenseCode,
+                ItemImagePath = currentSettings.ItemImagePath,
             };
 
             String newJson = new JavaScriptSerializer().Serialize(newEntities);
@@ -56,18 +58,9 @@ namespace easyfmis.Modules
         {
             var currentSettings = GetCurrentSettings();
 
-            Entities.SysCurrentEntity newEntities = new Entities.SysCurrentEntity()
-            {
-                CurrentUserId = currentSettings.CurrentUserId,
-                CurrentUserName = currentSettings.CurrentUserName,
-                CurrentUserFullName = currentSettings.CurrentUserFullName,
-                SoftwareVersion = currentSettings.SoftwareVersion,
-                SoftwareDeveloper = currentSettings.SoftwareDeveloper,
-                LicenseCode = licenseCode,
-                SoftwareContactSupportNumber = currentSettings.SoftwareContactSupportNumber
-            };
+            currentSettings.LicenseCode = licenseCode;
 
-            String newJson = new JavaScriptSerializer().Serialize(newEntities);
+            String newJson = new JavaScriptSerializer().Serialize(currentSettings);
             File.WriteAllText(path, newJson);
         }
     }
