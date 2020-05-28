@@ -25,7 +25,6 @@ namespace easyfmis
             else
             {
                 Application.Run(new Forms.Software.SysSoftwareForm());
-
                 //Application.Run(new Forms.License.SysLicenseForm());
             }
         }

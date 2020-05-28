@@ -243,7 +243,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(8);
-            this.panel3.Size = new System.Drawing.Size(1091, 158);
+            this.panel3.Size = new System.Drawing.Size(1091, 187);
             this.panel3.TabIndex = 0;
             // 
             // label8
@@ -314,18 +314,18 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(489, 5);
+            this.textBoxRemarks.Location = new System.Drawing.Point(500, 65);
             this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(239, 54);
+            this.textBoxRemarks.Size = new System.Drawing.Size(239, 113);
             this.textBoxRemarks.TabIndex = 5;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(394, 128);
+            this.label13.Location = new System.Drawing.Point(405, 39);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 19);
@@ -336,7 +336,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(402, 97);
+            this.label12.Location = new System.Drawing.Point(413, 8);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 19);
@@ -347,7 +347,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(399, 66);
+            this.label11.Location = new System.Drawing.Point(60, 159);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 19);
@@ -360,7 +360,7 @@
             this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
-            this.comboBoxApprovedBy.Location = new System.Drawing.Point(489, 125);
+            this.comboBoxApprovedBy.Location = new System.Drawing.Point(500, 35);
             this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(239, 27);
@@ -372,7 +372,7 @@
             this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
-            this.comboBoxCheckedBy.Location = new System.Drawing.Point(489, 94);
+            this.comboBoxCheckedBy.Location = new System.Drawing.Point(500, 5);
             this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(239, 27);
@@ -385,7 +385,7 @@
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
-            this.comboBoxPreparedBy.Location = new System.Drawing.Point(489, 63);
+            this.comboBoxPreparedBy.Location = new System.Drawing.Point(150, 155);
             this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(239, 27);
@@ -395,7 +395,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(421, 7);
+            this.label7.Location = new System.Drawing.Point(432, 70);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 19);
@@ -456,7 +456,7 @@
             this.panel4.Controls.Add(this.buttonCollectionLinePageListLast);
             this.panel4.Controls.Add(this.textBoxCollectionLinePageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(2, 276);
+            this.panel4.Location = new System.Drawing.Point(2, 247);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1079, 42);
@@ -637,7 +637,7 @@
             this.dataGridViewCollectionLine.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewCollectionLine.RowTemplate.Height = 24;
             this.dataGridViewCollectionLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCollectionLine.Size = new System.Drawing.Size(1072, 232);
+            this.dataGridViewCollectionLine.Size = new System.Drawing.Size(1072, 203);
             this.dataGridViewCollectionLine.TabIndex = 1;
             this.dataGridViewCollectionLine.TabStop = false;
             this.dataGridViewCollectionLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCollectionLine_CellClick);
@@ -856,10 +856,10 @@
             this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 158);
+            this.panel6.Location = new System.Drawing.Point(0, 187);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1091, 352);
+            this.panel6.Size = new System.Drawing.Size(1091, 323);
             this.panel6.TabIndex = 27;
             // 
             // tabControl1
@@ -870,7 +870,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1091, 352);
+            this.tabControl1.Size = new System.Drawing.Size(1091, 323);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.TabStop = false;
             // 
@@ -883,7 +883,7 @@
             this.tabPageCollectionLines.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageCollectionLines.Name = "tabPageCollectionLines";
             this.tabPageCollectionLines.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageCollectionLines.Size = new System.Drawing.Size(1083, 320);
+            this.tabPageCollectionLines.Size = new System.Drawing.Size(1083, 291);
             this.tabPageCollectionLines.TabIndex = 0;
             this.tabPageCollectionLines.Text = "Collection Lines";
             this.tabPageCollectionLines.UseVisualStyleBackColor = true;

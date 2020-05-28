@@ -105,7 +105,7 @@
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1091, 50);
             this.panel1.TabIndex = 7;
@@ -120,7 +120,7 @@
             this.buttonLock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLock.ForeColor = System.Drawing.Color.White;
             this.buttonLock.Location = new System.Drawing.Point(861, 10);
-            this.buttonLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLock.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(70, 32);
             this.buttonLock.TabIndex = 20;
@@ -138,7 +138,7 @@
             this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUnlock.ForeColor = System.Drawing.Color.White;
             this.buttonUnlock.Location = new System.Drawing.Point(936, 10);
-            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
             this.buttonUnlock.TabIndex = 21;
@@ -150,7 +150,7 @@
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.Stock_Out;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -178,7 +178,7 @@
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
             this.buttonClose.Location = new System.Drawing.Point(1011, 10);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 23;
@@ -209,10 +209,10 @@
             this.panel3.Controls.Add(this.textBoxMONumber);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.panel3.Size = new System.Drawing.Size(1091, 161);
+            this.panel3.Padding = new System.Windows.Forms.Padding(8);
+            this.panel3.Size = new System.Drawing.Size(1091, 187);
             this.panel3.TabIndex = 0;
             // 
             // label3
@@ -232,7 +232,7 @@
             this.comboBoxArticleType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticleType.FormattingEnabled = true;
             this.comboBoxArticleType.Location = new System.Drawing.Point(123, 95);
-            this.comboBoxArticleType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxArticleType.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxArticleType.Name = "comboBoxArticleType";
             this.comboBoxArticleType.Size = new System.Drawing.Size(239, 27);
             this.comboBoxArticleType.TabIndex = 32;
@@ -254,8 +254,8 @@
             this.comboBoxArticle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxArticle.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticle.FormattingEnabled = true;
-            this.comboBoxArticle.Location = new System.Drawing.Point(123, 126);
-            this.comboBoxArticle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxArticle.Location = new System.Drawing.Point(123, 125);
+            this.comboBoxArticle.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxArticle.Name = "comboBoxArticle";
             this.comboBoxArticle.Size = new System.Drawing.Size(239, 27);
             this.comboBoxArticle.TabIndex = 5;
@@ -264,7 +264,7 @@
             // 
             this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxBranch.Location = new System.Drawing.Point(123, 5);
-            this.textBoxBranch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBranch.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
             this.textBoxBranch.Size = new System.Drawing.Size(239, 26);
@@ -285,18 +285,18 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(478, 98);
-            this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRemarks.Location = new System.Drawing.Point(472, 65);
+            this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(239, 55);
+            this.textBoxRemarks.Size = new System.Drawing.Size(239, 87);
             this.textBoxRemarks.TabIndex = 7;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(383, 70);
+            this.label13.Location = new System.Drawing.Point(377, 40);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 19);
@@ -307,7 +307,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(391, 39);
+            this.label12.Location = new System.Drawing.Point(385, 9);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 19);
@@ -318,7 +318,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(388, 8);
+            this.label11.Location = new System.Drawing.Point(33, 160);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 19);
@@ -331,8 +331,8 @@
             this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
-            this.comboBoxApprovedBy.Location = new System.Drawing.Point(478, 67);
-            this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxApprovedBy.Location = new System.Drawing.Point(472, 35);
+            this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(153, 27);
             this.comboBoxApprovedBy.TabIndex = 11;
@@ -343,8 +343,8 @@
             this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
-            this.comboBoxCheckedBy.Location = new System.Drawing.Point(478, 36);
-            this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCheckedBy.Location = new System.Drawing.Point(472, 5);
+            this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(239, 27);
             this.comboBoxCheckedBy.TabIndex = 10;
@@ -356,8 +356,8 @@
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
-            this.comboBoxPreparedBy.Location = new System.Drawing.Point(478, 5);
-            this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxPreparedBy.Location = new System.Drawing.Point(123, 155);
+            this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(239, 27);
             this.comboBoxPreparedBy.TabIndex = 9;
@@ -366,7 +366,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(410, 101);
+            this.label7.Location = new System.Drawing.Point(404, 71);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 19);
@@ -400,7 +400,7 @@
             this.dateTimePickerMODate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dateTimePickerMODate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerMODate.Location = new System.Drawing.Point(123, 65);
-            this.dateTimePickerMODate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerMODate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerMODate.Name = "dateTimePickerMODate";
             this.dateTimePickerMODate.Size = new System.Drawing.Size(158, 26);
             this.dateTimePickerMODate.TabIndex = 2;
@@ -409,7 +409,7 @@
             // 
             this.textBoxMONumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxMONumber.Location = new System.Drawing.Point(123, 35);
-            this.textBoxMONumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMONumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMONumber.Name = "textBoxMONumber";
             this.textBoxMONumber.ReadOnly = true;
             this.textBoxMONumber.Size = new System.Drawing.Size(158, 26);
@@ -426,8 +426,8 @@
             this.panel4.Controls.Add(this.buttonMemoLinePageListLast);
             this.panel4.Controls.Add(this.textBoxMemoLinePageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(2, 273);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(2, 247);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1079, 42);
             this.panel4.TabIndex = 25;
@@ -439,7 +439,7 @@
             this.textBoxTotalPOAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotalPOAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalPOAmount.Location = new System.Drawing.Point(653, 7);
-            this.textBoxTotalPOAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTotalPOAmount.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTotalPOAmount.Name = "textBoxTotalPOAmount";
             this.textBoxTotalPOAmount.Size = new System.Drawing.Size(409, 27);
             this.textBoxTotalPOAmount.TabIndex = 18;
@@ -453,7 +453,7 @@
             this.buttonMemoLinePageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMemoLinePageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonMemoLinePageListFirst.Location = new System.Drawing.Point(10, 7);
-            this.buttonMemoLinePageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMemoLinePageListFirst.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMemoLinePageListFirst.Name = "buttonMemoLinePageListFirst";
             this.buttonMemoLinePageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonMemoLinePageListFirst.TabIndex = 13;
@@ -469,7 +469,7 @@
             this.buttonMemoLinePageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMemoLinePageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonMemoLinePageListPrevious.Location = new System.Drawing.Point(80, 7);
-            this.buttonMemoLinePageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMemoLinePageListPrevious.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMemoLinePageListPrevious.Name = "buttonMemoLinePageListPrevious";
             this.buttonMemoLinePageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonMemoLinePageListPrevious.TabIndex = 14;
@@ -484,7 +484,7 @@
             this.buttonMemoLinePageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMemoLinePageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonMemoLinePageListNext.Location = new System.Drawing.Point(210, 7);
-            this.buttonMemoLinePageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMemoLinePageListNext.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMemoLinePageListNext.Name = "buttonMemoLinePageListNext";
             this.buttonMemoLinePageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonMemoLinePageListNext.TabIndex = 15;
@@ -499,7 +499,7 @@
             this.buttonMemoLinePageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMemoLinePageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonMemoLinePageListLast.Location = new System.Drawing.Point(278, 7);
-            this.buttonMemoLinePageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMemoLinePageListLast.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMemoLinePageListLast.Name = "buttonMemoLinePageListLast";
             this.buttonMemoLinePageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonMemoLinePageListLast.TabIndex = 16;
@@ -514,7 +514,7 @@
             this.textBoxMemoLinePageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMemoLinePageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxMemoLinePageNumber.Location = new System.Drawing.Point(150, 11);
-            this.textBoxMemoLinePageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMemoLinePageNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMemoLinePageNumber.Name = "textBoxMemoLinePageNumber";
             this.textBoxMemoLinePageNumber.ReadOnly = true;
             this.textBoxMemoLinePageNumber.Size = new System.Drawing.Size(55, 16);
@@ -554,7 +554,7 @@
             this.ColumnMemoLineListParticulars,
             this.ColumnMemoLineListSpace});
             this.dataGridViewMemoLine.Location = new System.Drawing.Point(6, 42);
-            this.dataGridViewMemoLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewMemoLine.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewMemoLine.MultiSelect = false;
             this.dataGridViewMemoLine.Name = "dataGridViewMemoLine";
             this.dataGridViewMemoLine.ReadOnly = true;
@@ -564,7 +564,7 @@
             this.dataGridViewMemoLine.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewMemoLine.RowTemplate.Height = 24;
             this.dataGridViewMemoLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMemoLine.Size = new System.Drawing.Size(1072, 229);
+            this.dataGridViewMemoLine.Size = new System.Drawing.Size(1072, 203);
             this.dataGridViewMemoLine.TabIndex = 1;
             this.dataGridViewMemoLine.TabStop = false;
             this.dataGridViewMemoLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMemoLine_CellClick);
@@ -679,7 +679,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 50);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1091, 510);
             this.panel2.TabIndex = 8;
@@ -689,10 +689,10 @@
             this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 161);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Location = new System.Drawing.Point(0, 187);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1091, 349);
+            this.panel6.Size = new System.Drawing.Size(1091, 323);
             this.panel6.TabIndex = 27;
             // 
             // tabControl1
@@ -700,10 +700,10 @@
             this.tabControl1.Controls.Add(this.tabPageStockOutItems);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1091, 349);
+            this.tabControl1.Size = new System.Drawing.Size(1091, 323);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.TabStop = false;
             // 
@@ -713,10 +713,10 @@
             this.tabPageStockOutItems.Controls.Add(this.panel4);
             this.tabPageStockOutItems.Controls.Add(this.dataGridViewMemoLine);
             this.tabPageStockOutItems.Location = new System.Drawing.Point(4, 28);
-            this.tabPageStockOutItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageStockOutItems.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageStockOutItems.Name = "tabPageStockOutItems";
-            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1083, 317);
+            this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1083, 291);
             this.tabPageStockOutItems.TabIndex = 0;
             this.tabPageStockOutItems.Text = "Memo Lines";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
@@ -731,7 +731,7 @@
             this.buttonAddMemoLine.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddMemoLine.ForeColor = System.Drawing.Color.White;
             this.buttonAddMemoLine.Location = new System.Drawing.Point(1008, 5);
-            this.buttonAddMemoLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAddMemoLine.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddMemoLine.Name = "buttonAddMemoLine";
             this.buttonAddMemoLine.Size = new System.Drawing.Size(70, 32);
             this.buttonAddMemoLine.TabIndex = 24;
@@ -749,7 +749,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TrnMemoDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrnStockOutDetail";

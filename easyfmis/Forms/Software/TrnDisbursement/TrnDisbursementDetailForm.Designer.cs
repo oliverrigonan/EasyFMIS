@@ -262,14 +262,14 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(8);
-            this.panel3.Size = new System.Drawing.Size(1091, 189);
+            this.panel3.Size = new System.Drawing.Size(1091, 187);
             this.panel3.TabIndex = 0;
             this.panel3.TabStop = true;
             // 
             // checkBoxIsClear
             // 
             this.checkBoxIsClear.AutoSize = true;
-            this.checkBoxIsClear.Location = new System.Drawing.Point(873, 71);
+            this.checkBoxIsClear.Location = new System.Drawing.Point(894, 71);
             this.checkBoxIsClear.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxIsClear.Name = "checkBoxIsClear";
             this.checkBoxIsClear.Size = new System.Drawing.Size(15, 14);
@@ -280,7 +280,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label18.Location = new System.Drawing.Point(812, 68);
+            this.label18.Location = new System.Drawing.Point(833, 68);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 19);
@@ -291,7 +291,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label17.Location = new System.Drawing.Point(707, 39);
+            this.label17.Location = new System.Drawing.Point(728, 38);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(82, 19);
@@ -302,7 +302,7 @@
             // 
             this.dateTimePickerCheckDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dateTimePickerCheckDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerCheckDate.Location = new System.Drawing.Point(793, 35);
+            this.dateTimePickerCheckDate.Location = new System.Drawing.Point(814, 35);
             this.dateTimePickerCheckDate.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerCheckDate.Name = "dateTimePickerCheckDate";
             this.dateTimePickerCheckDate.Size = new System.Drawing.Size(158, 26);
@@ -311,7 +311,7 @@
             // textBoxCheckNumber
             // 
             this.textBoxCheckNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCheckNumber.Location = new System.Drawing.Point(793, 5);
+            this.textBoxCheckNumber.Location = new System.Drawing.Point(814, 5);
             this.textBoxCheckNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCheckNumber.Name = "textBoxCheckNumber";
             this.textBoxCheckNumber.Size = new System.Drawing.Size(239, 26);
@@ -321,7 +321,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label10.Location = new System.Drawing.Point(718, 8);
+            this.label10.Location = new System.Drawing.Point(739, 8);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 19);
@@ -331,7 +331,7 @@
             // textBoxAmount
             // 
             this.textBoxAmount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAmount.Location = new System.Drawing.Point(456, 157);
+            this.textBoxAmount.Location = new System.Drawing.Point(466, 155);
             this.textBoxAmount.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.ReadOnly = true;
@@ -345,7 +345,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label16.Location = new System.Drawing.Point(390, 160);
+            this.label16.Location = new System.Drawing.Point(400, 158);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(62, 19);
@@ -356,7 +356,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label15.Location = new System.Drawing.Point(410, 41);
+            this.label15.Location = new System.Drawing.Point(420, 38);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(42, 19);
@@ -368,7 +368,7 @@
             this.comboBoxBank.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxBank.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxBank.FormattingEnabled = true;
-            this.comboBoxBank.Location = new System.Drawing.Point(456, 36);
+            this.comboBoxBank.Location = new System.Drawing.Point(466, 35);
             this.comboBoxBank.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxBank.Name = "comboBoxBank";
             this.comboBoxBank.Size = new System.Drawing.Size(239, 27);
@@ -378,7 +378,7 @@
             // 
             this.textBoxPayee.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPayee.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxPayee.Location = new System.Drawing.Point(144, 156);
+            this.textBoxPayee.Location = new System.Drawing.Point(144, 155);
             this.textBoxPayee.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPayee.Name = "textBoxPayee";
             this.textBoxPayee.ReadOnly = true;
@@ -389,7 +389,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(92, 159);
+            this.label9.Location = new System.Drawing.Point(92, 158);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 19);
@@ -399,7 +399,7 @@
             // checkBoxIsCrossCheck
             // 
             this.checkBoxIsCrossCheck.AutoSize = true;
-            this.checkBoxIsCrossCheck.Location = new System.Drawing.Point(793, 71);
+            this.checkBoxIsCrossCheck.Location = new System.Drawing.Point(814, 71);
             this.checkBoxIsCrossCheck.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxIsCrossCheck.Name = "checkBoxIsCrossCheck";
             this.checkBoxIsCrossCheck.Size = new System.Drawing.Size(15, 14);
@@ -410,7 +410,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label14.Location = new System.Drawing.Point(702, 68);
+            this.label14.Location = new System.Drawing.Point(723, 68);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(87, 19);
@@ -421,7 +421,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(386, 8);
+            this.label8.Location = new System.Drawing.Point(396, 8);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 19);
@@ -433,7 +433,7 @@
             this.comboBoxPayType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxPayType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPayType.FormattingEnabled = true;
-            this.comboBoxPayType.Location = new System.Drawing.Point(456, 5);
+            this.comboBoxPayType.Location = new System.Drawing.Point(466, 5);
             this.comboBoxPayType.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPayType.Name = "comboBoxPayType";
             this.comboBoxPayType.Size = new System.Drawing.Size(158, 27);
@@ -506,18 +506,18 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(456, 67);
+            this.textBoxRemarks.Location = new System.Drawing.Point(466, 65);
             this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
-            this.textBoxRemarks.Size = new System.Drawing.Size(239, 86);
+            this.textBoxRemarks.Size = new System.Drawing.Size(239, 87);
             this.textBoxRemarks.TabIndex = 8;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(698, 159);
+            this.label13.Location = new System.Drawing.Point(719, 158);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 19);
@@ -528,7 +528,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(706, 128);
+            this.label12.Location = new System.Drawing.Point(727, 128);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 19);
@@ -539,7 +539,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(703, 97);
+            this.label11.Location = new System.Drawing.Point(724, 98);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 19);
@@ -552,7 +552,7 @@
             this.comboBoxApprovedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxApprovedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxApprovedBy.FormattingEnabled = true;
-            this.comboBoxApprovedBy.Location = new System.Drawing.Point(793, 156);
+            this.comboBoxApprovedBy.Location = new System.Drawing.Point(814, 155);
             this.comboBoxApprovedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApprovedBy.Name = "comboBoxApprovedBy";
             this.comboBoxApprovedBy.Size = new System.Drawing.Size(239, 27);
@@ -564,7 +564,7 @@
             this.comboBoxCheckedBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxCheckedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxCheckedBy.FormattingEnabled = true;
-            this.comboBoxCheckedBy.Location = new System.Drawing.Point(793, 125);
+            this.comboBoxCheckedBy.Location = new System.Drawing.Point(814, 125);
             this.comboBoxCheckedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCheckedBy.Name = "comboBoxCheckedBy";
             this.comboBoxCheckedBy.Size = new System.Drawing.Size(239, 27);
@@ -577,7 +577,7 @@
             this.comboBoxPreparedBy.Enabled = false;
             this.comboBoxPreparedBy.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxPreparedBy.FormattingEnabled = true;
-            this.comboBoxPreparedBy.Location = new System.Drawing.Point(793, 94);
+            this.comboBoxPreparedBy.Location = new System.Drawing.Point(814, 95);
             this.comboBoxPreparedBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPreparedBy.Name = "comboBoxPreparedBy";
             this.comboBoxPreparedBy.Size = new System.Drawing.Size(239, 27);
@@ -587,7 +587,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(388, 70);
+            this.label7.Location = new System.Drawing.Point(398, 68);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 19);
@@ -648,7 +648,7 @@
             this.panel4.Controls.Add(this.buttonDisbursementLinePageListLast);
             this.panel4.Controls.Add(this.textBoxDisbursementLinePageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(2, 245);
+            this.panel4.Location = new System.Drawing.Point(2, 247);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1079, 42);
@@ -816,7 +816,7 @@
             this.dataGridViewDisbursementLine.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewDisbursementLine.RowTemplate.Height = 24;
             this.dataGridViewDisbursementLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDisbursementLine.Size = new System.Drawing.Size(1072, 201);
+            this.dataGridViewDisbursementLine.Size = new System.Drawing.Size(1072, 203);
             this.dataGridViewDisbursementLine.TabIndex = 1;
             this.dataGridViewDisbursementLine.TabStop = false;
             this.dataGridViewDisbursementLine.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisbursementLine_CellClick);
@@ -929,10 +929,10 @@
             this.panel6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 189);
+            this.panel6.Location = new System.Drawing.Point(0, 187);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1091, 321);
+            this.panel6.Size = new System.Drawing.Size(1091, 323);
             this.panel6.TabIndex = 27;
             // 
             // tabControl1
@@ -943,7 +943,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1091, 321);
+            this.tabControl1.Size = new System.Drawing.Size(1091, 323);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPageStockOutItems
@@ -955,7 +955,7 @@
             this.tabPageStockOutItems.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageStockOutItems.Name = "tabPageStockOutItems";
             this.tabPageStockOutItems.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageStockOutItems.Size = new System.Drawing.Size(1083, 289);
+            this.tabPageStockOutItems.Size = new System.Drawing.Size(1083, 291);
             this.tabPageStockOutItems.TabIndex = 0;
             this.tabPageStockOutItems.Text = "Disbursement Line";
             this.tabPageStockOutItems.UseVisualStyleBackColor = true;
