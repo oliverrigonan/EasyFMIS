@@ -911,7 +911,7 @@
             this.buttonAddUnitConvertion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddUnitConvertion.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddUnitConvertion.ForeColor = System.Drawing.Color.White;
-            this.buttonAddUnitConvertion.Location = new System.Drawing.Point(1036, 4);
+            this.buttonAddUnitConvertion.Location = new System.Drawing.Point(1020, 4);
             this.buttonAddUnitConvertion.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddUnitConvertion.Name = "buttonAddUnitConvertion";
             this.buttonAddUnitConvertion.Size = new System.Drawing.Size(70, 32);
@@ -949,7 +949,7 @@
             this.dataGridViewUnitConversion.RowHeadersVisible = false;
             this.dataGridViewUnitConversion.RowTemplate.Height = 24;
             this.dataGridViewUnitConversion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUnitConversion.Size = new System.Drawing.Size(1103, 394);
+            this.dataGridViewUnitConversion.Size = new System.Drawing.Size(1090, 394);
             this.dataGridViewUnitConversion.TabIndex = 38;
             this.dataGridViewUnitConversion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUnitConversion_CellClick);
             // 
@@ -1155,7 +1155,7 @@
             this.buttonAddItemPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddItemPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddItemPrice.ForeColor = System.Drawing.Color.White;
-            this.buttonAddItemPrice.Location = new System.Drawing.Point(1036, 4);
+            this.buttonAddItemPrice.Location = new System.Drawing.Point(1020, 4);
             this.buttonAddItemPrice.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddItemPrice.Name = "buttonAddItemPrice";
             this.buttonAddItemPrice.Size = new System.Drawing.Size(70, 32);
@@ -1189,7 +1189,7 @@
             this.dataGridViewItemPriceList.RowHeadersVisible = false;
             this.dataGridViewItemPriceList.RowTemplate.Height = 24;
             this.dataGridViewItemPriceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewItemPriceList.Size = new System.Drawing.Size(1103, 394);
+            this.dataGridViewItemPriceList.Size = new System.Drawing.Size(1090, 394);
             this.dataGridViewItemPriceList.TabIndex = 35;
             this.dataGridViewItemPriceList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItemPriceList_CellClick);
             // 
@@ -1358,7 +1358,7 @@
             this.buttonAddItemComponent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddItemComponent.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddItemComponent.ForeColor = System.Drawing.Color.White;
-            this.buttonAddItemComponent.Location = new System.Drawing.Point(1036, 4);
+            this.buttonAddItemComponent.Location = new System.Drawing.Point(1020, 4);
             this.buttonAddItemComponent.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddItemComponent.Name = "buttonAddItemComponent";
             this.buttonAddItemComponent.Size = new System.Drawing.Size(70, 32);
@@ -1398,7 +1398,7 @@
             this.dataGridViewItemComponentList.RowHeadersVisible = false;
             this.dataGridViewItemComponentList.RowTemplate.Height = 24;
             this.dataGridViewItemComponentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewItemComponentList.Size = new System.Drawing.Size(1103, 394);
+            this.dataGridViewItemComponentList.Size = new System.Drawing.Size(1090, 394);
             this.dataGridViewItemComponentList.TabIndex = 38;
             this.dataGridViewItemComponentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItemComponentList_CellClick);
             // 
@@ -1642,7 +1642,7 @@
             this.dataGridViewItemInventoryList.RowHeadersVisible = false;
             this.dataGridViewItemInventoryList.RowTemplate.Height = 24;
             this.dataGridViewItemInventoryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewItemInventoryList.Size = new System.Drawing.Size(1103, 394);
+            this.dataGridViewItemInventoryList.Size = new System.Drawing.Size(1090, 394);
             this.dataGridViewItemInventoryList.TabIndex = 41;
             this.dataGridViewItemInventoryList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItemInventoryList_CellClick);
             // 

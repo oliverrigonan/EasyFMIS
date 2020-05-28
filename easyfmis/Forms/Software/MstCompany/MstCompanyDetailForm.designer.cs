@@ -77,7 +77,7 @@
             this.panel1.Controls.Add(this.buttonUnlock);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1091, 50);
             this.panel1.TabIndex = 5;
@@ -92,7 +92,7 @@
             this.buttonLock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLock.ForeColor = System.Drawing.Color.White;
             this.buttonLock.Location = new System.Drawing.Point(861, 10);
-            this.buttonLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLock.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(70, 32);
             this.buttonLock.TabIndex = 20;
@@ -104,7 +104,7 @@
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.building;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -132,7 +132,7 @@
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
             this.buttonClose.Location = new System.Drawing.Point(1011, 10);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 22;
@@ -150,7 +150,7 @@
             this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUnlock.ForeColor = System.Drawing.Color.White;
             this.buttonUnlock.Location = new System.Drawing.Point(936, 10);
-            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
             this.buttonUnlock.TabIndex = 21;
@@ -165,7 +165,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 50);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1091, 510);
             this.panel2.TabIndex = 6;
@@ -176,10 +176,10 @@
             this.panel6.Controls.Add(this.buttonAddBranch);
             this.panel6.Controls.Add(this.dataGridViewBranchFormList);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 64);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Location = new System.Drawing.Point(0, 67);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1091, 404);
+            this.panel6.Size = new System.Drawing.Size(1091, 401);
             this.panel6.TabIndex = 29;
             // 
             // buttonAddBranch
@@ -192,7 +192,7 @@
             this.buttonAddBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buttonAddBranch.ForeColor = System.Drawing.Color.White;
             this.buttonAddBranch.Location = new System.Drawing.Point(1011, 4);
-            this.buttonAddBranch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAddBranch.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddBranch.Name = "buttonAddBranch";
             this.buttonAddBranch.Size = new System.Drawing.Size(70, 32);
             this.buttonAddBranch.TabIndex = 8;
@@ -227,7 +227,7 @@
             this.ColumnBranchListBranch,
             this.ColumnBranchListCompanyId});
             this.dataGridViewBranchFormList.Location = new System.Drawing.Point(10, 40);
-            this.dataGridViewBranchFormList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewBranchFormList.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewBranchFormList.MultiSelect = false;
             this.dataGridViewBranchFormList.Name = "dataGridViewBranchFormList";
             this.dataGridViewBranchFormList.ReadOnly = true;
@@ -237,7 +237,7 @@
             this.dataGridViewBranchFormList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.dataGridViewBranchFormList.RowTemplate.Height = 24;
             this.dataGridViewBranchFormList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBranchFormList.Size = new System.Drawing.Size(1072, 358);
+            this.dataGridViewBranchFormList.Size = new System.Drawing.Size(1072, 355);
             this.dataGridViewBranchFormList.TabIndex = 1;
             this.dataGridViewBranchFormList.TabStop = false;
             this.dataGridViewBranchFormList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBranchList_CellClick);
@@ -302,7 +302,7 @@
             this.panel4.Controls.Add(this.textBoxBranchListPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 468);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1091, 42);
             this.panel4.TabIndex = 27;
@@ -315,7 +315,7 @@
             this.buttonBranchListPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListFirst.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonBranchListPageListFirst.Location = new System.Drawing.Point(10, 7);
-            this.buttonBranchListPageListFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBranchListPageListFirst.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBranchListPageListFirst.Name = "buttonBranchListPageListFirst";
             this.buttonBranchListPageListFirst.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListFirst.TabIndex = 13;
@@ -331,7 +331,7 @@
             this.buttonBranchListPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonBranchListPageListPrevious.Location = new System.Drawing.Point(80, 7);
-            this.buttonBranchListPageListPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBranchListPageListPrevious.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBranchListPageListPrevious.Name = "buttonBranchListPageListPrevious";
             this.buttonBranchListPageListPrevious.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListPrevious.TabIndex = 14;
@@ -346,7 +346,7 @@
             this.buttonBranchListPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListNext.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonBranchListPageListNext.Location = new System.Drawing.Point(210, 7);
-            this.buttonBranchListPageListNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBranchListPageListNext.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBranchListPageListNext.Name = "buttonBranchListPageListNext";
             this.buttonBranchListPageListNext.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListNext.TabIndex = 15;
@@ -361,7 +361,7 @@
             this.buttonBranchListPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBranchListPageListLast.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonBranchListPageListLast.Location = new System.Drawing.Point(278, 7);
-            this.buttonBranchListPageListLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBranchListPageListLast.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBranchListPageListLast.Name = "buttonBranchListPageListLast";
             this.buttonBranchListPageListLast.Size = new System.Drawing.Size(66, 26);
             this.buttonBranchListPageListLast.TabIndex = 16;
@@ -376,7 +376,7 @@
             this.textBoxBranchListPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxBranchListPageNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxBranchListPageNumber.Location = new System.Drawing.Point(150, 11);
-            this.textBoxBranchListPageNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBranchListPageNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBranchListPageNumber.Name = "textBoxBranchListPageNumber";
             this.textBoxBranchListPageNumber.ReadOnly = true;
             this.textBoxBranchListPageNumber.Size = new System.Drawing.Size(55, 16);
@@ -393,17 +393,17 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.panel3.Size = new System.Drawing.Size(1091, 64);
+            this.panel3.Padding = new System.Windows.Forms.Padding(8);
+            this.panel3.Size = new System.Drawing.Size(1091, 67);
             this.panel3.TabIndex = 0;
             // 
             // textBoxCompanyCode
             // 
             this.textBoxCompanyCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCompanyCode.Location = new System.Drawing.Point(85, 4);
-            this.textBoxCompanyCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCompanyCode.Location = new System.Drawing.Point(85, 5);
+            this.textBoxCompanyCode.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCompanyCode.Name = "textBoxCompanyCode";
             this.textBoxCompanyCode.Size = new System.Drawing.Size(256, 26);
             this.textBoxCompanyCode.TabIndex = 0;
@@ -422,8 +422,8 @@
             // textBoxCompany
             // 
             this.textBoxCompany.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCompany.Location = new System.Drawing.Point(85, 34);
-            this.textBoxCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCompany.Location = new System.Drawing.Point(85, 35);
+            this.textBoxCompany.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCompany.Name = "textBoxCompany";
             this.textBoxCompany.Size = new System.Drawing.Size(256, 26);
             this.textBoxCompany.TabIndex = 1;

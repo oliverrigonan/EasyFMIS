@@ -75,7 +75,7 @@
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1104, 50);
             this.panel1.TabIndex = 5;
@@ -90,7 +90,7 @@
             this.buttonLock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLock.ForeColor = System.Drawing.Color.White;
             this.buttonLock.Location = new System.Drawing.Point(874, 10);
-            this.buttonLock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLock.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(70, 32);
             this.buttonLock.TabIndex = 20;
@@ -109,7 +109,7 @@
             this.buttonUnlock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUnlock.ForeColor = System.Drawing.Color.White;
             this.buttonUnlock.Location = new System.Drawing.Point(949, 10);
-            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonUnlock.Margin = new System.Windows.Forms.Padding(2);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(70, 32);
             this.buttonUnlock.TabIndex = 21;
@@ -122,7 +122,7 @@
             // 
             this.pictureBox1.Image = global::easyfmis.Properties.Resources.Customer;
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -150,7 +150,7 @@
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
             this.buttonClose.Location = new System.Drawing.Point(1024, 10);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(70, 32);
             this.buttonClose.TabIndex = 22;
@@ -188,9 +188,9 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 50);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel2.Padding = new System.Windows.Forms.Padding(8);
             this.panel2.Size = new System.Drawing.Size(1104, 510);
             this.panel2.TabIndex = 6;
             // 
@@ -198,7 +198,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label13.Location = new System.Drawing.Point(42, 335);
+            this.label13.Location = new System.Drawing.Point(42, 336);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 19);
@@ -208,8 +208,8 @@
             // textBoxCreditLimit
             // 
             this.textBoxCreditLimit.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCreditLimit.Location = new System.Drawing.Point(129, 332);
-            this.textBoxCreditLimit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCreditLimit.Location = new System.Drawing.Point(129, 333);
+            this.textBoxCreditLimit.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCreditLimit.Name = "textBoxCreditLimit";
             this.textBoxCreditLimit.Size = new System.Drawing.Size(172, 26);
             this.textBoxCreditLimit.TabIndex = 47;
@@ -220,8 +220,8 @@
             this.comboBoxTerms.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTerms.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxTerms.FormattingEnabled = true;
-            this.comboBoxTerms.Location = new System.Drawing.Point(129, 301);
-            this.comboBoxTerms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxTerms.Location = new System.Drawing.Point(129, 302);
+            this.comboBoxTerms.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTerms.Name = "comboBoxTerms";
             this.comboBoxTerms.Size = new System.Drawing.Size(172, 27);
             this.comboBoxTerms.TabIndex = 45;
@@ -230,7 +230,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(77, 304);
+            this.label12.Location = new System.Drawing.Point(77, 305);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 19);
@@ -252,7 +252,7 @@
             // 
             this.textBoxShippingInstructions.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.textBoxShippingInstructions.Location = new System.Drawing.Point(610, 5);
-            this.textBoxShippingInstructions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxShippingInstructions.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxShippingInstructions.Multiline = true;
             this.textBoxShippingInstructions.Name = "textBoxShippingInstructions";
             this.textBoxShippingInstructions.Size = new System.Drawing.Size(328, 82);
@@ -262,7 +262,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(61, 364);
+            this.label8.Location = new System.Drawing.Point(61, 365);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 19);
@@ -272,8 +272,8 @@
             // textBoxRemarks
             // 
             this.textBoxRemarks.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxRemarks.Location = new System.Drawing.Point(129, 362);
-            this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRemarks.Location = new System.Drawing.Point(129, 363);
+            this.textBoxRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRemarks.Multiline = true;
             this.textBoxRemarks.Name = "textBoxRemarks";
             this.textBoxRemarks.Size = new System.Drawing.Size(328, 82);
@@ -285,8 +285,8 @@
             this.comboBoxArticleGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxArticleGroup.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.comboBoxArticleGroup.FormattingEnabled = true;
-            this.comboBoxArticleGroup.Location = new System.Drawing.Point(129, 64);
-            this.comboBoxArticleGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxArticleGroup.Location = new System.Drawing.Point(129, 65);
+            this.comboBoxArticleGroup.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxArticleGroup.Name = "comboBoxArticleGroup";
             this.comboBoxArticleGroup.Size = new System.Drawing.Size(172, 27);
             this.comboBoxArticleGroup.TabIndex = 2;
@@ -295,7 +295,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label10.Location = new System.Drawing.Point(32, 68);
+            this.label10.Location = new System.Drawing.Point(32, 69);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 19);
@@ -306,7 +306,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(92, 273);
+            this.label9.Location = new System.Drawing.Point(92, 274);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 19);
@@ -316,8 +316,8 @@
             // textBoxTIN
             // 
             this.textBoxTIN.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxTIN.Location = new System.Drawing.Point(129, 271);
-            this.textBoxTIN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTIN.Location = new System.Drawing.Point(129, 272);
+            this.textBoxTIN.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTIN.Name = "textBoxTIN";
             this.textBoxTIN.Size = new System.Drawing.Size(172, 26);
             this.textBoxTIN.TabIndex = 7;
@@ -326,7 +326,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(32, 243);
+            this.label7.Location = new System.Drawing.Point(32, 244);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 19);
@@ -336,8 +336,8 @@
             // textBoxEmailAddress
             // 
             this.textBoxEmailAddress.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxEmailAddress.Location = new System.Drawing.Point(129, 241);
-            this.textBoxEmailAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEmailAddress.Location = new System.Drawing.Point(129, 242);
+            this.textBoxEmailAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmailAddress.Name = "textBoxEmailAddress";
             this.textBoxEmailAddress.Size = new System.Drawing.Size(228, 26);
             this.textBoxEmailAddress.TabIndex = 6;
@@ -346,7 +346,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(11, 214);
+            this.label6.Location = new System.Drawing.Point(11, 215);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 19);
@@ -356,8 +356,8 @@
             // textBoxContactNumber
             // 
             this.textBoxContactNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxContactNumber.Location = new System.Drawing.Point(129, 211);
-            this.textBoxContactNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxContactNumber.Location = new System.Drawing.Point(129, 212);
+            this.textBoxContactNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxContactNumber.Name = "textBoxContactNumber";
             this.textBoxContactNumber.Size = new System.Drawing.Size(172, 26);
             this.textBoxContactNumber.TabIndex = 5;
@@ -366,7 +366,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(20, 184);
+            this.label5.Location = new System.Drawing.Point(20, 185);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 19);
@@ -376,8 +376,8 @@
             // textBoxContactPerson
             // 
             this.textBoxContactPerson.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxContactPerson.Location = new System.Drawing.Point(129, 181);
-            this.textBoxContactPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxContactPerson.Location = new System.Drawing.Point(129, 182);
+            this.textBoxContactPerson.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxContactPerson.Name = "textBoxContactPerson";
             this.textBoxContactPerson.Size = new System.Drawing.Size(228, 26);
             this.textBoxContactPerson.TabIndex = 4;
@@ -386,7 +386,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(64, 97);
+            this.label2.Location = new System.Drawing.Point(64, 98);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 19);
@@ -396,8 +396,8 @@
             // textBoxAddress
             // 
             this.textBoxAddress.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxAddress.Location = new System.Drawing.Point(129, 95);
-            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxAddress.Location = new System.Drawing.Point(129, 96);
+            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(328, 82);
@@ -407,7 +407,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(53, 36);
+            this.label3.Location = new System.Drawing.Point(53, 37);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 19);
@@ -417,8 +417,8 @@
             // textBoxCustomer
             // 
             this.textBoxCustomer.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCustomer.Location = new System.Drawing.Point(129, 34);
-            this.textBoxCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCustomer.Location = new System.Drawing.Point(129, 35);
+            this.textBoxCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCustomer.Name = "textBoxCustomer";
             this.textBoxCustomer.Size = new System.Drawing.Size(228, 26);
             this.textBoxCustomer.TabIndex = 1;
@@ -426,8 +426,8 @@
             // textBoxCustomerCode
             // 
             this.textBoxCustomerCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCustomerCode.Location = new System.Drawing.Point(129, 4);
-            this.textBoxCustomerCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCustomerCode.Location = new System.Drawing.Point(129, 5);
+            this.textBoxCustomerCode.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCustomerCode.Name = "textBoxCustomerCode";
             this.textBoxCustomerCode.ReadOnly = true;
             this.textBoxCustomerCode.Size = new System.Drawing.Size(172, 26);

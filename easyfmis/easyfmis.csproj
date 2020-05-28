@@ -99,6 +99,7 @@
     <Compile Include="Controllers\RepAccountsPayableReportController.cs" />
     <Compile Include="Controllers\RepInventoryReportController.cs" />
     <Compile Include="Controllers\SysLoginController.cs" />
+    <Compile Include="Controllers\SysMenuController.cs" />
     <Compile Include="Controllers\SysSoftwareController.cs" />
     <Compile Include="Controllers\TrnDisbursementController.cs" />
     <Compile Include="Controllers\TrnDisbursementLineController.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Entities\DgvCollectionLineEntity.cs" />
     <Compile Include="Entities\DgvDisbursementLineEntity.cs" />
     <Compile Include="Entities\DgvDiscountListEntity.cs" />
+    <Compile Include="Entities\DgvSysMenuItemListEntity.cs" />
     <Compile Include="Entities\DgvMstArticleCostEntity.cs" />
     <Compile Include="Entities\DgvMstArticlePriceEntity.cs" />
     <Compile Include="Entities\DgvMstCustomerEntities.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="Entities\DgvTrnSalesOrderItemEntity.cs" />
     <Compile Include="Entities\DgvMstItemPrice.cs" />
     <Compile Include="Entities\DgvUserListEntity.cs" />
+    <Compile Include="Entities\SysMenuItemListEntity.cs" />
     <Compile Include="Entities\MstAccountEntity.cs" />
     <Compile Include="Entities\MstAccountType.cs" />
     <Compile Include="Entities\MstArticleComponentEntity.cs" />
