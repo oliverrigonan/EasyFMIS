@@ -118,17 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="System Tables" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\System Tables.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Disbursement1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Disbursement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Settings1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Reports1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\Reports.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="licenseerp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\licenseerp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="easypos cropped1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Logo\easypos cropped.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,14 +136,17 @@
   <data name="goods" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\goods.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="jigsaw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\jigsaw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Disbursement" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\Disbursement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pricecost1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\pricecost.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Stock Count1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\Stock Count.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\Inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stock Transfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Stock Transfer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,11 +175,17 @@
   <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Stock Count1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\Stock Count.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reports1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\Reports.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="distribution" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\distribution.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\Inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Disbursement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\Disbursement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stock Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Stock Out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,11 +208,14 @@
   <data name="Stock In" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Stock In.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="costpricet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\costpricet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="User2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Utilities1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\Utilities.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Purchase Order" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\Purchase Order.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shopping-cart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\shopping-cart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,8 +232,8 @@
   <data name="Inventory1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="jigsaw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\jigsaw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="System Tables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\System Tables.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="skycraper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\skycraper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,6 +268,9 @@
   <data name="easypos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\easypos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Utilities1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\Utilities.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="purse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\purse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -268,8 +280,8 @@
   <data name="Disbursement2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Disbursement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Purchase Order" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\Purchase Order.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pricecost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\pricecost.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Utilities" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\Utilities.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,7 +295,7 @@
   <data name="POS Touch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Icons\POS Touch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="licenseerp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Icons\licenseerp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="costpricet1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Icons\costpricet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

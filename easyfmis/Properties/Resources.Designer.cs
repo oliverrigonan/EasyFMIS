@@ -93,6 +93,26 @@ namespace easyfmis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap costpricet {
+            get {
+                object obj = ResourceManager.GetObject("costpricet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap costpricet1 {
+            get {
+                object obj = ResourceManager.GetObject("costpricet1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Customer {
             get {
                 object obj = ResourceManager.GetObject("Customer", resourceCulture);
@@ -346,6 +366,26 @@ namespace easyfmis.Properties {
         internal static System.Drawing.Bitmap POS2 {
             get {
                 object obj = ResourceManager.GetObject("POS2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pricecost {
+            get {
+                object obj = ResourceManager.GetObject("pricecost", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pricecost1 {
+            get {
+                object obj = ResourceManager.GetObject("pricecost1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
