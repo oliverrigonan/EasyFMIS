@@ -68,17 +68,17 @@
             this.ColumnStockCardReportAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStockCardReportSpace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonGenerateCSV = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.folderBrowserDialogGenerateCSV = new System.Windows.Forms.FolderBrowserDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockCardReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonStockCardReportPageListNext
@@ -87,10 +87,10 @@
             this.buttonStockCardReportPageListNext.FlatAppearance.BorderSize = 0;
             this.buttonStockCardReportPageListNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockCardReportPageListNext.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.buttonStockCardReportPageListNext.Location = new System.Drawing.Point(210, 7);
+            this.buttonStockCardReportPageListNext.Location = new System.Drawing.Point(262, 9);
             this.buttonStockCardReportPageListNext.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStockCardReportPageListNext.Name = "buttonStockCardReportPageListNext";
-            this.buttonStockCardReportPageListNext.Size = new System.Drawing.Size(66, 26);
+            this.buttonStockCardReportPageListNext.Size = new System.Drawing.Size(82, 32);
             this.buttonStockCardReportPageListNext.TabIndex = 10;
             this.buttonStockCardReportPageListNext.Text = "Next";
             this.buttonStockCardReportPageListNext.UseVisualStyleBackColor = false;
@@ -103,10 +103,10 @@
             this.buttonStockCardReportPageListPrevious.FlatAppearance.BorderSize = 0;
             this.buttonStockCardReportPageListPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockCardReportPageListPrevious.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.buttonStockCardReportPageListPrevious.Location = new System.Drawing.Point(80, 7);
+            this.buttonStockCardReportPageListPrevious.Location = new System.Drawing.Point(100, 9);
             this.buttonStockCardReportPageListPrevious.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStockCardReportPageListPrevious.Name = "buttonStockCardReportPageListPrevious";
-            this.buttonStockCardReportPageListPrevious.Size = new System.Drawing.Size(66, 26);
+            this.buttonStockCardReportPageListPrevious.Size = new System.Drawing.Size(82, 32);
             this.buttonStockCardReportPageListPrevious.TabIndex = 9;
             this.buttonStockCardReportPageListPrevious.Text = "Previous";
             this.buttonStockCardReportPageListPrevious.UseVisualStyleBackColor = false;
@@ -121,10 +121,10 @@
             this.panel4.Controls.Add(this.buttonStockCardReportPageListPrevious);
             this.panel4.Controls.Add(this.textBoxStockCardReportPageNumber);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 430);
+            this.panel4.Location = new System.Drawing.Point(0, 538);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1027, 42);
+            this.panel4.Size = new System.Drawing.Size(1284, 52);
             this.panel4.TabIndex = 20;
             // 
             // buttonStockCardReportPageListFirst
@@ -134,10 +134,10 @@
             this.buttonStockCardReportPageListFirst.FlatAppearance.BorderSize = 0;
             this.buttonStockCardReportPageListFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockCardReportPageListFirst.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.buttonStockCardReportPageListFirst.Location = new System.Drawing.Point(10, 7);
+            this.buttonStockCardReportPageListFirst.Location = new System.Drawing.Point(12, 9);
             this.buttonStockCardReportPageListFirst.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStockCardReportPageListFirst.Name = "buttonStockCardReportPageListFirst";
-            this.buttonStockCardReportPageListFirst.Size = new System.Drawing.Size(66, 26);
+            this.buttonStockCardReportPageListFirst.Size = new System.Drawing.Size(82, 32);
             this.buttonStockCardReportPageListFirst.TabIndex = 8;
             this.buttonStockCardReportPageListFirst.Text = "First";
             this.buttonStockCardReportPageListFirst.UseVisualStyleBackColor = false;
@@ -149,10 +149,10 @@
             this.buttonStockCardReportPageListLast.FlatAppearance.BorderSize = 0;
             this.buttonStockCardReportPageListLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStockCardReportPageListLast.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.buttonStockCardReportPageListLast.Location = new System.Drawing.Point(278, 7);
+            this.buttonStockCardReportPageListLast.Location = new System.Drawing.Point(348, 9);
             this.buttonStockCardReportPageListLast.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStockCardReportPageListLast.Name = "buttonStockCardReportPageListLast";
-            this.buttonStockCardReportPageListLast.Size = new System.Drawing.Size(66, 26);
+            this.buttonStockCardReportPageListLast.Size = new System.Drawing.Size(82, 32);
             this.buttonStockCardReportPageListLast.TabIndex = 11;
             this.buttonStockCardReportPageListLast.Text = "Last";
             this.buttonStockCardReportPageListLast.UseVisualStyleBackColor = false;
@@ -163,11 +163,11 @@
             this.textBoxStockCardReportPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxStockCardReportPageNumber.BackColor = System.Drawing.Color.White;
             this.textBoxStockCardReportPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStockCardReportPageNumber.Location = new System.Drawing.Point(150, 11);
+            this.textBoxStockCardReportPageNumber.Location = new System.Drawing.Point(188, 14);
             this.textBoxStockCardReportPageNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxStockCardReportPageNumber.Name = "textBoxStockCardReportPageNumber";
             this.textBoxStockCardReportPageNumber.ReadOnly = true;
-            this.textBoxStockCardReportPageNumber.Size = new System.Drawing.Size(55, 19);
+            this.textBoxStockCardReportPageNumber.Size = new System.Drawing.Size(69, 23);
             this.textBoxStockCardReportPageNumber.TabIndex = 12;
             this.textBoxStockCardReportPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -179,18 +179,18 @@
             this.panel2.Controls.Add(this.dataGridViewStockCardReport);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Location = new System.Drawing.Point(0, 62);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1027, 472);
+            this.panel2.Size = new System.Drawing.Size(1284, 590);
             this.panel2.TabIndex = 17;
             // 
             // textBoxItemListFilter
             // 
-            this.textBoxItemListFilter.Location = new System.Drawing.Point(12, 72);
+            this.textBoxItemListFilter.Location = new System.Drawing.Point(15, 90);
             this.textBoxItemListFilter.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxItemListFilter.Name = "textBoxItemListFilter";
-            this.textBoxItemListFilter.Size = new System.Drawing.Size(1083, 26);
+            this.textBoxItemListFilter.Size = new System.Drawing.Size(1255, 30);
             this.textBoxItemListFilter.TabIndex = 40;
             this.textBoxItemListFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxItemListFilter_KeyDown);
             // 
@@ -213,7 +213,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1027, 67);
+            this.panel3.Size = new System.Drawing.Size(1284, 84);
             this.panel3.TabIndex = 36;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -221,72 +221,72 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(8, 39);
+            this.label7.Location = new System.Drawing.Point(10, 49);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 19);
+            this.label7.Size = new System.Drawing.Size(94, 23);
             this.label7.TabIndex = 38;
             this.label7.Text = "Item Code:";
             // 
             // textBoxItemCode
             // 
             this.textBoxItemCode.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxItemCode.Location = new System.Drawing.Point(86, 36);
+            this.textBoxItemCode.Location = new System.Drawing.Point(108, 45);
             this.textBoxItemCode.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxItemCode.Name = "textBoxItemCode";
             this.textBoxItemCode.ReadOnly = true;
-            this.textBoxItemCode.Size = new System.Drawing.Size(312, 26);
+            this.textBoxItemCode.Size = new System.Drawing.Size(389, 30);
             this.textBoxItemCode.TabIndex = 37;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(429, 39);
+            this.label6.Location = new System.Drawing.Point(536, 49);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 19);
+            this.label6.Size = new System.Drawing.Size(49, 23);
             this.label6.TabIndex = 36;
             this.label6.Text = "Item:";
             // 
             // textBoxItem
             // 
             this.textBoxItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxItem.Location = new System.Drawing.Point(473, 36);
+            this.textBoxItem.Location = new System.Drawing.Point(591, 45);
             this.textBoxItem.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxItem.Name = "textBoxItem";
             this.textBoxItem.ReadOnly = true;
-            this.textBoxItem.Size = new System.Drawing.Size(540, 26);
+            this.textBoxItem.Size = new System.Drawing.Size(680, 30);
             this.textBoxItem.TabIndex = 4;
             // 
             // textBoxStartDate
             // 
             this.textBoxStartDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxStartDate.Location = new System.Drawing.Point(86, 6);
+            this.textBoxStartDate.Location = new System.Drawing.Point(108, 8);
             this.textBoxStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxStartDate.Name = "textBoxStartDate";
             this.textBoxStartDate.ReadOnly = true;
-            this.textBoxStartDate.Size = new System.Drawing.Size(120, 26);
+            this.textBoxStartDate.Size = new System.Drawing.Size(149, 30);
             this.textBoxStartDate.TabIndex = 0;
             // 
             // textBoxEndDate
             // 
             this.textBoxEndDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxEndDate.Location = new System.Drawing.Point(278, 6);
+            this.textBoxEndDate.Location = new System.Drawing.Point(348, 8);
             this.textBoxEndDate.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEndDate.Name = "textBoxEndDate";
             this.textBoxEndDate.ReadOnly = true;
-            this.textBoxEndDate.Size = new System.Drawing.Size(120, 26);
+            this.textBoxEndDate.Size = new System.Drawing.Size(149, 30);
             this.textBoxEndDate.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(398, 9);
+            this.label5.Location = new System.Drawing.Point(498, 11);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 19);
+            this.label5.Size = new System.Drawing.Size(87, 23);
             this.label5.TabIndex = 28;
             this.label5.Text = "Company:";
             // 
@@ -294,31 +294,31 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label4.Location = new System.Drawing.Point(210, 9);
+            this.label4.Location = new System.Drawing.Point(262, 11);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 19);
+            this.label4.Size = new System.Drawing.Size(84, 23);
             this.label4.TabIndex = 34;
             this.label4.Text = "End Date:";
             // 
             // textBoxCompany
             // 
             this.textBoxCompany.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxCompany.Location = new System.Drawing.Point(473, 6);
+            this.textBoxCompany.Location = new System.Drawing.Point(591, 8);
             this.textBoxCompany.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCompany.Name = "textBoxCompany";
             this.textBoxCompany.ReadOnly = true;
-            this.textBoxCompany.Size = new System.Drawing.Size(291, 26);
+            this.textBoxCompany.Size = new System.Drawing.Size(363, 30);
             this.textBoxCompany.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(768, 9);
+            this.label2.Location = new System.Drawing.Point(960, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 19);
+            this.label2.Size = new System.Drawing.Size(67, 23);
             this.label2.TabIndex = 30;
             this.label2.Text = "Branch:";
             // 
@@ -326,21 +326,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(10, 9);
+            this.label3.Location = new System.Drawing.Point(12, 11);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 19);
+            this.label3.Size = new System.Drawing.Size(90, 23);
             this.label3.TabIndex = 32;
             this.label3.Text = "Start Date:";
             // 
             // textBoxBranch
             // 
             this.textBoxBranch.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.textBoxBranch.Location = new System.Drawing.Point(826, 6);
+            this.textBoxBranch.Location = new System.Drawing.Point(1032, 8);
             this.textBoxBranch.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBranch.Name = "textBoxBranch";
             this.textBoxBranch.ReadOnly = true;
-            this.textBoxBranch.Size = new System.Drawing.Size(270, 26);
+            this.textBoxBranch.Size = new System.Drawing.Size(239, 30);
             this.textBoxBranch.TabIndex = 3;
             // 
             // dataGridViewStockCardReport
@@ -364,7 +364,7 @@
             this.ColumnStockCardReportCost,
             this.ColumnStockCardReportAmount,
             this.ColumnStockCardReportSpace});
-            this.dataGridViewStockCardReport.Location = new System.Drawing.Point(10, 101);
+            this.dataGridViewStockCardReport.Location = new System.Drawing.Point(12, 126);
             this.dataGridViewStockCardReport.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewStockCardReport.MultiSelect = false;
             this.dataGridViewStockCardReport.Name = "dataGridViewStockCardReport";
@@ -372,7 +372,7 @@
             this.dataGridViewStockCardReport.RowHeadersVisible = false;
             this.dataGridViewStockCardReport.RowTemplate.Height = 24;
             this.dataGridViewStockCardReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockCardReport.Size = new System.Drawing.Size(1007, 324);
+            this.dataGridViewStockCardReport.Size = new System.Drawing.Size(1259, 405);
             this.dataGridViewStockCardReport.TabIndex = 21;
             // 
             // ColumnStockCardReportDocument
@@ -475,35 +475,24 @@
             this.buttonGenerateCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGenerateCSV.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGenerateCSV.ForeColor = System.Drawing.Color.White;
-            this.buttonGenerateCSV.Location = new System.Drawing.Point(871, 9);
-            this.buttonGenerateCSV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonGenerateCSV.Location = new System.Drawing.Point(1089, 11);
+            this.buttonGenerateCSV.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.buttonGenerateCSV.Name = "buttonGenerateCSV";
-            this.buttonGenerateCSV.Size = new System.Drawing.Size(70, 32);
+            this.buttonGenerateCSV.Size = new System.Drawing.Size(88, 40);
             this.buttonGenerateCSV.TabIndex = 20;
             this.buttonGenerateCSV.TabStop = false;
             this.buttonGenerateCSV.Text = "CSV";
             this.buttonGenerateCSV.UseVisualStyleBackColor = false;
             this.buttonGenerateCSV.Click += new System.EventHandler(this.buttonGenerateCSV_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Reports;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(57, 12);
+            this.label1.Location = new System.Drawing.Point(71, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 28);
+            this.label1.Size = new System.Drawing.Size(228, 35);
             this.label1.TabIndex = 2;
             this.label1.Text = "Stock Card Report";
             // 
@@ -516,10 +505,10 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(946, 9);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.buttonClose.Location = new System.Drawing.Point(1182, 11);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(70, 32);
+            this.buttonClose.Size = new System.Drawing.Size(88, 40);
             this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
@@ -534,22 +523,33 @@
             this.panel1.Controls.Add(this.buttonClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1027, 50);
+            this.panel1.Size = new System.Drawing.Size(1284, 62);
             this.panel1.TabIndex = 16;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.Reports;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // RepInventoryReportStockCardReportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1027, 522);
+            this.ClientSize = new System.Drawing.Size(1284, 652);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Name = "RepInventoryReportStockCardReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Card Report";
@@ -560,9 +560,9 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockCardReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
