@@ -41,6 +41,8 @@ namespace easyfmis.Forms.Software
             tabControlSoftware.SelectTab(tabPageSysMenu);
         }
 
+        private Modules.SysUserRightsModule sysUserRights;
+
         // =========
         // Tab Pages
         // =========
@@ -98,7 +100,10 @@ namespace easyfmis.Forms.Software
         public TabPage tabPageStockCountDetail = new TabPage { Name = "tabPageStockCountDetail", Text = "Activity - Stock-Count Detail" };
 
         public TabPage tabPageAccountsPayableReport = new TabPage { Name = "tabPageAccountsPayableReport", Text = "Report - Accounts Payable Report" };
+
         public TabPage tabPageAccountsReceivableReport = new TabPage { Name = "tabPageAccountsReceivableReport", Text = "Report - Accounts Receivable Report" };
+
+        public TabPage tabPageSysUtilitiesItemPriceCost = new TabPage { Name = "tabPageSysUtilitiesItemPriceCost", Text = "Utilities - Item Price and Cost" };
 
         // =====
         // Forms
@@ -140,7 +145,7 @@ namespace easyfmis.Forms.Software
         public TrnCollection.TrnCollectionForm trnCollectionForm = null;
         public TrnCollection.TrnCollectionDetailForm trnCollectionDetailForm = null;
 
-        public TrnMemo.TrnMemoListForm trnMemoForm  = null;
+        public TrnMemo.TrnMemoListForm trnMemoForm = null;
         public TrnMemo.TrnMemoDetailForm trnMemoDetailForm = null;
 
         //public TrnStockCount.TrnStockCountListForm trnStockCountListForm = null;
@@ -154,6 +159,8 @@ namespace easyfmis.Forms.Software
         //public RepRemittanceReport.RepRemittanceReportForm repRemittanceReportForm = null;
 
         public SysSystemTables.SysSystemTablesForm sysSystemTablesForm = null;
+
+        public SysUtilities.SysUtilitiesItemPriceCostForm sysUtilitiesItemPriceCostForm = null;
 
         //public SysSettings.SysSettingsForm sysSettingsForm = null;
 
@@ -198,145 +205,235 @@ namespace easyfmis.Forms.Software
         //=============
         public void AddTabPageItemList()
         {
-            tabPageItemList.Controls.Remove(mstItemListForm);
-
-            mstItemListForm = new MstItem.MstItemListForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstItem");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageItemList.Controls.Remove(mstItemListForm);
 
-            tabPageItemList.Controls.Add(mstItemListForm);
+                    mstItemListForm = new MstItem.MstItemListForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageItemList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageItemList);
+                    tabPageItemList.Controls.Add(mstItemListForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageItemList) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageItemList);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageItemList);
+                        tabControlSoftware.SelectTab(tabPageItemList);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageItemList);
-                tabControlSoftware.SelectTab(tabPageItemList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageItemDetail(MstItem.MstItemListForm itemListForm, Entities.MstArticleEntity itemEntity)
         {
-            tabPageItemDetail.Controls.Remove(mstItemDetailForm);
-
-            mstItemDetailForm = new MstItem.MstItemDetailForm(this, itemListForm, itemEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstItemDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageItemDetail.Controls.Remove(mstItemDetailForm);
 
-            tabPageItemDetail.Controls.Add(mstItemDetailForm);
+                    mstItemDetailForm = new MstItem.MstItemDetailForm(this, itemListForm, itemEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageItemDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageItemDetail);
+                    tabPageItemDetail.Controls.Add(mstItemDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageItemDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageItemDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageItemDetail);
+                        tabControlSoftware.SelectTab(tabPageItemDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageItemDetail);
-                tabControlSoftware.SelectTab(tabPageItemDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageCustomerList()
         {
-            tabPageCustomerList.Controls.Remove(mstCustomerListForm);
-
-            mstCustomerListForm = new MstCustomer.MstCustomerListForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstCustomer");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageCustomerList.Controls.Remove(mstCustomerListForm);
 
-            tabPageCustomerList.Controls.Add(mstCustomerListForm);
+                    mstCustomerListForm = new MstCustomer.MstCustomerListForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageCustomerList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageCustomerList);
+                    tabPageCustomerList.Controls.Add(mstCustomerListForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageCustomerList) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageCustomerList);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageCustomerList);
+                        tabControlSoftware.SelectTab(tabPageCustomerList);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageCustomerList);
-                tabControlSoftware.SelectTab(tabPageCustomerList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageCustomerDetail(MstCustomer.MstCustomerListForm itemListForm, Entities.MstArticleEntity itemEntity)
         {
-            tabPageCustomerDetail.Controls.Remove(mstCustomerDetailForm);
-
-            mstCustomerDetailForm = new MstCustomer.MstCustomerDetailForm(this, itemListForm, itemEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstCustomerDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageCustomerDetail.Controls.Remove(mstCustomerDetailForm);
 
-            tabPageCustomerDetail.Controls.Add(mstCustomerDetailForm);
+                    mstCustomerDetailForm = new MstCustomer.MstCustomerDetailForm(this, itemListForm, itemEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageCustomerDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageCustomerDetail);
+                    tabPageCustomerDetail.Controls.Add(mstCustomerDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageCustomerDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageCustomerDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageCustomerDetail);
+                        tabControlSoftware.SelectTab(tabPageCustomerDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageCustomerDetail);
-                tabControlSoftware.SelectTab(tabPageCustomerDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageSupplierList()
         {
-            tabPageSupplierList.Controls.Remove(mstSupplierListForm);
-
-            mstSupplierListForm = new MstSupplier.MstSupplierListForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstSupplier");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSupplierList.Controls.Remove(mstSupplierListForm);
 
-            tabPageSupplierList.Controls.Add(mstSupplierListForm);
+                    mstSupplierListForm = new MstSupplier.MstSupplierListForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageSupplierList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageSupplierList);
+                    tabPageSupplierList.Controls.Add(mstSupplierListForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSupplierList) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSupplierList);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSupplierList);
+                        tabControlSoftware.SelectTab(tabPageSupplierList);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageSupplierList);
-                tabControlSoftware.SelectTab(tabPageSupplierList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageSupplierDetail(MstSupplier.MstSupplierListForm itemListForm, Entities.MstArticleEntity itemEntity)
         {
-            tabPageSupplierDetail.Controls.Remove(mstSupplierDetailForm);
-
-            mstSupplierDetailForm = new MstSupplier.MstSupplierDetailForm(this, itemListForm, itemEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstSupplierDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSupplierDetail.Controls.Remove(mstSupplierDetailForm);
 
-            tabPageSupplierDetail.Controls.Add(mstSupplierDetailForm);
+                    mstSupplierDetailForm = new MstSupplier.MstSupplierDetailForm(this, itemListForm, itemEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageSupplierDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageSupplierDetail);
+                    tabPageSupplierDetail.Controls.Add(mstSupplierDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSupplierDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSupplierDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSupplierDetail);
+                        tabControlSoftware.SelectTab(tabPageSupplierDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageSupplierDetail);
-                tabControlSoftware.SelectTab(tabPageSupplierDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -390,97 +487,165 @@ namespace easyfmis.Forms.Software
 
         public void AddTabPageUserList()
         {
-            tabPageUserList.Controls.Remove(mstUserListForm);
-
-            mstUserListForm = new MstUser.MstUserListForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstUser");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageUserList.Controls.Remove(mstUserListForm);
 
-            tabPageUserList.Controls.Add(mstUserListForm);
+                    mstUserListForm = new MstUser.MstUserListForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageUserList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageUserList);
+                    tabPageUserList.Controls.Add(mstUserListForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageUserList) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageUserList);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageUserList);
+                        tabControlSoftware.SelectTab(tabPageUserList);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageUserList);
-                tabControlSoftware.SelectTab(tabPageUserList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageUserDetail(MstUser.MstUserListForm userListForm, Entities.MstUserEntity userEntity)
         {
-            tabPageUserDetail.Controls.Remove(mstUserDetailForm);
-
-            mstUserDetailForm = new MstUser.MstUserDetailForm(this, userListForm, userEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstUserDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageUserDetail.Controls.Remove(mstUserDetailForm);
 
-            tabPageUserDetail.Controls.Add(mstUserDetailForm);
+                    mstUserDetailForm = new MstUser.MstUserDetailForm(this, userListForm, userEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageUserDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageUserDetail);
+                    tabPageUserDetail.Controls.Add(mstUserDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageUserDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageUserDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageUserDetail);
+                        tabControlSoftware.SelectTab(tabPageUserDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageUserDetail);
-                tabControlSoftware.SelectTab(tabPageUserDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageCompanyList()
         {
-            tabPageCompanyList.Controls.Remove(mstCompanyListForm);
-
-            mstCompanyListForm = new MstCompany.MstCompanyListForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstCompany");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    sysUserRights = new Modules.SysUserRightsModule("MstCompany");
+                    if (sysUserRights.GetUserRights() == null)
+                    {
+                        MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        tabPageCompanyList.Controls.Remove(mstCompanyListForm);
 
-            tabPageCompanyList.Controls.Add(mstCompanyListForm);
+                        mstCompanyListForm = new MstCompany.MstCompanyListForm(this)
+                        {
+                            TopLevel = false,
+                            Visible = true,
+                            Dock = DockStyle.Fill
+                        };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageCompanyList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageCompanyList);
+                        tabPageCompanyList.Controls.Add(mstCompanyListForm);
+
+                        if (tabControlSoftware.TabPages.Contains(tabPageCompanyList) == true)
+                        {
+                            tabControlSoftware.SelectTab(tabPageCompanyList);
+                        }
+                        else
+                        {
+                            tabControlSoftware.TabPages.Add(tabPageCompanyList);
+                            tabControlSoftware.SelectTab(tabPageCompanyList);
+                        }
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageCompanyList);
-                tabControlSoftware.SelectTab(tabPageCompanyList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageCompanyDetail(MstCompany.MstCompanyListForm mstCompanyListForm, Entities.MstCompanyEntity mstCompanyEntity)
         {
-            tabPageCompanyDetail.Controls.Remove(mstCompanyDetailForm);
-
-            mstCompanyDetailForm = new MstCompany.MstCompanyDetailForm(this, mstCompanyListForm, mstCompanyEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstCompanyDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageCompanyDetail.Controls.Remove(mstCompanyDetailForm);
 
-            tabPageCompanyDetail.Controls.Add(mstCompanyDetailForm);
+                    mstCompanyDetailForm = new MstCompany.MstCompanyDetailForm(this, mstCompanyListForm, mstCompanyEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageCompanyDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageCompanyDetail);
+                    tabPageCompanyDetail.Controls.Add(mstCompanyDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageCompanyDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageCompanyDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageCompanyDetail);
+                        tabControlSoftware.SelectTab(tabPageCompanyDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageCompanyDetail);
-                tabControlSoftware.SelectTab(tabPageCompanyDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -536,385 +701,640 @@ namespace easyfmis.Forms.Software
 
         public void AddTabPageStockInList()
         {
-            tabPageStockInList.Controls.Remove(trnStockInForm);
-
-            trnStockInForm = new TrnStockIn.TrnStockInForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnStockIn");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageStockInList.Controls.Remove(trnStockInForm);
 
-            tabPageStockInList.Controls.Add(trnStockInForm);
+                    trnStockInForm = new TrnStockIn.TrnStockInForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageStockInList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageStockInList);
+                    tabPageStockInList.Controls.Add(trnStockInForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageStockInList) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageStockInList);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageStockInList);
+                        tabControlSoftware.SelectTab(tabPageStockInList);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageStockInList);
-                tabControlSoftware.SelectTab(tabPageStockInList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageStockInDetail(TrnStockIn.TrnStockInForm stockInListForm, Entities.TrnStockInEntity stockInEntity)
         {
-            tabPageStockInDetail.Controls.Remove(trnStockInDetailForm);
 
-            trnStockInDetailForm = new TrnStockIn.TrnStockInDetailForm(this, stockInListForm, stockInEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnStockInDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageStockInDetail.Controls.Remove(trnStockInDetailForm);
 
-            tabPageStockInDetail.Controls.Add(trnStockInDetailForm);
+                    trnStockInDetailForm = new TrnStockIn.TrnStockInDetailForm(this, stockInListForm, stockInEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageStockInDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageStockInDetail);
+                    tabPageStockInDetail.Controls.Add(trnStockInDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageStockInDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageStockInDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageStockInDetail);
+                        tabControlSoftware.SelectTab(tabPageStockInDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageStockInDetail);
-                tabControlSoftware.SelectTab(tabPageStockInDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageStockOutList()
         {
-            tabPageStockOut.Controls.Remove(trnStockOutForm);
 
-            trnStockOutForm = new TrnStockOut.TrnStockOutForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnStockOut");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageStockOut.Controls.Remove(trnStockOutForm);
 
-            tabPageStockOut.Controls.Add(trnStockOutForm);
+                    trnStockOutForm = new TrnStockOut.TrnStockOutForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageStockOut) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageStockOut);
+                    tabPageStockOut.Controls.Add(trnStockOutForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageStockOut) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageStockOut);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageStockOut);
+                        tabControlSoftware.SelectTab(tabPageStockOut);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageStockOut);
-                tabControlSoftware.SelectTab(tabPageStockOut);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageStockOutDetail(TrnStockOut.TrnStockOutForm stockOutListForm, Entities.TrnStockOutEntity stockOutEntity)
         {
-            tabPageStockOutDetail.Controls.Remove(trnStockOutDetailForm);
 
-            trnStockOutDetailForm = new TrnStockOut.TrnStockOutDetailForm(this, stockOutListForm, stockOutEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnStockOutDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageStockOutDetail.Controls.Remove(trnStockOutDetailForm);
 
-            tabPageStockOutDetail.Controls.Add(trnStockOutDetailForm);
+                    trnStockOutDetailForm = new TrnStockOut.TrnStockOutDetailForm(this, stockOutListForm, stockOutEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageStockOutDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageStockOutDetail);
+                    tabPageStockOutDetail.Controls.Add(trnStockOutDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageStockOutDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageStockOutDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageStockOutDetail);
+                        tabControlSoftware.SelectTab(tabPageStockOutDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageStockOutDetail);
-                tabControlSoftware.SelectTab(tabPageStockOutDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageStockTransferList()
         {
-            tabPageStockTransfer.Controls.Remove(trnStockTransferForm);
 
-            trnStockTransferForm = new TrnStockTransfer.TrnStockTransferForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnStockTransfer");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageStockTransfer.Controls.Remove(trnStockTransferForm);
 
-            tabPageStockTransfer.Controls.Add(trnStockTransferForm);
+                    trnStockTransferForm = new TrnStockTransfer.TrnStockTransferForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageStockTransfer) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageStockTransfer);
+                    tabPageStockTransfer.Controls.Add(trnStockTransferForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageStockTransfer) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageStockTransfer);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageStockTransfer);
+                        tabControlSoftware.SelectTab(tabPageStockTransfer);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageStockTransfer);
-                tabControlSoftware.SelectTab(tabPageStockTransfer);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageStockTransferDetail(TrnStockTransfer.TrnStockTransferForm stockOutListForm, Entities.TrnStockTransferEntity stockOutEntity)
         {
-            tabPageStockTransferDetail.Controls.Remove(trnStockTransferDetailForm);
 
-            trnStockTransferDetailForm = new TrnStockTransfer.TrnStockTransferDetailForm(this, stockOutListForm, stockOutEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnStockTransferDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageStockTransferDetail.Controls.Remove(trnStockTransferDetailForm);
 
-            tabPageStockTransferDetail.Controls.Add(trnStockTransferDetailForm);
+                    trnStockTransferDetailForm = new TrnStockTransfer.TrnStockTransferDetailForm(this, stockOutListForm, stockOutEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageStockTransferDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageStockTransferDetail);
+                    tabPageStockTransferDetail.Controls.Add(trnStockTransferDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageStockTransferDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageStockTransferDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageStockTransferDetail);
+                        tabControlSoftware.SelectTab(tabPageStockTransferDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageStockTransferDetail);
-                tabControlSoftware.SelectTab(tabPageStockTransferDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageSalesOrderList()
         {
-            tabPageSalesOrder.Controls.Remove(trnSalesOrderForm);
 
-            trnSalesOrderForm = new TrnSalesOrder.TrnSalesOrderForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnSalesOrder");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSalesOrder.Controls.Remove(trnSalesOrderForm);
 
-            tabPageSalesOrder.Controls.Add(trnSalesOrderForm);
+                    trnSalesOrderForm = new TrnSalesOrder.TrnSalesOrderForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageSalesOrder) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageSalesOrder);
+                    tabPageSalesOrder.Controls.Add(trnSalesOrderForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSalesOrder) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSalesOrder);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSalesOrder);
+                        tabControlSoftware.SelectTab(tabPageSalesOrder);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageSalesOrder);
-                tabControlSoftware.SelectTab(tabPageSalesOrder);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageSalesOrderDetail(TrnSalesOrder.TrnSalesOrderForm trnSalesOrderForm, Entities.TrnSalesOrderEntity trnSalesOrderEntity)
         {
-            tabPageSalesOrderDetail.Controls.Remove(trnSalesOrderDetailForm);
 
-            trnSalesOrderDetailForm = new TrnSalesOrder.TrnSalesOrderDetailForm(this, trnSalesOrderForm, trnSalesOrderEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnSalesOrderDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSalesOrderDetail.Controls.Remove(trnSalesOrderDetailForm);
 
-            tabPageSalesOrderDetail.Controls.Add(trnSalesOrderDetailForm);
+                    trnSalesOrderDetailForm = new TrnSalesOrder.TrnSalesOrderDetailForm(this, trnSalesOrderForm, trnSalesOrderEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageSalesOrderDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageSalesOrderDetail);
+                    tabPageSalesOrderDetail.Controls.Add(trnSalesOrderDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSalesOrderDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSalesOrderDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSalesOrderDetail);
+                        tabControlSoftware.SelectTab(tabPageSalesOrderDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageSalesOrderDetail);
-                tabControlSoftware.SelectTab(tabPageSalesOrderDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPagePurchaseOrderList()
         {
-            tabPagePurchaseOrder.Controls.Remove(trnPurchaseOrderForm);
 
-            trnPurchaseOrderForm = new TrnPurchaseOrder.TrnPurchaseOrderForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnPurchaseOrder");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPagePurchaseOrder.Controls.Remove(trnPurchaseOrderForm);
 
-            tabPagePurchaseOrder.Controls.Add(trnPurchaseOrderForm);
+                    trnPurchaseOrderForm = new TrnPurchaseOrder.TrnPurchaseOrderForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPagePurchaseOrder) == true)
-            {
-                tabControlSoftware.SelectTab(tabPagePurchaseOrder);
+                    tabPagePurchaseOrder.Controls.Add(trnPurchaseOrderForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPagePurchaseOrder) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPagePurchaseOrder);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPagePurchaseOrder);
+                        tabControlSoftware.SelectTab(tabPagePurchaseOrder);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPagePurchaseOrder);
-                tabControlSoftware.SelectTab(tabPagePurchaseOrder);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPagePurchaseOrderDetail(TrnPurchaseOrder.TrnPurchaseOrderForm trnPurchaseOrderForm, Entities.TrnPurchaseOrderEntity trnPurchaseOrderEntity)
         {
-            tabPagePurchaseOrderDetail.Controls.Remove(trnPurchaseOrderDetailForm);
 
-            trnPurchaseOrderDetailForm = new TrnPurchaseOrder.TrnPurchaseOrderDetailForm(this, trnPurchaseOrderForm, trnPurchaseOrderEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnPurchaseOrderDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPagePurchaseOrderDetail.Controls.Remove(trnPurchaseOrderDetailForm);
 
-            tabPagePurchaseOrderDetail.Controls.Add(trnPurchaseOrderDetailForm);
+                    trnPurchaseOrderDetailForm = new TrnPurchaseOrder.TrnPurchaseOrderDetailForm(this, trnPurchaseOrderForm, trnPurchaseOrderEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPagePurchaseOrderDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPagePurchaseOrderDetail);
+                    tabPagePurchaseOrderDetail.Controls.Add(trnPurchaseOrderDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPagePurchaseOrderDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPagePurchaseOrderDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPagePurchaseOrderDetail);
+                        tabControlSoftware.SelectTab(tabPagePurchaseOrderDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPagePurchaseOrderDetail);
-                tabControlSoftware.SelectTab(tabPagePurchaseOrderDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageSalesInvoiceList()
         {
-            tabPageSalesInvoice.Controls.Remove(trnSalesInvoiceForm);
 
-            trnSalesInvoiceForm = new TrnSalesInvoice.TrnSalesInvoiceForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnSalesInvoice");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSalesInvoice.Controls.Remove(trnSalesInvoiceForm);
 
-            tabPageSalesInvoice.Controls.Add(trnSalesInvoiceForm);
+                    trnSalesInvoiceForm = new TrnSalesInvoice.TrnSalesInvoiceForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageSalesInvoice) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageSalesInvoice);
+                    tabPageSalesInvoice.Controls.Add(trnSalesInvoiceForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSalesInvoice) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSalesInvoice);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSalesInvoice);
+                        tabControlSoftware.SelectTab(tabPageSalesInvoice);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageSalesInvoice);
-                tabControlSoftware.SelectTab(tabPageSalesInvoice);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageSalesInvoiceDetail(TrnSalesInvoice.TrnSalesInvoiceForm trnSalesInvoiceForm, Entities.TrnSalesInvoiceEntity trnSalesInvoiceEntity)
         {
-            tabPageSalesInvoiceDetail.Controls.Remove(trnSalesInvoiceDetailForm);
 
-            trnSalesInvoiceDetailForm = new TrnSalesInvoice.TrnSalesInvoiceDetailForm(this, trnSalesInvoiceForm, trnSalesInvoiceEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnSalesInvoiceDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSalesInvoiceDetail.Controls.Remove(trnSalesInvoiceDetailForm);
 
-            tabPageSalesInvoiceDetail.Controls.Add(trnSalesInvoiceDetailForm);
+                    trnSalesInvoiceDetailForm = new TrnSalesInvoice.TrnSalesInvoiceDetailForm(this, trnSalesInvoiceForm, trnSalesInvoiceEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageSalesInvoiceDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageSalesInvoiceDetail);
+                    tabPageSalesInvoiceDetail.Controls.Add(trnSalesInvoiceDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSalesInvoiceDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSalesInvoiceDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSalesInvoiceDetail);
+                        tabControlSoftware.SelectTab(tabPageSalesInvoiceDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageSalesInvoiceDetail);
-                tabControlSoftware.SelectTab(tabPageSalesInvoiceDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageReceivingReceiptList()
         {
-            tabPageReceivingReceipt.Controls.Remove(trnReceivingReceiptForm);
 
-            trnReceivingReceiptForm = new TrnReceivingReceipt.TrnReceivingReceiptForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnReceivingReceipt");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageReceivingReceipt.Controls.Remove(trnReceivingReceiptForm);
 
-            tabPageReceivingReceipt.Controls.Add(trnReceivingReceiptForm);
+                    trnReceivingReceiptForm = new TrnReceivingReceipt.TrnReceivingReceiptForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageReceivingReceipt) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageReceivingReceipt);
+                    tabPageReceivingReceipt.Controls.Add(trnReceivingReceiptForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageReceivingReceipt) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageReceivingReceipt);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageReceivingReceipt);
+                        tabControlSoftware.SelectTab(tabPageReceivingReceipt);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageReceivingReceipt);
-                tabControlSoftware.SelectTab(tabPageReceivingReceipt);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageReceivingReceiptDetail(TrnReceivingReceipt.TrnReceivingReceiptForm trnReceivingReceiptForm, Entities.TrnReceivingReceiptEntity trnReceivingReceiptEntity)
         {
-            tabPageReceivingReceiptDetail.Controls.Remove(trnReceivingReceiptDetailForm);
 
-            trnReceivingReceiptDetailForm = new TrnReceivingReceipt.TrnReceivingReceiptDetailForm(this, trnReceivingReceiptForm, trnReceivingReceiptEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnReceivingReceiptDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageReceivingReceiptDetail.Controls.Remove(trnReceivingReceiptDetailForm);
 
-            tabPageReceivingReceiptDetail.Controls.Add(trnReceivingReceiptDetailForm);
+                    trnReceivingReceiptDetailForm = new TrnReceivingReceipt.TrnReceivingReceiptDetailForm(this, trnReceivingReceiptForm, trnReceivingReceiptEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageReceivingReceiptDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageReceivingReceiptDetail);
+                    tabPageReceivingReceiptDetail.Controls.Add(trnReceivingReceiptDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageReceivingReceiptDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageReceivingReceiptDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageReceivingReceiptDetail);
+                        tabControlSoftware.SelectTab(tabPageReceivingReceiptDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageReceivingReceiptDetail);
-                tabControlSoftware.SelectTab(tabPageReceivingReceiptDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageCollectionList()
         {
-            tabPageCollection.Controls.Remove(trnCollectionForm);
 
-            trnCollectionForm = new TrnCollection.TrnCollectionForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnCollection");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageCollection.Controls.Remove(trnCollectionForm);
 
-            tabPageCollection.Controls.Add(trnCollectionForm);
+                    trnCollectionForm = new TrnCollection.TrnCollectionForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageCollection) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageCollection);
+                    tabPageCollection.Controls.Add(trnCollectionForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageCollection) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageCollection);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageCollection);
+                        tabControlSoftware.SelectTab(tabPageCollection);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageCollection);
-                tabControlSoftware.SelectTab(tabPageCollection);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageCollectionDetail(TrnCollection.TrnCollectionForm trnCollectionForm, Entities.TrnCollectionEntity trnCollectionEntity)
         {
-            tabPageCollectionDetail.Controls.Remove(trnCollectionDetailForm);
 
-            trnCollectionDetailForm = new TrnCollection.TrnCollectionDetailForm(this, trnCollectionForm, trnCollectionEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnCollectionDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageCollectionDetail.Controls.Remove(trnCollectionDetailForm);
 
-            tabPageCollectionDetail.Controls.Add(trnCollectionDetailForm);
+                    trnCollectionDetailForm = new TrnCollection.TrnCollectionDetailForm(this, trnCollectionForm, trnCollectionEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageCollectionDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageCollectionDetail);
+                    tabPageCollectionDetail.Controls.Add(trnCollectionDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageCollectionDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageCollectionDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageCollectionDetail);
+                        tabControlSoftware.SelectTab(tabPageCollectionDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageCollectionDetail);
-                tabControlSoftware.SelectTab(tabPageCollectionDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -968,193 +1388,361 @@ namespace easyfmis.Forms.Software
 
         public void AddTabPageDisbursementList()
         {
-            tabPageDisbursementList.Controls.Remove(trnDisbursementListForm);
 
-            trnDisbursementListForm = new TrnDisbursement.TrnDisbursementListForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnDisbursement");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageDisbursementList.Controls.Remove(trnDisbursementListForm);
 
-            tabPageDisbursementList.Controls.Add(trnDisbursementListForm);
+                    trnDisbursementListForm = new TrnDisbursement.TrnDisbursementListForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageDisbursementList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageDisbursementList);
+                    tabPageDisbursementList.Controls.Add(trnDisbursementListForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageDisbursementList) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageDisbursementList);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageDisbursementList);
+                        tabControlSoftware.SelectTab(tabPageDisbursementList);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageDisbursementList);
-                tabControlSoftware.SelectTab(tabPageDisbursementList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageDisbursementDetail(TrnDisbursement.TrnDisbursementListForm disbursementListForm, Entities.TrnDisbursementEntity disbursementEntity)
         {
-            tabPageDisbursementDetail.Controls.Remove(trnDisbursementDetailForm);
 
-            trnDisbursementDetailForm = new TrnDisbursement.TrnDisbursementDetailForm(this, disbursementListForm, disbursementEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnDisbursementDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageDisbursementDetail.Controls.Remove(trnDisbursementDetailForm);
 
-            tabPageDisbursementDetail.Controls.Add(trnDisbursementDetailForm);
+                    trnDisbursementDetailForm = new TrnDisbursement.TrnDisbursementDetailForm(this, disbursementListForm, disbursementEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageDisbursementDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageDisbursementDetail);
+                    tabPageDisbursementDetail.Controls.Add(trnDisbursementDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageDisbursementDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageDisbursementDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageDisbursementDetail);
+                        tabControlSoftware.SelectTab(tabPageDisbursementDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageDisbursementDetail);
-                tabControlSoftware.SelectTab(tabPageDisbursementDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageMemoList()
         {
-            tabPageMemoList.Controls.Remove(trnMemoForm);
 
-            trnMemoForm = new TrnMemo.TrnMemoListForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnMemo");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageMemoList.Controls.Remove(trnMemoForm);
 
-            tabPageMemoList.Controls.Add(trnMemoForm);
+                    trnMemoForm = new TrnMemo.TrnMemoListForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageMemoList) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageMemoList);
+                    tabPageMemoList.Controls.Add(trnMemoForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageMemoList) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageMemoList);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageMemoList);
+                        tabControlSoftware.SelectTab(tabPageMemoList);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageMemoList);
-                tabControlSoftware.SelectTab(tabPageMemoList);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageMemoDetail(TrnMemo.TrnMemoListForm trnMemoForm, Entities.TrnMemoEntity trnMemoEntity)
         {
-            tabPageMemoDetail.Controls.Remove(trnMemoDetailForm);
 
-            trnMemoDetailForm = new TrnMemo.TrnMemoDetailForm(this, trnMemoForm, trnMemoEntity)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("TrnMemoDetail");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageMemoDetail.Controls.Remove(trnMemoDetailForm);
 
-            tabPageMemoDetail.Controls.Add(trnMemoDetailForm);
+                    trnMemoDetailForm = new TrnMemo.TrnMemoDetailForm(this, trnMemoForm, trnMemoEntity)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageMemoDetail) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageMemoDetail);
+                    tabPageMemoDetail.Controls.Add(trnMemoDetailForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageMemoDetail) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageMemoDetail);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageMemoDetail);
+                        tabControlSoftware.SelectTab(tabPageMemoDetail);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageMemoDetail);
-                tabControlSoftware.SelectTab(tabPageMemoDetail);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageAccountsPayableReport()
         {
-            tabPageAccountsPayableReport.Controls.Remove(repAccountsPayableReportForm);
 
-            repAccountsPayableReportForm = new RepAccountsPayableReport.RepAccountsPayableReportForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("RepAccountsPayable");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageAccountsPayableReport.Controls.Remove(repAccountsPayableReportForm);
 
-            tabPageAccountsPayableReport.Controls.Add(repAccountsPayableReportForm);
+                    repAccountsPayableReportForm = new RepAccountsPayableReport.RepAccountsPayableReportForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageAccountsPayableReport) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageAccountsPayableReport);
+                    tabPageAccountsPayableReport.Controls.Add(repAccountsPayableReportForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageAccountsPayableReport) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageAccountsPayableReport);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageAccountsPayableReport);
+                        tabControlSoftware.SelectTab(tabPageAccountsPayableReport);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageAccountsPayableReport);
-                tabControlSoftware.SelectTab(tabPageAccountsPayableReport);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageAccountsReceivableReport()
         {
-            tabPageAccountsReceivableReport.Controls.Remove(repAccountsReceivableReportForm);
 
-            repAccountsReceivableReportForm = new RepAccountsReceivableReport.RepAccountsReceivableReportForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("RepAccountsReceivable");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageAccountsReceivableReport.Controls.Remove(repAccountsReceivableReportForm);
 
-            tabPageAccountsReceivableReport.Controls.Add(repAccountsReceivableReportForm);
+                    repAccountsReceivableReportForm = new RepAccountsReceivableReport.RepAccountsReceivableReportForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageAccountsReceivableReport) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageAccountsReceivableReport);
+                    tabPageAccountsReceivableReport.Controls.Add(repAccountsReceivableReportForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageAccountsReceivableReport) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageAccountsReceivableReport);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageAccountsReceivableReport);
+                        tabControlSoftware.SelectTab(tabPageAccountsReceivableReport);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageAccountsReceivableReport);
-                tabControlSoftware.SelectTab(tabPageAccountsReceivableReport);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageInventoryReports()
         {
-            tabPageInventoryReports.Controls.Remove(repInventoryReportForm);
 
-            repInventoryReportForm = new RepInventoryReport.RepInventoryReportForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("RepInventory");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageInventoryReports.Controls.Remove(repInventoryReportForm);
 
-            tabPageInventoryReports.Controls.Add(repInventoryReportForm);
+                    repInventoryReportForm = new RepInventoryReport.RepInventoryReportForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageInventoryReports) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageInventoryReports);
+                    tabPageInventoryReports.Controls.Add(repInventoryReportForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageInventoryReports) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageInventoryReports);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageInventoryReports);
+                        tabControlSoftware.SelectTab(tabPageInventoryReports);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageInventoryReports);
-                tabControlSoftware.SelectTab(tabPageInventoryReports);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public void AddTabPageSystemTables()
         {
-            tabPageSystemTables.Controls.Remove(sysSystemTablesForm);
 
-            sysSystemTablesForm = new SysSystemTables.SysSystemTablesForm(this)
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
             {
-                TopLevel = false,
-                Visible = true,
-                Dock = DockStyle.Fill
-            };
+                sysUserRights = new Modules.SysUserRightsModule("MstTables");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSystemTables.Controls.Remove(sysSystemTablesForm);
 
-            tabPageSystemTables.Controls.Add(sysSystemTablesForm);
+                    sysSystemTablesForm = new SysSystemTables.SysSystemTablesForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
 
-            if (tabControlSoftware.TabPages.Contains(tabPageSystemTables) == true)
-            {
-                tabControlSoftware.SelectTab(tabPageSystemTables);
+                    tabPageSystemTables.Controls.Add(sysSystemTablesForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSystemTables) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSystemTables);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSystemTables);
+                        tabControlSoftware.SelectTab(tabPageSystemTables);
+                    }
+                }
             }
             else
             {
-                tabControlSoftware.TabPages.Add(tabPageSystemTables);
-                tabControlSoftware.SelectTab(tabPageSystemTables);
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void AddTabPageSysUtilitiesItemPriceAndCost()
+        {
+
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
+            {
+                sysUserRights = new Modules.SysUserRightsModule("SysUtilities");
+                if (sysUserRights.GetUserRights() == null)
+                {
+                    MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    tabPageSysUtilitiesItemPriceCost.Controls.Remove(sysUtilitiesItemPriceCostForm);
+
+                    sysUtilitiesItemPriceCostForm = new SysUtilities.SysUtilitiesItemPriceCostForm(this)
+                    {
+                        TopLevel = false,
+                        Visible = true,
+                        Dock = DockStyle.Fill
+                    };
+
+                    tabPageSysUtilitiesItemPriceCost.Controls.Add(sysUtilitiesItemPriceCostForm);
+
+                    if (tabControlSoftware.TabPages.Contains(tabPageSysUtilitiesItemPriceCost) == true)
+                    {
+                        tabControlSoftware.SelectTab(tabPageSysUtilitiesItemPriceCost);
+                    }
+                    else
+                    {
+                        tabControlSoftware.TabPages.Add(tabPageSysUtilitiesItemPriceCost);
+                        tabControlSoftware.SelectTab(tabPageSysUtilitiesItemPriceCost);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -1265,7 +1853,15 @@ namespace easyfmis.Forms.Software
 
         private void stockInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddTabPageStockInList();
+
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
+            {
+                AddTabPageStockInList();
+            }
+            else
+            {
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void stockOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1320,8 +1916,21 @@ namespace easyfmis.Forms.Software
 
         private void changeBranchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SysSoftwareChangeBranchForm sysSoftwareChangeBranchForm = new SysSoftwareChangeBranchForm(this);
-            sysSoftwareChangeBranchForm.ShowDialog();
+
+            if (Modules.SysLicenseModule.DecriptionKey() == Modules.SysLicenseModule.GetSerialNumber())
+            {
+                SysSoftwareChangeBranchForm sysSoftwareChangeBranchForm = new SysSoftwareChangeBranchForm(this);
+                sysSoftwareChangeBranchForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No License!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void itemPriceAndCostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTabPageSysUtilitiesItemPriceAndCost();
         }
     }
 }

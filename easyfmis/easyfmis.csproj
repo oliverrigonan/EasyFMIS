@@ -559,6 +559,12 @@
     <Compile Include="Forms\Software\SysSystemTables\SysSystemTablesUnitDetailForm.designer.cs">
       <DependentUpon>SysSystemTablesUnitDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Software\SysUtilities\SysUtilitiesItemPriceCostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Software\SysUtilities\SysUtilitiesItemPriceCostForm.designer.cs">
+      <DependentUpon>SysUtilitiesItemPriceCostForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Software\TrnCollection\TrnCollectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1051,6 +1057,9 @@
     <EmbeddedResource Include="Forms\Software\SysSystemTables\SysSystemTablesUnitDetailForm.resx">
       <DependentUpon>SysSystemTablesUnitDetailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Software\SysUtilities\SysUtilitiesItemPriceCostForm.resx">
+      <DependentUpon>SysUtilitiesItemPriceCostForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Software\TrnCollection\TrnCollectionForm.resx">
       <DependentUpon>TrnCollectionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1265,6 +1274,7 @@
     <Content Include="Resources\Images\Customers\sonnets.png" />
     <Content Include="Resources\Images\Icons\building.png" />
     <Content Include="Resources\Images\Icons\Collection.png" />
+    <Content Include="Resources\Images\Icons\costpricet.png" />
     <Content Include="Resources\Images\Icons\Customer.png" />
     <Content Include="Resources\Images\Icons\Disbursement.png" />
     <Content Include="Resources\Images\Icons\Discounting.png" />
@@ -1277,6 +1287,7 @@
     <Content Include="Resources\Images\Icons\licenseerp.png" />
     <Content Include="Resources\Images\Icons\POS Touch.png" />
     <Content Include="Resources\Images\Icons\POS.png" />
+    <Content Include="Resources\Images\Icons\pricecost.png" />
     <Content Include="Resources\Images\Icons\Purchase Order.png" />
     <Content Include="Resources\Images\Icons\purse.png" />
     <Content Include="Resources\Images\Icons\Receiving Receipt.png" />

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysSoftwareForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemPriceAndCostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,14 +74,15 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabControlSoftware.SuspendLayout();
             this.panelSidebarMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -93,9 +94,10 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 770);
+            this.panel1.Location = new System.Drawing.Point(0, 628);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1537, 121);
+            this.panel1.Size = new System.Drawing.Size(1370, 121);
             this.panel1.TabIndex = 9;
             // 
             // label1
@@ -106,20 +108,11 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(111, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Easy ERP";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::easyfmis.Properties.Resources.easyerp;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 93);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -129,6 +122,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(111, 41);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 20);
             this.label2.TabIndex = 5;
@@ -142,6 +136,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(111, 85);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(183, 20);
             this.label4.TabIndex = 7;
@@ -154,7 +149,8 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(111, 63);
+            this.label3.Location = new System.Drawing.Point(111, 62);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(225, 20);
             this.label3.TabIndex = 6;
@@ -167,13 +163,15 @@
             this.panel2.Controls.Add(this.labelCurrentUserCompanyBranch);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1537, 37);
+            this.panel2.Size = new System.Drawing.Size(1370, 38);
             this.panel2.TabIndex = 10;
             // 
             // buttonOpenSidebarMenu
             // 
-            this.buttonOpenSidebarMenu.Location = new System.Drawing.Point(3, 4);
+            this.buttonOpenSidebarMenu.Location = new System.Drawing.Point(2, 4);
+            this.buttonOpenSidebarMenu.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpenSidebarMenu.Name = "buttonOpenSidebarMenu";
             this.buttonOpenSidebarMenu.Size = new System.Drawing.Size(32, 29);
             this.buttonOpenSidebarMenu.TabIndex = 1;
@@ -187,6 +185,7 @@
             this.labelCurrentUserCompanyBranch.AutoSize = true;
             this.labelCurrentUserCompanyBranch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.labelCurrentUserCompanyBranch.Location = new System.Drawing.Point(41, 9);
+            this.labelCurrentUserCompanyBranch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCurrentUserCompanyBranch.Name = "labelCurrentUserCompanyBranch";
             this.labelCurrentUserCompanyBranch.Size = new System.Drawing.Size(0, 20);
             this.labelCurrentUserCompanyBranch.TabIndex = 0;
@@ -196,9 +195,10 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panelSidebarMenu);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 37);
+            this.panel3.Location = new System.Drawing.Point(0, 38);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1537, 733);
+            this.panel3.Size = new System.Drawing.Size(1370, 590);
             this.panel3.TabIndex = 11;
             // 
             // panel5
@@ -206,8 +206,9 @@
             this.panel5.Controls.Add(this.tabControlSoftware);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(190, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1347, 733);
+            this.panel5.Size = new System.Drawing.Size(1180, 590);
             this.panel5.TabIndex = 3;
             // 
             // tabControlSoftware
@@ -220,7 +221,7 @@
             this.tabControlSoftware.Name = "tabControlSoftware";
             this.tabControlSoftware.Padding = new System.Drawing.Point(0, 0);
             this.tabControlSoftware.SelectedIndex = 0;
-            this.tabControlSoftware.Size = new System.Drawing.Size(1347, 733);
+            this.tabControlSoftware.Size = new System.Drawing.Size(1180, 590);
             this.tabControlSoftware.TabIndex = 0;
             this.tabControlSoftware.SelectedIndexChanged += new System.EventHandler(this.tabControlSoftware_SelectedIndexChanged);
             // 
@@ -230,7 +231,7 @@
             this.tabPageSysMenu.Location = new System.Drawing.Point(4, 29);
             this.tabPageSysMenu.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageSysMenu.Name = "tabPageSysMenu";
-            this.tabPageSysMenu.Size = new System.Drawing.Size(1339, 700);
+            this.tabPageSysMenu.Size = new System.Drawing.Size(1172, 557);
             this.tabPageSysMenu.TabIndex = 0;
             this.tabPageSysMenu.Text = "Menu";
             // 
@@ -239,8 +240,9 @@
             this.panelSidebarMenu.Controls.Add(this.menuStrip1);
             this.panelSidebarMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebarMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSidebarMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelSidebarMenu.Name = "panelSidebarMenu";
-            this.panelSidebarMenu.Size = new System.Drawing.Size(190, 733);
+            this.panelSidebarMenu.Size = new System.Drawing.Size(190, 590);
             this.panelSidebarMenu.TabIndex = 2;
             // 
             // menuStrip1
@@ -260,9 +262,9 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(10);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(190, 733);
+            this.menuStrip1.Size = new System.Drawing.Size(190, 590);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -436,7 +438,8 @@
             this.systemTablesToolStripMenuItem,
             this.toolStripSeparator1,
             this.utilitiesToolStripMenuItem,
-            this.userToolStripMenuItem});
+            this.userToolStripMenuItem,
+            this.itemPriceAndCostToolStripMenuItem});
             this.systemToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.systemToolStripMenuItem.Image = global::easyfmis.Properties.Resources.Utilities;
             this.systemToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -450,20 +453,20 @@
             // 
             this.systemTablesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.System_Tables;
             this.systemTablesToolStripMenuItem.Name = "systemTablesToolStripMenuItem";
-            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.systemTablesToolStripMenuItem.Size = new System.Drawing.Size(236, 28);
             this.systemTablesToolStripMenuItem.Text = "System Tables";
             this.systemTablesToolStripMenuItem.Click += new System.EventHandler(this.systemTablesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(233, 6);
             // 
             // utilitiesToolStripMenuItem
             // 
             this.utilitiesToolStripMenuItem.Image = global::easyfmis.Properties.Resources.building1;
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(236, 28);
             this.utilitiesToolStripMenuItem.Text = "Company";
             this.utilitiesToolStripMenuItem.Click += new System.EventHandler(this.utilitiesToolStripMenuItem_Click);
             // 
@@ -471,8 +474,16 @@
             // 
             this.userToolStripMenuItem.Image = global::easyfmis.Properties.Resources.User;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(236, 28);
             this.userToolStripMenuItem.Text = "User";
+            // 
+            // itemPriceAndCostToolStripMenuItem
+            // 
+            this.itemPriceAndCostToolStripMenuItem.Image = global::easyfmis.Properties.Resources.costpricet1;
+            this.itemPriceAndCostToolStripMenuItem.Name = "itemPriceAndCostToolStripMenuItem";
+            this.itemPriceAndCostToolStripMenuItem.Size = new System.Drawing.Size(236, 28);
+            this.itemPriceAndCostToolStripMenuItem.Text = "Item Price and Cost";
+            this.itemPriceAndCostToolStripMenuItem.Click += new System.EventHandler(this.itemPriceAndCostToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -539,17 +550,29 @@
             this.settingsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::easyfmis.Properties.Resources.easyerp;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(92, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // SysSoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1537, 891);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SysSoftwareForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy ERP";
@@ -557,7 +580,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SysSoftwareForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -567,6 +589,7 @@
             this.panelSidebarMenu.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -617,5 +640,6 @@
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem changeBranchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemPriceAndCostToolStripMenuItem;
     }
 }
