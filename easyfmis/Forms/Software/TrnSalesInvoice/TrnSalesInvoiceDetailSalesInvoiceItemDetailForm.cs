@@ -117,6 +117,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             comboBoxTax.SelectedValue = trnSalesInvoiceItemEntity.TaxId;
             textBoxTaxRate.Text = trnSalesInvoiceItemEntity.TaxRate.ToString("#,##0.00");
             textBoxTaxAmount.Text = trnSalesInvoiceItemEntity.TaxAmount.ToString("#,##0.00");
+
+            ComputeAmount();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

@@ -47,6 +47,7 @@ namespace easyfmis.Controllers
             var salesInvoices = from d in db.TrnSalesInvoices
                                 where d.BranchId == currentBranchId
                                 && d.CustomerId == articleId
+                                && d.BalanceAmount > 0
                                 && d.IsLocked == true
                                 select new Entities.TrnSalesInvoiceEntity
                                 {
@@ -65,6 +66,7 @@ namespace easyfmis.Controllers
             var receivingReceipts = from d in db.TrnReceivingReceipts
                                     where d.BranchId == currentBranchId
                                     && d.SupplierId == articleId
+                                    && d.BalanceAmount > 0
                                     select new Entities.TrnReceivingReceiptEntity
                                     {
                                         Id = d.Id,
