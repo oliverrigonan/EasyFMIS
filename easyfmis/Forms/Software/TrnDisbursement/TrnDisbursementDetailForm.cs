@@ -33,7 +33,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             sysUserRights = new Modules.SysUserRightsModule("TrnDisbursementDetail");
             if (sysUserRights.GetUserRights() == null)
             {
-                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -243,7 +243,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             }
             else
             {
-                MessageBox.Show(lockDisbursement[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(lockDisbursement[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -259,7 +259,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
             }
             else
             {
-                MessageBox.Show(unlockDisbursement[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(unlockDisbursement[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -421,7 +421,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
 
             if (e.RowIndex > -1 && dataGridViewDisbursementLine.CurrentCell.ColumnIndex == dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListButtonDelete"].Index)
             {
-                DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (deleteDialogResult == DialogResult.Yes)
                 {
                     var id = Convert.ToInt32(dataGridViewDisbursementLine.Rows[e.RowIndex].Cells[dataGridViewDisbursementLine.Columns["ColumnDisbursementLineListId"].Index].Value);
@@ -435,7 +435,7 @@ namespace easyfmis.Forms.Software.TrnDisbursement
                     }
                     else
                     {
-                        MessageBox.Show(deleteDisbursementLine[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(deleteDisbursementLine[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

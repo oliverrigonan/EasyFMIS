@@ -632,9 +632,9 @@
             this.label1.Location = new System.Drawing.Point(57, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 28);
+            this.label1.Size = new System.Drawing.Size(315, 28);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Sales Invoice Detail Report";
+            this.label1.Text = "Receiving Receipt Detail Report";
             // 
             // buttonClose
             // 
@@ -681,7 +681,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "RepAccountReceivableReportSalesInvoiceDetailReportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sales Invoice Detail Report";
+            this.Text = "Receiving Receipt Detail Report";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
