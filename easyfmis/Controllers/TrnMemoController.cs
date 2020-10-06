@@ -365,6 +365,24 @@ namespace easyfmis.Controllers
                     unlockMemo.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
 
+                    if (memo.FirstOrDefault().TrnMemoLines.Any())
+                    {
+                        foreach (var memoLine in memo.FirstOrDefault().TrnMemoLines)
+                        {
+                            if (memoLine.RRId != null)
+                            {
+                                Modules.TrnAccountsPayableModule trnAccountsPayableModule = new Modules.TrnAccountsPayableModule();
+                                trnAccountsPayableModule.UpdateAccountsPayable(Convert.ToInt32(memoLine.RRId));
+                            }
+
+                            if (memoLine.SIId != null)
+                            {
+                                Modules.TrnAccountsReceivableModule trnAccountsReceivableModule = new Modules.TrnAccountsReceivableModule();
+                                trnAccountsReceivableModule.UpdateAccountsReceivable(Convert.ToInt32(memoLine.SIId));
+                            }
+                        }
+                    }
+
                     return new String[] { "", "1" };
                 }
                 else
