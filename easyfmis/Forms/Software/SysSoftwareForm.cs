@@ -25,11 +25,14 @@ namespace easyfmis.Forms.Software
         {
             var current = Modules.SysCurrentModule.GetCurrentSettings();
 
+
+
             Controllers.MstUserController userController = new Controllers.MstUserController();
             var currentUserDetail = userController.DetailUser(Convert.ToInt32(current.CurrentUserId));
             if (currentUserDetail != null)
             {
                 labelCurrentUserCompanyBranch.Text = "  User: " + currentUserDetail.UserName + "   Company: " + currentUserDetail.Company + "   Branch: " + currentUserDetail.Branch;
+                labelSoftwareVersion.Text = "Version: " + current.SoftwareVersion;
             }
         }
 

@@ -15,6 +15,12 @@ namespace easyfmis.Forms.Account.SysLogin
         public SysLoginForm()
         {
             InitializeComponent();
+            GetSoftwareVersion();
+        }
+
+        public void GetSoftwareVersion() {
+            var current = Modules.SysCurrentModule.GetCurrentSettings();
+            labelSoftwareVersion.Text = "Version: " + current.SoftwareVersion;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

@@ -40,7 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelSoftwareVersion = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -201,19 +201,19 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Support: (032) 234 0787";
             // 
-            // label3
+            // labelSoftwareVersion
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelSoftwareVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(89, 33);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Version: 1.202005051113";
+            this.labelSoftwareVersion.AutoSize = true;
+            this.labelSoftwareVersion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.labelSoftwareVersion.ForeColor = System.Drawing.Color.White;
+            this.labelSoftwareVersion.Location = new System.Drawing.Point(89, 33);
+            this.labelSoftwareVersion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSoftwareVersion.Name = "labelSoftwareVersion";
+            this.labelSoftwareVersion.Size = new System.Drawing.Size(148, 15);
+            this.labelSoftwareVersion.TabIndex = 5;
+            this.labelSoftwareVersion.Text = "Version: 1.202005051113";
             // 
             // pictureBox2
             // 
@@ -245,7 +245,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.labelSoftwareVersion);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -299,7 +299,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelSoftwareVersion;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
