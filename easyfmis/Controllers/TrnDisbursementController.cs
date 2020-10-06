@@ -353,6 +353,15 @@ namespace easyfmis.Controllers
                         return new String[] { "Already locked.", "0" };
                     }
 
+                    Decimal Amount = 0;
+                    var disbursementLines = from d in db.TrnDisbursementLines
+                                            where d.CVId == disbursement.FirstOrDefault().Id
+                                            select d;
+                    if (disbursementLines.Any())
+                    {
+                        Amount = disbursementLines.Sum(d => d.Amount);
+                    }
+
                     var lockDisbursement = disbursement.FirstOrDefault();
                     lockDisbursement.CVNumber = objDisbursement.CVNumber;
                     lockDisbursement.CVDate = objDisbursement.CVDate;
@@ -362,7 +371,7 @@ namespace easyfmis.Controllers
                     lockDisbursement.PayTypeId = objDisbursement.PayTypeId;
                     lockDisbursement.BankId = objDisbursement.BankId;
                     lockDisbursement.Remarks = objDisbursement.Remarks;
-                    lockDisbursement.Amount = objDisbursement.Amount;
+                    lockDisbursement.Amount = Amount;
                     lockDisbursement.CheckNumber = objDisbursement.CheckNumber;
                     lockDisbursement.CheckDate = objDisbursement.CheckDate;
                     lockDisbursement.IsCrossCheck = objDisbursement.IsCrossCheck;
@@ -374,11 +383,6 @@ namespace easyfmis.Controllers
                     lockDisbursement.UpdatedBy = currentUserLogin.FirstOrDefault().Id;
                     lockDisbursement.UpdatedDateTime = DateTime.Today;
                     db.SubmitChanges();
-
-                    var disbursementLines = from d in db.TrnDisbursementLines
-                                            where d.CVId == id
-                                            && d.RRId != null
-                                            select d;
 
                     if (disbursementLines.Any())
                     {
