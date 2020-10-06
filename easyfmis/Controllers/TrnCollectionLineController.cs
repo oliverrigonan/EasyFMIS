@@ -72,7 +72,7 @@ namespace easyfmis.Controllers
             var salesInvoices = from d in db.TrnSalesInvoices
                                 where d.CustomerId == customerId
                                 && d.IsLocked == true
-                                && (d.Amount - d.PaidAmount) > 0
+                                && d.BalanceAmount > 0
                                 select new Entities.TrnCollectionSalesInvoiceListEntity
                                 {
                                     Id = d.Id,
