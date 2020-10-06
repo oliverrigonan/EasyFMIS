@@ -30,7 +30,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             sysUserRights = new Modules.SysUserRightsModule("TrnSalesInvoice");
             if (sysUserRights.GetUserRights() == null)
             {
-                MessageBox.Show("No rights!", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No rights!", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -137,6 +137,8 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                 ColumnSalesInvoiceCustomer = d.Customer,
                                 ColumnSalesInvoiceRemarks = d.Remarks,
                                 ColumnSalesInvoiceAmount = d.Amount.ToString("#,##0.00"),
+                                ColumnSalesInvoiceBalanceAmount = d.BalanceAmount.ToString("#,##0.00"),
+                                ColumnSalesInvoiceMemoAmount = d.MemoAmount.ToString("#,##0.00"),
                                 ColumnSalesInvoicePaidAmount = d.PaidAmount.ToString("#,##0.00"),
                                 ColumnSalesInvoiceIsLocked = d.IsLocked,
                                 ColumnSalesInvoiceSpace = ""
@@ -181,7 +183,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
             }
             else
             {
-                MessageBox.Show(addSalesInvoice[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(addSalesInvoice[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -210,11 +212,11 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
 
                 if (isLocked == true)
                 {
-                    MessageBox.Show("Already locked.", "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Already locked.", "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    DialogResult deleteDialogResult = MessageBox.Show("Delete Stock-In?", "Easy POS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult deleteDialogResult = MessageBox.Show("Delete Sales Invoice?", "Easy ERP", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (deleteDialogResult == DialogResult.Yes)
                     {
                         Controllers.TrnSalesInvoiceController trnSalesInvoiceController = new Controllers.TrnSalesInvoiceController();
@@ -227,7 +229,7 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                         }
                         else
                         {
-                            MessageBox.Show(deleteSalesInvoice[0], "Easy POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(deleteSalesInvoice[0], "Easy ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
