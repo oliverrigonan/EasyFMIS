@@ -80,7 +80,7 @@ namespace easyfmis.Controllers
                                     SIDate = d.SIDate,
                                     ManualSINumber = d.ManualSINumber,
                                     Remarks = d.Remarks,
-                                    BalanceAmount = d.Amount - d.PaidAmount,
+                                    BalanceAmount = d.Amount - d.PaidAmount + d.MemoAmount,
                                 };
 
             return salesInvoices.OrderByDescending(d => d.Id).ToList();
