@@ -397,9 +397,9 @@ namespace easyfmis.Forms.Software.TrnSalesInvoice
                                     paddingBottom = 6f;
                                 }
 
-                                tableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Quantity.ToString("#,##0"), fontNew09)) { Border = 0, HorizontalAlignment = 2, PaddingBottom = paddingBottom, PaddingLeft = 3f, PaddingRight = 5f });
+                                tableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Quantity.ToString("#,##0"), fontNew09)) { Border = 0, HorizontalAlignment = 0, PaddingBottom = paddingBottom, PaddingLeft = 3f, PaddingRight = 5f });
                                 tableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.MstUnit.Unit, fontNew09)) { Border = 0, HorizontalAlignment = 0, PaddingBottom = paddingBottom, PaddingLeft = 3f, PaddingRight = 5f });
-                                tableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.MstArticle.ArticleBarCode + " " + salesInvoiceItem.MstArticle.Article, fontNew09)) { Border = 0, HorizontalAlignment = 0, PaddingBottom = paddingBottom, PaddingLeft = 3f, PaddingRight = 5f });
+                                tableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.MstArticle.ArticleBarCode + "   " + salesInvoiceItem.MstArticle.Article, fontNew09)) { Border = 0, HorizontalAlignment = 0, PaddingBottom = paddingBottom, PaddingLeft = 3f, PaddingRight = 5f });
                                 tableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.NetPrice.ToString("#,##0.00"), fontNew09)) { Border = 0, HorizontalAlignment = 2, PaddingBottom = paddingBottom, PaddingLeft = 3f, PaddingRight = 5f });
                                 tableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Amount.ToString("#,##0.00"), fontNew09)) { Border = 0, HorizontalAlignment = 2, PaddingBottom = paddingBottom, PaddingLeft = 3f, PaddingRight = 5f });
 
